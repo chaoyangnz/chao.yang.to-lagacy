@@ -1,0 +1,832 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="I’ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.
+At that time, I chose wordpress mainly because I’m familiar with it">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Goodbye Wordpress, hello Hexo! ">
+<meta property="og:url" content="https://richyang.me/2015/12/05/goodbye-wordpress-hello-hexo/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="I’ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.
+At that time, I chose wordpress mainly because I’m familiar with it">
+<meta property="og:image" content="https://richyang.me/media/blogging-with-mweb.png">
+<meta property="og:updated_time" content="2015-12-27T05:18:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Goodbye Wordpress, hello Hexo! ">
+<meta name="twitter:description" content="I’ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.
+At that time, I chose wordpress mainly because I’m familiar with it">
+<meta name="twitter:image" content="https://richyang.me/media/blogging-with-mweb.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Goodbye Wordpress, hello Hexo!  | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Goodbye Wordpress, hello Hexo! 
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-05T20:59:25+08:00" content="2015-12-05">
+              2015-12-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/05/goodbye-wordpress-hello-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/05/goodbye-wordpress-hello-hexo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>I’ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.</p>
+<p>At that <strong><em>time</em></strong>, I chose wordpress mainly because I’m familiar with it and I had the experience to build a blog site using it. Once I started building a blog, the installation was pretty straightforward – just extracting the <code>tar.gz</code> and throwing the file into <code>/var/www/blog</code> (<code>/var/www/html</code> is for the static files hosting on Debian). Then I need to configure the nginx by use of fcgi to forward the dynamic contents to PHP.</p>
+<p>So later, I started finding a theme to make my blog beautiful and some plugins to make my writing smoothly, like the code highlighter, the TOC (aka. Table of Content) plugin, category tree plugin etc.</p>
+<p>After I completed 100+ posts, I suddenly realised it seemed to go far away the essence of writing, as I spent too much time on doing these technical things - although my writing were mostly related to technical stuff.</p>
+<p>Today I have the needs to transfer my vultr VPS from Australia to Japan. That’s because it’s really slow when I connect to the VPN and shadowsocks hosted on my server.</p>
+<p>The following is the steps after I create a new vultr instance located in the data center of Japan:</p>
+<h3 id="setup-the-pptpd-for-VPN"><a href="#setup-the-pptpd-for-VPN" class="headerlink" title="setup the pptpd for VPN"></a>setup the pptpd for VPN</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ apt-get update</div><div class="line">$ apt-get install pptpd</div></pre></td></tr></table></figure>
+<p>uncomment the section in the tail of <code>/etc/pptpd.conf</code><br><figure class="highlight plain"><figcaption><span>/etc/pptpd.conf</span></figcaption><table><tr><td class="code"><pre><div class="line">localip 192.168.0.1</div><div class="line">remoteip 192.168.0.234-238,192.168.0.245</div></pre></td></tr></table></figure></p>
+<p>enable ipv4 forword in the <code>/etc/sysctl.conf</code><br><figure class="highlight plain"><figcaption><span>/etc/sysctl.conf</span></figcaption><table><tr><td class="code"><pre><div class="line">net.ipv4.ip_forward = 1</div></pre></td></tr></table></figure></p>
+<p>then make it effective<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ sysctl -p</div></pre></td></tr></table></figure></p>
+<p>The last step is adding a rule to the iptables and restart pptpd<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE &amp;&amp; iptables-save</div><div class="line">$ service pptpd restart</div></pre></td></tr></table></figure></p>
+<p>That’s it. I refer to the <a href="http://digitalocean.com" target="_blank" rel="external">digital oceal</a> official guide here: <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-your-own-vpn-with-pptp" target="_blank" rel="external">How to setup your own vpn with pptp</a></p>
+<h3 id="AnyConnect-VPN"><a href="#AnyConnect-VPN" class="headerlink" title="AnyConnect VPN"></a>AnyConnect VPN</h3><p>Updated on 13/12/2015</p>
+<p>Although PPTP can satisfiy     my needs, I think it’s not stable and rebust. Recent days, I always use Cisco <code>AnyConnect</code> VPN client to connect to my office internal network, so I decide to set up an AnyConnect compatible VPN server on my VPS.</p>
+<p>I didn’t spend too much time to research how to do that. I just used an automatic installation script which can be refered to <a href="https://github.com/fanyueciyuan/eazy-for-ss" target="_blank" rel="external">this Github repository</a>.</p>
+<h3 id="setup-shadowsocks"><a href="#setup-shadowsocks" class="headerlink" title="setup shadowsocks"></a>setup shadowsocks</h3><p>Shadowsocks is a must-have if you live in China and need to do something by circumvention.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ wget -O- http://shadowsocks.org/debian/1D27208A.gpg | apt-key add -</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"deb http://shadowsocks.org/debian wheezy main"</span> &gt;&gt; /etc/apt/sources.list</div><div class="line">$ apt-get update</div><div class="line">$ apt-get install shadowsocks-libev</div></pre></td></tr></table></figure>
+<p>Then you need to modify the <code>/etc/shadowsocks-libev/config.json</code><br><figure class="highlight json"><figcaption><span>/etc/shadowsocks-libev/config.json</span></figcaption><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"server"</span>:<span class="string">"my_server_ip"</span>,</div><div class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</div><div class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</div><div class="line">    <span class="attr">"password"</span>:<span class="string">"my password"</span>,</div><div class="line">    <span class="attr">"timeout"</span>:<span class="number">600</span>,</div><div class="line">    <span class="attr">"method"</span>:<span class="string">"table"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>I tend to use <code>aes-128-fcb</code> method.</p>
+<p>Then reload the configuration:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ service shadowsocks-libev reload</div></pre></td></tr></table></figure></p>
+<p>Everything will go well!</p>
+<h3 id="nginx-and-dropbox-for-my-blog-hosting"><a href="#nginx-and-dropbox-for-my-blog-hosting" class="headerlink" title="nginx and dropbox for my blog hosting"></a>nginx and dropbox for my blog hosting</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ apt-get install nginx vim</div><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; wget -O - <span class="string">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -</div><div class="line">$ ~/.dropbox-dist/dropboxd</div><div class="line">$ wget https://www.dropbox.com/download?dl=packages/dropbox.py -o dropbox.py</div><div class="line">$ chmod +x dropbox.py</div><div class="line">$ ./dropbox.py start</div><div class="line">$ <span class="built_in">cd</span> ~/Dropbox  <span class="comment"># must enter this directory and apply the wildcard. otherwise it didn't take effect</span></div><div class="line">$ ~/dropbox.py exclude add *</div><div class="line">$ ~/dropbox.py exclude remove blog</div><div class="line">$ <span class="built_in">cd</span> ~/Dropbox/blog</div><div class="line">$ ~/dropbox.py exclude add *</div><div class="line">$ ~/dropbox.py exclude remove public</div></pre></td></tr></table></figure>
+<p>Now you can see I just synchronize the directory where the static files of my blog site locate.</p>
+<p>The next thing I need to do is modifying the <code>/etc/nginx/sites-available/default</code> and changing the <code>servername</code> and <code>root</code> directory.</p>
+<p>But I also encountered a thing I failed to fix - nginx will return a <code>500</code> server error. I reviewed the nginx log and found that’s the issues of permission.</p>
+<p>So I simply changed the run user of nginx from <code>www-data</code> to <code>root</code> in <code>/etc/nginx/nginx.conf</code>. If I have spare time, I would fix the issue again.</p>
+<h3 id="blogging-and-publishing"><a href="#blogging-and-publishing" class="headerlink" title="blogging and publishing"></a>blogging and publishing</h3><p>Since I use the static blogging tool - Hexo in my local MacBook and write the article using Markdown, I need to some apps to help me manage my publishing.</p>
+<p>After using all sorts of markdown apps on Mac OSX, like Typera, Mou, Byword, Ulysses, TextNut, I found they always had some flaws for me - including unsupported markdown syntax, automatically modifying my file like adding some a new blank line arbitrarily, owning its own library management facility. But until I met MWeb, it’s suitable to me and satify my personal needs very well.</p>
+<p><img src="/media/blogging-with-mweb.png" alt="Blogging with MWeb"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/19/jdbc-driver-register/" rel="next" title="JDBC Driver register">
+                <i class="fa fa-chevron-left"></i> JDBC Driver register
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/07/perforce-p4v-use-notes/" rel="prev" title="Perforce P4V use notes">
+                Perforce P4V use notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#setup-the-pptpd-for-VPN"><span class="nav-number">1.</span> <span class="nav-text">setup the pptpd for VPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AnyConnect-VPN"><span class="nav-number">2.</span> <span class="nav-text">AnyConnect VPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setup-shadowsocks"><span class="nav-number">3.</span> <span class="nav-text">setup shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx-and-dropbox-for-my-blog-hosting"><span class="nav-number">4.</span> <span class="nav-text">nginx and dropbox for my blog hosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#blogging-and-publishing"><span class="nav-number">5.</span> <span class="nav-text">blogging and publishing</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/12/05/goodbye-wordpress-hello-hexo/';
+      var disqus_title = 'Goodbye Wordpress, hello Hexo! ';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

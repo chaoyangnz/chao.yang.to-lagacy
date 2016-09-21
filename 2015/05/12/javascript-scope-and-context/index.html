@@ -1,0 +1,875 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="scope vs. contextBoth two terms are related to function.
+Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be enc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript scopes and context">
+<meta property="og:url" content="https://richyang.me/2015/05/12/javascript-scope-and-context/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="scope vs. contextBoth two terms are related to function.
+Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be enc">
+<meta property="og:updated_time" content="2015-12-04T11:43:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript scopes and context">
+<meta name="twitter:description" content="scope vs. contextBoth two terms are related to function.
+Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be enc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> JavaScript scopes and context | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript scopes and context
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-12T17:06:39+08:00" content="2015-05-12">
+              2015-05-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/12/javascript-scope-and-context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/12/javascript-scope-and-context/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="scope-vs-context"><a href="#scope-vs-context" class="headerlink" title="scope vs. context"></a>scope vs. context</h3><p>Both two terms are related to function.</p>
+<p>Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be encapsulated and preserved.</p>
+<p>Fundamentally, scope is <strong>function-based</strong> while context is <strong>object-based</strong>.</p>
+<ul>
+<li>Scope pertains to the variable access of a function when it is invoked and is unique to each invocation.</li>
+<li>Context is always the value of the <code>this</code> keyword which is a reference to the object that “owns” the currently executing code.<iframe width="560" height="315" src="https://www.youtube.com/embed/hDT3IbvH-9I" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+</li>
+</ul>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><p>A variable can be defined in either local or global scope, which establishes the variables’ accessibility from different scopes during runtime.</p>
+<p>Javascript has no <del><strong>block scope</strong></del>.</p>
+<p>All scopes in JavaScript are created with <code>function Scope</code> <em>only</em>, they aren’t created by <code>for</code> or <code>while</code> loops or expression statements like <code>if</code> or <code>switch</code>.</p>
+<h4 id="global-scope"><a href="#global-scope" class="headerlink" title="global scope"></a>global scope</h4><p>This is the top level scope. Any variable declared outside of a function body will live throughout runtime and can be accessed and altered in any scope.</p>
+<h4 id="local-scope"><a href="#local-scope" class="headerlink" title="local scope"></a>local scope</h4><p>New functions = new local scope - that’s the rule.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Scope A - global</span></div><div class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// Scope B - local</span></div><div class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Scope C - local</span></div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="scope-chain"><a href="#scope-chain" class="headerlink" title="scope chain"></a>scope chain</h4><p>Each function defined has its own nested scope, and any function defined within another function has a local scope which is linked to the outer function.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    second();</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">second</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        third();</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">third</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            fourth();</div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">fourth</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="comment">// do something</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;   </div><div class="line">&#125;</div><div class="line">first();</div></pre></td></tr></table></figure>
+<h3 id="quot-this-quot-context"><a href="#quot-this-quot-context" class="headerlink" title="&quot;this&quot; context"></a><code>&quot;this&quot;</code> context</h3><p>Context is most often determined by how a function is invoked. When a function is called as a method of an object, <code>this</code> is set to the object the method is called on.</p>
+<p>invoke no-bound function</p>
+<ul>
+<li>bind <code>this</code> to <code>window</code> (by default) by invoking unbound function</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> == that);</div><div class="line">  &#125;;</div><div class="line">  bar();</div><div class="line"></div><div class="line">  <span class="keyword">this</span>.bar = bar;</div><div class="line">  <span class="keyword">this</span>.bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog();</div></pre></td></tr></table></figure>
+<ul>
+<li>bind <code>this</code> by <code>new</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.drink = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Cat(); <span class="comment">// this -&gt; window</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</div><div class="line">cat.drink(); <span class="comment">// this -&gt; cat</span></div></pre></td></tr></table></figure>
+<ul>
+<li>bind <code>this</code> by specifying function to object property</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="keyword">this</span> === obj);    </div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.foo(); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Changing scope with <code>.call()</code>, <code>.apply()</code> and <code>.bind()</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> john = &#123;</div><div class="line">  dept: <span class="string">'dev'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">foo.apply(john, [<span class="string">'John'</span>, <span class="number">32</span>]);</div><div class="line"><span class="comment">//foo.call(obj, 'Richard', 32);</span></div><div class="line"><span class="built_in">console</span>.log(john); <span class="comment">// -&amp;gt; Object &#123;dept: "dev", name: "John", age: 32&#125;</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> tom = &#123;</div><div class="line">  dept: <span class="string">'test'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar = foo.bind(tom, <span class="string">'Tom'</span>, <span class="number">28</span>); <span class="comment">// just bind, not call</span></div><div class="line"><span class="built_in">console</span>.log(tom); <span class="comment">// Object &#123;dept: "test"&#125;</span></div><div class="line"><span class="comment">// do something else</span></div><div class="line"><span class="comment">// ...</span></div><div class="line">bar();</div><div class="line"><span class="built_in">console</span>.log(tom); <span class="comment">// Object &#123;dept: "test", name: "Tom", age: 28&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="Execution-Context"><a href="#Execution-Context" class="headerlink" title="Execution Context"></a>Execution Context</h3><p>This terminology is defined by ECMA specification. Don’t confuse it with the “<code>this</code>“ context.</p>
+<p>JavaScript is a single threaded language, meaning only one task can be executed at a time. When the JavaScript interpreter initially executes code, it first enters into a global execution context by default. Each invocation of a function from this point on will result in the creation of a new execution context.</p>
+<p>Each time a new execution context is created it is appended to the top of the <strong><em>execution stack</em></strong>.</p>
+<p>An execution context can be divided into a creation and execution phase. In the creation phase, the interpreter will first create a <em>variable object</em> (also called an <em>activation object</em>) that is composed of all the variables, function declarations, and arguments defined inside the execution context. From there the <em>scope chain</em> is initialized next, and the value of <code>this</code> is determined last. Then in the execution phase, code is interpreted and executed.</p>
+<h3 id="closure"><a href="#closure" class="headerlink" title="closure"></a>closure</h3><p>Accessing variables outside of the immediate lexical scope creates a closure.</p>
+<p>It says, a closure is formed when a nested function is defined inside of another function, allowing access to the outer functions variables.</p>
+<p>A simple illustration:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aa</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> bb = <span class="string">'hello '</span>;</div><div class="line">    <span class="keyword">var</span> cc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> bb + <span class="string">"world"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>cc</code> as a function accesses its immediate outer scope. That creates a closure.</p>
+<hr>
+<p>Returning the nested function allows you to maintain access to the local variables, arguments, and inner function declarations of its outer function. This encapsulation allows us to hide and preserve the execution context from outside scopes while exposing a public interface and thus is subject to further manipulation.</p>
+<p>A more practical example:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> text = <span class="string">'Hello, '</span> + name;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(text);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">sayHello(<span class="string">"Richard"</span>)();</div></pre></td></tr></table></figure>
+<p>One of the most popular types of closures is what is widely known as the <em>module pattern</em>; it allows you to emulate public, private, and privileged members:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> privateProperty = <span class="string">'foo'</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params">args</span>)</span>&#123;</div><div class="line">        <span class="comment">// do something</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line"></div><div class="line">        publicProperty: <span class="string">''</span>,</div><div class="line"></div><div class="line">        publicMethod: <span class="function"><span class="keyword">function</span>(<span class="params">args</span>)</span>&#123;</div><div class="line">            <span class="comment">// do something</span></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        privilegedMethod: <span class="function"><span class="keyword">function</span>(<span class="params">args</span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> privateMethod(args);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>References:</p>
+<ol>
+<li><a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/" target="_blank" rel="external">http://ryanmorr.com/understanding-scope-and-context-in-javascript/</a></li>
+<li><a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/" target="_blank" rel="external">http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/12/javascript-prototype-proto-vs-prototype/" rel="next" title="JavaScript prototype: __proto__ vs. prototype">
+                <i class="fa fa-chevron-left"></i> JavaScript prototype: __proto__ vs. prototype
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/18/get-started-with-angularjs/" rel="prev" title="Get started with AngularJS">
+                Get started with AngularJS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#scope-vs-context"><span class="nav-number">1.</span> <span class="nav-text">scope vs. context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scope"><span class="nav-number">2.</span> <span class="nav-text">scope</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-scope"><span class="nav-number">2.1.</span> <span class="nav-text">global scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-scope"><span class="nav-number">2.2.</span> <span class="nav-text">local scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scope-chain"><span class="nav-number">2.3.</span> <span class="nav-text">scope chain</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quot-this-quot-context"><span class="nav-number">3.</span> <span class="nav-text">"this" context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Execution-Context"><span class="nav-number">4.</span> <span class="nav-text">Execution Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#closure"><span class="nav-number">5.</span> <span class="nav-text">closure</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/05/12/javascript-scope-and-context/';
+      var disqus_title = 'JavaScript scopes and context';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

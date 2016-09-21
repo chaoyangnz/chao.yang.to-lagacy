@@ -1,0 +1,842 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="how to use?Basically, ThreadLocal is used for these scenarios: whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThreadLocal">
+<meta property="og:url" content="https://richyang.me/2016/09/05/ThreadLocal/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="how to use?Basically, ThreadLocal is used for these scenarios: whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from">
+<meta property="og:image" content="https://richyang.me/media/threadlocalmap-entry.png">
+<meta property="og:image" content="https://richyang.me/media/threadlocalmap-expunge.png">
+<meta property="og:updated_time" content="2016-09-06T12:17:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ThreadLocal">
+<meta name="twitter:description" content="how to use?Basically, ThreadLocal is used for these scenarios: whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from">
+<meta name="twitter:image" content="https://richyang.me/media/threadlocalmap-entry.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> ThreadLocal | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ThreadLocal
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-05T19:52:25+08:00" content="2016-09-05">
+              2016-09-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/05/ThreadLocal/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/05/ThreadLocal/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="how-to-use"><a href="#how-to-use" class="headerlink" title="how to use?"></a>how to use?</h1><p>Basically, <code>ThreadLocal</code> is used for these scenarios: <strong>whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from this thread.</strong></p>
+<p>When wrongly used, it may cause something counter-intuitive. For example, when you set a value/reference to a ThreadLocal, you also share it with other threads (say other threads can access the reference and mutable it.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadLocalHolder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ThreadLocal&lt;SomeObject&gt; threadLocal = <span class="keyword">new</span> ThreadLocal&lt;SomeObject&gt;() &#123;</div><div class="line">        <span class="function"><span class="keyword">protected</span> SomeObject <span class="title">initialValue</span><span class="params">()</span> </span>&#123; <span class="comment">// set the initial value when first getting or after removing</span></div><div class="line">            <span class="keyword">return</span> SomeObject.DEFAULT;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</div><div class="line">        getAndPrint();</div><div class="line">        threadLocal.set(<span class="keyword">new</span> SomeObject(Thread.currentThread().getId()));</div><div class="line">        getAndPrint();</div><div class="line">        threadLocal.remove();</div><div class="line">        getAndPrint();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getAndPrint</span><span class="params">()</span> </span>&#123;</div><div class="line">        SomeObject someObject = threadLocal.get();</div><div class="line">        System.out.println(String.format(<span class="string">"Thread %d: %d"</span>, Thread.currentThread().getId(), someObject.getValue()));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeObject</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SomeObject DEFAULT = <span class="keyword">new</span> SomeObject(<span class="number">0L</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> value;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SomeObject</span><span class="params">(<span class="keyword">long</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">long</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        <span class="keyword">final</span> ThreadLocalHolder threadLocalHolder = <span class="keyword">new</span> ThreadLocalHolder();</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> threadCount = <span class="number">200</span>;</div><div class="line">        <span class="keyword">final</span> CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(threadCount);</div><div class="line">        ExecutorService executorService = Executors.newFixedThreadPool(threadCount);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; threadCount; ++i) &#123;</div><div class="line">            executorService.submit(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    threadLocalHolder.foo();</div><div class="line">                    countDownLatch.countDown();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        countDownLatch.await();</div><div class="line">        executorService.shutdown();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Possible “incorrect” usage: Here we share the reference by setting it to the a field of ThreadLocalHolder, so another thread can mutate its value. From the respective of the first thread, this thread sets it but its state can still be visible and modified by other threads. Sometime it seems to voilate the original purpose of <code>ThreadLocal</code>.<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadLocalHolder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ThreadLocal&lt;SomeObject&gt; threadLocal = <span class="keyword">new</span> ThreadLocal&lt;SomeObject&gt;() &#123;</div><div class="line">        <span class="function"><span class="keyword">protected</span> SomeObject <span class="title">initialValue</span><span class="params">()</span> </span>&#123; <span class="comment">// set the initial value when first getting or after removing</span></div><div class="line">            <span class="keyword">return</span> SomeObject.DEFAULT;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> SomeObject shared;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        getAndPrint();</div><div class="line">        <span class="keyword">this</span>.shared = <span class="keyword">new</span> SomeObject(Thread.currentThread().getId());</div><div class="line">        threadLocal.set(shared);</div><div class="line">        Thread.sleep(<span class="number">3000</span>);</div><div class="line">        getAndPrint();</div><div class="line">        threadLocal.remove();</div><div class="line">        getAndPrint();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getAndPrint</span><span class="params">()</span> </span>&#123;</div><div class="line">        SomeObject someObject = threadLocal.get();</div><div class="line">        System.out.println(String.format(<span class="string">"Thread %d: %d at %d"</span>, Thread.currentThread().getId(), someObject.getValue(), System.nanoTime()));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeObject</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SomeObject DEFAULT = <span class="keyword">new</span> SomeObject(<span class="number">0L</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> value;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SomeObject</span><span class="params">(<span class="keyword">long</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">long</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Simply test it:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        <span class="keyword">final</span> ThreadLocalHolder threadLocalHolder = <span class="keyword">new</span> ThreadLocalHolder();</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> threadCount = <span class="number">3</span>;</div><div class="line">        <span class="keyword">final</span> CyclicBarrier cyclicBarrier = <span class="keyword">new</span> CyclicBarrier(threadCount);</div><div class="line"></div><div class="line">        ExecutorService executorService = Executors.newFixedThreadPool(threadCount);</div><div class="line">        Runnable runnable = <span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    cyclicBarrier.await();</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125; <span class="keyword">catch</span> (BrokenBarrierException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    threadLocalHolder.foo();</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        executorService.submit(runnable);</div><div class="line">        executorService.submit(runnable);</div><div class="line">        executorService.submit(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    cyclicBarrier.await();</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125; <span class="keyword">catch</span> (BrokenBarrierException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">while</span>(threadLocalHolder.shared == <span class="keyword">null</span>) &#123;</div><div class="line"></div><div class="line">                &#125;</div><div class="line">                threadLocalHolder.shared.setValue(<span class="number">9999</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        executorService.shutdown();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Another hack is we reflection another <code>Thread</code>‘s <code>threadlocals</code>.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<h1 id="implementation-details"><a href="#implementation-details" class="headerlink" title="implementation details"></a>implementation details</h1><p>In the first place, we don’t dive into the source code. We can think of how to implement it on our own.</p>
+<p>Circumstance: </p>
+<ul>
+<li>Whenever a native thread is created, a <code>Thread</code> object is instantiated in the heap. You can simply think it as the “handle” or “mirror” of the native thread.</li>
+<li>we should be able to define multiple <code>ThreadLocal</code>.</li>
+<li>Every <code>ThreadLocal</code> is associated with ONLY one value/reference within a thread.</li>
+</ul>
+<p>As per the above requirement, it’s easy to think of this solution:</p>
+<ul>
+<li>we use <code>Thread</code> object to maintain a threadlocal map: [ThreadLocal, Value]</li>
+<li>when <code>set</code> is invoked, firstly get the <code>Thread</code> object of current thread and get its threadlocal map and put the value into it.</li>
+<li>when <code>get</code> is invoked, firstly get the <code>Thread</code> object of current thread and get its threadlocal map and get the value from it.</li>
+</ul>
+<p>So the most important class here is the <code>ThreadLocalMap</code>. Every <code>Thread</code> object has a <code>ThreadLocalMap</code>: <code>threadlocals</code>.</p>
+<h2 id="ThreadLocal-ThreadLocalMap-Entry"><a href="#ThreadLocal-ThreadLocalMap-Entry" class="headerlink" title="ThreadLocal.ThreadLocalMap.Entry"></a>ThreadLocal.ThreadLocalMap.Entry</h2><p>The Entry is a <code>WeakReference</code> to its key <code>ThreadLocal</code>, so it doesn’t prevent the <code>ThreadLocal</code> from being reclaimed by GC. If all the references to the ThreadLocal object are weak of soft, GC can reclaim it even entry reference to it. At this time, entry.get() will return null and therefore this entry can be expunged from table. Such entries are referred to “stale entries”.<br><img src="/media/threadlocalmap-entry.png" alt=""></p>
+<p>When to clean these “stale entries”?</p>
+<ul>
+<li>Threadlocal#get(..)</li>
+<li>Threadlocal#set(..)</li>
+<li>Threadlocal#remove(..)</li>
+</ul>
+<p><img src="/media/threadlocalmap-expunge.png" alt=""></p>
+<h2 id="ThreadLocalMap-hash-table"><a href="#ThreadLocalMap-hash-table" class="headerlink" title="ThreadLocalMap: hash table"></a>ThreadLocalMap: hash table</h2><h3 id="open-addressing"><a href="#open-addressing" class="headerlink" title="open addressing"></a>open addressing</h3><p>It don’t use ‘LinkList’ to resolve conflicts, instead use “Open addressing”.</p>
+<p>find next slot until the slot is empty<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(ThreadLocal&lt;?&gt; key, Object value)</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// We don't use a fast path as with get() because it is at</span></div><div class="line">  <span class="comment">// least as common to use set() to create new entries as</span></div><div class="line">  <span class="comment">// it is to replace existing ones, in which case, a fast</span></div><div class="line">  <span class="comment">// path would fail more often than not.</span></div><div class="line"></div><div class="line">  Entry[] tab = table;</div><div class="line">  <span class="keyword">int</span> len = tab.length;</div><div class="line">  <span class="keyword">int</span> i = key.threadLocalHashCode &amp; (len-<span class="number">1</span>);</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (Entry e = tab[i];</div><div class="line">       e != <span class="keyword">null</span>;</div><div class="line">       e = tab[i = nextIndex(i, len)]) &#123;</div><div class="line">      ThreadLocal&lt;?&gt; k = e.get();</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (k == key) &#123;</div><div class="line">          e.value = value;</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (k == <span class="keyword">null</span>) &#123;</div><div class="line">          replaceStaleEntry(key, value, i);</div><div class="line">          <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  tab[i] = <span class="keyword">new</span> Entry(key, value);</div><div class="line">  <span class="keyword">int</span> sz = ++size;</div><div class="line">  <span class="keyword">if</span> (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)</div><div class="line">      rehash();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>How to find next index? Simple, just increment i modulo len<br><code>((i + 1 &lt; len) ? i + 1 : 0);</code></p>
+<h3 id="from-hashcode-to-slot-index"><a href="#from-hashcode-to-slot-index" class="headerlink" title="from hashcode to slot index"></a>from hashcode to slot index</h3><p>Like HashMap does:<br><code>hashcode &amp; (length - 1)</code></p>
+<h3 id="ThreadLocal-hashcode"><a href="#ThreadLocal-hashcode" class="headerlink" title="ThreadLocal hashcode"></a>ThreadLocal hashcode</h3><p>//TODO</p>
+<h1 id="Is-ThreadLocal-thread-safe"><a href="#Is-ThreadLocal-thread-safe" class="headerlink" title="Is ThreadLocal thread safe?"></a>Is ThreadLocal thread safe?</h1><p>Refer to:</p>
+<ul>
+<li><a href="http://stackoverflow.com/a/27188314/4344443" target="_blank" rel="external">http://stackoverflow.com/a/27188314/4344443</a></li>
+<li><a href="http://stackoverflow.com/a/15653015/4344443" target="_blank" rel="external">http://stackoverflow.com/a/15653015/4344443</a></li>
+</ul>
+<p>Basically, the ThreadLocalMap itself is not thread-safe, but it is associated with a Thread object, which makes it can be only accessed by one thread. So if you don’t use abnormal access ways (like reflection), it can ensure thread-safe.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/dive-into-jmm/" rel="next" title="Dive into JMM">
+                <i class="fa fa-chevron-left"></i> Dive into JMM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/07/2016-09-07/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#how-to-use"><span class="nav-number">1.</span> <span class="nav-text">how to use?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#implementation-details"><span class="nav-number">2.</span> <span class="nav-text">implementation details</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadLocal-ThreadLocalMap-Entry"><span class="nav-number">2.1.</span> <span class="nav-text">ThreadLocal.ThreadLocalMap.Entry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadLocalMap-hash-table"><span class="nav-number">2.2.</span> <span class="nav-text">ThreadLocalMap: hash table</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open-addressing"><span class="nav-number">2.2.1.</span> <span class="nav-text">open addressing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#from-hashcode-to-slot-index"><span class="nav-number">2.2.2.</span> <span class="nav-text">from hashcode to slot index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal-hashcode"><span class="nav-number">2.2.3.</span> <span class="nav-text">ThreadLocal hashcode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Is-ThreadLocal-thread-safe"><span class="nav-number">3.</span> <span class="nav-text">Is ThreadLocal thread safe?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2016/09/05/ThreadLocal/';
+      var disqus_title = 'ThreadLocal';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

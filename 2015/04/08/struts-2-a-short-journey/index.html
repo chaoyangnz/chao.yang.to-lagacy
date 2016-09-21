@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Web framework evolvesServletWrite all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!
+JSP with scriptlet styleRather than">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts 2 - a short journey">
+<meta property="og:url" content="https://richyang.me/2015/04/08/struts-2-a-short-journey/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Web framework evolvesServletWrite all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!
+JSP with scriptlet styleRather than">
+<meta property="og:image" content="https://richyang.me/media/struts-mvc.png">
+<meta property="og:image" content="https://richyang.me/media/struts-configure-scope.png">
+<meta property="og:image" content="https://richyang.me/media/struts-value-stack.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Struts 2 - a short journey">
+<meta name="twitter:description" content="Web framework evolvesServletWrite all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!
+JSP with scriptlet styleRather than">
+<meta name="twitter:image" content="https://richyang.me/media/struts-mvc.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Struts 2 - a short journey | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Struts 2 - a short journey
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-08T13:59:38+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Struts/" itemprop="url" rel="index">
+                    <span itemprop="name">Struts</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/struts-2-a-short-journey/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/08/struts-2-a-short-journey/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Web-framework-evolves"><a href="#Web-framework-evolves" class="headerlink" title="Web framework evolves"></a>Web framework evolves</h3><h4 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h4><p>Write all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!</p>
+<h4 id="JSP-with-scriptlet-style"><a href="#JSP-with-scriptlet-style" class="headerlink" title="JSP with scriptlet style"></a>JSP with scriptlet style</h4><p>Rather than writing HTML in Java code, now write Java code in HTML code. This approach is really like PHP and ASP do.</p>
+<h4 id="JSP-with-tags-style"><a href="#JSP-with-tags-style" class="headerlink" title="JSP with tags style"></a>JSP with tags style</h4><p>To avoid writing Java code in HTML, introduce JSP tags as HTML-like facade for accessing underlying Java code. This approach is more designer-friendly.</p>
+<h4 id="Action-based-framework"><a href="#Action-based-framework" class="headerlink" title="Action-based framework"></a>Action-based framework</h4><p>Split the page processing into processing logic and presentation logic.</p>
+<p>Implement MVC Model 2 pattern, or Front Controller pattern.</p>
+<p>In this pattern, a servlet is the Front Controller, providing a centralized point for all client page requests.</p>
+<p>Then it maps the request URL to a Unit of Work (aka. action).</p>
+<p>The action can do:</p>
+<ul>
+<li>accessing HTTP request, form and session parameters</li>
+<li>calling business logic services</li>
+<li>mapping the response into Model - usually a POJO</li>
+<li>returning a result, which is mapped to a view for rendering</li>
+</ul>
+<h4 id="Component-based-framework"><a href="#Component-based-framework" class="headerlink" title="Component-based framework"></a>Component-based framework</h4><ul>
+<li>event-driven</li>
+<li>a close tie between user interface component and its class<br>Such frameworks are: JSF, Wicket, ASP.NET</li>
+</ul>
+<h4 id="AJAX-and-Restful-style"><a href="#AJAX-and-Restful-style" class="headerlink" title="AJAX and Restful style"></a>AJAX and Restful style</h4><p>AJAX requesting to an action-based framework makes the action-based framework behave like the component-based frameworks do.</p>
+<h3 id="Core-components-of-Struts"><a href="#Core-components-of-Struts" class="headerlink" title="Core components of Struts"></a>Core components of Struts</h3><p>Struts2 is a pull-MVC (or MVC 2) framework. The “pull” comes from the views ability to pull data from Action, rather than having a separate model object.</p>
+<p><img src="/media/struts-mvc.png" alt="struts-mvc"></p>
+<p>From the above figure, we know Action acts as the functionality of model object and processing logic executor.</p>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><p>When you develop your web application using Struts2, you’ll come across 3 configuration files: web.xml(web application deplopment descriptor), struts.properties, struts.xml</p>
+<p><img src="/media/struts-configure-scope.png" alt="struts-configure-scope"></p>
+<h5 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h5><p>You need to config Dispatcher Filter – which is implemented as a servlet filter to dispatching requests.</p>
+<h5 id="struts-properties"><a href="#struts-properties" class="headerlink" title="struts.properties"></a>struts.properties</h5><p>This file is for configuration of framework itself if you want to change the default options of framework. It includes all kinds of constants.</p>
+<p>Of course, you can define these constants in struts.xml by using &lt;constant name=”” value=””  /&gt;</p>
+<p>So struts.properties is optional.</p>
+<h5 id="struts-xml"><a href="#struts-xml" class="headerlink" title="struts.xml"></a>struts.xml</h5><p>This is about the specific configuration of your web application, such as actions, result type, result, interceptors, etc.</p>
+<p>Now the following is a practical configuration I used in my project:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&amp;gt;</div><div class="line">&amp;lt;!DOCTYPE struts PUBLIC</div><div class="line">    <span class="string">"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"</span></div><div class="line">    <span class="string">"http://struts.apache.org/dtds/struts-2.0.dtd"</span>&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;struts&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;!-- what the URL ends by, such as ***.do --&amp;gt;</div><div class="line">	&amp;lt;constant name=<span class="string">"struts.action.extension"</span> value=<span class="string">"do"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;!-- in development mode, more errors are provided --&amp;gt;</div><div class="line">	&amp;lt;constant name=<span class="string">"struts.devMode"</span> value=<span class="string">"false"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;!--<span class="keyword">default</span> encoding <span class="keyword">for</span> web app--&amp;gt;</div><div class="line">	&amp;lt;constant name=<span class="string">"struts.i18n.encoding"</span> value=<span class="string">"utf-8"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;constant name=<span class="string">"struts.i18n.reload"</span> value=<span class="string">"false"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;constant name=<span class="string">"struts.custom.i18n.resources"</span> value=<span class="string">"properties/web/lang"</span> /&amp;gt;</div><div class="line">	&amp;lt;constant name=<span class="string">"struts.configuration.xml.reload"</span> value=<span class="string">"true"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;constant name=<span class="string">"struts.objectFactory"</span> value=<span class="string">"org.apache.struts2.spring.StrutsSpringObjectFactory"</span> /&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;!-- <span class="keyword">default</span> <span class="keyword">package</span> --&amp;gt;</div><div class="line">	&amp;lt;<span class="keyword">package</span> name=<span class="string">"my-default"</span> namespace=<span class="string">"/"</span> extends=<span class="string">"json-default"</span>&amp;gt;</div><div class="line"></div><div class="line">		&amp;lt;!-- define <span class="keyword">new</span> interceptors and interceptor stack --&amp;gt;</div><div class="line">		&amp;lt;interceptors&amp;gt; </div><div class="line">			&amp;lt;interceptor name=<span class="string">"myInterceptor"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.my.web.interceptor.SecurityInterceptor"</span>/&amp;gt;</div><div class="line"></div><div class="line">			&amp;lt;interceptor-stack name=<span class="string">"myDefaultStack"</span>&amp;gt;</div><div class="line">		        &amp;lt;interceptor-ref name=<span class="string">"defaultStack"</span> /&amp;gt;</div><div class="line">		        &amp;lt;interceptor-ref name=<span class="string">"myInterceptor"</span> /&amp;gt;</div><div class="line">		        &amp;lt;interceptor-ref name =<span class="string">"timer"</span> /&amp;gt; </div><div class="line">				&amp;lt;interceptor-ref name =<span class="string">"logger"</span> /&amp;gt; </div><div class="line">		    &amp;lt;/interceptor-stack&amp;gt;	    </div><div class="line">		&amp;lt;/interceptors&amp;gt;</div><div class="line"></div><div class="line">		&amp;lt;!-- set <span class="keyword">default</span> interceptor --&amp;gt;</div><div class="line">	    &amp;lt;<span class="keyword">default</span>-interceptor-ref name=<span class="string">"myDefaultStack"</span>/&amp;gt; </div><div class="line"></div><div class="line">	    &amp;lt;!-- Global results：error, failure, timeout, relogin --&amp;gt;</div><div class="line">	    &amp;lt;global-results&amp;gt;</div><div class="line">	    	&amp;lt;result name=<span class="string">"success"</span> type=<span class="string">"json"</span>&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"ignoreHierarchy"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"excludeNullProperties"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			&amp;lt;/result&amp;gt;</div><div class="line">			&amp;lt;result name=<span class="string">"exception"</span> type=<span class="string">"json"</span>&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"ignoreHierarchy"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"excludeNullProperties"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			&amp;lt;/result&amp;gt;</div><div class="line">			&amp;lt;result name=<span class="string">"login"</span> type=<span class="string">"json"</span>&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"ignoreHierarchy"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			  &amp;lt;param name=<span class="string">"excludeNullProperties"</span>&amp;gt;<span class="keyword">false</span>&amp;lt;/param&amp;gt;</div><div class="line">			&amp;lt;/result&amp;gt;</div><div class="line">		&amp;lt;/global-results&amp;gt;</div><div class="line">    &amp;lt;/<span class="keyword">package</span>&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;!-- modules  --&amp;gt;</div><div class="line">	&amp;lt;include file=<span class="string">"Struts/struts-alert.xml"</span>/&amp;gt;</div><div class="line">	&amp;lt;include file=<span class="string">"Struts/struts-systemManage.xml"</span>/&amp;gt;</div><div class="line">	&amp;lt;include file=<span class="string">"Struts/struts-workflow.xml"</span>/&amp;gt;</div><div class="line">	&amp;lt;include file=<span class="string">"Struts/struts-revaluation.xml"</span>/&amp;gt;</div><div class="line">	&amp;lt;include file=<span class="string">"Struts/struts-indexquery.xml"</span>/&amp;gt;</div><div class="line">&amp;lt;/struts&amp;gt;</div></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
+<p>&nbsp;<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&amp;lt;?xml version="1.0" encoding="UTF-8"?&amp;gt;</div><div class="line">&amp;lt;web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee </div><div class="line">	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"&amp;gt;</div><div class="line">	&amp;lt;display-name&amp;gt;icms-web&amp;lt;/display-name&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;context-param&amp;gt;</div><div class="line">		&amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;</div><div class="line">		&amp;lt;param-value&amp;gt;classpath*:/SpringContext/applicationContext-*.xml,classpath*:/SpringContext/*/applicationContext-*.xml,classpath*:/SpringContext/*/*/applicationContext-*.xml,classpath*:/SpringContext/*/*/*/applicationContext-*.xml</div><div class="line">		&amp;lt;/param-value&amp;gt;</div><div class="line">	&amp;lt;/context-param&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;listener&amp;gt;</div><div class="line">		&amp;lt;listener-class&amp;gt;org.springframework.web.util.Log4jConfigListener&amp;lt;/listener-class&amp;gt;</div><div class="line">	&amp;lt;/listener&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;listener&amp;gt;</div><div class="line">		&amp;lt;listener-class&amp;gt;org.springframework.web.context.ContextLoaderListener&amp;lt;/listener-class&amp;gt;</div><div class="line">	&amp;lt;/listener&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;filter&amp;gt;</div><div class="line">		&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;</div><div class="line">		&amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.FilterDispatcher&amp;lt;/filter-class&amp;gt;</div><div class="line">		&amp;lt;init-param&amp;gt;</div><div class="line">			&amp;lt;param-name&amp;gt;config&amp;lt;/param-name&amp;gt;</div><div class="line">			&amp;lt;param-value&amp;gt;struts-default.xml,struts-plugin.xml,Struts/struts.xml&amp;lt;/param-value&amp;gt;</div><div class="line">		&amp;lt;/init-param&amp;gt;</div><div class="line">	&amp;lt;/filter&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;filter-mapping&amp;gt;</div><div class="line">		&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;</div><div class="line">		&amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt;</div><div class="line">	&amp;lt;/filter-mapping&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;welcome-file-list&amp;gt;</div><div class="line">		&amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt;</div><div class="line">	&amp;lt;/welcome-file-list&amp;gt;</div><div class="line"></div><div class="line">	&amp;lt;session-config&amp;gt;</div><div class="line">		&amp;lt;session-timeout&amp;gt;30&amp;lt;/session-timeout&amp;gt;</div><div class="line">	&amp;lt;/session-config&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;/web-app&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h4><p>If you don’t specify the method of an action, its execute() will be invoked by default.</p>
+<p>An action method can return a <em>String</em> or _Result _or no return.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;action name=<span class="string">"submitDiscardColAppAction"</span></div><div class="line">			<span class="class"><span class="keyword">class</span></span>=<span class="string">"com.my.ManageDiscardColAction"</span></div><div class="line">			method=<span class="string">"submitDiscardColApp"</span>&amp;gt;</div><div class="line">&amp;lt;/action&amp;gt;</div></pre></td></tr></table></figure></p>
+<p>An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be <strong><em>sterotype</em></strong>.</p>
+<p>The above example uses the global result setting. You can specify the action-specific configs of result mapping, like<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;action name=<span class="string">"submitDiscardColAppAction"</span></div><div class="line">			<span class="class"><span class="keyword">class</span></span>=<span class="string">"com.my.ManageDiscardColAction"</span></div><div class="line">			method=<span class="string">"submitDiscardColApp"</span>&amp;gt;</div><div class="line">    &amp;lt;result name=<span class="string">"success"</span> type=<span class="string">"dispatcher"</span>&amp;gt;<span class="number">1</span>.jsp&amp;lt;/result&amp;gt;</div><div class="line">&amp;lt;/action&amp;gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>NOTE: the “dispatcher” result type is default if you don’t specify the result type.<br>Most of time, the logic service object is injected by DI framework (Struts only support setter injection), but there are many non-managed objects needing to acquire in the action, like request, session, servletContext, response, etc. In this case, we can use **Aware interface.</p>
+</blockquote>
+<ul>
+<li>SessionAware</li>
+<li>ServletRequestAware</li>
+<li>RequestAware</li>
+<li>ApplicationAware</li>
+<li>ServletResponseAware</li>
+<li>ParameterAware</li>
+<li>PrincipalAware</li>
+<li>ServletContextAware</li>
+</ul>
+<h4 id="Result-type"><a href="#Result-type" class="headerlink" title="Result type"></a>Result type</h4><p>Struts provides many result type, but you can implement your custom implementation by implements _<strong>Result</strong> _interface.</p>
+<ul>
+<li>dispatcher</li>
+<li>httpheader</li>
+<li>redirect</li>
+<li>redirectAction</li>
+<li>plainText</li>
+<li>stream</li>
+<li>velocity</li>
+</ul>
+<h4 id="Interceptors"><a href="#Interceptors" class="headerlink" title="Interceptors"></a>Interceptors</h4><p>Interceptors are conceptually the same as servlet filters or proxy, which provide a way to supply pro-processing and post-processing around the action.</p>
+<p>Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Interceptor</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">String <span class="title">intercept</span><span class="params">(ActionInvocation invocation)</span> <span class="keyword">throws</span> Exception</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Value-Stack-OGNL"><a href="#Value-Stack-OGNL" class="headerlink" title="Value Stack / OGNL"></a>Value Stack / OGNL</h4><p>Value stack and OGNL are all related to accessing data. OGNL is an expression language, aka. Object Graphic Navigational Language.</p>
+<p>We use OGNL to access data from value stack in some cases:</p>
+<ul>
+<li>JSP tags</li>
+<li>Velocity or Freemarker template</li>
+</ul>
+<h5 id="What-are-there-in-Value-stack"><a href="#What-are-there-in-Value-stack" class="headerlink" title="What are there in Value stack?"></a>What are there in Value stack?</h5><p><img src="/media/struts-value-stack.png" alt="struts-value-stack"></p>
+<h3 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h3><h4 id="lt-s-property-gt"><a href="#lt-s-property-gt" class="headerlink" title="&lt;s:property&gt;"></a>&lt;s:property&gt;</h4><p>This tag is used to access value stack value.</p>
+<ul>
+<li>escape html or javascript<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:property value=<span class="string">"propWithHtml"</span> escape=<span class="string">"false"</span>/&amp;gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">&amp;lt;script type="text/javascript"&amp;gt;</div><div class="line">    var jsFromTag1 = '&amp;lt;s:property value="javascriptExample"</div><div class="line">    escapeJavaScript="true"/&amp;gt;';</div><div class="line">    document.writeln(jsFromTag1);</div><div class="line">&amp;lt;/script&amp;gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>default value</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:property value=<span class="string">"nullExample"</span> <span class="keyword">default</span>=<span class="string">"A default value."</span>/&amp;gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>access scope object: request, session, application with prefix #</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:property value=<span class="string">"#application.anAppAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#session.aSessionAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#request.aRequestAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#parameters.aRequestParameter"</span>/&amp;gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>parameters is for request parameters</p>
+<p>No page object, but instead you use #attr to search all the attributes of application, request, session and page in order.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:property value=<span class="string">"#attr.anAppAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#attr.aSessionAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#attr.aRequestAttribute"</span>/&amp;gt;</div><div class="line">&amp;lt;s:property value=<span class="string">"#attr.aPageAttribute"</span>/&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="amp-lt-s-debug-amp-gt"><a href="#amp-lt-s-debug-amp-gt" class="headerlink" title="&amp;lt;s:debug&amp;gt;"></a><code>&amp;lt;s:debug&amp;gt;</code></h4><p>show all the stack</p>
+<h4 id="anActionProperty"><a href="#anActionProperty" class="headerlink" title="${anActionProperty}"></a>${anActionProperty}</h4><p>This will search the value stack first, then fall off to use the JSP EL lookup. This is a little tricky.</p>
+<h4 id="lt-s-set-gt"><a href="#lt-s-set-gt" class="headerlink" title="&lt;s:set&gt;"></a>&lt;s:set&gt;</h4><h4 id="amp-lt-s-if-amp-gt-amp-lt-s-elseif-amp-gt-and-amp-lt-s-else-amp-gt"><a href="#amp-lt-s-if-amp-gt-amp-lt-s-elseif-amp-gt-and-amp-lt-s-else-amp-gt" class="headerlink" title="&amp;lt;s:if&amp;gt;, &amp;lt;s:elseif&amp;gt;, and&amp;lt;s:else&amp;gt;"></a><code>&amp;lt;s:if&amp;gt;, &amp;lt;s:elseif&amp;gt;</code>, and<code>&amp;lt;s:else&amp;gt;</code></h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:<span class="keyword">if</span> test=<span class="string">"aBooleanExpression"</span>&amp;gt;</div><div class="line">Printed when test is <span class="keyword">true</span>.</div><div class="line">&amp;lt;/s:<span class="keyword">if</span>&amp;gt;</div><div class="line">&amp;lt;s:elseif test=<span class="string">"aDifferentBooleanExpression"</span>&amp;gt;</div><div class="line">&amp;lt;sif&amp;gt; tagPrinted <span class="keyword">if</span> previous test was <span class="keyword">false</span> and <span class="keyword">this</span> one is <span class="keyword">true</span>.</div><div class="line">&amp;lt;selseif&amp;gt; tag&amp;lt;/s:elseif&amp;gt;</div><div class="line">&amp;lt;s:<span class="keyword">else</span>&amp;gt;</div><div class="line">Printed <span class="keyword">if</span> neither were <span class="keyword">true</span>.</div><div class="line">&amp;lt;selse&amp;gt; tag&amp;lt;/s:<span class="keyword">else</span>&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-s-iterator-gt"><a href="#lt-s-iterator-gt" class="headerlink" title="&lt;s:iterator&gt;"></a>&lt;s:iterator&gt;</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:iterator value=<span class="string">"listOfStrings"</span>&amp;gt;</div><div class="line">&amp;lt;li&amp;gt;&amp;lt;s:property/&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/s:iterator&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:iterator value=<span class="string">"listOfStrings"</span> var=<span class="string">"anItem"</span>&amp;gt;</div><div class="line">&amp;lt;li&amp;gt;&amp;lt;s:property value=<span class="string">"anItem"</span>/&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/s:iterator&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:iterator value=<span class="string">"mapStringString"</span>&amp;gt;</div><div class="line">  &amp;lt;li&amp;gt;</div><div class="line">     &amp;lt;s:property value=<span class="string">"key"</span>/&amp;gt; : &amp;lt;s:property value=<span class="string">"value"</span>/&amp;gt;</div><div class="line">  &amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/s:iterator&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:iterator value=<span class="string">"mapStringString"</span> var=<span class="string">"entry"</span>&amp;gt;</div><div class="line">   &amp;lt;li&amp;gt;</div><div class="line">     &amp;lt;s:property value=<span class="string">"#entry.key"</span>/&amp;gt; ==</div><div class="line">     &amp;lt;s:property value=<span class="string">"#entry.value"</span>/&amp;gt;</div><div class="line">   &amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/s:iterator&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:iterator value=<span class="string">"list1"</span> status=<span class="string">"stat"</span>&amp;gt;</div><div class="line">&amp;lt;tr&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.index"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.count"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.even"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.odd"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.first"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.last"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.modulus(2)"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.modulus(4)"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;td&amp;gt;&amp;lt;s:property value=<span class="string">"#stat.count % 4"</span>/&amp;gt;&amp;lt;/td&amp;gt;</div><div class="line">&amp;lt;/tr&amp;gt;</div><div class="line">&amp;lt;/s:iterator&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-s-include-gt"><a href="#lt-s-include-gt" class="headerlink" title="&lt;s:include&gt;"></a>&lt;s:include&gt;</h4><p>similar to &lt;jsp:include&gt;</p>
+<h4 id="lt-s-action-gt"><a href="#lt-s-action-gt" class="headerlink" title="&lt;s:action&gt;"></a>&lt;s:action&gt;</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;s:action name=<span class="string">"includedAction"</span>/&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-s-url-gt"><a href="#lt-s-url-gt" class="headerlink" title="&lt;s:url&gt;"></a>&lt;s:url&gt;</h4><p>dynamically generate the url mapped to the action</p>
+<h3 id="Form-Validation-and-Type-conversion"><a href="#Form-Validation-and-Type-conversion" class="headerlink" title="Form Validation and Type conversion"></a>Form Validation and Type conversion</h3><p>//TODO</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/03/spring-framework-transaction-management/" rel="next" title="Spring framework - transaction management">
+                <i class="fa fa-chevron-left"></i> Spring framework - transaction management
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/09/jpa-advanced-topics/" rel="prev" title="JPA - advanced topics">
+                JPA - advanced topics <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-framework-evolves"><span class="nav-number">1.</span> <span class="nav-text">Web framework evolves</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet"><span class="nav-number">1.1.</span> <span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP-with-scriptlet-style"><span class="nav-number">1.2.</span> <span class="nav-text">JSP with scriptlet style</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP-with-tags-style"><span class="nav-number">1.3.</span> <span class="nav-text">JSP with tags style</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Action-based-framework"><span class="nav-number">1.4.</span> <span class="nav-text">Action-based framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Component-based-framework"><span class="nav-number">1.5.</span> <span class="nav-text">Component-based framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX-and-Restful-style"><span class="nav-number">1.6.</span> <span class="nav-text">AJAX and Restful style</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core-components-of-Struts"><span class="nav-number">2.</span> <span class="nav-text">Core components of Struts</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Configuration"><span class="nav-number">2.1.</span> <span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#web-xml"><span class="nav-number">2.1.1.</span> <span class="nav-text">web.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#struts-properties"><span class="nav-number">2.1.2.</span> <span class="nav-text">struts.properties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#struts-xml"><span class="nav-number">2.1.3.</span> <span class="nav-text">struts.xml</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Actions"><span class="nav-number">2.2.</span> <span class="nav-text">Actions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Result-type"><span class="nav-number">2.3.</span> <span class="nav-text">Result type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Interceptors"><span class="nav-number">2.4.</span> <span class="nav-text">Interceptors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Value-Stack-OGNL"><span class="nav-number">2.5.</span> <span class="nav-text">Value Stack / OGNL</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#What-are-there-in-Value-stack"><span class="nav-number">2.5.1.</span> <span class="nav-text">What are there in Value stack?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tags"><span class="nav-number">3.</span> <span class="nav-text">Tags</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-property-gt"><span class="nav-number">3.1.</span> <span class="nav-text"><s:property></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-lt-s-debug-amp-gt"><span class="nav-number">3.2.</span> <span class="nav-text">&lt;s:debug&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#anActionProperty"><span class="nav-number">3.3.</span> <span class="nav-text">${anActionProperty}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-set-gt"><span class="nav-number">3.4.</span> <span class="nav-text"><s:set></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-lt-s-if-amp-gt-amp-lt-s-elseif-amp-gt-and-amp-lt-s-else-amp-gt"><span class="nav-number">3.5.</span> <span class="nav-text">&lt;s:if&gt;, &lt;s:elseif&gt;, and&lt;s:else&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-iterator-gt"><span class="nav-number">3.6.</span> <span class="nav-text"><s:iterator></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-include-gt"><span class="nav-number">3.7.</span> <span class="nav-text"><s:include></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-action-gt"><span class="nav-number">3.8.</span> <span class="nav-text"><s:action></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-s-url-gt"><span class="nav-number">3.9.</span> <span class="nav-text"><s:url></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Form-Validation-and-Type-conversion"><span class="nav-number">4.</span> <span class="nav-text">Form Validation and Type conversion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/08/struts-2-a-short-journey/';
+      var disqus_title = 'Struts 2 - a short journey';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

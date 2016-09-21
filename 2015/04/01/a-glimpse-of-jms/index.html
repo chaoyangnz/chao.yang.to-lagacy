@@ -1,0 +1,876 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TODO," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="what messaging provides?
+loosely decoupledA component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not hav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A glimpse of JMS">
+<meta property="og:url" content="https://richyang.me/2015/04/01/a-glimpse-of-jms/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="what messaging provides?
+loosely decoupledA component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not hav">
+<meta property="og:image" content="https://richyang.me/media/jms_parts.png">
+<meta property="og:image" content="https://richyang.me/media/ptp-messaging.png">
+<meta property="og:image" content="https://richyang.me/media/pub-sub-messaging.png">
+<meta property="og:image" content="https://richyang.me/media/jms-programmingModel.gif">
+<meta property="og:updated_time" content="2015-12-05T04:53:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A glimpse of JMS">
+<meta name="twitter:description" content="what messaging provides?
+loosely decoupledA component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not hav">
+<meta name="twitter:image" content="https://richyang.me/media/jms_parts.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> A glimpse of JMS | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                A glimpse of JMS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-01T14:59:19+08:00" content="2015-04-01">
+              2015-04-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JMS/" itemprop="url" rel="index">
+                    <span itemprop="name">JMS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/01/a-glimpse-of-jms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/01/a-glimpse-of-jms/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="what-messaging-provides"><a href="#what-messaging-provides" class="headerlink" title="what messaging provides?"></a>what messaging provides?</h3><ul>
+<li><p><strong>loosely decoupled</strong><br>A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.</p>
+</li>
+<li><p><strong>asynchronous</strong><br>A JMS provider can deliver messages to a client as they arrive; a client does not have to request messages in order to receive them.</p>
+</li>
+<li><p><strong>reliable</strong><br>The JMS API can ensure that a message is delivered once and only once. Lower levels of reliability are available for applications that can afford to miss messages or to receive duplicate messages.</p>
+</li>
+</ul>
+<h3 id="JMS-architecture"><a href="#JMS-architecture" class="headerlink" title="JMS architecture"></a>JMS architecture</h3><ul>
+<li><strong>JMS provider</strong> - a messaging system implementing JMS specification, like WebSphere MQ, ActiveMQ etc.</li>
+<li><strong>JMS clients</strong> - programs or components written in Java which can produce or consume message</li>
+<li><strong>messages</strong> - the objects that communicate information between JMS clients.</li>
+<li><strong>Administered objects</strong> - preconfigured JMS objects created by an administrator for the use of clients. This objects can be looked up and referenced from JNDI namespace.<br><img src="/media/jms_parts.png" alt="jms\_parts"></li>
+</ul>
+<h3 id="Messaging-Domains"><a href="#Messaging-Domains" class="headerlink" title="Messaging Domains"></a>Messaging Domains</h3><h4 id="Point-to-Point-Messaging-Domain"><a href="#Point-to-Point-Messaging-Domain" class="headerlink" title="Point-to-Point Messaging Domain"></a>Point-to-Point Messaging Domain</h4><p><img src="/media/ptp-messaging.png" alt="ptp-messaging"></p>
+<ul>
+<li>Each message has only one consumer.</li>
+<li>A sender and a receiver of a message have no timing dependencies. The receiver can fetch the message whether or not it was running when the client sent the message.</li>
+<li>The receiver acknowledges the successful processing of a message.</li>
+</ul>
+<h4 id="Publish-Subscribe-Messaging-Domain"><a href="#Publish-Subscribe-Messaging-Domain" class="headerlink" title="Publish/Subscribe Messaging Domain"></a>Publish/Subscribe Messaging Domain</h4><p><img src="/media/pub-sub-messaging.png" alt="pub-sub-messaging"></p>
+<ul>
+<li>Each message can have multiple consumers.</li>
+<li>Publishers and subscribers have a timing dependency. A client that subscribes to a topic can consume only messages published after the client has created a subscription, and the subscriber must continue to be active in order for it to consume messages.</li>
+</ul>
+<h3 id="The-JMS-API-Programming-Model"><a href="#The-JMS-API-Programming-Model" class="headerlink" title="The JMS API Programming Model"></a>The JMS API Programming Model</h3><p><img src="/media/jms-programmingModel.gif" alt="jms-programmingModel"></p>
+<h4 id="JMS-Administered-Objects"><a href="#JMS-Administered-Objects" class="headerlink" title="JMS Administered Objects"></a>JMS Administered Objects</h4><p>Two parts of a JMS application, destinations and connection factories, are best maintained administratively rather than programmatically.</p>
+<p>A <strong>connection factory</strong> is the object a client uses to create a connection to a provider.</p>
+<p>In the PTP messaging domain, <strong>destinations</strong> are called queues. In the pub/sub messaging domain, <strong>destinations</strong> are called topics.</p>
+<h4 id="JMS-Connections"><a href="#JMS-Connections" class="headerlink" title="JMS Connections"></a>JMS Connections</h4><p>You use a connection to create one or more sessions.</p>
+<h4 id="JMS-Sessions"><a href="#JMS-Sessions" class="headerlink" title="JMS Sessions"></a>JMS Sessions</h4><p>A <strong>session</strong> is a single-threaded context for producing and consuming messages. You use sessions to create the following:</p>
+<ul>
+<li>Message producers</li>
+<li>Message consumers</li>
+<li>Messages</li>
+<li>Queue browsers</li>
+<li>Temporary queues and topics<br>Session class implements <em>Runnable</em> interface.</li>
+</ul>
+<h4 id="JMS-Message-Producers"><a href="#JMS-Message-Producers" class="headerlink" title="JMS Message Producers"></a>JMS Message Producers</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MessageProducer producer = session.createProducer(dest);</div><div class="line">MessageProducer producer = session.createProducer(queue);</div><div class="line">MessageProducer producer = session.createProducer(topic);</div><div class="line">producer.send(message);</div><div class="line"></div><div class="line">MessageProducer anon_prod = session.createProducer(<span class="keyword">null</span>);</div><div class="line">anon_prod.send(dest, message);</div></pre></td></tr></table></figure>
+<h4 id="JMS-Message-Consumers"><a href="#JMS-Message-Consumers" class="headerlink" title="JMS Message Consumers"></a>JMS Message Consumers</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MessageConsumer consumer = session.createConsumer(dest);</div><div class="line">MessageConsumer consumer = session.createConsumer(queue);</div><div class="line">MessageConsumer consumer = session.createConsumer(topic);</div><div class="line"> </div><div class="line">connection.start();</div><div class="line">Message m = consumer.receive();</div><div class="line">connection.start();</div><div class="line">Message m = consumer.receive(<span class="number">1000</span>); <span class="comment">// time out after a second</span></div></pre></td></tr></table></figure>
+<h4 id="JMS-Message-Listeners"><a href="#JMS-Message-Listeners" class="headerlink" title="JMS Message Listeners"></a>JMS Message Listeners</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Listener myListener = <span class="keyword">new</span> Listener();</div><div class="line">consumer.setMessageListener(myListener);</div></pre></td></tr></table></figure>
+<h4 id="JMS-Message-Selectors"><a href="#JMS-Message-Selectors" class="headerlink" title="JMS Message Selectors"></a>JMS Message Selectors</h4><p>This is for message filtering.The syntax of the expression is based on a subset of the SQL92 conditional expression syntax.<br><code>NewsType = ’Sports’ OR NewsType = ’Opinion’</code><br>The message consumer then receives only messages whose headers and properties match the selector.</p>
+<h4 id="JMS-Messages"><a href="#JMS-Messages" class="headerlink" title="JMS Messages"></a>JMS Messages</h4><p>JMS message includes 3 parts: header, properties, body, of which only header is required.</p>
+<h4 id="MS-Queue-Browsers"><a href="#MS-Queue-Browsers" class="headerlink" title="MS Queue Browsers"></a>MS Queue Browsers</h4><p>This browser can browse the messages in the queue and display the header values for each message.</p>
+<h3 id="basic-usage-examples"><a href="#basic-usage-examples" class="headerlink" title="basic usage examples"></a>basic usage examples</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PointToPoint</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ConnectionFactory factory;</div><div class="line">    <span class="keyword">private</span> Connection connection;</div><div class="line">    <span class="keyword">private</span> Session session;</div><div class="line">    <span class="keyword">private</span> Destination destination;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        factory = <span class="keyword">new</span> ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);</div><div class="line">        connection = factory.createConnection();</div><div class="line">        connection = factory.createConnection();</div><div class="line">        connection.start();</div><div class="line">        session = connection.createSession(<span class="keyword">false</span>, Session.AUTO_ACKNOWLEDGE);</div><div class="line">        destination = session.createQueue(<span class="string">"myqueue"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSend</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        MessageProducer producer = session.createProducer(destination);</div><div class="line">        TextMessage message = session.createTextMessage();</div><div class="line">        message.setText(<span class="string">"Hello ...This is a sample message..sending from FirstClient"</span>);</div><div class="line">        producer.send(message);</div><div class="line">        System.out.println(<span class="string">"Sent: "</span> + message.getText());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testReceive</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        MessageConsumer consumer = session.createConsumer(destination);</div><div class="line">        Message message = consumer.receive();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (message <span class="keyword">instanceof</span> TextMessage) &#123;</div><div class="line">            TextMessage text = (TextMessage) message;</div><div class="line">            System.out.println(<span class="string">"Message is : "</span> + text.getText());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="reliability-mechanisms"><a href="#reliability-mechanisms" class="headerlink" title="reliability mechanisms"></a>reliability mechanisms</h3><h4 id="acknowledge"><a href="#acknowledge" class="headerlink" title="acknowledge"></a>acknowledge</h4><h4 id="transaction"><a href="#transaction" class="headerlink" title="transaction"></a>transaction</h4><h4 id="message-persistence"><a href="#message-persistence" class="headerlink" title="message persistence"></a>message persistence</h4><h4 id="message-expiry"><a href="#message-expiry" class="headerlink" title="message expiry"></a>message expiry</h4><h4 id="message-priority-level"><a href="#message-priority-level" class="headerlink" title="message priority level"></a>message priority level</h4><h4 id="durable-subscriber"><a href="#durable-subscriber" class="headerlink" title="durable subscriber"></a>durable subscriber</h4>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TODO/" rel="tag"># TODO</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/30/servlet-basics/" rel="next" title="servlet basics">
+                <i class="fa fa-chevron-left"></i> servlet basics
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/02/inner-join-and-outer-join/" rel="prev" title="inner join and outer join">
+                inner join and outer join <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-messaging-provides"><span class="nav-number">1.</span> <span class="nav-text">what messaging provides?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JMS-architecture"><span class="nav-number">2.</span> <span class="nav-text">JMS architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Messaging-Domains"><span class="nav-number">3.</span> <span class="nav-text">Messaging Domains</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Point-to-Point-Messaging-Domain"><span class="nav-number">3.1.</span> <span class="nav-text">Point-to-Point Messaging Domain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Publish-Subscribe-Messaging-Domain"><span class="nav-number">3.2.</span> <span class="nav-text">Publish/Subscribe Messaging Domain</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-JMS-API-Programming-Model"><span class="nav-number">4.</span> <span class="nav-text">The JMS API Programming Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Administered-Objects"><span class="nav-number">4.1.</span> <span class="nav-text">JMS Administered Objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Connections"><span class="nav-number">4.2.</span> <span class="nav-text">JMS Connections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Sessions"><span class="nav-number">4.3.</span> <span class="nav-text">JMS Sessions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Message-Producers"><span class="nav-number">4.4.</span> <span class="nav-text">JMS Message Producers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Message-Consumers"><span class="nav-number">4.5.</span> <span class="nav-text">JMS Message Consumers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Message-Listeners"><span class="nav-number">4.6.</span> <span class="nav-text">JMS Message Listeners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Message-Selectors"><span class="nav-number">4.7.</span> <span class="nav-text">JMS Message Selectors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JMS-Messages"><span class="nav-number">4.8.</span> <span class="nav-text">JMS Messages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MS-Queue-Browsers"><span class="nav-number">4.9.</span> <span class="nav-text">MS Queue Browsers</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-usage-examples"><span class="nav-number">5.</span> <span class="nav-text">basic usage examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reliability-mechanisms"><span class="nav-number">6.</span> <span class="nav-text">reliability mechanisms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#acknowledge"><span class="nav-number">6.1.</span> <span class="nav-text">acknowledge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transaction"><span class="nav-number">6.2.</span> <span class="nav-text">transaction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message-persistence"><span class="nav-number">6.3.</span> <span class="nav-text">message persistence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message-expiry"><span class="nav-number">6.4.</span> <span class="nav-text">message expiry</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message-priority-level"><span class="nav-number">6.5.</span> <span class="nav-text">message priority level</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#durable-subscriber"><span class="nav-number">6.6.</span> <span class="nav-text">durable subscriber</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/01/a-glimpse-of-jms/';
+      var disqus_title = 'A glimpse of JMS';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

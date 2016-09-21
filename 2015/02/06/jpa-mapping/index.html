@@ -1,0 +1,939 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Table mapping@Entity@Table(name=&quot;EMP&quot;, schema=&quot;scott&quot;)
+Basic mapping
+
+
+Java type
+Database type
+
+String (char, char[])
+VARCHAR (CHAR, VARCHAR2, CLOB, TEXT)
+
+Number (BigDecimal, BigInteger, Integer, Dou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JPA - mapping">
+<meta property="og:url" content="https://richyang.me/2015/02/06/jpa-mapping/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Table mapping@Entity@Table(name=&quot;EMP&quot;, schema=&quot;scott&quot;)
+Basic mapping
+
+
+Java type
+Database type
+
+String (char, char[])
+VARCHAR (CHAR, VARCHAR2, CLOB, TEXT)
+
+Number (BigDecimal, BigInteger, Integer, Dou">
+<meta property="og:updated_time" content="2015-12-04T15:11:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JPA - mapping">
+<meta name="twitter:description" content="Table mapping@Entity@Table(name=&quot;EMP&quot;, schema=&quot;scott&quot;)
+Basic mapping
+
+
+Java type
+Database type
+
+String (char, char[])
+VARCHAR (CHAR, VARCHAR2, CLOB, TEXT)
+
+Number (BigDecimal, BigInteger, Integer, Dou">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> JPA - mapping | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JPA - mapping
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-02-06T02:52:11+08:00" content="2015-02-06">
+              2015-02-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JPA/" itemprop="url" rel="index">
+                    <span itemprop="name">JPA</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/02/06/jpa-mapping/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/02/06/jpa-mapping/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Table-mapping"><a href="#Table-mapping" class="headerlink" title="Table mapping"></a>Table mapping</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@Table</span>(name=<span class="string">"EMP"</span>, schema=<span class="string">"scott"</span>)</div></pre></td></tr></table></figure>
+<h3 id="Basic-mapping"><a href="#Basic-mapping" class="headerlink" title="Basic mapping"></a>Basic mapping</h3><p><table border="1" cellspacing="0" cellpadding="0"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>Java type</td></p>
+<p><td>Database type</td><br></p>
+<p><tr></tr></p>
+<p><td>String (char, char[])</td></p>
+<p><td>VARCHAR (CHAR, VARCHAR2, CLOB, TEXT)</td><br></p>
+<p><tr></tr></p>
+<p><td>Number (BigDecimal, BigInteger, Integer, Double, Long, Float, Short, Byte)</td></p>
+<p><td>NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE)</td><br></p>
+<p><tr></tr></p>
+<p><td>int, long, float, double, short, byte</td></p>
+<p><td>NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE)</td><br></p>
+<p><tr></tr></p>
+<p><td>byte[]</td></p>
+<p><td>VARBINARY (BINARY, BLOB)</td><br></p>
+<p><tr></tr></p>
+<p><td>boolean (Boolean)</td></p>
+<p><td>BOOLEAN (BIT, SMALLINT, INT, NUMBER)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.util.Date</td></p>
+<p><td>TIMESTAMP (DATE, DATETIME)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.sql.Date</td></p>
+<p><td>DATE (TIMESTAMP, DATETIME)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.sql.Time</td></p>
+<p><td>TIME (TIMESTAMP, DATETIME)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.sql.Timestamp</td></p>
+<p><td>TIMESTAMP (DATETIME, DATE)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.util.Calendar</td></p>
+<p><td>TIMESTAMP (DATETIME, DATE)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.lang.Enum</td></p>
+<p><td>NUMERIC (VARCHAR, CHAR)</td><br></p>
+<p><tr></tr></p>
+<p><td>java.util.Serializable</td></p>
+<p><td>VARBINARY (BINARY, BLOB)</td><br><br><br><br><em><strong>@Basic</strong></em> annotation is optional.  Any attributes that have no other annotations and do not reference other entities will be automatically mapped as basic, and even serialized if not a basic type. This is auto-mapping.</p>
+<p>customize the default mapping</p>
+<h4 id="lazy-fetching"><a href="#lazy-fetching" class="headerlink" title="lazy fetching"></a>lazy fetching</h4><p>@Basic can specify the lazy fetching mode.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Basic</span>(fetch=FetchType.LAZY)</div></pre></td></tr></table></figure></p>
+<h4 id="specify-the-column-name-Column"><a href="#specify-the-column-name-Column" class="headerlink" title="specify the column name - @Column"></a>specify the column name - @Column</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Column</span>(name=<span class="string">"ADDR"</span>)</div></pre></td></tr></table></figure>
+<h4 id="large-object-Lob"><a href="#large-object-Lob" class="headerlink" title="large object - @Lob"></a>large object - @Lob</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Lob</span></div></pre></td></tr></table></figure>
+<h4 id="temporal-types-for-java-util-Date-and-java-util-Calendar-Temporal"><a href="#temporal-types-for-java-util-Date-and-java-util-Calendar-Temporal" class="headerlink" title="temporal types for java.util.Date and java.util.Calendar - @Temporal"></a>temporal types for java.util.Date and java.util.Calendar - @Temporal</h4><p>If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Temporal</span>(TemporalType.DATE)</div><div class="line"><span class="keyword">private</span> Calendar dob;</div></pre></td></tr></table></figure></p>
+<h4 id="transient-state-Transient"><a href="#transient-state-Transient" class="headerlink" title="transient state - @Transient"></a>transient state - @Transient</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">transit <span class="keyword">private</span> String s;</div><div class="line"></div><div class="line"><span class="meta">@Transient</span> <span class="keyword">private</span> String s;</div></pre></td></tr></table></figure>
+<h4 id="enums-Enumerated"><a href="#enums-Enumerated" class="headerlink" title="enums - @Enumerated"></a>enums - @Enumerated</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Basic</span></div><div class="line"><span class="meta">@Enumerated</span>(EnumType.STRING)</div><div class="line"><span class="keyword">private</span> Gender gender;</div></pre></td></tr></table></figure>
+<h3 id="primary-Key"><a href="#primary-Key" class="headerlink" title="primary Key"></a>primary Key</h3><ul>
+<li>primitive type: byte, int, short, long, char, (float, double)</li>
+<li>wrapper classes of primitives: Byte, Integer, Short, Long, Character, (Float, Double)</li>
+<li>string: String</li>
+<li>large numeric type: java.math.BigInteger, (java.math.BigDecimal)</li>
+<li>temporal type: java.sql.Date, java.util.Date<br><em>WARNING: using floating types for primary keys is risky endevour and is not recommended.</em></li>
+</ul>
+<p>there are 4 types of identity generation.</p>
+<h4 id="Automatic"><a href="#Automatic" class="headerlink" title="Automatic"></a>Automatic</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(strategy=GenerationType.AUTO)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure>
+<p>The provider can choose table-based strategy or sequence-based strategy. This strategy may need schema generation and is a choice for development or prototyping. It’s not recommended for other cases. You should always specify the other three strategies.</p>
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(stategy=GenerationType.TABLE)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure>
+<p>This will use the default table assumed by the provider. So it’s better to declare more detailed generator by giving the specified table.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@TableGenerator</span>(name=<span class="string">"Emp_Gen"</span>, table=<span class="string">"ID_GEN"</span>, pkColumnName=<span class="string">"GEN_NAME"</span>, valueColumnName=<span class="string">"GEN_VAL"</span>, pkColumnValue=<span class="string">"Emp_Gen"</span>, initialValue=<span class="number">1000</span>, allocationSize=<span class="number">100000</span>)</div><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(generator=<span class="string">"Emp_Gen"</span>)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure></p>
+<h4 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(strategy=GenerationType.SEQUENCE)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure>
+<p>This will also use the default sequence assumed by the provider. But a problem is that this default sequence will be shared by different entity.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SequenceGenerator</span>(name=<span class="string">"Emp_Gen"</span>, sequenceName=<span class="string">"Emp_Seq"</span>, initialValue=<span class="number">1</span>, allocationSize=<span class="number">10000</span>)</div><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(generator=<span class="string">"Emp_Gen"</span>)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure></p>
+<p>It depends on whether you enable the schema generation. If no, the sequence must already exist; If yes, the SQL to create the sequence is run by the provider.</p>
+<h4 id="Identity"><a href="#Identity" class="headerlink" title="Identity"></a>Identity</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Id</span> <span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)</div><div class="line"><span class="keyword">private</span> <span class="keyword">long</span> id;</div></pre></td></tr></table></figure>
+<p>Identity column is supported by some databases. Using this mode means the identifier is not available until after commit time.</p>
+<h3 id="Relationship"><a href="#Relationship" class="headerlink" title="Relationship"></a>Relationship</h3><p><table border="2" frame="hsides" rules="groups" cellspacing="0" cellpadding="6"></table></p>
+<p><thead></thead></p>
+<p><tr></tr></p>
+<p><th class="left" scope="col">Relationship</th></p>
+<p><th class="left" scope="col">Owning-Side</th></p>
+<p><th class="left" scope="col">Inverse-Side</th><br><br></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td class="left">one-to-one</td></p>
+<p><td class="left">@OneToOne</td></p>
+<p><td class="left">@OneToOne(mappedBy=”othersideName”)</td><br></p>
+<p><tr></tr></p>
+<p><td class="left">one-to-many / many-to-one</td></p>
+<p><td class="left">@ManyToOne</td></p>
+<p><td class="left">@OneToMany(mappedBy=”othersideName”)</td><br></p>
+<p><tr></tr></p>
+<p><td class="left">many-to-many</td></p>
+<p><td class="left">@ManyToMany</td></p>
+<p><td class="left">@ManyToMany(mappedBy =”xxx”)</td><br><br><br><br>For many-to-many mapping, you can using join table to declare the many-to-many relationship<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@ManyToMany</span></div><div class="line"><span class="meta">@JoinTable</span>(name = <span class="string">"BOOK_AUTHOR"</span>, </div><div class="line">joinColumns = &#123; <span class="meta">@JoinColumn</span>(name = <span class="string">"BOOK_ID"</span>, referencedColumnName = <span class="string">"id"</span>) &#125;, </div><div class="line">inverseJoinColumns = &#123; <span class="meta">@JoinColumn</span>(name = <span class="string">"AUTHORID"</span>, referencedColumnName = <span class="string">"id"</span>) &#125;)</div></pre></td></tr></table></figure></p>
+<p>The three relationships can use <span style="text-decoration: underline;"><em>fetch=FetchType.LAZY</em></span>.</p>
+<h3 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h3><p>JPA通过在父类增加@Inheritance(strategy=InheritanceType.xxx)来声明继承关系。A支持3种继承策略：</p>
+<ol>
+<li>单表继承（InheritanceType.SINGLE<sub>TABLE），所有继承树上的类共用一张表，在父类指定（</sub>@DiscriminatorColumn）声明并在每个类指定@DiscriminatorValue来区分类型。</li>
+<li>类表继承（InheritanceType.JOINED），父子类共同的部分公用一张表，其余部分保存到各自的表，通过join进行关联。</li>
+<li>具体表继承（InheritanceType.TABLE<sub>PER</sub><sub>CLASS</sub>)，每个具体类映射到自己的表。<br>其中1和2能够支持多态，但是1需要允许字段为NULL，2需要多个JOIN关系；3最适合关系数据库，对多态支持不好。具体应用时根据需要取舍。</li>
+</ol>
+<h3 id="Embeddables"><a href="#Embeddables" class="headerlink" title="Embeddables"></a>Embeddables</h3><h3 id="Advanced-mapping"><a href="#Advanced-mapping" class="headerlink" title="Advanced mapping"></a>Advanced mapping</h3><h4 id="element-collection"><a href="#element-collection" class="headerlink" title="element collection"></a>element collection</h4>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/04/oracle-a-short-jouney/" rel="next" title="Get started with Oracle 11g">
+                <i class="fa fa-chevron-left"></i> Get started with Oracle 11g
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/10/jpa-runtime/" rel="prev" title="JPA - runtime">
+                JPA - runtime <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-mapping"><span class="nav-number">1.</span> <span class="nav-text">Table mapping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-mapping"><span class="nav-number">2.</span> <span class="nav-text">Basic mapping</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lazy-fetching"><span class="nav-number">2.1.</span> <span class="nav-text">lazy fetching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#specify-the-column-name-Column"><span class="nav-number">2.2.</span> <span class="nav-text">specify the column name - @Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#large-object-Lob"><span class="nav-number">2.3.</span> <span class="nav-text">large object - @Lob</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#temporal-types-for-java-util-Date-and-java-util-Calendar-Temporal"><span class="nav-number">2.4.</span> <span class="nav-text">temporal types for java.util.Date and java.util.Calendar - @Temporal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transient-state-Transient"><span class="nav-number">2.5.</span> <span class="nav-text">transient state - @Transient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#enums-Enumerated"><span class="nav-number">2.6.</span> <span class="nav-text">enums - @Enumerated</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#primary-Key"><span class="nav-number">3.</span> <span class="nav-text">primary Key</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Automatic"><span class="nav-number">3.1.</span> <span class="nav-text">Automatic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Table"><span class="nav-number">3.2.</span> <span class="nav-text">Table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence"><span class="nav-number">3.3.</span> <span class="nav-text">Sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Identity"><span class="nav-number">3.4.</span> <span class="nav-text">Identity</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relationship"><span class="nav-number">4.</span> <span class="nav-text">Relationship</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">5.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embeddables"><span class="nav-number">6.</span> <span class="nav-text">Embeddables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Advanced-mapping"><span class="nav-number">7.</span> <span class="nav-text">Advanced mapping</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#element-collection"><span class="nav-number">7.1.</span> <span class="nav-text">element collection</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/02/06/jpa-mapping/';
+      var disqus_title = 'JPA - mapping';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

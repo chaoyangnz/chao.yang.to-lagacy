@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="InnoDB,MySQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Basic knowledgeIsolation Level
+MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL InnoDB Locking and Isolation Level">
+<meta property="og:url" content="https://richyang.me/2015/06/10/mysql-innodb-locking-and-isolation-level/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Basic knowledgeIsolation Level
+MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEA">
+<meta property="og:image" content="https://richyang.me/media/primary_index.png">
+<meta property="og:image" content="https://richyang.me/media/mysql_index.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL InnoDB Locking and Isolation Level">
+<meta name="twitter:description" content="Basic knowledgeIsolation Level
+MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEA">
+<meta name="twitter:image" content="https://richyang.me/media/primary_index.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> MySQL InnoDB Locking and Isolation Level | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySQL InnoDB Locking and Isolation Level
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-10T16:59:43+08:00" content="2015-06-10">
+              2015-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Databases/" itemprop="url" rel="index">
+                    <span itemprop="name">Databases</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/10/mysql-innodb-locking-and-isolation-level/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/10/mysql-innodb-locking-and-isolation-level/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h3><h4 id="Isolation-Level"><a href="#Isolation-Level" class="headerlink" title="Isolation Level"></a>Isolation Level</h4><blockquote>
+<p>MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)<br>Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE</p>
+</blockquote>
+<p>Innodb’s Isolation level is slightly different from the standard SQL Isolation level definition:</p>
+<table style="height: 122px;" border="1" width="715"><br><tbody><br><tr><br><td></td><br><td>Read Uncommitted</td><br><td>Read Committed</td><br><td>Repeatable Read</td><br><td>Serializable</td><br></tr><br><tr><br><td>dirty reads</td><br><td>yes</td><br><td>no</td><br><td>no</td><br><td>no</td><br></tr><br><tr><br><td>unrepeatable reads</td><br><td>yes</td><br><td>yes</td><br><td><span style="background-color: #ff00ff;"><strong>no</strong></span></td><br><td>no</td><br></tr><br><tr><br><td>phantom reads</td><br><td>yes</td><br><td>yes</td><br><td><span style="background-color: #ff00ff;"><strong>no</strong></span></td><br><td>no</td><br></tr><br></tbody><br></table><br>MySQL suggests to use Read Uncommitted and Serializable rarely.<br><br>Repeatable Read is the default Isolation Level, which can ensure repeatable reads and no phantom reads.<br><br>#### Index structure<br><br>InnoDB has two types of index: clustered index, secondary indexes<br><br>Clustered index is synonymous with the <a href="http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_primary_key" title="primary key" target="_blank" rel="external">primary key</a>, which means the record is stored in the leaf node of the index B+ Tree.<br><br>The key of leaf is the primary key. Even if you haven’t specified any primary key, innodb will generate a hidden one for you.<br><br>Secondary indexes are the ones other than the primary index. It doesn’t store the record data, but has a pointer to the primary index.<br><br><img src="/media/primary_index.png" alt="primary_index"><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">article</span> <span class="params">(</span></span></div><div class="line">  id INT UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line">  userid VARCHAR(<span class="number">20</span>) NOT NULL,</div><div class="line">  blogid <span class="title">CHAR</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">  pubtime TIMESTAMP NOT NULL,</div><div class="line">  comment <span class="title">VARCHAR</span><span class="params">(<span class="number">1024</span>)</span>,</div><div class="line">  PRIMARY <span class="title">KEY</span><span class="params">(id)</span>,</div><div class="line">  KEY <span class="title">when_who</span> <span class="params">(pubtime, userid)</span></div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure><br><br><img src="/media/mysql_index.png" alt="mysql_index"><br><br>#### Locking<br><br>MySQL support multiple granularity locking .<br><br>##### Lock modes<br><br>&nbsp;<br><br><em>   row-level:  <code>S</code> lock and <code>X</code> lock (<code>S</code> - shared/read,  <code>X</code> - exclusive/write)
+</em>   table-level: <code>IS</code> lock and <code>IX</code> lock (<code>IS</code> - intention shared/read, <code>IX</code> - intention exclusive/write)<br><div class="informaltable"><br><table style="height: 159px;" border="1" summary=" Compatibility matrix showing which combinations of&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+          lock types X, IX, S, and IS are allowed. Each cell in the&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+          matrix is marked as either &quot;Compatible&quot; or &quot;Conflict&quot;.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+" width="464"><colgroup> <col> <col> <col> <col> <col></colgroup><br><thead><br><tr><br><th scope="col"></th><br><th scope="col"><em><code>X</code></em></th><br><th scope="col"><em><code>IX</code></em></th><br><th scope="col"><em><code>S</code></em></th><br><th scope="col"><em><code>IS</code></em></th><br></tr><br></thead><br><tbody><br><tr><br><td scope="row"><em><code>X</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br></tr><br><tr><br><td scope="row"><em><code>IX</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br><tr><br><td scope="row"><em><code>S</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br><tr><br><td scope="row"><em><code>IS</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br></tbody><br></table><br></div><br><a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... LOCK IN SHARE MODE</code></a> sets an <em><code>IS</code></em>  lock and <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FOR UPDATE</code></a> sets an _<code>IX</code>_lock.<br><br>A lock is granted to a requesting transaction if it is compatible with existing locks, but not if it conflicts with existing locks. A transaction waits until the conflicting existing lock is released.<br><br>Intention locks do not block anything except full table requests (for example, <code>LOCK TABLES ... WRITE</code>)<br><br>##### Lock types<br><br><em>   Record lock: This is a lock on an index record.
+</em>   Gap lock: This is a lock on a gap between index records, or a lock on the gap before the first or after the last index record.<br><em>   Next-key lock: This is a combination of a record lock on the index record and a gap lock on the gap before the index record. A next-key lock is an index-record lock plus a gap lock on the gap preceding the index record.<br>InnoDB uses clustered index and the row data are always in the leaf of the index B+ Tree. Thus, the row-level locks are actually index-record locks<br><br>#### Nonlocking - Consistent Nonlocking reads<br><br>Consistent read is the default mode in which <code>InnoDB</code> processes <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT</code></a> statements in <a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_read-committed" target="_blank" rel="external"><code>READ COMMITTED</code></a> and<a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_repeatable-read" target="_blank" rel="external"><code>REPEATABLE READ</code></a> isolation levels.<br><br>In <code>REPEATABLE READ</code>,  all consistent reads within the same transaction read the snapshot established by <em>*the first such read</em></em> in that transaction.<br><br>In <code>READ COMMITTED</code>, each consistent read within a transaction sets and reads its own fresh snapshot. (snapshot update at every read statement)<br><br>MVCC is used to naturally implement REPEATABLE READ.<br><br>#### Locking in different Isolation Level<br><br><table style="height: 594px;" border="1" width="1125"><br><tbody><br><tr><br><td colspan="2"></td><br><td>Read Uncommitted(RU)</td><br><td>Read Committed(RC)</td><br><td>Repeatable Read(RR)</td><br><td>Serializable</td><br></tr><br><tr><br><td>consistent reads</td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM</code></a></td><br><td>no lockearlier version might be used(dirty read)</td><br><td>no lockeach consistent read reads its own fresh snapshot</td><br><td>no lockall consistent reads read the snapshot established by the first read</td><br><td>implicitly converts <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT</code></a> statements to <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... LOCK IN SHARE MODE</code></a></td><br></tr><br><tr><br><td rowspan="4">locking reads</td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM ... LOCK IN SHARE MODE</code></a></td><br><td rowspan="4"> like RC</td><br><td rowspan="4">locks only index records, no gap locks except for foreign-key constraint checking and duplicate-key checking</td><br><td rowspan="4">unique index: locks only the index record foundother search condition: locks the index range scanned, using <a href="http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_gap_lock" title="gap lock" target="_blank" rel="external">gap locks</a> or <a href="http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_next_key_lock" title="next-key lock" target="_blank" rel="external">next-key locks</a></td><br><td rowspan="4">like RR</td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM ... FOR UPDATE</code></a></td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/update.html" title="13.2.11 UPDATE Syntax" target="_blank" rel="external"><code>UPDATE ... WHERE ...</code></a></td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/delete.html" title="13.2.2 DELETE Syntax" target="_blank" rel="external"><code>DELETE FROM ... WHERE ...</code></a></td><br></tr><br><tr><br><td></td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/insert.html" title="13.2.5 INSERT Syntax" target="_blank" rel="external"><code>INSERT</code></a></td><br><td colspan="4">index-record exclusive lock, not a next-key lockif a duplicate-key error occurs, a shared lock on the duplicate index record is set.</td><br></tr><br><tr><br><td></td><br><td></td><br><td></td><br><td></td><br><td></td><br><td></td><br></tr><br></tbody><br></table>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/InnoDB/" rel="tag"># InnoDB</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/05/jvm-dump-lab/" rel="next" title="JVM dump lab">
+                <i class="fa fa-chevron-left"></i> JVM dump lab
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/26/java-collections-framework/" rel="prev" title="Java Collections Framework">
+                Java Collections Framework <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-knowledge"><span class="nav-number">1.</span> <span class="nav-text">Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Isolation-Level"><span class="nav-number">1.1.</span> <span class="nav-text">Isolation Level</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/06/10/mysql-innodb-locking-and-isolation-level/';
+      var disqus_title = 'MySQL InnoDB Locking and Isolation Level';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="IBM dump files[pdf-embedder url=”/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf”]
+What is java core (or javadump or thread dump)?A java core is a snapshot of the threads at work in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM dump lab">
+<meta property="og:url" content="https://richyang.me/2015/06/05/jvm-dump-lab/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="IBM dump files[pdf-embedder url=”/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf”]
+What is java core (or javadump or thread dump)?A java core is a snapshot of the threads at work in">
+<meta property="og:updated_time" content="2015-12-05T04:46:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM dump lab">
+<meta name="twitter:description" content="IBM dump files[pdf-embedder url=”/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf”]
+What is java core (or javadump or thread dump)?A java core is a snapshot of the threads at work in">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> JVM dump lab | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JVM dump lab
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-05T15:16:23+08:00" content="2015-06-05">
+              2015-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Performance/" itemprop="url" rel="index">
+                    <span itemprop="name">Performance</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/05/jvm-dump-lab/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/05/jvm-dump-lab/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="IBM-dump-files"><a href="#IBM-dump-files" class="headerlink" title="IBM dump files"></a>IBM dump files</h3><p>[pdf-embedder url=”/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf”]</p>
+<h4 id="What-is-java-core-or-javadump-or-thread-dump"><a href="#What-is-java-core-or-javadump-or-thread-dump" class="headerlink" title="What is java core (or javadump or thread dump)?"></a><strong>What is java core (or javadump or thread dump)?</strong></h4><p>A <strong>java core</strong> is a snapshot of the threads at work in a JVM. It also details a cross section of information from the major components in the JVM like XM,XE, LK, etc (IBM Javacore only, Sun does not – it just shows threads)</p>
+<p>A <strong>Java dump</strong>, also known as a <strong>Java core</strong>, Java <strong>thread dump</strong>, or a thread dump is a file that contains the following sections:</p>
+<ul>
+<li>All of the threads that run on a Java Virtual Machine (JVM).</li>
+<li>All of the monitors on a JVM.</li>
+<li>Some useful information about the system that the JVM runs under.<figure class="highlight"><table><tr><td class="code"><pre><div class="line"># kill list</div><div class="line"></div><div class="line">1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP</div><div class="line">6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1</div><div class="line">11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM</div><div class="line">16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP</div><div class="line">21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ</div><div class="line">26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR</div><div class="line">31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3</div><div class="line">38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8</div><div class="line">43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13</div><div class="line">48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12</div><div class="line">53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7</div><div class="line">58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2</div><div class="line">63) SIGRTMAX-1 64) SIGRTMAX</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="What-is-a-heap-dump"><a href="#What-is-a-heap-dump" class="headerlink" title="What is a heap dump?"></a><strong>What is a heap dump?</strong></h4><p>A <strong>heapdump</strong> is a snapshot of JVM memory – it shows the live objects on the heap along with references between objects. It is used to determine memory usage patterns and memory leak suspects.</p>
+<p>A heap dump is a snapshot of memory at a given point in time. It contains information on the Java objects and classes in memory at the time the snapshot was taken. In the same way that thread dumps are an instant in time a single heap dump cannot provide much in the way of temporal information to answer questions like “where did an object come from?” or “what has it been doing?”</p>
+<p>Heap dumps come in various formats:</p>
+<ul>
+<li>the Sun VM generates HPROF</li>
+<li>the IBM VM provides portable heap dump (PHD) files.<br>At Rally we run Sun’s VM so usually work with HPROF dumps. The internals vary a little but the basic principals are still the same.</li>
+</ul>
+<ul>
+<li>See more at: <a href="https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf" target="_blank" rel="external">https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf</a></li>
+</ul>
+<p><strong>How to get a heap dump?</strong></p>
+<p>Executing the Java VM with the appropriate parameters:</p>
+<ul>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnOutOfMemoryError</code></span> writes heap dump on <span class="geshifilter"><code>OutOfMemoryError</code></span> (recommended)</li>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnCtrlBreak</code></span> writes heap dump together with thread dump on <span class="geshifilter"><code>CTRL+BREAK</code></span></li>
+<li>by default enabled on WebSphere<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#java -Xdump:what</div><div class="line"></div><div class="line">Registered dump agents</div><div class="line">----------------------</div><div class="line">dumpFn=doSystemDump</div><div class="line">events=gpf+abort</div><div class="line">filter=</div><div class="line">label=//core.%Y%m%d.%H%M%S.%pid.%seq.dmp</div><div class="line">range=1..0</div><div class="line">priority=999</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doSnapDump</div><div class="line">events=gpf+abort</div><div class="line">filter=</div><div class="line">label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc</div><div class="line">range=1..0</div><div class="line">priority=500</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doSnapDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc</div><div class="line">range=1..4</div><div class="line">priority=500</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doHeapDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//heapdump.%Y%m%d.%H%M%S.%pid.%seq.phd</div><div class="line">range=1..4</div><div class="line">priority=40</div><div class="line">request=exclusive+compact+prepwalk</div><div class="line">opts=PHD</div><div class="line">----------------------</div><div class="line">dumpFn=doJavaDump</div><div class="line">events=gpf+user+abort</div><div class="line">filter=</div><div class="line">label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt</div><div class="line">range=1..0</div><div class="line">priority=10</div><div class="line">request=exclusive</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doJavaDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt</div><div class="line">range=1..4</div><div class="line">priority=10</div><div class="line">request=exclusive</div><div class="line">opts=</div><div class="line">----------------------</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Or you can run the jmap tool:</p>
+<ul>
+<li>Sun (Linux, Solaris; not on Windows) <span class="geshifilter"><code>JMap Java 5: jmap -heap:format=b</code></span></li>
+<li>Sun (Linux, Solaris; Windows see link) <span class="geshifilter"><code>JMap Java 6: jmap.exe -dump:format=b,file=HeapDump.hprof</code></span></li>
+<li>Sun (Linus, Solaris) JMap with Core Dump File: <span class="geshifilter"><code>jmap -dump:format=b,file=HeapDump.hprof /path/to/bin/java core_dump_file</code></span></li>
+<li>Sun JConsole: Launch <span class="geshifilter"><code>jconsole.exe</code></span> and invoke operation <span class="geshifilter"><code>dumpHeap()</code></span> on HotSpotDiagnostic MBean</li>
+<li>SAP JVMMon: Launch <span class="geshifilter"><code>jvmmon.exe</code></span> and call menu for dumping the heap</li>
+</ul>
+<h4 id="What-is-system-core-dump-and-snap-trace"><a href="#What-is-system-core-dump-and-snap-trace" class="headerlink" title="What is system core dump and snap trace?"></a>What is system core dump and snap trace?</h4><h3 id="Analyzer-Tools"><a href="#Analyzer-Tools" class="headerlink" title="Analyzer Tools"></a>Analyzer Tools</h3><h4 id="ThreadAnalyzer"><a href="#ThreadAnalyzer" class="headerlink" title="ThreadAnalyzer"></a><strong>ThreadAnalyzer</strong></h4><ul>
+<li><p>ThreadAnalyzer is a problem determination tool for WebSphere Application Server thread performance and deadlock detection. You can use it to obtain a Java dump from an application server and use its analysis features for problem determination. For performance problem determination, ThreadAnalyzer provides a top-of-the-stack (TOS) analysis that counts all of the methods at the top of the stack for the listed threads.</p>
+</li>
+<li><p>It then sorts them by ‘weight’ (automatically computed by ThreadAnalyzer), and lists the possible performance bottlenecks in your application. ThreadAnalyzer does automatic deadlock detection while it analyzes the Java dump.<br><strong>Downloading ThreadAnalyzer</strong></p>
+</li>
+</ul>
+<p>To download ThreadAnalyzer go to</p>
+<p><a href="http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html" target="_blank" rel="external">http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html</a></p>
+<h4 id="IBM-Thread-and-Monitor-Dump-Analyzer-for-Java"><a href="#IBM-Thread-and-Monitor-Dump-Analyzer-for-Java" class="headerlink" title="IBM Thread and Monitor Dump Analyzer for Java"></a><strong>IBM Thread and Monitor Dump Analyzer for Java</strong></h4><ul>
+<li><p>During the run time of a Java™ process, some Java Virtual Machiness (JVMs) may not respond predictably and oftentimes seem to hang up for a long time or until JVM shutdown occurs. It is not easy to determine the root cause of these sorts of problems.</p>
+</li>
+<li><p>By triggering a <em>javacore</em> when a Java process does not respond, it is possible to collect diagnostic information related to the JVM and a Java application captured at a particular point during execution. For example, the information can be about the operating system, the application environment, threads, native stack, locks, and memory. The exact contents are dependent on the platform on which the application is running.</p>
+</li>
+<li><p>On some platforms, and in some cases, javacore is known as “javadump.” The code that creates javacore is part of the JVM. One can control it by using environment variables and run-time switches. By default, a javacore occurs when the JVM terminates unexpectedly. A javacore can also be triggered by sending specific signals to the JVM. Although javacore or javadump is present in Sun Solaris JVMs, much of the content of the javacore is added by IBM and, therefore, is present only in IBM JVMs.</p>
+</li>
+<li><p>IBM Thread and Monitor Dump Analyzer for Java analyzes javacore and diagnoses monitor locks and thread activities in order to identify the root cause of hangs, deadlocks, and resource contention or monitor bottlenecks.<br><strong>How does it work?</strong></p>
+</li>
+<li><p>This technology analyzes each thread information and provides diagnostic information, such as current thread information, the signal that caused the javacore, Java heap information (maximum Java heap size, initial Java heap size, garbage collector counter, allocation failure counter, free Java heap size, and allocated Java heap size), number of runnable threads, total number of threads, number of monitors locked, and deadlock information.</p>
+</li>
+<li><p>In addition, IBM Thread and Monitor Dump Analyzer for Java provides the recommended size of the Java heap cluster (applicable only to IBM SDK 1.4.2 and 1.3.1 SR7 or above) based on the heuristic analysis engine.</p>
+</li>
+<li><p>IBM Thread and Monitor Dump Analyzer for Java compares each javacore and provides process ID information for threads, time stamp of the first javacore, time stamp of the last javacore, number of garbage collections per minute, number of allocation failures per minute, time between the first javacore and the last javacore, number of hang suspects, and list of hang suspects.</p>
+</li>
+<li><p>This technology also compares all monitor information in javacore and detects deadlock and resource contention or monitor bottlenecks, if there are any.</p>
+</li>
+</ul>
+<h4 id="HeapAnalyzer"><a href="#HeapAnalyzer" class="headerlink" title="HeapAnalyzer"></a><strong>HeapAnalyzer</strong></h4><ul>
+<li><p>HeapAnalyzer allows the finding of a possible Java™ heap leak area through its heuristic search engine and analysis of the Java heap dump in Java applications.</p>
+</li>
+<li><p>Java heap areas define objects, arrays, and classes. When the Garbage Collector allocates areas of storage in the heap, an object continues to be live while a reference to it exists somewhere in the active state of the JVM; therefore the object is reachable. When an object ceases to be referenced from the active state, it becomes garbage and can be reclaimed for reuse.</p>
+</li>
+<li><p>When this reclamation occurs, the Garbage Collector must process a possible finalizer and also ensure that any internal JVM resources that are associated with the object are returned to the pool of such resources. Java heap dumps are snap shots of Java heaps at specific times.<br><strong>How does it work?</strong></p>
+</li>
+</ul>
+<p>HeapAnalyzer analyzes Java heap dumps by parsing the Java heap dump, creating directional graphs, transforming them into directional trees, and executing the heuristic search engine.</p>
+<p>The following are examples of features:</p>
+<ul>
+<li>List of Java heap leak suspects</li>
+<li>Recommendation of the size of kCluster</li>
+<li>List of gaps among allocated objects/classes/arrays</li>
+<li>Java objects/classes/arrays search engine</li>
+<li>List of objects/classes/arrays by type name</li>
+<li>List of objects/classes/arrays by object name</li>
+<li>List of objects/classes/arrays by address</li>
+<li>List of objects/classes/arrays by size</li>
+<li>List of objects/classes/arrays by size of child</li>
+<li>List of objects/classes/arrays by number of child</li>
+<li>List of objects/classes/arrays by frequency</li>
+<li>List of available heap spaces by size</li>
+<li>Tree view of Java heap dump</li>
+<li>Loading/saving processed Java heap dumps.</li>
+</ul>
+<h4 id="Memory-Analyzer"><a href="#Memory-Analyzer" class="headerlink" title="Memory Analyzer"></a>Memory Analyzer</h4><p>The Memory Dump Diagnostic for Java (MDD4J) tool has been deprecated and is no longer available.</p>
+<p>Memory Analyzer is in the portfolio of IBM Monitoring and Diagnostic Tools for Java, which are IBM’s primary troubleshooting tools for problems with Java applications. Memory Analyzer is the recommended heap dump analysis tool.</p>
+<p>Memory Analyzer extends Eclipse MAT version 1.4 using the Diagnostic Tool Framework for Java (DTFJ) which enables Java heap analysis using operating system level dumps and IBM Portable Heap Dumps (PHD).</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" rel="next" title="Book notes - Practical Unit Test with JUnit and Mockito">
+                <i class="fa fa-chevron-left"></i> Book notes - Practical Unit Test with JUnit and Mockito
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/10/mysql-innodb-locking-and-isolation-level/" rel="prev" title="MySQL InnoDB Locking and Isolation Level">
+                MySQL InnoDB Locking and Isolation Level <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#IBM-dump-files"><span class="nav-number">1.</span> <span class="nav-text">IBM dump files</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-java-core-or-javadump-or-thread-dump"><span class="nav-number">1.1.</span> <span class="nav-text">What is java core (or javadump or thread dump)?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-a-heap-dump"><span class="nav-number">1.2.</span> <span class="nav-text">What is a heap dump?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-system-core-dump-and-snap-trace"><span class="nav-number">1.3.</span> <span class="nav-text">What is system core dump and snap trace?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyzer-Tools"><span class="nav-number">2.</span> <span class="nav-text">Analyzer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadAnalyzer"><span class="nav-number">2.1.</span> <span class="nav-text">ThreadAnalyzer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IBM-Thread-and-Monitor-Dump-Analyzer-for-Java"><span class="nav-number">2.2.</span> <span class="nav-text">IBM Thread and Monitor Dump Analyzer for Java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HeapAnalyzer"><span class="nav-number">2.3.</span> <span class="nav-text">HeapAnalyzer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-Analyzer"><span class="nav-number">2.4.</span> <span class="nav-text">Memory Analyzer</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/06/05/jvm-dump-lab/';
+      var disqus_title = 'JVM dump lab';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Crosscutting concerns refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.
+Typical use cases:
+
+logging
+se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring framework - AOP">
+<meta property="og:url" content="https://richyang.me/2015/04/03/spring-framework-aop/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Crosscutting concerns refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.
+Typical use cases:
+
+logging
+se">
+<meta property="og:image" content="https://richyang.me/media/spring-aop.jpg">
+<meta property="og:image" content="https://richyang.me/media/spring-aop-concepts.png">
+<meta property="og:image" content="https://richyang.me/media/advice-types.jpg">
+<meta property="og:updated_time" content="2016-08-30T05:31:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring framework - AOP">
+<meta name="twitter:description" content="Crosscutting concerns refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.
+Typical use cases:
+
+logging
+se">
+<meta name="twitter:image" content="https://richyang.me/media/spring-aop.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Spring framework - AOP | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring framework - AOP
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-03T16:17:51+08:00" content="2015-04-03">
+              2015-04-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/03/spring-framework-aop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/03/spring-framework-aop/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>Crosscutting concerns</em> refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.</p>
+<p>Typical use cases:</p>
+<ul>
+<li>logging</li>
+<li>security</li>
+<li>transaction</li>
+</ul>
+<p>Concepts:</p>
+<ul>
+<li><strong>Pointcut</strong> -&gt; where to do: class filtering and method matching</li>
+<li><strong>Advice</strong> -&gt; when to do: before/after/returning/throws/…</li>
+<li><strong>Aspect</strong> -&gt; what to do, do what the application specified things. This is the only code application needs to define, others concepts are supported and configured by framework.</li>
+<li><strong>Advisor</strong> -&gt; associate Advice and Pointcut</li>
+<li><strong>JoinPoint</strong> -&gt; the execution point: the occurrence context including which class, which methods, proceeding method execution..</li>
+<li><strong>weaving</strong> -&gt; when to proxy target: build time(compile-time), load-time, run-time</li>
+</ul>
+<h3 id="Spring-AOP-style"><a href="#Spring-AOP-style" class="headerlink" title="Spring AOP style"></a>Spring AOP style</h3><p>Spring AOP depends on proxies. You must use <code>ProxyFactoryBean</code> to produce the proxy for target object.</p>
+<p><img src="/media/spring-aop.jpg" alt="spring-aop"></p>
+<p>Internally, Spring has two proxy implementations: JDK dynamic proxies and CGLIB proxies.</p>
+<ul>
+<li>By default, when the target object to be advised implements an interface, Spring will use a JDK dynamic proxy to create proxy instances of the target.</li>
+<li>when the advised target object doesn’t implement an interface (for example, it’s a concrete class), CGLIB will be used for proxy instance creation.</li>
+</ul>
+<h4 id="Joinpoints-in-Spring"><a href="#Joinpoints-in-Spring" class="headerlink" title="Joinpoints in Spring"></a>Joinpoints in Spring</h4><p>Spring AOP supports only one joinpoint type: <strong>method invocation</strong>.</p>
+<h4 id="Aspects-in-Spring-Adviser-Advice-Pointcut"><a href="#Aspects-in-Spring-Adviser-Advice-Pointcut" class="headerlink" title="Aspects in Spring: Adviser (Advice+Pointcut)"></a>Aspects in Spring: Adviser (Advice+Pointcut)</h4><p>An aspect in Spring is represented by an instance of a class that implements the <code>Advisor</code> interface.</p>
+<ul>
+<li>PointcutAdvisor</li>
+<li>IntroductionAdvisor<br>The main difference between <code>Advice</code>and <code>Advisor</code>is that <code>Advisor</code> carries <code>Advice</code> with the associated <code>Pointcut</code>.</li>
+</ul>
+<p><img src="/media/spring-aop-concepts.png" alt="spring-aop-concepts"></p>
+<blockquote>
+<p><code>ProxyFactory.addAdvice()</code> delegates to <code>addAdvisor()</code> behind the scenes, creating an instance of <code>DefaultPointcutAdvisor</code> and configuring it with a pointcut that points to all methods.</p>
+</blockquote>
+<h4 id="Pointcut"><a href="#Pointcut" class="headerlink" title="Pointcut"></a>Pointcut</h4><p>Pointcut acutally does something filtering class and matching methods.</p>
+<p>eight <code>Pointcut</code> interface implementation:</p>
+<ul>
+<li><code>org.springframework.aop.support.NameMatchMethodPointcut</code></li>
+<li><code>org.springframework.aop.support.JdkRegexpMethodPointcut</code></li>
+<li><code>org.springframework.aop.support.annotation.AnnotationMatchingPointcut</code></li>
+<li><code>org.springframework.aop.aspectj.AspectJExpressionPointcut</code></li>
+<li><code>org.springframework.aop.support.DynamicMethodMatcherPointcut</code></li>
+<li><code>org.springframework.aop.support .StaticMethodMatcherPointcut</code></li>
+<li><code>org.springframework.aop.support.ComposablePointcut</code></li>
+<li><code>org.springframework.aop.support.ControlFlowPointcut</code></li>
+</ul>
+<h4 id="Advice-types"><a href="#Advice-types" class="headerlink" title="Advice types"></a>Advice types</h4><table style="height: 122px;" border="1" width="631"><br><tbody><br><tr><br><td>Advice type</td><br><td></td><br></tr><br><tr><br><td>before</td><br><td>org.springframework.aop.BeforeAdviceorg.springframework.aop.MethodBeforeAdvice</td><br></tr><br><tr><br><td>after(finally)</td><br><td>org.springframework.aop.AfterAdvice</td><br></tr><br><tr><br><td>after returning</td><br><td>org.springframework.aop.AfterReturningAdvice</td><br></tr><br><tr><br><td>around</td><br><td>org.springframework.aop.Interceptororg.springframework.aop.MethodInterceptor</td><br></tr><br><tr><br><td>throws</td><br><td>org.springframework.aop.ThrowsAdvice</td><br></tr><br><tr><br><td>introduction</td><br><td></td><br></tr><br></tbody><br></table><br><img src="/media/advice-types.jpg" alt="advice-types"><br><br><br>#### schema-based configuration<br><br>##### <aop:aspect><br><br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;aop:config&gt;</div><div class="line">    &lt;!-- shared top-level pointcut --&gt;</div><div class="line">    &lt;aop:pointcut id="fooExecution" expression="execution(* com.apress.prospring4.ch5..foo*(int))"/&gt;</div><div class="line"></div><div class="line">    &lt;aop:aspect ref="myAspect"&gt;</div><div class="line">        &lt;!-- &lt;aop:pointcut ... /&gt; --&gt;</div><div class="line">        &lt;aop:before method="simpleBeforeAdvice" pointcut-ref="fooExecution" /&gt;</div><div class="line">        &lt;aop:around method="simpleAroundAdvice" pointcut-ref="fooExecution" /&gt;</div><div class="line">    &lt;/aop:aspect&gt;</div><div class="line">&lt;/aop:config&gt;</div></pre></td></tr></table></figure><br><br><code>myAspect</code> bean is a plain bean, which don’t necessarily implement any interface.<br><br>##### <aop:advisor><br><br>This is called aspect instantiation model.<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;aop:config&gt;</div><div class="line">    &lt;aop:pointcut id="businessService"</div><div class="line">        expression="execution(* com.xyz.myapp.service.*.*(..))"/&gt;</div><div class="line"></div><div class="line">    &lt;aop:advisor pointcut-ref="businessService" advice-ref="tx-advice"/&gt;</div><div class="line">&lt;/aop:config&gt;</div><div class="line"></div><div class="line">&lt;tx:advice id="tx-advice"&gt;</div><div class="line">    &lt;tx:attributes&gt;</div><div class="line">        &lt;tx:method name="*" propagation="REQUIRED"/&gt;</div><div class="line">    &lt;/tx:attributes&gt;</div><div class="line">&lt;/tx:advice&gt;</div></pre></td></tr></table></figure><br><br><code>advice-ref</code> is a bean which must implement one of the <code>Advice</code> interfaces family.<br><br>### @AspectJ style<br><br>Bascially, they use @Aspect, @Pointcut, @Around, @Before, …<br><br>To enable @AspectJ style:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;aop:aspectj-autoproxy/&gt;</div></pre></td></tr></table></figure><br><br>### Load-time weaving<br><br>enabled by:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;context:load-time-weaver&gt;</div></pre></td></tr></table></figure><br><br>The default <code>LoadTimeWeaver</code> is the <code>DefaultContextLoadTimeWeaver</code> class, which attempts to decorate an automatically detected<code>LoadTimeWeaver</code>: the exact type of <code>LoadTimeWeaver</code> that will be <em>automatically detected</em> is dependent upon your runtime environment (summarized in the following table).<br><br>You can also specific the exact load-time weaver rather than the automatic one in xml configuration file:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;context:load-time-weaver weaver-<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"</span>/&gt;</div></pre></td></tr></table></figure><br><br><table border="1" summary="DefaultContextLoadTimeWeaver LoadTimeWeavers"><br><tbody><br><tr><br><td align="left" valign="top">Running in <a href="http://www.bea.com/framework.jsp?CNT=index.htm&amp;FP=/content/products/weblogic/server" target="_blank" rel="external">BEA’s Weblogic 10</a></td><br><td align="left" valign="top"><code>WebLogicLoadTimeWeaver</code></td><br></tr><br><tr><br><td align="left" valign="top">Running in <a href="http://www-01.ibm.com/software/webservers/appserv/was/" target="_blank" rel="external">IBM WebSphere Application Server 7</a></td><br><td align="left" valign="top"><code>WebSphereLoadTimeWeaver</code></td><br></tr><br><tr><br><td align="left" valign="top">Running in <a href="http://glassfish.dev.java.net/" target="_blank" rel="external">GlassFish</a></td><br><td align="left" valign="top"><code>GlassFishLoadTimeWeaver</code></td><br></tr><br><tr><br><td align="left" valign="top">Running in <a href="http://www.jboss.org/jbossas/" target="_blank" rel="external">JBoss AS</a></td><br><td align="left" valign="top"><code>JBossLoadTimeWeaver</code></td><br></tr><br><tr><br><td align="left" valign="top">JVM started with Spring <code>InstrumentationSavingAgent</code> <span class="emphasis"><em>(java -javaagent:path/to/spring-instrument.jar)</em></span>e.g. J2SE applications (no LTW support, if no instrument agent specified to JVM, errors will be thrown)</td><br><td align="left" valign="top"><code>InstrumentationLoadTimeWeaver</code></td><br></tr><br><tr><br><td align="left" valign="top">Others all, expecting the underlying ClassLoader to follow common conventions (e.g. applicable to<code>TomcatInstrumentableClassLoader</code> and <a href="http://www.caucho.com/" target="_blank" rel="external">Resin</a>)</td><br><td align="left" valign="top"><code>ReflectiveLoadTimeWeaver</code></td><br></tr><br></tbody><br></table>
+
+<h4 id="WebLogic-WebSphere-Resin-GlassFish-JBoss"><a href="#WebLogic-WebSphere-Resin-GlassFish-JBoss" class="headerlink" title="WebLogic, WebSphere, Resin, GlassFish, JBoss"></a>WebLogic, WebSphere, Resin, GlassFish, JBoss</h4><p>These environments have Load-time weaving support, no need for <code>-javaagent:path/to/``org.springframework.instrument-{version}.jar</code></p>
+<h4 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h4><p>not support. You need do extra things to LTW</p>
+<ul>
+<li>Copy <code>org.springframework.instrument.tomcat.jar</code> into <span class="emphasis">_$CATALINA<em>HOME</em></span>/lib</li>
+<li>Instruct Tomcat to use the custom class loader (instead of the default) by editing the web application context file:<figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;Context path="/myWebApp" docBase="/my/webApp/location"&gt;</div><div class="line">    &lt;Loader loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"/&gt;</div><div class="line">&lt;/Context&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Generic-J2SE-applications"><a href="#Generic-J2SE-applications" class="headerlink" title="Generic J2SE applications"></a>Generic J2SE applications</h4><p>Spring provides <code>InstrumentationLoadTimeWeaver</code>, which requires a Spring-specific (but very general) VM agent,<code>-javaagent:path/to/org.springframework.instrument-{version}.jar</code></p>
+</aop:advisor></aop:aspect>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/03/spring-framework-ioc-di/" rel="next" title="Spring framework - IoC / DI">
+                <i class="fa fa-chevron-left"></i> Spring framework - IoC / DI
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/03/spring-framework-transaction-management/" rel="prev" title="Spring framework - transaction management">
+                Spring framework - transaction management <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-AOP-style"><span class="nav-number">1.</span> <span class="nav-text">Spring AOP style</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Joinpoints-in-Spring"><span class="nav-number">1.1.</span> <span class="nav-text">Joinpoints in Spring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Aspects-in-Spring-Adviser-Advice-Pointcut"><span class="nav-number">1.2.</span> <span class="nav-text">Aspects in Spring: Adviser (Advice+Pointcut)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pointcut"><span class="nav-number">1.3.</span> <span class="nav-text">Pointcut</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Advice-types"><span class="nav-number">1.4.</span> <span class="nav-text">Advice types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebLogic-WebSphere-Resin-GlassFish-JBoss"><span class="nav-number">1.5.</span> <span class="nav-text">WebLogic, WebSphere, Resin, GlassFish, JBoss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.6.</span> <span class="nav-text">Tomcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generic-J2SE-applications"><span class="nav-number">1.7.</span> <span class="nav-text">Generic J2SE applications</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/03/spring-framework-aop/';
+      var disqus_title = 'Spring framework - AOP';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

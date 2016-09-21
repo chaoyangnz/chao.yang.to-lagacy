@@ -1,0 +1,2890 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Nothing seek, nothing find">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Richard Yang">
+<meta property="og:url" content="https://richyang.me/page/3/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Nothing seek, nothing find">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Richard Yang">
+<meta name="twitter:description" content="Nothing seek, nothing find">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/04/inner-classes-synthetic/" itemprop="url">
+                  Inner classes synthetic
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-04T12:40:59+08:00" content="2015-11-04">
+              2015-11-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/04/inner-classes-synthetic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/04/inner-classes-synthetic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Enclosing</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> List instanceList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    &#123; instanceList.add(<span class="number">1</span>);&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Enclosing outer = <span class="keyword">new</span> Enclosing();</div><div class="line">        outer.instanceList.add(<span class="number">2</span>);</div><div class="line">        outer.foo();</div><div class="line"></div><div class="line">        InnerClass inner = outer.new InnerClass();</div><div class="line">        outer.instanceList.add(<span class="number">3</span>);</div><div class="line">        inner.bar();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> List localList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        localList.add(<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">LocalClass</span> </span>&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</div><div class="line">                System.out.println(localList);</div><div class="line">                System.out.println(instanceList);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        localList.add(<span class="number">2</span>);</div><div class="line"></div><div class="line">        <span class="keyword">new</span> LocalClass().bar();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(instanceList);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一旦编译，会生成3个class文件：</p>
+<ul>
+<li>Enclosing.class</li>
+<li>Enclosing$1.class</li>
+<li>Enclosing$1LocalClass.class</li>
+<li><p>Enclosing$InnerClass.class</p>
+<p>为什么会生成一个空的Enclosing$1.class？</p>
+</li>
+</ul>
+<p>下面我们来看看编译器替我们做了哪些事情：</p>
+<p>首先看<code>Enclosing$InnerClass.class</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">corejava</span>/<span class="title">Enclosing</span>$<span class="title">InnerClass</span> </span>&#123;</div><div class="line"> synthetic <span class="keyword">final</span> corejava.Enclosing <span class="keyword">this</span>$<span class="number">0</span>;</div><div class="line"></div><div class="line"> <span class="keyword">private</span> Enclosing$InnerClass(corejava.Enclosing arg0) &#123; <span class="comment">// &lt;init&gt; //(Lcorejava/Enclosing;)V</span></div><div class="line">     &lt;localVar:index=<span class="number">0</span> , name=<span class="keyword">this</span> , desc=Lcorejava/Enclosing$InnerClass;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line"></div><div class="line">     L1 &#123;</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         aload1</div><div class="line">         putfield corejava/Enclosing$InnerClass.<span class="keyword">this</span>$<span class="number">0</span>:corejava.Enclosing</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         invokespecial java/lang/Object &lt;init&gt;(()V);</div><div class="line">         <span class="keyword">return</span></div><div class="line">     &#125;</div><div class="line">     L2 &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">bar</span><span class="params">()</span> </span>&#123; <span class="comment">//()V</span></div><div class="line">     &lt;localVar:index=<span class="number">0</span> , name=<span class="keyword">this</span> , desc=Lcorejava/Enclosing$InnerClass;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line"></div><div class="line">     L1 &#123;</div><div class="line">         getstatic java/lang/System.out:java.io.PrintStream</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         getfield corejava/Enclosing$InnerClass.<span class="keyword">this</span>$<span class="number">0</span>:corejava.Enclosing</div><div class="line">         invokestatic corejava/Enclosing access$<span class="number">100</span>((Lcorejava/Enclosing;)Ljava/util/List;);</div><div class="line">         invokevirtual java/io/<span class="function">PrintStream <span class="title">println</span><span class="params">((Ljava/lang/Object;)</span>V)</span>;</div><div class="line">     &#125;</div><div class="line">     L3 &#123;</div><div class="line">         <span class="keyword">return</span></div><div class="line">     &#125;</div><div class="line">     L2 &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> Enclosing$InnerClass(corejava.Enclosing arg0, corejava.Enclosing$<span class="number">1</span> arg1) &#123; <span class="comment">// &lt;init&gt; //(Lcorejava/Enclosing;Lcorejava/Enclosing$1;)V</span></div><div class="line">     &lt;localVar:index=<span class="number">0</span> , name=<span class="keyword">this</span> , desc=Lcorejava/Enclosing$InnerClass;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line">     &lt;localVar:index=<span class="number">1</span> , name=x0 , desc=Lcorejava/Enclosing;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line">     &lt;localVar:index=<span class="number">2</span> , name=x1 , desc=Lcorejava/Enclosing$<span class="number">1</span>;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line"></div><div class="line">     L1 &#123;</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         aload1 <span class="comment">// reference to arg0</span></div><div class="line">         invokespecial corejava/Enclosing$InnerClass &lt;init&gt;((Lcorejava/Enclosing;)V);</div><div class="line">         <span class="keyword">return</span></div><div class="line">     &#125;</div><div class="line">     L2 &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> synthetic <span class="class"><span class="keyword">class</span> <span class="title">corejava</span>/<span class="title">Enclosing</span>$1 </span>&#123;</div><div class="line"> &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>很显然，编译器替我们合成了一个构造函数，传入的参数正是外部的实例对象。<br>再看看<code>Enclosing$1LocalClass.class</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">corejava</span>/<span class="title">Enclosing</span>$1<span class="title">LocalClass</span> </span>&#123;</div><div class="line"> synthetic <span class="keyword">final</span> java.util.List val$localList;</div><div class="line"> synthetic <span class="keyword">final</span> corejava.Enclosing <span class="keyword">this</span>$<span class="number">0</span>;</div><div class="line"></div><div class="line"> Enclosing$<span class="number">1L</span>ocalClass(corejava.Enclosing arg0, java.util.List arg1) &#123; <span class="comment">// &lt;init&gt; //(Lcorejava/Enclosing;Ljava/util/List;)V</span></div><div class="line">     &lt;sig:()V&gt;         &lt;localVar:index=<span class="number">0</span> , name=<span class="keyword">this</span> , desc=Lcorejava/Enclosing$<span class="number">1L</span>ocalClass;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line">     &lt;localVar:index=<span class="number">1</span> , name=<span class="keyword">this</span>$<span class="number">0</span> , desc=Lcorejava/Enclosing;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line"></div><div class="line">     L1 &#123;</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         aload1 <span class="comment">// reference to arg0</span></div><div class="line">         putfield corejava/Enclosing$<span class="number">1L</span>ocalClass.<span class="keyword">this</span>$<span class="number">0</span>:corejava.Enclosing</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         aload2</div><div class="line">         putfield corejava/Enclosing$<span class="number">1L</span>ocalClass.val$localList:java.util.List</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         invokespecial java/lang/Object &lt;init&gt;(()V);</div><div class="line">         <span class="keyword">return</span></div><div class="line">     &#125;</div><div class="line">     L2 &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">bar</span><span class="params">()</span> </span>&#123; <span class="comment">//()V</span></div><div class="line">     &lt;localVar:index=<span class="number">0</span> , name=<span class="keyword">this</span> , desc=Lcorejava/Enclosing$<span class="number">1L</span>ocalClass;, sig=<span class="keyword">null</span>, start=L1, end=L2&gt;</div><div class="line"></div><div class="line">     L1 &#123;</div><div class="line">         getstatic java/lang/System.out:java.io.PrintStream</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         getfield corejava/Enclosing$<span class="number">1L</span>ocalClass.val$localList:java.util.List</div><div class="line">         invokevirtual java/io/<span class="function">PrintStream <span class="title">println</span><span class="params">((Ljava/lang/Object;)</span>V)</span>;</div><div class="line">     &#125;</div><div class="line">     L3 &#123;</div><div class="line">         getstatic java/lang/System.out:java.io.PrintStream</div><div class="line">         aload0 <span class="comment">// reference to self</span></div><div class="line">         getfield corejava/Enclosing$<span class="number">1L</span>ocalClass.<span class="keyword">this</span>$<span class="number">0</span>:corejava.Enclosing</div><div class="line">         invokestatic corejava/Enclosing access$<span class="number">100</span>((Lcorejava/Enclosing;)Ljava/util/List;);</div><div class="line">         invokevirtual java/io/<span class="function">PrintStream <span class="title">println</span><span class="params">((Ljava/lang/Object;)</span>V)</span>;</div><div class="line">     &#125;</div><div class="line">     L4 &#123;</div><div class="line">         <span class="keyword">return</span></div><div class="line">     &#125;</div><div class="line">     L2 &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>很明显，编译器也帮我们合成了构造器，并且除了传入外部实例对象，还有额外的参数是改本地类中引用到的本地变量的引用。<br>那我们现在来解释为什么对于本地类中引用的变量需要加final：<br>language designers wanted value of copied local variable to be “consistent” every time such a copy is created</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/04/closure/" itemprop="url">
+                  closure
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-04T00:55:25+08:00" content="2015-11-04">
+              2015-11-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/04/closure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/04/closure/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>简单地说，闭包是指一种记录record，保存着一个函数和一个环境envoronment，此环境记录着自由变量的名字-值或存储位置</p>
+<p>因此，区别于普通函数关键在于那个存有自由变量free variables的环境。即使函数在scope外面调用，此enviroment仍然保留。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/28/javascript-execution-using-single-thread-zz/" itemprop="url">
+                  JavaScript execution using single thread (zz)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-09-28T00:19:00+08:00" content="2015-09-28">
+              2015-09-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/28/javascript-execution-using-single-thread-zz/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/28/javascript-execution-using-single-thread-zz/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>面试的时候发现99%的童鞋不理解为什么JavaScript是单线程的却能让AJAX异步发送和回调请求，还有setTimeout也看起来像是多线程的？还有non-blocking IO, event loop等概念很不清楚。来深入分析一下：</p>
+<p>首先看下面的代码：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">function <span class="title">foo</span><span class="params">()</span> </span>&#123;</div><div class="line">    console.log( <span class="string">'first'</span> );</div><div class="line">    setTimeout( ( function()&#123; console.log(<span class="string">'second'</span>); &#125; ), <span class="number">5</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (var i = <span class="number">0</span>; i &amp;lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">    foo();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<div>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</div>
+
+<h4 id="Javascript执行是单线程的"><a href="#Javascript执行是单线程的" class="headerlink" title="Javascript执行是单线程的"></a>Javascript执行是单线程的</h4><p>因为<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是<strong>事件驱动的（Event driven）</strong>，浏览器中很多行为是<strong>异步（Asynchronized）</strong>的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。</p>
+<h4 id="异步事件驱动"><a href="#异步事件驱动" class="headerlink" title="异步事件驱动"></a>异步事件驱动</h4><p>前面已经提到浏览器是<strong>事件驱动的（Event driven）</strong>，浏览器中很多行为是<strong>异步（Asynchronized）</strong>的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。<strong>浏览器有一个内部大消息循环，Event Loop（事件循环）</strong>，<strong>会轮询大的事件队列并处理事件</strong>。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。</p>
+<p>每个浏览器具体实现主事件队列不尽相同，这不谈了。</p>
+<p>JavaScript引擎有事件处理队列，纯粹是为了在单线程执行限制下为了响应异步事件。</p>
+<h4 id="non-blocking"><a href="#non-blocking" class="headerlink" title="non-blocking"></a>non-blocking</h4><p>所有操作都不阻塞, I/O(xhr, indexDb)操作都是non-blocking. 但是也有例外：alert(..)</p>
+<h4 id="浏览器不是单线程的"><a href="#浏览器不是单线程的" class="headerlink" title="浏览器不是单线程的"></a>浏览器不是单线程的</h4><p>虽然<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
+<ul>
+<li>javascript引擎线程</li>
+<li>界面渲染线程</li>
+<li>浏览器事件触发线程</li>
+<li>Http请求线程</li>
+<li>事件队列循环线程<br>很多童鞋搞不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</li>
+</ul>
+<h4 id="Ajax异步请求是否真的异步"><a href="#Ajax异步请求是否真的异步" class="headerlink" title="Ajax异步请求是否真的异步?"></a>Ajax异步请求是否真的异步?</h4><p>很多童鞋搞不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?<br>其实请求确实是异步的，这请求是由<strong>浏览器新开一个线程请求</strong>（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
+<p>总结一下，Ajax请求确实是异步的，这请求是由<strong>浏览器新开一个线程请求，事件回调的时候是放入Event loop单线程事件队列等候处理。</strong></p>
+<h4 id="setTimeout-func-0-为什么有时候有用？"><a href="#setTimeout-func-0-为什么有时候有用？" class="headerlink" title="setTimeout(func, 0)为什么有时候有用？"></a>setTimeout(func, 0)为什么有时候有用？</h4><p>写js多的童鞋可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
+<ul>
+<li>让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）</li>
+<li>重新评估”script is running too long”警告</li>
+<li>改变执行顺序<br>例如：下面的例子，点击按钮就会显示”calculating….”，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;button id=<span class="string">'do'</span>&amp;gt; Do <span class="keyword">long</span> calc!&amp;lt;/button&amp;gt;</div><div class="line">&amp;lt;div id=<span class="string">'status'</span>&amp;gt;&amp;lt;/div&amp;gt;</div><div class="line">&amp;lt;br&amp;gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Write JavaScript here </span></div><div class="line"></div><div class="line">$(<span class="string">'#do'</span>).on(<span class="string">'click'</span>, function()&#123;</div><div class="line"></div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calculating....'</span>); <span class="comment">//此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。</span></div><div class="line"></div><div class="line">  <span class="comment">// without set timeout, user will never see "calculating...."</span></div><div class="line">  <span class="comment">//long();//执行长时间任务，阻塞</span></div><div class="line"></div><div class="line">  <span class="comment">// with set timeout, works as expected</span></div><div class="line">  setTimeout(<span class="keyword">long</span>,<span class="number">0</span>);<span class="comment">//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则</span></div><div class="line"></div><div class="line"> &#125;)</div><div class="line"></div><div class="line"><span class="function">function <span class="title">long</span><span class="params">()</span></span>&#123;</div><div class="line">  var result = <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> (var i = <span class="number">0</span>; i&amp;lt;<span class="number">1000</span>; i++)&#123;</div><div class="line">    <span class="keyword">for</span> (var j = <span class="number">0</span>; j&amp;lt;<span class="number">1000</span>; j++)&#123;</div><div class="line">      <span class="keyword">for</span> (var k = <span class="number">0</span>; k&amp;lt;<span class="number">1000</span>; k++)&#123;</div><div class="line">        result = result + i+j+k</div><div class="line">      &#125;</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">  $(<span class="string">'#status'</span>).text(<span class="string">'calclation done'</span>) <span class="comment">// has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="非阻塞js的实现（non-blocking-javascript）"><a href="#非阻塞js的实现（non-blocking-javascript）" class="headerlink" title="非阻塞js的实现（non-blocking javascript）"></a>非阻塞js的实现（non-blocking javascript）</h4><p>js在浏览器中需要被下载、解释并执行这三步。在html body标签中的script都是阻塞的。也就是说，顺序下载、解释、执行。尽管Chrome可以实现多线程并行下载外部资源，例如：script file、image、frame等（css比较复杂，在IE中不阻塞下载，但Firefox阻塞下载）。但是，由于js是单线程的，所以尽管浏览器可以并发加快js的下载，但必须依次执行。所以chrome中image图片资源是可以并发下载的，但外部js文件并发下载没有多大意义。</p>
+<p><a href="/media/171639163893646.png"><img src="/media/171639190852606.png" alt="2014-02-17_16h16_34" title="2014-02-17_16h16_34"></a></p>
+<p>要实现非阻塞js（non-blocking javascript）有两个方法：1. html5 2. 动态加载js</p>
+<p>首先一种办法是HTML5的<a href="http://www.w3schools.com/TAGs/att_script_defer.asp" target="_blank" rel="external">defer</a>和<a href="http://www.w3schools.com/tags/att_script_async.asp" target="_blank" rel="external">async</a>关键字：</p>
+<p>defer<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;script type=<span class="string">"text/javascript"</span> defer src=<span class="string">"foo.js"</span>&amp;gt;&amp;lt;/script&amp;gt;</div></pre></td></tr></table></figure></p>
+<div></div><br>async<br><div><br><div id="highlighter_263429" class="syntaxhighlighter js"><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;script type=<span class="string">"text/javascript"</span> async src=<span class="string">"foo.js"</span>&amp;gt;&amp;lt;/script&amp;gt;</div></pre></td></tr></table></figure><br><br></div><br></div><br>然后第二种方法是动态加载js：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">setTimeout(function()&#123;</div><div class="line">    var script = document.createElement(<span class="string">"script"</span>);</div><div class="line">    script.type = <span class="string">"text/javascript"</span>;</div><div class="line">    script.src = <span class="string">"foo.js"</span>;</div><div class="line">    var head = <span class="keyword">true</span>; <span class="comment">//加在头还是尾</span></div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">      document.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">    <span class="keyword">else</span></div><div class="line">      document.body.appendChild(script);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">//另外一个独立的动态加载js的函数</span></div><div class="line"><span class="function">function <span class="title">loadJs</span><span class="params">(jsurl, head, callback)</span></span>&#123;</div><div class="line">    var script=document.createElement(<span class="string">'script'</span>);</div><div class="line">    script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(callback)&#123;</div><div class="line">        <span class="keyword">if</span> (script.readyState)&#123;  <span class="comment">//IE</span></div><div class="line">            script.onreadystatechange = function()&#123;</div><div class="line">                <span class="keyword">if</span> (script.readyState == <span class="string">"loaded"</span> ||</div><div class="line">                        script.readyState == <span class="string">"complete"</span>)&#123;</div><div class="line">                    script.onreadystatechange = <span class="keyword">null</span>;</div><div class="line">                    callback();</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">//Others</span></div><div class="line">            script.onload = function()&#123;</div><div class="line">                callback();</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    script.setAttribute(<span class="string">"src"</span>, jsurl);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(head)</div><div class="line">     document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</div><div class="line">    <span class="keyword">else</span></div><div class="line">      document.body.appendChild(script);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br><div></div>
+
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/26/http-cache/" itemprop="url">
+                  HTTP cache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-09-26T21:47:47+08:00" content="2015-09-26">
+              2015-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/26/http-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/26/http-cache/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Request headers:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">If-Modified-Since: &#123;time&#125;      </div><div class="line">If-None-Match: &#123;etag&#125;</div></pre></td></tr></table></figure></p>
+<p>These two headers are used to check if the cached resource is still fresh.</p>
+<p>If expired, response status is 200 and fetch the resource</p>
+<p>If not, response status is 304 and cache is still fresh.</p>
+<p>Response headers:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Last-Modified: &#123;time&#125;</div><div class="line">ETag: &#123;etag&#125;</div><div class="line">Expire: &#123;time&#125;</div><div class="line">Cache-Control: maxAge=&#123;seconds&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/media/image.jpeg" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/08/javaee-multi-popuse-application-frameworks/" itemprop="url">
+                  JavaEE Multi-popuse Application Frameworks
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-09-08T20:32:18+08:00" content="2015-09-08">
+              2015-09-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Project-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Project Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/08/javaee-multi-popuse-application-frameworks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/08/javaee-multi-popuse-application-frameworks/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This is an application framework to satisfy all kinds of purposes.</p>
+<p>Firstly, it would support all sort of channels, which I mean a variety of <strong><span style="background-color: #ffff00;">protocols</span></strong>, <span style="background-color: #ffff00;"><strong>message formats</strong></span>, channel-in &amp; chennel-out technologies and application scenarios. Typical ones are like <span style="background-color: #ffff99;"><strong>http, jms, tcp</strong></span>, <span style="background-color: #ffff00;">web service</span> and formats:<span style="background-color: #ffff00;"> json, soap, FIX, iso 8583, customized fix-length</span>.</p>
+<p>Secondly, it would abstract the channel-related processing, and make business logic development separate from these channel details. For example, we need to make our service layer transparent for the channel, and not aware of the protocols, devices, client types.</p>
+<p>A key design consideration is we use a <strong>data bus conception</strong>. We can extract all the channel-related data into this data bus. This data bus is the data context going through all the processing of a request.</p>
+<p>And to acquire the flexibility and the extensibility, we use an <strong>interceptor</strong> chain mechanism., which is very similar to the Servlet filters, or the Spring interceptor.</p>
+<p>For the business logic, we designed the <strong>Process and Action concepts</strong>. Basically, a Process is a flow of processing, which can combine multiple actions and can be configured as complicated flow just like the workflow definition.</p>
+<p>For the <strong>channel adaptor</strong>, we need to implement them one by one. For example, we implement the HTTP channel just using Spring MVC and extending it. For the TCP channel, we use the Netty library to implement the server and client.</p>
+<p>And another important thing is the <strong>message transformation</strong>. All the data format can be defined by XML. and you can freely use all the message format for response or request. The transformation happens automatically.</p>
+<p>The following is a high-level conception diagram:</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/05/statically-loading-vs-dynamically-loading/" itemprop="url">
+                  statically loading vs. dynamically loading
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-09-05T22:20:18+08:00" content="2015-09-05">
+              2015-09-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/05/statically-loading-vs-dynamically-loading/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/05/statically-loading-vs-dynamically-loading/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="statically-loading"><a href="#statically-loading" class="headerlink" title="statically loading"></a>statically loading</h3><p>when we need to use the class definition, like new operator, invoking static method, accessing static variables etc, the JVM will load the class statically.</p>
+<p>But just declare variable of that type, class loading actually don’t happen.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StaticallyLoading</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        C c = <span class="keyword">null</span>;</div><div class="line">        System.out.println(<span class="string">"run here"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>After you compile this class successfully with class C definition, you run it as deleting the class C dependency at runtime.</p>
+<p>This program can run normally.</p>
+<p>But if you do some operations, like</p>
+<ul>
+<li><code>C c = new C();</code></li>
+<li><code>C.foo()</code><br>Once the C class doesn’t exist at runtime, a <strong><code>NoClassDefFoundException</code></strong> will be thrown.</li>
+</ul>
+<h3 id="dynamically-loading"><a href="#dynamically-loading" class="headerlink" title="dynamically loading"></a>dynamically loading</h3><ul>
+<li>Class.forName(..)</li>
+<li>ClassLoader.findSystemClass(..)</li>
+<li>ClassLoader.findClass(..)<br><strong><code>ClassNoFoundException</code></strong> will be thrown if the class cannot be found at runtime.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/01/logging-problem-in-spring-mvc-project/" itemprop="url">
+                  Logging problem in Spring MVC project
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-08-01T22:33:08+08:00" content="2015-08-01">
+              2015-08-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Project-problems/" itemprop="url" rel="index">
+                    <span itemprop="name">Project problems</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/01/logging-problem-in-spring-mvc-project/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/logging-problem-in-spring-mvc-project/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Spring MVC uses JCL as its logging framework.</p>
+<p>A strange problem is when front-end reports an error, I cannot find exception stack in the log file.</p>
+<h3 id="Why-does-Spring-“swallow”-the-exception-log"><a href="#Why-does-Spring-“swallow”-the-exception-log" class="headerlink" title="Why does Spring “swallow” the exception log?"></a>Why does Spring “swallow” the exception log?</h3><p>A reason is I don’t config any exception handler and the default HanderExceptionResolvers don’t log the exceptions at all.</p>
+<p>Another reason is the logging API delegation problem.</p>
+<p>I use SLF4J as the logging API, and use Log4j as its inherit implementation.</p>
+<p>SLF4J supports different implementation adapter, and all kinds of other logging API bridge.</p>
+<p>Basically, adapter is used to tell SLF4j what is the implementation for the API, and bridge is used to delegate other logging API to SLF4J if you use some components using other logging framework, like JCL, JUL or logback.</p>
+<p>But notice, you cannot use the adapter and bridge together for the same logging framework, for example, slf4j-log4j12.jar and log4j-over-slf4j.jar cannot be in the classpath at the same time.</p>
+<p>A sample configurations is shown as following.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Logging --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- logging implementation --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- logging implementation adaptor --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- logging bridges --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jcl-over-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jul-to-slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="url">
+                  No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-08-01T22:21:28+08:00" content="2015-08-01">
+              2015-08-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Project-problems/" itemprop="url" rel="index">
+                    <span itemprop="name">Project problems</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]</div></pre></td></tr></table></figure></p>
+<p>I don’t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">-mvc-servlet forwards to WEB-INF/views/xxx.jsp</div><div class="line">-No handler method found</div></pre></td></tr></table></figure></p>
+<p>So it goes to find a hander method, rather than renders directly. Why? Why?</p>
+<p>At last, I found it’s the servlet-mapping problem. I map the dispatcher servlet to “<code>/*</code>“ instead of “<code>/</code>“. Thus all files include <code>*.jsp</code> also go through the dispatcher servlet. Obviously, I never map the jsp URL to any handler method.</p>
+<h2 id="url-pattern-and"><a href="#url-pattern-and" class="headerlink" title="url-pattern: /* and /"></a>url-pattern: /* and /</h2><p>the difference is :</p>
+<blockquote>
+<p>SRV.11.2 Specification of Mappings</p>
+<p>In theWeb application deployment descriptor, the following syntax is used to define mappings:</p>
+<ul>
+<li><p>A <a href="http://www.coderanch.com/t/410859/java/java/String-StringBuffer-StringBuilder-Performance" title="String vs. StringBuilder/StringBuffer" target="_blank" rel="external">string</a> beginning with a / character and ending with a /* suffix is used for path mapping.</p>
+</li>
+<li><p>A string beginning with a *. prefix is used as an extension mapping.</p>
+</li>
+<li><p>A string containing only the / character indicates the “default” servlet of the application. In this case the servlet path is the request URI minus the context path and the path info is null.</p>
+</li>
+<li><p>All other strings are used for exact matches only.</p>
+</li>
+</ul>
+<p>The <a href="http://www.javaranch.com/patterns/" title="article: evil design patterns" target="_blank" rel="external">pattern</a> /* will force everything through your servlet.</p>
+<p>The pattern / will make your servlet the default servlet for the app, meaning it will pick up as fallback every pattern that doesn’t have another exact match.<br>So that’s it!</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/27/gc-revisit/" itemprop="url">
+                  GC revisit
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-27T15:50:04+08:00" content="2015-06-27">
+              2015-06-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/27/gc-revisit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/27/gc-revisit/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>In the another post, I give a short introduction of GC.</p>
+<p>Now for the practical purpose, I need to focus on the common used GCs:  Parallel GC, CMS and G1.</p>
+<h4 id="What-is-the-tracing-algorithm-and-mark-and-sweep-method"><a href="#What-is-the-tracing-algorithm-and-mark-and-sweep-method" class="headerlink" title="What is the tracing algorithm and mark-and-sweep method?"></a>What is the tracing algorithm and mark-and-sweep method?</h4><p><strong>root objects</strong></p>
+<p>Root objects are the starting point of marking phase. Usually, root object references are located in the thread stacks.</p>
+<p><img src="/media/root-objects.png" alt="root-objects"></p>
+<p><strong>object graph</strong></p>
+<p>Every object has its fields, if a field is a object reference, then the reference will be like a pointer to another object.</p>
+<p>From the point of whole heap, these objects will form an object graph.</p>
+<h4 id="Heap-layout"><a href="#Heap-layout" class="headerlink" title="Heap layout"></a>Heap layout</h4><h5 id="generational-heap"><a href="#generational-heap" class="headerlink" title="generational heap"></a>generational heap</h5><h5 id="G1-heap"><a href="#G1-heap" class="headerlink" title="G1 heap"></a>G1 heap</h5><h4 id="GC-process-illustrations"><a href="#GC-process-illustrations" class="headerlink" title="GC process illustrations"></a>GC process illustrations</h4><p><img src="/media/non-concurrent-gc.png" alt="non-concurrent-gc"></p>
+<h4 id="tuning-options"><a href="#tuning-options" class="headerlink" title="tuning options"></a>tuning options</h4><h5 id="tuning-the-minor-GC"><a href="#tuning-the-minor-GC" class="headerlink" title="tuning the minor GC"></a>tuning the minor GC</h5><h5 id="tuning-the-full-GC"><a href="#tuning-the-full-GC" class="headerlink" title="tuning the full GC"></a>tuning the full GC</h5><p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/27/java-serialization/" itemprop="url">
+                  Java Serialization
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-27T00:28:45+08:00" content="2015-06-27">
+              2015-06-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/27/java-serialization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/27/java-serialization/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Serialization"><a href="#Serialization" class="headerlink" title="Serialization"></a>Serialization</h3><h4 id="What-is-Serialization"><a href="#What-is-Serialization" class="headerlink" title="What is Serialization?"></a>What is Serialization?</h4><p>Serialization is the process to transfer a Java object into a sequence of bytes, often in the form of stream.</p>
+<p>At another time, we can unserialize from the bytes and rebuild the object in JVM.</p>
+<h4 id="How-to-do"><a href="#How-to-do" class="headerlink" title="How to do"></a>How to do</h4><ul>
+<li>make the class to be serialized implement Serializable interface (Serializable is a marker interface)</li>
+<li>use ObjectOutputStream to serialize object</li>
+<li>use OjbectInputStream to unserialize the bytes<br>In order to better control the serialization process, you can implement ObjectInput and ObjectOutput on your own.</li>
+</ul>
+<p>ObjectOutputStream has implemented ObjectOutput interface; ObjectInputStream has implemented ObjectInput interface</p>
+<h4 id="What-information-is-serialized"><a href="#What-information-is-serialized" class="headerlink" title="What information is serialized"></a>What information is serialized</h4><p>Simply, the sequence of bytes includes:</p>
+<ul>
+<li>instance fields (excluding the transient one)</li>
+<li>class name (just name!!)</li>
+<li>class serialVersionUID<blockquote>
+<p>So when you serialize an object in a JVM, and unserialize it in another JVM. The latter JVM just knows the class name. If you don’t provide the class file, then you cannot cast it to the correct specified class even if you know the class name.<br>Java RMI heavily uses the Serialization technology and extends it, because remote invocation usually happens in different JVMs. So class file and related dependent classes also need to be transferred along with the object serialization stream.</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="What-is-serialVersionUID"><a href="#What-is-serialVersionUID" class="headerlink" title="What is serialVersionUID?"></a>What is serialVersionUID?</h4><p>serialVersionUID is used to version the serializable class. When the unique id of the class in serialization and unserialzation is different, <code>java.io.InvalidClassException</code> will be thrown.</p>
+<p>All serializable class automatically generates this unique id implicitly. But you can specify it explicitly:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">229383940L</span>;</div></pre></td></tr></table></figure></p>
+<p>Alternatively, the JDK comes with a <strong>serialver</strong> tool.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerializationInOneJVM</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testWrite</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"a.bin"</span>);</div><div class="line">        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</div><div class="line">        oos.writeObject(<span class="keyword">new</span> SerializableObject());</div><div class="line">        fos.close();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// SerializableObject not in the classpath of this JVM</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnserializationInAnotherJVM</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRead</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"a.bin"</span>);</div><div class="line">        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</div><div class="line">        Object o = ois.readObject();</div><div class="line">        System.out.println(o.getClass());</div><div class="line">        <span class="comment">//here we cannot cast to the concrete class. </span></div><div class="line"></div><div class="line">        fis.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/26/java-collections-framework/" itemprop="url">
+                  Java Collections Framework
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-26T19:22:37+08:00" content="2015-06-26">
+              2015-06-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/26/java-collections-framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/26/java-collections-framework/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="natural-ordered-structure"><a href="#natural-ordered-structure" class="headerlink" title="(natural) ordered structure"></a>(natural) ordered structure</h3><p>Red-Black Tree implementation to maintain the natural order (Comparable)</p>
+<ul>
+<li>TreeSet -&gt; NavigableSet -&gt; OrderedSet</li>
+<li>TreeMap -&gt; NavigableMap -&gt; OrderedMap</li>
+</ul>
+<h3 id="hash-structure"><a href="#hash-structure" class="headerlink" title="hash structure"></a>hash structure</h3><p>a bucket array, each bucket is a LinkedList; the index is computed by hashCode(), then traverse the LinkedList using equals() until finding the expected element.</p>
+<ul>
+<li>HashMap</li>
+<li>HashSet: backed by HashMap, just the element is the key of <code>Entry&amp;lt;K,V&amp;gt; while the value is ignored.</code><br><strong>with insertion order</strong></li>
+</ul>
+<p>maintain the insertion order using an extra LinkedList</p>
+<ul>
+<li>LinkedHashSet</li>
+<li><p>LinkedHashMap: as above<br><strong>special map</strong></p>
+</li>
+<li><p>IdentityHashMap: compare the key using == instead of equals()</p>
+</li>
+<li>WeekHashMap: key is week reference<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">    Map map = <span class="keyword">new</span> IdentityHashMap();</div><div class="line"></div><div class="line">    String a = <span class="keyword">new</span> String(<span class="string">"aa"</span>);</div><div class="line">    String b = <span class="keyword">new</span> String(<span class="string">"aa"</span>);</div><div class="line"></div><div class="line">    map.put(a, <span class="number">1</span>);</div><div class="line">    map.put(b, <span class="number">2</span>);</div><div class="line"></div><div class="line">    System.out.println(a == b); <span class="comment">//false</span></div><div class="line">    System.out.println(a.equals(b)); <span class="comment">//true</span></div><div class="line"></div><div class="line">    System.out.println(map.get(a)); <span class="comment">//1</span></div><div class="line">    System.out.println(map.get(b)); <span class="comment">//2</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="immutable-hash-key"><a href="#immutable-hash-key" class="headerlink" title="immutable, hash key"></a>immutable, hash key</h4><h4 id="capacity-load-factor-and-rehash"><a href="#capacity-load-factor-and-rehash" class="headerlink" title="capacity, load factor and rehash"></a>capacity, load factor and rehash</h4><h3 id="Collections-Arrays"><a href="#Collections-Arrays" class="headerlink" title="Collections, Arrays"></a>Collections, Arrays</h3><h4 id="static-factory"><a href="#static-factory" class="headerlink" title="static factory"></a>static factory</h4><ul>
+<li>Arrays.asList(..)</li>
+<li>Collections.singleton(..) / singletonList(..) / singletonMap(..)</li>
+<li>Collections.emptySet/ emptyList(..)  / emptyMap(..) / emptyOrderedMap(..)</li>
+<li>Collections.checkedSet(..) / checkedList(..) / checkedMap(..)</li>
+<li>Collections.<code>nCopies</code>(..)</li>
+</ul>
+<h4 id="sort-search"><a href="#sort-search" class="headerlink" title="sort / search"></a>sort / search</h4><ul>
+<li>sort(..) / sort(.., Comparator)</li>
+<li>binarySearch(..) / binarySearch(.., Comparator)</li>
+</ul>
+<h4 id="unmodifiedXX"><a href="#unmodifiedXX" class="headerlink" title="unmodifiedXX()"></a>unmodifiedXX()</h4><h4 id="other-common-operations"><a href="#other-common-operations" class="headerlink" title="other common operations"></a>other common operations</h4><ul>
+<li>shuffle(..)</li>
+<li>reverse(..)</li>
+<li>rotate(.., distance)</li>
+<li>fill(..)</li>
+<li>swap(..)</li>
+<li>copy(..)</li>
+<li>replaceAll(..)</li>
+<li>indexOfSubList(..)</li>
+<li>min(..) / max(..)</li>
+<li>disjoint(..)</li>
+<li>frequency(..)</li>
+</ul>
+<h4 id="a-comparator"><a href="#a-comparator" class="headerlink" title="a comparator"></a>a comparator</h4><ul>
+<li>reverseOrder(..)</li>
+</ul>
+<h3 id="concurrent-collection"><a href="#concurrent-collection" class="headerlink" title="concurrent collection"></a>concurrent collection</h3><h4 id="fail-fast-mechanism-ConcurrentModificationException-and-Iterator"><a href="#fail-fast-mechanism-ConcurrentModificationException-and-Iterator" class="headerlink" title="fail-fast mechanism, ConcurrentModificationException and Iterator"></a>fail-fast mechanism, ConcurrentModificationException and Iterator</h4><p>Java collections use fail-fast mechanism to prevent multiple threads to modify the collection when traversing it. Even there is only one thread, you modify the collection when you traverse it in the single thread, fail-fast will also be applied.</p>
+<p>That will case ConcurrentModificationException.</p>
+<p>Using Interator.remove(..) method will avoid this.</p>
+<h4 id="sychronizedXX-JUC-collections"><a href="#sychronizedXX-JUC-collections" class="headerlink" title="sychronizedXX(), JUC collections"></a>sychronizedXX(), JUC collections</h4><p>sychronizedXX() makes every method wrapped in a <code>synchronized</code> block. So the efficiency is a big problem.</p>
+<table style="height: 182px;" border="1" width="522"><br><tbody><br><tr><br><td><strong>not thread-safe collections</strong></td><br><td><strong>thread-safe collections</strong></td><br></tr><br><tr><br><td>ArrayList</td><br><td>CopyOnWriteArrayList</td><br></tr><br><tr><br><td>HashSet</td><br><td>CopyOnWriteArraySet</td><br></tr><br><tr><br><td>LinkedList</td><br><td>ConcurrentLinkedQueue</td><br></tr><br><tr><br><td>HashMap</td><br><td>ConcurrentHashMap</td><br></tr><br><tr><br><td>TreeMap</td><br><td>ConcurrentSkipListMap</td><br></tr><br><tr><br><td>TreeSet</td><br><td>ConcurrentSkipListSet</td><br></tr><br></tbody><br></table>
+
+<ul>
+<li>CopyOnWriteArrayList<br>This implementation always copy the backed array and set the backed array to this new one when modifying the List.</li>
+</ul>
+<p>The modification operations are thread-safe by using a <code>ReentrantLock</code>.</p>
+<p>So it’s suitable for the case that writing is greatly less than reading.</p>
+<p>Once an interator has been gotten, it will see a <strong>snapshot</strong> of the array.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">    List&amp;lt;Integer&amp;gt; list = <span class="keyword">new</span> CopyOnWriteArrayList&amp;lt;Integer&amp;gt;(Arrays.asList(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>));</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i : list) &#123;</div><div class="line">        <span class="keyword">if</span>(i == <span class="number">2</span>) &#123;</div><div class="line">            list.add(<span class="number">8</span>, <span class="number">8</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    System.out.println(list);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">5</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="number">7</span></div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</div></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
+<p><a href="http://www.cnblogs.com/skywang12345/p/java_threads_category.html" target="_blank" rel="external">http://www.cnblogs.com/skywang12345/p/java_threads_category.html</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/10/mysql-innodb-locking-and-isolation-level/" itemprop="url">
+                  MySQL InnoDB Locking and Isolation Level
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-10T16:59:43+08:00" content="2015-06-10">
+              2015-06-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Databases/" itemprop="url" rel="index">
+                    <span itemprop="name">Databases</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/10/mysql-innodb-locking-and-isolation-level/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/10/mysql-innodb-locking-and-isolation-level/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h3><h4 id="Isolation-Level"><a href="#Isolation-Level" class="headerlink" title="Isolation Level"></a>Isolation Level</h4><blockquote>
+<p>MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)<br>Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE</p>
+</blockquote>
+<p>Innodb’s Isolation level is slightly different from the standard SQL Isolation level definition:</p>
+<table style="height: 122px;" border="1" width="715"><br><tbody><br><tr><br><td></td><br><td>Read Uncommitted</td><br><td>Read Committed</td><br><td>Repeatable Read</td><br><td>Serializable</td><br></tr><br><tr><br><td>dirty reads</td><br><td>yes</td><br><td>no</td><br><td>no</td><br><td>no</td><br></tr><br><tr><br><td>unrepeatable reads</td><br><td>yes</td><br><td>yes</td><br><td><span style="background-color: #ff00ff;"><strong>no</strong></span></td><br><td>no</td><br></tr><br><tr><br><td>phantom reads</td><br><td>yes</td><br><td>yes</td><br><td><span style="background-color: #ff00ff;"><strong>no</strong></span></td><br><td>no</td><br></tr><br></tbody><br></table><br>MySQL suggests to use Read Uncommitted and Serializable rarely.<br><br>Repeatable Read is the default Isolation Level, which can ensure repeatable reads and no phantom reads.<br><br>#### Index structure<br><br>InnoDB has two types of index: clustered index, secondary indexes<br><br>Clustered index is synonymous with the <a href="http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_primary_key" title="primary key" target="_blank" rel="external">primary key</a>, which means the record is stored in the leaf node of the index B+ Tree.<br><br>The key of leaf is the primary key. Even if you haven’t specified any primary key, innodb will generate a hidden one for you.<br><br>Secondary indexes are the ones other than the primary index. It doesn’t store the record data, but has a pointer to the primary index.<br><br><img src="/media/primary_index.png" alt="primary_index"><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">article</span> <span class="params">(</span></span></div><div class="line">  id INT UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line">  userid VARCHAR(<span class="number">20</span>) NOT NULL,</div><div class="line">  blogid <span class="title">CHAR</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">  pubtime TIMESTAMP NOT NULL,</div><div class="line">  comment <span class="title">VARCHAR</span><span class="params">(<span class="number">1024</span>)</span>,</div><div class="line">  PRIMARY <span class="title">KEY</span><span class="params">(id)</span>,</div><div class="line">  KEY <span class="title">when_who</span> <span class="params">(pubtime, userid)</span></div><div class="line">) ENGINE=InnoDB DEFAULT CHARSET latin1;</div></pre></td></tr></table></figure><br><br><img src="/media/mysql_index.png" alt="mysql_index"><br><br>#### Locking<br><br>MySQL support multiple granularity locking .<br><br>##### Lock modes<br><br>&nbsp;<br><br><em>   row-level:  <code>S</code> lock and <code>X</code> lock (<code>S</code> - shared/read,  <code>X</code> - exclusive/write)
+</em>   table-level: <code>IS</code> lock and <code>IX</code> lock (<code>IS</code> - intention shared/read, <code>IX</code> - intention exclusive/write)<br><div class="informaltable"><br><table style="height: 159px;" border="1" summary=" Compatibility matrix showing which combinations of&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+          lock types X, IX, S, and IS are allowed. Each cell in the&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+          matrix is marked as either &quot;Compatible&quot; or &quot;Conflict&quot;.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+" width="464"><colgroup> <col> <col> <col> <col> <col></colgroup><br><thead><br><tr><br><th scope="col"></th><br><th scope="col"><em><code>X</code></em></th><br><th scope="col"><em><code>IX</code></em></th><br><th scope="col"><em><code>S</code></em></th><br><th scope="col"><em><code>IS</code></em></th><br></tr><br></thead><br><tbody><br><tr><br><td scope="row"><em><code>X</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br></tr><br><tr><br><td scope="row"><em><code>IX</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br><tr><br><td scope="row"><em><code>S</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br><tr><br><td scope="row"><em><code>IS</code></em></td><br><td><span style="background-color: #ff0000;">Conflict</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br><td><span style="background-color: #00ff00;">Compatible</span></td><br></tr><br></tbody><br></table><br></div><br><a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... LOCK IN SHARE MODE</code></a> sets an <em><code>IS</code></em>  lock and <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FOR UPDATE</code></a> sets an _<code>IX</code>_lock.<br><br>A lock is granted to a requesting transaction if it is compatible with existing locks, but not if it conflicts with existing locks. A transaction waits until the conflicting existing lock is released.<br><br>Intention locks do not block anything except full table requests (for example, <code>LOCK TABLES ... WRITE</code>)<br><br>##### Lock types<br><br><em>   Record lock: This is a lock on an index record.
+</em>   Gap lock: This is a lock on a gap between index records, or a lock on the gap before the first or after the last index record.<br><em>   Next-key lock: This is a combination of a record lock on the index record and a gap lock on the gap before the index record. A next-key lock is an index-record lock plus a gap lock on the gap preceding the index record.<br>InnoDB uses clustered index and the row data are always in the leaf of the index B+ Tree. Thus, the row-level locks are actually index-record locks<br><br>#### Nonlocking - Consistent Nonlocking reads<br><br>Consistent read is the default mode in which <code>InnoDB</code> processes <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax" target="_blank" rel="external"><code>SELECT</code></a> statements in <a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_read-committed" target="_blank" rel="external"><code>READ COMMITTED</code></a> and<a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_repeatable-read" target="_blank" rel="external"><code>REPEATABLE READ</code></a> isolation levels.<br><br>In <code>REPEATABLE READ</code>,  all consistent reads within the same transaction read the snapshot established by <em>*the first such read</em></em> in that transaction.<br><br>In <code>READ COMMITTED</code>, each consistent read within a transaction sets and reads its own fresh snapshot. (snapshot update at every read statement)<br><br>MVCC is used to naturally implement REPEATABLE READ.<br><br>#### Locking in different Isolation Level<br><br><table style="height: 594px;" border="1" width="1125"><br><tbody><br><tr><br><td colspan="2"></td><br><td>Read Uncommitted(RU)</td><br><td>Read Committed(RC)</td><br><td>Repeatable Read(RR)</td><br><td>Serializable</td><br></tr><br><tr><br><td>consistent reads</td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM</code></a></td><br><td>no lockearlier version might be used(dirty read)</td><br><td>no lockeach consistent read reads its own fresh snapshot</td><br><td>no lockall consistent reads read the snapshot established by the first read</td><br><td>implicitly converts <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT</code></a> statements to <a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... LOCK IN SHARE MODE</code></a></td><br></tr><br><tr><br><td rowspan="4">locking reads</td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM ... LOCK IN SHARE MODE</code></a></td><br><td rowspan="4"> like RC</td><br><td rowspan="4">locks only index records, no gap locks except for foreign-key constraint checking and duplicate-key checking</td><br><td rowspan="4">unique index: locks only the index record foundother search condition: locks the index range scanned, using <a href="http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_gap_lock" title="gap lock" target="_blank" rel="external">gap locks</a> or <a href="http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_next_key_lock" title="next-key lock" target="_blank" rel="external">next-key locks</a></td><br><td rowspan="4">like RR</td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/select.html" title="13.2.9 SELECT Syntax" target="_blank" rel="external"><code>SELECT ... FROM ... FOR UPDATE</code></a></td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/update.html" title="13.2.11 UPDATE Syntax" target="_blank" rel="external"><code>UPDATE ... WHERE ...</code></a></td><br></tr><br><tr><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/delete.html" title="13.2.2 DELETE Syntax" target="_blank" rel="external"><code>DELETE FROM ... WHERE ...</code></a></td><br></tr><br><tr><br><td></td><br><td><a href="http://dev.mysql.com/doc/refman/5.6/en/insert.html" title="13.2.5 INSERT Syntax" target="_blank" rel="external"><code>INSERT</code></a></td><br><td colspan="4">index-record exclusive lock, not a next-key lockif a duplicate-key error occurs, a shared lock on the duplicate index record is set.</td><br></tr><br><tr><br><td></td><br><td></td><br><td></td><br><td></td><br><td></td><br><td></td><br></tr><br></tbody><br></table>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/05/jvm-dump-lab/" itemprop="url">
+                  JVM dump lab
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-05T15:16:23+08:00" content="2015-06-05">
+              2015-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Performance/" itemprop="url" rel="index">
+                    <span itemprop="name">Performance</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/05/jvm-dump-lab/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/05/jvm-dump-lab/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="IBM-dump-files"><a href="#IBM-dump-files" class="headerlink" title="IBM dump files"></a>IBM dump files</h3><p>[pdf-embedder url=”/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf”]</p>
+<h4 id="What-is-java-core-or-javadump-or-thread-dump"><a href="#What-is-java-core-or-javadump-or-thread-dump" class="headerlink" title="What is java core (or javadump or thread dump)?"></a><strong>What is java core (or javadump or thread dump)?</strong></h4><p>A <strong>java core</strong> is a snapshot of the threads at work in a JVM. It also details a cross section of information from the major components in the JVM like XM,XE, LK, etc (IBM Javacore only, Sun does not – it just shows threads)</p>
+<p>A <strong>Java dump</strong>, also known as a <strong>Java core</strong>, Java <strong>thread dump</strong>, or a thread dump is a file that contains the following sections:</p>
+<ul>
+<li>All of the threads that run on a Java Virtual Machine (JVM).</li>
+<li>All of the monitors on a JVM.</li>
+<li>Some useful information about the system that the JVM runs under.<figure class="highlight"><table><tr><td class="code"><pre><div class="line"># kill list</div><div class="line"></div><div class="line">1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP</div><div class="line">6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1</div><div class="line">11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM</div><div class="line">16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP</div><div class="line">21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ</div><div class="line">26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR</div><div class="line">31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3</div><div class="line">38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8</div><div class="line">43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13</div><div class="line">48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12</div><div class="line">53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7</div><div class="line">58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2</div><div class="line">63) SIGRTMAX-1 64) SIGRTMAX</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="What-is-a-heap-dump"><a href="#What-is-a-heap-dump" class="headerlink" title="What is a heap dump?"></a><strong>What is a heap dump?</strong></h4><p>A <strong>heapdump</strong> is a snapshot of JVM memory – it shows the live objects on the heap along with references between objects. It is used to determine memory usage patterns and memory leak suspects.</p>
+<p>A heap dump is a snapshot of memory at a given point in time. It contains information on the Java objects and classes in memory at the time the snapshot was taken. In the same way that thread dumps are an instant in time a single heap dump cannot provide much in the way of temporal information to answer questions like “where did an object come from?” or “what has it been doing?”</p>
+<p>Heap dumps come in various formats:</p>
+<ul>
+<li>the Sun VM generates HPROF</li>
+<li>the IBM VM provides portable heap dump (PHD) files.<br>At Rally we run Sun’s VM so usually work with HPROF dumps. The internals vary a little but the basic principals are still the same.</li>
+</ul>
+<ul>
+<li>See more at: <a href="https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf" target="_blank" rel="external">https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf</a></li>
+</ul>
+<p><strong>How to get a heap dump?</strong></p>
+<p>Executing the Java VM with the appropriate parameters:</p>
+<ul>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnOutOfMemoryError</code></span> writes heap dump on <span class="geshifilter"><code>OutOfMemoryError</code></span> (recommended)</li>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnCtrlBreak</code></span> writes heap dump together with thread dump on <span class="geshifilter"><code>CTRL+BREAK</code></span></li>
+<li>by default enabled on WebSphere<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#java -Xdump:what</div><div class="line"></div><div class="line">Registered dump agents</div><div class="line">----------------------</div><div class="line">dumpFn=doSystemDump</div><div class="line">events=gpf+abort</div><div class="line">filter=</div><div class="line">label=//core.%Y%m%d.%H%M%S.%pid.%seq.dmp</div><div class="line">range=1..0</div><div class="line">priority=999</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doSnapDump</div><div class="line">events=gpf+abort</div><div class="line">filter=</div><div class="line">label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc</div><div class="line">range=1..0</div><div class="line">priority=500</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doSnapDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc</div><div class="line">range=1..4</div><div class="line">priority=500</div><div class="line">request=serial</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doHeapDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//heapdump.%Y%m%d.%H%M%S.%pid.%seq.phd</div><div class="line">range=1..4</div><div class="line">priority=40</div><div class="line">request=exclusive+compact+prepwalk</div><div class="line">opts=PHD</div><div class="line">----------------------</div><div class="line">dumpFn=doJavaDump</div><div class="line">events=gpf+user+abort</div><div class="line">filter=</div><div class="line">label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt</div><div class="line">range=1..0</div><div class="line">priority=10</div><div class="line">request=exclusive</div><div class="line">opts=</div><div class="line">----------------------</div><div class="line">dumpFn=doJavaDump</div><div class="line">events=systhrow</div><div class="line">filter=java/lang/OutOfMemoryError</div><div class="line">label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt</div><div class="line">range=1..4</div><div class="line">priority=10</div><div class="line">request=exclusive</div><div class="line">opts=</div><div class="line">----------------------</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Or you can run the jmap tool:</p>
+<ul>
+<li>Sun (Linux, Solaris; not on Windows) <span class="geshifilter"><code>JMap Java 5: jmap -heap:format=b</code></span></li>
+<li>Sun (Linux, Solaris; Windows see link) <span class="geshifilter"><code>JMap Java 6: jmap.exe -dump:format=b,file=HeapDump.hprof</code></span></li>
+<li>Sun (Linus, Solaris) JMap with Core Dump File: <span class="geshifilter"><code>jmap -dump:format=b,file=HeapDump.hprof /path/to/bin/java core_dump_file</code></span></li>
+<li>Sun JConsole: Launch <span class="geshifilter"><code>jconsole.exe</code></span> and invoke operation <span class="geshifilter"><code>dumpHeap()</code></span> on HotSpotDiagnostic MBean</li>
+<li>SAP JVMMon: Launch <span class="geshifilter"><code>jvmmon.exe</code></span> and call menu for dumping the heap</li>
+</ul>
+<h4 id="What-is-system-core-dump-and-snap-trace"><a href="#What-is-system-core-dump-and-snap-trace" class="headerlink" title="What is system core dump and snap trace?"></a>What is system core dump and snap trace?</h4><h3 id="Analyzer-Tools"><a href="#Analyzer-Tools" class="headerlink" title="Analyzer Tools"></a>Analyzer Tools</h3><h4 id="ThreadAnalyzer"><a href="#ThreadAnalyzer" class="headerlink" title="ThreadAnalyzer"></a><strong>ThreadAnalyzer</strong></h4><ul>
+<li><p>ThreadAnalyzer is a problem determination tool for WebSphere Application Server thread performance and deadlock detection. You can use it to obtain a Java dump from an application server and use its analysis features for problem determination. For performance problem determination, ThreadAnalyzer provides a top-of-the-stack (TOS) analysis that counts all of the methods at the top of the stack for the listed threads.</p>
+</li>
+<li><p>It then sorts them by ‘weight’ (automatically computed by ThreadAnalyzer), and lists the possible performance bottlenecks in your application. ThreadAnalyzer does automatic deadlock detection while it analyzes the Java dump.<br><strong>Downloading ThreadAnalyzer</strong></p>
+</li>
+</ul>
+<p>To download ThreadAnalyzer go to</p>
+<p><a href="http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html" target="_blank" rel="external">http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html</a></p>
+<h4 id="IBM-Thread-and-Monitor-Dump-Analyzer-for-Java"><a href="#IBM-Thread-and-Monitor-Dump-Analyzer-for-Java" class="headerlink" title="IBM Thread and Monitor Dump Analyzer for Java"></a><strong>IBM Thread and Monitor Dump Analyzer for Java</strong></h4><ul>
+<li><p>During the run time of a Java™ process, some Java Virtual Machiness (JVMs) may not respond predictably and oftentimes seem to hang up for a long time or until JVM shutdown occurs. It is not easy to determine the root cause of these sorts of problems.</p>
+</li>
+<li><p>By triggering a <em>javacore</em> when a Java process does not respond, it is possible to collect diagnostic information related to the JVM and a Java application captured at a particular point during execution. For example, the information can be about the operating system, the application environment, threads, native stack, locks, and memory. The exact contents are dependent on the platform on which the application is running.</p>
+</li>
+<li><p>On some platforms, and in some cases, javacore is known as “javadump.” The code that creates javacore is part of the JVM. One can control it by using environment variables and run-time switches. By default, a javacore occurs when the JVM terminates unexpectedly. A javacore can also be triggered by sending specific signals to the JVM. Although javacore or javadump is present in Sun Solaris JVMs, much of the content of the javacore is added by IBM and, therefore, is present only in IBM JVMs.</p>
+</li>
+<li><p>IBM Thread and Monitor Dump Analyzer for Java analyzes javacore and diagnoses monitor locks and thread activities in order to identify the root cause of hangs, deadlocks, and resource contention or monitor bottlenecks.<br><strong>How does it work?</strong></p>
+</li>
+<li><p>This technology analyzes each thread information and provides diagnostic information, such as current thread information, the signal that caused the javacore, Java heap information (maximum Java heap size, initial Java heap size, garbage collector counter, allocation failure counter, free Java heap size, and allocated Java heap size), number of runnable threads, total number of threads, number of monitors locked, and deadlock information.</p>
+</li>
+<li><p>In addition, IBM Thread and Monitor Dump Analyzer for Java provides the recommended size of the Java heap cluster (applicable only to IBM SDK 1.4.2 and 1.3.1 SR7 or above) based on the heuristic analysis engine.</p>
+</li>
+<li><p>IBM Thread and Monitor Dump Analyzer for Java compares each javacore and provides process ID information for threads, time stamp of the first javacore, time stamp of the last javacore, number of garbage collections per minute, number of allocation failures per minute, time between the first javacore and the last javacore, number of hang suspects, and list of hang suspects.</p>
+</li>
+<li><p>This technology also compares all monitor information in javacore and detects deadlock and resource contention or monitor bottlenecks, if there are any.</p>
+</li>
+</ul>
+<h4 id="HeapAnalyzer"><a href="#HeapAnalyzer" class="headerlink" title="HeapAnalyzer"></a><strong>HeapAnalyzer</strong></h4><ul>
+<li><p>HeapAnalyzer allows the finding of a possible Java™ heap leak area through its heuristic search engine and analysis of the Java heap dump in Java applications.</p>
+</li>
+<li><p>Java heap areas define objects, arrays, and classes. When the Garbage Collector allocates areas of storage in the heap, an object continues to be live while a reference to it exists somewhere in the active state of the JVM; therefore the object is reachable. When an object ceases to be referenced from the active state, it becomes garbage and can be reclaimed for reuse.</p>
+</li>
+<li><p>When this reclamation occurs, the Garbage Collector must process a possible finalizer and also ensure that any internal JVM resources that are associated with the object are returned to the pool of such resources. Java heap dumps are snap shots of Java heaps at specific times.<br><strong>How does it work?</strong></p>
+</li>
+</ul>
+<p>HeapAnalyzer analyzes Java heap dumps by parsing the Java heap dump, creating directional graphs, transforming them into directional trees, and executing the heuristic search engine.</p>
+<p>The following are examples of features:</p>
+<ul>
+<li>List of Java heap leak suspects</li>
+<li>Recommendation of the size of kCluster</li>
+<li>List of gaps among allocated objects/classes/arrays</li>
+<li>Java objects/classes/arrays search engine</li>
+<li>List of objects/classes/arrays by type name</li>
+<li>List of objects/classes/arrays by object name</li>
+<li>List of objects/classes/arrays by address</li>
+<li>List of objects/classes/arrays by size</li>
+<li>List of objects/classes/arrays by size of child</li>
+<li>List of objects/classes/arrays by number of child</li>
+<li>List of objects/classes/arrays by frequency</li>
+<li>List of available heap spaces by size</li>
+<li>Tree view of Java heap dump</li>
+<li>Loading/saving processed Java heap dumps.</li>
+</ul>
+<h4 id="Memory-Analyzer"><a href="#Memory-Analyzer" class="headerlink" title="Memory Analyzer"></a>Memory Analyzer</h4><p>The Memory Dump Diagnostic for Java (MDD4J) tool has been deprecated and is no longer available.</p>
+<p>Memory Analyzer is in the portfolio of IBM Monitoring and Diagnostic Tools for Java, which are IBM’s primary troubleshooting tools for problems with Java applications. Memory Analyzer is the recommended heap dump analysis tool.</p>
+<p>Memory Analyzer extends Eclipse MAT version 1.4 using the Diagnostic Tool Framework for Java (DTFJ) which enables Java heap analysis using operating system level dumps and IBM Portable Heap Dumps (PHD).</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="url">
+                  Book notes - Practical Unit Test with JUnit and Mockito
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-25T14:46:18+08:00" content="2015-05-25">
+              2015-05-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Building-Testing-amp-CI/" itemprop="url" rel="index">
+                    <span itemprop="name">Building, Testing &amp; CI</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Developers’-Tests"><a href="#Developers’-Tests" class="headerlink" title="Developers’ Tests"></a>Developers’ Tests</h1><h2 id="On-Tests-and-Tools"><a href="#On-Tests-and-Tools" class="headerlink" title="On Tests and Tools"></a>On Tests and Tools</h2><p><strong>SUT</strong> (aka. System Under Test) – test target being tested</p>
+<p><strong>DOC</strong> (aka. Dependency of Components) – collaborators and dependencies when testing</p>
+<h3 id="Types-of-Developers’-Tests"><a href="#Types-of-Developers’-Tests" class="headerlink" title="Types of Developers’ Tests"></a>Types of Developers’ Tests</h3><ul>
+<li>Unit Test</li>
+<li>Integration Test</li>
+<li>End-to-End Test<br>Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.</li>
+</ul>
+<p>Other types of tests:</p>
+<ul>
+<li><strong>System Integration Test</strong> – test with external systems/applications, services etc</li>
+<li><strong>User Acceptation Test</strong> – final user verification test</li>
+<li><strong>Load Test</strong> – verify system performance under pressure / load</li>
+</ul>
+<table border="1" width="635"><br><tbody><br><tr><br><td><strong>type of test</strong></td><br><td><strong>SUT example</strong></td><br><td><strong>DOC example</strong></td><br></tr><br><tr><br><td rowspan="3">unit test</td><br><td>UserService</td><br><td>UserDAO</td><br></tr><br><tr><br><td>Invoice</td><br><td>Product</td><br></tr><br><tr><br><td>Client</td><br><td>Account</td><br></tr><br><tr><br><td rowspan="3">integration test</td><br><td>DAO layer (ORM based)</td><br><td>Hibernate</td><br></tr><br><tr><br><td>DAO layer (JDBC based)</td><br><td>MySQL 5</td><br></tr><br><tr><br><td>FullTextIndexer module</td><br><td>FileStorage module</td><br></tr><br><tr><br><td>end-to-end test</td><br><td>Whole application</td><br><td>LDAP repository</td><br></tr><br></tbody><br></table>
+
+<h3 id="Should-Developers-Test-Their-Own-Code"><a href="#Should-Developers-Test-Their-Own-Code" class="headerlink" title="Should Developers Test Their Own Code?"></a>Should Developers Test Their Own Code?</h3><p>Yes!</p>
+<h2 id="Unit-Tests"><a href="#Unit-Tests" class="headerlink" title="Unit Tests"></a>Unit Tests</h2><h3 id="what-is-a-Unit-Test"><a href="#what-is-a-Unit-Test" class="headerlink" title="what is a Unit Test?"></a>what is a Unit Test?</h3><p>It’s to make sure the class you are working on right now works correctly.</p>
+<p>You should test your classes<strong> in isolation</strong>. When writing unit tests it’s important to test a single class and nothing more. Forget about databases, Spring configuration files, and external web services.</p>
+<p>Concentrate on the logic of your class!</p>
+<h3 id="Interactions-in-Unit-Tests"><a href="#Interactions-in-Unit-Tests" class="headerlink" title="Interactions in Unit Tests"></a>Interactions in Unit Tests</h3><p>Types of collaboration with an SUT</p>
+<p><img src="/media/collaboration-of-SUT.png" alt="collaboration-of-SUT"></p>
+<p>Test class has direct operations with SUT, but its collaborations have indirect operations on the SUT state.</p>
+<p>We use direct inputs and indirect <strong>inputs</strong> (SUT receiveing some message) to set the SUT in a required state and to invoke its methods.</p>
+<p>The direct and indirect outputs (SUT sending a message) of the SUT are expressions of the SUT’s behaviours; we use them to verify whether the SUT is working properly.</p>
+<table border="1"><br><tbody><br><tr><br><td><strong>type of interaction</strong></td><br><td><strong>involved parties</strong></td><br><td><strong>description</strong></td><br></tr><br><tr><br><td>direct input</td><br><td rowspan="2">Test class &amp; SUT</td><br><td>calls the SUT methods</td><br></tr><br><tr><br><td>direct output</td><br><td>values returned by the SUT to the test class after calling some SUT method</td><br></tr><br><tr><br><td>indirect output</td><br><td rowspan="2">SUT &amp; DOCs</td><br><td>arguments passed by the SUT to a method of one of its collaborators</td><br></tr><br><tr><br><td>indirect input</td><br><td>value returned (or an exception thrown) to the SUT by collaborators, after it called some methods of its collaborators</td><br></tr><br></tbody><br></table>
+
+<h3 id="State-Testing-vs-Interaction-Testing"><a href="#State-Testing-vs-Interaction-Testing" class="headerlink" title="State Testing vs. Interaction Testing"></a>State Testing vs. Interaction Testing</h3><ul>
+<li>State Testing - uses direct inputs and outputs for what the results of actions.</li>
+<li>Interaction Testing - concentrates on how messages are passed between collaborators<br>With State Testing, the SUT is a black box. Interaction testing looks inside the SUT and verifies its internal parts.</li>
+</ul>
+<h1 id="Writing-Unit-Testing"><a href="#Writing-Unit-Testing" class="headerlink" title="Writing Unit Testing"></a>Writing Unit Testing</h1><h2 id="Unit-tests-with-no-collaborator"><a href="#Unit-tests-with-no-collaborator" class="headerlink" title="Unit tests with no collaborator"></a>Unit tests with no collaborator</h2><h3 id="parameterized"><a href="#parameterized" class="headerlink" title="parameterized"></a>parameterized</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Money</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> amount;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String currency;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Money</span><span class="params">(<span class="keyword">int</span> amount, String currency)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.amount = amount;</div><div class="line">        <span class="keyword">this</span>.currency = currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> amount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> Money) &#123;</div><div class="line">            Money money = (Money) anObject;</div><div class="line">            <span class="keyword">return</span> money.getCurrency().equals(getCurrency())</div><div class="line">                    &amp;amp;&amp;amp; getAmount() == money.getAmount();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.junit.runners.Parameterized;</div><div class="line"></div><div class="line"><span class="meta">@RunWith</span>(Parameterized.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyParameterizedTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Parameterized</span>.Parameters(name = <span class="string">"&#123;index&#125;: money(&#123;0&#125;, &#123;1&#125;)"</span>)</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] data() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[] &#123;</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">10</span>, <span class="string">"USD"</span>&#125;,</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">20</span>, <span class="string">"EUR"</span>&#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">0</span>) <span class="comment">// first data value (0) is default</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> amount;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">1</span>) <span class="comment">// value is the index in parameter tuple</span></div><div class="line">    <span class="keyword">public</span> String currency;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructorShouldSetAmountAndCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        Money money = <span class="keyword">new</span> Money(amount, currency);</div><div class="line">        assertEquals(amount, money.getAmount());</div><div class="line">        assertEquals(currency, money.getCurrency());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="test-fixture"><a href="#test-fixture" class="headerlink" title="test fixture"></a>test fixture</h3><p>A <strong>test fixture</strong> is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable. Examples of fixtures:</p>
+<ul>
+<li>Preparation of input data and setup/creation of fake or mock objects</li>
+<li>Loading a database with a specific, known set of data</li>
+<li>Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.</li>
+<li>JUnit supports test fixture by using:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@BeforeClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setUpClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@AfterClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tearDownClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@Before</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@After</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="Phases-of-a-unit-test"><a href="#Phases-of-a-unit-test" class="headerlink" title="Phases of a unit test"></a>Phases of a unit test</h3><p><table border="1"><colgroup> <col> <col> </colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p><strong>phase</strong></p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p><strong>explanation</strong></p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td colspan="1" rowspan="2"></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>arrange</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>creation of all objects (except for the SUT) that are necessary for test execution</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>creation of the object whose functionality will be tested, and setting it in some initial state</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>act</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>execution of SUT methods to be tested</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>assert</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>verification of the test results</p>
+<p></p></div><br><br><br><br><br><br>The first phase relates to the preparation of a test fixture.<p></p>
+<h2 id="TDD-Test-Driven-Development"><a href="#TDD-Test-Driven-Development" class="headerlink" title="TDD (Test-Driven Development)"></a>TDD (Test-Driven Development)</h2><p>when to write test?</p>
+<ul>
+<li>Test Last (aka. Code First) development</li>
+<li>Test First development</li>
+</ul>
+<p>How TDD do?</p>
+<ul>
+<li>write a test that fails ( <span style="background-color: #ff0000;">     </span> )</li>
+<li>make the code work ( <span style="background-color: #00ff00;">     </span> )</li>
+<li>eliminate redundancy ( <span style="background-color: #0000ff;">     </span> )</li>
+</ul>
+<p><img src="/media/tdd.png" alt="tdd"></p>
+<p>Note: refractor can be done for classes to test or the test code.</p>
+<p>TDD should be applied to every level: unit test, integration test, end-to-end test.<br><img src="/media/tdd-on-different-levels.png" alt="tdd-on-different-levels"></p>
+<h1 id="test-double-stub-test-spy-mock"><a href="#test-double-stub-test-spy-mock" class="headerlink" title="test double (stub, test spy, mock)"></a>test double (stub, test spy, mock)</h1><p><table border="1" width="644"><caption>Types of test doubles</caption></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>test double type</td></p>
+<p><td>also known as (aka.)</td></p>
+<p><td>description</td><br></p>
+<p><tr></tr></p>
+<p><td>dummy object</td></p>
+<p><td>dummy</td></p>
+<p><td>needs to exist, no real collaboration needed</td><br></p>
+<p><tr></tr></p>
+<p><td>test stub</td></p>
+<p><td>stub</td></p>
+<p><td>used for passing some values to the SUT (“indirect inputs”)</td><br></p>
+<p><tr></tr></p>
+<p><td>test spy</td></p>
+<p><td>spy</td></p>
+<p><td rowspan="2">used to verify if the SUT calls specific method of the collaborator (“indirect outputs”)</td><br></p>
+<p><tr></tr></p>
+<p><td>mock object</td></p>
+<p><td>mock</td><br></p>
+<p><tr></tr></p>
+<p><td>fake</td></p>
+<p><td>fake</td></p>
+<p><td></td><br><br><br><br><img src="/media/test-doubles.png" alt="test-doubles"></p>
+<ul>
+<li>Dummies and stubs are used to prepare the environment for testing (test-fixture setting). They are not used for verification.</li>
+<li>Test spies and mocks are to verify the correctness of the communication between the SUT and DOCs.  Bothe can also participate in test-fixture setting.<br><strong>Fake</strong><br>For the sake of completeness, let us describe another type of test double: a fake. Fake works almost as good as the real collaborator, but is somehow simpler and/or weaker (which makes it not suitable for production use). It is also usually “cheaper” in use (i.e. faster or simpler to set up), which makes it suited to tests (which should run as fast as possible). A typical example is an in-memory database that is used instead of a full-blown database server. It can be used for some tests, as it serves SQL requests pretty well; however, you would not want to use it in a production environment. In tests, fake plays a similar role to dummy and stub: it is a part of the environment (test fixture), not an object of verification. Fakes are used in integration tests rather than in unit tests, so we will not be discussing them any further.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Messenger</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> TemplateEngine templateEngine;</div><div class="line">    <span class="keyword">private</span> MailServer mailServer;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Messenger</span><span class="params">(MailServer mailServer, TemplateEngine templateEngine)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mailServer = mailServer;</div><div class="line">        <span class="keyword">this</span>.templateEngine = templateEngine;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(Client client, Template template)</span> </span>&#123;</div><div class="line">        String msgContent = templateEngine.prepareMessage(template, client);</div><div class="line">        mailServer.send(client.getEmail(), msgContent);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MailServer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">send</span><span class="params">(Object email, String msgContent)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Template</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TemplateEngine</span> </span>&#123;</div><div class="line">    <span class="function">String <span class="title">prepareMessage</span><span class="params">(Template template, Client client)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Mockito.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessengerTest</span> </span>&#123;</div><div class="line">    <span class="comment">// SUT</span></div><div class="line">    Messenger messenger;</div><div class="line"></div><div class="line">    <span class="comment">// dummy</span></div><div class="line">    Client client;</div><div class="line">    Template template;</div><div class="line"></div><div class="line">    <span class="comment">// stub</span></div><div class="line">    TemplateEngine templateEngine;</div><div class="line"></div><div class="line">    <span class="comment">// spy</span></div><div class="line">    MailServer mailServer;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> String CLIENT_EMAIL = <span class="string">"some@email.com"</span>;</div><div class="line">    <span class="keyword">final</span> String MSG_CONTENT = <span class="string">"Dear John! You are fired."</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// dummy</span></div><div class="line">        template = mock(Template.class);</div><div class="line"></div><div class="line">        <span class="comment">// stubs</span></div><div class="line">        client = mock(Client.class);</div><div class="line">        when(client.getEmail()).thenReturn(CLIENT_EMAIL);</div><div class="line"></div><div class="line">        templateEngine = mock(TemplateEngine.class);</div><div class="line">        when(templateEngine.prepareMessage(template, client)).thenReturn(MSG_CONTENT);</div><div class="line"></div><div class="line">        <span class="comment">// spy</span></div><div class="line">        mailServer = mock(MailServer.class);</div><div class="line"></div><div class="line">        <span class="comment">// SUT</span></div><div class="line">        messenger = <span class="keyword">new</span> Messenger(mailServer, templateEngine);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        messenger.sendMessage(client, template);</div><div class="line"></div><div class="line">        <span class="comment">// verify interaction</span></div><div class="line">        verify(mailServer).send(CLIENT_EMAIL, MSG_CONTENT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/20/scea-architect/" itemprop="url">
+                  SCEA architect
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-20T15:22:13+08:00" content="2015-05-20">
+              2015-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/20/scea-architect/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/20/scea-architect/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Understanding-Architecture"><a href="#Understanding-Architecture" class="headerlink" title="Understanding Architecture"></a>Understanding Architecture</h3><p>focus on structure to support the business and service-level requirements</p>
+<p>You can define the structure of a system as the mechanisms that the system employs to solve the common problems of the system, such as persistence, distribution, communication, transaction management, and security</p>
+<ul>
+<li>difficult <strong>decisions</strong> must be made about <strong>trade-offs</strong> in the system<br>&nbsp;</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = 'page/3/index.html';
+      var disqus_title = '';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

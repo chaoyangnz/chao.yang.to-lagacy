@@ -1,0 +1,864 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
+Table of Contents
+How MVCC works
+Disadvantages of MVCCOne of the big selling points of Postgres is how it handles con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL Concurrency with MVCC">
+<meta property="og:url" content="https://richyang.me/2015/03/04/postgresql-concurrency-with-mvcc/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
+Table of Contents
+How MVCC works
+Disadvantages of MVCCOne of the big selling points of Postgres is how it handles con">
+<meta property="og:image" content="https://richyang.me/media/mvcc-2.png">
+<meta property="og:image" content="https://richyang.me/media/mvcc-3.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostgreSQL Concurrency with MVCC">
+<meta name="twitter:description" content="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
+Table of Contents
+How MVCC works
+Disadvantages of MVCCOne of the big selling points of Postgres is how it handles con">
+<meta name="twitter:image" content="https://richyang.me/media/mvcc-2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> PostgreSQL Concurrency with MVCC | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PostgreSQL Concurrency with MVCC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-03-04T08:12:20+08:00" content="2015-03-04">
+              2015-03-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Databases/" itemprop="url" rel="index">
+                    <span itemprop="name">Databases</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Databases/Transaction-Management/" itemprop="url" rel="index">
+                    <span itemprop="name">Transaction Management</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/04/postgresql-concurrency-with-mvcc/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/04/postgresql-concurrency-with-mvcc/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><section id="table-of-contents"><a href="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc" target="_blank" rel="external">https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc</a></section></p>
+<h3 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h3><ul>
+<li><a href="https://devcenter.heroku.com/articles/postgresql-concurrency#how-mvcc-works" target="_blank" rel="external">How MVCC works</a></li>
+<li><a href="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc" target="_blank" rel="external">Disadvantages of MVCC</a><br>One of the big selling points of Postgres is how it handles concurrency. The promise is simple: reads never block writes and vice versa. Postgres achieves this via a mechanism called Multi Version Concurrency Control. This technique is not unique to Postgres: there are several databases that implement some form of MVCC including Oracle, Berkeley DB, CouchDB and <a href="http://en.wikipedia.org/wiki/Multiversion_concurrency_control#Databases_with_MVCC" target="_blank" rel="external">many more</a>. Understanding how MVCC is implemented in Postgres is important when designing highly concurrent apps on PostgreSQL. It’s actually a very elegant and simple solution to a hard problem.</li>
+</ul>
+<h2 id="How-MVCC-works"><a href="#How-MVCC-works" class="headerlink" title="How MVCC works"></a><a href="https://devcenter.heroku.com/articles/postgresql-concurrency#how-mvcc-works" target="_blank" rel="external">How MVCC works</a></h2><p>Every transaction in postgres gets a transaction ID called XID. This includes single one statement transactions such as an insert, update or delete, as well as explicitely wrapping a group of statements together via <code>BEGIN</code> - <code>COMMIT</code>. When a transaction starts, Postgres increments an XID and assigns it to the current transaction. Postgres also stores transaction information on every row in the system, which is used to determine whether a row is visible to the transaction or not.</p>
+<p>For example, when you insert a row, postgres will store the XID in the row and call it <code>xmin</code>. Every row that has been committed and has an<code>xmin</code> that is less than the current transaction’s XID is visible to the transaction. This means that you can start a transaction and insert a row, and until that transaction <code>COMMIT</code>s that row will not be visible to other transactions. Once it commits and other transactions get created, they will be able to view the new row because they satisfy the <code>xmin &amp;lt; XID</code> condition – and the transaction that created the row has completed.</p>
+<p>A similar mechanism occurs for <code>DELETE</code>s and <code>UPDATE</code>s, only in these cases Postgres stores an <code>xmax</code> value on each row in order to determine visibility. This diagram shows two concurrent transactions inserting and reading rows, and how MVCC comes into play in terms of transaction isolation.</p>
+<p>For the following charts, assume the following DDL:</p>
+<p><div class="CodeRay"></div></p>
+<p><div class="code"></div></p>
+<p><pre><span class="class">CREATE</span> <span class="type">TABLE</span> numbers (value <span class="predefined-type">int</span>);<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">![mvcc-1](/media/mvcc-1.png)</div><div class="line"></div><div class="line">While the `xmin` and `xmax` values are hidden from daily operations, you can actually just ask for them and Postgres will hapilly give them to you:</div><div class="line">&lt;div class=&quot;CodeRay&quot;&gt;</div><div class="line">&lt;div class=&quot;code&quot;&gt;</div><div class="line">&lt;pre&gt;&lt;span class=&quot;class&quot;&gt;SELECT&lt;/span&gt; *, xmin, xmax &lt;span class=&quot;keyword&quot;&gt;FROM&lt;/span&gt; numbers;</div></pre></td></tr></table></figure></pre></p>
+<p><br><br>You can also get the XID for the current transaction pretty easily:</p>
+<p><div class="CodeRay"></div></p>
+<p><div class="code"></div></p>
+<p><pre><span class="class">SELECT</span> txid_current();<br>```<br><br><br>Neat!</pre></p>
+<p>I know what you’re thinking though: what about a two transactions updating the same row at the same time? This is where transaction isolation levels come in. Postgres basically supports two models that allow you to control how this situation should be handled. The default,<code>READ COMMITTED</code>, reads the row after the inital transaction has completed and then executes the statement. It basically starts over if the row changed while it was waiting. For instance, if you issue an <code>UPDATE</code> with a <code>WHERE</code> clause, the <code>WHERE</code> clause will rerun after the initial transaction commits, and the <code>UPDATE</code> takes place if the <code>WHERE</code> clause is still satisfied. Here’s an example of two transactions modifying a row where the initial<code>UPDATE</code> causes the <code>WHERE</code> clause of the second transaction to return no rows. Therefore the second transaction does not update any rows at all:</p>
+<p><img src="/media/mvcc-2.png" alt="mvcc-2"></p>
+<p>If you need finer control over this behavior, you can set the transactionisolation level to <code>SERIALIZABLE</code>. With this strategy the above scenario will just fail, because it says “If the row I’m modifying has been modified by another transaction, don’t even try,” and Postgres will respond with the error message <code>ERROR: could not serialize access due to concurrent update</code>. It’s up to your app to handle that error and try again, or to give up if that’s what makes sense.</p>
+<p><img src="/media/mvcc-3.png" alt="mvcc-3"></p>
+<h2 id="Disadvantages-of-MVCC"><a href="#Disadvantages-of-MVCC" class="headerlink" title="Disadvantages of MVCC"></a><a href="https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc" target="_blank" rel="external">Disadvantages of MVCC</a></h2><p>Now that you know how MVCC and transaction isolation actualy works, you’ve added another tool for solving the kinds of problems where a<code>SERIALIZABLE</code> isolation level comes in handy. While the advantages of MVCC are clear it also has some disadvantages.</p>
+<p>Because different transactions will have visibility to a different set of rows, Postgres needs to maintain potentially obsolete records. This is why an <code>UPDATE</code> actually creates a new row and why <code>DELETE</code> doesn’t<em>really</em> remove the row: it merely marks it as deleted and sets the XID values appropriately. As transactions complete, there will be rows in the database that cannot possibly be visible to any future transactions. These are called dead rows. Another problem that comes from MVCC is that transaction IDs can only ever grow so much – they are 32 bits and can “only” support around 4 billion transactions. When the XID reaches its max, it will wraparound and start back at zero. Suddenly _all_rows appear to be in future transactions, and no new transactions would have visibility into those rows.</p>
+<p>Both dead rows and the transaction XID wraparound problem are solved with <code>VACUUM</code>. This should be routine maintenance, but thankfuly Postgres comes with an auto_vacuum daemon that will run at a configurable frequency. It’s important to keep an eye on this because different deployments will have different needs when it comes to vacuum frequency. You can read more about what <code>VACUUM</code> actually does on the <a href="http://www.postgresql.org/docs/current/static/routine-vacuuming.html" target="_blank" rel="external">Postgres docs</a> and how <a href="https://devcenter.heroku.com/articles/heroku-postgres-database-tuning" target="_blank" rel="external">Heroku handles it</a>.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/17/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/" rel="next" title="Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue">
+                <i class="fa fa-chevron-left"></i> Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/13/core-java-concurrency/" rel="prev" title="Core Java Concurrency">
+                Core Java Concurrency <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-MVCC-works"><span class="nav-number"></span> <span class="nav-text">How MVCC works</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Disadvantages-of-MVCC"><span class="nav-number"></span> <span class="nav-text">Disadvantages of MVCC</span></a></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/03/04/postgresql-concurrency-with-mvcc/';
+      var disqus_title = 'PostgreSQL Concurrency with MVCC';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

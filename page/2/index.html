@@ -1,0 +1,2640 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Nothing seek, nothing find">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Richard Yang">
+<meta property="og:url" content="https://richyang.me/page/2/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Nothing seek, nothing find">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Richard Yang">
+<meta name="twitter:description" content="Nothing seek, nothing find">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/03/leetcode-#1-two-sum/" itemprop="url">
+                  LeetCode #1 Two Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-02-03T22:10:25+08:00" content="2016-02-03">
+              2016-02-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/03/leetcode-#1-two-sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/03/leetcode-#1-two-sum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>Given an array of integers, find two numbers such that they add up to a specific target number.</p>
+<p>The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.</p>
+<p>You may assume that each input would have exactly one solution.</p>
+<p><strong>Input</strong>: numbers={2, 7, 11, 15}, target=9<br><strong>Output</strong>: index1=1, index2=2</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>It’s easy to think that we can use two loops to traverse this array, but its time complexity is O(n*n).</p>
+<p>Now if we sorted this array and we get some important information about ordered numbers. And sorting can be ultilized to safely ignore some unnecessary comparisons.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">if</span>(len &lt; <span class="number">2</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">        <span class="comment">// O(n)</span></div><div class="line">        System.arraycopy(nums, <span class="number">0</span>, sorted, <span class="number">0</span>, len);</div><div class="line">        <span class="comment">// O(nlogn)</span></div><div class="line">        Arrays.sort(sorted);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> j=len-<span class="number">1</span>;</div><div class="line">        <span class="comment">// O(n)</span></div><div class="line">        <span class="keyword">while</span>(i&lt;j) &#123;</div><div class="line">            <span class="keyword">int</span> actual = sorted[j];</div><div class="line">            <span class="keyword">int</span> expect = target - sorted[i];</div><div class="line">            <span class="keyword">if</span>(actual == expect) <span class="keyword">return</span> indices(nums, sorted[i], sorted[j]);</div><div class="line">            <span class="keyword">if</span>(actual &gt; expect) --j;</div><div class="line">            <span class="keyword">if</span>(actual &lt; expect) ++i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// retrieve the indices from the original number array</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] indices(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> num1, <span class="keyword">int</span> num2) &#123;</div><div class="line">        <span class="keyword">int</span> len = nums.length;</div><div class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">        <span class="keyword">int</span> found = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; len &amp;&amp; found &lt; <span class="number">2</span>; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] == num1 || nums[i] == num2)  &#123;</div><div class="line">                arr[found] = i+<span class="number">1</span>;</div><div class="line">                ++found;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> arr;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Submission-amp-Judgement"><a href="#Submission-amp-Judgement" class="headerlink" title="Submission &amp; Judgement"></a>Submission &amp; Judgement</h1><p><a href="https://leetcode.com/submissions/detail/52575179/" target="_blank" rel="external">Submission in LeetCode</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/18/implement-stack-with-queue/" itemprop="url">
+                  How to implement a Stack with Queue
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-18T20:04:25+08:00" content="2016-01-18">
+              2016-01-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/18/implement-stack-with-queue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/18/implement-stack-with-queue/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>How do you implement a Stack using Queue?</p>
+<p>As is known to all, the difference between Stack and Queue is the order to add and remove elements. So it’s possible to implement a Stack using Queue by controlling the operation logic.</p>
+<ul>
+<li>push 3 elements to the queue</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">|		|</div><div class="line">|	3	|  &lt;- top</div><div class="line">|	2	|</div><div class="line">|	1	|</div></pre></td></tr></table></figure>
+<ul>
+<li>pop a element</li>
+</ul>
+<p>for the elements other than the top, repush into the queue</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">|		|</div><div class="line">|	1	|</div><div class="line">|	3	|  &lt;- top       </div><div class="line">|	2	|</div><div class="line"></div><div class="line">|		|</div><div class="line">|	2	|</div><div class="line">|	1	|</div><div class="line">|	3	|  &lt;- top</div></pre></td></tr></table></figure>
+<p>until the top, just remove and reset the top</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">|		|</div><div class="line">|	2	|  &lt;- top</div><div class="line">|	1	|</div></pre></td></tr></table></figure>
+<p>So here is the code:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.LinkedList;</div><div class="line"><span class="keyword">import</span> java.util.Queue;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueuedStack</span>&lt;<span class="title">E</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> Queue&lt;Wrapper&lt;E&gt;&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    <span class="keyword">private</span> Wrapper&lt;E&gt; top = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Wrapper</span>&lt;<span class="title">E</span>&gt; </span>&#123;</div><div class="line">        <span class="keyword">private</span> E value;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Wrapper</span><span class="params">(E value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(E value)</span> </span>&#123;</div><div class="line">        Wrapper&lt;E&gt; elem = <span class="keyword">new</span> Wrapper&lt;E&gt;(value);</div><div class="line">        queue.offer(elem);</div><div class="line">        top = elem;</div><div class="line">        System.out.printf(<span class="string">"⇢ %s %n"</span>, value);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(queue.isEmpty()) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Wrapper&lt;E&gt; nextTop = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            Wrapper&lt;E&gt; elem = queue.poll();</div><div class="line">            <span class="keyword">if</span> (elem == top) &#123;</div><div class="line">                System.out.printf(<span class="string">"⇠ %s %n"</span>, elem.value);</div><div class="line">                top = nextTop;</div><div class="line">                <span class="keyword">return</span> elem.value;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            queue.offer(elem);</div><div class="line">            nextTop = elem;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        QueuedStack&lt;String&gt; stack = <span class="keyword">new</span> QueuedStack&lt;&gt;();</div><div class="line">        stack.push(<span class="string">"1"</span>);</div><div class="line">        stack.push(<span class="string">"2"</span>);</div><div class="line">        stack.pop();</div><div class="line">        stack.push(<span class="string">"3"</span>);</div><div class="line">        stack.push(<span class="string">"4"</span>);</div><div class="line">        stack.pop();</div><div class="line">        stack.push(<span class="string">"5"</span>);</div><div class="line">        stack.push(<span class="string">"1"</span>);</div><div class="line">        stack.pop();</div><div class="line">        stack.pop();</div><div class="line">        stack.pop();</div><div class="line">        stack.pop();</div><div class="line">    &#125;</div><div class="line">	<span class="comment">//    Output</span></div><div class="line">	<span class="comment">//    ⇢ 1</span></div><div class="line">	<span class="comment">//    ⇢ 2</span></div><div class="line">	<span class="comment">//    ⇠ 2</span></div><div class="line">	<span class="comment">//    ⇢ 3</span></div><div class="line">	<span class="comment">//    ⇢ 4</span></div><div class="line">	<span class="comment">//    ⇠ 4</span></div><div class="line">	<span class="comment">//    ⇢ 5</span></div><div class="line">	<span class="comment">//    ⇢ 1</span></div><div class="line">	<span class="comment">//    ⇠ 1</span></div><div class="line">	<span class="comment">//    ⇠ 5</span></div><div class="line">	<span class="comment">//    ⇠ 3</span></div><div class="line">	<span class="comment">//    ⇠ 1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Why do I need to wrap the value? Because I use the reference to trace the top pointer, if using the value rawly, it will be not unique when some type uses Flyweight pattern to pool some values, like <code>String</code> does.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
+                  Book notes: Oracle Database Transactions and Locking revealed
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-10T20:05:25+08:00" content="2016-01-10">
+              2016-01-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Chapter-1-Getting-Started"><a href="#Chapter-1-Getting-Started" class="headerlink" title="Chapter 1 Getting Started"></a>Chapter 1 Getting Started</h1><p>The focus of this book: locking, concurrency control, multiversioning, transactions, redo/undo.</p>
+<p>These concepts are all interrelated.</p>
+<h2 id="Locking"><a href="#Locking" class="headerlink" title="Locking"></a>Locking</h2><p>The database uses <em>locks</em> mechanism that allows for concurrency.</p>
+<p>Each database implements locking differently: </p>
+<ul>
+<li>some have page-level locking, others row-level</li>
+<li>some implementations escalate locks from row level to page level, some do not</li>
+<li>some use read locks, others don’t</li>
+<li>some implement serializable transactions via locking, others via read-consistent views of data (no locks)</li>
+</ul>
+<p>Oracle’s locking policy:</p>
+<ul>
+<li>Oracle locks data at the row level on modification. There is <strong>no lock escalation</strong> to a block or table level.</li>
+<li>Oracle never locks data just to read it. There are no locks placed on rows of data simply by reads.</li>
+<li>reads are not blocked by writes or reads.</li>
+<li>writes are not blocked by reads.</li>
+<li>A write is blocked only when another write has already locked the row it was going after.</li>
+</ul>
+<h2 id="Concurrency-Control"><a href="#Concurrency-Control" class="headerlink" title="Concurrency Control"></a>Concurrency Control</h2><p><em>Concurrency control</em> ensures that no two transactions modify the same piece of data at the same time.</p>
+<h2 id="Multiversioning"><a href="#Multiversioning" class="headerlink" title="Multiversioning"></a>Multiversioning</h2><p>Multiversioning is related to concurrency control, and it forms the foundation for Oracle’s concurrency control mechanism.</p>
+<p>Oracle operates a multiversion, read-consistent concurrency model.</p>
+<p>This mechanism provides:</p>
+<ul>
+<li>Read-consistent query: query produces consitent result with respect to a time point.</li>
+<li>Nonblocking query: query is never blocked by data writes.</li>
+</ul>
+<p>If you understand how multiversioning and read consitency work together, you will always understand the answers you get from the database.</p>
+<blockquote>
+<p>Oracle doesn’t “pre-answer” the query. It doesn’t copy the data anywhere when you open a cursor. The cursor opens instantly and it answers the query as it goes along.<br>The cursor just reads data from the table as you fetch from it.</p>
+</blockquote>
+<p>The following example demonstrates how multiversioning is implemented.</p>
+<p><img src="/media/multiversioning-query-delete.png" alt="multiversioning-query-delete"></p>
+<p>In sesssion 1, We need to query a table with 1 billion rows. Obviously, you need time to query the data. This query opens the curson at time t1, then retrieves row 20,000 at time t2, until gets the last row at time t5.</p>
+<p>So just at the start point t1 of the query, Oracle doesn’t know what’s row 100,000,000 like.</p>
+<p>And session 2 deletes the row 100,000 and commited at time t3 before t4.</p>
+<p>From our cursor’s perspective, the result is immutable even if it gets the full data until the time t5.</p>
+<p>But Oracle doesn’t copy all of the preceding data to other location when we opened the cursor; it was actually the DELETE command that preserved our data for us by placing it into a data area called an undo or rollback segment.</p>
+<p>So at the time t4, the actual row 100,000 didn’t exist, but the read-consistent query can be implemented by getting the data from the undo segment.</p>
+<h2 id="Transactions"><a href="#Transactions" class="headerlink" title="Transactions"></a>Transactions</h2><p>A transaction comprises a unit of database work. </p>
+<p>Transactions are a core feature of database technology, which is part of what distinguishes a database from a file system.</p>
+<p>Transactions take the database from one consistent state to the next consistent state.</p>
+<h2 id="Redo-and-Undo"><a href="#Redo-and-Undo" class="headerlink" title="Redo and Undo"></a>Redo and Undo</h2><p>Key to Oracle’s durability (recovery) mechanism is redo, and core to multiversioning (read consistency) is undo.</p>
+<h1 id="Chapter-2-Locking-and-Issues"><a href="#Chapter-2-Locking-and-Issues" class="headerlink" title="Chapter 2 Locking and Issues"></a>Chapter 2 Locking and Issues</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/09/regex-in-java/" itemprop="url">
+                  Regex in Java
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-09T22:05:25+08:00" content="2016-01-09">
+              2016-01-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/09/regex-in-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/09/regex-in-java/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Some-concepts"><a href="#Some-concepts" class="headerlink" title="Some concepts"></a>Some concepts</h1><h2 id="metacharacters"><a href="#metacharacters" class="headerlink" title="metacharacters"></a>metacharacters</h2><p><code>&lt;([{\^-=$!|]})?*+.&gt;</code><br> these characters have special meaning which can affect the way a pattern is matached.</p>
+<h2 id="character-classes"><a href="#character-classes" class="headerlink" title="character classes"></a>character classes</h2><p>a set of characters enclosed within square brackets.</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[abc]</td>
+<td>a, b, or c (simple class)</td>
+</tr>
+<tr>
+<td>[^abc]</td>
+<td>Any character except a, b, or c (negation)</td>
+</tr>
+<tr>
+<td>[a-zA-Z]</td>
+<td>a through z, or A through Z, inclusive (range)</td>
+</tr>
+<tr>
+<td>[a-d[m-p]]</td>
+<td>a through d, or m through p: [a-dm-p] (union)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[def]]</td>
+<td>d, e, or f (intersection)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[^bc]]</td>
+<td>a through z, except for b and c: [ad-z] (subtraction)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[^m-p]]</td>
+<td>a through z, and not m through p: [a-lq-z] (subtraction)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="predefined-character-classes"><a href="#predefined-character-classes" class="headerlink" title="predefined character classes"></a>predefined character classes</h2><p>convenient shorthands for commonly used regular expressions</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Any character (may or may not match line terminators)</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>A digit: [0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>A non-digit: [^0-9]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>A whitespace character: [ \t\n\x0B\f\r]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>A non-whitespace character: [^\s]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>A word character: [a-zA-Z_0-9]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>A non-word character: [^\w]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bounary-matchers"><a href="#bounary-matchers" class="headerlink" title="bounary matchers"></a>bounary matchers</h2><table>
+<thead>
+<tr>
+<th>Boundary Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>The beginning of a line</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>A word boundary</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>A non-word boundary</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>The beginning of the input</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>The end of the previous match</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>The end of the input but for the final terminator, if any</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>The end of the input</td>
+</tr>
+</tbody>
+</table>
+<h2 id="qualifier"><a href="#qualifier" class="headerlink" title="qualifier"></a>qualifier</h2><p>the number of occurrences to match against</p>
+<table>
+<thead>
+<tr>
+<th>qualifier</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X?</td>
+<td>once or not at all</td>
+</tr>
+<tr>
+<td>X*</td>
+<td>zero or more times</td>
+</tr>
+<tr>
+<td>X+</td>
+<td>one or more times</td>
+</tr>
+<tr>
+<td>X{n}</td>
+<td>exactly n times</td>
+</tr>
+<tr>
+<td>X{n,}</td>
+<td>at least n times</td>
+</tr>
+<tr>
+<td>X{n,m}</td>
+<td>at least n but not more than m times</td>
+</tr>
+</tbody>
+</table>
+<p>Qualifier can be applied on character, character class, capturing group.</p>
+<h2 id="capturing-groups"><a href="#capturing-groups" class="headerlink" title="capturing groups"></a>capturing groups</h2><p>treat multiple characters as a single unit</p>
+<p><strong>Capturing groups are numbered by counting their opening parentheses from left to right.</strong></p>
+<p>There is also a special group, group 0, which always represents the entire expression. This group is not included in the total reported by groupCount. </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">s(\d\w),f(dfd(\Sgd)er)3=pr</div><div class="line"> --1---  ------2-----</div><div class="line">             --3--</div></pre></td></tr></table></figure>
+<p>Group 1: (\d\w)<br>Group 2: (dfd(\Sgd)er)<br>Group 3: (\Sgd)</p>
+<h2 id="backreferences"><a href="#backreferences" class="headerlink" title="backreferences"></a>backreferences</h2><p>In your regular expression, you can reference the previous capturing group by a backslash () followed by a digit indicating the number of the group to be recalled.</p>
+<p><code>(\d\d)\1(abc)dfd\2-ellre</code></p>
+<p>Here, <code>\1</code> is refered as <strong>the matched content</strong> of <code>(\d\d)</code> and <code>\2</code> is refered as <strong>the matched content</strong> of <code>(abc)</code>. Note, backreference doesn’t mean the replacement of the sub pattern of the group.</p>
+<h1 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Pattern pattern = Pattern.compile(<span class="string">"(\\d\\d).(abc)"</span>;</div></pre></td></tr></table></figure>
+<h1 id="Matcher"><a href="#Matcher" class="headerlink" title="Matcher"></a>Matcher</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Matcher matcher = pattern.matcher(<span class="string">"string-to-match"</span>)</div></pre></td></tr></table></figure>
+<h2 id="find-vs-matches-vs-lookingAt"><a href="#find-vs-matches-vs-lookingAt" class="headerlink" title="find() vs. matches() vs. lookingAt()"></a>find() vs. matches() vs. lookingAt()</h2><ul>
+<li><code>matches()</code> matches the full string starting from 0.</li>
+<li><code>lookingAt()</code> like <code>matches()</code> starting from 0, but not requre to match the full string.</li>
+<li><code>find()</code> tries to find the next occurrence within the substring that matches the regex. That means, the result of calling find() multiple times might not be the same.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Pattern pattern = Pattern.compile(<span class="string">"\\d\\d"</span>);</div><div class="line">Matcher matcher = pattern.matcher(<span class="string">"2345"</span>);</div><div class="line">matcher.matches(); <span class="comment">//false</span></div><div class="line">matcher.lookingAt(); <span class="comment">// true</span></div><div class="line">matcher.find(); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>If you care about the full string matching, use <code>matches()</code>, otherwise use <code>lookingAt()</code>.<br><code>find()</code> is better to use to match multiple occurrences and call multiple times.</p>
+</blockquote>
+<h2 id="query-state"><a href="#query-state" class="headerlink" title="query state"></a>query state</h2><p>Once matched, we can always query the state by method <code>group()</code>, <code>start()</code>, and <code>end()</code>.</p>
+<p>Because <code>find()</code> can call multiple times to get all the matched substrings, we can get more detailed group state by <code>group(i)</code>, <code>start(i)</code>, and <code>end(i)</code>.</p>
+<figure class="highlight java"><figcaption><span>typical usage of find()</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">while</span>(matcher.find())</div><div class="line">    out.prinf(<span class="string">"Found the text \"%s\" from %d to %d"</span>, </div><div class="line">              matcher.group(), </div><div class="line">              matcher.start(), </div><div class="line">              matcher.end()</div><div class="line">    );</div><div class="line">    </div><div class="line">    <span class="comment">// further group details</span></div><div class="line">    <span class="comment">// although group 0 is excluded from groupCount(), we can safely get it</span></div><div class="line">    <span class="comment">// group() is equivlent with group(0) here</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= matcher.groupCount(); ++i) &#123;</div><div class="line">        out.printf(<span class="string">"Group %d: %s from %d to %d"</span>,</div><div class="line">                   matcher.group(i),</div><div class="line">                   matcher.start(i),</div><div class="line">                   matcher.end(i)</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="replacement"><a href="#replacement" class="headerlink" title="replacement"></a>replacement</h2><p><code>replaceAll(..)</code> and <code>replaceFirst(..)</code> is very useful to replace the whole matches.<br>And in the replacement, you can use <code>$0, $1, $2, ..</code> to represent respective group matches.</p>
+<p>But the powerful way is using <code>appendReplacement(..)</code> and <code>applendTail()</code>.</p>
+<p>The following example, I need to replace the domain part of all emails in multiple lines.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String emails = <span class="string">"richd.yang@googlemail.com\n"</span> +</div><div class="line">                <span class="string">"richdyang@yahoo.com"</span>;</div><div class="line">String EMAIL_PATTERN = <span class="string">"^([a-zA-Z0-9._]+)@((\\w+)\\.(\\w+))$"</span>;</div><div class="line">StringBuffer sbf = <span class="keyword">new</span> StringBuffer();</div><div class="line">Matcher m = Pattern.compile(EMAIL_PATTERN, Pattern.MULTILINE).matcher(emails);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    String domain = m.group(<span class="number">3</span>);</div><div class="line">    <span class="keyword">if</span>(<span class="string">"googlemail"</span>.equals(domain)) &#123;</div><div class="line">        m.appendReplacement(sbf, <span class="string">"$1@gmail.$4"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">m.appendTail(sbf);</div><div class="line"></div><div class="line">System.out.printf(<span class="string">"%s"</span>, sbf);</div></pre></td></tr></table></figure>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><figure class="highlight java"><figcaption><span>SimpleEmailMatcher</span></figcaption><table><tr><td class="code"><pre><div class="line">String EMAIL_PATTERN = <span class="string">"([a-zA-Z0-9._]+)@((\\w+\\.)+\\w+)"</span>;</div><div class="line">Matcher m = Pattern.compile(EMAIL_PATTERN).matcher(<span class="string">"richd.yang@gmail.com"</span>);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    System.out.printf(<span class="string">"Found \"%s\" (%d - %d) %n"</span>, m.group(), m.start(), m.end());</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= m.groupCount(); ++i) &#123;</div><div class="line">        System.out.printf(<span class="string">"Group %d: %s (%d - %d) %n"</span>, i, m.group(i), m.start(i), m.end(i));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Found “richd.yang@gmail.com” (0 - 20)<br>Group 0: richd.yang@gmail.com (0 - 20)<br>Group 1: richd.yang (0 - 10)<br>Group 2: gmail.com (11 - 20)<br>Group 3: gmail. (11 - 17) </p>
+</blockquote>
+<p>Now we can get the Email domain from group 2.</p>
+<figure class="highlight java"><figcaption><span>SimpleIPMatcher</span></figcaption><table><tr><td class="code"><pre><div class="line">String IPADDRESS_PATTERN =</div><div class="line">        <span class="string">"^([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])$"</span>;</div><div class="line">Matcher m = Pattern.compile(IPADDRESS_PATTERN).matcher(<span class="string">"10.233.29.5"</span>);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    System.out.printf(<span class="string">"Found \"%s\" (%d - %d) %n"</span>, m.group(), m.start(), m.end());</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= m.groupCount(); ++i) &#123;</div><div class="line">        System.out.printf(<span class="string">"Group %d: %s (%d - %d) %n"</span>, i, m.group(i), m.start(i), m.end(i));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Found “10.233.29.5” (0 - 11)<br>Group 0: 10.233.29.5 (0 - 11)<br>Group 1: 10 (0 - 2)<br>Group 2: 233 (3 - 6)<br>Group 3: 29 (7 - 9)<br>Group 4: 5 (10 - 11) </p>
+</blockquote>
+<p>reference: <a href="http://www.mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/" target="_blank" rel="external">how to validate ip address</a></p>
+<h1 id="Further-references"><a href="#Further-references" class="headerlink" title="Further references"></a>Further references</h1><ul>
+<li><p><a href="https://docs.oracle.com/javase/tutorial/essential/regex/index.html" target="_blank" rel="external">Oracle Java Tutorial for Regular Expressions</a></p>
+</li>
+<li><p><a href="http://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124" target="_blank" rel="external">Mastering Regular Expressions</a></p>
+</li>
+<li><p><a href="http://regexr.com/" target="_blank" rel="external">Java Regex Tester online</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/08/book-reading-plan-for-2016/" itemprop="url">
+                  Book reading plan for 2016
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-08T00:05:25+08:00" content="2016-01-08">
+              2016-01-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/08/book-reading-plan-for-2016/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/08/book-reading-plan-for-2016/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>New year has come and I need a book reading plan now.</p>
+<h3 id="Database-in-depth-knowledge-for-a-programmer-February"><a href="#Database-in-depth-knowledge-for-a-programmer-February" class="headerlink" title="Database in-depth knowledge for a programmer (February)"></a>Database in-depth knowledge for a programmer (February)</h3><ul>
+<li><oracle database="" transactions="" and="" locking="" revealed=""></oracle></li>
+<li>read the document of Postgres and see how it implements transactions and locking</li>
+<li><database system="" implementation="">
+
+</database></li>
+</ul>
+<h3 id="Security-knowledge-for-a-Java-web-developer-March"><a href="#Security-knowledge-for-a-Java-web-developer-March" class="headerlink" title="Security knowledge for a Java web developer (March)"></a>Security knowledge for a Java web developer (March)</h3><ul>
+<li>The Art of encryption and decryption about Java</li>
+<li>白帽子讲Web安全</li>
+</ul>
+<h3 id="Java-I-O-April"><a href="#Java-I-O-April" class="headerlink" title="Java I/O (April)"></a>Java I/O (April)</h3><ul>
+<li>Java IO, NIO and NIO.2(Apress,2015)</li>
+<li>Pro Java NIO.2</li>
+<li>Java IO.2nd.Edition.May.2006</li>
+</ul>
+<h3 id="Unicode-Aprial"><a href="#Unicode-Aprial" class="headerlink" title="Unicode (Aprial)"></a>Unicode (Aprial)</h3><ul>
+<li>Unicode explained <a href="https://codepoints.net" target="_blank" rel="external"></a><br><a href="http://www.fileformat.info/info/unicode/index.htm" target="_blank" rel="external"></a></li>
+</ul>
+<h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><h3 id="Network-and-Operating-System"><a href="#Network-and-Operating-System" class="headerlink" title="Network and Operating System"></a>Network and Operating System</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/02/synology-nas-netgear-router/" itemprop="url">
+                  Synology NAS + NetGear router
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-02T10:41:25+08:00" content="2016-01-02">
+              2016-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/02/synology-nas-netgear-router/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/02/synology-nas-netgear-router/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>For a long time, I’d like to build a home cloud for file storage, video streaming, ebook library and <code>科学上网</code> style.</p>
+<p>Today, at the first day of this new year, I managed to accomplish my plan. </p>
+<p>Firstly, I need a 1000+M router supporting at least 2 channel (2.4G and 5G) and another urgent functionality – <code>shadowsocks</code> client on router and VPN client.</p>
+<p>After researching multiple brands of routers, at last I locked my target on Cisco, Linksys and NetGear. Yes, they are all foreign brands. This does not necessarily mean that I don’t like the products made by domestic venders. But I just felt really a pity that in router area, I have not trusted domestic venders any more. You may not imagine how many ‘corpses’ of routers there’re at my home. I have bought these router: Mercury, TP-LINK, ASUS WL600gp, NetCore NW762 (special version for Thunder download), MiWIFI, Xiaomi.. the list can go on.</p>
+<p>As the most basic functionality of a router, it must ensure the stability of wireless signals. Some extra application functionalities, like external storage via USB, offline downloading, web server etc, should not influence the stability of the whole router performance.</p>
+<p>A good way to implement these extra functionalities is to buy a realistic NAS. Yes, though usually costly, a home-class NAS. Only one functionality I’d like to implement is ‘scientific net-surfing’. As a developer and a person posing as a global citizen, I need to frequently access Google, Gmail, GitHub, Twitter, Facebook, Youtube.. I hope when I come home every day, I can surf the internet freely if I don’t do something illegal.</p>
+<p>So at last, I chose Synology DS216play as my NAS server and private clout provider. It can provide liable file storage, media center for iPhone/iPad/Mac/TV, photo backup automatically, Mac time machine, remote and offline downloading. Since Cicso and Linksys routers are beyond my budget, I turned to NetGear R6300v2. It attracted me because it is a 1000+M router with 2.4G/5G. I didn’t use the built-in firmware, instead I changed to Merlin firmware for the Shadowsocks support. In this way, the router supported transparent ‘fanqiang’.</p>
+<p>Perfect! Enjoy it.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/02/a-preoblem-with-http-206-partial/" itemprop="url">
+                  A problem with HTTP 206 Partial
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-02T10:41:25+08:00" content="2016-01-02">
+              2016-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/02/a-preoblem-with-http-206-partial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/02/a-preoblem-with-http-206-partial/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Recent days, I encountered a problem about video loading and quicktime Basic Auth.</p>
+<p>In our customer’s system, when they used older version Safari (say, 8.0.5) and opened a page for video playing, an authorization window popped up for username and password.</p>
+<p>I captured the HTTP massage by using Charles proxy on my Mac OSX. I found in Safari 8.0.5, it always sent 2 requests, one from Safari itself and another from Quicktime plugin which was obviously observed from the <code>User-Agent</code> header.</p>
+<p>I guessed the Safari supported HTML5 <code>&lt;video&gt;</code> tag in its WebKit core and also used Quicktime plugin as a fallback option.</p>
+<p>I tried the video playing in another QA server but failed to replicate the case. The Safari sent only one request then. But why?</p>
+<p>Further analyzing the HTTP traffic, I found the responses from the two servers were different. The customer’s server responded with <code>200 OK</code> and a full length video, while the QA server responded with <code>206 Partial Content</code> and the specified range of content, subsequently a serial of partial requests being sent.</p>
+<p>It seemed Safari always requested partial content when it found the content-type was video or something like that. And the request headers included a <code>Range</code> to indicate what range of content was expected to return.</p>
+<p>If the expectation cannot be fulfilled, Safari stopped to process the response, so the video would keep loading and fail at last. This is just my conclusion and explanation.</p>
+<p>In the process of trouble shooting, I learnt to what is HTTPS and the knowledge about cryptography.</p>
+<p>Basically, in Java, we need to know some security APIs:</p>
+<ul>
+<li>message digest: <code>MD2</code>, <code>MD5</code>, <code>checksum</code>, <code>HMAC</code></li>
+<li>private key cryptography: <code>DES</code>, <code>AES</code></li>
+<li>public key cryptography: <code>RSA</code></li>
+<li>digital signature: private key encrypted message digest</li>
+<li>digital certificate: CA, digital signature, public key</li>
+<li>Java specified: key store related APIs</li>
+</ul>
+<p>I got the complete knowledge by reading the excellent book <a href="http://www.amazon.cn/Java%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E7%9A%84%E8%89%BA%E6%9C%AF-%E6%A2%81%E6%A0%8B/dp/B00H1FXX4W/ref=sr_1_1?ie=UTF8&amp;qid=1451709046&amp;sr=8-1&amp;keywords=java+%E5%8A%A0%E5%AF%86" target="_blank" rel="external">The art of Encryption and Decryption about Java</a> and <a href="http://www.ibm.com/developerworks/java/tutorials/j-sec1/j-sec1.html" target="_blank" rel="external">java security tutorial</a> in IBM developerworks.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/14/mac-osx-tips/" itemprop="url">
+                  Mac OSX tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T21:41:25+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/mac-osx-tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/14/mac-osx-tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Change-user-full-name-in-Mac-OSX-Yosemite"><a href="#Change-user-full-name-in-Mac-OSX-Yosemite" class="headerlink" title="Change user full name in Mac OSX Yosemite"></a>Change user full name in Mac OSX Yosemite</h1><p>From the Apple menu, select System Preferences.<br>In “System Preferences”, from the View menu, select Users &amp; Groups.<br>If the padlock icon in the bottom left corner of the preferences window is closed, click it. Authenticate with an administrative account.<br>Right-click your account name, and in the contextual menu that opens, select Advanced Options….<br>In the Advanced Options sheet, next to “Full name:”, enter your name as you wish it to appear when logging into your account. Click OK.</p>
+<h1 id="Set-turn-off-display-screen-withoud-sleep"><a href="#Set-turn-off-display-screen-withoud-sleep" class="headerlink" title="Set turn off display screen withoud sleep"></a>Set turn off display screen withoud sleep</h1><p>System Preference -&gt; Mission Control</p>
+<p>There is a ‘Hot Corners..’ on the bottom. Click this button.</p>
+<p><img src="/media/hot-corners.png" alt="Hot Corners"></p>
+<p>I define “Put Display to Sleep” when I move the mouse pointer to the right bottom corner.<br>Of course, you can define yours</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/14/ssh-key-based-authentication/" itemprop="url">
+                  SSH Key-based Authentication
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T21:41:25+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/ssh-key-based-authentication/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/14/ssh-key-based-authentication/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><figcaption><span>run on your macbook</span></figcaption><table><tr><td class="code"><pre><div class="line">ssh-kengen -t rsa</div></pre></td></tr></table></figure>
+<p>Thus it will generate a private-public key pair in <code>~/.ssh</code> directory. Copy the public key <code>~/.ssh/id_rsa.pub</code> to servers: VPS or github or bitbucket.</p>
+<p>In your VPS server, copy the content of <code>id_rsa.pub</code> to <code>~/.ssh/authorized_keys</code>.</p>
+<p>That’s OK. Now you can <code>ssh</code> to your server without password.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/08/gradle-use-notes/" itemprop="url">
+                  Gradle use notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-08T20:59:25+08:00" content="2015-12-08">
+              2015-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/08/gradle-use-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/08/gradle-use-notes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Gradle is so powerful!</p>
+<p>This is the comment after I read the tutorial of Gradle.</p>
+<h1 id="Gradle-configuration"><a href="#Gradle-configuration" class="headerlink" title="Gradle configuration"></a>Gradle configuration</h1><p>There’re mainly 3 configuration files:</p>
+<ul>
+<li><code>build.gradle</code>: this is where you write your gradle script. Gradle script is written using Groovy.</li>
+<li><code>gradle.properties</code>: you set some variables that can be used in your script</li>
+<li><code>gradle.setting</code>: like <code>project.name</code> settings</li>
+</ul>
+<h1 id="Gradle-terms"><a href="#Gradle-terms" class="headerlink" title="Gradle terms"></a>Gradle terms</h1><ul>
+<li>project: an abstraction of a build. you can use multiple projects.</li>
+<li>task: this is like the <code>target</code> in <code>Ant</code>.</li>
+</ul>
+<h1 id="Simple-use-example"><a href="#Simple-use-example" class="headerlink" title="Simple use example"></a>Simple use example</h1><figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">group <span class="string">'gradle'</span></div><div class="line">version <span class="string">'1.0-SNAPSHOT'</span></div><div class="line"></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line"></div><div class="line">sourceCompatibility = <span class="number">1.5</span></div><div class="line"></div><div class="line">repositories &#123;</div><div class="line">    mavenCentral()</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    testCompile <span class="string">group:</span> <span class="string">'junit'</span>, <span class="string">name:</span> <span class="string">'junit'</span>, <span class="string">version:</span> <span class="string">'4.11'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">task hello &#123;</div><div class="line">    group = <span class="string">"mypersonal"</span></div><div class="line">    description = <span class="string">"this is a helloworld task"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">hello &lt;&lt; &#123;</div><div class="line">    print name</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Explanations:</p>
+<ul>
+<li><code>group</code> and <code>version</code> represent the group and version of the build distribution.</li>
+<li><code>apply plugin: &#39;java&#39;</code> means you use <code>java</code> plugin.</li>
+<li><code>repositories</code> and <code>dependencies</code> sections are for dependency management. Here we use the <code>Maven</code>‘s repository.</li>
+<li><code>task</code> method defines my own task named <code>hello</code>, and I set its properties: <code>group</code> and <code>description</code>. The following line we use <code>&lt;&lt;</code> operator to add the closure to the end of action list. It’s equivalent to <code>doLast</code>. Of course, there’s also a method named <code>doFirst</code>. You can add new closure as an action to the list.</li>
+</ul>
+<p>That’s it. Easy, isn’t it?</p>
+<h1 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h1><p>Gradle use plugin mechanism to extend its build model. If you don’t use plugins, you cannot do somethings which really make sense.</p>
+<p>Some commonly-used plugins are:</p>
+<ul>
+<li><code>java</code>: java related build. Generate a JAR at last.</li>
+<li><code>war</code>: obviously this is for packaging a webapp.</li>
+</ul>
+<p>Actually, these plugins provide all sorts of tasks which are related to some goals.</p>
+<p>If you don’t use any plugin at all, you can still use some common tasks:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Build Setup tasks</div><div class="line">-----------------</div><div class="line">init - Initializes a new Gradle build. [incubating]</div><div class="line">wrapper - Generates Gradle wrapper files. [incubating]</div><div class="line"></div><div class="line">Help tasks</div><div class="line">----------</div><div class="line">components - Displays the components produced by root project &apos;&apos;. [incubating]</div><div class="line">dependencies - Displays all dependencies declared in root project &apos;&apos;.</div><div class="line">dependencyInsight - Displays the insight into a specific dependency in root project &apos;Richard&apos;.</div><div class="line">help - Displays a help message.</div><div class="line">model - Displays the configuration model of root project &apos;&apos;. [incubating]</div><div class="line">projects - Displays the sub-projects of root project &apos;&apos;.</div><div class="line">properties - Displays the properties of root project &apos;&apos;.</div><div class="line">tasks - Displays the tasks runnable from root project &apos;&apos;.</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/07/perforce-p4v-use-notes/" itemprop="url">
+                  Perforce P4V use notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-07T20:59:25+08:00" content="2015-12-07">
+              2015-12-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/07/perforce-p4v-use-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/07/perforce-p4v-use-notes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Perforce-at-a-glance"><a href="#Perforce-at-a-glance" class="headerlink" title="Perforce at a glance"></a>Perforce at a glance</h1><p>I’ve never gotten touch with Perforce, even heard about its name. Strange! Now because some versions of my company’s classic product are hosted on Perforce, so I need to know it from the beginning.</p>
+<p>Basically, Perfoce is an commercial Version Control Systerm, like IBM Clearcase. It supports industry-level version control in the form of client-server architecuture. So the central depository exists for sure. It provides all sorts of robust features modern VCS all provides. But from the comments of my colleagues, I know it supports very heavy-weight branching.</p>
+<p>P.S: <code>P4</code> is the acronym of Perforce by pronunciation, just like Peer-to-Peer as P2P or Log-for-Java as Log4j.</p>
+<h1 id="Perforce-concepts"><a href="#Perforce-concepts" class="headerlink" title="Perforce concepts"></a>Perforce concepts</h1><p>Whenever we get to know some new products or tools, we need to know its own slang. That’s comprised of tons of well-defined words.</p>
+<ul>
+<li>depository: A tree of depositories are the remote views on the server</li>
+<li>workspace: It’s the directory where the local copy of the files locate</li>
+<li>check out: Some resources should be modified exclusively, so you can use <code>check out</code> to prevent these resource from being modified by others.</li>
+<li>branch: a branch of version that can be viewed and manipulated seperately.</li>
+<li>merge: the same as that in other VCSs</li>
+</ul>
+<h1 id="Client-tool-P4V"><a href="#Client-tool-P4V" class="headerlink" title="Client tool: P4V"></a>Client tool: P4V</h1><to-be-continued>
+
+
+</to-be-continued>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/05/goodbye-wordpress-hello-hexo/" itemprop="url">
+                  Goodbye Wordpress, hello Hexo! 
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-05T20:59:25+08:00" content="2015-12-05">
+              2015-12-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/05/goodbye-wordpress-hello-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/05/goodbye-wordpress-hello-hexo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>I’ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.</p>
+<p>At that <strong><em>time</em></strong>, I chose wordpress mainly because I’m familiar with it and I had the experience to build a blog site using it. Once I started building a blog, the installation was pretty straightforward – just extracting the <code>tar.gz</code> and throwing the file into <code>/var/www/blog</code> (<code>/var/www/html</code> is for the static files hosting on Debian). Then I need to configure the nginx by use of fcgi to forward the dynamic contents to PHP.</p>
+<p>So later, I started finding a theme to make my blog beautiful and some plugins to make my writing smoothly, like the code highlighter, the TOC (aka. Table of Content) plugin, category tree plugin etc.</p>
+<p>After I completed 100+ posts, I suddenly realised it seemed to go far away the essence of writing, as I spent too much time on doing these technical things - although my writing were mostly related to technical stuff.</p>
+<p>Today I have the needs to transfer my vultr VPS from Australia to Japan. That’s because it’s really slow when I connect to the VPN and shadowsocks hosted on my server.</p>
+<p>The following is the steps after I create a new vultr instance located in the data center of Japan:</p>
+<h3 id="setup-the-pptpd-for-VPN"><a href="#setup-the-pptpd-for-VPN" class="headerlink" title="setup the pptpd for VPN"></a>setup the pptpd for VPN</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ apt-get update</div><div class="line">$ apt-get install pptpd</div></pre></td></tr></table></figure>
+<p>uncomment the section in the tail of <code>/etc/pptpd.conf</code><br><figure class="highlight plain"><figcaption><span>/etc/pptpd.conf</span></figcaption><table><tr><td class="code"><pre><div class="line">localip 192.168.0.1</div><div class="line">remoteip 192.168.0.234-238,192.168.0.245</div></pre></td></tr></table></figure></p>
+<p>enable ipv4 forword in the <code>/etc/sysctl.conf</code><br><figure class="highlight plain"><figcaption><span>/etc/sysctl.conf</span></figcaption><table><tr><td class="code"><pre><div class="line">net.ipv4.ip_forward = 1</div></pre></td></tr></table></figure></p>
+<p>then make it effective<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ sysctl -p</div></pre></td></tr></table></figure></p>
+<p>The last step is adding a rule to the iptables and restart pptpd<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE &amp;&amp; iptables-save</div><div class="line">$ service pptpd restart</div></pre></td></tr></table></figure></p>
+<p>That’s it. I refer to the <a href="http://digitalocean.com" target="_blank" rel="external">digital oceal</a> official guide here: <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-your-own-vpn-with-pptp" target="_blank" rel="external">How to setup your own vpn with pptp</a></p>
+<h3 id="AnyConnect-VPN"><a href="#AnyConnect-VPN" class="headerlink" title="AnyConnect VPN"></a>AnyConnect VPN</h3><p>Updated on 13/12/2015</p>
+<p>Although PPTP can satisfiy     my needs, I think it’s not stable and rebust. Recent days, I always use Cisco <code>AnyConnect</code> VPN client to connect to my office internal network, so I decide to set up an AnyConnect compatible VPN server on my VPS.</p>
+<p>I didn’t spend too much time to research how to do that. I just used an automatic installation script which can be refered to <a href="https://github.com/fanyueciyuan/eazy-for-ss" target="_blank" rel="external">this Github repository</a>.</p>
+<h3 id="setup-shadowsocks"><a href="#setup-shadowsocks" class="headerlink" title="setup shadowsocks"></a>setup shadowsocks</h3><p>Shadowsocks is a must-have if you live in China and need to do something by circumvention.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ wget -O- http://shadowsocks.org/debian/1D27208A.gpg | apt-key add -</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"deb http://shadowsocks.org/debian wheezy main"</span> &gt;&gt; /etc/apt/sources.list</div><div class="line">$ apt-get update</div><div class="line">$ apt-get install shadowsocks-libev</div></pre></td></tr></table></figure>
+<p>Then you need to modify the <code>/etc/shadowsocks-libev/config.json</code><br><figure class="highlight json"><figcaption><span>/etc/shadowsocks-libev/config.json</span></figcaption><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"server"</span>:<span class="string">"my_server_ip"</span>,</div><div class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</div><div class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</div><div class="line">    <span class="attr">"password"</span>:<span class="string">"my password"</span>,</div><div class="line">    <span class="attr">"timeout"</span>:<span class="number">600</span>,</div><div class="line">    <span class="attr">"method"</span>:<span class="string">"table"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>I tend to use <code>aes-128-fcb</code> method.</p>
+<p>Then reload the configuration:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ service shadowsocks-libev reload</div></pre></td></tr></table></figure></p>
+<p>Everything will go well!</p>
+<h3 id="nginx-and-dropbox-for-my-blog-hosting"><a href="#nginx-and-dropbox-for-my-blog-hosting" class="headerlink" title="nginx and dropbox for my blog hosting"></a>nginx and dropbox for my blog hosting</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ apt-get install nginx vim</div><div class="line">$ <span class="built_in">cd</span> ~ &amp;&amp; wget -O - <span class="string">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -</div><div class="line">$ ~/.dropbox-dist/dropboxd</div><div class="line">$ wget https://www.dropbox.com/download?dl=packages/dropbox.py -o dropbox.py</div><div class="line">$ chmod +x dropbox.py</div><div class="line">$ ./dropbox.py start</div><div class="line">$ <span class="built_in">cd</span> ~/Dropbox  <span class="comment"># must enter this directory and apply the wildcard. otherwise it didn't take effect</span></div><div class="line">$ ~/dropbox.py exclude add *</div><div class="line">$ ~/dropbox.py exclude remove blog</div><div class="line">$ <span class="built_in">cd</span> ~/Dropbox/blog</div><div class="line">$ ~/dropbox.py exclude add *</div><div class="line">$ ~/dropbox.py exclude remove public</div></pre></td></tr></table></figure>
+<p>Now you can see I just synchronize the directory where the static files of my blog site locate.</p>
+<p>The next thing I need to do is modifying the <code>/etc/nginx/sites-available/default</code> and changing the <code>servername</code> and <code>root</code> directory.</p>
+<p>But I also encountered a thing I failed to fix - nginx will return a <code>500</code> server error. I reviewed the nginx log and found that’s the issues of permission.</p>
+<p>So I simply changed the run user of nginx from <code>www-data</code> to <code>root</code> in <code>/etc/nginx/nginx.conf</code>. If I have spare time, I would fix the issue again.</p>
+<h3 id="blogging-and-publishing"><a href="#blogging-and-publishing" class="headerlink" title="blogging and publishing"></a>blogging and publishing</h3><p>Since I use the static blogging tool - Hexo in my local MacBook and write the article using Markdown, I need to some apps to help me manage my publishing.</p>
+<p>After using all sorts of markdown apps on Mac OSX, like Typera, Mou, Byword, Ulysses, TextNut, I found they always had some flaws for me - including unsupported markdown syntax, automatically modifying my file like adding some a new blank line arbitrarily, owning its own library management facility. But until I met MWeb, it’s suitable to me and satify my personal needs very well.</p>
+<p><img src="/media/blogging-with-mweb.png" alt="Blogging with MWeb"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/19/jdbc-driver-register/" itemprop="url">
+                  JDBC Driver register
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-19T23:24:13+08:00" content="2015-11-19">
+              2015-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/19/jdbc-driver-register/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/19/jdbc-driver-register/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JDBC use the way of registry to manage its drivers by the method of <code>DriverManager.registerDriver(...)</code></p>
+<p>This method is static one, usually there’re several ways to invoke it:</p>
+<ol>
+<li>in your code, write <code>Class.forName(&quot;com.xx.jdbc.Driver&quot;);</code>, this is a way to load the specified <code>Driver</code> class explicitly. You can get the effect because the jdbc driver venders usually get the <code>registerDriver(..)</code> method invoked just in the static block of the <code>Driver</code> implementation class.</li>
+<li>you can tell the JVM to load which driver by setting the <code>jdbc.drivers</code> system property.</li>
+<li>Another way is supported by the <code>ServiceLocator</code> mode. This needs the jdbc driver vender to package their jdbc driver jar following the service provider convention.</li>
+</ol>
+<p>If you see the source code of JDBC API, you will find that the behaviours of way 2) and 3) are defined by the <code>DriverManager.loadInitialDrivers()</code> static method. So you needn’t do anything in your code to register <code>Driver</code>.</p>
+<p>For example:</p>
+<ul>
+<li>DB2 JDBC driver <code>db2jcc4.jar</code> is packaged following the service provider convention, so you needn’t invoke <code>Class.forName(..)</code> in your code.</li>
+<li>MySQL JDBC driver <code>mysql-connector-java.jar</code> uses the same way.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/06/mybatis-cache/" itemprop="url">
+                  mybatis cache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-06T21:41:29+08:00" content="2015-11-06">
+              2015-11-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/06/mybatis-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/06/mybatis-cache/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些statements来useCache, 哪些statements触发flushCache.</p>
+<p>一旦触发了flushCache, cache将invalidate并清空，下次的查询都将从数据库查询，并放入cache</p>
+<p>限制：</p>
+<ul>
+<li>同一个应用，一旦使用cache，需遵循：</li>
+</ul>
+<ol>
+<li>查询：先查询cache，命中返回; 未命中，查询数据库后放入cache</li>
+<li>修改：修改数据库，flush cache</li>
+</ol>
+<ul>
+<li>一旦修改了cache区域中数据，一定要flush，否则会出现cache与数据库不一致</li>
+<li>使用cache的应用，外部程序(工具)直接修改数据库一定要慎重，因为极有可能导致数据不一致</li>
+</ul>
+<p>下面是一个例子：</p>
+<figure class="highlight xml"><figcaption><span>mybatis-config.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE configuration</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Config 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">”cacheEnabled”</span> <span class="attr">value</span>=<span class="string">”true”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">”JDBC”/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">”POOLED”</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”driver”</span> <span class="attr">value</span>=<span class="string">”com.mysql.jdbc.Driver”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”url”</span> <span class="attr">value</span>=<span class="string">”jdbc:mysql://localhost:3306/test”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”username”</span> <span class="attr">value</span>=<span class="string">”root”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”password”</span> <span class="attr">value</span>=<span class="string">””/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">”SqlMapper.xml”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>SqlMapper.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE mapper</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Mapper 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">”person”</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cache</span> <span class="attr">eviction</span>=<span class="string">"FIFO"</span></span></div><div class="line">       <span class="attr">flushInterval</span>=<span class="string">"60000"</span></div><div class="line">       <span class="attr">size</span>=<span class="string">"512"</span></div><div class="line">       <span class="attr">readOnly</span>=<span class="string">"true"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectPerson"</span> <span class="attr">resultType</span>=<span class="string">"java.util.HashMap"</span> <span class="attr">flushCache</span>=<span class="string">"false"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    select * from person</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertPerson"</span>&gt;</span></div><div class="line">    insert into person values ('ccccc', 23, 'shenzhen')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertStaff"</span>&gt;</span></div><div class="line">    insert into staff values ('richard')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	    String resource = <span class="string">"mybatis-config.xml"</span>;</div><div class="line">	    InputStream inputStream = Resources.getResourceAsStream(resource);</div><div class="line">	    sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">	</div><div class="line">	    String command = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">while</span> ((command = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">	</div><div class="line">	        SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line">	        <span class="keyword">if</span>(command.equals(<span class="string">"q"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql query:"</span>);</div><div class="line">	            List&lt;Map&gt; list = sqlSession.selectList(<span class="string">"person.selectPerson"</span>);</div><div class="line">	            System.out.println(list);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"i"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertPerson"</span>);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"is"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertStaff"</span>);</div><div class="line">	        &#125;</div><div class="line">	</div><div class="line">	        sqlSession.commit();</div><div class="line">	        sqlSession.close();</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如何测试：</p>
+<ol>
+<li>控制台输入”q”触发查询，可以看到首次查询，会使用sql从数据库查询</li>
+<li>这时，我们控制台或数据库客户端(如mysql客户端)再向数据库中插入一些数据</li>
+<li>再次控制台输入”q”再次触发查询，日志显示，这次cache命中，直接从cache中读数据，程序外部（客户端）插入的数据并没有得到。很容易解释，因为这些外部的插入，mybatis并不知道。</li>
+<li>控制台输入”i”触发插入数据，然后再输入”q”触发查询，这次可以看到，会使用sql从数据库查询。可见insert触发了flushCache</li>
+<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
+<li>控制台输入”is”触发插入另一个表的数据，然后再输入”q”触发查询，可以看到这时同样使用sql从数据库查询。可见虽然是不同的表的插入，也将flush整个cache, 因为他们共用位于同一个SqlMapper的namespace中的cache</li>
+<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:26,103 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:26,417 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt;  Preparing: select * from person</div><div class="line">2015-11-06 21:39:26,447 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:26,463 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;==      Total: 0</div><div class="line">[]</div><div class="line">i</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:39:42,303 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into person values (‘ccccc’, 23, ‘shenzhen’)</div><div class="line">2015-11-06 21:39:42,304 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:42,305 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:44,711 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:44,718 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:50,878 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.3333333333333333</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">is</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:40:00,431 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into staff values (‘richard’)</div><div class="line">2015-11-06 21:40:00,432 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:00,439 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:03,310 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.25</div><div class="line">2015-11-06 21:40:03,315 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:40:03,316 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:03,317 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:04,337 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.4</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/05/bytecodeviewer-for-mac/" itemprop="url">
+                  BytecodeViewer for Mac
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-05T19:14:26+08:00" content="2015-11-05">
+              2015-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/05/bytecodeviewer-for-mac/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/05/bytecodeviewer-for-mac/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>BytecodeViewer only has the Windows executable release.</p>
+<p>I use the Automator to get an app for Mac OSX.</p>
+<p>Now I provide a download link here:</p>
+<p><a href="https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8" target="_blank" rel="external">https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = 'page/2/index.html';
+      var disqus_title = '';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,927 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="acess control modifiersIn Java, there are four different types of access modifiers for fields and methods:
+
+public: every class can access the element
+protected: only subclasses and classes in the sam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java modifiers revisit">
+<meta property="og:url" content="https://richyang.me/2015/03/23/java-modifiers-revist/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="acess control modifiersIn Java, there are four different types of access modifiers for fields and methods:
+
+public: every class can access the element
+protected: only subclasses and classes in the sam">
+<meta property="og:updated_time" content="2015-12-04T15:11:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java modifiers revisit">
+<meta name="twitter:description" content="acess control modifiersIn Java, there are four different types of access modifiers for fields and methods:
+
+public: every class can access the element
+protected: only subclasses and classes in the sam">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> java modifiers revisit | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java modifiers revisit
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-03-23T12:31:07+08:00" content="2015-03-23">
+              2015-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/23/java-modifiers-revist/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/23/java-modifiers-revist/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="acess-control-modifiers"><a href="#acess-control-modifiers" class="headerlink" title="acess control modifiers"></a>acess control modifiers</h3><p>In Java, there are four different types of access modifiers for fields and methods:</p>
+<ul>
+<li>public: every class can access the element</li>
+<li>protected: only subclasses and classes in the same package can access the element</li>
+<li>default: only classes in the same package can access the element</li>
+<li>private: only this class can access the element</li>
+</ul>
+<h4 id="what-does-accessing-mean"><a href="#what-does-accessing-mean" class="headerlink" title="what does accessing mean?"></a>what does accessing mean?</h4><p>Accessing means you can refer. As in java only class can be the top-level element, thus top-level class access just use its name without a prefix. But for other enclosed elements like fields(instance or class), methods(instance or class), inner classes(member, local or anonymous class), nested classes/interfaces, you must access them with a prefix(class name or instance name) explicitly or implicitly if possible.</p>
+<h4 id="where-does-accessing-happen"><a href="#where-does-accessing-happen" class="headerlink" title="where does accessing happen?"></a>where does accessing happen?</h4><p>Many places are where accessing happen, including instance field assignments, intialization blocks, static field assignments, static intialization blocks, instance methods, static methods(class methods), inner class definition body, nested class definition body…<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> accessing.somepackage;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> private_instance_field = <span class="number">1</span>;</div><div class="line">    <span class="keyword">long</span> package_instance_field = <span class="number">2l</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">double</span> protected_instance_field = <span class="number">2.0</span>;</div><div class="line">    <span class="keyword">public</span> String public_instance_field = <span class="string">"d"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">private_instance_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">package_instance_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">protected_instance_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">public_instance_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> private_class_field = <span class="number">1</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">long</span> package_class_field = <span class="number">2l</span>;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">double</span> protected_class_field = <span class="number">3.0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String public_class_field = <span class="string">"h"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">private_class_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">package_class_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">protected_class_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">public_class_method</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Private_instance_inner_class_A</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Package_instance_inner_class_B</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> <span class="class"><span class="keyword">class</span> <span class="title">Protected_instance_inner_class_C</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Public_instance_inner_class_D</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Private_class_nested_class_A</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Package_class_nested_class_B</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Protected_class_nested_class_C</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Public_class_nested_class_D</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAccessInInstanceMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.private_class_field;</div><div class="line">        o = BaseClass.package_class_field;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.private_class_method();</div><div class="line">        BaseClass.package_class_method();</div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        Private_instance_inner_class_A a = <span class="keyword">null</span>;</div><div class="line">        Package_instance_inner_class_B b = <span class="keyword">null</span>;</div><div class="line">        Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Package_class_nested_class_B aa = <span class="keyword">null</span>;</div><div class="line">        Package_class_nested_class_B bb = <span class="keyword">null</span>;</div><div class="line">        Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.private_instance_field;</div><div class="line">        o = base.package_instance_field;</div><div class="line">        o = base.protected_instance_field;</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.private_instance_method();</div><div class="line">        base.package_instance_method();</div><div class="line">        base.protected_instance_method();</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.private_class_field;</div><div class="line">        o = base.package_class_field;</div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.private_class_method();</div><div class="line">        base.package_class_method();</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line"></div><div class="line">        <span class="comment">///////////////////////////////</span></div><div class="line">        o = <span class="keyword">this</span>.private_instance_field;</div><div class="line">        o = <span class="keyword">this</span>.package_instance_field;</div><div class="line">        o = <span class="keyword">this</span>.protected_instance_field;</div><div class="line">        o = <span class="keyword">this</span>.public_instance_field;</div><div class="line">        <span class="keyword">this</span>.private_instance_method();</div><div class="line">        <span class="keyword">this</span>.package_instance_method();</div><div class="line">        <span class="keyword">this</span>.protected_instance_method();</div><div class="line">        <span class="keyword">this</span>.public_instance_method();</div><div class="line"></div><div class="line">        o = <span class="keyword">this</span>.private_class_field;</div><div class="line">        o = <span class="keyword">this</span>.package_class_field;</div><div class="line">        o = <span class="keyword">this</span>.protected_class_field;</div><div class="line">        o = <span class="keyword">this</span>.public_class_field;</div><div class="line">        <span class="keyword">this</span>.private_class_method();</div><div class="line">        <span class="keyword">this</span>.package_class_method();</div><div class="line">        <span class="keyword">this</span>.protected_class_method();</div><div class="line">        <span class="keyword">this</span>.public_class_method();</div><div class="line"></div><div class="line">        Private_instance_inner_class_A aaa = <span class="keyword">null</span>;</div><div class="line">        Package_instance_inner_class_B bbb = <span class="keyword">null</span>;</div><div class="line">        Protected_instance_inner_class_C ccc = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D ddd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Private_class_nested_class_A aaaa = <span class="keyword">null</span>;</div><div class="line">        Package_class_nested_class_B bbbb = <span class="keyword">null</span>;</div><div class="line">        Protected_class_nested_class_C cccc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dddd = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testAccessInClassMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.private_class_field;</div><div class="line">        o = BaseClass.package_class_field;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.private_class_method();</div><div class="line">        BaseClass.package_class_method();</div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        Private_instance_inner_class_A a = <span class="keyword">null</span>;</div><div class="line">        Package_instance_inner_class_B b = <span class="keyword">null</span>;</div><div class="line">        Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Package_class_nested_class_B aa = <span class="keyword">null</span>;</div><div class="line">        Package_class_nested_class_B bb = <span class="keyword">null</span>;</div><div class="line">        Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.private_instance_field;</div><div class="line">        o = base.package_instance_field;</div><div class="line">        o = base.protected_instance_field;</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.private_instance_method();</div><div class="line">        base.package_instance_method();</div><div class="line">        base.protected_instance_method();</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.private_class_field;</div><div class="line">        o = base.package_class_field;</div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.private_class_method();</div><div class="line">        base.package_class_method();</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        o = private_class_field;</div><div class="line">        o = package_class_field;</div><div class="line">        o = protected_class_field;</div><div class="line">        o = public_class_field;</div><div class="line">        private_class_method();</div><div class="line">        package_class_method();</div><div class="line">        protected_class_method();</div><div class="line">        public_class_method();</div><div class="line"></div><div class="line">        Private_instance_inner_class_A aaa = <span class="keyword">null</span>;</div><div class="line">        Package_instance_inner_class_B bbb = <span class="keyword">null</span>;</div><div class="line">        Protected_instance_inner_class_C ccc = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D ddd = <span class="keyword">null</span>;</div><div class="line">        Private_class_nested_class_A aaaa = <span class="keyword">null</span>;</div><div class="line">        Package_class_nested_class_B bbbb = <span class="keyword">null</span>;</div><div class="line">        Protected_class_nested_class_C cccc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dddd = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&nbsp;<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> accessing.somepackage;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PackageClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAccessInInstanceMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.package_class_field;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.package_class_method();</div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        BaseClass.Package_instance_inner_class_B b = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        BaseClass.Package_class_nested_class_B bb = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.package_instance_field;</div><div class="line">        o = base.protected_instance_field;</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.package_instance_method();</div><div class="line">        base.protected_instance_method();</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.package_class_field;</div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.package_class_method();</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testAccessInClassMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.package_class_field;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.package_class_method();</div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        BaseClass.Package_instance_inner_class_B b = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        BaseClass.Package_class_nested_class_B bb = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        BaseClass.Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.package_instance_field;</div><div class="line">        o = base.protected_instance_field;</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.package_instance_method();</div><div class="line">        base.protected_instance_method();</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.package_class_field;</div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.package_class_method();</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&nbsp;<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> accessing;</div><div class="line"></div><div class="line"><span class="keyword">import</span> accessing.somepackage.BaseClass;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InheritedClass</span> <span class="keyword">extends</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAccessInInstanceMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line"><span class="comment">//        o = base.protected_instance_field;</span></div><div class="line">        o = base.public_instance_field;</div><div class="line"><span class="comment">//        base.protected_instance_method();</span></div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        o = <span class="keyword">this</span>.protected_instance_field;</div><div class="line">        o = <span class="keyword">this</span>.public_instance_field;</div><div class="line">        <span class="keyword">this</span>.protected_instance_method();</div><div class="line">        <span class="keyword">this</span>.public_instance_method();</div><div class="line"></div><div class="line">        o = <span class="keyword">this</span>.protected_class_field;</div><div class="line">        o = <span class="keyword">this</span>.public_class_field;</div><div class="line">        <span class="keyword">this</span>.protected_class_method();</div><div class="line">        <span class="keyword">this</span>.public_class_method();</div><div class="line"></div><div class="line">        Protected_instance_inner_class_C ccc = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D ddd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Protected_class_nested_class_C cccc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dddd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testAccessInClassMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.protected_class_field;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line"></div><div class="line">        BaseClass.protected_class_method();</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        Protected_instance_inner_class_C c = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        Protected_class_nested_class_C cc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line"><span class="comment">//        o = base.protected_instance_field;</span></div><div class="line">        o = base.public_instance_field;</div><div class="line"><span class="comment">//        base.protected_instance_method();</span></div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.protected_class_field;</div><div class="line">        o = base.public_class_field;</div><div class="line">        base.protected_class_method();</div><div class="line">        base.public_class_method();</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        o = protected_class_field;</div><div class="line">        o = public_class_field;</div><div class="line">        protected_class_method();</div><div class="line">        public_class_method();</div><div class="line"></div><div class="line">        Protected_instance_inner_class_C ccc = <span class="keyword">null</span>;</div><div class="line">        Public_instance_inner_class_D ddd = <span class="keyword">null</span>;</div><div class="line">        Protected_class_nested_class_C cccc = <span class="keyword">null</span>;</div><div class="line">        Public_class_nested_class_D dddd = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&nbsp;<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> accessing;</div><div class="line"></div><div class="line"><span class="keyword">import</span> basics.accessing.somepackage.BaseClass;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnyClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAccessInInstanceMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        BaseClass.Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        BaseClass.Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.public_class_field;</div><div class="line">        base.public_class_method();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testAccessInClassMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object o = <span class="keyword">null</span>;</div><div class="line">        o = BaseClass.public_class_field;</div><div class="line"></div><div class="line">        BaseClass.public_class_method();</div><div class="line"></div><div class="line">        BaseClass.Public_instance_inner_class_D d = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        BaseClass.Public_class_nested_class_D dd = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">//////////////////////////////////////////</span></div><div class="line">        BaseClass base = <span class="keyword">new</span> BaseClass();</div><div class="line">        o = base.public_instance_field;</div><div class="line">        base.public_instance_method();</div><div class="line"></div><div class="line">        o = base.public_class_field;</div><div class="line">        base.public_class_method();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="a-pitfall-for-protected-access"><a href="#a-pitfall-for-protected-access" class="headerlink" title="a pitfall for protected access"></a>a pitfall for protected access</h4><p>A point that is worth noticing is the Line 21, 23, 66 and 68 of InheritedClass.</p>
+<p>But why?</p>
+<p>As always, this is covered in the JLS, 6.6.2:</p>
+<blockquote>
+<p>A protected member or constructor of an object may be accessed from outside the package in which it is declared only by code that is <strong>responsible for the implementation of that object</strong>.<br>That means you can only access the protected member by using _<strong>this</strong> <em>or </em><strong>super</strong>_.</p>
+</blockquote>
+<h3 id="static-modifier"><a href="#static-modifier" class="headerlink" title="static modifier"></a>static modifier</h3><p>We can use static for non top-level class (inner classes or nested class), class methods, class variables.</p>
+<h3 id="abstract-final-modifiers"><a href="#abstract-final-modifiers" class="headerlink" title="abstract / final modifiers"></a>abstract / final modifiers</h3><p>abstract / final is mutually exclusive. This means we cannot use them at the same time.</p>
+<table style="height: 234px;" border="1" width="837"><br><tbody><br><tr><br><td></td><br><td><em>class</em></td><br><td><em>method</em></td><br><td><em>variable</em></td><br></tr><br><tr><br><td><em>abstract</em></td><br><td><br><br><em>   intend to inherit it, overriding implemented methods or completing the unimplemented methods
+</em>   include &gt;=0 abstract methods<br><em>   cannot be initialized<br></em></td><br><td>
+
+   declare an unimplemented method without body<br>*   the class it defines in must be also abstract<br></td><br><td>n/a</td><br></tr><br><tr><br><td><em>final</em></td><br><td>intend to not inherit it</td><br><td>intend to not override it</td><br><td>cannot be changed after initialization</td><br></tr><br></tbody><br></table>
+
+<h3 id="other-modifiers-synchronized-volatile-transient"><a href="#other-modifiers-synchronized-volatile-transient" class="headerlink" title="other modifiers: synchronized, __volatile, transient"></a>other modifiers: <em>synchronized, __volatile, transient</em></h3><ul>
+<li>synchronized can be used before instance/class methods or blocks for synchronization semantics.</li>
+<li>volatile can be used before instance/class variables for atomicity and visibility purpose.</li>
+<li>transient can be used before instance variables for marking the fields as non-serialization ones.</li>
+</ul>
+<h3 id="combination-of-modifiers"><a href="#combination-of-modifiers" class="headerlink" title="combination of modifiers"></a>combination of modifiers</h3><p>&nbsp;</p>
+<p><table style="height: 588px; font-size: 0.9em;" border="1" width="808"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><td></td></p>
+<p><td style="text-align: left;"><em><strong> abstract</strong></em></td></p>
+<p><td><em><strong>final</strong></em></td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>top level class</strong></em></td></p>
+<p><td>public/package</td></p>
+<p><td style="text-align: left;">public/package abstract</td></p>
+<p><td>public/package final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>instance method</strong></em></td></p>
+<p><td>public/protected/package/private</td></p>
+<p><td style="text-align: left;"><span style="color: #0000ff;">public/protected/package </span>abstract</td></p>
+<p><td>public/protected/package/private final</td><br></p>
+<p><tr style="background-color: #ccc;"></tr></p>
+<p><td><em><strong>class method</strong></em></td></p>
+<p><td>public/protected/package/private static</td></p>
+<p><td></td></p>
+<p><td>public/protected/package/private static final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>instance variable</strong></em></td></p>
+<p><td>public/protected/package/private</td></p>
+<p><td style="text-align: left;"></td></p>
+<p><td>public/protected/package/private final</td><br></p>
+<p><tr style="background-color: #ccc;"></tr></p>
+<p><td><em><strong>class variable</strong></em></td></p>
+<p><td>public/protected/package/private static</td></p>
+<p><td></td></p>
+<p><td>public/protected/package/private static final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>local variable</strong></em></td></p>
+<p><td></td></p>
+<p><td style="text-align: left;"></td></p>
+<p><td>final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>inner class</strong></em></td></p>
+<p><td>public/protected/package/private</td></p>
+<p><td style="text-align: left;">public/protected/package/private abstract</td></p>
+<p><td>public/protected/package/private final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>local class</strong></em></td></p>
+<p><td></td></p>
+<p><td style="text-align: left;">abstract</td></p>
+<p><td>final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>anonymous &lt;local&gt; class</strong></em></td></p>
+<p><td></td></p>
+<p><td style="text-align: left;"></td></p>
+<p><td></td><br></p>
+<p><tr style="background-color: #ccc;"></tr></p>
+<p><td><em><strong>nested class</strong></em></td></p>
+<p><td>public/protected/package/private static</td></p>
+<p><td>public/protected/package/private static abstract</td></p>
+<p><td>public/protected/package/private static final</td><br></p>
+<p><tr></tr></p>
+<p><td><em><strong>interface</strong></em></td></p>
+<p><td>public/package</td></p>
+<p><td style="text-align: left;">public/package &lt;abstract&gt;</td></p>
+<p><td></td><br></p>
+<p><tr style="background-color: #ccc;"></tr></p>
+<p><td><em><strong>nested interface</strong></em></td></p>
+<p><td>public/protected/package/private</td></p>
+<p><td>public/protected/package/private &lt;static&gt; &lt;abstract&gt;</td></p>
+<p><td></td><br><br><br></p>
+<blockquote>
+<p>NOTICE: &lt;…&gt; represents this is default modifier implicitly.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/23/wordpress-ssh-update-not-working/" rel="next" title="wordpress ssh update not working">
+                <i class="fa fa-chevron-left"></i> wordpress ssh update not working
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/23/cloning-objects/" rel="prev" title="cloning objects">
+                cloning objects <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#acess-control-modifiers"><span class="nav-number">1.</span> <span class="nav-text">acess control modifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#what-does-accessing-mean"><span class="nav-number">1.1.</span> <span class="nav-text">what does accessing mean?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#where-does-accessing-happen"><span class="nav-number">1.2.</span> <span class="nav-text">where does accessing happen?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-pitfall-for-protected-access"><span class="nav-number">1.3.</span> <span class="nav-text">a pitfall for protected access</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-modifier"><span class="nav-number">2.</span> <span class="nav-text">static modifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#abstract-final-modifiers"><span class="nav-number">3.</span> <span class="nav-text">abstract / final modifiers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#other-modifiers-synchronized-volatile-transient"><span class="nav-number">4.</span> <span class="nav-text">other modifiers: synchronized, __volatile, transient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combination-of-modifiers"><span class="nav-number">5.</span> <span class="nav-text">combination of modifiers</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/03/23/java-modifiers-revist/';
+      var disqus_title = 'java modifiers revisit';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2535 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Nothing seek, nothing find">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Richard Yang">
+<meta property="og:url" content="https://richyang.me/page/9/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Nothing seek, nothing find">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Richard Yang">
+<meta name="twitter:description" content="Nothing seek, nothing find">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/12/nz-company-collection/" itemprop="url">
+                  NZ company collection
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-01-12T05:38:05+08:00" content="2015-01-12">
+              2015-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Job-Seeking/" itemprop="url" rel="index">
+                    <span itemprop="name">Job Seeking</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/12/nz-company-collection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/12/nz-company-collection/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><table style="height: 3823px;" width="1148"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.nzpost.co.nz/" target="_blank" rel="external">New Zealand Post</a></td></p>
+<p><td width="672"><a href="http://jobs.nzpost.co.nz/" target="_blank" rel="external">http://jobs.nzpost.co.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.sovereign.co.nz/" target="_blank" rel="external">Sovereign</a></td></p>
+<p><td width="672"><a href="https://careers.asbgroup.co.nz/sovereign/home" target="_blank" rel="external">https://careers.asbgroup.co.nz/sovereign/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.cyf.govt.nz/" target="_blank" rel="external">Child, Youth &amp; Family</a></td></p>
+<p><td width="672"><a href="https://msdcareers.msd.govt.nz/home" target="_blank" rel="external">https://msdcareers.msd.govt.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.aa.co.nz/" target="_blank" rel="external">AA</a></td></p>
+<p><td width="672"><a href="http://www.aa.co.nz/about/work-or-partner-with-us/careers/" target="_blank" rel="external">http://www.aa.co.nz/about/work-or-partner-with-us/careers/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.kiwibank.co.nz/" target="_blank" rel="external">Kiwibank</a></td></p>
+<p><td width="672"><a href="https://workforus.kiwibank.co.nz/search" target="_blank" rel="external">https://workforus.kiwibank.co.nz/search</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://telnet.co.nz/" target="_blank" rel="external">Telnet</a></td></p>
+<p><td width="672"><a href="http://callcentrepeople.co.nz/jobs/candidate-resources/" target="_blank" rel="external">http://callcentrepeople.co.nz/jobs/candidate-resources/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.iinet.net.au/" target="_blank" rel="external">iiNet</a></td></p>
+<p><td width="672"><a href="http://careers.iinet.net.au/caw/en/listing/" target="_blank" rel="external">http://careers.iinet.net.au/caw/en/listing/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.greatoutcomes.co.nz/" target="_blank" rel="external">Great Outcomes</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.tower.co.nz/" target="_blank" rel="external">Tower Insurance</a></td></p>
+<p><td width="672"><a href="https://careers.tower.co.nz/home" target="_blank" rel="external">https://careers.tower.co.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.dunedin.govt.nz/" target="_blank" rel="external">Dunedin City Council</a></td></p>
+<p><td width="672"><a href="http://www.dcc.jobs/" target="_blank" rel="external">http://www.dcc.jobs/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.coke.co.nz/" target="_blank" rel="external">Coca Cola</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.ezibuy.co.nz/" target="_blank" rel="external">Ezibuy</a></td></p>
+<p><td width="672"><a href="https://ezibuy.careercentre.net.nz/" target="_blank" rel="external">https://ezibuy.careercentre.net.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.dimensiondata.com/en-nz" target="_blank" rel="external">Datacraft (Dimension Data)</a></td></p>
+<p><td width="672"><a href="http://www.dimensiondata.com/en-nz/aboutus/careerportal" target="_blank" rel="external">http://www.dimensiondata.com/en-nz/aboutus/careerportal</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.bnz.co.nz/" target="_blank" rel="external">BNZ</a></td></p>
+<p><td width="672"><a href="http://www.bnzcareers.co.nz/" target="_blank" rel="external">http://www.bnzcareers.co.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.anz.com/" target="_blank" rel="external">ANZ (include National Bank)</a></td></p>
+<p><td width="672"><a href="https://www.anz.com/about-us/careers/" target="_blank" rel="external">https://www.anz.com/about-us/careers/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.asb.co.nz/" target="_blank" rel="external">ASB</a></td></p>
+<p><td width="672"><a href="https://careers.asbgroup.co.nz/" target="_blank" rel="external">https://careers.asbgroup.co.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.contact.co.nz/" target="_blank" rel="external">Contact Energy</a></td></p>
+<p><td width="672"><a href="http://www.contactenergy.co.nz/aboutus/workwithus/careers/homepage" target="_blank" rel="external">http://www.contactenergy.co.nz/aboutus/workwithus/careers/homepage</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.health.govt.nz/" target="_blank" rel="external">Ministry of Health</a></td></p>
+<p><td width="672"><a href="https://jobs.health.govt.nz/" target="_blank" rel="external">https://jobs.health.govt.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.massey.ac.nz/" target="_blank" rel="external">Massey University</a></td></p>
+<p><td width="672"><a href="http://www.massey.ac.nz/massey/about-massey/careers.cfm" target="_blank" rel="external">http://www.massey.ac.nz/massey/about-massey/careers.cfm</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.lic.co.nz/" target="_blank" rel="external">LIC</a></td></p>
+<p><td width="672"><a href="http://careers.lic.co.nz/home" target="_blank" rel="external">http://careers.lic.co.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.amway.co.nz/" target="_blank" rel="external">Amway</a></td></p>
+<p><td width="672"><a href="http://www.amway.co.nz/Content/Article?PageCode=careersWorkingAtAmway&amp;c=EN-NZ" target="_blank" rel="external">http://www.amway.co.nz/Content/Article?PageCode=careersWorkingAtAmway&amp;c=EN-NZ</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.fonterra.com/nz/en" target="_blank" rel="external">Fonterra Brands</a></td></p>
+<p><td width="672"><a href="https://www.fonterra.com/nz/en/Hub+Sites/Careers" target="_blank" rel="external">https://www.fonterra.com/nz/en/Hub+Sites/Careers</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.adtsecurity.co.nz/" target="_blank" rel="external">ADT</a></td></p>
+<p><td width="672"><a href="http://www.tyco.com/careers" target="_blank" rel="external">http://www.tyco.com/careers</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.cerebos.com.au/" target="_blank" rel="external">Cerebos Gregg’s</a></td></p>
+<p><td width="672"><a href="http://jobs.seek.co.nz/users/jobsearch.asp?jobsearch=true&amp;AdList=true&amp;AdvertiserID=19607904" target="_blank" rel="external">http://jobs.seek.co.nz/users/jobsearch.asp?jobsearch=true&amp;AdList=true&amp;AdvertiserID=19607904</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.chrisco.co.nz/" target="_blank" rel="external">Chrisco</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Electoral Enrolment Centre</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.northshorecity.govt.nz/" target="_blank" rel="external">North Shore City Council</a></td></p>
+<p><td width="672"><a href="https://careers.aucklandcouncil.govt.nz/home" target="_blank" rel="external">https://careers.aucklandcouncil.govt.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.manpower.com/" target="_blank" rel="external">Manpower</a></td></p>
+<p><td width="672"><a href="http://www.manpower.com/" target="_blank" rel="external">http://www.manpower.com/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.warehousestationery.co.nz/" target="_blank" rel="external">Warehouse Stationery</a></td></p>
+<p><td width="672"><a href="https://www.warehousestationerycareers.co.nz/home" target="_blank" rel="external">https://www.warehousestationerycareers.co.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Mitsubishi Customer Care Centre</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.quit.org.nz/" target="_blank" rel="external">Quitline</a></td></p>
+<p><td width="672"><a href="http://www.quit.org.nz/54/about-us/job-vacancies" target="_blank" rel="external">http://www.quit.org.nz/54/about-us/job-vacancies</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.airnewzealandholidays.co.nz/" target="_blank" rel="external">Air NZ Holidays</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://wellington.govt.nz/" target="_blank" rel="external">Wellington City Council</a></td></p>
+<p><td width="672"><a href="https://careers.wellington.govt.nz/home" target="_blank" rel="external">https://careers.wellington.govt.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.aut.ac.nz/" target="_blank" rel="external">AUT</a></td></p>
+<p><td width="672"><a href="http://careers.aut.ac.nz/" target="_blank" rel="external">http://careers.aut.ac.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Air NZ Global</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.restaurantbrands.co.nz/" target="_blank" rel="external">RESTAURANT BRANDS</a></td></p>
+<p><td width="672"><a href="https://www.servingupthefuture.co.nz/home" target="_blank" rel="external">https://www.servingupthefuture.co.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.arc.govt.nz/" target="_blank" rel="external">Auckland Regional Council</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.trustpower.co.nz/" target="_blank" rel="external">TrustPower</a></td></p>
+<p><td width="672"><a href="https://trustpowercareers.silkroad.com/" target="_blank" rel="external">https://trustpowercareers.silkroad.com/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.workandincome.govt.nz/" target="_blank" rel="external">Work &amp; Income</a></td></p>
+<p><td width="672"><a href="http://www.workandincome.govt.nz/individuals/looking-for-work/index.html" target="_blank" rel="external">http://www.workandincome.govt.nz/individuals/looking-for-work/index.html</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.southtaranaki.com/" target="_blank" rel="external">South Taranaki District Council</a></td></p>
+<p><td width="672"><a href="http://southtaranaki.recruitmenthub.co.nz/Vacancies/" target="_blank" rel="external">http://southtaranaki.recruitmenthub.co.nz/Vacancies/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Sitel New Zealand</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.genesisenergy.co.nz/" target="_blank" rel="external">Genesis Energy</a></td></p>
+<p><td width="672"><a href="https://www.genesisenergy.co.nz/careers" target="_blank" rel="external">https://www.genesisenergy.co.nz/careers</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.acc.co.nz/" target="_blank" rel="external">ACC</a></td></p>
+<p><td width="672"><a href="https://careers.acc.co.nz/home" target="_blank" rel="external">https://careers.acc.co.nz/home</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="https://www.americanexpress.com/nz/" target="_blank" rel="external">American Express</a></td></p>
+<p><td width="672"><a href="https://careers.americanexpress.com/?inav=nz_sitefooter_careers" target="_blank" rel="external">https://careers.americanexpress.com/?inav=nz_sitefooter_careers</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.cpit.ac.nz/" target="_blank" rel="external">Christchurch Polytechnic</a></td></p>
+<p><td width="672"><a href="http://www.cpit.ac.nz/about-us/work-at-cpit/current-vacancies" target="_blank" rel="external">http://www.cpit.ac.nz/about-us/work-at-cpit/current-vacancies</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.dol.govt.nz/" target="_blank" rel="external">Department of Labour</a></td></p>
+<p><td width="672"><a href="http://www.dol.govt.nz/about/careers/index.asp" target="_blank" rel="external">http://www.dol.govt.nz/about/careers/index.asp</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.dicksmith.co.nz/" target="_blank" rel="external">Dick Smith</a></td></p>
+<p><td width="672"><a href="http://dicksmithholdings.com.au/work-with-us/" target="_blank" rel="external">http://dicksmithholdings.com.au/work-with-us/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.expresscouriers.co.nz/" target="_blank" rel="external">ECL (CourierPost / Pace)</a></td></p>
+<p><td width="672"><a href="http://www.expresscouriers.co.nz/careers/" target="_blank" rel="external">http://www.expresscouriers.co.nz/careers/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.ew.govt.nz/" target="_blank" rel="external">Environment Waikato (Waikato Regional Council)</a></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.farmers.co.nz/" target="_blank" rel="external">Farmers </a></td></p>
+<p><td width="672"><a href="http://farmerscareers.co.nz/" target="_blank" rel="external">http://farmerscareers.co.nz/</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.goodmanfielder.com.au/" target="_blank" rel="external">Goodman Fielder</a></td></p>
+<p><td width="672"><a href="https://careers.goodmanfielder.com.au/jobtools/JnCustomLogin.Login?in_organid=17226" target="_blank" rel="external">https://careers.goodmanfielder.com.au/jobtools/JnCustomLogin.Login?in_organid=17226</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"><a href="http://www.gw.govt.nz/" target="_blank" rel="external">Greater Wellington Regional Council</a></td></p>
+<p><td width="672"><a href="https://careers.gw.govt.nz/" target="_blank" rel="external">https://careers.gw.govt.nz</a></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Griffins</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Guthrie Bowron</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Heinz Watties</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Johnson&amp;Johnson</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Kaikoura District Council</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Kellogg’s Ltd</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Kraft</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Land Transport NZ</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Lion Nathan</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Meridian Energy</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry for the Environment</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Agriculture and Forestry</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Lion Nathan</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Meridian Energy</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry for the Environment</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Agriculture and Forestry</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Economic Development</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Education</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Social Development</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ministry of Tourism</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">NewZealand Trade And Enterprise (NZTE)</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">MITO Motor Industry Training Organisation</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Nestle</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">New Zealand Police</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">New Zealand Post</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">NZ Army</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">PGG Wrightson</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Procter &amp; Gamble</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">PSIS</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Quit</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Resturant Brandsn (Pizza Hut)</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Retirement Commission</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Fly Buys</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Rotorua District Council</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">SC Johnson</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Scenic Circle Hotels</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Shell</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Ravensdown</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Sky TV</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"></td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Smiths City</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Southern Cross Healthcare</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">The Families Commission</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">The Warehouse</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Tip Top</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Tourism Holdings</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Transpower</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Turner Auctions</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Unilever</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Unison Networks Limited</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Unitec NZ</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">University of Waikato</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Upper Hutt City Council</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Wellington City Council</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Winstone Wallboards Ltd</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Zespri</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Waiariki Institute of Technology</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Avis</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Hertz</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Budget rent a car</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Torpedo 7</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Intercity Group</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Interislander</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Southern Cross Health Insurance</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Air New Zealand</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">AMI Insurance</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">Postie Plus</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">House of Travel</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268">WorldVision</td></p>
+<p><td width="672"></td><br></p>
+<p><tr></tr></p>
+<p><td width="268"></td></p>
+<p><td width="672"></td><br><br><br><br>Goverment jobs:  <a href="http://jobs.govt.nz/" target="_blank" rel="external">http://jobs.govt.nz</a></p>
+<p>Telecommunication: Vodafone, Telecom, Gen-i</p>
+<p>These are New Zealand’s top 100 companies/orgnizations ranked by number of employees.</p>
+<p>1        Fonterra Co-Operative Group Ltd<br>2        Progressive Enterprises Ltd<br>3        Fletcher Building Limited<br>4        Spotless Services (NZ) Limited<br>5        New Zealand Defence Force<br>6        New Zealand Police<br>7        Carter Holt Harvey Limited<br>8        Air New Zealand Limited<br>9        ANZ National Bank Limited<br>10        Auckland District Health Board<br>11        New Zealand Post Limited<br>12        Canterbury District Health Board<br>13        Restaurant Brands New Zealand Limited<br>14        Telecom Corporation of New Zealand Ltd<br>15        Ministry of Social Development<span style="color: #ffffff;">:</span><br>16        McDonald’s Restaurants (New Zealand) Ltd<br>17        Department of Corrections<br>18        Bank of New Zealand Limited<br>19        The Warehouse Group Limited<br>20        Silver Fern Farms Ltd<br>21        Westpac New Zealand Ltd<br>22        Inland Revenue Department<br>23        Alliance Group Limited<br>24        Downer EDI Ltd<br>25        Healthcare of New Zealand Ltd<br>26        ISS Facility Services Ltd<br>27        Waikato District Health Board<br>28        Waitemata District Health Board<br>29        Capital &amp; Coast District Health Board<br>30        The University of Auckland<br>31        Counties Manukau District Health Board<br>32        Tyco Fire &amp; Security - New Zealand<br>33        SKYCITY Entertainment Group Limited<br>34        Bupa Care Services<br>35        University of Otago<br>36        ASB Bank Limited<br>37        Massey University<br>38        Farmers<br>39        APN New Zealand Ltd<br>40        Datacom Group Ltd<br>41        Goodman Fielder New Zealand Ltd<br>42        KiwiRail Holdings Limited<br>43        Northland District Health Board<br>44        OCS New Zealand<br>45        Radius Health Group Ltd<br>46        Victoria University of Wellington<br>47        Ministry of Justice<br>48        Royal New Zealand Navy<br>49        Fulton Hogan Ltd<br>50        Fairfax New Zealand Ltd<br>51        PGG Wrightson Limited<br>52        Ministry of Education<br>53        Gen-i Limited<br>54        Anzco Foods Limited<br>55        Bayleys Realty Group Limited<br>56        Repco Ltd<br>57        The Salvation Army<br>58        Toll Tranz Link<br>59        Transfield Services (New Zealand) Ltd<br>60        Beca Group Ltd<br>61        Bunnings Ltd<br>62        Otago District Health Board<br>63        Accident Compensation Corporation<br>64        Christchurch City Council<br>65        Department of Child, Youth and Family<br>66        Oceania Group NZ Ltd<br>67        MidCentral District Health Board<br>68        New Zealand Fire Service<br>69        Auckland City Council<br>70        IAG New Zealand Ltd<br>71        Antares Restaurant Group Ltd<br>72        Compass Group Ltd<br>73        Fletcher Construction Company Limited<br>74        Hutt Valley District Health Board<br>75        Millennium &amp; Copthorne Hotels New Zealand Ltd<br>76        New Zealand Steel Ltd<br>77        Nurse Maude Association<br>78        NZ BuS<br>79        Placemakers<br>80        Sanford Ltd<br>81        Department of Labour<br>82        Harcourts Group Ltd<br>83        University of Canterbury<br>84        Bay of Plenty District Health Board<br>85        Fisher &amp; Paykel Healthcare Corporation Ltd<br>86        Hawkes Bay District Health Board<br>87        Opus International Consultants Ltd<br>88        AUT University<br>89        AsureQuality Limited<br>90        BP Oil New Zealand Ltd<br>91        University of Waikato<br>92        Nelson Marlborough District Health Board<br>93        Briscoe Group Ltd<br>94        Fisher &amp; Paykel Appliances Holdings Limited<br>95        Department of Conservation<br>96        Ministry of Agriculture and Forestry<br>97        Barfoot &amp; Thompson Ltd<br>98        Heinz Wattie’s Ltd<br>99        Presbyterian Support Central<br>100        Royal New Zealand Air Force (RNZAF)</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/12/override-covariant-return-types/" itemprop="url">
+                  override:  covariant return types
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-01-12T03:37:15+08:00" content="2015-01-12">
+              2015-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/12/override-covariant-return-types/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/12/override-covariant-return-types/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(CharSequence a)</span> </span>&#123;&#125;</div><div class="line">    <span class="function">CharSequence <span class="title">bar</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;quot;<span class="number">1</span>&amp;quot;; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BB</span> <span class="keyword">extends</span> <span class="title">AA</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(String a)</span> </span>&#123;&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function">String <span class="title">bar</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> &amp;quot;<span class="number">2</span>&amp;quot;; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>It’s obvious that method “bar” overrides successfully.</p>
+<p>Java多态时，允许协变的返回类型，但是形式参数列<wbr>表必须一模一样(不支持协变参数类型)！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/12/behavior-of-polymorphic-methods-inside-constructors/" itemprop="url">
+                  Behavior of polymorphic methods inside constructors
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-01-12T03:31:57+08:00" content="2015-01-12">
+              2015-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/12/behavior-of-polymorphic-methods-inside-constructors/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/12/behavior-of-polymorphic-methods-inside-constructors/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Glyph</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;Glyph.draw()&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Glyph() &#123;</div><div class="line">        System.out.println(&amp;quot;Glyph() <span class="function">before <span class="title">draw</span><span class="params">()</span>&amp;quot</span>;);</div><div class="line">        draw();</div><div class="line">        System.out.println(&amp;quot;Glyph() <span class="function">after <span class="title">draw</span><span class="params">()</span>&amp;quot</span>;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoundGlyph</span> <span class="keyword">extends</span> <span class="title">Glyph</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> radius = <span class="number">1</span>;</div><div class="line"></div><div class="line">    RoundGlyph(<span class="keyword">int</span> r) &#123;</div><div class="line">        radius = r;</div><div class="line">        System.out.println(&amp;quot;RoundGlyph.RoundGlyph(), radius = &amp;quot; + radius);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;RoundGlyph.draw(), radius = &amp;quot; + radius);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> RoundGlyph(<span class="number">5</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>Glyph() before draw()</p>
+<p>RoundGlyph.draw(), radius = 0</p>
+<p>Glyph() after draw()</p>
+<p>RoundGlyph.RoundGlyph(), radius = 5</p>
+</blockquote>
+<p>在构造器中调用多态方法，虽然对象没有完全构造好，但是多态也会发生！!</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/09/jax-rs-as-the-one-java-web-framework-to-rule-them-all/" itemprop="url">
+                  JAX-RS as the one Java web framework to rule them all?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-01-09T06:40:09+08:00" content="2015-01-09">
+              2015-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAX-RS/" itemprop="url" rel="index">
+                    <span itemprop="name">JAX-RS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/09/jax-rs-as-the-one-java-web-framework-to-rule-them-all/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/09/jax-rs-as-the-one-java-web-framework-to-rule-them-all/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>One of the things about Java that sometimes gets made fun of is the huge number of Java based web frameworks. There certainly are many, of all shapes and sizes! I suppose there are quite a lot of different shapes and sizes of web applications out there but it sometimes seems like there’s a 1-1 mapping between applications and frameworks :).</p>
+<p>Picking the right web framework is probably a managers nightmare (Which one to pick? Pick the wrong one and we might end up using a duff dead framework that few developers know etc?). But it has lead to a ton of innovation in the web framework space. On balance I think competition and innovation are good things.</p>
+<p>I’m a big Rails fan, I think its a stunning piece of work and one of the most impressive open source frameworks created in the last 10 years which together with Ruby, Erb and Rake is a good alternative to Servlets + JSP + JSTL + Spring + Hibernate + WebFrameworkOfYourChoice + SiteMesh/Tiles + Ant/Maven + a few other bits all in a surpringly small and easy to grok codebase.</p>
+<p>JAX-RS came along initially as a way of writing RESTful services on the Java platform; using annotations and loose coupling to bind resource beans and their public methods to URIs, HTTP methods and MIME content type negotiation. I’ve said before I think its <a href="http://macstrac.blogspot.com/2009/01/jax-rs-as-basis-of-dry-web-framework.html" target="_blank" rel="external">awesome</a>, one of the most impressive JSRs we’ve had.</p>
+<p>From the perspective of the controller layer I actually prefer JAX-RS to Rails routes.rb &amp; controllers as</p>
+<ul>
+<li>the URI bindings are local to the resource beans which can be arbitrarily nested which makes refactoring much easier and avoids the complex routes.rb file with regex switches (I try and avoid regex whenever I can :)</li>
+<li>the loose coupling between the objects returned by the resource methods and the actual entity providers is clean; helping the application programmer focus on returning DTOs and letting the framework deal with the XML / JSON /Atom / multi-part-form marshalling &amp; data binding stuff really helps. e.g. its easy to drop in support for new representations in a DRY way without changing the code of your resource beans (controllers), you can just modify an annotation</li>
+<li>static typing can be a handy thing when binding URIs and parameters to your controller. e.g. having String, integer, Date fields and parameters helps you having to explicitly convert things in your controller<br>There’s lots of other stuff thats great in Rails though :-) but this post isn’t a JAX-RS versus Rails post really - its focussing on the world of Java web frameworks for Java developers and the impact of JAX-RS.</li>
+</ul>
+<p>So whats interesting is - if you want to build a web application with RESTful services (e.g. a human facing website with computer facing XML/JSON APIs) why would you use JAX-RS andanother web framework? Why not just use JAX-RS as the web framework? So recently I’ve been musing, could JAX-RS be the one Java web framework to rule them all?</p>
+<p>JAX-RS works well with dependency injection frameworks such as <a href="http://www.springframework.org/" target="_blank" rel="external">Spring</a>, <a href="http://code.google.com/p/google-guice/" target="_blank" rel="external">Guice</a>,<a href="http://code.google.com/p/guiceyfruit/" target="_blank" rel="external">GuiceyFruit</a> or <a href="http://www.jboss.org/jbossmc/" target="_blank" rel="external">JBossMC</a> - you can basically pick whichever one you prefer. It also does all the heavily lifting of binding URIs and HTTP methods to resource beans and their methods along with supporting content type negotiation, headers and etags elegantly. For implementing great RESTful services in Java I’ve never seen anything close to touching it. The main question is what features are missing from JAX-RS being the main web framework?</p>
+<p>Incidentally in this post I’m ignoring the server-side UI type frameworks like Wicket, Tapestry, JSF et al. I’m focussing on web frameworks that spend most of their time rendering HTML / XML / JSON and not building complex server side UI stuff and treating the browser as a kinda dumb terminal with the real UI work being done on the server side. Having had a horrid time using Tapestry and Hibernate together on some projects in the past, I’m kinda over the whole concept of server side UI web frameworks personally (I’m putting my flame-proof suite on now). I kinda think if you want to do complex rich web UIs, use wizards or complex flows, just use GWT or JavaScript on the client (or Flex/Flash for video or crazy highly graphical widgets) and keep the server side fairly simple and very RESTful. (But lets leave that discussion for another day… :)</p>
+<p>In this post I’m only really considering frameworks like Struts, Stripes, SpringMVC etc.Thankfully WebWork and Struts merged together so at least there’s been someconsolidation in the space - and certainly Struts and Stripes are now kinda similar (and not too disimilar from SpringMVC). I wonder if JAX-RS will lead to further consolidation with web frameworks adding themselves as JAX-RS extensions?</p>
+<p>So whats is missing from JAX-RS to be able to use just it for your entire web app and set of RESTful services and not have to use it with Struts/Stripes/SpringMVC and have to map some URIs into the web framework and some to JAX-RS?</p>
+<p>Right now today there are definitely some holes; though currently I don’t think there’s thatmuch missing. Here’s my list of things I think are missing and how we could add them - I’m very interested in hearing if there’s anything you’d particularly miss from Struts/Stripes/SpringMVC/whatever; please blog about it or post a comment and I’ll do a follow up post!</p>
+<p>Implict &amp; Explicit Views<br>One great feature of <a href="https://jersey.dev.java.net/" target="_blank" rel="external">Jersey</a> is the support for Implicit and Explicit Views. Update: here’s a<a href="http://blogs.sun.com/sandoz/entry/mvcj" target="_blank" rel="external">link describing implict/explicit views</a>. It basically allows the controller to delegate to the view layer (JSP/Velocity/Freemarker/<a href="http://code.google.com/p/gxp/" target="_blank" rel="external">GXP</a> or whatever) using a default naming convention to find the template files in a directory named after the resource bean’s class name and if required - the URI being requested. So a given Resource bean could have an index.jsp and edit.jsp templates for example - and referring to ${it.foo} inside the template would extract the foo property of the resource bean (you can override what ‘it’ is if you like but the resource bean is a very reasonable default).</p>
+<p>Maybe the easiest way to understand implicit/explicit views is to look at the bookstoreexample in the Jersey distro; its basically the glue between JAX-RS resources and templates.</p>
+<p>However there are some issues (which are being addressed particularly by the helpful folks on the Jersey list, particularly Marc and Paul) which basically revolve around having implicit/explicit views and (say) XML/JSON representations on the same resource bean using the same URIs and getting JAX-RS to pick the right one.</p>
+<p>For example the URI “/customers” might return a HTML page for most web browsers but return XML/JSON if folks want to specify those MIME types in their Accept header. Right now Jersey tends to favour returning XML/JSON (long story but basically more specific URI paths are preferred over implicit views).</p>
+<p>I’m pretty sure some kind of @ImplicitProduces annotation to allow implicit views to be associated to MIME types along with a higher priority/quality ranking specified in the next feature would solve pretty much all the issues with implicit/explicit views though am sure folks can think of other improvements…</p>
+<p>Better Content Negotiation Support<br>It would be nice to see <a href="https://jsr311.dev.java.net/issues/show_bug.cgi?id=46" target="_blank" rel="external">these</a> <a href="https://jsr311.dev.java.net/issues/show_bug.cgi?id=65" target="_blank" rel="external">issues</a> resolved to be able to use <a href="http://gewis.win.tue.nl/~koen/conneg/rfc2296.txt" target="_blank" rel="external">RFC 2296</a> to be able to raise and lower the priorities (or quality) of the different representations.</p>
+<p>e.g. you might want to prefer to return HTML over XML/JSON so unless folks ask specifically just for XML or JSON you return HTML.</p>
+<p>Bizarrely Safari uses an Accept header of</p>
+<blockquote>
+<p>text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,<em>/</em>;q=0.5<br>which kinda means it prefers to render XML over HTML (despite rendering XML as plain text! Truly bizarre - what was Steve smoking that day :). Most web apps I know of would rather return HTML by default :)</p>
+</blockquote>
+<p>So you might want to specify something like this on a resource to declare that you want to return HTML by default for most users…</p>
+<blockquote>
+<p>@ImplicitProduces(“text/html;q=1.0”)</p>
+<p>@Produces(“text/xml;q=0.5, application/xml;q=0.5; application/json;q=0.5”)</p>
+<p>public class MyResource {</p>
+<p>…</p>
+<p>}<br>Those MIME Strings could be static final constants BTW to keep things DRY and not have to repeat a ton of MIME expressions throughout your resource beans and making it real easy to add a new MIME type to your code without changing your controller methods.</p>
+</blockquote>
+<p>You could argue the out of the box rankings for HTML should be 1.0 and XML/JSON something lower, say 0.9 or 0.5 as thats what most folks would want.</p>
+<p>Dealing with static content<br>The Servlet spec is a tad smelly in this area (and even in servlet 3.0) of not easily allowing you to mark URI patterns as being handled by the container (e.g. for static content or for JSP files etc) and <a href="http://n2.nabble.com/Static-references-from-JSP-td794843.html" target="_blank" rel="external">mapping all of the rest to your default servlet</a>. Hopefully as <a href="http://n2.nabble.com/Static-references-from-JSP-td794843.html#a2223598" target="_blank" rel="external">Paul suggests</a>we can get around this using servlet filters in Jersey; but it’d be nicer if there was a better fix for this. (Rails wins here hands down with using regex to map URIs to controllers). But this is more a servlet issue than JAX-RS / web framework.</p>
+<p>Multipart support<br>Having support for Struts style form beans; binding a multipart to a bean is very handy.<a href="http://n2.nabble.com/Hello-World%21-and-Welcome-to-jersey-multipart-td1343189.html#a1343189" target="_blank" rel="external">MrStruts himself has contributed jersey-multipart</a> which goes most of the way there. Allowing direct binding with any bean to avoid having to use the MultiPart class directly would certainly help.</p>
+<p>Standard JAX-RS client API like Jersey’s<br>While not that relevant directly to web applications; being able to implement a REST service by invoking other RESTful services - or being able to test easily any RESTful service using an API like Jersey’s client - while reusing the cool entity providers on both client and server side - would rock.</p>
+<p>GWT and JAX-RS client integration<br>If you’re building JAX-RS services and want a rich web client then <a href="http://code.google.com/webtoolkit/" target="_blank" rel="external">GWT</a> is a great solution; you can reuse all your Java code on the client and server side and its very easy to debug the whole application in a single JVM in your Java IDE.</p>
+<p>GWT ships with its own RPC mechanism and there are various REST libraries for GWT such as <a href="http://code.google.com/p/gwt-rest/" target="_blank" rel="external">gwt-rest</a> it’d be nice if there was an easy way to reuse the same DTOs used on the server side like you can with Jersey’s client library from inside GWT. Using JAXB inside GWT is probably non-feasaible :) but it should be pretty easy to just use GWT serialization and then support it as an entity provider in the JAX-RS runtime. (Is there a MIME type for GWT serialisation I wonder :).</p>
+<p>Basically as an application developer it should be trivial to be able to reuse RESTful resources in JAX-RS inside the GWT client reusing all those DTOs if you want to.</p>
+<p>Update: some other suggestions<br>Julio Faerman <a href="http://n2.nabble.com/JAX-RS---Jersey-as-the-main-Java-web-framework-going-forward...-td2226448.html#a2227796" target="_blank" rel="external">mentioned</a> on the Jersey list mentioned the need for better validation. So maybe we could integrate the validation layer from Struts/Stripes into JAX-RS? Or use the the Bean Validation API (<a href="http://jcp.org/en/jsr/detail?id=303" target="_blank" rel="external">JSR 303</a>)?</p>
+<p>Also Julio and Jon in the comments mentioned the need for managing conversational state so integrating Web Beans (<a href="http://jcp.org/en/jsr/detail?id=299" target="_blank" rel="external">JSR 299</a>) as an option for bijection of conversational state on resource beans sounds a good possibility.</p>
+<p>What else?<br>Those are the things I can think of so far. Can you think of any others? What are there features in your favourite Struts/Stripes/SpringMVC/whatever framework on the server that you really can’t live without?</p>
+<p>I’d love to hear others thoughts; do you think I’m smoking crack or do you agree? :)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/enumeration-types/" itemprop="url">
+                  Enumeration types
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:58:13+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/Java-5/" itemprop="url" rel="index">
+                    <span itemprop="name">Java 5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/enumeration-types/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/enumeration-types/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="enum’s-underlying-implementation"><a href="#enum’s-underlying-implementation" class="headerlink" title="enum’s underlying implementation"></a>enum’s underlying implementation</h3><p>Define enumerated types by using <strong>enum</strong> keyword.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> MetaColor &#123;</div><div class="line">    RED, YELLOW, BLUE</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Now, MetaColor class has three <strong><span style="text-decoration: underline;">final static members</span></strong> all of which are of MetaColor class: RED, YELLOW and BLUE</p>
+<p>MetaColor has 2 static methods: <strong><em>values(), valueOf(..) </em></strong>and other instance methods: <strong><em>name()</em></strong>, <strong><em>ordinal()</em></strong> and <strong><em>toString(), hashCode(), equals()</em></strong>.</p>
+<p>You can override the <em>toString()</em>, but <em>hashCode()</em> and equals() are <strong>final</strong> which cannot be override. Actually, enum maintains a singleton for ever enum object, so overriding hashCode() and equals() is not required.</p>
+<p>Although <strong>enum</strong>s appear to be a new data type, the keyword only produces some compiler behavior while generating a class for the <strong>enum</strong>, so in many ways you can treat an <strong>enum </strong>as<br>if it were any other class.</p>
+<p>The following is the equivalent one like compiler generates:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MetaColor</span> <span class="keyword">extends</span> <span class="title">Enum</span>&amp;<span class="title">lt</span></span>;MetaColor&amp;gt; &#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> MetaColor RED = <span class="keyword">new</span> MetaColor(<span class="string">"RED"</span>, <span class="number">0</span>);</div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> MetaColor GREEN= <span class="keyword">new</span> MetaColor(<span class="string">"GREEN"</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> MetaColor BLUE= <span class="keyword">new</span> MetaColor(<span class="string">"BLUE"</span>, <span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MetaColor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>But if you really extend Enum class, the compiler will complain and the code cannot be compiled.</p>
+<h3 id="adding-your-own-method-including-constructor"><a href="#adding-your-own-method-including-constructor" class="headerlink" title="adding your own method, including constructor"></a>adding your own method, including constructor</h3><p>In fact, enums _are _classes and can have their own methods.</p>
+<p>Of course, you can associate the enum instance with an inherit value or something.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">enum</span> MetaColor &#123;</div><div class="line">    RED(<span class="number">1</span>), YELLOW(<span class="number">2</span>), BLUE(<span class="number">3</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">    <span class="comment">// public MetaColor(int value) &#123; // not permit</span></div><div class="line">    <span class="comment">// protected MetaColor(int value) &#123; // not permit</span></div><div class="line">    <span class="comment">// private MetaColor(int value) &#123; // permit</span></div><div class="line">    MetaColor(<span class="keyword">int</span> value) &#123; <span class="comment">//permit</span></div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">this</span>.value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="some-constraints"><a href="#some-constraints" class="headerlink" title="some constraints"></a>some constraints</h3><p>In the above code, the constractor of MetaColor <strong>cannot be applied public or protected modifier</strong>.</p>
+<p>And also you <strong>cannot instantiate the enum class</strong> by yourself.</p>
+<h3 id="go-further-abstract-enum"><a href="#go-further-abstract-enum" class="headerlink" title="go further: abstract enum"></a>go further: abstract enum</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Season &#123;</div><div class="line">    WINTER(<span class="string">"WT"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">( )</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Winter..."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    SPRING(<span class="string">"SP"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">( )</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Spring...."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    SUMMER(<span class="string">"SM"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">( )</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Summer..."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    FALL(<span class="string">"FL"</span>) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">( )</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Fall..."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">//template method</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+<h3 id="immutable"><a href="#immutable" class="headerlink" title="immutable?"></a>immutable?</h3><p>No, enum object is not immutable on its own. But enum class limits <strong>the number and order of its instances</strong>, as we cannot initialize a new instance of the enum class.</p>
+<p>That is the essential of enumerable class.</p>
+<h3 id="enum-vs-static-final-variables"><a href="#enum-vs-static-final-variables" class="headerlink" title="enum vs. static final variables"></a>enum vs. static final variables</h3><p>What are the advantages of enums if compared with the traditional final static fields of a class?</p>
+<ul>
+<li>Enum class <strong>does the correct thing</strong> of what it can do and it’s designed just for the enumeration objects.</li>
+<li>Enum is just <strong>normal class</strong>, so the <strong>extensibility</strong> is far more than that of plain final static variables.</li>
+<li>Enum can be really <strong>self-descriptive</strong>.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/variable-argument-list-a-pitfall/" itemprop="url">
+                  variable argument list: a pitfall
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:56:36+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/variable-argument-list-a-pitfall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/variable-argument-list-a-pitfall/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>We usually define a method with a variable argument list like this:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">bar</span><span class="params">(String...args)</span> </span>&#123;</div><div class="line"><span class="comment">//blablab</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>But there is a pitfall in this place.<br>Can you ensure args is always an array, even its length is 0 when it’s empty?</p>
+<p>Yes, most of time.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">obj.bar(); <span class="comment">// here, args is a zero-length array</span></div></pre></td></tr></table></figure>
+<p>BUT, things are not always like that.</p>
+<p>You can see this:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">obj.bar(<span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+<p>Guess what? Here the args is also null. That’s it.</p>
+<p>This is a pretty weird behavior!<br>Naturally, we expect an array with one element the value of which should be null. But in reality, the reference to the array is null.<br>Instead, we use the following solution for our intention:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">obj.bar(<span class="keyword">new</span> String[]&#123; <span class="keyword">null</span> &#125;);</div></pre></td></tr></table></figure>
+<p>And what if I pass the null to more than 1 variable argument list?</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">obj.bar(<span class="keyword">null</span>, &amp;quot;<span class="number">1</span>&amp;quot;);</div></pre></td></tr></table></figure>
+<p>Yes, it is obvious and expected that args is an array with two elements the values of which are null and “1” respectively.<br>Alternatively, the following style is also the same:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">obj.bar(<span class="keyword">new</span> String[]&#123;<span class="keyword">null</span>, &amp;quot;<span class="number">1</span>&amp;quot;&#125;);</div></pre></td></tr></table></figure>
+<p>To summarize, variable argument list is really of no secret.</p>
+<p>It’s a sort of syntax sugar.<br>1) when only one actual parameter passes,<br>1.a if it is null, the argument array is null<br>1.b if it is of the type of element, then the argument array is a one-element array and the only element is the passed parameter<br>1.c if it is an array with the type of declared argument, then the argument array is just the passed array parameter.</p>
+<p>2) when more than one actual parameters pass, then the argument array is a non-empty array and its elements are the passed parameters.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/default-constructor-no-args-constructor/" itemprop="url">
+                  Default constructor (no-args constructor)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:54:20+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/default-constructor-no-args-constructor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/default-constructor-no-args-constructor/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Default constructor is just synthesized by the compiler when you don’t define any constructor.</p>
+<p>Once you define a constructor, the compiler won’t make one for you.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">       <span class="keyword">new</span> C(); <span class="comment">// so compiler will issue an error message here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/distinguish-overloaded-methods/" itemprop="url">
+                  Distinguish overloaded methods
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:36:16+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/distinguish-overloaded-methods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/distinguish-overloaded-methods/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Each overloaded method must have <strong>a unique list of argument types.</strong></p>
+<p>This means that there are the following possible cases:</p>
+<ol>
+<li>argument count are different</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a, String b)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>argument types are different</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(String b)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>argument types are different, even if inheritance</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(List a)</span> </span>&#123;&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(ArrayList a)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>return types are different</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;</div></pre></td></tr></table></figure>
+<p><strong>NO!! This will have a compiler error.</strong></p>
+<p>When overloaded methods are invoked, compiler choose the best matched method by using the declared types of passing arguments.</p>
+<p>So:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    List a = <span class="keyword">new</span> ArrayList();</div><div class="line">    o.foo(a) <span class="comment">// This will invoke the &amp;quot;void foo(List a) &#123;&#125;&amp;quot; method</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>because overloading is a <strong>static binding</strong> behavior and only occurs in <strong>compile time</strong>.</p>
+<p>When considering which overloaded method will be invoked, you should always regard yourself as the compiler.</p>
+<p>When it comes to the primitives, please see the following example:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demotion</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(ch&amp;lt;wbr /&amp;gt;ar)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">short</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">short</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">int</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">long</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">long</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">float</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">float</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f1(<span class="keyword">double</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">short</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">short</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">int</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">long</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">long</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">(<span class="keyword">float</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f2(<span class="keyword">float</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f3(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f3(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">short</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f3(<span class="keyword">short</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f3(<span class="keyword">int</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(<span class="keyword">long</span> x)</span> </span>&#123;</div><div class="line">       System.out.println(&amp;quot;f3(<span class="keyword">long</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f4</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f4(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f4</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f4(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f4</span><span class="params">(<span class="keyword">short</span> x)</span> </span>&#123;</div><div class="line">       System.out.println(&amp;quot;f4(<span class="keyword">short</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f4</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f4(<span class="keyword">int</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f5</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f5(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f5</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f5(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f5</span><span class="params">(<span class="keyword">short</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f5(<span class="keyword">short</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f6</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f6(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f6</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f6(<span class="keyword">byte</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f7</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;f7(<span class="keyword">char</span>)&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testDouble</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">double</span> x = <span class="number">0</span>;</div><div class="line">        System.out.println(&amp;quot;<span class="keyword">double</span> argument:&amp;quot;);</div><div class="line">        f1(x);</div><div class="line">        f2((<span class="keyword">float</span>) x);</div><div class="line">        f3((<span class="keyword">long</span>) x);</div><div class="line">        f4((<span class="keyword">int</span>) x);</div><div class="line">        f5((<span class="keyword">short</span>) x);</div><div class="line">        f6((<span class="keyword">byte</span>) x);</div><div class="line">        f7((<span class="keyword">char</span>) x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Demotion p = <span class="keyword">new</span> Demotion();</div><div class="line">        p.testDouble();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Output is:</p>
+<blockquote>
+<p>double argument:</p>
+<p>f1(double)</p>
+<p>f2(float)</p>
+<p>f3(long)</p>
+<p>f4(int)</p>
+<p>f5(short)</p>
+<p>f6(byte)</p>
+<p>f7(char)</p>
+</blockquote>
+<p>From the above example, you can see the same rule: the compiler decide method binding in compile time and it always chooses the best and most possible method. When it is possible, it need casting a type to another. So when some wider types like double, float cast to some narrower types like int, short etc, the precision and width of number will be narrowed. If it cannot do this, an error message will be issued.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/override-a-pitfall/" itemprop="url">
+                  Override: a pitfall
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:30:14+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/override-a-pitfall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/override-a-pitfall/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Let’s see the flowing program and guess the run result:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">drink</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;animal drinks before eating&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.drink();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">drink</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(&amp;quot;dog drinks before eating&amp;quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.eat();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Animal animal = <span class="keyword">new</span> Dog();</div><div class="line">        animal.eat();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Yes, the result it: dog drinks before eating. And why?</p>
+<p>Overridden just occurs in run time. So it is also called dynamic binding.</p>
+<p>In run time, you must <span style="text-decoration: underline;">always trace the real object reference</span>.</p>
+<p>In the aforementioned example, there is only one object both <em>super</em> and _this _refer.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">Animal animal = <span class="keyword">new</span> Dog();</div><div class="line">animal.eat();</div></pre></td></tr></table></figure>
+<p>// because the real type of animal is Dog, so the eat() method uses the overridden version of eat().</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">super</span>.eat();</div></pre></td></tr></table></figure>
+<p>It specifically invokes the methods of its parent.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">this</span>.drink();</div></pre></td></tr></table></figure>
+<p>OK, now _this _refers dog object, so polymorphism occurs once again. So it just use the overridden version of drink().</p>
+<p>Anyway, that’s it.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/java-access-control/" itemprop="url">
+                  Java access control
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:28:45+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">Basics</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/java-access-control/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/java-access-control/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Java access control is a bit weird, especially for the ones with C++ background.</p>
+<p>There are two types of access control, one for classes and the other for members.<br>To simplify my discussion, in this context the class mean the top level one, which is directly defined in a compile unit.<br>As the nested class is actually always associated with another class, so it’s not top level class and I regard it as just a member like member variables and member methods.</p>
+<p>P.S: package access control has no specifier.</p>
+<h3 id="Class-access-control"><a href="#Class-access-control" class="headerlink" title="Class access control"></a>Class access control</h3><p>Class access control has just two: public, package.</p>
+<p><strong>NOTE: A java file must contain ONE public class at most. If a public class exists, its name must be the same as the file name.</strong></p>
+<p>Class access control is mainly used for the visibility to other package or class. It can influence the fact whether you can import the class. It can be more convenient if you understand the access of one class as whether you can see it from somewhere.</p>
+<p>If you declare some class as package access control, it is only accessed by the classes with the same package.</p>
+<p>In this point, you will think it’s really reasonable why a class cannot be declared as private or protected.</p>
+<h3 id="Member-access-control"><a href="#Member-access-control" class="headerlink" title="Member access control"></a>Member access control</h3><h4 id="Class-member-access-control"><a href="#Class-member-access-control" class="headerlink" title="Class member access control"></a>Class member access control</h4><p>I simply think static fields or methods as the member of a class.</p>
+<p>The rules are similar with the ones of object members access control, so I don’t plan to discuss them separately.</p>
+<h4 id="Object-member-access-control"><a href="#Object-member-access-control" class="headerlink" title="Object member access control"></a>Object member access control</h4><p>Object members can be declared as: public, protected, package, private.<br>In this order, the access is more and more limited.</p>
+<p>Public: anything can access, object members by object and static members by class.<br>Protected: package and inherited class can access.<br>Package: package class can access<br>Private: just the class itself can access</p>
+<p>Now I will discuss other modifiers: static, abstract, final</p>
+<p>The meaning of static is very notable, and abstract and final is mutual.</p>
+<p>static can be just used for members(fields, methods, nested classes, static initialization block), not top level classes.</p>
+<p><span style="text-decoration: underline;">abstract class</span> (as well as the nested class):<br>Abstract class has zero or more than one method being left unimplemented.</p>
+<p><span style="text-decoration: underline;">abstract member method</span>:<br>This method has no body. And the class of this method must be also abstract.</p>
+<p><span style="text-decoration: underline;">final class</span> (as well as the nested class):<br>Final class means it cannot be inherited.</p>
+<p><span style="text-decoration: underline;">final member method</span>:<br>This method cannot be overridden.</p>
+<p><span style="text-decoration: underline;">final member field</span>:<br>This field is unchangeable once initialized.<br>(Primitive field cannot be changed to another value; Object reference field cannot be changed to another object reference)</p>
+<p><strong>NOTE: Final object reference field doesn’t necessarily mean that the object it refers is unchangeable. The fields/properties of the object can be changed at its will.</strong><br><strong>The declaration of final CANNOT ensure an immutable object. </strong></p>
+<p>Sometimes, it needn’t declare the specifiers explicitly, as there are some defaults.</p>
+<p>interface: abstract (interface can be public or package)<br>interface member field: public static final<br>interface member method: public abstract</p>
+<p>More comprehensive discussions, please refer to <a href="http://richdyang.com/java-modifiers-review" target="_blank" rel="external">java modifiers review</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/01/12/java-object-initialization-order/" itemprop="url">
+                  Java Object Initialization Order
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-01-12T02:22:46+08:00" content="2013-01-12">
+              2013-01-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/01/12/java-object-initialization-order/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/01/12/java-object-initialization-order/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>See the following program, and you guess the running result:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Dog dog = <span class="keyword">new</span> Dog();</div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> val1 = -<span class="number">5</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> val2 = <span class="number">3</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> val3;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span> </span>&#123;</div><div class="line">        val3 = val1 + val2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">       System.out.println(Dog.dog.val3);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Now, I tell you the result is -5. But why?</p>
+<p>To clarify this confusing initialization order, you must know a little about the memory layout and what the JVM do (imagine yourself as the compiler and VM).</p>
+<p>Because static fields belong to the Class which located in the method area of JVM. The class initialization occurs in the class loading process by the class loader. The process is more or less like the one of plain object initialization other than the member fields of classes are static and class initialization doesn’t invoke any user-defined constructor.</p>
+<p>One thing I must mention is that -5 is just CONSTANT, so assigning it to val1 means it is hard-corded into class file at compile-time. Therefore, <strong>final class variables and fields of interfaces whose values are compile-time constants are initialized first</strong>.<br>具有编译器常量的final类变量首先初始化！！<br><a href="http://docs.oracle.com/javase/specs/jls/se6/html/execution.html#12.4.2" target="_blank" rel="external"><span class="qlink_container">http://docs.oracle.com/ja<wbr>vase/sp…</span></a></p>
+<p><a href="http://docs.oracle.com/javase/specs/jls/se6/html/execution.html#12.4.2" target="_blank" rel="external"><span style="background-color: #ffff00;">Next, execute either the class variable initializers and static initializers of the class, or the field initializers of the interface, in textual order, <span style="background-color: #ff6600;">as though they were a single block</span>, except that <code>final</code> class variables and fields of interfaces whose values are compile-time constants are initialized first (§8.3.2.1, §9.3.1, §13.4.9).</span></a></p>
+<p>To verify your thought, please see the decompiled bytecodes:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Classfile /playground/bin/playground/Dog.class</div><div class="line">  Last modified Aug 25, 2016; size 725 bytes</div><div class="line">  MD5 checksum 73b977e92851a8923319ee5a1032171a</div><div class="line">  Compiled from &quot;Dog.java&quot;</div><div class="line">public class playground.Dog</div><div class="line">  SourceFile: &quot;Dog.java&quot;</div><div class="line">  minor version: 0</div><div class="line">  major version: 51</div><div class="line">  flags: ACC_PUBLIC, ACC_SUPER</div><div class="line">Constant pool:</div><div class="line">   #1 = Class              #2             //  playground/Dog</div><div class="line">   #2 = Utf8               playground/Dog</div><div class="line">   #3 = Class              #4             //  java/lang/Object</div><div class="line">   #4 = Utf8               java/lang/Object</div><div class="line">   #5 = Utf8               dog</div><div class="line">   #6 = Utf8               Lplayground/Dog;</div><div class="line">   #7 = Utf8               val1</div><div class="line">   #8 = Utf8               I</div><div class="line">   #9 = Utf8               ConstantValue</div><div class="line">  #10 = Integer            -5</div><div class="line">  #11 = Utf8               val2</div><div class="line">  #12 = Utf8               val3</div><div class="line">  #13 = Utf8               &lt;clinit&gt;</div><div class="line">  #14 = Utf8               ()V</div><div class="line">  #15 = Utf8               Code</div><div class="line">  #16 = Methodref          #1.#17         //  playground/Dog.&quot;&lt;init&gt;&quot;:()V</div><div class="line">  #17 = NameAndType        #18:#14        //  &quot;&lt;init&gt;&quot;:()V</div><div class="line">  #18 = Utf8               &lt;init&gt;</div><div class="line">  #19 = Fieldref           #1.#20         //  playground/Dog.dog:Lplayground/Dog;</div><div class="line">  #20 = NameAndType        #5:#6          //  dog:Lplayground/Dog;</div><div class="line">  #21 = Fieldref           #1.#22         //  playground/Dog.val2:I</div><div class="line">  #22 = NameAndType        #11:#8         //  val2:I</div><div class="line">  #23 = Utf8               LineNumberTable</div><div class="line">  #24 = Utf8               LocalVariableTable</div><div class="line">  #25 = Methodref          #3.#17         //  java/lang/Object.&quot;&lt;init&gt;&quot;:()V</div><div class="line">  #26 = Fieldref           #1.#27         //  playground/Dog.val3:I</div><div class="line">  #27 = NameAndType        #12:#8         //  val3:I</div><div class="line">  #28 = Utf8               this</div><div class="line">  #29 = Utf8               main</div><div class="line">  #30 = Utf8               ([Ljava/lang/String;)V</div><div class="line">  #31 = Fieldref           #32.#34        //  java/lang/System.out:Ljava/io/PrintStream;</div><div class="line">  #32 = Class              #33            //  java/lang/System</div><div class="line">  #33 = Utf8               java/lang/System</div><div class="line">  #34 = NameAndType        #35:#36        //  out:Ljava/io/PrintStream;</div><div class="line">  #35 = Utf8               out</div><div class="line">  #36 = Utf8               Ljava/io/PrintStream;</div><div class="line">  #37 = Methodref          #38.#40        //  java/io/PrintStream.println:(I)V</div><div class="line">  #38 = Class              #39            //  java/io/PrintStream</div><div class="line">  #39 = Utf8               java/io/PrintStream</div><div class="line">  #40 = NameAndType        #41:#42        //  println:(I)V</div><div class="line">  #41 = Utf8               println</div><div class="line">  #42 = Utf8               (I)V</div><div class="line">  #43 = Utf8               args</div><div class="line">  #44 = Utf8               [Ljava/lang/String;</div><div class="line">  #45 = Utf8               SourceFile</div><div class="line">  #46 = Utf8               Dog.java</div><div class="line">&#123;</div><div class="line">  public static playground.Dog dog;</div><div class="line">    flags: ACC_PUBLIC, ACC_STATIC</div><div class="line"></div><div class="line"></div><div class="line">  static final int val1;</div><div class="line">    flags: ACC_STATIC, ACC_FINAL</div><div class="line">    ConstantValue: int -5</div><div class="line"></div><div class="line"></div><div class="line">  static int val2;</div><div class="line">    flags: ACC_STATIC</div><div class="line"></div><div class="line"></div><div class="line">  public int val3;</div><div class="line">    flags: ACC_PUBLIC</div><div class="line"></div><div class="line"></div><div class="line">  static &#123;&#125;;</div><div class="line">    flags: ACC_STATIC</div><div class="line">    Code:</div><div class="line">      stack=2, locals=0, args_size=0</div><div class="line">         0: new           #1                  // class playground/Dog</div><div class="line">         3: dup           </div><div class="line">         4: invokespecial #16                 // Method &quot;&lt;init&gt;&quot;:()V</div><div class="line">         7: putstatic     #19                 // Field dog:Lplayground/Dog;</div><div class="line">        10: iconst_3      </div><div class="line">        11: putstatic     #21                 // Field val2:I</div><div class="line">        14: return        </div><div class="line">      LineNumberTable:</div><div class="line">        line 4: 0</div><div class="line">        line 6: 10</div><div class="line">      LocalVariableTable:</div><div class="line">        Start  Length  Slot  Name   Signature</div><div class="line"></div><div class="line">  public playground.Dog();</div><div class="line">    flags: ACC_PUBLIC</div><div class="line">    Code:</div><div class="line">      stack=3, locals=1, args_size=1</div><div class="line">         0: aload_0       </div><div class="line">         1: invokespecial #25                 // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</div><div class="line">         4: aload_0       </div><div class="line">         5: bipush        -5</div><div class="line">         7: getstatic     #21                 // Field val2:I</div><div class="line">        10: iadd          </div><div class="line">        11: putfield      #26                 // Field val3:I</div><div class="line">        14: return        </div><div class="line">      LineNumberTable:</div><div class="line">        line 8: 0</div><div class="line">        line 9: 4</div><div class="line">        line 10: 14</div><div class="line">      LocalVariableTable:</div><div class="line">        Start  Length  Slot  Name   Signature</div><div class="line">               0      15     0  this   Lplayground/Dog;</div><div class="line"></div><div class="line">  public static void main(java.lang.String[]);</div><div class="line">    flags: ACC_PUBLIC, ACC_STATIC</div><div class="line">    Code:</div><div class="line">      stack=2, locals=1, args_size=1</div><div class="line">         0: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;</div><div class="line">         3: getstatic     #19                 // Field dog:Lplayground/Dog;</div><div class="line">         6: getfield      #26                 // Field val3:I</div><div class="line">         9: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V</div><div class="line">        12: return        </div><div class="line">      LineNumberTable:</div><div class="line">        line 12: 0</div><div class="line">        line 13: 12</div><div class="line">      LocalVariableTable:</div><div class="line">        Start  Length  Slot  Name   Signature</div><div class="line">               0      13     0  args   [Ljava/lang/String;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Let’s illustrate the whole process using pictures:</p>
+<p><div><img src="/media/main-qimg-ba927672afe463e722864c4843bf4e3e.webp" alt=""></div><br>To summarize the process of creating an object, consider a class called Dog:<br>1). Even though it doesn’t explicitly use the static keyword, the constructor is actually a static method. So the first time an object of type Dog is created, _or_the first time a static method or static field of class Dog is accessed, the Java interpreter must locate Dog.class, which it does by searching through the classpath.<br>2). As Dog.class is loaded (creating a Class object, which you’ll learn about later), all of its static initializers are run. Thus, static initialization takes place only once, as the Class object is loaded for the first time.<br>3). When you create a new Dog( ), the construction process for a Dog object first allocates enough storage for a Dog object on the heap.<br>4). This storage is wiped to zero, automatically setting all the primitives in that Dog object to their default values (zero for numbers and the equivalent for boolean and char) and the references to null.<br>5). Any initializations that occur at the point of field definition are executed.<br>6). Constructors are executed. This might actually involve a fair amount of activity, especially when inheritance is involved.</p>
+<p>&nbsp;</p>
+<p>The following is a complicated example:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> k = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Test t1 = <span class="keyword">new</span> Test(<span class="string">"t1"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Test t2 = <span class="keyword">new</span> Test(<span class="string">"t2"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> n = <span class="number">99</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> j = print(<span class="string">"j"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = print(<span class="string">"i"</span>);</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        print(<span class="string">"构造块"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        print(<span class="string">"静态构造块"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">        System.out.println((++k) + <span class="string">":"</span> + str +<span class="string">"  j="</span>+j+<span class="string">" n="</span>+n);</div><div class="line">        ++j;</div><div class="line">        ++n;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">print</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">        System.out.println((++k) + <span class="string">":"</span> + str +<span class="string">"  j="</span>+j+<span class="string">" n="</span>+n);</div><div class="line"></div><div class="line">        ++n;</div><div class="line">        <span class="keyword">return</span> ++j;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>the result is:</p>
+<p>2:i j=0 n=0<br>3:构造块 j=1 n=1<br>4:t1 j=2 n=2<br>5:i j=3 n=3<br>6:构造块 j=4 n=4<br>7:t2 j=5 n=5<br>8:j j=6 n=99<br>9:静态构造块 j=7 n=100</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = 'page/9/index.html';
+      var disqus_title = '';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,925 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="References:
+
+&amp;lt;Inside the Java Virtual Machine&amp;gt;
+&amp;lt;Java Performance - The Definitive Guide&amp;gt;
+
+GC overviewHeap Layout
+Geneation spacesNearly every JVM uses generational garbage collectors. They">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Garbage Collection">
+<meta property="og:url" content="https://richyang.me/2015/04/20/garbage-collection/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="References:
+
+&amp;lt;Inside the Java Virtual Machine&amp;gt;
+&amp;lt;Java Performance - The Definitive Guide&amp;gt;
+
+GC overviewHeap Layout
+Geneation spacesNearly every JVM uses generational garbage collectors. They">
+<meta property="og:image" content="https://richyang.me/media/Hotspot-VM-heap-layout.png">
+<meta property="og:image" content="https://richyang.me/media/young-generation.png">
+<meta property="og:image" content="https://richyang.me/media/minor-gc.png">
+<meta property="og:image" content="https://richyang.me/media/gc-comparison.png">
+<meta property="og:image" content="https://richyang.me/media/serial-gc.png">
+<meta property="og:image" content="https://richyang.me/media/parallelGC.png">
+<meta property="og:image" content="https://richyang.me/media/parallelOldGC.png">
+<meta property="og:image" content="https://richyang.me/media/throughout-minor-gc.png">
+<meta property="og:image" content="https://richyang.me/media/throughout-full-gc.png">
+<meta property="og:image" content="https://richyang.me/media/cms-gc.png">
+<meta property="og:image" content="https://richyang.me/media/cms-minor-gc.png">
+<meta property="og:image" content="https://richyang.me/media/cms-full-gc.png">
+<meta property="og:image" content="https://richyang.me/media/g1-layout.png">
+<meta property="og:image" content="https://richyang.me/media/cms-vs-g1.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Garbage Collection">
+<meta name="twitter:description" content="References:
+
+&amp;lt;Inside the Java Virtual Machine&amp;gt;
+&amp;lt;Java Performance - The Definitive Guide&amp;gt;
+
+GC overviewHeap Layout
+Geneation spacesNearly every JVM uses generational garbage collectors. They">
+<meta name="twitter:image" content="https://richyang.me/media/Hotspot-VM-heap-layout.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Garbage Collection | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Garbage Collection
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-20T14:13:28+08:00" content="2015-04-20">
+              2015-04-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/20/garbage-collection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/20/garbage-collection/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>References:</p>
+<ul>
+<li>&lt;<a href="https://www.artima.com/insidejvm/ed2/index.html" target="_blank" rel="external">Inside the Java Virtual Machine</a>&gt;</li>
+<li>&lt;Java Performance - The Definitive Guide&gt;</li>
+</ul>
+<h3 id="GC-overview"><a href="#GC-overview" class="headerlink" title="GC overview"></a>GC overview</h3><h4 id="Heap-Layout"><a href="#Heap-Layout" class="headerlink" title="Heap Layout"></a>Heap Layout</h4><p><img src="/media/Hotspot-VM-heap-layout.png" alt="Hotspot-VM-heap-layout"></p>
+<h4 id="Geneation-spaces"><a href="#Geneation-spaces" class="headerlink" title="Geneation spaces"></a>Geneation spaces</h4><p>Nearly every JVM uses generational garbage collectors. They work by splitting the heap into different generations:</p>
+<ul>
+<li>Old generation (tenured generation)</li>
+<li>Young generation, which is further divided into sections: Eden and Survivor spaces.<br><img src="/media/young-generation.png" alt="young-generation"></li>
+</ul>
+<h4 id="minor-GC"><a href="#minor-GC" class="headerlink" title="minor GC"></a>minor GC</h4><p>GC for the young generation is called <strong>minor GC</strong>. All GC algorithms have <em><strong>stop-the-world</strong></em> pauses during collection of the young generation.</p>
+<ul>
+<li>Objects that are no longer in use are discarded, and objects that are still in use are moved elsewhere.</li>
+<li>all objects in eden are either moved to the unused survivor space(To survivor space) or discarded:</li>
+<li>all objects in From survivor space are either discarded or moved to the unused survivor space(To survivor space) or moved to the old generation (when still liveable after a few minor GC).</li>
+<li>Since all objects are moved, the young generation is automatically compacted when it is collected.</li>
+<li>After every minor GC, the From survivor space and To survivor space are swapped.<br><img src="/media/minor-gc.png" alt="minor-gc"></li>
+</ul>
+<h4 id="full-GC"><a href="#full-GC" class="headerlink" title="full GC"></a>full GC</h4><p>GC for the old generation collection is called <strong>full GC</strong>. Concurrent collectors scan for unused objects can occur without stopping application threads, such as CMS and G1.</p>
+<h3 id="Garbage-collectors"><a href="#Garbage-collectors" class="headerlink" title="Garbage collectors"></a>Garbage collectors</h3><p>Early GC uses <strong>reference counting</strong> strategy. But now nearly all the GCs use <strong>Tracing</strong> garbage strategies, which trace out the graph of object references starting with the root nodes.</p>
+<p>The basic tracing algorithm is called “mark and sweep” :</p>
+<ul>
+<li>In the mark phase, the garbage collector traverses the tree of references and marks each object it encounters.</li>
+<li>In the sweep phase, unmarked objects are freed, and the resulting memory is made available to the executing program.</li>
+<li><p>In the JVM, the sweep phase must include finalization of objects.<br>Two strategies for defragmentation: <strong>compacting</strong> and <strong>copying</strong></p>
+</li>
+<li><p><strong>compacting </strong>algorithm<strong> </strong>slides live objects over free memory space toward one end of the heap</p>
+</li>
+<li><strong>copying </strong>algorithm moves all live objects to a new area, placed side by side with current area.<br><table border="1" width="1207"><br><tbody><br><tr><br><td></td><br><td><strong>serial GC</strong></td><br><td><strong>throughput / parallel GC</strong></td><br><td><strong>CMS GC</strong></td><br><td><strong>G1</strong></td><br></tr><br><tr><br><td>designed for</td><br><td>client machine: 32bit JVM on Windows or single processor machine (default)</td><br><td>server machine: multi-CPU Unix machine or 64-bit JVM (default)</td><br><td></td><br><td>process large heaps (greater than<br>about 4 GB) with minimal pauses  divides the heap into a number of regions</td><br></tr><br><tr><br><td>minor GC</td><br><td>performs with single thread  stop all application threads</td><br><td>performs with multiple threads  stop all application threads</td><br><td>performs with multiple threads  stops all application threads</td><br><td>performs with multiple threads  stops all application threads</td><br></tr><br><tr><br><td>full GC</td><br><td>performs with single threads  stop all application threads</td><br><td>performs with multiple threads  stop all application threads</td><br><td>uses one or more<br>background threads to periodically scan through the old generation  don’t stop application threads</td><br><td>processed by background threads  don’t need to stop the application threads</td><br></tr><br><tr><br><td>flag</td><br><td>-XX:+UseSerialGC</td><br><td>-XX:+UseParallelGC  -XX:+UseParallelOldGC</td><br><td>-XX:+UseConcMarkSweepGC  -XX:+UseParNewGC</td><br><td>-XX:+UseG1GC</td><br></tr><br><tr><br><td></td><br><td></td><br><td></td><br><td>when too fragmented -&gt; serial colletor</td><br><td>G1 can clean up objects from the old generation<br>by copying from one region into another,it (at least partially) compacts<br>the heap during normal processing  less likely to be fragmented</td><br></tr><br></tbody><br></table><br>In GC algorithms, there are several terms:</li>
+</ul>
+<p>Parallelism / Serialism: there is a single thread or multiple threads for the GC?</p>
+<p>Concurrency: the GC threads are running exclusively or along with the application threads? If exclusively, that’s when the “<strong>stop-the-world</strong>“ happens.</p>
+<p>&nbsp;</p>
+<p><img src="/media/gc-comparison.png" alt="gc-comparison"></p>
+<p>You can see, all GC algorithms use “stop-the-world” when doing minor GC.</p>
+<p>Triggered when:</p>
+<ul>
+<li>a minor GC will be triggered when the new generation is full</li>
+<li>a full GC will be triggered when the old generation is full, or a concurrent GC (if applicable) will be triggered when the heap starts to fill up.</li>
+</ul>
+<h3 id="Serial-collector"><a href="#Serial-collector" class="headerlink" title="Serial collector"></a>Serial collector</h3><p><img src="/media/serial-gc.png" alt="serial-gc"></p>
+<h3 id="Parallel-collector"><a href="#Parallel-collector" class="headerlink" title="Parallel collector"></a>Parallel collector</h3><p>Default GC for server class machine. The throughput matters!</p>
+<p><strong>Two variations</strong></p>
+<ul>
+<li><p>Multi-threaded young generation (minor) GC with single threaded old generation (full) GC<br>-XX:+UseParallelGC   default GC in Java 6 through Java 7 update 3.</p>
+</li>
+<li><p>Multiple-threaded young generation (minor) GC with multi-threaded old generation (full) GC<br>-XX:+UseParallelOldGC   default GC in Java 7 update 4 or over.</p>
+</li>
+</ul>
+<p>Both young generation and old generation GC(both minor and full GC) are “stop-the-world” events.</p>
+<p><img src="/media/parallelGC.png" alt="parallelGC"></p>
+<p><img src="/media/parallelOldGC.png" alt="parallelOldGC"></p>
+<h4 id="Minor-GC"><a href="#Minor-GC" class="headerlink" title="Minor GC"></a>Minor GC</h4><p><img src="/media/throughout-minor-gc.png" alt="throughout-minor-gc"></p>
+<h4 id="Full-GC"><a href="#Full-GC" class="headerlink" title="Full GC"></a>Full GC</h4><p><img src="/media/throughout-full-gc.png" alt="throughout-full-gc"></p>
+<h3 id="CMS-collector"><a href="#CMS-collector" class="headerlink" title="CMS collector"></a>CMS collector</h3><p>CMS is the Concurrent Mark-and-Sweep collector.</p>
+<p>The minor GC has no difference with Parallel collector, but the full GC cycle is <em><u>mostly</u></em> concurrent and includes several phases: initial mark phase, concurrent mark &amp; pre-cleaning phase, remark phase, concurrent sweep phase.</p>
+<p>There are still “stop-the-world” events in the initial mark and remark phases.</p>
+<p><img src="/media/cms-gc.png" alt="cms-gc"></p>
+<h4 id="Minor-GC-1"><a href="#Minor-GC-1" class="headerlink" title="Minor GC"></a>Minor GC</h4><p>Trigger when young generation exhausted</p>
+<p><img src="/media/cms-minor-gc.png" alt="cms-minor-gc"></p>
+<h4 id="full-GC-Concurrent-Cycle"><a href="#full-GC-Concurrent-Cycle" class="headerlink" title="full GC (Concurrent Cycle)"></a>full GC (Concurrent Cycle)</h4><ul>
+<li>mostly concurrent old generation GC, some phases run concurrently with the application, some are “stop-the-world”, some phases are single threaded.</li>
+<li>does not compact old generation, but the “stop-the-world”, single threaded compaction will occur if: 1) concurrent cycle not keeping up 2) too fragment.<br>Triggered at old generation space occupancy threshold – default is around 70%. This can be adjusted by<code>-XX:CMSInitiatingOccupancyFraction=n</code><br><table style="height: 254px;" border="1" width="748"><br><tbody><br><tr><br><td>Phases</td><br><td></td><br><td></td><br></tr><br><tr><br><td>initial-mark phase</td><br><td>“stop-the-world”</td><br><td>single threaded</td><br></tr><br><tr><br><td>concurrent marking phase</td><br><td>run concurrently with the application</td><br><td>multi-threaded</td><br></tr><br><tr><br><td>pre-cleaning phase</td><br><td>run concurrently with the application</td><br><td>multi-threaded</td><br></tr><br><tr><br><td>remark phase</td><br><td>“stop-the-world”</td><br><td>multi-threaded</td><br></tr><br><tr><br><td>concurrent sweeping phase</td><br><td>run concurrently with the application</td><br><td>multi-threaded</td><br></tr><br></tbody><br></table><br><img src="/media/cms-full-gc.png" alt="cms-full-gc"></li>
+</ul>
+<h4 id="PerGen-collection-enable"><a href="#PerGen-collection-enable" class="headerlink" title="PerGen collection enable"></a>PerGen collection enable</h4><p>Permanent generation space can also be collected concurrently by set:</p>
+<p><code>-XX:+CMSClassUnloadingEnable</code></p>
+<p><code>-XX:CMSInitiatingPermOccupancyFraction=n</code></p>
+<p><code>-XX:+CMSInitiatingPermOccupancyOnly</code></p>
+<h3 id="G1-collector"><a href="#G1-collector" class="headerlink" title="G1 collector"></a>G1 collector</h3><p>G1 is Garbage First.</p>
+<p>G1 uses a drastically different Java heap layout to the other garbage collectors in the HotSpot VM. It splits the Java heap into equal-sized chunks called regions.<br>Even though G1 is generational, it does not have <strong>physically</strong> separate spaces for the young and old generations. Instead, each generation is a set of (maybe noncontiguous) regions.</p>
+<p><img src="/media/g1-layout.png" alt="g1-layout"></p>
+<p><img src="/media/cms-vs-g1.png" alt="cms-vs-g1"></p>
+<p>PerGen(JDK 7) / metaspace (JDK 8)</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/18/jvm-knowledge/" rel="next" title="JVM knowledge">
+                <i class="fa fa-chevron-left"></i> JVM knowledge
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/21/wsdl-service-contract-in-detail/" rel="prev" title="WSDL Service Contract in Detail">
+                WSDL Service Contract in Detail <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GC-overview"><span class="nav-number">1.</span> <span class="nav-text">GC overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Heap-Layout"><span class="nav-number">1.1.</span> <span class="nav-text">Heap Layout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Geneation-spaces"><span class="nav-number">1.2.</span> <span class="nav-text">Geneation spaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#minor-GC"><span class="nav-number">1.3.</span> <span class="nav-text">minor GC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#full-GC"><span class="nav-number">1.4.</span> <span class="nav-text">full GC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Garbage-collectors"><span class="nav-number">2.</span> <span class="nav-text">Garbage collectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serial-collector"><span class="nav-number">3.</span> <span class="nav-text">Serial collector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-collector"><span class="nav-number">4.</span> <span class="nav-text">Parallel collector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Minor-GC"><span class="nav-number">4.1.</span> <span class="nav-text">Minor GC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Full-GC"><span class="nav-number">4.2.</span> <span class="nav-text">Full GC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS-collector"><span class="nav-number">5.</span> <span class="nav-text">CMS collector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Minor-GC-1"><span class="nav-number">5.1.</span> <span class="nav-text">Minor GC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#full-GC-Concurrent-Cycle"><span class="nav-number">5.2.</span> <span class="nav-text">full GC (Concurrent Cycle)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PerGen-collection-enable"><span class="nav-number">5.3.</span> <span class="nav-text">PerGen collection enable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G1-collector"><span class="nav-number">6.</span> <span class="nav-text">G1 collector</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/20/garbage-collection/';
+      var disqus_title = 'Garbage Collection';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

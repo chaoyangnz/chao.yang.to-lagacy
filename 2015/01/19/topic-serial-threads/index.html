@@ -1,0 +1,872 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="About thread:
+1. Single-thread and multi-threadA single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Thread Management">
+<meta property="og:url" content="https://richyang.me/2015/01/19/topic-serial-threads/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="About thread:
+1. Single-thread and multi-threadA single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main">
+<meta property="og:image" content="https://richyang.me/media/Multithread.gif">
+<meta property="og:image" content="https://richyang.me/media/Multithread_ThreadLifeCycle.png">
+<meta property="og:image" content="https://richyang.me/media/2129351.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Thread Management">
+<meta name="twitter:description" content="About thread:
+1. Single-thread and multi-threadA single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main">
+<meta name="twitter:image" content="https://richyang.me/media/Multithread.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Java Thread Management | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java Thread Management
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-01-19T07:30:46+08:00" content="2015-01-19">
+              2015-01-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Multithreading/" itemprop="url" rel="index">
+                    <span itemprop="name">Multithreading</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/19/topic-serial-threads/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/19/topic-serial-threads/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>About thread:</p>
+<h3 id="1-Single-thread-and-multi-thread"><a href="#1-Single-thread-and-multi-thread" class="headerlink" title="1. Single-thread and multi-thread"></a>1. Single-thread and multi-thread</h3><p>A single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main() method), followed by many entry and exit points, which are run concurrently with the main().<br><img src="/media/Multithread.gif" alt="Multithread"></p>
+<h3 id="2-Lifecycle"><a href="#2-Lifecycle" class="headerlink" title="2. Lifecycle"></a>2. Lifecycle</h3><p><img src="/media/Multithread_ThreadLifeCycle.png" alt="Multithread_ThreadLifeCycle"></p>
+<p>In Java, there are only 6 states when invoking<em> <strong>getState()</strong></em>:<br>NEW<br>RUNNABLE<br>BLOCKED<br>WAITING<br>TIMED_WAITING<br>TERMINATED</p>
+<p>In reality, we cannot differentiate the running or runnable but not running.</p>
+<p>a. A thread is <em>alive</em> when it is started but has not died. We can check it by <strong><em>isAlive()</em></strong><br>b. A daemon thread or a user thread mark is useful when JVM determine if it should exit. JVM exits when the only threads running are all daemon threads.</p>
+<h3 id="3-Control-through-the-lifecycle"><a href="#3-Control-through-the-lifecycle" class="headerlink" title="3. Control through the lifecycle"></a>3. Control through the lifecycle</h3><p>In the following writing, I will use “control thread” as the source thread which instantiate, operate the new produced thread, and the latter is “target thread”.</p>
+<h4 id="1-create-a-thread-in-control-thread-execution-context"><a href="#1-create-a-thread-in-control-thread-execution-context" class="headerlink" title="1) create a thread in control thread (execution context)"></a>1) create a thread in control thread (execution context)</h4><p>We create a thread instance (a real thread representation in Java) by using <em>new</em> keyword.<br><a href="/media/2129351.png"><img src="/media/2129351.png" alt=""></a></p>
+<p>So some properties can be provided in constructors:<br>a. ThreadGroup<br>b. Runnable target (define what will be run)<br>c. thread name<br>d. stack size</p>
+<p>Apart from these, there are the following perperties:<br>e. daemon thread or user thread?<br>f. priority<br>g. id</p>
+<p>Other important things:</p>
+<p>a. stack trace (TODO)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">getStackTrace()</div><div class="line">dumpStack()</div><div class="line">Thread.getAllStackTraces()</div></pre></td></tr></table></figure>
+<p>b. uncaught exception handler (TODO)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">getUncaughtExceptionHandler()</div><div class="line">setUncaughtExceptionHandler(UncaughtExceptionHandler)</div><div class="line">Thread.getDefaultUncaughtExceptionHandler()</div><div class="line">Thread.setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler)</div></pre></td></tr></table></figure>
+<p>c.context class loader (TODO)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">getContextClassLoader()</div><div class="line">setContextClassLoader(ClassLoader)</div></pre></td></tr></table></figure>
+<h4 id="2-start-a-thread-in-control-thread"><a href="#2-start-a-thread-in-control-thread" class="headerlink" title="2) start a thread in control thread"></a>2) start a thread in control thread</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span></div></pre></td></tr></table></figure>
+<p>Other methods like:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">(Throwable obj)</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">suspend</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
+<p>are all deprecated, as as they are inherently deadlock-prone.</p>
+<h4 id="3-interrupt"><a href="#3-interrupt" class="headerlink" title="3) interrupt"></a>3) interrupt</h4><p>When we need to interrupt a target thread?<br>a. the target thread is waiting in an invocation of method which can response the interruption by throwing an InterruptedException; these methods include wait(), notify(), notifyAll(), Thread.sleep()<br>b. you don’t wish the target thread to execute continually (may be a infinite loop or need spending too much time)</p>
+<p>When control thread invokes a interrupt in the target thread instance, the target thread has two ways to response, if possible for interruption:<br>a. catch the InterruptedException<br>b. check the interrupted status by interrupted() method (once invoked, the interrupted status is cleared)</p>
+<p>The following scenarios can produce the InterruptedException:<br>a. sleep(long)<br>b. wait(), wait(long), wait(long, int)<br>c. join(), join(long), join(long, wait)<br>d. interruption channel and selector</p>
+<blockquote>
+<p><span style="color: #ff0000;">NOTICE: current thread cannot interrupt itself.</span></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread thread = new Thread(new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        while(true) &#123;</div><div class="line">            System.out.println(&amp;amp;quot;I'm running&amp;amp;quot;);</div><div class="line">            int a = 1;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(10);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                System.out.println(&amp;amp;quot;Interruption received, now I exit&amp;amp;quot;);</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">            a = a + 2;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">thread.start();</div><div class="line">doHardWork();</div><div class="line">thread.interrupt();</div></pre></td></tr></table></figure>
+<p>If we don’t interrupt it, the thread will be running forever.</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread thread = new Thread(new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line"></div><div class="line">        while(true) &#123;</div><div class="line">            if(Thread.interrupted()) &#123;</div><div class="line">                System.out.println(&amp;quot;Interruption received, now I exit&amp;quot;);</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            System.out.println(&amp;quot;I'm running&amp;quot;);</div><div class="line">            double d = 0.0;</div><div class="line">            for (int i = 0; i &amp;lt; 900000; i++) &#123;</div><div class="line">                d = d + (Math.PI + Math.E) / d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">thread.start();</div><div class="line">doHardWork();</div><div class="line">System.out.println(&amp;quot;prepare to interrupt&amp;quot;);</div><div class="line">thread.interrupt();</div></pre></td></tr></table></figure>
+<p>By using interrupted(), we don’t depend on InterruptedException to notify interruption, we check it by my own proactively.</p>
+<h4 id="4-join"><a href="#4-join" class="headerlink" title="4) join"></a>4) join</h4><p>Sometimes, the control thread does something strictly after the target thread died. If the target thread has not terminated, the control thread must be blocked.</p>
+<blockquote>
+<p><span style="color: #ff0000;">NOTICE: current thread can join itself, but it makes no sense because it will wait forever.</span></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread thread = new Thread(new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        for(int i=0; i &amp;lt; 10; ++i) &#123;</div><div class="line">            System.out.println(&amp;quot;I'm running&amp;quot;);</div><div class="line">            double d = 0.0;</div><div class="line">            for (int j = 0; j &amp;lt; 900000; j++) &#123;</div><div class="line">                d = d + (Math.PI + Math.E) / d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">thread.start();</div><div class="line">doHardWork();</div><div class="line"></div><div class="line">System.out.println(&amp;quot;do my work&amp;quot;);</div><div class="line">System.in.read(); //just make the main thread not exit</div></pre></td></tr></table></figure>
+<p>In this example, the “do my work” happens in uninsured point, like this in one run:<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>do my work<br>I’m running<br>I’m running</p>
+<p>Now, we use join() and see the result:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread thread = new Thread(new Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        for(int i=0; i &amp;lt; 10; ++i) &#123;</div><div class="line">            System.out.println(&amp;quot;I'm running&amp;quot;);</div><div class="line">            double d = 0.0;</div><div class="line">            for (int j = 0; j &amp;lt; 900000; j++) &#123;</div><div class="line">                d = d + (Math.PI + Math.E) / d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">thread.start();</div><div class="line">doHardWork();</div><div class="line">thread.join();</div><div class="line">System.out.println(&amp;quot;do my work&amp;quot;);</div><div class="line">System.in.read(); //just make the main thread not exit</div></pre></td></tr></table></figure>
+<p>Now, the output is definitely:</p>
+<p>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>I’m running<br>do my work</p>
+<p>It can ensure that the code behind the join() must be executed after the target thread died.</p>
+<blockquote>
+<p><span style="color: #ff00ff;">WARNING: All the above examples, don’t use JUnit for testing, becaust JUnit terminate the program once the main thread terminate, regardless of the running/waiting spawn threads.</span></p>
+</blockquote>
+<h5 id="5-Operations-on-current-thread"><a href="#5-Operations-on-current-thread" class="headerlink" title="5) Operations on current thread"></a>5) Operations on current thread</h5><p>When code is executed in a thread context, it always knows the current thread object which represents the current execution thread context.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread.currentThread();</div><div class="line">Thread.sleep(<span class="keyword">long</span>);  Thread.sleep(<span class="keyword">long</span>, <span class="keyword">int</span>);</div><div class="line">Thread.yield();</div><div class="line">Thread.interrupted();  <span class="comment">// Please differentiate Thread.interrupted() and thread.isInterrupted()</span></div><div class="line">Thread.holdsLock()</div></pre></td></tr></table></figure>
+<p>Some convenient methods from ThreadGroup:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Thread.activeCount()</div><div class="line">Thread.enumurate()</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/19/topic-serial-exceptions/" rel="next" title="Java Exceptions">
+                <i class="fa fa-chevron-left"></i> Java Exceptions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/20/thread-synchronization/" rel="prev" title="Thread Synchronization">
+                Thread Synchronization <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Single-thread-and-multi-thread"><span class="nav-number">1.</span> <span class="nav-text">1. Single-thread and multi-thread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Lifecycle"><span class="nav-number">2.</span> <span class="nav-text">2. Lifecycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Control-through-the-lifecycle"><span class="nav-number">3.</span> <span class="nav-text">3. Control through the lifecycle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-create-a-thread-in-control-thread-execution-context"><span class="nav-number">3.1.</span> <span class="nav-text">1) create a thread in control thread (execution context)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-start-a-thread-in-control-thread"><span class="nav-number">3.2.</span> <span class="nav-text">2) start a thread in control thread</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-interrupt"><span class="nav-number">3.3.</span> <span class="nav-text">3) interrupt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-join"><span class="nav-number">3.4.</span> <span class="nav-text">4) join</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Operations-on-current-thread"><span class="nav-number">3.4.1.</span> <span class="nav-text">5) Operations on current thread</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/01/19/topic-serial-threads/';
+      var disqus_title = 'Java Thread Management';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

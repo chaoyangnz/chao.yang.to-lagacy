@@ -1,0 +1,974 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Developers’ TestsOn Tests and ToolsSUT (aka. System Under Test) – test target being tested
+DOC (aka. Dependency of Components) – collaborators and dependencies when testing
+Types of Developers’ Tests">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Book notes - Practical Unit Test with JUnit and Mockito">
+<meta property="og:url" content="https://richyang.me/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Developers’ TestsOn Tests and ToolsSUT (aka. System Under Test) – test target being tested
+DOC (aka. Dependency of Components) – collaborators and dependencies when testing
+Types of Developers’ Tests">
+<meta property="og:image" content="https://richyang.me/media/collaboration-of-SUT.png">
+<meta property="og:image" content="https://richyang.me/media/tdd.png">
+<meta property="og:image" content="https://richyang.me/media/tdd-on-different-levels.png">
+<meta property="og:image" content="https://richyang.me/media/test-doubles.png">
+<meta property="og:updated_time" content="2015-12-16T15:45:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Book notes - Practical Unit Test with JUnit and Mockito">
+<meta name="twitter:description" content="Developers’ TestsOn Tests and ToolsSUT (aka. System Under Test) – test target being tested
+DOC (aka. Dependency of Components) – collaborators and dependencies when testing
+Types of Developers’ Tests">
+<meta name="twitter:image" content="https://richyang.me/media/collaboration-of-SUT.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Book notes - Practical Unit Test with JUnit and Mockito | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Book notes - Practical Unit Test with JUnit and Mockito
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-25T14:46:18+08:00" content="2015-05-25">
+              2015-05-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Building-Testing-amp-CI/" itemprop="url" rel="index">
+                    <span itemprop="name">Building, Testing &amp; CI</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Developers’-Tests"><a href="#Developers’-Tests" class="headerlink" title="Developers’ Tests"></a>Developers’ Tests</h1><h2 id="On-Tests-and-Tools"><a href="#On-Tests-and-Tools" class="headerlink" title="On Tests and Tools"></a>On Tests and Tools</h2><p><strong>SUT</strong> (aka. System Under Test) – test target being tested</p>
+<p><strong>DOC</strong> (aka. Dependency of Components) – collaborators and dependencies when testing</p>
+<h3 id="Types-of-Developers’-Tests"><a href="#Types-of-Developers’-Tests" class="headerlink" title="Types of Developers’ Tests"></a>Types of Developers’ Tests</h3><ul>
+<li>Unit Test</li>
+<li>Integration Test</li>
+<li>End-to-End Test<br>Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.</li>
+</ul>
+<p>Other types of tests:</p>
+<ul>
+<li><strong>System Integration Test</strong> – test with external systems/applications, services etc</li>
+<li><strong>User Acceptation Test</strong> – final user verification test</li>
+<li><strong>Load Test</strong> – verify system performance under pressure / load</li>
+</ul>
+<table border="1" width="635"><br><tbody><br><tr><br><td><strong>type of test</strong></td><br><td><strong>SUT example</strong></td><br><td><strong>DOC example</strong></td><br></tr><br><tr><br><td rowspan="3">unit test</td><br><td>UserService</td><br><td>UserDAO</td><br></tr><br><tr><br><td>Invoice</td><br><td>Product</td><br></tr><br><tr><br><td>Client</td><br><td>Account</td><br></tr><br><tr><br><td rowspan="3">integration test</td><br><td>DAO layer (ORM based)</td><br><td>Hibernate</td><br></tr><br><tr><br><td>DAO layer (JDBC based)</td><br><td>MySQL 5</td><br></tr><br><tr><br><td>FullTextIndexer module</td><br><td>FileStorage module</td><br></tr><br><tr><br><td>end-to-end test</td><br><td>Whole application</td><br><td>LDAP repository</td><br></tr><br></tbody><br></table>
+
+<h3 id="Should-Developers-Test-Their-Own-Code"><a href="#Should-Developers-Test-Their-Own-Code" class="headerlink" title="Should Developers Test Their Own Code?"></a>Should Developers Test Their Own Code?</h3><p>Yes!</p>
+<h2 id="Unit-Tests"><a href="#Unit-Tests" class="headerlink" title="Unit Tests"></a>Unit Tests</h2><h3 id="what-is-a-Unit-Test"><a href="#what-is-a-Unit-Test" class="headerlink" title="what is a Unit Test?"></a>what is a Unit Test?</h3><p>It’s to make sure the class you are working on right now works correctly.</p>
+<p>You should test your classes<strong> in isolation</strong>. When writing unit tests it’s important to test a single class and nothing more. Forget about databases, Spring configuration files, and external web services.</p>
+<p>Concentrate on the logic of your class!</p>
+<h3 id="Interactions-in-Unit-Tests"><a href="#Interactions-in-Unit-Tests" class="headerlink" title="Interactions in Unit Tests"></a>Interactions in Unit Tests</h3><p>Types of collaboration with an SUT</p>
+<p><img src="/media/collaboration-of-SUT.png" alt="collaboration-of-SUT"></p>
+<p>Test class has direct operations with SUT, but its collaborations have indirect operations on the SUT state.</p>
+<p>We use direct inputs and indirect <strong>inputs</strong> (SUT receiveing some message) to set the SUT in a required state and to invoke its methods.</p>
+<p>The direct and indirect outputs (SUT sending a message) of the SUT are expressions of the SUT’s behaviours; we use them to verify whether the SUT is working properly.</p>
+<table border="1"><br><tbody><br><tr><br><td><strong>type of interaction</strong></td><br><td><strong>involved parties</strong></td><br><td><strong>description</strong></td><br></tr><br><tr><br><td>direct input</td><br><td rowspan="2">Test class &amp; SUT</td><br><td>calls the SUT methods</td><br></tr><br><tr><br><td>direct output</td><br><td>values returned by the SUT to the test class after calling some SUT method</td><br></tr><br><tr><br><td>indirect output</td><br><td rowspan="2">SUT &amp; DOCs</td><br><td>arguments passed by the SUT to a method of one of its collaborators</td><br></tr><br><tr><br><td>indirect input</td><br><td>value returned (or an exception thrown) to the SUT by collaborators, after it called some methods of its collaborators</td><br></tr><br></tbody><br></table>
+
+<h3 id="State-Testing-vs-Interaction-Testing"><a href="#State-Testing-vs-Interaction-Testing" class="headerlink" title="State Testing vs. Interaction Testing"></a>State Testing vs. Interaction Testing</h3><ul>
+<li>State Testing - uses direct inputs and outputs for what the results of actions.</li>
+<li>Interaction Testing - concentrates on how messages are passed between collaborators<br>With State Testing, the SUT is a black box. Interaction testing looks inside the SUT and verifies its internal parts.</li>
+</ul>
+<h1 id="Writing-Unit-Testing"><a href="#Writing-Unit-Testing" class="headerlink" title="Writing Unit Testing"></a>Writing Unit Testing</h1><h2 id="Unit-tests-with-no-collaborator"><a href="#Unit-tests-with-no-collaborator" class="headerlink" title="Unit tests with no collaborator"></a>Unit tests with no collaborator</h2><h3 id="parameterized"><a href="#parameterized" class="headerlink" title="parameterized"></a>parameterized</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Money</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> amount;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String currency;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Money</span><span class="params">(<span class="keyword">int</span> amount, String currency)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.amount = amount;</div><div class="line">        <span class="keyword">this</span>.currency = currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> amount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> Money) &#123;</div><div class="line">            Money money = (Money) anObject;</div><div class="line">            <span class="keyword">return</span> money.getCurrency().equals(getCurrency())</div><div class="line">                    &amp;amp;&amp;amp; getAmount() == money.getAmount();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.junit.runners.Parameterized;</div><div class="line"></div><div class="line"><span class="meta">@RunWith</span>(Parameterized.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyParameterizedTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Parameterized</span>.Parameters(name = <span class="string">"&#123;index&#125;: money(&#123;0&#125;, &#123;1&#125;)"</span>)</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] data() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[] &#123;</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">10</span>, <span class="string">"USD"</span>&#125;,</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">20</span>, <span class="string">"EUR"</span>&#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">0</span>) <span class="comment">// first data value (0) is default</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> amount;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">1</span>) <span class="comment">// value is the index in parameter tuple</span></div><div class="line">    <span class="keyword">public</span> String currency;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructorShouldSetAmountAndCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        Money money = <span class="keyword">new</span> Money(amount, currency);</div><div class="line">        assertEquals(amount, money.getAmount());</div><div class="line">        assertEquals(currency, money.getCurrency());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="test-fixture"><a href="#test-fixture" class="headerlink" title="test fixture"></a>test fixture</h3><p>A <strong>test fixture</strong> is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable. Examples of fixtures:</p>
+<ul>
+<li>Preparation of input data and setup/creation of fake or mock objects</li>
+<li>Loading a database with a specific, known set of data</li>
+<li>Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.</li>
+<li>JUnit supports test fixture by using:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@BeforeClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setUpClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@AfterClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tearDownClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@Before</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@After</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="Phases-of-a-unit-test"><a href="#Phases-of-a-unit-test" class="headerlink" title="Phases of a unit test"></a>Phases of a unit test</h3><p><table border="1"><colgroup> <col> <col> </colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p><strong>phase</strong></p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p><strong>explanation</strong></p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td colspan="1" rowspan="2"></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>arrange</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>creation of all objects (except for the SUT) that are necessary for test execution</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>creation of the object whose functionality will be tested, and setting it in some initial state</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>act</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>execution of SUT methods to be tested</p>
+<p></p></div><br><br><p></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>assert</p>
+<p></p></div><br><p></p>
+<p><td></td></p>
+<p><div class="layoutArea"></div></p>
+<div class="column">
+
+<p>verification of the test results</p>
+<p></p></div><br><br><br><br><br><br>The first phase relates to the preparation of a test fixture.<p></p>
+<h2 id="TDD-Test-Driven-Development"><a href="#TDD-Test-Driven-Development" class="headerlink" title="TDD (Test-Driven Development)"></a>TDD (Test-Driven Development)</h2><p>when to write test?</p>
+<ul>
+<li>Test Last (aka. Code First) development</li>
+<li>Test First development</li>
+</ul>
+<p>How TDD do?</p>
+<ul>
+<li>write a test that fails ( <span style="background-color: #ff0000;">     </span> )</li>
+<li>make the code work ( <span style="background-color: #00ff00;">     </span> )</li>
+<li>eliminate redundancy ( <span style="background-color: #0000ff;">     </span> )</li>
+</ul>
+<p><img src="/media/tdd.png" alt="tdd"></p>
+<p>Note: refractor can be done for classes to test or the test code.</p>
+<p>TDD should be applied to every level: unit test, integration test, end-to-end test.<br><img src="/media/tdd-on-different-levels.png" alt="tdd-on-different-levels"></p>
+<h1 id="test-double-stub-test-spy-mock"><a href="#test-double-stub-test-spy-mock" class="headerlink" title="test double (stub, test spy, mock)"></a>test double (stub, test spy, mock)</h1><p><table border="1" width="644"><caption>Types of test doubles</caption></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>test double type</td></p>
+<p><td>also known as (aka.)</td></p>
+<p><td>description</td><br></p>
+<p><tr></tr></p>
+<p><td>dummy object</td></p>
+<p><td>dummy</td></p>
+<p><td>needs to exist, no real collaboration needed</td><br></p>
+<p><tr></tr></p>
+<p><td>test stub</td></p>
+<p><td>stub</td></p>
+<p><td>used for passing some values to the SUT (“indirect inputs”)</td><br></p>
+<p><tr></tr></p>
+<p><td>test spy</td></p>
+<p><td>spy</td></p>
+<p><td rowspan="2">used to verify if the SUT calls specific method of the collaborator (“indirect outputs”)</td><br></p>
+<p><tr></tr></p>
+<p><td>mock object</td></p>
+<p><td>mock</td><br></p>
+<p><tr></tr></p>
+<p><td>fake</td></p>
+<p><td>fake</td></p>
+<p><td></td><br><br><br><br><img src="/media/test-doubles.png" alt="test-doubles"></p>
+<ul>
+<li>Dummies and stubs are used to prepare the environment for testing (test-fixture setting). They are not used for verification.</li>
+<li>Test spies and mocks are to verify the correctness of the communication between the SUT and DOCs.  Bothe can also participate in test-fixture setting.<br><strong>Fake</strong><br>For the sake of completeness, let us describe another type of test double: a fake. Fake works almost as good as the real collaborator, but is somehow simpler and/or weaker (which makes it not suitable for production use). It is also usually “cheaper” in use (i.e. faster or simpler to set up), which makes it suited to tests (which should run as fast as possible). A typical example is an in-memory database that is used instead of a full-blown database server. It can be used for some tests, as it serves SQL requests pretty well; however, you would not want to use it in a production environment. In tests, fake plays a similar role to dummy and stub: it is a part of the environment (test fixture), not an object of verification. Fakes are used in integration tests rather than in unit tests, so we will not be discussing them any further.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Messenger</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> TemplateEngine templateEngine;</div><div class="line">    <span class="keyword">private</span> MailServer mailServer;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Messenger</span><span class="params">(MailServer mailServer, TemplateEngine templateEngine)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mailServer = mailServer;</div><div class="line">        <span class="keyword">this</span>.templateEngine = templateEngine;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(Client client, Template template)</span> </span>&#123;</div><div class="line">        String msgContent = templateEngine.prepareMessage(template, client);</div><div class="line">        mailServer.send(client.getEmail(), msgContent);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MailServer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">send</span><span class="params">(Object email, String msgContent)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Template</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TemplateEngine</span> </span>&#123;</div><div class="line">    <span class="function">String <span class="title">prepareMessage</span><span class="params">(Template template, Client client)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Mockito.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessengerTest</span> </span>&#123;</div><div class="line">    <span class="comment">// SUT</span></div><div class="line">    Messenger messenger;</div><div class="line"></div><div class="line">    <span class="comment">// dummy</span></div><div class="line">    Client client;</div><div class="line">    Template template;</div><div class="line"></div><div class="line">    <span class="comment">// stub</span></div><div class="line">    TemplateEngine templateEngine;</div><div class="line"></div><div class="line">    <span class="comment">// spy</span></div><div class="line">    MailServer mailServer;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> String CLIENT_EMAIL = <span class="string">"some@email.com"</span>;</div><div class="line">    <span class="keyword">final</span> String MSG_CONTENT = <span class="string">"Dear John! You are fired."</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// dummy</span></div><div class="line">        template = mock(Template.class);</div><div class="line"></div><div class="line">        <span class="comment">// stubs</span></div><div class="line">        client = mock(Client.class);</div><div class="line">        when(client.getEmail()).thenReturn(CLIENT_EMAIL);</div><div class="line"></div><div class="line">        templateEngine = mock(TemplateEngine.class);</div><div class="line">        when(templateEngine.prepareMessage(template, client)).thenReturn(MSG_CONTENT);</div><div class="line"></div><div class="line">        <span class="comment">// spy</span></div><div class="line">        mailServer = mock(MailServer.class);</div><div class="line"></div><div class="line">        <span class="comment">// SUT</span></div><div class="line">        messenger = <span class="keyword">new</span> Messenger(mailServer, templateEngine);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        messenger.sendMessage(client, template);</div><div class="line"></div><div class="line">        <span class="comment">// verify interaction</span></div><div class="line">        verify(mailServer).send(CLIENT_EMAIL, MSG_CONTENT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/20/scea-architect/" rel="next" title="SCEA architect">
+                <i class="fa fa-chevron-left"></i> SCEA architect
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/05/jvm-dump-lab/" rel="prev" title="JVM dump lab">
+                JVM dump lab <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Developers’-Tests"><span class="nav-number">1.</span> <span class="nav-text">Developers’ Tests</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#On-Tests-and-Tools"><span class="nav-number">1.1.</span> <span class="nav-text">On Tests and Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-Developers’-Tests"><span class="nav-number">1.1.1.</span> <span class="nav-text">Types of Developers’ Tests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Should-Developers-Test-Their-Own-Code"><span class="nav-number">1.1.2.</span> <span class="nav-text">Should Developers Test Their Own Code?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unit-Tests"><span class="nav-number">1.2.</span> <span class="nav-text">Unit Tests</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-a-Unit-Test"><span class="nav-number">1.2.1.</span> <span class="nav-text">what is a Unit Test?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interactions-in-Unit-Tests"><span class="nav-number">1.2.2.</span> <span class="nav-text">Interactions in Unit Tests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-Testing-vs-Interaction-Testing"><span class="nav-number">1.2.3.</span> <span class="nav-text">State Testing vs. Interaction Testing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Writing-Unit-Testing"><span class="nav-number">2.</span> <span class="nav-text">Writing Unit Testing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unit-tests-with-no-collaborator"><span class="nav-number">2.1.</span> <span class="nav-text">Unit tests with no collaborator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterized"><span class="nav-number">2.1.1.</span> <span class="nav-text">parameterized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-fixture"><span class="nav-number">2.1.2.</span> <span class="nav-text">test fixture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phases-of-a-unit-test"><span class="nav-number">2.1.3.</span> <span class="nav-text">Phases of a unit test</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TDD-Test-Driven-Development"><span class="nav-number">2.2.</span> <span class="nav-text">TDD (Test-Driven Development)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#test-double-stub-test-spy-mock"><span class="nav-number">3.</span> <span class="nav-text">test double (stub, test spy, mock)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/';
+      var disqus_title = 'Book notes - Practical Unit Test with JUnit and Mockito';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

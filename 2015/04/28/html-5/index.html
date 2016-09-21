@@ -1,0 +1,851 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="new elements&amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt;&amp;amp;lt;figure id=&quot;fig1&quot;&amp;amp;gt;    &amp;amp;lt;figcaption&amp;amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;amp;lt;/figcaption&amp;amp;gt;    &amp;amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 5">
+<meta property="og:url" content="https://richyang.me/2015/04/28/html-5/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="new elements&amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt;&amp;amp;lt;figure id=&quot;fig1&quot;&amp;amp;gt;    &amp;amp;lt;figcaption&amp;amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;amp;lt;/figcaption&amp;amp;gt;    &amp;amp;l">
+<meta property="og:updated_time" content="2015-12-04T15:11:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML 5">
+<meta name="twitter:description" content="new elements&amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt;&amp;amp;lt;figure id=&quot;fig1&quot;&amp;amp;gt;    &amp;amp;lt;figcaption&amp;amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;amp;lt;/figcaption&amp;amp;gt;    &amp;amp;l">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> HTML 5 | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML 5
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-28T23:27:29+08:00" content="2015-04-28">
+              2015-04-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/28/html-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/28/html-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="new-elements"><a href="#new-elements" class="headerlink" title="new elements"></a>new elements</h3><h4 id="amp-lt-figure-amp-gt-and-lt-figcaption-amp-gt"><a href="#amp-lt-figure-amp-gt-and-lt-figcaption-amp-gt" class="headerlink" title="&amp;lt;figure&amp;gt; and &lt;figcaption&amp;gt;"></a><code>&amp;lt;figure&amp;gt;</code> and &lt;<code>figcaption&amp;gt;</code></h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;figure id=<span class="string">"fig1"</span>&amp;gt;</div><div class="line">    &amp;lt;figcaption&amp;gt;Fig.1 Screen Reader Support <span class="keyword">for</span> WAI-ARIA&amp;lt;/figcaption&amp;gt;</div><div class="line">    &amp;lt;img src=<span class="string">"http://img2.cache.netease.com/cnews/2015/4/28/201504281107026599c.jpg"</span> alt=<span class="string">"JAWS: Landmarks 1/1, Forms 4/5 … "</span>&amp;gt;</div><div class="line">&amp;lt;/figure&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="amp-lt-mark-amp-gt"><a href="#amp-lt-mark-amp-gt" class="headerlink" title="&amp;lt;mark&amp;gt;"></a><code>&amp;lt;mark&amp;gt;</code></h4><p>This tag is very useful for the highlight of searching result.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;h1&amp;gt;Yes, You Can Use &amp;lt;mark&amp;gt;HTML5&amp;lt;/mark&amp;gt; Today!&amp;lt;/h1&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="amp-lt-progress-amp-gt-and-lt-meter-amp-gt"><a href="#amp-lt-progress-amp-gt-and-lt-meter-amp-gt" class="headerlink" title="&amp;lt;progress&amp;gt; and &lt;meter&amp;gt;"></a><code>&amp;lt;progress&amp;gt;</code> and &lt;<code>meter&amp;gt;</code></h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;progress max=<span class="string">"100"</span> value=<span class="string">"0"</span>&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;meter value=<span class="string">"50"</span> min=<span class="string">"0"</span> max=<span class="string">"400"</span> low=<span class="string">"60"</span> high=<span class="string">"300"</span> title=<span class="string">"gigabytes"</span>&amp;gt;</div><div class="line">&amp;lt;meter value=<span class="string">"150"</span> min=<span class="string">"0"</span> max=<span class="string">"400"</span> low=<span class="string">"60"</span> high=<span class="string">"300"</span> title=<span class="string">"gigabytes"</span>&amp;gt;</div><div class="line">&amp;lt;meter value=<span class="string">"350"</span> min=<span class="string">"0"</span> max=<span class="string">"400"</span> low=<span class="string">"60"</span> high=<span class="string">"300"</span> title=<span class="string">"gigabytes"</span>&amp;gt;</div></pre></td></tr></table></figure>
+<p>the low and high are the thresholds. When in the range, the color is green, otherwise the color is yellow.</p>
+<h4 id="lt-time-gt"><a href="#lt-time-gt" class="headerlink" title="&lt;time&gt;"></a>&lt;time&gt;</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;time datetime=<span class="string">"2015-10-12"</span>&amp;gt;<span class="number">12</span> October of <span class="keyword">this</span> year&amp;lt;/time&amp;gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;!-- month --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">2015</span>-<span class="number">11</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- date --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">2015</span>-<span class="number">11</span>-<span class="number">12</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- yearless date --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">11</span>-<span class="number">12</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- time --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">14</span>:<span class="number">54</span>:<span class="number">39</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- floating date and time --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">2015</span>-<span class="number">11</span>-<span class="number">12</span>T14:<span class="number">54</span>:<span class="number">39</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- time-zone offset --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;-<span class="number">0800</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- global date and time --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">2015</span>-<span class="number">11</span>-<span class="number">12</span>T06:<span class="number">54</span>:<span class="number">39.929</span>-<span class="number">0800</span>&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- week --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">2015</span>-W46&amp;lt;/time&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;!-- duration --&amp;gt;</div><div class="line">&amp;lt;time&amp;gt;<span class="number">4</span>h <span class="number">18</span>m <span class="number">3</span>s&amp;lt;/time&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="lt-dl-gt-lt-dt-gt-lt-dd-gt"><a href="#lt-dl-gt-lt-dt-gt-lt-dd-gt" class="headerlink" title="&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;"></a>&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;</h4><p>This is called “description lists” or “association lists.”<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;dl&amp;gt;</div><div class="line">  &amp;lt;dt&amp;gt;Selector:&amp;lt;/dt&amp;gt;</div><div class="line">  &amp;lt;dd&amp;gt;<span class="function">The <span class="title">element</span><span class="params">(s)</span> targeted.&amp;lt</span>;/dd&amp;gt;</div><div class="line">  &amp;lt;dt&amp;gt;Property:&amp;lt;/dd&amp;gt;</div><div class="line">  &amp;lt;dd&amp;gt;The feature used to add styling to the targeted element, defined before a colon.&amp;lt;/dd&amp;gt;</div><div class="line">  &amp;lt;dt&amp;gt;Value:&amp;lt;/dd&amp;gt;</div><div class="line">  &amp;lt;dd&amp;gt;The value given to the specified property, declared after the colon.&amp;lt;/dd&amp;gt;</div><div class="line">&amp;lt;/dl&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="lt-details-gt"><a href="#lt-details-gt" class="headerlink" title="&lt;details&gt;"></a>&lt;details&gt;</h4><p>This tag is very useful to implement initially hidden “see more” .<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&amp;lt;details&amp;gt;</div><div class="line">  &amp;lt;summary&amp;gt;Some Magazines of Note&amp;lt;/summary&amp;gt;</div><div class="line">  &amp;lt;ul&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Bird Watcher's Digest&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Rower's Weekly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Fishing Monthly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">  &amp;lt;/ul&amp;gt;</div><div class="line">&amp;lt;/details&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="lt-ol-reversed-start-”3”-gt"><a href="#lt-ol-reversed-start-”3”-gt" class="headerlink" title="&lt;ol reversed start=”3”&gt;"></a>&lt;ol reversed start=”3”&gt;</h4><figure class="highlight"><table><tr><td class="code"><pre><div class="line">&amp;lt;ol reversed&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Bird Watcher's Digest&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Rower's Weekly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Fishing Monthly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/ol&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;ol start="4"&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Bird Watcher's Digest&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Rower's Weekly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Fishing Monthly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/ol&amp;gt;</div><div class="line"></div><div class="line">&amp;lt;ol start="4" reversed&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Bird Watcher's Digest&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Rower's Weekly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">    &amp;lt;li&amp;gt;&amp;lt;cite&amp;gt;Fishing Monthly&amp;lt;/cite&amp;gt;&amp;lt;/li&amp;gt;</div><div class="line">&amp;lt;/ol&amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="Scoped-Styles"><a href="#Scoped-Styles" class="headerlink" title="Scoped Styles"></a>Scoped Styles</h4><p>The scoped style is only valid for the specified element and its children.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;h1&amp;gt;Page Title&amp;lt;/h1&amp;gt;</div><div class="line">&amp;lt;article&amp;gt;</div><div class="line">  &amp;lt;style scoped&amp;gt;</div><div class="line">    h1 &#123;</div><div class="line">      color: blue;</div><div class="line">    &#125;</div><div class="line">  &amp;lt;/style&amp;gt;</div><div class="line">  &amp;lt;h1&amp;gt;Article Title&amp;lt;/h1&amp;gt;</div><div class="line">  &amp;lt;p&amp;gt;Article content.&amp;lt;/p&amp;gt;</div><div class="line">&amp;lt;/article&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="the-deley-and-async-attribute-of-Scripts"><a href="#the-deley-and-async-attribute-of-Scripts" class="headerlink" title="the deley and async attribute of Scripts"></a>the <code>deley</code> and <code>async</code> attribute of Scripts</h4><p>Using <code>defer</code> specifies that the browser should wait until the page’s markup is parsed before loading the script.</p>
+<p>The new <code>async</code> attribute allows you to specify that a script should load asynchronously.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"xxx.js"</span> async&amp;gt;&amp;lt;/script&amp;gt;</div></pre></td></tr></table></figure></p>
+<h4 id="responsive-image"><a href="#responsive-image" class="headerlink" title="responsive image"></a>responsive image</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;picture src=<span class="string">""</span> srcset=<span class="string">""</span> sizes=<span class="string">""</span> &amp;gt;</div><div class="line"></div><div class="line">&amp;lt;img src=<span class="string">""</span> srcset=<span class="string">""</span> size=<span class="string">""</span> &amp;gt;</div></pre></td></tr></table></figure>
+<h4 id="others"><a href="#others" class="headerlink" title="others"></a>others</h4><ul>
+<li>&lt;dialog&gt;</li>
+<li>&lt;a href=”1.pdf” dowload&gt;download this document&lt;/a&gt;</li>
+<li>&lt;iframe sandbox seemless&gt;&lt;/iframe&gt;</li>
+<li>&lt;menu&gt; &lt;menulist&gt;</li>
+<li>&lt;address&gt;</li>
+</ul>
+<h3 id="HTML5-form"><a href="#HTML5-form" class="headerlink" title="HTML5 form"></a>HTML5 form</h3><h4 id="lt-input-required-gt"><a href="#lt-input-required-gt" class="headerlink" title="&lt;input required&gt;"></a>&lt;input required&gt;</h4><h4 id="lt-input-placeholder-””-gt"><a href="#lt-input-placeholder-””-gt" class="headerlink" title="&lt;input placeholder=””&gt;"></a>&lt;input placeholder=””&gt;</h4><h4 id="lt-input-pattern-””-gt"><a href="#lt-input-pattern-””-gt" class="headerlink" title="&lt;input pattern=””&gt;"></a>&lt;input pattern=””&gt;</h4><h4 id="lt-input-disabled-gt"><a href="#lt-input-disabled-gt" class="headerlink" title="&lt;input disabled&gt;"></a>&lt;input disabled&gt;</h4><h4 id="lt-input-readonly-gt"><a href="#lt-input-readonly-gt" class="headerlink" title="&lt;input readonly&gt;"></a>&lt;input readonly&gt;</h4><h4 id="lt-datalist-gt"><a href="#lt-datalist-gt" class="headerlink" title="&lt;datalist&gt;"></a>&lt;datalist&gt;</h4><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;input type=<span class="string">"color"</span> list=<span class="string">"colors"</span> id=<span class="string">"favcolor"</span> name=<span class="string">"favcolor"</span>/&amp;gt;</div><div class="line">&amp;lt;datalist id=<span class="string">"colors"</span>&amp;gt;</div><div class="line">    &amp;lt;option value=<span class="string">"#0000FF"</span> label=<span class="string">"blue"</span>/&amp;gt;</div><div class="line">    &amp;lt;option value=<span class="string">"#008000"</span> label=<span class="string">"green"</span>/&amp;gt;</div><div class="line">    &amp;lt;option value=<span class="string">"#ff0000"</span> label=<span class="string">"red"</span>/&amp;gt;</div><div class="line">    &amp;lt;option value=<span class="string">"#663399"</span> label=<span class="string">"RebeccaPurple"</span>/&amp;gt;</div><div class="line">&amp;lt;/datalist&amp;gt;</div></pre></td></tr></table></figure>
+<p>&nbsp;</p>
+<h4 id="autofocus-Attribute"><a href="#autofocus-Attribute" class="headerlink" title="autofocus Attribute"></a><code>autofocus</code> Attribute</h4><h4 id="new-input-type"><a href="#new-input-type" class="headerlink" title="new input type"></a>new input type</h4><ul>
+<li><code>search</code></li>
+<li><code>email</code></li>
+<li><code>url</code></li>
+<li><code>tel</code></li>
+<li><code>date</code></li>
+<li><code>time</code></li>
+<li><code>number</code></li>
+<li><code>range</code></li>
+<li><code>color</code></li>
+</ul>
+<h4 id="lt-form-novalidate-amp-gt"><a href="#lt-form-novalidate-amp-gt" class="headerlink" title="&lt;form novalidate&amp;gt;"></a>&lt;form <code>novalidate&amp;gt;</code></h4>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/28/git-basics/" rel="next" title="Git basics">
+                <i class="fa fa-chevron-left"></i> Git basics
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/05/classloader/" rel="prev" title="ClassLoader">
+                ClassLoader <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#new-elements"><span class="nav-number">1.</span> <span class="nav-text">new elements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-lt-figure-amp-gt-and-lt-figcaption-amp-gt"><span class="nav-number">1.1.</span> <span class="nav-text">&lt;figure&gt; and <figcaption&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-lt-mark-amp-gt"><span class="nav-number">1.2.</span> <span class="nav-text">&lt;mark&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-lt-progress-amp-gt-and-lt-meter-amp-gt"><span class="nav-number">1.3.</span> <span class="nav-text">&lt;progress&gt; and <meter&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-time-gt"><span class="nav-number">1.4.</span> <span class="nav-text"><time></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-dl-gt-lt-dt-gt-lt-dd-gt"><span class="nav-number">1.5.</span> <span class="nav-text"><dl> <dt> <dd></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-details-gt"><span class="nav-number">1.6.</span> <span class="nav-text"><details></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-ol-reversed-start-”3”-gt"><span class="nav-number">1.7.</span> <span class="nav-text"><ol reversed start=”3”></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scoped-Styles"><span class="nav-number">1.8.</span> <span class="nav-text">Scoped Styles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#the-deley-and-async-attribute-of-Scripts"><span class="nav-number">1.9.</span> <span class="nav-text">the deley and async attribute of Scripts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responsive-image"><span class="nav-number">1.10.</span> <span class="nav-text">responsive image</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#others"><span class="nav-number">1.11.</span> <span class="nav-text">others</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5-form"><span class="nav-number">2.</span> <span class="nav-text">HTML5 form</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-required-gt"><span class="nav-number">2.1.</span> <span class="nav-text"><input required></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-placeholder-””-gt"><span class="nav-number">2.2.</span> <span class="nav-text"><input placeholder=””></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-pattern-””-gt"><span class="nav-number">2.3.</span> <span class="nav-text"><input pattern=””></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-disabled-gt"><span class="nav-number">2.4.</span> <span class="nav-text"><input disabled></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-readonly-gt"><span class="nav-number">2.5.</span> <span class="nav-text"><input readonly></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-datalist-gt"><span class="nav-number">2.6.</span> <span class="nav-text"><datalist></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autofocus-Attribute"><span class="nav-number">2.7.</span> <span class="nav-text">autofocus Attribute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#new-input-type"><span class="nav-number">2.8.</span> <span class="nav-text">new input type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-form-novalidate-amp-gt"><span class="nav-number">2.9.</span> <span class="nav-text"><form novalidate&gt;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/28/html-5/';
+      var disqus_title = 'HTML 5';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

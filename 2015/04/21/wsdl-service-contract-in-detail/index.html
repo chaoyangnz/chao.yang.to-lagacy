@@ -1,0 +1,863 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Concepts in WSDL definition&amp;amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;amp;gt;&amp;amp;lt;definitions xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot;             xmlns:tns=&quot;http://rand/&quot;             x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSDL Service Contract in Detail">
+<meta property="og:url" content="https://richyang.me/2015/04/21/wsdl-service-contract-in-detail/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Concepts in WSDL definition&amp;amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;amp;gt;&amp;amp;lt;definitions xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot;             xmlns:tns=&quot;http://rand/&quot;             x">
+<meta property="og:image" content="https://richyang.me/media/wsdl.png">
+<meta property="og:updated_time" content="2015-12-05T04:46:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WSDL Service Contract in Detail">
+<meta name="twitter:description" content="Concepts in WSDL definition&amp;amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;amp;gt;&amp;amp;lt;definitions xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot;             xmlns:tns=&quot;http://rand/&quot;             x">
+<meta name="twitter:image" content="https://richyang.me/media/wsdl.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> WSDL Service Contract in Detail | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                WSDL Service Contract in Detail
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-21T14:47:44+08:00" content="2015-04-21">
+              2015-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SOAP-Web-Service/" itemprop="url" rel="index">
+                    <span itemprop="name">SOAP Web Service</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/21/wsdl-service-contract-in-detail/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/21/wsdl-service-contract-in-detail/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Concepts-in-WSDL-definition"><a href="#Concepts-in-WSDL-definition" class="headerlink" title="Concepts in WSDL definition"></a>Concepts in WSDL definition</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&amp;gt;</div><div class="line">&amp;lt;definitions xmlns:soap=<span class="string">"http://schemas.xmlsoap.org/wsdl/soap/"</span></div><div class="line">             xmlns:tns=<span class="string">"http://rand/"</span></div><div class="line">             xmlns:xsd=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></div><div class="line">             xmlns=<span class="string">"http://schemas.xmlsoap.org/wsdl/"</span></div><div class="line">             targetNamespace=<span class="string">"http://rand/"</span> name=<span class="string">"RandServiceService"</span>&amp;gt;</div><div class="line">  &amp;lt;types&amp;gt;</div><div class="line">    &amp;lt;xsd:schema&amp;gt;</div><div class="line">      &amp;lt;xsd:<span class="keyword">import</span> namespace=<span class="string">"http://rand/"</span></div><div class="line">                  schemaLocation=<span class="string">"http://localhost:8888/rs?xsd=1"</span>&amp;gt;&amp;lt;/xsd:<span class="keyword">import</span>&amp;gt;</div><div class="line">    &amp;lt;/xsd:schema&amp;gt;</div><div class="line">  &amp;lt;/types&amp;gt;</div><div class="line">  &amp;lt;message name=<span class="string">"next1"</span>&amp;gt;</div><div class="line">    &amp;lt;part name=<span class="string">"parameters"</span> element=<span class="string">"tns:next1"</span>&amp;gt;&amp;lt;/part&amp;gt;</div><div class="line">  &amp;lt;/message&amp;gt;</div><div class="line">  &amp;lt;message name=<span class="string">"next1Response"</span>&amp;gt;</div><div class="line">    &amp;lt;part name=<span class="string">"parameters"</span> element=<span class="string">"tns:next1Response"</span>&amp;gt;&amp;lt;/part&amp;gt;</div><div class="line">  &amp;lt;/message&amp;gt;</div><div class="line">  &amp;lt;message name=<span class="string">"nextN"</span>&amp;gt;</div><div class="line">    &amp;lt;part name=<span class="string">"parameters"</span> element=<span class="string">"tns:nextN"</span>&amp;gt;&amp;lt;/part&amp;gt;</div><div class="line">  &amp;lt;/message&amp;gt;</div><div class="line">  &amp;lt;message name=<span class="string">"nextNResponse"</span>&amp;gt;</div><div class="line">    &amp;lt;part name=<span class="string">"parameters"</span> element=<span class="string">"tns:nextNResponse"</span>&amp;gt;&amp;lt;/part&amp;gt;</div><div class="line">  &amp;lt;/message&amp;gt;</div><div class="line">  &amp;lt;portType name=<span class="string">"RandService"</span>&amp;gt;</div><div class="line">    &amp;lt;operation name=<span class="string">"next1"</span>&amp;gt;</div><div class="line">      &amp;lt;input message=<span class="string">"tns:next1"</span>&amp;gt;&amp;lt;/input&amp;gt;</div><div class="line">      &amp;lt;output message=<span class="string">"tns:next1Response"</span>&amp;gt;&amp;lt;/output&amp;gt;</div><div class="line">    &amp;lt;/operation&amp;gt;</div><div class="line">    &amp;lt;operation name=<span class="string">"nextN"</span>&amp;gt;</div><div class="line">      &amp;lt;input message=<span class="string">"tns:nextN"</span>&amp;gt;&amp;lt;/input&amp;gt;</div><div class="line">      &amp;lt;output message=<span class="string">"tns:nextNResponse"</span>&amp;gt;&amp;lt;/output&amp;gt;</div><div class="line">    &amp;lt;/operation&amp;gt;</div><div class="line">  &amp;lt;/portType&amp;gt;</div><div class="line"></div><div class="line">  &amp;lt;!-- implementation dependent definition --&amp;gt;</div><div class="line">  &amp;lt;binding name=<span class="string">"RandServicePortBinding"</span> type=<span class="string">"tns:RandService"</span>&amp;gt;</div><div class="line">    &amp;lt;soap:binding transport=<span class="string">"http://schemas.xmlsoap.org/soap/http"</span></div><div class="line">                  style=<span class="string">"document"</span>&amp;gt;&amp;lt;/soap:binding&amp;gt;</div><div class="line">    &amp;lt;operation name=<span class="string">"next1"</span>&amp;gt;</div><div class="line">      &amp;lt;soap:operation soapAction=<span class="string">""</span>&amp;gt;&amp;lt;/soap:operation&amp;gt;</div><div class="line">      &amp;lt;input&amp;gt;</div><div class="line">        &amp;lt;soap:body use=<span class="string">"literal"</span>&amp;gt;&amp;lt;/soap:body&amp;gt;</div><div class="line">      &amp;lt;/input&amp;gt;</div><div class="line">      &amp;lt;output&amp;gt;</div><div class="line">        &amp;lt;soap:body use=<span class="string">"literal"</span>&amp;gt;&amp;lt;/soap:body&amp;gt;</div><div class="line">      &amp;lt;/output&amp;gt;</div><div class="line">    &amp;lt;/operation&amp;gt;</div><div class="line">    &amp;lt;operation name=<span class="string">"nextN"</span>&amp;gt;</div><div class="line">      &amp;lt;soap:operation soapAction=<span class="string">""</span>&amp;gt;&amp;lt;/soap:operation&amp;gt;</div><div class="line">      &amp;lt;input&amp;gt;</div><div class="line">        &amp;lt;soap:body use=<span class="string">"literal"</span>&amp;gt;&amp;lt;/soap:body&amp;gt;</div><div class="line">      &amp;lt;/input&amp;gt;</div><div class="line">      &amp;lt;output&amp;gt;</div><div class="line">        &amp;lt;soap:body use=<span class="string">"literal"</span>&amp;gt;&amp;lt;/soap:body&amp;gt;</div><div class="line">      &amp;lt;/output&amp;gt;</div><div class="line">    &amp;lt;/operation&amp;gt;</div><div class="line">  &amp;lt;/binding&amp;gt;</div><div class="line">  &amp;lt;service name=<span class="string">"RandServiceService"</span>&amp;gt;</div><div class="line">    &amp;lt;port name=<span class="string">"RandServicePort"</span> binding=<span class="string">"tns:RandServicePortBinding"</span>&amp;gt;</div><div class="line">      &amp;lt;soap:address location=<span class="string">"http://localhost:8888/rs"</span>&amp;gt;&amp;lt;/soap:address&amp;gt;</div><div class="line">    &amp;lt;/port&amp;gt;</div><div class="line">    &amp;lt;port name=<span class="string">"StandbyServicePort"</span> binding=<span class="string">"tns:RandServicePortBinding"</span>&amp;gt;</div><div class="line">      &amp;lt;soap:address location=<span class="string">"http://localhost:9999/rs"</span>&amp;gt;&amp;lt;/soap:address&amp;gt;</div><div class="line">    &amp;lt;/port&amp;gt;</div><div class="line">  &amp;lt;/service&amp;gt;</div><div class="line">&amp;lt;/definitions&amp;gt;</div></pre></td></tr></table></figure>
+<p>In the following diagram, please observe the relationship:</p>
+<ul>
+<li>A web service can has only one PortType, but has multiple Bindings and Ports.</li>
+<li>Multiple Bindings refer to the ONLY one PortType.</li>
+<li>Multiple Ports can map into one Binding.<br><img src="/media/wsdl.png" alt="wsdl"></li>
+</ul>
+<h4 id="Port-Type"><a href="#Port-Type" class="headerlink" title="Port Type"></a>Port Type</h4><p><strong>Port type</strong> is an implementation-neutral definition. You can regard it as the equivalent of a Java Class.</p>
+<p>It contains multiple <strong>operations with MEP(message exchange pattern)</strong>, which is similar as class methods. A parameter of a operation is called a <strong>part</strong>.</p>
+<h4 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h4><p><strong>Binding</strong> is a wire/transport protocol definition. It includes the <strong>message format </strong>and <strong>transport</strong> combination.</p>
+<h4 id="Port"><a href="#Port" class="headerlink" title="Port"></a>Port</h4><p><strong>Port</strong> is a term related deployment. Basically, it connects a <strong>Binding</strong> with a <strong>Endpoint</strong>.</p>
+<h4 id="Target-namespace"><a href="#Target-namespace" class="headerlink" title="Target namespace"></a>Target namespace</h4><p>A namespace must be a URI. Sometimes using URL as the namespace may make others confused, because they may use this URL to download your WSDL but often failed. Instead using URN as the namespace can effectively avoid this case.</p>
+<h3 id="WSDL-sections"><a href="#WSDL-sections" class="headerlink" title="WSDL sections"></a>WSDL sections</h3><h4 id="types-section"><a href="#types-section" class="headerlink" title="types section"></a>types section</h4><p>Here we can define XML Schema types or import types definitions from separate XSD files.</p>
+<h4 id="message-section"><a href="#message-section" class="headerlink" title="message section"></a>message section</h4><p>Every message can have one or more parts. A part can be specify by <em>type</em> or <em>element</em> attribute.</p>
+<h4 id="portType-section"><a href="#portType-section" class="headerlink" title="portType section"></a>portType section</h4><p>PortType basically defines an abstract service interface: <strong><em>operations</em> </strong>and the <strong>Message Exchange Patterns (MEP)</strong>.</p>
+<h5 id="Message-Exchange-Patterns-MEP"><a href="#Message-Exchange-Patterns-MEP" class="headerlink" title="Message Exchange Patterns (MEP)"></a><strong>Message Exchange Patterns (MEP)</strong></h5><p>WSDL supports four basic patterns of operation:</p>
+<table style="height: 184px;" border="1" width="744"><br><tbody><br><tr><br><td></td><br><td>use scenarios</td><br><td></td><br></tr><br><tr><br><td>In-Out</td><br><td>most commonly used: request / response</td><br><td><strong>*</strong></td><br></tr><br><tr><br><td>In-Only</td><br><td>send without expecting response: one-way messaging</td><br><td><strong><em></em></strong></td><br></tr><br><tr><br><td>Out-In</td><br><td><span id="solicit_response">solicit / response</span></td><br><td></td><br></tr><br><tr><br><td>Out-Only</td><br><td>one-way server push: notification or (asynchronous) callback</td><br><td></td><br></tr><br></tbody><br></table>
+
+<h5 id="In-Out"><a href="#In-Out" class="headerlink" title="In-Out"></a>In-Out</h5><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">&amp;lt;operation name=<span class="string">"query"</span>&amp;gt;</div><div class="line">  &amp;lt;input message=<span class="string">"tns:query"</span>&amp;gt;&amp;lt;/input&amp;gt;</div><div class="line">  &amp;lt;output message=<span class="string">"tns:queryResponse"</span>&amp;gt;&amp;lt;/output&amp;gt;</div><div class="line">&amp;lt;/operation&amp;gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="Out-In"><a href="#Out-In" class="headerlink" title="Out-In"></a>Out-In</h5><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">&amp;lt;operation name=<span class="string">"questionnaire"</span>&amp;gt;</div><div class="line">  &amp;lt;output message=<span class="string">"tns:questionnaire"</span>&amp;gt;&amp;lt;/output&amp;gt;</div><div class="line">  &amp;lt;input message=<span class="string">"tns:questionnaireFeedback"</span>&amp;gt;&amp;lt;/input&amp;gt;</div><div class="line">&amp;lt;/operation&amp;gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="In-Only"><a href="#In-Only" class="headerlink" title="In-Only"></a>In-Only</h5><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">&amp;lt;operation name=<span class="string">"ping"</span>&amp;gt;</div><div class="line">  &amp;lt;input message=<span class="string">"tns:ping"</span>&amp;gt;&amp;lt;/input&amp;gt;</div><div class="line">&amp;lt;/operation&amp;gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="Out-Only"><a href="#Out-Only" class="headerlink" title="Out-Only"></a>Out-Only</h5><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">&amp;lt;operation name=<span class="string">"notification"</span>&amp;gt;</div><div class="line">  &amp;lt;output message=<span class="string">"tns:notificationResponse"</span>&amp;gt;&amp;lt;/output&amp;gt;</div><div class="line">&amp;lt;/operation&amp;gt;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h4 id="bindings-section"><a href="#bindings-section" class="headerlink" title="bindings section"></a>bindings section</h4><p>There can be many bindings sections.</p>
+<p>Bindings defines a concrete Web service implementation, like transport (HTTP, STMP..), service style and SOAP version.</p>
+<h5 id="transport"><a href="#transport" class="headerlink" title="transport"></a>transport</h5><p>transport options: http, stmp…</p>
+<h5 id="document-style-vs-rpc-style"><a href="#document-style-vs-rpc-style" class="headerlink" title="document-style vs. rpc-style"></a>document-style vs. rpc-style</h5><p>service styles: <strong>document-style</strong>, <strong>rpc-style</strong></p>
+<ul>
+<li><p><code>document</code> style means that SOAP body contains a XML document which can be validated against pre-defined XML schema document.<br>(There’s also a variation called <em>wrapped</em> that is still specified as document)</p>
+</li>
+<li><p><code>rpc</code> style really means that SOAP message body contains an XML representation of a method call and uses the names of the method and its parameters to generate XML structures that represent a method’s call stack. It adds extra elements to simulate a method call.<br>(rpc is a misleading name, which has nothing to do with a programming model)</p>
+</li>
+</ul>
+<h5 id="literal-vs-encoded"><a href="#literal-vs-encoded" class="headerlink" title="literal vs. encoded"></a>literal vs. encoded</h5><p>operation parts “use” has two options: <strong>encoded</strong>, <strong>literal</strong>. It determines how a data value should be encoded in an XML format.</p>
+<ul>
+<li>literal means that the data is serialized according to a XML schema</li>
+<li>encoded means that the service’s type definitions come from implicit encoding rules, typically the rules in the SOAP 1.1 specification.<br>The soapAction attribute specifies the value of the SOAPAction header for this operation as an absolute URL.</li>
+</ul>
+<p>For the HTTP protocol binding of SOAP, this is value required (it has no default value). For other SOAP protocol bindings, it MUST NOT be specified.</p>
+<h4 id="service-section"><a href="#service-section" class="headerlink" title="service section"></a>service section</h4><p>Defines a port, or Web service destination, in terms of the above binding plus a URL.</p>
+<p>The <code>service</code> element has <code>port</code> subelements, where a <code>port</code> is linked to a <code>binding.</code></p>
+<p>The address subelement of a port specifies a <code>location</code>, whose value is commonly called the <strong>service endpoint.</strong></p>
+<h3 id="Common-confusions"><a href="#Common-confusions" class="headerlink" title="Common confusions"></a>Common confusions</h3><h4 id="service-styles-document-vs-rpc"><a href="#service-styles-document-vs-rpc" class="headerlink" title="service styles: document vs. rpc"></a>service styles: document vs. rpc</h4><table border="1"><br><tbody><br><tr bgcolor="#990033"><br><td></td><br><td>RPC</td><br><td>Document</td><br></tr><br><tr bgcolor="#cccccc"><br><td><code>&amp;lt;soapbind:binding&amp;gt;</code>element</td><br><td><code>style=&quot;rpc&quot;</code></td><br><td><code>style=&quot;document&quot;</code></td><br></tr><br><tr bgcolor="#ffffff"><br><td><code>&amp;lt;wsdl:part&amp;gt;</code>element(s)</td><br><td><span style="text-decoration: underline;">Any number</span> of <code>&amp;lt;part&amp;gt;</code> elements, each containing a <em>type</em> attribute</td><br><td><span style="text-decoration: underline;">Single</span> <code>&amp;lt;part&amp;gt;</code> element containing an _element_attribute; zero also allowed</td><br></tr><br></tbody><br></table><br>RPC-style SOAP:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;tns:matchNoteAndNote xmlns:tns=<span class="string">"urn:outline.demo"</span>&amp;gt;</div><div class="line">    &amp;lt;in0 xsi:type=<span class="string">"xsd:string"</span>&amp;gt;<span class="number">0000000000</span>&amp;lt;/in0&amp;gt;</div><div class="line">    &amp;lt;in1 xsi:type=<span class="string">"xsd:string"</span>&amp;gt;<span class="number">000000000</span>B&amp;lt;/in1&amp;gt;</div><div class="line">&amp;lt;/tns:matchNoteAndNote&amp;gt;</div></pre></td></tr></table></figure><br><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;tns:matchNoteAndNoteResponse xmlns:tns=<span class="string">"urn:outline.demo"</span>&amp;gt;</div><div class="line">    &amp;lt;matchNoteAndNoteReturn xsi:type=<span class="string">"xsd:string"</span>&amp;gt;yes&amp;lt;/in0&amp;gt;</div><div class="line">&amp;lt;/tns:matchNoteAndNoteResponse&amp;gt;</div></pre></td></tr></table></figure><br><br>Document-style SOAP:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;lt;out:getNoteResponse xmlns:out=<span class="string">"urn:outline.demo"</span>&amp;gt;</div><div class="line">    &amp;lt;out:note key=<span class="string">"000000000B"</span> &amp;gt;</div><div class="line">        &amp;lt;out:content&amp;gt;test&amp;lt;/out:content&amp;gt;</div><div class="line">    &amp;lt;/out:note&amp;gt;</div><div class="line">&amp;lt;/out:getNoteResponse&amp;gt;</div></pre></td></tr></table></figure><br><br>#### uses: literal vs. encoded<br><br><table border="1"><br><tbody><br><tr bgcolor="#990033"><br><td></td><br><td><strong>SOAP encoded</strong></td><br><td><strong>Literal</strong></td><br></tr><br><tr bgcolor="#cccccc"><br><td><code>&amp;lt;soapbind:body&amp;gt;</code> <code>use</code>attribute</td><br><td><code>use=&quot;encoded&quot;</code></td><br><td><code>use=&quot;literal&quot;</code></td><br></tr><br><tr bgcolor="#ffffff"><br><td>Other <code>&amp;lt;soapbind:body&amp;gt;</code>attributes</td><br><td><code>encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;</code></td><br><td>Optional: <code>parts</code> attribute referring to a<code>&amp;lt;wsdl:part&amp;gt;</code> name</td><br></tr><br></tbody><br></table>
+
+<h4 id="SoapAction"><a href="#SoapAction" class="headerlink" title="SoapAction"></a>SoapAction</h4><p>//TODO</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/20/garbage-collection/" rel="next" title="Garbage Collection">
+                <i class="fa fa-chevron-left"></i> Garbage Collection
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/22/algorithm-training-from-codility/" rel="prev" title="algorithm training from codility">
+                algorithm training from codility <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concepts-in-WSDL-definition"><span class="nav-number">1.</span> <span class="nav-text">Concepts in WSDL definition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Port-Type"><span class="nav-number">1.1.</span> <span class="nav-text">Port Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binding"><span class="nav-number">1.2.</span> <span class="nav-text">Binding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Port"><span class="nav-number">1.3.</span> <span class="nav-text">Port</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Target-namespace"><span class="nav-number">1.4.</span> <span class="nav-text">Target namespace</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WSDL-sections"><span class="nav-number">2.</span> <span class="nav-text">WSDL sections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#types-section"><span class="nav-number">2.1.</span> <span class="nav-text">types section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message-section"><span class="nav-number">2.2.</span> <span class="nav-text">message section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#portType-section"><span class="nav-number">2.3.</span> <span class="nav-text">portType section</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Message-Exchange-Patterns-MEP"><span class="nav-number">2.3.1.</span> <span class="nav-text">Message Exchange Patterns (MEP)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#In-Out"><span class="nav-number">2.3.2.</span> <span class="nav-text">In-Out</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Out-In"><span class="nav-number">2.3.3.</span> <span class="nav-text">Out-In</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#In-Only"><span class="nav-number">2.3.4.</span> <span class="nav-text">In-Only</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Out-Only"><span class="nav-number">2.3.5.</span> <span class="nav-text">Out-Only</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bindings-section"><span class="nav-number">2.4.</span> <span class="nav-text">bindings section</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#transport"><span class="nav-number">2.4.1.</span> <span class="nav-text">transport</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#document-style-vs-rpc-style"><span class="nav-number">2.4.2.</span> <span class="nav-text">document-style vs. rpc-style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#literal-vs-encoded"><span class="nav-number">2.4.3.</span> <span class="nav-text">literal vs. encoded</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#service-section"><span class="nav-number">2.5.</span> <span class="nav-text">service section</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-confusions"><span class="nav-number">3.</span> <span class="nav-text">Common confusions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#service-styles-document-vs-rpc"><span class="nav-number">3.1.</span> <span class="nav-text">service styles: document vs. rpc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SoapAction"><span class="nav-number">3.2.</span> <span class="nav-text">SoapAction</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2015/04/21/wsdl-service-contract-in-detail/';
+      var disqus_title = 'WSDL Service Contract in Detail';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
