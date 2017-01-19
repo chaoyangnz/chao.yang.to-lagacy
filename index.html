@@ -374,6 +374,172 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/19/swift-3-for-a-java-or-es6-typescript-developer/" itemprop="url">
+                  Swift 3.0 for a Java or ES6/TypeScript developer
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-19T17:11:25+08:00" content="2017-01-19">
+              2017-01-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/19/swift-3-for-a-java-or-es6-typescript-developer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/19/swift-3-for-a-java-or-es6-typescript-developer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Basic-Operators"><a href="#Basic-Operators" class="headerlink" title="Basic Operators"></a>Basic Operators</h1><h2 id="Assignment-Operator"><a href="#Assignment-Operator" class="headerlink" title="Assignment Operator"></a>Assignment Operator</h2><figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> b = <span class="number">10</span> <span class="comment">// constant</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">5</span>	  <span class="comment">// variable</span></div><div class="line">a = b</div></pre></td></tr></table></figure>
+<p><code>let</code> is not the same as that in ES6.<br>It is more or like <code>final</code> in Java. It means the variable (value or reference) cannot be changed once initialization.</p>
+<p>But <code>let</code> in Swift has stronger semantics, which enable <em>immutability</em> or constant. It means not only the reference cannot be mutable but also the object it refers cannot be mutable.</p>
+<figure class="highlight swift"><figcaption><span>swift</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr[<span class="number">0</span>] = <span class="number">3</span> <span class="comment">// error</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">arr[<span class="number">0</span>] = <span class="number">3</span> <span class="comment">// ok</span></div></pre></td></tr></table></figure>
+<p>multiple assignment with tuple:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> (x, y) = (<span class="number">1</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<h2 id="vs-vs"><a href="#vs-vs" class="headerlink" title="== vs. ===, != vs. !=="></a>== vs. ===, != vs. !==</h2><p><code>==</code> is the equal operator, while <code>===</code> is identity operator which is used to test wthether two object references both refer to the same object instance.</p>
+<p>tuples are compared from left to right.</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">(1, "zebra") &lt; (2, "apple)</div><div class="line"></div><div class="line">(3, "apple") &lt; (3, "bird")</div></pre></td></tr></table></figure>
+<h2 id="Nil-Colaescing-Operator"><a href="#Nil-Colaescing-Operator" class="headerlink" title="Nil-Colaescing Operator"></a>Nil-Colaescing Operator</h2><figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a : <span class="type">String</span>? = <span class="string">"aaaa"</span></div><div class="line"><span class="keyword">var</span> b = a ?? b</div></pre></td></tr></table></figure>
+<p><code>a ?? b</code> is shorthand for <code>a != nil  ? a! : b</code></p>
+<h2 id="Range-Operators"><a href="#Range-Operators" class="headerlink" title="Range Operators"></a>Range Operators</h2><ul>
+<li>closed range operator: <code>a...b</code> </li>
+<li>half-open range operator: <code>a..&lt;b</code></li>
+</ul>
+<h1 id="Strings-and-Characters"><a href="#Strings-and-Characters" class="headerlink" title="Strings and Characters"></a>Strings and Characters</h1><p>Every string is composed of encoding-indepent Unicode characters.</p>
+<p><code>String</code> type is a value type. When you pass a String to a function or assign to a constant/variable, its value is copied.</p>
+<blockquote>
+<p>Actually, it seems to have the similar attribute of immutability as that in Java.</p>
+</blockquote>
+<h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><p>Character can be created from a single-character string literal.</p>
+<p><code>let ch : Character = &quot;1&quot;</code></p>
+<h2 id="String-Interpolation"><a href="#String-Interpolation" class="headerlink" title="String Interpolation"></a>String Interpolation</h2><p>String interpolation in Swift is different from that in Javascript.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">3</span></div><div class="line"><span class="keyword">let</span> message = <span class="string">"the number is: \(a), its double is: \(Double(a) * 2)"</span></div></pre></td></tr></table></figure>
+<p>In ES6:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">3</span></div><div class="line"><span class="keyword">let</span> message = <span class="string">`the number is: <span class="subst">$&#123;a&#125;</span>, its double is: <span class="subst">$&#123;a*2&#125;</span>`</span></div></pre></td></tr></table></figure>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><blockquote>
+<p>Unicode code point is a number for every character in Unicode.<br>Unicode scalar is any Unicode code point in the range U+0000 ~ U+D7FF or U+E000 ~ U+10FFFF.<br>The range in U+D800 ~ U+DFFF is for surrogate pair code points.</p>
+</blockquote>
+<ul>
+<li>escaped special charaters: <code>\0, \\, \t, \n, \r, \&quot;, \&#39;</code> ..</li>
+<li>Unicode scalar: <code>\u{00FF}</code> …</li>
+</ul>
+<p>The unicode literal is different from that in Java and Javascript. In Java/Javascript, it is like <code>\u00FF</code> without brackets.</p>
+<p>Swift <code>Character</code> is not only single Unicode character, it can combine one or more Unicode scalars. Actually, every instance of Swift’s <code>Character</code> represents a single <em>extended grapheme cluster</em>.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> eAcute: <span class="type">Character</span> = <span class="string">"\u&#123;E9&#125;"</span>          </div><div class="line"><span class="keyword">let</span> combinedEacute: <span class="type">Character</span> = <span class="string">"\u&#123;65&#125;\u&#123;301&#125;"</span> <span class="comment">// e followed by  ́</span></div><div class="line"><span class="comment">// both are rednered as é</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Using <strong>extended grapheme clusters</strong> makes Swift’s <code>Character</code> is so much different from characters in other programming languages.</p>
+</blockquote>
+<h2 id="Accessing-and-Mofifying-a-String"><a href="#Accessing-and-Mofifying-a-String" class="headerlink" title="Accessing and Mofifying a String"></a>Accessing and Mofifying a String</h2><p>Due to the representation of Swift <code>Character</code>, the access and modification ways are special accordingly.</p>
+<p>Each <code>String</code> value has an associated <em>index type</em>, <code>String.Index</code>.</p>
+<p><code>String</code> has <code>startIndex</code> and <code>endIndex</code> properties, which is the half-open range with <code>endIndex</code> exclusive.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> greeting = <span class="string">"Hello world!"</span></div><div class="line">greeting[greeting.startIndex]</div><div class="line"><span class="comment">// H</span></div><div class="line"><span class="keyword">var</span> index = greeting.index(before: greeting.endIndex)</div><div class="line">greeting[index]</div><div class="line"><span class="comment">// !</span></div><div class="line">index = greeting.index(after: greeting.startIndex)</div><div class="line">greeting[index]</div><div class="line"><span class="comment">// u</span></div><div class="line">index = greeting.index(greeting.startIndex, offsetBy: <span class="number">2</span>)</div><div class="line">greeting[index]</div><div class="line"><span class="comment">// l</span></div></pre></td></tr></table></figure>
+<h1 id="Control-Flow"><a href="#Control-Flow" class="headerlink" title="Control Flow"></a>Control Flow</h1><h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>No need to use explict <code>break</code> in each <code>case</code> branch.</p>
+<p>But if you want the behaviours when missing <code>break</code> in Java, you can use the <code>fallthrough</code> keyword.</p>
+<ul>
+<li>Interval Matching</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> number = <span class="number">62</span></div><div class="line"><span class="keyword">let</span> desc : <span class="type">String</span></div><div class="line"><span class="keyword">switch</span> number &#123;</div><div class="line">	<span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">		desc = <span class="string">"no"</span></div><div class="line">	<span class="keyword">case</span> <span class="number">1</span>..&lt;<span class="number">5</span>:</div><div class="line">		desc = <span class="string">"a few"</span></div><div class="line">	<span class="keyword">case</span> <span class="number">5</span>..&lt;<span class="number">12</span>:</div><div class="line">		desc = <span class="string">"several"</span></div><div class="line">	<span class="keyword">default</span>:</div><div class="line">		desc = <span class="string">"many"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>compound cases</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> someCharacter: <span class="type">Character</span> = <span class="string">"e"</span></div><div class="line"><span class="keyword">switch</span> someCharacter &#123;</div><div class="line">	<span class="keyword">case</span> <span class="string">"a"</span>, <span class="string">"e"</span>, <span class="string">"i"</span>, <span class="string">"o"</span>, <span class="string">"u"</span>:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"\(someCharacter) is a vowel"</span>)</div><div class="line">	<span class="keyword">case</span> <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"f"</span>, <span class="string">"g"</span>, <span class="string">"h"</span>, <span class="string">"j"</span>, <span class="string">"k"</span>, <span class="string">"l"</span>, <span class="string">"m"</span>,</div><div class="line">	     <span class="string">"n"</span>, <span class="string">"p"</span>, <span class="string">"q"</span>, <span class="string">"r"</span>, <span class="string">"s"</span>, <span class="string">"t"</span>, <span class="string">"v"</span>, <span class="string">"w"</span>, <span class="string">"x"</span>, <span class="string">"y"</span>, <span class="string">"z"</span>:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"\(someCharacter) is a consonant"</span>)</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"\(someCharacter) is not a vowel or a consonant"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>test multiple values with <code>tuple</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> somePoint = (<span class="number">1</span>, <span class="number">1</span>)</div><div class="line"><span class="keyword">switch</span> somePoint &#123;</div><div class="line">	<span class="keyword">case</span> (<span class="number">0</span>, <span class="number">0</span>):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(0, 0) is at the origin"</span>)</div><div class="line">	<span class="keyword">case</span> (<span class="number">_</span>, <span class="number">0</span>):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(somePoint.0), 0) is on the x-axis"</span>)</div><div class="line">	<span class="keyword">case</span> (<span class="number">0</span>, <span class="number">_</span>):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(0, \(somePoint.1)) is on the y-axis"</span>)</div><div class="line">	<span class="keyword">case</span> (-<span class="number">2</span>...<span class="number">2</span>, -<span class="number">2</span>...<span class="number">2</span>):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(somePoint.0), \(somePoint.1)) is inside the box"</span>)</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(somePoint.0), \(somePoint.1)) is outside of the box"</span>)</div><div class="line">&#125;”</div></pre></td></tr></table></figure>
+<ul>
+<li>value binding</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> anotherPoint = (<span class="number">2</span>, <span class="number">0</span>)</div><div class="line"><span class="keyword">switch</span> anotherPoint &#123;</div><div class="line">	<span class="keyword">case</span> (<span class="keyword">let</span> x, <span class="number">0</span>):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"on the x-axis with an x value of \(x)"</span>)</div><div class="line">	<span class="keyword">case</span> (<span class="number">0</span>, <span class="keyword">let</span> y):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"on the y-axis with a y value of \(y)"</span>)</div><div class="line">	<span class="keyword">case</span> <span class="keyword">let</span> (x, y):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"somewhere else at (\(x), \(y))"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>where</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> yetAnotherPoint = (<span class="number">1</span>, -<span class="number">1</span>)</div><div class="line"><span class="keyword">switch</span> yetAnotherPoint &#123;</div><div class="line">	<span class="keyword">case</span> <span class="keyword">let</span> (x, y) <span class="keyword">where</span> x == y:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is on the line x == y"</span>)</div><div class="line">	<span class="keyword">case</span> <span class="keyword">let</span> (x, y) <span class="keyword">where</span> x == -y:</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is on the line x == -y"</span>)</div><div class="line">	<span class="keyword">case</span> <span class="keyword">let</span> (x, y):</div><div class="line">	    <span class="built_in">print</span>(<span class="string">"(\(x), \(y)) is just some arbitrary point"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/27/elementref-viewcontainerref-templateref/" itemprop="url">
                   ElementRef vs. ViewContainerRef vs. TemplateRef
                 </a>
@@ -435,8 +601,8 @@
 <li>From ViewContainerRef, we can get its ElementRef (further access its native DOM element).</li>
 <li>For structural directives, since they are implemented through HTML template element, so it can get a TemplateRef.</li>
 </ol>
-<figure class="highlight typescript"><figcaption><span>component</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AfterContentInit, Component, ElementRef, ViewContainerRef&#125; from <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">	selector: <span class="string">'app'</span>,</div><div class="line">	template: <span class="string">`</span></div><div class="line">  &lt;h1&gt;My App&lt;/h1&gt;</div><div class="line">  &lt;pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;"&gt; </div><div class="line">    &lt;code&gt;&#123;&#123; node &#125;&#125;&lt;/code&gt;</div><div class="line">  &lt;/pre&gt;</div><div class="line">`</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> App <span class="keyword">implements</span> AfterContentInit &#123;</div><div class="line">  node: <span class="built_in">string</span>;</div><div class="line">  </div><div class="line">  <span class="keyword">constructor</span>(private viewContainerRef: ViewContainerRef) &#123;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  ngAfterContentInit() &#123;</div><div class="line">    <span class="keyword">let</span> elementRef = <span class="keyword">this</span>.viewContainerRef.element;</div><div class="line">    <span class="keyword">const</span> tmp = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">    <span class="keyword">const</span> el = elementRef.nativeElement.cloneNode(<span class="literal">true</span>);</div><div class="line">    </div><div class="line">    <span class="built_in">console</span>.log(elementRef)</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.viewContainerRef)</div><div class="line">    </div><div class="line">    tmp.appendChild(el);</div><div class="line">    <span class="keyword">this</span>.node = tmp.innerHTML;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight typescript"><figcaption><span>Attribute Directive</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Directive, ViewContainerRef, ElementRef, Renderer&#125; from <span class="string">'angular2/core'</span>;</div><div class="line"></div><div class="line">@Directive(&#123;</div><div class="line">  selector: <span class="string">'[my-outline]'</span>,</div><div class="line">  host: &#123;</div><div class="line">    <span class="string">'(mouseenter)'</span>: <span class="string">'onMouseEnter()'</span>,</div><div class="line">    <span class="string">'(mouseleave)'</span>: <span class="string">'onMouseLeave()'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyOutline &#123;</div><div class="line">  <span class="keyword">constructor</span>(private viewContainerRef:ViewContainerRef, private _element: ElementRef, private _renderer:Renderer) &#123; &#125;</div><div class="line">  onMouseEnter() &#123; <span class="keyword">this</span>._outlineToggle(<span class="literal">true</span>); &#125;</div><div class="line">  onMouseLeave() &#123; <span class="keyword">this</span>._outlineToggle(<span class="literal">false</span>); &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">private</span> _outlineToggle() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.viewContainerRef)</div><div class="line">    <span class="keyword">this</span>._renderer.setElementStyle(<span class="keyword">this</span>._element.nativeElement, <span class="string">'border'</span>, <span class="string">'solid red 1px'</span> );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><figcaption><span>Component</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AfterContentInit, Component, ElementRef, ViewContainerRef&#125; from <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">	selector: <span class="string">'app'</span>,</div><div class="line">	template: <span class="string">`</span></div><div class="line">  &lt;h1&gt;My App&lt;/h1&gt;</div><div class="line">  &lt;pre style="background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;"&gt; </div><div class="line">    &lt;code&gt;&#123;&#123; node &#125;&#125;&lt;/code&gt;</div><div class="line">  &lt;/pre&gt;</div><div class="line">`</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> App <span class="keyword">implements</span> AfterContentInit &#123;</div><div class="line">  node: <span class="built_in">string</span>;</div><div class="line">  </div><div class="line">  <span class="keyword">constructor</span>(private viewContainerRef: ViewContainerRef) &#123;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  ngAfterContentInit() &#123;</div><div class="line">    <span class="keyword">let</span> elementRef = <span class="keyword">this</span>.viewContainerRef.element;</div><div class="line">    <span class="keyword">const</span> tmp = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">    <span class="keyword">const</span> el = elementRef.nativeElement.cloneNode(<span class="literal">true</span>);</div><div class="line">    </div><div class="line">    <span class="built_in">console</span>.log(elementRef)</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.viewContainerRef)</div><div class="line">    </div><div class="line">    tmp.appendChild(el);</div><div class="line">    <span class="keyword">this</span>.node = tmp.innerHTML;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><figcaption><span>Attribute Directive</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Directive, ViewContainerRef, ElementRef, Renderer&#125; from <span class="string">'angular2/core'</span>;</div><div class="line"></div><div class="line">@Directive(&#123;</div><div class="line">  selector: <span class="string">'[my-outline]'</span>,</div><div class="line">  host: &#123;</div><div class="line">    <span class="string">'(mouseenter)'</span>: <span class="string">'onMouseEnter()'</span>,</div><div class="line">    <span class="string">'(mouseleave)'</span>: <span class="string">'onMouseLeave()'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyOutline &#123;</div><div class="line">  <span class="keyword">constructor</span>(private viewContainerRef:ViewContainerRef, private _element: ElementRef, private _renderer:Renderer) &#123; &#125;</div><div class="line">  onMouseEnter() &#123; <span class="keyword">this</span>._outlineToggle(<span class="literal">true</span>); &#125;</div><div class="line">  onMouseLeave() &#123; <span class="keyword">this</span>._outlineToggle(<span class="literal">false</span>); &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">private</span> _outlineToggle() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.viewContainerRef)</div><div class="line">    <span class="keyword">this</span>._renderer.setElementStyle(<span class="keyword">this</span>._element.nativeElement, <span class="string">'border'</span>, <span class="string">'solid red 1px'</span> );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight typescript"><figcaption><span>Structural Directive</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Directive, Input&#125; from <span class="string">'angular2/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;TemplateRef, ViewContainerRef&#125; from <span class="string">'angular2/core'</span>;</div><div class="line"></div><div class="line">@Directive(&#123; selector: <span class="string">'[repeatMe]'</span> &#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> RepeatMe &#123;</div><div class="line">  <span class="keyword">constructor</span>(</div><div class="line">    private _templateRef: TemplateRef,</div><div class="line">    private _viewContainer: ViewContainerRef</div><div class="line">    ) &#123;&#125;</div><div class="line">  </div><div class="line">  @Input() <span class="keyword">set</span> repeatMe(count: int) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">      <span class="keyword">this</span>._viewContainer.createEmbeddedView(<span class="keyword">this</span>._templateRef);</div><div class="line">    &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>In Angular2, the View is refered to the template of a component defined in the @Component decorator.</p>
 <p>There are another view query docorators in Angualar.<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">import &#123; Component, ViewChild &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; UserProfile &#125; from &apos;../user-profile&apos;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  template: &apos;&lt;user-profile (click)=&quot;update()&quot;&gt;&lt;/user-profile&gt;&apos;,</div><div class="line">&#125;)</div><div class="line">export class MasterPage &#123;</div><div class="line">  // ViewChild takes a class type or a reference name string.</div><div class="line">  // Here we are using the type</div><div class="line">  @ViewChild(UserProfile) userProfile: UserProfile</div><div class="line"></div><div class="line">  constructor() &#123; &#125;</div><div class="line"></div><div class="line">  ngAfterViewInit() &#123;</div><div class="line">    // After the view is initialized, this.userProfile will be available</div><div class="line">    this.update();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  update() &#123;</div><div class="line">    this.userProfile.sendData();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -825,7 +991,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/27/2016-08-26/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/26/2016-08-26/" itemprop="url">
                   Untitled
                 </a>
               
@@ -839,8 +1005,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T00:01:43+08:00" content="2016-08-27">
-              2016-08-27
+            <time itemprop="dateCreated" datetime="2016-08-26T23:38:24+08:00" content="2016-08-26">
+              2016-08-26
             </time>
           </span>
 
@@ -850,8 +1016,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/27/2016-08-26/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/27/2016-08-26/" itemprop="commentsCount"></span>
+                <a href="/2016/08/26/2016-08-26/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/26/2016-08-26/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1979,111 +2145,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/03/leetcode-#2-add-two-numbers/" itemprop="url">
-                  LeetCode #2 Add Two Numbers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-02-03T23:18:25+08:00" content="2016-02-03">
-              2016-02-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/03/leetcode-#2-add-two-numbers/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/03/leetcode-#2-add-two-numbers/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8</p>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>We need to be familiar with linked list operations, especially the case in the boundary. There is no time complexity to concern.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">        ListNode head = <span class="keyword">null</span>;</div><div class="line">        ListNode tail = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">if</span>(l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span>) <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">int</span> val1 = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> val2 = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) &#123; val1 = l1.val; l1 = l1.next; &#125;</div><div class="line">            <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) &#123; val2 = l2.val; l2 = l2.next; &#125;</div><div class="line">            <span class="keyword">int</span> val = val1 + val2 + carry;</div><div class="line">            carry = val / <span class="number">10</span>;</div><div class="line">            ListNode node  = <span class="keyword">new</span> ListNode(val % <span class="number">10</span>);</div><div class="line">            <span class="keyword">if</span>(head == <span class="keyword">null</span>) &#123;</div><div class="line">                head = node;</div><div class="line">                tail = node;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                tail.next = node;</div><div class="line">                tail = node;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">// especially notice the rest carry bit</span></div><div class="line">        <span class="keyword">if</span>(carry != <span class="number">0</span>) tail.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Submisssion-amp-Judgement"><a href="#Submisssion-amp-Judgement" class="headerlink" title="Submisssion &amp; Judgement"></a>Submisssion &amp; Judgement</h1><p><a href="https://leetcode.com/submissions/detail/52578127/" target="_blank" rel="external">Sumbission in LeetCode</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2129,7 +2190,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">132</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -2230,7 +2291,7 @@
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
