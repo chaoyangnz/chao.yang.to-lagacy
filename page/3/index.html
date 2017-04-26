@@ -374,6 +374,277 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/07/mybatis-cache/" itemprop="url">
+                  mybatis cache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-06T21:41:29+08:00" content="2015-11-06">
+              2015-11-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/07/mybatis-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/07/mybatis-cache/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些statements来useCache, 哪些statements触发flushCache.</p>
+<p>一旦触发了flushCache, cache将invalidate并清空，下次的查询都将从数据库查询，并放入cache</p>
+<p>限制：</p>
+<ul>
+<li>同一个应用，一旦使用cache，需遵循：</li>
+</ul>
+<ol>
+<li>查询：先查询cache，命中返回; 未命中，查询数据库后放入cache</li>
+<li>修改：修改数据库，flush cache</li>
+</ol>
+<ul>
+<li>一旦修改了cache区域中数据，一定要flush，否则会出现cache与数据库不一致</li>
+<li>使用cache的应用，外部程序(工具)直接修改数据库一定要慎重，因为极有可能导致数据不一致</li>
+</ul>
+<p>下面是一个例子：</p>
+<figure class="highlight xml"><figcaption><span>mybatis-config.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE configuration</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Config 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">”cacheEnabled”</span> <span class="attr">value</span>=<span class="string">”true”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">”JDBC”/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">”POOLED”</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”driver”</span> <span class="attr">value</span>=<span class="string">”com.mysql.jdbc.Driver”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”url”</span> <span class="attr">value</span>=<span class="string">”jdbc:mysql://localhost:3306/test”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”username”</span> <span class="attr">value</span>=<span class="string">”root”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”password”</span> <span class="attr">value</span>=<span class="string">””/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">”SqlMapper.xml”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>SqlMapper.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE mapper</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Mapper 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">”person”</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cache</span> <span class="attr">eviction</span>=<span class="string">"FIFO"</span></span></div><div class="line">       <span class="attr">flushInterval</span>=<span class="string">"60000"</span></div><div class="line">       <span class="attr">size</span>=<span class="string">"512"</span></div><div class="line">       <span class="attr">readOnly</span>=<span class="string">"true"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectPerson"</span> <span class="attr">resultType</span>=<span class="string">"java.util.HashMap"</span> <span class="attr">flushCache</span>=<span class="string">"false"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    select * from person</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertPerson"</span>&gt;</span></div><div class="line">    insert into person values ('ccccc', 23, 'shenzhen')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertStaff"</span>&gt;</span></div><div class="line">    insert into staff values ('richard')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	    String resource = <span class="string">"mybatis-config.xml"</span>;</div><div class="line">	    InputStream inputStream = Resources.getResourceAsStream(resource);</div><div class="line">	    sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">	</div><div class="line">	    String command = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">while</span> ((command = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">	</div><div class="line">	        SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line">	        <span class="keyword">if</span>(command.equals(<span class="string">"q"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql query:"</span>);</div><div class="line">	            List&lt;Map&gt; list = sqlSession.selectList(<span class="string">"person.selectPerson"</span>);</div><div class="line">	            System.out.println(list);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"i"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertPerson"</span>);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"is"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertStaff"</span>);</div><div class="line">	        &#125;</div><div class="line">	</div><div class="line">	        sqlSession.commit();</div><div class="line">	        sqlSession.close();</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如何测试：</p>
+<ol>
+<li>控制台输入”q”触发查询，可以看到首次查询，会使用sql从数据库查询</li>
+<li>这时，我们控制台或数据库客户端(如mysql客户端)再向数据库中插入一些数据</li>
+<li>再次控制台输入”q”再次触发查询，日志显示，这次cache命中，直接从cache中读数据，程序外部（客户端）插入的数据并没有得到。很容易解释，因为这些外部的插入，mybatis并不知道。</li>
+<li>控制台输入”i”触发插入数据，然后再输入”q”触发查询，这次可以看到，会使用sql从数据库查询。可见insert触发了flushCache</li>
+<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
+<li>控制台输入”is”触发插入另一个表的数据，然后再输入”q”触发查询，可以看到这时同样使用sql从数据库查询。可见虽然是不同的表的插入，也将flush整个cache, 因为他们共用位于同一个SqlMapper的namespace中的cache</li>
+<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:26,103 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:26,417 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt;  Preparing: select * from person</div><div class="line">2015-11-06 21:39:26,447 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:26,463 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;==      Total: 0</div><div class="line">[]</div><div class="line">i</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:39:42,303 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into person values (‘ccccc’, 23, ‘shenzhen’)</div><div class="line">2015-11-06 21:39:42,304 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:42,305 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:44,711 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:44,718 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:50,878 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.3333333333333333</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">is</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:40:00,431 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into staff values (‘richard’)</div><div class="line">2015-11-06 21:40:00,432 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:00,439 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:03,310 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.25</div><div class="line">2015-11-06 21:40:03,315 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:40:03,316 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:03,317 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:04,337 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.4</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/06/bytecodeviewer-for-mac/" itemprop="url">
+                  BytecodeViewer for Mac
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-05T19:14:26+08:00" content="2015-11-05">
+              2015-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
+                    <span itemprop="name">Uncategorized</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/06/bytecodeviewer-for-mac/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/06/bytecodeviewer-for-mac/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>BytecodeViewer only has the Windows executable release.</p>
+<p>I use the Automator to get an app for Mac OSX.</p>
+<p>Now I provide a download link here:</p>
+<p><a href="https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8" target="_blank" rel="external">https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/04/inner-classes-synthetic/" itemprop="url">
                   Inner classes synthetic
                 </a>
@@ -783,7 +1054,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/09/26/http-cache/" itemprop="url">
+                <a class="post-title-link" href="/2015/09/27/http-cache/" itemprop="url">
                   HTTP cache
                 </a>
               
@@ -797,7 +1068,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-09-26T21:47:47+08:00" content="2015-09-26">
+            <time itemprop="dateCreated" datetime="2015-09-26T20:47:47+08:00" content="2015-09-26">
               2015-09-26
             </time>
           </span>
@@ -827,8 +1098,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/09/26/http-cache/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/26/http-cache/" itemprop="commentsCount"></span>
+                <a href="/2015/09/27/http-cache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/27/http-cache/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -908,7 +1179,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/09/08/javaee-multi-popuse-application-frameworks/" itemprop="url">
+                <a class="post-title-link" href="/2015/09/09/javaee-multi-popuse-application-frameworks/" itemprop="url">
                   JavaEE Multi-popuse Application Frameworks
                 </a>
               
@@ -952,8 +1223,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/09/08/javaee-multi-popuse-application-frameworks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/08/javaee-multi-popuse-application-frameworks/" itemprop="commentsCount"></span>
+                <a href="/2015/09/09/javaee-multi-popuse-application-frameworks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/09/javaee-multi-popuse-application-frameworks/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1037,7 +1308,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/09/05/statically-loading-vs-dynamically-loading/" itemprop="url">
+                <a class="post-title-link" href="/2015/09/06/statically-loading-vs-dynamically-loading/" itemprop="url">
                   statically loading vs. dynamically loading
                 </a>
               
@@ -1081,8 +1352,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/09/05/statically-loading-vs-dynamically-loading/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/05/statically-loading-vs-dynamically-loading/" itemprop="commentsCount"></span>
+                <a href="/2015/09/06/statically-loading-vs-dynamically-loading/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/06/statically-loading-vs-dynamically-loading/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1170,7 +1441,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/08/01/logging-problem-in-spring-mvc-project/" itemprop="url">
+                <a class="post-title-link" href="/2015/08/02/logging-problem-in-spring-mvc-project/" itemprop="url">
                   Logging problem in Spring MVC project
                 </a>
               
@@ -1214,8 +1485,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/08/01/logging-problem-in-spring-mvc-project/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/logging-problem-in-spring-mvc-project/" itemprop="commentsCount"></span>
+                <a href="/2015/08/02/logging-problem-in-spring-mvc-project/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/02/logging-problem-in-spring-mvc-project/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1298,7 +1569,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="url">
+                <a class="post-title-link" href="/2015/08/02/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="url">
                   No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]
                 </a>
               
@@ -1342,8 +1613,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="commentsCount"></span>
+                <a href="/2015/08/02/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/02/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -2209,395 +2480,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="url">
-                  Book notes - Practical Unit Test with JUnit and Mockito
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-25T14:46:18+08:00" content="2015-05-25">
-              2015-05-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Building-Testing-amp-CI/" itemprop="url" rel="index">
-                    <span itemprop="name">Building, Testing &amp; CI</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/25/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Developers’-Tests"><a href="#Developers’-Tests" class="headerlink" title="Developers’ Tests"></a>Developers’ Tests</h1><h2 id="On-Tests-and-Tools"><a href="#On-Tests-and-Tools" class="headerlink" title="On Tests and Tools"></a>On Tests and Tools</h2><p><strong>SUT</strong> (aka. System Under Test) – test target being tested</p>
-<p><strong>DOC</strong> (aka. Dependency of Components) – collaborators and dependencies when testing</p>
-<h3 id="Types-of-Developers’-Tests"><a href="#Types-of-Developers’-Tests" class="headerlink" title="Types of Developers’ Tests"></a>Types of Developers’ Tests</h3><ul>
-<li>Unit Test</li>
-<li>Integration Test</li>
-<li>End-to-End Test<br>Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.</li>
-</ul>
-<p>Other types of tests:</p>
-<ul>
-<li><strong>System Integration Test</strong> – test with external systems/applications, services etc</li>
-<li><strong>User Acceptation Test</strong> – final user verification test</li>
-<li><strong>Load Test</strong> – verify system performance under pressure / load</li>
-</ul>
-<table border="1" width="635"><br><tbody><br><tr><br><td><strong>type of test</strong></td><br><td><strong>SUT example</strong></td><br><td><strong>DOC example</strong></td><br></tr><br><tr><br><td rowspan="3">unit test</td><br><td>UserService</td><br><td>UserDAO</td><br></tr><br><tr><br><td>Invoice</td><br><td>Product</td><br></tr><br><tr><br><td>Client</td><br><td>Account</td><br></tr><br><tr><br><td rowspan="3">integration test</td><br><td>DAO layer (ORM based)</td><br><td>Hibernate</td><br></tr><br><tr><br><td>DAO layer (JDBC based)</td><br><td>MySQL 5</td><br></tr><br><tr><br><td>FullTextIndexer module</td><br><td>FileStorage module</td><br></tr><br><tr><br><td>end-to-end test</td><br><td>Whole application</td><br><td>LDAP repository</td><br></tr><br></tbody><br></table>
-
-<h3 id="Should-Developers-Test-Their-Own-Code"><a href="#Should-Developers-Test-Their-Own-Code" class="headerlink" title="Should Developers Test Their Own Code?"></a>Should Developers Test Their Own Code?</h3><p>Yes!</p>
-<h2 id="Unit-Tests"><a href="#Unit-Tests" class="headerlink" title="Unit Tests"></a>Unit Tests</h2><h3 id="what-is-a-Unit-Test"><a href="#what-is-a-Unit-Test" class="headerlink" title="what is a Unit Test?"></a>what is a Unit Test?</h3><p>It’s to make sure the class you are working on right now works correctly.</p>
-<p>You should test your classes<strong> in isolation</strong>. When writing unit tests it’s important to test a single class and nothing more. Forget about databases, Spring configuration files, and external web services.</p>
-<p>Concentrate on the logic of your class!</p>
-<h3 id="Interactions-in-Unit-Tests"><a href="#Interactions-in-Unit-Tests" class="headerlink" title="Interactions in Unit Tests"></a>Interactions in Unit Tests</h3><p>Types of collaboration with an SUT</p>
-<p><img src="/media/collaboration-of-SUT.png" alt="collaboration-of-SUT"></p>
-<p>Test class has direct operations with SUT, but its collaborations have indirect operations on the SUT state.</p>
-<p>We use direct inputs and indirect <strong>inputs</strong> (SUT receiveing some message) to set the SUT in a required state and to invoke its methods.</p>
-<p>The direct and indirect outputs (SUT sending a message) of the SUT are expressions of the SUT’s behaviours; we use them to verify whether the SUT is working properly.</p>
-<table border="1"><br><tbody><br><tr><br><td><strong>type of interaction</strong></td><br><td><strong>involved parties</strong></td><br><td><strong>description</strong></td><br></tr><br><tr><br><td>direct input</td><br><td rowspan="2">Test class &amp; SUT</td><br><td>calls the SUT methods</td><br></tr><br><tr><br><td>direct output</td><br><td>values returned by the SUT to the test class after calling some SUT method</td><br></tr><br><tr><br><td>indirect output</td><br><td rowspan="2">SUT &amp; DOCs</td><br><td>arguments passed by the SUT to a method of one of its collaborators</td><br></tr><br><tr><br><td>indirect input</td><br><td>value returned (or an exception thrown) to the SUT by collaborators, after it called some methods of its collaborators</td><br></tr><br></tbody><br></table>
-
-<h3 id="State-Testing-vs-Interaction-Testing"><a href="#State-Testing-vs-Interaction-Testing" class="headerlink" title="State Testing vs. Interaction Testing"></a>State Testing vs. Interaction Testing</h3><ul>
-<li>State Testing - uses direct inputs and outputs for what the results of actions.</li>
-<li>Interaction Testing - concentrates on how messages are passed between collaborators<br>With State Testing, the SUT is a black box. Interaction testing looks inside the SUT and verifies its internal parts.</li>
-</ul>
-<h1 id="Writing-Unit-Testing"><a href="#Writing-Unit-Testing" class="headerlink" title="Writing Unit Testing"></a>Writing Unit Testing</h1><h2 id="Unit-tests-with-no-collaborator"><a href="#Unit-tests-with-no-collaborator" class="headerlink" title="Unit tests with no collaborator"></a>Unit tests with no collaborator</h2><h3 id="parameterized"><a href="#parameterized" class="headerlink" title="parameterized"></a>parameterized</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Money</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> amount;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String currency;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Money</span><span class="params">(<span class="keyword">int</span> amount, String currency)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.amount = amount;</div><div class="line">        <span class="keyword">this</span>.currency = currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> amount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> currency;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> Money) &#123;</div><div class="line">            Money money = (Money) anObject;</div><div class="line">            <span class="keyword">return</span> money.getCurrency().equals(getCurrency())</div><div class="line">                    &amp;amp;&amp;amp; getAmount() == money.getAmount();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.junit.runners.Parameterized;</div><div class="line"></div><div class="line"><span class="meta">@RunWith</span>(Parameterized.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoneyParameterizedTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Parameterized</span>.Parameters(name = <span class="string">"&#123;index&#125;: money(&#123;0&#125;, &#123;1&#125;)"</span>)</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] data() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Object[] &#123;</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">10</span>, <span class="string">"USD"</span>&#125;,</div><div class="line">                <span class="keyword">new</span> Object[] &#123;<span class="number">20</span>, <span class="string">"EUR"</span>&#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">0</span>) <span class="comment">// first data value (0) is default</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> amount;</div><div class="line"></div><div class="line">    <span class="meta">@Parameterized</span>.Parameter(value = <span class="number">1</span>) <span class="comment">// value is the index in parameter tuple</span></div><div class="line">    <span class="keyword">public</span> String currency;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructorShouldSetAmountAndCurrency</span><span class="params">()</span> </span>&#123;</div><div class="line">        Money money = <span class="keyword">new</span> Money(amount, currency);</div><div class="line">        assertEquals(amount, money.getAmount());</div><div class="line">        assertEquals(currency, money.getCurrency());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="test-fixture"><a href="#test-fixture" class="headerlink" title="test fixture"></a>test fixture</h3><p>A <strong>test fixture</strong> is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable. Examples of fixtures:</p>
-<ul>
-<li>Preparation of input data and setup/creation of fake or mock objects</li>
-<li>Loading a database with a specific, known set of data</li>
-<li>Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.</li>
-<li>JUnit supports test fixture by using:</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@BeforeClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setUpClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@AfterClass</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">tearDownClass</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@Before</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="meta">@After</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<h3 id="Phases-of-a-unit-test"><a href="#Phases-of-a-unit-test" class="headerlink" title="Phases of a unit test"></a>Phases of a unit test</h3><p><table border="1"><colgroup> <col> <col> </colgroup></table></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p><strong>phase</strong></p>
-<p></p></div><br><p></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p><strong>explanation</strong></p>
-<p></p></div><br><br><p></p>
-<p><tr></tr></p>
-<p><td colspan="1" rowspan="2"></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>arrange</p>
-<p></p></div><br><p></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>creation of all objects (except for the SUT) that are necessary for test execution</p>
-<p></p></div><br><br><p></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>creation of the object whose functionality will be tested, and setting it in some initial state</p>
-<p></p></div><br><br><p></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>act</p>
-<p></p></div><br><p></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>execution of SUT methods to be tested</p>
-<p></p></div><br><br><p></p>
-<p><tr></tr></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>assert</p>
-<p></p></div><br><p></p>
-<p><td></td></p>
-<p><div class="layoutArea"></div></p>
-<div class="column">
-
-<p>verification of the test results</p>
-<p></p></div><br><br><br><br><br><br>The first phase relates to the preparation of a test fixture.<p></p>
-<h2 id="TDD-Test-Driven-Development"><a href="#TDD-Test-Driven-Development" class="headerlink" title="TDD (Test-Driven Development)"></a>TDD (Test-Driven Development)</h2><p>when to write test?</p>
-<ul>
-<li>Test Last (aka. Code First) development</li>
-<li>Test First development</li>
-</ul>
-<p>How TDD do?</p>
-<ul>
-<li>write a test that fails ( <span style="background-color: #ff0000;">     </span> )</li>
-<li>make the code work ( <span style="background-color: #00ff00;">     </span> )</li>
-<li>eliminate redundancy ( <span style="background-color: #0000ff;">     </span> )</li>
-</ul>
-<p><img src="/media/tdd.png" alt="tdd"></p>
-<p>Note: refractor can be done for classes to test or the test code.</p>
-<p>TDD should be applied to every level: unit test, integration test, end-to-end test.<br><img src="/media/tdd-on-different-levels.png" alt="tdd-on-different-levels"></p>
-<h1 id="test-double-stub-test-spy-mock"><a href="#test-double-stub-test-spy-mock" class="headerlink" title="test double (stub, test spy, mock)"></a>test double (stub, test spy, mock)</h1><p><table border="1" width="644"><caption>Types of test doubles</caption></table></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><td>test double type</td></p>
-<p><td>also known as (aka.)</td></p>
-<p><td>description</td><br></p>
-<p><tr></tr></p>
-<p><td>dummy object</td></p>
-<p><td>dummy</td></p>
-<p><td>needs to exist, no real collaboration needed</td><br></p>
-<p><tr></tr></p>
-<p><td>test stub</td></p>
-<p><td>stub</td></p>
-<p><td>used for passing some values to the SUT (“indirect inputs”)</td><br></p>
-<p><tr></tr></p>
-<p><td>test spy</td></p>
-<p><td>spy</td></p>
-<p><td rowspan="2">used to verify if the SUT calls specific method of the collaborator (“indirect outputs”)</td><br></p>
-<p><tr></tr></p>
-<p><td>mock object</td></p>
-<p><td>mock</td><br></p>
-<p><tr></tr></p>
-<p><td>fake</td></p>
-<p><td>fake</td></p>
-<p><td></td><br><br><br><br><img src="/media/test-doubles.png" alt="test-doubles"></p>
-<ul>
-<li>Dummies and stubs are used to prepare the environment for testing (test-fixture setting). They are not used for verification.</li>
-<li>Test spies and mocks are to verify the correctness of the communication between the SUT and DOCs.  Bothe can also participate in test-fixture setting.<br><strong>Fake</strong><br>For the sake of completeness, let us describe another type of test double: a fake. Fake works almost as good as the real collaborator, but is somehow simpler and/or weaker (which makes it not suitable for production use). It is also usually “cheaper” in use (i.e. faster or simpler to set up), which makes it suited to tests (which should run as fast as possible). A typical example is an in-memory database that is used instead of a full-blown database server. It can be used for some tests, as it serves SQL requests pretty well; however, you would not want to use it in a production environment. In tests, fake plays a similar role to dummy and stub: it is a part of the environment (test fixture), not an object of verification. Fakes are used in integration tests rather than in unit tests, so we will not be discussing them any further.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Messenger</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> TemplateEngine templateEngine;</div><div class="line">    <span class="keyword">private</span> MailServer mailServer;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Messenger</span><span class="params">(MailServer mailServer, TemplateEngine templateEngine)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mailServer = mailServer;</div><div class="line">        <span class="keyword">this</span>.templateEngine = templateEngine;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(Client client, Template template)</span> </span>&#123;</div><div class="line">        String msgContent = templateEngine.prepareMessage(template, client);</div><div class="line">        mailServer.send(client.getEmail(), msgContent);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MailServer</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">send</span><span class="params">(Object email, String msgContent)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Template</span> </span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TemplateEngine</span> </span>&#123;</div><div class="line">    <span class="function">String <span class="title">prepareMessage</span><span class="params">(Template template, Client client)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> messenger;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Mockito.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Richard on 24/05/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessengerTest</span> </span>&#123;</div><div class="line">    <span class="comment">// SUT</span></div><div class="line">    Messenger messenger;</div><div class="line"></div><div class="line">    <span class="comment">// dummy</span></div><div class="line">    Client client;</div><div class="line">    Template template;</div><div class="line"></div><div class="line">    <span class="comment">// stub</span></div><div class="line">    TemplateEngine templateEngine;</div><div class="line"></div><div class="line">    <span class="comment">// spy</span></div><div class="line">    MailServer mailServer;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> String CLIENT_EMAIL = <span class="string">"some@email.com"</span>;</div><div class="line">    <span class="keyword">final</span> String MSG_CONTENT = <span class="string">"Dear John! You are fired."</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// dummy</span></div><div class="line">        template = mock(Template.class);</div><div class="line"></div><div class="line">        <span class="comment">// stubs</span></div><div class="line">        client = mock(Client.class);</div><div class="line">        when(client.getEmail()).thenReturn(CLIENT_EMAIL);</div><div class="line"></div><div class="line">        templateEngine = mock(TemplateEngine.class);</div><div class="line">        when(templateEngine.prepareMessage(template, client)).thenReturn(MSG_CONTENT);</div><div class="line"></div><div class="line">        <span class="comment">// spy</span></div><div class="line">        mailServer = mock(MailServer.class);</div><div class="line"></div><div class="line">        <span class="comment">// SUT</span></div><div class="line">        messenger = <span class="keyword">new</span> Messenger(mailServer, templateEngine);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        messenger.sendMessage(client, template);</div><div class="line"></div><div class="line">        <span class="comment">// verify interaction</span></div><div class="line">        verify(mailServer).send(CLIENT_EMAIL, MSG_CONTENT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/20/scea-architect/" itemprop="url">
-                  SCEA architect
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-20T15:22:13+08:00" content="2015-05-20">
-              2015-05-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
-                    <span itemprop="name">Uncategorized</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/20/scea-architect/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/20/scea-architect/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Understanding-Architecture"><a href="#Understanding-Architecture" class="headerlink" title="Understanding Architecture"></a>Understanding Architecture</h3><p>focus on structure to support the business and service-level requirements</p>
-<p>You can define the structure of a system as the mechanisms that the system employs to solve the common problems of the system, such as persistence, distribution, communication, transaction management, and security</p>
-<ul>
-<li>difficult <strong>decisions</strong> must be made about <strong>trade-offs</strong> in the system<br>&nbsp;</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2643,7 +2525,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -2744,7 +2626,7 @@
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

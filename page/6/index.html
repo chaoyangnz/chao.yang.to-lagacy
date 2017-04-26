@@ -374,6 +374,347 @@
             
               
                 
+                <a class="post-title-link" href="/2015/04/03/spring-framework-the-big-picture/" itemprop="url">
+                  Spring framework - the big picture
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-03T14:42:08+08:00" content="2015-04-03">
+              2015-04-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/03/spring-framework-the-big-picture/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/03/spring-framework-the-big-picture/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Spring is a big beast. I have to sort out its design and modules.</p>
+<p><img src="/media/spring-big-pricture.png" alt="spring-big-pricture"></p>
+<p><table border="1" summary="Spring Framework Artifacts"></table></p>
+<p><thead></thead></p>
+<p><tr></tr></p>
+<p><th align="left" valign="top">GroupId</th></p>
+<p><th align="left" valign="top">ArtifactId</th></p>
+<p><th align="left" valign="top">Description</th><br><br></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-aop</td></p>
+<p><td align="left" valign="top">Proxy-based AOP support</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-aspects</td></p>
+<p><td align="left" valign="top">AspectJ based aspects</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-beans</td></p>
+<p><td align="left" valign="top">Beans support, including Groovy</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-context</td></p>
+<p><td align="left" valign="top">Application context runtime, including scheduling and remoting abstractions</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-context-support</td></p>
+<p><td align="left" valign="top">Support classes for integrating common third-party libraries into a Spring application context</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-core</td></p>
+<p><td align="left" valign="top">Core utilities, used by many other Spring modules</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-expression</td></p>
+<p><td align="left" valign="top">Spring Expression Language (SpEL)</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-instrument</td></p>
+<p><td align="left" valign="top">Instrumentation agent for JVM bootstrapping</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-instrument-tomcat</td></p>
+<p><td align="left" valign="top">Instrumentation agent for Tomcat</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-jdbc</td></p>
+<p><td align="left" valign="top">JDBC support package, including DataSource setup and JDBC access support</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-jms</td></p>
+<p><td align="left" valign="top">JMS support package, including helper classes to send and receive JMS messages</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-messaging</td></p>
+<p><td align="left" valign="top">Support for messaging architectures and protocols</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-orm</td></p>
+<p><td align="left" valign="top">Object/Relational Mapping, including JPA and Hibernate support</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-oxm</td></p>
+<p><td align="left" valign="top">Object/XML Mapping</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-test</td></p>
+<p><td align="left" valign="top">Support for unit testing and integration testing Spring components</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-tx</td></p>
+<p><td align="left" valign="top">Transaction infrastructure, including DAO support and JCA integration</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-web</td></p>
+<p><td align="left" valign="top">Web support packages, including client and web remoting</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-webmvc</td></p>
+<p><td align="left" valign="top">REST Web Services and model-view-controller implementation for web applications</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-webmvc-portlet</td></p>
+<p><td align="left" valign="top">MVC implementation to be used in a Portlet environment</td><br></p>
+<p><tr></tr></p>
+<p><td align="left" valign="top">org.springframework</td></p>
+<p><td align="left" valign="top">spring-websocket</td></p>
+<p><td align="left" valign="top">WebSocket and SockJS implementations, including STOMP suppor</td><br><br><br><br>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/02/subquery-vs-join/" itemprop="url">
+                  subquery vs. join
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-02T15:41:53+08:00" content="2015-04-02">
+              2015-04-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/02/subquery-vs-join/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/02/subquery-vs-join/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="what-is-subquery"><a href="#what-is-subquery" class="headerlink" title="what is subquery"></a>what is subquery</h3><p><strong>SubQuery in SQL</strong> is a query inside another query<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">SELECT name FROM City WHERE pincode <span class="title">IN</span> <span class="params">(SELECT pincode FROM pin WHERE zone=<span class="string">'west'</span>)</span></span></div></pre></td></tr></table></figure></p>
+<p>In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
+<h4 id="non-correlated-subquery"><a href="#non-correlated-subquery" class="headerlink" title="non-correlated subquery"></a>non-correlated subquery</h4><p>In non correlated subquery, <strong>inner query doesn’t depend on outer query</strong> and can run as stand alone query.</p>
+<p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY=<span class="string">'Japan'</span>);</div></pre></td></tr></table></figure></p>
+<p>Here, the inner query is executed before the outer query.</p>
+<h4 id="correlated-subquery"><a href="#correlated-subquery" class="headerlink" title="correlated subquery"></a>correlated subquery</h4><p>Correlated subqueries are the one in which inner query or subquery reference outer query.</p>
+<p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SELECT m.NAME FROM Market m WHERE m.<span class="function">RIC <span class="title">EXISTS</span> <span class="params">(SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
+<h3 id="which-is-preferable-subquery-or-join"><a href="#which-is-preferable-subquery-or-join" class="headerlink" title="which is preferable: subquery or join"></a>which is preferable: subquery or join</h3><p>Now, almost any subquery can be written in join.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">id  name    id  title</div><div class="line">--  ----    --  ----</div><div class="line"><span class="number">1</span>   Kenny   <span class="number">1</span>   Analyst</div><div class="line"><span class="number">1</span>   Rob     <span class="number">2</span>   Sales</div><div class="line"><span class="number">4</span>   Molly   <span class="number">3</span>   Manager</div><div class="line"><span class="number">1</span>   Greg</div><div class="line"><span class="number">2</span>   John</div><div class="line"></div><div class="line">-- non correlated subquery using IN</div><div class="line">-- Returns <span class="number">3</span> records - Kenny, Rob, and Greg</div><div class="line">SELECT  *</div><div class="line">FROM    tableA</div><div class="line">WHERE   tableA.<span class="function">id <span class="title">IN</span> <span class="params">(SELECT tableB.id FROM tableB WHERE title = <span class="string">'Analyst'</span>)</span></span>;</div><div class="line"></div><div class="line">-- correlated subquery using EXISTS</div><div class="line">SELECT  *</div><div class="line"><span class="function">FROM    tableA</span></div><div class="line">WHERE   <span class="title">EXISTS</span> <span class="params">(SELECT <span class="number">1</span> FROM tableB WHERE title = <span class="string">'Analyst'</span> AND tableA.id = tableB.id)</span>;</div><div class="line"></div><div class="line">-- JOIN (INNER is the <span class="keyword">default</span> when only JOIN is specified)</div><div class="line">SELECT  *</div><div class="line">FROM    tableA</div><div class="line">JOIN    tableB</div><div class="line">    ON  tableA.id = tableB.id</div><div class="line">WHERE   tableB.title = <span class="string">'Analyst'</span>;</div></pre></td></tr></table></figure></p>
+<p>Basically, there are some differences:</p>
+<ul>
+<li>Subquery is more intuitive and relatively easy to understand.</li>
+<li>In most cases, EXISTS or JOIN will be much more efficient (and faster) than an IN statement.<br>&nbsp;</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/04/02/inner-join-and-outer-join/" itemprop="url">
                   inner join and outer join
                 </a>
@@ -1189,7 +1530,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/03/23/widen-cast-vs-narrow-cast/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/24/widen-cast-vs-narrow-cast/" itemprop="url">
                   widen cast vs. narrow cast
                 </a>
               
@@ -1233,8 +1574,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/03/23/widen-cast-vs-narrow-cast/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/23/widen-cast-vs-narrow-cast/" itemprop="commentsCount"></span>
+                <a href="/2015/03/24/widen-cast-vs-narrow-cast/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/24/widen-cast-vs-narrow-cast/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1308,7 +1649,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/03/23/string-class-text-formatting/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/24/string-class-text-formatting/" itemprop="url">
                   String class, text formatting
                 </a>
               
@@ -1352,8 +1693,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/03/23/string-class-text-formatting/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/23/string-class-text-formatting/" itemprop="commentsCount"></span>
+                <a href="/2015/03/24/string-class-text-formatting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/24/string-class-text-formatting/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1451,7 +1792,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/03/23/cloning-objects/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/24/cloning-objects/" itemprop="url">
                   cloning objects
                 </a>
               
@@ -1495,8 +1836,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/03/23/cloning-objects/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/23/cloning-objects/" itemprop="commentsCount"></span>
+                <a href="/2015/03/24/cloning-objects/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/24/cloning-objects/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -2310,295 +2651,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/19/immutable-objects/" itemprop="url">
-                  Immutable objects
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-03-19T16:54:45+08:00" content="2015-03-19">
-              2015-03-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Basics/" itemprop="url" rel="index">
-                    <span itemprop="name">Basics</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Basics/Best-Pricatice/" itemprop="url" rel="index">
-                    <span itemprop="name">Best Pricatice</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/19/immutable-objects/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/19/immutable-objects/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>An <a href="http://en.wikipedia.org/wiki/Immutable_object" title="immutable class" target="_blank" rel="external">immutable class</a> is one whose state can not be changed once created. There are certain guidelines to create an class immutable. In this post, we will revisit these guidelines.</p>
-<h3 id="Benefits-of-making-a-class-immutable"><a href="#Benefits-of-making-a-class-immutable" class="headerlink" title="Benefits of making a class immutable"></a>Benefits of making a class immutable</h3><p>Lets first identify benefits of making a class immutable. Immutable classes are</p>
-<ol>
-<li>are simple to construct, test, and use</li>
-<li>are automatically thread-safe and have no synchronization issues</li>
-<li>do not need a copy constructor</li>
-<li>do not need an implementation of clone</li>
-<li>allow <a href="http://howtodoinjava.com/2012/10/09/working-with-hashcode-and-equals-methods-in-java/" title="Working with hashCode and equals methods in java" target="_blank" rel="external">hashCode</a> to use lazy initialization, and to cache its return value</li>
-<li>do not need to be copied defensively when used as a field</li>
-<li>make good <a href="http://howtodoinjava.com/2012/10/09/how-hashmap-works-in-java/" title="How hashmap works in java" target="_blank" rel="external">Map keys and Set elements</a> (these objects must not change state while in the collection)</li>
-<li>have their class invariant established once upon construction, and it never needs to be checked again</li>
-<li>always have “<strong>failure atomicity</strong>” (a term used by Joshua Bloch) : if an immutable object throws an exception, it’s never left in an undesirable or indeterminate state</li>
-</ol>
-<h3 id="Guidelines-to-make-a-class-immutable"><a href="#Guidelines-to-make-a-class-immutable" class="headerlink" title="Guidelines to make a class immutable"></a>Guidelines to make a class immutable</h3><p>Java documentation itself has some guidelines identified <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html" title="immutable classes" target="_blank" rel="external">in this link</a>. We will understand what they mean actually:</p>
-<p><strong>1) Don’t provide “setter” methods — methods that modify fields or objects referred to by fields.</strong></p>
-<p>This principle says that for all mutable properties in your class, do not provide setter methods. Setter methods are meant to change the state of object and this is what we want to prevent here.</p>
-<p><strong>2) Make all fields final and private</strong></p>
-<p>This is another way to increase immutability. Fields declared private will not be accessible outside the class and making them final will ensure the even accidentally you can not change them.</p>
-<p><strong>3) Don’t allow subclasses to override methods</strong></p>
-<p>The simplest way to do this is to declare the class as <strong><em>final</em></strong>. Final classes in java can not be overridden.</p>
-<p><strong>4) Special attention when having mutable instance variables</strong></p>
-<p>Always remember that your instance variables will be either <strong>mutable or immutable</strong>. Identify them and <strong>return new objects with copied content for all mutable objects</strong>. Immutable variables can be returned safely without extra effort.</p>
-<p>A more sophisticated approach is to make the constructor <strong><em>private</em></strong> and construct instances in <strong>factory methods</strong>.</p>
-<p>A central idea of these rules is that you must ensure all the<strong> accessible objects in the object graph</strong> are immutable.</p>
-<p>&nbsp;</p>
-<p>Built-in library has many immutable classes:</p>
-<ul>
-<li>String</li>
-<li>Primitive wraper classes: Byte, Character, Short, Integer, Long, Float, Double</li>
-</ul>
-<h3 id="Collections-unmodifiableList-like-ISN’T-immutable"><a href="#Collections-unmodifiableList-like-ISN’T-immutable" class="headerlink" title="Collections.unmodifiableList(..) like ISN’T immutable"></a>Collections.unmodifiableList(..) like ISN’T immutable</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImmutableTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUnmodifiedCollectionImmutable</span><span class="params">()</span></span>&#123;                                                                                                                                                                                                                                    </div><div class="line">        List&amp;lt;String&amp;gt; list=<span class="keyword">new</span> ArrayList&amp;lt;String&amp;gt;();                                                                               </div><div class="line">        list.add(<span class="string">"a"</span>);                                                                                                           </div><div class="line">        list.add(<span class="string">"b"</span>);                                                                                                           </div><div class="line">        list.add(<span class="string">"c"</span>);</div><div class="line"></div><div class="line">        System.out.println(list);</div><div class="line"></div><div class="line">        List&amp;lt;String&amp;gt; unmodifiableList=Collections.unmodifiableList(list); </div><div class="line"></div><div class="line">        System.out.println(unmodifiableList);</div><div class="line"></div><div class="line">        List&amp;lt;String&amp;gt; unmodifiableList1=Collections.unmodifiableList(Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>)); </div><div class="line">        System.out.println(unmodifiableList1);</div><div class="line"></div><div class="line">        String temp=unmodifiableList.get(<span class="number">1</span>);</div><div class="line">        System.out.println(<span class="string">"unmodifiableList [0]："</span>+temp);</div><div class="line"></div><div class="line">        list.add(<span class="string">"baby"</span>);</div><div class="line">        System.out.println(<span class="string">"list add a item after list:"</span>+list);</div><div class="line">        System.out.println(<span class="string">"list add a item after unmodifiableList:"</span>+unmodifiableList);</div><div class="line"></div><div class="line">        unmodifiableList1.add(<span class="string">"bb"</span>);</div><div class="line">        System.out.println(<span class="string">"unmodifiableList add a item after list:"</span>+unmodifiableList1);</div><div class="line"></div><div class="line">        unmodifiableList.add(<span class="string">"cc"</span>);</div><div class="line">        System.out.println(<span class="string">"unmodifiableList add a item after list:"</span>+unmodifiableList);        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Output:<br>[a, b, c]<br>[a, b, c]<br>[a, b, c]<br>unmodifiableList [0]：b<br>list add a item after list:[a, b, c, baby]<br>list add a item after unmodifiableList1:[a, b, c, baby]</p>
-<p>From the above example, you can see unmodifiableList is not immutable. It will change if the underlying List is changed.</p>
-<p>So the correct usage of unmodified List is like:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List list = Collections.unmodifiableList(Arrays.asList(<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>);</div></pre></td></tr></table></figure></p>
-<p>or<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List list = <span class="keyword">new</span> ArrayList();</div><div class="line">list.add(<span class="string">"1"</span>);</div><div class="line">list.add(<span class="number">2</span>);</div><div class="line">list.add(<span class="string">"333"</span>);</div><div class="line">list = Collections.unmodifiableList(list);</div></pre></td></tr></table></figure></p>
-<p>Never expose the underlying list reference to anything, so the best way is passing an argument and initialization in place.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/19/stringsubstring-implementation/" itemprop="url">
-                  String#substring(..) implementation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-03-19T15:22:01+08:00" content="2015-03-19">
-              2015-03-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Basics/" itemprop="url" rel="index">
-                    <span itemprop="name">Basics</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/19/stringsubstring-implementation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/19/stringsubstring-implementation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>I heard that in new version of JDK (&gt;JDK7u5), substring implementation is changed.</p>
-<p>In the past, substring() don’t copy the specified character string but share the inherent character array reference with the original String. In this case, String substring can result in retaining more memory than you might expect. As such it’s not a memory leak as this memory can be recovered normally (potential memory leak).</p>
-<p>But note <em><strong>this behaviour has changed as of Java 7u6.</strong></em></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2644,7 +2696,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -2745,7 +2797,7 @@
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

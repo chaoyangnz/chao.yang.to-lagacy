@@ -374,6 +374,714 @@
             
               
                 
+                <a class="post-title-link" href="/2015/04/23/what-does-0-0-0-0-mean/" itemprop="url">
+                  what does 0.0.0.0 mean?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-22T22:46:26+08:00" content="2015-04-22">
+              2015-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Q-A/" itemprop="url" rel="index">
+                    <span itemprop="name">Q/A</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/23/what-does-0-0-0-0-mean/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/23/what-does-0-0-0-0-mean/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>0.0.0.0, in server context, means “<strong>all IP addresses on the local machine</strong>“ (in fact probably, “all IPv4 addresses on the local machine”). So, if your webserver machine has two ip addresses, 192.168.1.1 and 10.1.2.1, and you allow a webserver daemon like apache to listen on 0.0.0.0, it will be reachable at both of those IPs. But only to what can contact those IPs and the web port(s).</p>
+<p>The only thing is that you cannot say “<strong><del>all addresses should have acces<em>s</em></del></strong>“ – that’s done in your firewall(s) and/or the server software and/or other security layers like tcpwrappers.</p>
+<p>&nbsp;</p>
+<p>Note that, in a different context (routing) 0.0.0.0 usually means the default route (the route to “the rest of” the internet, aside from routes in your local network etc.).</p>
+<p>&nbsp;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/22/algorithm-training-from-codility/" itemprop="url">
+                  algorithm training from codility
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-22T15:00:22+08:00" content="2015-04-22">
+              2015-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/22/algorithm-training-from-codility/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/22/algorithm-training-from-codility/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="TRAINING"><a href="#TRAINING" class="headerlink" title="TRAINING"></a>TRAINING</h3><h4 id="counting-elements"><a href="#counting-elements" class="headerlink" title="counting elements"></a>counting elements</h4><p>When every value of the element in a numeric array is in range. We can get a counter array of which the index of every element is the value and the value is the counter.</p>
+<p><img src="/media/counter-array.png" alt="counter-array"></p>
+<h4 id="Prefix-Sums"><a href="#Prefix-Sums" class="headerlink" title="Prefix Sums"></a>Prefix Sums</h4><p>Prefix sums array defines as:</p>
+<p><img src="/media/prefix-sums-array.png" alt="prefix-sums-array"></p>
+<p>So prefix sums array is very useful to compute the sum of any array slice (contiguous segments of array).</p>
+<p>For example:</p>
+<p>sum(a<sub>2</sub>…a<sub>5</sub>) = p<sub>6</sub> - p<sub>2</sub></p>
+<ul>
+<li><p><strong>minimum sum of slice</strong><br>sort the prefix sum, and find the minimum difference between neighbor elements.</p>
+</li>
+<li><p><strong>maximum sum of slice</strong><br>the difference between the max and min of the prefix sum.</p>
+</li>
+</ul>
+<h4 id="leader"><a href="#leader" class="headerlink" title="leader"></a>leader</h4><p>The leader of this sequence is the element whose value occurs more than n/2 times.The array can have zero or only one leader.</p>
+<p><img src="/media/leader.png" alt="leader"></p>
+<p>A property is:</p>
+<p>After removing a pair of elements of different values, the leader remain the same.</p>
+<p>Let’s validate it:</p>
+<ul>
+<li>if the two elements contain one leader, then the original leader occurs &gt; n/2 - 1 = (n-2)/2 in the left (n-2) elements, so it’s still the leader of the rest.</li>
+<li>if the two elements contain no leader, then the original leader occurs &gt; n/2 = (n-2)/2 +1 &gt; (n-2)/2 in the left elements, so it’s still the leader of the rest.<br><img src="/media/leader-1.png" alt="leader-1">           or    <img src="/media/leader-2.png" alt="leader-2"></li>
+</ul>
+<p>So we loop the array, and every time we remove a pair of elements, if the two equals, we reserve; if not, we remove safely.</p>
+<p>The left elements MUST be all the same. But they are just candidate. We need to validate in the original elements.</p>
+<p>This algorithm is O(n).</p>
+<p><img src="/media/leader-3.png" alt="leader-3"><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Leader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">leader</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> N = a.length;</div><div class="line">        <span class="keyword">int</span> size = <span class="number">0</span>; <span class="comment">// stack size</span></div><div class="line">        <span class="keyword">int</span> top = -<span class="number">1</span>; <span class="comment">// top value</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(size == <span class="number">0</span>) &#123;</div><div class="line">                size += <span class="number">1</span>;</div><div class="line">                top = a[i];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span>(top != a[i]) &#123;</div><div class="line">                    size -= <span class="number">1</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    size += <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> cadidate = top;</div><div class="line"></div><div class="line">        <span class="comment">// validation</span></div><div class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(a[i] == cadidate) &#123;</div><div class="line">                count++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (count &amp;gt; N/<span class="number">2</span>) ? cadidate : -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] a = &#123;<span class="number">4</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">5</span>&#125;;</div><div class="line"></div><div class="line">        System.out.println(leader(a));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="prime-and-composite-numbers"><a href="#prime-and-composite-numbers" class="headerlink" title="prime and composite numbers"></a>prime and composite numbers</h4><p>This kind of algorithm is based on one divisor, we can find the <span style="text-decoration: underline;"><strong>symmetric</strong></span> divisor.</p>
+<h5 id="counting-divisors"><a href="#counting-divisors" class="headerlink" title="counting divisors"></a>counting divisors</h5><p><img src="/media/counting-divisors.png" alt="counting-divisors"></p>
+<p>for 1 to<span style="font-family: 'comic sans ms', sans-serif;"> √n<span style="font-family: arial, helvetica, sans-serif;">, divide and count it.</span></span></p>
+<h5 id="Primality-test"><a href="#Primality-test" class="headerlink" title="Primality test"></a>Primality test</h5><p>for 2 to <span style="font-family: 'comic sans ms', sans-serif;">√n</span>, divide and check it.</p>
+<h5 id="Sieve-of-Eratosthenes"><a href="#Sieve-of-Eratosthenes" class="headerlink" title="Sieve of Eratosthenes"></a>Sieve of Eratosthenes</h5><h4 id="Caterpillar-method"><a href="#Caterpillar-method" class="headerlink" title="Caterpillar method"></a>Caterpillar method</h4><p><img src="/media/caterpillar.png" alt="caterpillar">   <img src="/media/caterpillar-image.png" alt="caterpillar-image"></p>
+<p>This idea is a reminiscent of movements of a caterpillar (毛虫).</p>
+<ul>
+<li>if we can, we move the right end (front) forward and increase the size of the caterpillar;</li>
+<li>otherwise, we move the left end (back) forward and decrease the size of the caterpillar.</li>
+</ul>
+<h4 id="Greedy-algorithms"><a href="#Greedy-algorithms" class="headerlink" title="Greedy algorithms"></a>Greedy algorithms</h4><p>Greedy programming is a method by which a solution is determined based on making the locally optimal choice at any given moment.</p>
+<p>The greedy method of solving a task may or may not be the best approach</p>
+<h3 id="PROBLEM-SET"><a href="#PROBLEM-SET" class="headerlink" title="PROBLEM SET"></a>PROBLEM SET</h3><p><a href="http://www.martinkysel.com/codility-solutions/" target="_blank" rel="external">http://www.martinkysel.com/codility-solutions/</a></p>
+<h4 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h4><h5 id="TapeEquilibrium"><a href="#TapeEquilibrium" class="headerlink" title="TapeEquilibrium"></a><a href="https://codility.com/demo/take-sample-test/tape_equilibrium" target="_blank" rel="external">TapeEquilibrium</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Minimize the value |(A[0] + … + A[P-1]) – (A[P] + … + A[N-1])|.</p>
+<p><strong>Complexity</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>In the first run I compute the left part up to the point i and the overall sum <em>last</em>. Then I compute the minimal difference between 0..i and i+1..n.</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> TapeEquilibrium;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A non-empty zero-indexed array A consisting of N integers is given. Array A represents numbers on a tape.</div><div class="line"></div><div class="line">Any integer P, such that 0 &amp;lt; P &amp;lt; N, splits this tape into two non-empty parts: A[0], A[1], ..., A[P − 1] and A[P], A[P + 1], ..., A[N − 1].</div><div class="line"></div><div class="line">The difference between the two parts is the value of: |(A[0] + A[1] + ... + A[P − 1]) − (A[P] + A[P + 1] + ... + A[N − 1])|</div><div class="line"></div><div class="line">In other words, it is the absolute difference between the sum of the first part and the sum of the second part.</div><div class="line"></div><div class="line">For example, consider array A such that:</div><div class="line"></div><div class="line">  A[0] = 3</div><div class="line">  A[1] = 1</div><div class="line">  A[2] = 2</div><div class="line">  A[3] = 4</div><div class="line">  A[4] = 3</div><div class="line">We can split this tape in four places:</div><div class="line"></div><div class="line">P = 1, difference = |3 − 10| = 7</div><div class="line">P = 2, difference = |4 − 9| = 5</div><div class="line">P = 3, difference = |6 − 7| = 1</div><div class="line">P = 4, difference = |10 − 3| = 7</div><div class="line">Write a function:</div><div class="line"></div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line"></div><div class="line">that, given a non-empty zero-indexed array A of N integers, returns the minimal difference that can be achieved.</div><div class="line"></div><div class="line">For example, given:</div><div class="line"></div><div class="line">  A[0] = 3</div><div class="line">  A[1] = 1</div><div class="line">  A[2] = 2</div><div class="line">  A[3] = 4</div><div class="line">  A[4] = 3</div><div class="line">the function should return 1, as explained above.</div><div class="line"></div><div class="line">Assume that:</div><div class="line"></div><div class="line">N is an integer within the range [2..100,000];</div><div class="line">each element of array A is an integer within the range [−1,000..1,000].</div><div class="line">Complexity:</div><div class="line"></div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</div><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">int</span> N = A.length;</div><div class="line">        <span class="keyword">long</span> sum = <span class="number">0L</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            sum += A[i];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">long</span> diff = Long.MAX_VALUE;</div><div class="line"></div><div class="line">        <span class="keyword">long</span>[] p = <span class="keyword">new</span> <span class="keyword">long</span>[N];</div><div class="line">        p[<span class="number">0</span>] = <span class="number">0L</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            p[i] = p[i-<span class="number">1</span>] + A[i-<span class="number">1</span>];</div><div class="line"></div><div class="line">            <span class="comment">//System.out.println(p[i]);</span></div><div class="line"></div><div class="line">            diff = min(diff, abs(<span class="number">2</span>*p[i] - sum));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)diff;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-------------------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>&#125;;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> result = solution(A);</div><div class="line">        assertEquals(<span class="number">1</span>, result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="FrogJmp"><a href="#FrogJmp" class="headerlink" title="FrogJmp"></a><a href="https://codility.com/demo/take-sample-test/frog_jmp" target="_blank" rel="external">FrogJmp</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count minimal number of jumps from position X to Y.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(1);</li>
+<li>expected worst-case space complexity is O(1).<br><strong>Execution:</strong></li>
+</ul>
+<p>Do not use float division if possible!</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> FrogJmp;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A small frog wants to get to the other side of the road. The frog is currently located at position X and wants to get to a position greater than or equal to Y. The small frog always jumps a fixed distance, D.</div><div class="line">Count the minimal number of jumps that the small frog must perform to reach its target.</div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int solution(int X, int Y, int D); &#125;</div><div class="line">that, given three integers X, Y and D, returns the minimal number of jumps from position X to a position equal to or greater than Y.</div><div class="line">For example, given:</div><div class="line">  X = 10</div><div class="line">  Y = 85</div><div class="line">  D = 30</div><div class="line">the function should return 3, because the frog will be positioned as follows:</div><div class="line">after the first jump, at position 10 + 30 = 40</div><div class="line">after the second jump, at position 10 + 30 + 30 = 70</div><div class="line">after the third jump, at position 10 + 30 + 30 + 30 = 100</div><div class="line">Assume that:</div><div class="line">X, Y and D are integers within the range [1..1,000,000,000];</div><div class="line">X ≤ Y.</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(1);</div><div class="line">expected worst-case space complexity is O(1).</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> X, <span class="keyword">int</span> Y, <span class="keyword">int</span> D)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">int</span> count = (Y-X) / D;</div><div class="line">        <span class="keyword">int</span> left = (Y-X) % D;</div><div class="line">        <span class="keyword">return</span> left == <span class="number">0</span> ? count : count+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-------------------------------------------------</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> Random rdm = <span class="keyword">new</span> Random();</div><div class="line">    <span class="keyword">private</span> BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</div><div class="line"></div><div class="line">    <span class="comment">// [from, to)</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> rdm.nextInt(to - from) + from;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// A[0]...A[n-1]</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = random(<span class="number">0</span>, A.length);</div><div class="line">        <span class="keyword">return</span> A[index];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">0</span>, Y = <span class="number">20</span>, D = <span class="number">19</span>;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">2</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, Y, D);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">0</span>, Y = <span class="number">20</span>, D = <span class="number">20</span>;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, Y, D);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">0</span>, Y = <span class="number">20</span>, D = <span class="number">21</span>;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, Y, D);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">10</span>, Y = <span class="number">85</span>, D = <span class="number">30</span>;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">3</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, Y, D);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="PermMissingElem"><a href="#PermMissingElem" class="headerlink" title="PermMissingElem"></a><a href="https://codility.com/demo/take-sample-test/perm_missing_elem" target="_blank" rel="external">PermMissingElem</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the missing element in a given permutation.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Sum all elements that should be in the list and sum all elements that actually are in the list. The sum is 0 based, so +1 is required. The first solution using the + operator can cause int overflow in not-python languages. Therefore the use of a binary XOR is adequate.</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> PermMissingElem;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A zero-indexed array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], which means that exactly one element is missing.</div><div class="line">Your goal is to find that missing element.</div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line">that, given a zero-indexed array A, returns the value of the missing element.</div><div class="line">For example, given array A such that:</div><div class="line">  A[0] = 2</div><div class="line">  A[1] = 3</div><div class="line">  A[2] = 1</div><div class="line">  A[3] = 5</div><div class="line">the function should return 4, as it is the missing element.</div><div class="line">Assume that:</div><div class="line">N is an integer within the range [0..100,000];</div><div class="line">the elements of A are all distinct;</div><div class="line">each element of array A is an integer within the range [1..(N + 1)].</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">long</span> N = A.length;</div><div class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            sum += A[i];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">long</span> missing = (<span class="number">1</span>+(N+<span class="number">1</span>)) * (N+<span class="number">1</span>) /<span class="number">2</span> - sum;</div><div class="line"></div><div class="line">        <span class="keyword">return</span>  (<span class="keyword">int</span>) missing;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------test------------------------------------------------</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> N = <span class="number">100001</span>;</div><div class="line">        <span class="keyword">int</span> a = (<span class="number">1</span>+(N+<span class="number">1</span>)) * (N+<span class="number">1</span>) /<span class="number">2</span>;</div><div class="line">        System.out.println(a);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100000</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; <span class="number">100000</span>; ++i) &#123;</div><div class="line">            A[i] = i+<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        A[<span class="number">0</span>] = <span class="number">100001</span>;</div><div class="line">        System.out.println(A[<span class="number">100000</span>-<span class="number">1</span>]);</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line">        System.out.println(actual);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Counting-Elements"><a href="#Counting-Elements" class="headerlink" title="Counting Elements"></a>Counting Elements</h4><h5 id="PermCheck"><a href="#PermCheck" class="headerlink" title="PermCheck"></a><a href="https://codility.com/demo/take-sample-test/perm_check" target="_blank" rel="external">PermCheck</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Check whether array N is a permutation.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Mark elements as seen in a boolean array. Elements seen twice or out of bounds of the size indicate that the list is no permutation. The check if the boolean array only contains true elements is not required. This solution only works with permutations starting from 1.</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> PermCheck;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A non-empty zero-indexed array A consisting of N integers is given.</div><div class="line">A permutation is a sequence containing each element from 1 to N once, and only once.</div><div class="line">For example, array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 1</div><div class="line">    A[2] = 3</div><div class="line">    A[3] = 2</div><div class="line">is a permutation, but array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 1</div><div class="line">    A[2] = 3</div><div class="line">is not a permutation, because value 2 is missing.</div><div class="line">The goal is to check whether array A is a permutation.</div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line">that, given a zero-indexed array A, returns 1 if array A is a permutation and 0 if it is not.</div><div class="line">For example, given array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 1</div><div class="line">    A[2] = 3</div><div class="line">    A[3] = 2</div><div class="line">the function should return 1.</div><div class="line">Given array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 1</div><div class="line">    A[2] = 3</div><div class="line">the function should return 0.</div><div class="line">Assume that:</div><div class="line">N is an integer within the range [1..100,000];</div><div class="line">each element of array A is an integer within the range [1..1,000,000,000].</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = A.length;</div><div class="line">        <span class="keyword">int</span>[] seen = <span class="keyword">new</span> <span class="keyword">int</span>[N + <span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(A[i] &amp;gt; N) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// exceeding the range</span></div><div class="line">            seen[A[i]]++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt; N+<span class="number">1</span>; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(seen[i] != <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// seen many times</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="FrogRiverOne"><a href="#FrogRiverOne" class="headerlink" title="FrogRiverOne"></a><a href="https://codility.com/demo/take-sample-test/frog_river_one" target="_blank" rel="external">FrogRiverOne</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the earliest time when a frog can jump to the other side of a river.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(X)<br><strong>Execution:</strong></li>
+</ul>
+<p>Mark seen elements as such in a boolean array. I do not like the idea of returning the first second as 0. But specifications are specifications</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> FrogRiverOne;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A small frog wants to get to the other side of a river. The frog is currently located at position 0, and wants to get to position X. Leaves fall from a tree onto the surface of the river.</div><div class="line"></div><div class="line">You are given a non-empty zero-indexed array A consisting of N integers representing the falling leaves. A[K] represents the position where one leaf falls at time K, measured in minutes.</div><div class="line"></div><div class="line">The goal is to find the earliest time when the frog can jump to the other side of the river. The frog can cross only when leaves appear at every position across the river from 1 to X.</div><div class="line"></div><div class="line">For example, you are given integer X = 5 and array A such that:</div><div class="line"></div><div class="line">  A[0] = 1</div><div class="line">  A[1] = 3</div><div class="line">  A[2] = 1</div><div class="line">  A[3] = 4</div><div class="line">  A[4] = 2</div><div class="line">  A[5] = 3</div><div class="line">  A[6] = 5</div><div class="line">  A[7] = 4</div><div class="line">In minute 6, a leaf falls into position 5\. This is the earliest time when leaves appear in every position across the river.</div><div class="line"></div><div class="line">Write a function:</div><div class="line"></div><div class="line">class Solution &#123; public int solution(int X, int[] A); &#125;</div><div class="line"></div><div class="line">that, given a non-empty zero-indexed array A consisting of N integers and integer X, returns the earliest time when the frog can jump to the other side of the river.</div><div class="line"></div><div class="line">If the frog is never able to jump to the other side of the river, the function should return −1.</div><div class="line"></div><div class="line">For example, given X = 5 and array A such that:</div><div class="line"></div><div class="line">  A[0] = 1</div><div class="line">  A[1] = 3</div><div class="line">  A[2] = 1</div><div class="line">  A[3] = 4</div><div class="line">  A[4] = 2</div><div class="line">  A[5] = 3</div><div class="line">  A[6] = 5</div><div class="line">  A[7] = 4</div><div class="line">the function should return 6, as explained above.</div><div class="line"></div><div class="line">Assume that:</div><div class="line"></div><div class="line">N and X are integers within the range [1..100,000];</div><div class="line">each element of array A is an integer within the range [1..X].</div><div class="line">Complexity:</div><div class="line"></div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(X), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> X, <span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = A.length;</div><div class="line">        <span class="keyword">boolean</span>[] seen = <span class="keyword">new</span> <span class="keyword">boolean</span>[X+<span class="number">1</span>]; <span class="comment">// [0] ignore</span></div><div class="line">        Arrays.fill(seen, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">int</span> has_seen = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(seen[A[i]] == <span class="keyword">false</span>) &#123;</div><div class="line">                seen[A[i]] = <span class="keyword">true</span>;</div><div class="line">                has_seen++;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(has_seen == X) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">6</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> X = <span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">7</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(X, A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="MaxCounters"><a href="#MaxCounters" class="headerlink" title="MaxCounters"></a><a href="https://codility.com/demo/take-sample-test/max_counters" target="_blank" rel="external">MaxCounters</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N+M);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>The idea is to perform the specified operation as stated. It is not required to iterate over the whole array if a new value is set for all the values. Just save the value and check it when an increase on that position is performed.</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> MaxCounters;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">You are given N counters, initially set to 0, and you have two possible operations on them:</div><div class="line">increase(X) − counter X is increased by 1,</div><div class="line">max counter − all counters are set to the maximum value of any counter.</div><div class="line">A non-empty zero-indexed array A of M integers is given. This array represents consecutive operations:</div><div class="line">if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),</div><div class="line">if A[K] = N + 1 then operation K is max counter.</div><div class="line">For example, given integer N = 5 and array A such that:</div><div class="line">    A[0] = 3</div><div class="line">    A[1] = 4</div><div class="line">    A[2] = 4</div><div class="line">    A[3] = 6</div><div class="line">    A[4] = 1</div><div class="line">    A[5] = 4</div><div class="line">    A[6] = 4</div><div class="line">the values of the counters after each consecutive operation will be:</div><div class="line">    (0, 0, 1, 0, 0)</div><div class="line">    (0, 0, 1, 1, 0)</div><div class="line">    (0, 0, 1, 2, 0)</div><div class="line">    (2, 2, 2, 2, 2)</div><div class="line">    (3, 2, 2, 2, 2)</div><div class="line">    (3, 2, 2, 3, 2)</div><div class="line">    (3, 2, 2, 4, 2)</div><div class="line">The goal is to calculate the value of every counter after all operations.</div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int[] solution(int N, int[] A); &#125;</div><div class="line">that, given an integer N and a non-empty zero-indexed array A consisting of M integers, returns a sequence of integers representing the values of the counters.</div><div class="line">The sequence should be returned as:</div><div class="line">a structure Results (in C), or</div><div class="line">a vector of integers (in C++), or</div><div class="line">a record Results (in Pascal), or</div><div class="line">an array of integers (in any other programming language).</div><div class="line">For example, given:</div><div class="line">    A[0] = 3</div><div class="line">    A[1] = 4</div><div class="line">    A[2] = 4</div><div class="line">    A[3] = 6</div><div class="line">    A[4] = 1</div><div class="line">    A[5] = 4</div><div class="line">    A[6] = 4</div><div class="line">the function should return [3, 2, 2, 4, 2], as explained above.</div><div class="line">Assume that:</div><div class="line">N and M are integers within the range [1..100,000];</div><div class="line">each element of array A is an integer within the range [1..N + 1].</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(N+M);</div><div class="line">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] solution(<span class="keyword">int</span> N, <span class="keyword">int</span>[] A) &#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> M = A.length;</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] counters = <span class="keyword">new</span> <span class="keyword">int</span>[N];</div><div class="line">        <span class="keyword">int</span> current_max = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> baseline = <span class="number">0</span>; <span class="comment">// new starting point</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &amp;lt; M; ++k) &#123;</div><div class="line">            <span class="keyword">if</span>(A[k] &amp;lt;= N) &#123;</div><div class="line">                counters[A[k]-<span class="number">1</span>] = Math.max(counters[A[k]-<span class="number">1</span>], baseline);</div><div class="line">                counters[A[k]-<span class="number">1</span>]++;</div><div class="line">                current_max = Math.max(counters[A[k]-<span class="number">1</span>], current_max);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                baseline = current_max;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            counters[i] = Math.max(counters[i], baseline);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> counters;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> N = <span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>&#125;;</div><div class="line">        <span class="keyword">int</span>[] expected = &#123;<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">2</span>&#125;;</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] actual = solution(N, A);</div><div class="line"></div><div class="line">        assertArrayEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="MissingInteger"><a href="#MissingInteger" class="headerlink" title="MissingInteger"></a><a href="https://codility.com/demo/take-sample-test/missing_integer" target="_blank" rel="external">MissingInteger</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the minimal positive integer not occurring in a given sequence.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>You only need to consider the first (N) positive integers. In this specification 0 does not count as a valid candidate! Any value that is below 1 or above N can be ignored.</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> MissingInteger;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line">that, given a non-empty zero-indexed array A of N integers, returns the minimal positive integer that does not occur in A.</div><div class="line">For example, given:</div><div class="line">  A[0] = 1</div><div class="line">  A[1] = 3</div><div class="line">  A[2] = 6</div><div class="line">  A[3] = 4</div><div class="line">  A[4] = 1</div><div class="line">  A[5] = 2</div><div class="line">the function should return 5.</div><div class="line">Assume that:</div><div class="line">N is an integer within the range [1..100,000];</div><div class="line">each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = A.length;</div><div class="line">        <span class="keyword">boolean</span>[] seen = <span class="keyword">new</span> <span class="keyword">boolean</span>[N+<span class="number">1</span>]; <span class="comment">// [0] ignored</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(A[i] &amp;gt; <span class="number">0</span> &amp;amp;&amp;amp; A[i] &amp;lt;= N) &#123;</div><div class="line">                seen[A[i]] = <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt; N+<span class="number">1</span>; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(seen[i] == <span class="keyword">false</span>) <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> N+<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">5</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;-<span class="number">2</span>, <span class="number">29</span>, -<span class="number">9</span>, <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Prefix-Sums-1"><a href="#Prefix-Sums-1" class="headerlink" title="Prefix Sums"></a>Prefix Sums</h4><h5 id="PassingCars"><a href="#PassingCars" class="headerlink" title="PassingCars"></a><a href="https://codility.com/demo/take-sample-test/passing_cars" target="_blank" rel="external">PassingCars</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the number of passing cars on the road.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Count all cars heading in one direction (west). Each car heading the other direction (east) passes all cars that went west so far. Note that east cars at the beginning of the list pass no cars! Also do not forget the upper limit!</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> PassingCars;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A non-empty zero-indexed array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.</div><div class="line"></div><div class="line">Array A contains only 0s and/or 1s:</div><div class="line"></div><div class="line">0 represents a car traveling east,</div><div class="line">1 represents a car traveling west.</div><div class="line">The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P &amp;lt; Q &amp;lt; N, is passing when P is traveling to the east and Q is traveling to the west.</div><div class="line"></div><div class="line">For example, consider array A such that:</div><div class="line"></div><div class="line">  A[0] = 0</div><div class="line">  A[1] = 1</div><div class="line">  A[2] = 0</div><div class="line">  A[3] = 1</div><div class="line">  A[4] = 1</div><div class="line">We have five pairs of passing cars: (0, 1), (0, 3), (0, 4), (2, 3), (2, 4).</div><div class="line"></div><div class="line">Write a function:</div><div class="line"></div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line"></div><div class="line">that, given a non-empty zero-indexed array A of N integers, returns the number of pairs of passing cars.</div><div class="line"></div><div class="line">The function should return −1 if the number of pairs of passing cars exceeds 1,000,000,000.</div><div class="line"></div><div class="line">For example, given:</div><div class="line"></div><div class="line">  A[0] = 0</div><div class="line">  A[1] = 1</div><div class="line">  A[2] = 0</div><div class="line">  A[3] = 1</div><div class="line">  A[4] = 1</div><div class="line">the function should return 5, as explained above.</div><div class="line"></div><div class="line">Assume that:</div><div class="line"></div><div class="line">N is an integer within the range [1..100,000];</div><div class="line">each element of array A is an integer that can have one of the following values: 0, 1.</div><div class="line">Complexity:</div><div class="line"></div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = A.length;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> east_cars = <span class="number">0</span>; <span class="comment">//before current, how many cars head east?</span></div><div class="line">        <span class="keyword">int</span> cnt_passing = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(A[i] == <span class="number">0</span>) &#123;</div><div class="line">                east_cars++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                cnt_passing += east_cars;</div><div class="line">                <span class="keyword">if</span>(cnt_passing &amp;gt; <span class="number">1000000000</span>) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> cnt_passing;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">5</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="GenomicRangeQuery"><a href="#GenomicRangeQuery" class="headerlink" title="GenomicRangeQuery"></a><a href="https://codility.com/demo/take-sample-test/genomic_range_query" target="_blank" rel="external">GenomicRangeQuery</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the minimal nucleotide from a range of sequence DNA.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N+M);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Remember the last position on which was the genome (A, C, G, T) was seen. If the distance between Q and P is lower than the distance to the last seen genome, we have found the right candidate.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MinAvgTwoSlice"><a href="#MinAvgTwoSlice" class="headerlink" title="MinAvgTwoSlice"></a><a href="https://codility.com/demo/take-sample-test/min_avg_two_slice" target="_blank" rel="external">MinAvgTwoSlice</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the minimal average of any slice containing at least two elements.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Every slice must be of size two or three. Slices of bigger sizes are created from such smaller slices. Therefore should any bigger slice have an optimal value, all sub-slices must be the same, for this case to hold true. Should this not be true, one of the sub-slices must be the optimal slice. The others being bigger. Therefore we check all possible slices of size 2/3 and return the smallest one. The first such slice is the correct one, do not use &lt;=!</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> MinAvgTwoSlice;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">A non-empty zero-indexed array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P &amp;lt; Q &amp;lt; N, is called a slice of array A (notice that the slice contains at least two elements). The average of a slice (P, Q) is the sum of A[P] + A[P + 1] + ... + A[Q] divided by the length of the slice. To be precise, the average equals (A[P] + A[P + 1] + ... + A[Q]) / (Q − P + 1).</div><div class="line">For example, array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 2</div><div class="line">    A[2] = 2</div><div class="line">    A[3] = 5</div><div class="line">    A[4] = 1</div><div class="line">    A[5] = 5</div><div class="line">    A[6] = 8</div><div class="line">contains the following example slices:</div><div class="line">slice (1, 2), whose average is (2 + 2) / 2 = 2;</div><div class="line">slice (3, 4), whose average is (5 + 1) / 2 = 3;</div><div class="line">slice (1, 4), whose average is (2 + 2 + 5 + 1) / 4 = 2.5.</div><div class="line">The goal is to find the starting position of a slice whose average is minimal.</div><div class="line">Write a function:</div><div class="line">class Solution &#123; public int solution(int[] A); &#125;</div><div class="line">that, given a non-empty zero-indexed array A consisting of N integers, returns the starting position of the slice with the minimal average. If there is more than one slice with a minimal average, you should return the smallest starting position of such a slice.</div><div class="line">For example, given array A such that:</div><div class="line">    A[0] = 4</div><div class="line">    A[1] = 2</div><div class="line">    A[2] = 2</div><div class="line">    A[3] = 5</div><div class="line">    A[4] = 1</div><div class="line">    A[5] = 5</div><div class="line">    A[6] = 8</div><div class="line">the function should return 1, as explained above.</div><div class="line">Assume that:</div><div class="line">N is an integer within the range [2..100,000];</div><div class="line">each element of array A is an integer within the range [−10,000..10,000].</div><div class="line">Complexity:</div><div class="line">expected worst-case time complexity is O(N);</div><div class="line">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).</div><div class="line">Elements of input arrays can be modified.</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">// you can also use imports, for example:</span></div><div class="line"><span class="comment">// import java.util.*;</span></div><div class="line"></div><div class="line"><span class="comment">// you can use System.out.println for debugging purposes, e.g.</span></div><div class="line"><span class="comment">// System.out.println("this is a debug message");</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code in Java SE 8</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> N = A.length;</div><div class="line">        <span class="keyword">int</span> min_start_index = <span class="number">0</span>;</div><div class="line">        <span class="keyword">double</span> min_average = Integer.MAX_VALUE;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; N-<span class="number">1</span>; ++i) &#123;</div><div class="line">            <span class="keyword">double</span> avg = (A[i] + A[i+<span class="number">1</span>]) / <span class="number">2.0</span>;</div><div class="line">            <span class="keyword">if</span>(avg &amp;lt; min_average) &#123;</div><div class="line">                min_start_index = i;</div><div class="line">                min_average = avg;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(i+<span class="number">2</span> &amp;lt; N) &#123;</div><div class="line">                avg = (A[i] + A[i+<span class="number">1</span>] + A[i+<span class="number">2</span>]) / <span class="number">3.0</span>;</div><div class="line">                <span class="keyword">if</span>(avg &amp;lt; min_average) &#123;</div><div class="line">                    min_start_index = i;</div><div class="line">                    min_average = avg;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> min_start_index;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//-----------------------test------------------------------------</span></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] A = &#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>&#125;;</div><div class="line">        <span class="keyword">int</span> expected = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> actual = solution(A);</div><div class="line"></div><div class="line">        assertEquals(expected, actual);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&nbsp;</p>
+<h5 id="CountDiv"><a href="#CountDiv" class="headerlink" title="CountDiv"></a><a href="https://codility.com/demo/take-sample-test/count_div" target="_blank" rel="external">CountDiv</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Compute number of integers divisible by k in range [a..b].</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(1);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>This little check required a bit of experimentation. One needs to start from the first valid value that is bigger than A and a multiply of K.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h4><h5 id="Triangle"><a href="#Triangle" class="headerlink" title="Triangle"></a><a href="https://codility.com/demo/take-sample-test/triangle" target="_blank" rel="external">Triangle</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Determine whether a triangle can be built from a given set of edges.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>By sorting the array, we have guaranteed that P+R &lt; Q and Q+R &lt; P (because R is always the biggest). Now what remains, is the proof that P+Q &gt; R, that can be found out by traversing the array. The chance to find such a combination is with three adjacent values as they provide the highest P and Q.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="Distinct"><a href="#Distinct" class="headerlink" title="Distinct "></a><a href="https://codility.com/demo/take-sample-test/distinct" target="_blank" rel="external">Distinct </a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Compute number of distinct values in an array.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N * log(N));</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Sorting in both C++ and Python takes N log N time. We know that for this particular problem sorting the array will be the dominant runtime complexity. This is the case for the second python solution. What about the other ones?</p>
+<p>The first solution is a neat pythonic way of solving a distinct entries problem. The set is implemented as a hash table so it is possible that it will degrade to a linked list. Therefore the actual worst case would be N^2.</p>
+<p>This is not the case with C++ (as code 3 shows). The std set is a Red-Black Tree and therefore has insertion complexity of log N. (overall N log N)</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MaxProductOfThree"><a href="#MaxProductOfThree" class="headerlink" title="MaxProductOfThree"></a><a href="https://codility.com/demo/take-sample-test/max_product_of_three" target="_blank" rel="external">MaxProductOfThree</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Maximize A[P] <em> A[Q] </em> A[R] for any triplet (P, Q, R).</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>After sorting the largest product can be found as a combination of the last three elements. Additionally, two negative numbers add to a positive, so by multiplying the two largest negatives with the largest positive, we get another candidate. If all numbers are negative, the three largest (closest to 0) still get the largest element!</p>
+<p><strong>Solution:</strong></p>
+<h5 id="NumberOfDiscIntersections"><a href="#NumberOfDiscIntersections" class="headerlink" title="NumberOfDiscIntersections"></a>NumberOfDiscIntersections</h5><h4 id="Stacks-and-Queues"><a href="#Stacks-and-Queues" class="headerlink" title="Stacks and Queues"></a>Stacks and Queues</h4><h5 id="Brackets"><a href="#Brackets" class="headerlink" title="Brackets"></a><a href="https://codility.com/demo/take-sample-test/brackets" target="_blank" rel="external">Brackets</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Determine whether a given string of parentheses is properly nested.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Put every opening bracket on a stack. If a closing bracket is not the same as the top stack bracket, the string is not properly nested.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="Nesting"><a href="#Nesting" class="headerlink" title="Nesting"></a><span style="text-decoration: underline;">Nesting</span></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Determine whether given string of parentheses is properly nested.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Because there is only one type of brackets, the problem is easier than <a href="http://www.martinkysel.com/codility-brackets-solution/" title="Codility ‘Brackets’ Solution" target="_blank" rel="external">Brackets</a>. Just check if there is always a opening bracket before a closing one.</p>
+<h5 id="StoneWall"><a href="#StoneWall" class="headerlink" title="StoneWall"></a><a href="https://codility.com/demo/take-sample-test/stone_wall" target="_blank" rel="external">StoneWall</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Cover “Manhattan skyline” using the minimum number of rectangles.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>The explanation to this challenge has been posted on the Codility web, you can read it <a href="http://blog.codility.com/2012/06/sigma-2012-codility-programming.html" target="_blank" rel="external">here</a>.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="Fish"><a href="#Fish" class="headerlink" title="Fish"></a><a href="https://codility.com/demo/take-sample-test/fish" target="_blank" rel="external">Fish</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>N voracious fish are moving along a river. Calculate how many fish are alive.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Put all downstream swimming fishes on a stack. Any upstream swimming fish has to fight(eat) all fishes on the stack. If there is no fish on the stack, the fish survives. If the stack has some downstream fishes at the end, they also survive.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Leader"><a href="#Leader" class="headerlink" title="Leader"></a>Leader</h4><h5 id="Dominator"><a href="#Dominator" class="headerlink" title="Dominator"></a><a href="https://codility.com/demo/take-sample-test/dominator" target="_blank" rel="external">Dominator</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find an index of an array such that its value occurs at more than half of indices in the array.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>As explained in the training material…</p>
+<p><strong>Solution:</strong></p>
+<h5 id="EquiLeader"><a href="#EquiLeader" class="headerlink" title="EquiLeader"></a><a href="https://codility.com/demo/take-sample-test/equi_leader" target="_blank" rel="external">EquiLeader</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the index S such that the leaders of the sequences A[0], A[1], …, A[S] and A[S + 1], A[S + 2], …, A[N – 1] are the same.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Get the leader as in the training material. Afterwards check every position if both sides have enough leader occurrences.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Maximum-Slice-Problem"><a href="#Maximum-Slice-Problem" class="headerlink" title="Maximum Slice Problem"></a>Maximum Slice Problem</h4><h5 id="MaxProfit"><a href="#MaxProfit" class="headerlink" title="MaxProfit"></a><a href="https://codility.com/demo/take-sample-test/max_profit" target="_blank" rel="external">MaxProfit</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Given a log of stock prices compute the maximum possible earning.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Keep the minimal value up to day. The profit on day i is_ profit[i] – min<em>profit</em>.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MaxSliceSum"><a href="#MaxSliceSum" class="headerlink" title="MaxSliceSum"></a><a href="https://codility.com/demo/take-sample-test/max_slice_sum" target="_blank" rel="external">MaxSliceSum</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find a maximum sum of a compact subsequence of array elements.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>The only difference to the example given by Codility is the minimal slice length, which is 1.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MaxDoubleSliceSum"><a href="#MaxDoubleSliceSum" class="headerlink" title="MaxDoubleSliceSum"></a><a href="https://codility.com/demo/take-sample-test/max_double_slice_sum" target="_blank" rel="external">MaxDoubleSliceSum</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the maximal sum of any double slice.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>To solve this task, you need to keep track of two slice arrays. The optimal double slice can be found at an index that has the maximal sum of those two arrays. It can not be the 0th or the last index.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Prime-and-composite-numbers"><a href="#Prime-and-composite-numbers" class="headerlink" title="Prime and composite numbers"></a>Prime and composite numbers</h4><h5 id="MinPerimeterRectangle"><a href="#MinPerimeterRectangle" class="headerlink" title="MinPerimeterRectangle"></a><a href="https://codility.com/demo/take-sample-test/min_perimeter_rectangle" target="_blank" rel="external">MinPerimeterRectangle</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the minimal perimeter of any rectangle whose area equals N.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(sqrt(N));</li>
+<li>expected worst-case space complexity is O(1).<br><strong>Execution:</strong></li>
+</ul>
+<p>Trivial search for the largest prime.</p>
+<h5 id="CountFactors"><a href="#CountFactors" class="headerlink" title="CountFactors"></a><a href="https://codility.com/demo/take-sample-test/count_factors" target="_blank" rel="external">CountFactors</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count factors of given number N.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(sqrt(N));</li>
+<li>expected worst-case space complexity is O(1).<br><strong>Execution:</strong></li>
+</ul>
+<p>This example can be found in the lesson document.</p>
+<h5 id="Peaks"><a href="#Peaks" class="headerlink" title="Peaks"></a><a href="https://codility.com/demo/take-sample-test/peaks" target="_blank" rel="external">Peaks</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>A non-empty zero-indexed array A consisting of N integers is given. A peak is an array element which is larger than its neighbors.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(log(N)));</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>I first compute all peaks. Because each block must contain a peak I start from the end and try to find a integral divisor sized block. If each block contains a peak I return the size.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="Flags"><a href="#Flags" class="headerlink" title="Flags"></a><span style="text-decoration: underline;">Flags</span></h5><h4 id="Sieve-or-Eratosthenes"><a href="#Sieve-or-Eratosthenes" class="headerlink" title="Sieve or Eratosthenes"></a>Sieve or Eratosthenes</h4><h5 id="CountSemiprimes"><a href="#CountSemiprimes" class="headerlink" title="CountSemiprimes"></a><a href="https://codility.com/demo/take-sample-test/count_semiprimes" target="_blank" rel="external">CountSemiprimes</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the semiprime numbers in the given range [a..b]</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(log(N))+M);</li>
+<li>expected worst-case space complexity is O(N+M)<br><strong>Execution:</strong></li>
+</ul>
+<p>First get all semiprimes from an adaptation of the Sieve of Eratosthenes. Because we will be computing the difference many times a prefix sum is adequate. Get the number of semiprimes up to the point. The index P is decreased by 1 because we want to know all primes that start from P.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="CountNonDivisible"><a href="#CountNonDivisible" class="headerlink" title="CountNonDivisible"></a><a href="https://codility.com/demo/take-sample-test/count_non_divisible" target="_blank" rel="external">CountNonDivisible</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Calculate the number of elements of an array that are not divisors of each element.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Using the Sieve of Eratosthenes, you generate divisors for all input elements of A. If a given number x is a divisor of element <em>(x*N == element)</em>, then N also is a divisor. <em>(N = element//x).</em> After all divisors are computed, we simply subtract those (multiplied by their counts or 0) from the total number of elements in A.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Euclidean-Algorithm"><a href="#Euclidean-Algorithm" class="headerlink" title="Euclidean Algorithm"></a>Euclidean Algorithm</h4><h5 id="ChocolatesByNumbers"><a href="#ChocolatesByNumbers" class="headerlink" title="ChocolatesByNumbers"></a><a href="https://codility.com/demo/take-sample-test/chocolates_by_numbers" target="_blank" rel="external">ChocolatesByNumbers</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>There are N chocolates in a circle. Count the number of chocolates you will eat.</p>
+<p>&nbsp;</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(log(N+M));</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>N and M meet at their least common multiply. Dividing this LCM by M gets the number of steps(chocolates) that can be eaten.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="CommonPrimeDivisors"><a href="#CommonPrimeDivisors" class="headerlink" title="CommonPrimeDivisors"></a><a href="https://codility.com/demo/take-sample-test/common_prime_divisors" target="_blank" rel="external">CommonPrimeDivisors</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Check whether two numbers have the same prime divisors.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(Z*log(max(A)+max(B))<sup>2</sup>);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>I will post an explaining image soon!</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Fibonacci-Numbers"><a href="#Fibonacci-Numbers" class="headerlink" title="Fibonacci Numbers"></a>Fibonacci Numbers</h4><h5 id="FibFrog"><a href="#FibFrog" class="headerlink" title="FibFrog"></a><a href="https://codility.com/demo/take-sample-test/fib_frog" target="_blank" rel="external">FibFrog</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the minimum number of jumps required for a frog to get to the other side of a river.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N))</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>This problem can be solved by in a Dynamic Programming way. You need to know the optimal count of jumps that can reach a given leaf. You get those by either reaching the leaf from the first shore or by reaching it from another leaf.</p>
+<p>The N*log(N) time complexity is given by the fact, that there are approximately log(N) Fibonacci numbers up to N and you visit each position once.</p>
+<p>As for the sequence hack: there are 26 Fibonacci numbers smaller than 100k, so I just preallocate an array of this size.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="Ladder"><a href="#Ladder" class="headerlink" title="Ladder"></a><a href="https://codility.com/demo/take-sample-test/ladder" target="_blank" rel="external">Ladder</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the number of different ways of climbing to the top of a ladder.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(L)</li>
+<li>expected worst-case space complexity is O(L)<br><strong>Execution:</strong></li>
+</ul>
+<p>We first compute the Fibonacci sequence for the first L+2 numbers. The first two numbers are used only as fillers, so we have to index the sequence as A[idx]+1 instead of A[idx]-1. The second step is to replace the modulo operation by removing all but the n lowest bits. A discussion can be found on <a href="http://stackoverflow.com/a/6670766" title="Mod of power 2" target="_blank" rel="external">Stack Overflow</a>.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h4><h5 id="MinMaxDivision"><a href="#MinMaxDivision" class="headerlink" title="MinMaxDivision"></a><a href="https://codility.com/demo/take-sample-test/min_max_division" target="_blank" rel="external">MinMaxDivision</a></h5><h5 id="Short-Problem-Definition"><a href="#Short-Problem-Definition" class="headerlink" title="Short Problem Definition:"></a>Short Problem Definition:</h5><p>Divide array A into K blocks and minimize the largest sum of any block.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N+M));</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Binary search for the minimal size of a block. A valid block can be checked in a boolean fashion. Two special cases can be sped up (courtesy to <a href="http://codesays.com/2014/solution-to-min-max-division-by-codility/" target="_blank" rel="external">CodeSays</a>). At the time of writing (19.9.2014) do not use the variable passed to the solution function as M! It is NOT the maximum element in the test cases! The specification says, that no element is larger than M, yet there is not guarantee that M == max(A).</p>
+<p><strong>Solution:</strong></p>
+<h5 id="NailingPlanks"><a href="#NailingPlanks" class="headerlink" title="NailingPlanks"></a><a href="https://codility.com/demo/take-sample-test/nailing_planks" target="_blank" rel="external">NailingPlanks</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the minimum number of nails that allow a series of planks to be nailed..</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O((N+M)*log(M));</li>
+<li>expected worst-case space complexity is O(M)<br><strong>Execution:</strong></li>
+</ul>
+<p>The solution gets 100/100, but I am skeptical. The runtime is rather O(N <em> (log(M)+M)) than O((N+M)</em>log(M)).  Maybe it can be proven that the execution of the linear scan will never have to scan all possible positions. I also violate the space complexity by creating a copy of A+B.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Caterpillar-method-1"><a href="#Caterpillar-method-1" class="headerlink" title="Caterpillar method"></a>Caterpillar method</h4><h5 id="AbsDistinct"><a href="#AbsDistinct" class="headerlink" title="AbsDistinct"></a><a href="https://codility.com/demo/take-sample-test/abs_distinct" target="_blank" rel="external">AbsDistinct</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Compute number of distinct absolute values of sorted array elements.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Additional storage is allowed. Therefore a simple python solution will suffice.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="CountDistinctSlices"><a href="#CountDistinctSlices" class="headerlink" title="CountDistinctSlices"></a><a href="https://codility.com/demo/take-sample-test/count_distinct_slices" target="_blank" rel="external">CountDistinctSlices</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Count the number of distinct slices (containing only unique numbers).</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(M)<br><strong>Execution:</strong></li>
+</ul>
+<p>Using the caterpillar method I expand the caterpillar to the right as long as a duplicate element is found. The right side has to retract as long as this duplicate element has been eliminated from the next slice. An observation showed that the number of sub-slices is equal to front-back+1.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="CountTriangles"><a href="#CountTriangles" class="headerlink" title="CountTriangles"></a><a href="https://codility.com/demo/take-sample-test/count_triangles" target="_blank" rel="external">CountTriangles</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p><span class="task-synopsis">Count the number of triangles that can be built from a given set of edges.</span></p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N<sup>2</sup>);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Apply the caterpillar method. We know that in a sorted array every position between Q and R will be bigger than Q and therefore P+Q will be bigger than R. I therefore either increment Q if P+Q is not larger than R or increment R as far as possible.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MinAbsSumOfTwo"><a href="#MinAbsSumOfTwo" class="headerlink" title="MinAbsSumOfTwo"></a><a href="https://codility.com/demo/take-sample-test/min_abs_sum_of_two" target="_blank" rel="external">MinAbsSumOfTwo</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find the minimal absolute value of a sum of two elements.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>Using the caterpillar method on a sorted list.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Greedy-algorithms-1"><a href="#Greedy-algorithms-1" class="headerlink" title="Greedy algorithms"></a>Greedy algorithms</h4><h5 id="TieRopes"><a href="#TieRopes" class="headerlink" title="TieRopes"></a><a href="https://codility.com/demo/take-sample-test/tie_ropes" target="_blank" rel="external">TieRopes</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Tie adjacent ropes to achieve the maximum number of ropes of length &gt;= K.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>I am a bit skeptical about the correctness of my solution. It gets 100/100 through…</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MaxNonoverlappingSegments"><a href="#MaxNonoverlappingSegments" class="headerlink" title="MaxNonoverlappingSegments"></a><a href="https://codility.com/demo/take-sample-test/max_nonoverlapping_segments" target="_blank" rel="external">MaxNonoverlappingSegments</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find a maximal set of non((-))overlapping segments.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N)</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>This can be solved by using greedy search. The beginning of the next segment must come strictly after its predecessor.</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Dynamic-Programming"><a href="#Dynamic-Programming" class="headerlink" title="Dynamic Programming"></a>Dynamic Programming</h4><h5 id="NumberSolitaire"><a href="#NumberSolitaire" class="headerlink" title="NumberSolitaire"></a><a href="https://codility.com/demo/take-sample-test/number_solitaire" target="_blank" rel="external">NumberSolitaire</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>In a given array, find the subset of maximal sum in which the distance between consecutive elements is at most 6.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Prototypical Dynamic Programming. Remember all sub-solutions and use them to compute the next step. I prefixed the array by 6 min_values to use the same computation for the whole algorithm (besides the first). Do not forget to set the minimal_value small enough to handle a purely negative input array.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="MinAbsSum"><a href="#MinAbsSum" class="headerlink" title="MinAbsSum"></a><span style="text-decoration: underline;"><span style="line-height: 1.5;">MinAbsSum</span></span></h5><h4 id="Future-Training"><a href="#Future-Training" class="headerlink" title="Future Training"></a>Future Training</h4><h5 id="BinaryGap"><a href="#BinaryGap" class="headerlink" title="BinaryGap"></a><a href="https://codility.com/demo/take-sample-test/binary_gap" target="_blank" rel="external">BinaryGap</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find longest sequence of zeros in binary representation of an integer.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(log(N));</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>The solution is straight-forward! Use of binary shift.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="StrSymmetryPoint"><a href="#StrSymmetryPoint" class="headerlink" title="StrSymmetryPoint"></a><a href="https://codility.com/demo/take-sample-test/str_symmetry_point" target="_blank" rel="external">StrSymmetryPoint</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find a symmetry point of a string, if any.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(length(S));</li>
+<li>expected worst-case space complexity is O(1) (not counting the storage required for input arguments).<br><strong>Execution:</strong></li>
+</ul>
+<p>This problem gave me a lot of headache. It is so trivial I that over-complicated it. I thought that you should find a symmetry point at any possible position, ignoring the residual characters. You would obviously try to maximize the length of this symmetrical sub-array. I was not able to come with any O(S) algorithm for this problem derivation. So just to remind you,<strong> this problem is a simple palindrome check</strong>. Additionally, you drop all evenly sized strings as their symmetry point is between the indexes.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="OddOccurencesInArray"><a href="#OddOccurencesInArray" class="headerlink" title="OddOccurencesInArray"></a><a href="https://codility.com/demo/take-sample-test/odd_occurrences_in_array" target="_blank" rel="external">OddOccurencesInArray</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Find value that occurs in odd number of elements.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)<br><strong>Execution:</strong></li>
+</ul>
+<p>This problem can be found in many algorithm books. A xor A cancels itself and B xor 0 is B. Therefore A xor A xor B xor C xor C is B.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="TreeHeight"><a href="#TreeHeight" class="headerlink" title="TreeHeight"></a><a href="https://codility.com/demo/take-sample-test/tree_height" target="_blank" rel="external">TreeHeight</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Compute the height of a binary link-tree.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>The height of a tree is the maximal height +1 of its subtrees. In this specification a tree with just the root node has a height of 0.</p>
+<p><strong>Solution:</strong></p>
+<h5 id="ArrayInversionCount"><a href="#ArrayInversionCount" class="headerlink" title="ArrayInversionCount"></a><a href="https://codility.com/demo/take-sample-test/array_inversion_count" target="_blank" rel="external">ArrayInversionCount</a></h5><p><strong>Short Problem Definition:</strong></p>
+<p>Compute number of inversion in an array.</p>
+<p><strong>Complexity:</strong></p>
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)<br><strong>Execution:</strong></li>
+</ul>
+<p>Any sorting algorithm with a NlogN runtime will do the trick. It is important to count all (remaining) bigger elements on the left side. Do not forget to check for the maximal return value!</p>
+<p><strong>Solution:</strong></p>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
+<li><a href="http://www.martinkysel.com/codility-sqlsegmentssum-kalium-2015-solution/" target="_blank" rel="external">Kalium 2015 – SqlSegmentsSum</a></li>
+<li>Boron 2013 – Flags</li>
+<li><a href="http://www.martinkysel.com/codility-wireburnouts-2012-psi-solution/" title="Codility ‘WireBurnouts’ 2012 Psi Solution" target="_blank" rel="external">Psi 2012 – Wire Burnouts</a></li>
+<li><a href="http://www.martinkysel.com/codility-cannonballs-2012-chi-solution/" target="_blank" rel="external">Chi 2012 – Cannon Balls</a></li>
+<li><a href="http://www.martinkysel.com/codility-stonewall-solution/" title="Codility ‘StoneWall’ Solution" target="_blank" rel="external">Sigma 2012 – StoneWall</a></li>
+<li>Delta 2011 – MinAbsSum</li>
+<li><a href="http://www.martinkysel.com/codility-number-of-disc-intersections-2010-beta-solution/" target="_blank" rel="external">Beta 2010 – NumberOfDiscIntersections</a></li>
+<li><a href="http://www.martinkysel.com/codility-prefixset-2010-alpha-solution/" title="Codility ‘PrefixSet’ 2010 Alpha Solution" target="_blank" rel="external">Alpha 2010 – PrefixSet</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/04/21/wsdl-service-contract-in-detail/" itemprop="url">
                   WSDL Service Contract in Detail
                 </a>
@@ -731,7 +1439,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/04/18/jvm-knowledge/" itemprop="url">
+                <a class="post-title-link" href="/2015/04/19/jvm-knowledge/" itemprop="url">
                   JVM knowledge
                 </a>
               
@@ -775,8 +1483,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/04/18/jvm-knowledge/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/18/jvm-knowledge/" itemprop="commentsCount"></span>
+                <a href="/2015/04/19/jvm-knowledge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/19/jvm-knowledge/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -2629,347 +3337,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/03/spring-framework-the-big-picture/" itemprop="url">
-                  Spring framework - the big picture
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-04-03T14:42:08+08:00" content="2015-04-03">
-              2015-04-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/03/spring-framework-the-big-picture/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/03/spring-framework-the-big-picture/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Spring is a big beast. I have to sort out its design and modules.</p>
-<p><img src="/media/spring-big-pricture.png" alt="spring-big-pricture"></p>
-<p><table border="1" summary="Spring Framework Artifacts"></table></p>
-<p><thead></thead></p>
-<p><tr></tr></p>
-<p><th align="left" valign="top">GroupId</th></p>
-<p><th align="left" valign="top">ArtifactId</th></p>
-<p><th align="left" valign="top">Description</th><br><br></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-aop</td></p>
-<p><td align="left" valign="top">Proxy-based AOP support</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-aspects</td></p>
-<p><td align="left" valign="top">AspectJ based aspects</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-beans</td></p>
-<p><td align="left" valign="top">Beans support, including Groovy</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-context</td></p>
-<p><td align="left" valign="top">Application context runtime, including scheduling and remoting abstractions</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-context-support</td></p>
-<p><td align="left" valign="top">Support classes for integrating common third-party libraries into a Spring application context</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-core</td></p>
-<p><td align="left" valign="top">Core utilities, used by many other Spring modules</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-expression</td></p>
-<p><td align="left" valign="top">Spring Expression Language (SpEL)</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-instrument</td></p>
-<p><td align="left" valign="top">Instrumentation agent for JVM bootstrapping</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-instrument-tomcat</td></p>
-<p><td align="left" valign="top">Instrumentation agent for Tomcat</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-jdbc</td></p>
-<p><td align="left" valign="top">JDBC support package, including DataSource setup and JDBC access support</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-jms</td></p>
-<p><td align="left" valign="top">JMS support package, including helper classes to send and receive JMS messages</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-messaging</td></p>
-<p><td align="left" valign="top">Support for messaging architectures and protocols</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-orm</td></p>
-<p><td align="left" valign="top">Object/Relational Mapping, including JPA and Hibernate support</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-oxm</td></p>
-<p><td align="left" valign="top">Object/XML Mapping</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-test</td></p>
-<p><td align="left" valign="top">Support for unit testing and integration testing Spring components</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-tx</td></p>
-<p><td align="left" valign="top">Transaction infrastructure, including DAO support and JCA integration</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-web</td></p>
-<p><td align="left" valign="top">Web support packages, including client and web remoting</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-webmvc</td></p>
-<p><td align="left" valign="top">REST Web Services and model-view-controller implementation for web applications</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-webmvc-portlet</td></p>
-<p><td align="left" valign="top">MVC implementation to be used in a Portlet environment</td><br></p>
-<p><tr></tr></p>
-<p><td align="left" valign="top">org.springframework</td></p>
-<p><td align="left" valign="top">spring-websocket</td></p>
-<p><td align="left" valign="top">WebSocket and SockJS implementations, including STOMP suppor</td><br><br><br><br>&nbsp;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/02/subquery-vs-join/" itemprop="url">
-                  subquery vs. join
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-04-02T15:41:53+08:00" content="2015-04-02">
-              2015-04-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/02/subquery-vs-join/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/02/subquery-vs-join/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="what-is-subquery"><a href="#what-is-subquery" class="headerlink" title="what is subquery"></a>what is subquery</h3><p><strong>SubQuery in SQL</strong> is a query inside another query<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function">SELECT name FROM City WHERE pincode <span class="title">IN</span> <span class="params">(SELECT pincode FROM pin WHERE zone=<span class="string">'west'</span>)</span></span></div></pre></td></tr></table></figure></p>
-<p>In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
-<h4 id="non-correlated-subquery"><a href="#non-correlated-subquery" class="headerlink" title="non-correlated subquery"></a>non-correlated subquery</h4><p>In non correlated subquery, <strong>inner query doesn’t depend on outer query</strong> and can run as stand alone query.</p>
-<p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY=<span class="string">'Japan'</span>);</div></pre></td></tr></table></figure></p>
-<p>Here, the inner query is executed before the outer query.</p>
-<h4 id="correlated-subquery"><a href="#correlated-subquery" class="headerlink" title="correlated subquery"></a>correlated subquery</h4><p>Correlated subqueries are the one in which inner query or subquery reference outer query.</p>
-<p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SELECT m.NAME FROM Market m WHERE m.<span class="function">RIC <span class="title">EXISTS</span> <span class="params">(SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC)</span></span>;</div></pre></td></tr></table></figure></p>
-<p>Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
-<h3 id="which-is-preferable-subquery-or-join"><a href="#which-is-preferable-subquery-or-join" class="headerlink" title="which is preferable: subquery or join"></a>which is preferable: subquery or join</h3><p>Now, almost any subquery can be written in join.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">id  name    id  title</div><div class="line">--  ----    --  ----</div><div class="line"><span class="number">1</span>   Kenny   <span class="number">1</span>   Analyst</div><div class="line"><span class="number">1</span>   Rob     <span class="number">2</span>   Sales</div><div class="line"><span class="number">4</span>   Molly   <span class="number">3</span>   Manager</div><div class="line"><span class="number">1</span>   Greg</div><div class="line"><span class="number">2</span>   John</div><div class="line"></div><div class="line">-- non correlated subquery using IN</div><div class="line">-- Returns <span class="number">3</span> records - Kenny, Rob, and Greg</div><div class="line">SELECT  *</div><div class="line">FROM    tableA</div><div class="line">WHERE   tableA.<span class="function">id <span class="title">IN</span> <span class="params">(SELECT tableB.id FROM tableB WHERE title = <span class="string">'Analyst'</span>)</span></span>;</div><div class="line"></div><div class="line">-- correlated subquery using EXISTS</div><div class="line">SELECT  *</div><div class="line"><span class="function">FROM    tableA</span></div><div class="line">WHERE   <span class="title">EXISTS</span> <span class="params">(SELECT <span class="number">1</span> FROM tableB WHERE title = <span class="string">'Analyst'</span> AND tableA.id = tableB.id)</span>;</div><div class="line"></div><div class="line">-- JOIN (INNER is the <span class="keyword">default</span> when only JOIN is specified)</div><div class="line">SELECT  *</div><div class="line">FROM    tableA</div><div class="line">JOIN    tableB</div><div class="line">    ON  tableA.id = tableB.id</div><div class="line">WHERE   tableB.title = <span class="string">'Analyst'</span>;</div></pre></td></tr></table></figure></p>
-<p>Basically, there are some differences:</p>
-<ul>
-<li>Subquery is more intuitive and relatively easy to understand.</li>
-<li>In most cases, EXISTS or JOIN will be much more efficient (and faster) than an IN statement.<br>&nbsp;</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -3015,7 +3382,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -3116,7 +3483,7 @@
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

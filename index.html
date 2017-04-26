@@ -374,6 +374,121 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/26/pseudo-random-number-shuffle/" itemprop="url">
+                  pseudo-random number & shuffle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-04-26T18:45:55+08:00" content="2017-04-26">
+              2017-04-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/26/pseudo-random-number-shuffle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/26/pseudo-random-number-shuffle/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Pseudo-random-number"><a href="#Pseudo-random-number" class="headerlink" title="Pseudo random number"></a>Pseudo random number</h1><p>Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called <strong>pseudo</strong> random.</p>
+<p>A simple algorithm is <a href="https://en.wikipedia.org/wiki/Linear_congruential_generator" target="_blank" rel="external">Linear congruential generator</a>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">next random = (a * random + c) mod 2^32</div></pre></td></tr></table></figure>
+<p>The initial random is <code>seed</code>.</p>
+<h2 id="Java-implementation"><a href="#Java-implementation" class="headerlink" title="Java implementation"></a>Java implementation</h2><p>In <code>next(bits)</code> method:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">nextseed = (oldseed * multiplier + addend) &amp; mask;</div></pre></td></tr></table></figure>
+<p>here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &lt;&lt; 48) - 1.</p>
+<h1 id="Shuffle"><a href="#Shuffle" class="headerlink" title="Shuffle"></a>Shuffle</h1><p>Shuffling is a procedure used to randomize a deck of playing cards to provide an element of chance in card games.</p>
+<p><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="external">Fisher–Yates shuffle</a></p>
+<h1 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h1><p><img src="/media/14931931313090.png" alt=""></p>
+<p>For the unshuffled subarray, always select a random element swapping with the last one.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> len = arr.length; len &gt; <span class="number">1</span>; --len) &#123;</div><div class="line">       <span class="keyword">int</span> index = <span class="keyword">new</span> Random().nextInt(len);</div><div class="line">       <span class="keyword">int</span> temp = arr[index];</div><div class="line">       arr[index] = arr[len-<span class="number">1</span>];</div><div class="line">       arr[len-<span class="number">1</span>] = temp;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Please refer to <code>Collections.shuffle(..)</code>. This algorithm has <code>O(N)</code> time complexity.</p>
+<h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><h1 id="generate-a-4-digit-PIN-code-with-no-consecutive-digits-being-the-same"><a href="#generate-a-4-digit-PIN-code-with-no-consecutive-digits-being-the-same" class="headerlink" title="generate a 4-digit PIN code with no consecutive digits being the same"></a>generate a 4-digit PIN code with no consecutive digits being the same</h1><p>1232 is legal, but 1233 is illegal.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">	<span class="comment">// generate all PINs </span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;= <span class="number">9999</span>; ++i) &#123;</div><div class="line">	  String pin = padding(i);</div><div class="line">	  <span class="keyword">if</span>(!pin.matches(<span class="string">"\\d*(\\d)\\1\\d*"</span>)) &#123;</div><div class="line">	      list.add(pin);</div><div class="line">	  &#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">  <span class="comment">// shuffle</span></div><div class="line">  Collections.shuffle(list);</div><div class="line">  </div><div class="line">  <span class="comment">// each time, select the last PIN</span></div><div class="line">  <span class="keyword">int</span> last = list.size() - <span class="number">1</span>;</div><div class="line">  String pin = list.get(last);</div><div class="line">  list.remove(last);</div><div class="line">  System.out.println(pin);</div><div class="line">&#125;</div><div class="line">	</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">padding</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> remaining = i;</div><div class="line">	<span class="keyword">int</span> d4 = remaining / <span class="number">1000</span>;</div><div class="line">	remaining %= <span class="number">1000</span>;</div><div class="line">	<span class="keyword">int</span> d3 = remaining / <span class="number">100</span>;</div><div class="line">	remaining %= <span class="number">100</span>;</div><div class="line">	<span class="keyword">int</span> d2 = remaining / <span class="number">10</span>;</div><div class="line">	remaining %= <span class="number">10</span>;</div><div class="line">	<span class="keyword">int</span> d1 = remaining;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="string">""</span> + d4 + d3 + d2 + d1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/19/swift-3-for-a-java-or-es6-typescript-developer/" itemprop="url">
                   Swift 3.0 for a Java or ES6/TypeScript developer
                 </a>
@@ -991,7 +1106,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/26/2016-08-26/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/27/2016-08-26/" itemprop="url">
                   Untitled
                 </a>
               
@@ -1016,8 +1131,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/26/2016-08-26/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/26/2016-08-26/" itemprop="commentsCount"></span>
+                <a href="/2016/08/27/2016-08-26/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/27/2016-08-26/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1226,7 +1341,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/22/string-intern/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/23/string-intern/" itemprop="url">
                   String intern
                 </a>
               
@@ -1251,8 +1366,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/22/string-intern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/22/string-intern/" itemprop="commentsCount"></span>
+                <a href="/2016/08/23/string-intern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/23/string-intern/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1366,7 +1481,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/22/java-array-has-length-field/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/23/java-array-has-length-field/" itemprop="url">
                   Java array has length field?
                 </a>
               
@@ -1391,8 +1506,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/22/java-array-has-length-field/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/22/java-array-has-length-field/" itemprop="commentsCount"></span>
+                <a href="/2016/08/23/java-array-has-length-field/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/23/java-array-has-length-field/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1430,7 +1545,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String[] arr = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>&#125;;</div><div class="line">Field field = arr.getClass().getField(<span class="string">"length"</span>);</div><div class="line">System.out.println(field.get(arr));</div></pre></td></tr></table></figure>
 <p>To be disappointed, you cannot get this <code>length</code> field.<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/22/java-array-has-length-field/#more" rel="contents">
+            <a class="btn" href="/2016/08/23/java-array-has-length-field/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2032,119 +2147,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/16/java-security-2nd-notes-1/" itemprop="url">
-                  Java Security 2nd - notes 1
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-02-16T16:45:25+08:00" content="2016-02-16">
-              2016-02-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/16/java-security-2nd-notes-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/16/java-security-2nd-notes-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="security-manager-vs-access-controller"><a href="#security-manager-vs-access-controller" class="headerlink" title="security manager vs. access controller"></a>security manager vs. access controller</h2><p>Historically, before the access controller existed, the security manager relied on its internal logic to determine the security policy that should be in effect, and changing the security policy required changing the security manager itself. Starting with Java 2, the security manager defers these decisions to the access controller. Since the security policy enforced by the access controller can be specified by using policy files, this allows a much more flexible mechanism for determining policies.</p>
-<p>Java applications (at least by default) have no security manager while Java applets (again, by default) have a very strict security manager.</p>
-<p>Specifying the <code>−Djava.security.manager</code> JVM option to install a security manager. But by default the security manager is installed programatically by the appletviewer and the Java Plug-in.</p>
-<p>How do APIs use <code>SecurityManager</code> to check the allowance of an operation?</p>
-<p>Take the <code>FileInputStream</code> class as an example:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">FileInputStream</span><span class="params">(String name)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</div><div class="line">    SecurityManager security = System.getSecurityManager(  );</div><div class="line">    <span class="keyword">if</span> (security != <span class="keyword">null</span>) &#123;</div><div class="line">        security.checkRead(name);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        open(name);         <span class="comment">// open() is a private method of this class</span></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(name);</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>System</code> has two static methods to get and set security manager.</p>
-<ul>
-<li><code>public static SecurityManager getSecurityManager()</code></li>
-<li><code>public static void setSecurityManager(SecurityManager sm)</code></li>
-</ul>
-<p>A single security manager per virtual machine.</p>
-<h2 id="The-Access-Controller"><a href="#The-Access-Controller" class="headerlink" title="The Access Controller"></a>The Access Controller</h2><p>//TODO</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2190,7 +2192,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

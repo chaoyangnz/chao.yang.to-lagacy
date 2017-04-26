@@ -1,0 +1,834 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java array has length field?">
+<meta property="og:url" content="https://richyang.me/2016/08/23/java-array-has-length-field/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there m">
+<meta property="og:updated_time" content="2016-09-02T16:51:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java array has length field?">
+<meta name="twitter:description" content="Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there m">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Java array has length field? | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java array has length field?
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T01:36:25+12:00" content="2016-08-22">
+              2016-08-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/java-array-has-length-field/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/23/java-array-has-length-field/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there must be length information stored in the object header. But where?</p>
+<h1 id="array-is-special"><a href="#array-is-special" class="headerlink" title="array is special"></a>array is special</h1><p>There is no “class definition” of an array (you can’t find it in any .class file), they’re a part of the language itself.</p>
+<p>This is quoted from JLS:</p>
+<hr>
+<blockquote>
+<p>10.7. Array Members</p>
+<p>The members of an array type are all of the following:</p>
+<p>The public final field length, which contains the number of components of the array. length may be positive or zero.<br>The public method clone, which overrides the method of the same name in class Object and throws no checked exceptions. The return type of the clone method of an array type T[] is T[].</p>
+<p>A clone of a multidimensional array is shallow, which is to say that it creates only a single new array. Subarrays are shared.<br>All the members inherited from class Object; the only method of Object that is not inherited is its clone method.</p>
+</blockquote>
+<h1 id="length-is-a-field-of-array-class"><a href="#length-is-a-field-of-array-class" class="headerlink" title="length is a field of array class?"></a>length is a field of array class?</h1><p>No. It is not a field of an array class. You cannot reflect it from its class.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String[] arr = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>&#125;;</div><div class="line">Field field = arr.getClass().getField(<span class="string">"length"</span>);</div><div class="line">System.out.println(field.get(arr));</div></pre></td></tr></table></figure>
+<p>To be disappointed, you cannot get this <code>length</code> field.<br><a id="more"></a></p>
+<h1 id="specify-length-when-array-creation"><a href="#specify-length-when-array-creation" class="headerlink" title="specify length when array creation"></a>specify length when array creation</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">	String[] arr = <span class="keyword">new</span> String[i];</div><div class="line">	<span class="keyword">int</span> l = arr.length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The following is the decompiled bytecode:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">public void foo(int);</div><div class="line">   flags: ACC_PUBLIC</div><div class="line">   Code:</div><div class="line">     stack=1, locals=4, args_size=2</div><div class="line">        0: iload_1</div><div class="line">        1: anewarray     #16                 // class java/lang/String</div><div class="line">        4: astore_2</div><div class="line">        5: aload_2</div><div class="line">        6: arraylength</div><div class="line">        7: istore_3</div><div class="line">        8: return</div><div class="line">     LineNumberTable:</div><div class="line">       line 6: 0</div><div class="line">       line 7: 5</div><div class="line">       line 8: 8</div><div class="line">     LocalVariableTable:</div><div class="line">       Start  Length  Slot  Name   Signature</div><div class="line">              0       9     0  this   Lplayground/ArrayLength;</div><div class="line">              0       9     1     i   I</div><div class="line">              5       4     2   arr   [Ljava/lang/String;</div><div class="line">              8       1     3     l   I</div></pre></td></tr></table></figure>
+<h1 id="get-length-using-specilized-opcode"><a href="#get-length-using-specilized-opcode" class="headerlink" title="get length using specilized opcode"></a>get length using specilized opcode</h1><p><code>arraylength</code> is a specialized opcode to get the array length.</p>
+<h1 id="where-to-store-this-length"><a href="#where-to-store-this-length" class="headerlink" title="where to store this length"></a>where to store this length</h1><p>This is really JVM implementation related. From the <a href="http://www.oracle.com/technetwork/java/whitepaper-135217.html#memory" target="_blank" rel="external">The Java HotSpot Performance Engine Architecture</a></p>
+<hr>
+<blockquote>
+<p>Two-Word Object Headers<br>The Java HotSpot VM uses a two machine-word object header, as opposed to three words in the Classic VM. Since the average Java object size is small, this has a significant impact on space consumption – saving approximately eight percent in heap size for typical applications. The first header word contains information such as the identity hash code and GC status information. The second is a reference to the object’s class. <strong>Only arrays have a third header field, for the array size</strong>.</p>
+</blockquote>
+<p><em>NOTE: Hotspot uses an extra word in the object header to store the array length.</em></p>
+<p>To verfiy this statement, we write some code to view the object header</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.openjdk.jol.info.ClassLayout;</div><div class="line"><span class="keyword">import</span> org.openjdk.jol.vm.VM;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectHeaderView</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        System.out.println(VM.current().details());</div><div class="line">        </div><div class="line">        A a = <span class="keyword">new</span> A();</div><div class="line">        A[] arr = <span class="keyword">new</span> A[<span class="number">100</span>];</div><div class="line">        System.out.println(ClassLayout.parseInstance(a).toPrintable());</div><div class="line">        System.out.println(ClassLayout.parseInstance(arr).toPrintable());</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>This is the output:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line"># Running 64-bit HotSpot VM.</div><div class="line"># Using compressed oop with 3-bit shift.</div><div class="line"># Using compressed klass with 3-bit shift.</div><div class="line"># WARNING | Compressed references base/shifts are guessed by the experiment!</div><div class="line"># WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE.</div><div class="line"># WARNING | Make sure to attach Serviceability Agent to get the reliable addresses.</div><div class="line"># Objects are 8 bytes aligned.</div><div class="line"># Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]</div><div class="line"># Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]</div><div class="line"></div><div class="line">playground.A object internals:</div><div class="line"> OFFSET  SIZE  TYPE DESCRIPTION                    VALUE</div><div class="line">      0     4       (object header)                01 00 00 00 (00000001 00000000 00000000 00000000) (1)</div><div class="line">      4     4       (object header)                00 00 00 00 (00000000 00000000 00000000 00000000) (0)</div><div class="line">      8     4       (object header)                33 de 0c f8 (00110011 11011110 00001100 11111000) (-133374413)</div><div class="line">     12     4       (loss due to the next object alignment)</div><div class="line">Instance size: 16 bytes</div><div class="line">Space losses: 0 bytes internal + 4 bytes external = 4 bytes total</div><div class="line"></div><div class="line">[Lplayground.A; object internals:</div><div class="line"> OFFSET  SIZE         TYPE DESCRIPTION                    VALUE</div><div class="line">      0     4              (object header)                01 00 00 00 (00000001 00000000 00000000 00000000) (1)</div><div class="line">      4     4              (object header)                00 00 00 00 (00000000 00000000 00000000 00000000) (0)</div><div class="line">      8     4              (object header)                85 de 0c f8 (10000101 11011110 00001100 11111000) (-133374331)</div><div class="line">     12     4              (object header)                64 00 00 00 (01100100 00000000 00000000 00000000) (100)</div><div class="line">     16   400 playground.A [Lplayground.A;.&lt;elements&gt;     N/A</div><div class="line">Instance size: 416 bytes</div><div class="line">Space losses: 0 bytes internal + 0 bytes external = 0 bytes total</div></pre></td></tr></table></figure></p>
+<p>You can see, for JDK 7 on 64-bit MacOS:</p>
+<ul>
+<li>normal object has one-word (64-bit) mark word and half-word (32-bit) kclass pointer(due to use of compressed oop). </li>
+<li>array object has one-word mark word, half-word kclass pointer and extra half-word arrary size. (in the example, its value is 100).</li>
+</ul>
+<p>More implementation details, please refer to:</p>
+<ul>
+<li><a href="http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/share/vm/oops/markOop.hpp" target="_blank" rel="external">markOop.hpp</a></li>
+<li><a href="http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/share/vm/oops/oop.hpp" target="_blank" rel="external">oop.hpp</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/22/how-jvm-handle-method-invocation/" rel="next" title="How JVM handle method invocation">
+                <i class="fa fa-chevron-left"></i> How JVM handle method invocation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/23/string-intern/" rel="prev" title="String intern">
+                String intern <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">133</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#array-is-special"><span class="nav-number">1.</span> <span class="nav-text">array is special</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#length-is-a-field-of-array-class"><span class="nav-number">2.</span> <span class="nav-text">length is a field of array class?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#specify-length-when-array-creation"><span class="nav-number">3.</span> <span class="nav-text">specify length when array creation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-length-using-specilized-opcode"><span class="nav-number">4.</span> <span class="nav-text">get length using specilized opcode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#where-to-store-this-length"><span class="nav-number">5.</span> <span class="nav-text">where to store this length</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2016/08/23/java-array-has-length-field/';
+      var disqus_title = 'Java array has length field?';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

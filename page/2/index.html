@@ -374,7 +374,225 @@
             
               
                 
-                <a class="post-title-link" href="/2016/02/03/leetcode-#1-two-sum/" itemprop="url">
+                <a class="post-title-link" href="/2016/02/16/java-security-2nd-notes-1/" itemprop="url">
+                  Java Security 2nd - notes 1
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-02-16T16:45:25+08:00" content="2016-02-16">
+              2016-02-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/16/java-security-2nd-notes-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/16/java-security-2nd-notes-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="security-manager-vs-access-controller"><a href="#security-manager-vs-access-controller" class="headerlink" title="security manager vs. access controller"></a>security manager vs. access controller</h2><p>Historically, before the access controller existed, the security manager relied on its internal logic to determine the security policy that should be in effect, and changing the security policy required changing the security manager itself. Starting with Java 2, the security manager defers these decisions to the access controller. Since the security policy enforced by the access controller can be specified by using policy files, this allows a much more flexible mechanism for determining policies.</p>
+<p>Java applications (at least by default) have no security manager while Java applets (again, by default) have a very strict security manager.</p>
+<p>Specifying the <code>−Djava.security.manager</code> JVM option to install a security manager. But by default the security manager is installed programatically by the appletviewer and the Java Plug-in.</p>
+<p>How do APIs use <code>SecurityManager</code> to check the allowance of an operation?</p>
+<p>Take the <code>FileInputStream</code> class as an example:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">FileInputStream</span><span class="params">(String name)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</div><div class="line">    SecurityManager security = System.getSecurityManager(  );</div><div class="line">    <span class="keyword">if</span> (security != <span class="keyword">null</span>) &#123;</div><div class="line">        security.checkRead(name);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        open(name);         <span class="comment">// open() is a private method of this class</span></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(name);</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>System</code> has two static methods to get and set security manager.</p>
+<ul>
+<li><code>public static SecurityManager getSecurityManager()</code></li>
+<li><code>public static void setSecurityManager(SecurityManager sm)</code></li>
+</ul>
+<p>A single security manager per virtual machine.</p>
+<h2 id="The-Access-Controller"><a href="#The-Access-Controller" class="headerlink" title="The Access Controller"></a>The Access Controller</h2><p>//TODO</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/04/leetcode-#2-add-two-numbers/" itemprop="url">
+                  LeetCode #2 Add Two Numbers
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-02-03T23:18:25+08:00" content="2016-02-03">
+              2016-02-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/04/leetcode-#2-add-two-numbers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/04/leetcode-#2-add-two-numbers/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>We need to be familiar with linked list operations, especially the case in the boundary. There is no time complexity to concern.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</div><div class="line">        ListNode head = <span class="keyword">null</span>;</div><div class="line">        ListNode tail = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">if</span>(l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span>) <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">int</span> val1 = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> val2 = <span class="number">0</span>;</div><div class="line">            <span class="keyword">if</span>(l1 != <span class="keyword">null</span>) &#123; val1 = l1.val; l1 = l1.next; &#125;</div><div class="line">            <span class="keyword">if</span>(l2 != <span class="keyword">null</span>) &#123; val2 = l2.val; l2 = l2.next; &#125;</div><div class="line">            <span class="keyword">int</span> val = val1 + val2 + carry;</div><div class="line">            carry = val / <span class="number">10</span>;</div><div class="line">            ListNode node  = <span class="keyword">new</span> ListNode(val % <span class="number">10</span>);</div><div class="line">            <span class="keyword">if</span>(head == <span class="keyword">null</span>) &#123;</div><div class="line">                head = node;</div><div class="line">                tail = node;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                tail.next = node;</div><div class="line">                tail = node;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">// especially notice the rest carry bit</span></div><div class="line">        <span class="keyword">if</span>(carry != <span class="number">0</span>) tail.next = <span class="keyword">new</span> ListNode(carry);</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Submisssion-amp-Judgement"><a href="#Submisssion-amp-Judgement" class="headerlink" title="Submisssion &amp; Judgement"></a>Submisssion &amp; Judgement</h1><p><a href="https://leetcode.com/submissions/detail/52578127/" target="_blank" rel="external">Sumbission in LeetCode</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/02/04/leetcode-#1-two-sum/" itemprop="url">
                   LeetCode #1 Two Sum
                 </a>
               
@@ -399,8 +617,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/03/leetcode-#1-two-sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/03/leetcode-#1-two-sum/" itemprop="commentsCount"></span>
+                <a href="/2016/02/04/leetcode-#1-two-sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/04/leetcode-#1-two-sum/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -482,7 +700,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/18/implement-stack-with-queue/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/19/implement-stack-with-queue/" itemprop="url">
                   How to implement a Stack with Queue
                 </a>
               
@@ -507,8 +725,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/18/implement-stack-with-queue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/18/implement-stack-with-queue/" itemprop="commentsCount"></span>
+                <a href="/2016/01/19/implement-stack-with-queue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/19/implement-stack-with-queue/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -598,7 +816,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/11/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
                   Book notes: Oracle Database Transactions and Locking revealed
                 </a>
               
@@ -623,8 +841,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="commentsCount"></span>
+                <a href="/2016/01/11/book-notes-oracle-database-transactions-and-locking-revealed/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/11/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -740,7 +958,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/09/regex-in-java/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/10/regex-in-java/" itemprop="url">
                   Regex in Java
                 </a>
               
@@ -765,8 +983,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/09/regex-in-java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/09/regex-in-java/" itemprop="commentsCount"></span>
+                <a href="/2016/01/10/regex-in-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/regex-in-java/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1384,7 +1602,111 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/14/mac-osx-tips/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/15/ssh-key-based-authentication/" itemprop="url">
+                  SSH Key-based Authentication
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T21:41:25+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/15/ssh-key-based-authentication/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/15/ssh-key-based-authentication/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight bash"><figcaption><span>run on your macbook</span></figcaption><table><tr><td class="code"><pre><div class="line">ssh-kengen -t rsa</div></pre></td></tr></table></figure>
+<p>Thus it will generate a private-public key pair in <code>~/.ssh</code> directory. Copy the public key <code>~/.ssh/id_rsa.pub</code> to servers: VPS or github or bitbucket.</p>
+<p>In your VPS server, copy the content of <code>id_rsa.pub</code> to <code>~/.ssh/authorized_keys</code>.</p>
+<p>That’s OK. Now you can <code>ssh</code> to your server without password.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/15/mac-osx-tips/" itemprop="url">
                   Mac OSX tips
                 </a>
               
@@ -1409,8 +1731,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/14/mac-osx-tips/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/14/mac-osx-tips/" itemprop="commentsCount"></span>
+                <a href="/2015/12/15/mac-osx-tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/15/mac-osx-tips/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1489,111 +1811,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/14/ssh-key-based-authentication/" itemprop="url">
-                  SSH Key-based Authentication
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-12-14T21:41:25+08:00" content="2015-12-14">
-              2015-12-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/14/ssh-key-based-authentication/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/14/ssh-key-based-authentication/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight bash"><figcaption><span>run on your macbook</span></figcaption><table><tr><td class="code"><pre><div class="line">ssh-kengen -t rsa</div></pre></td></tr></table></figure>
-<p>Thus it will generate a private-public key pair in <code>~/.ssh</code> directory. Copy the public key <code>~/.ssh/id_rsa.pub</code> to servers: VPS or github or bitbucket.</p>
-<p>In your VPS server, copy the content of <code>id_rsa.pub</code> to <code>~/.ssh/authorized_keys</code>.</p>
-<p>That’s OK. Now you can <code>ssh</code> to your server without password.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/08/gradle-use-notes/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/09/gradle-use-notes/" itemprop="url">
                   Gradle use notes
                 </a>
               
@@ -1618,8 +1836,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/08/gradle-use-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/08/gradle-use-notes/" itemprop="commentsCount"></span>
+                <a href="/2015/12/09/gradle-use-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/09/gradle-use-notes/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1722,7 +1940,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/07/perforce-p4v-use-notes/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/08/perforce-p4v-use-notes/" itemprop="url">
                   Perforce P4V use notes
                 </a>
               
@@ -1747,8 +1965,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/07/perforce-p4v-use-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/07/perforce-p4v-use-notes/" itemprop="commentsCount"></span>
+                <a href="/2015/12/08/perforce-p4v-use-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/08/perforce-p4v-use-notes/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1836,7 +2054,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/05/goodbye-wordpress-hello-hexo/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/06/goodbye-wordpress-hello-hexo/" itemprop="url">
                   Goodbye Wordpress, hello Hexo! 
                 </a>
               
@@ -1861,8 +2079,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/05/goodbye-wordpress-hello-hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/05/goodbye-wordpress-hello-hexo/" itemprop="commentsCount"></span>
+                <a href="/2015/12/06/goodbye-wordpress-hello-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/06/goodbye-wordpress-hello-hexo/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1965,7 +2183,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/11/19/jdbc-driver-register/" itemprop="url">
+                <a class="post-title-link" href="/2015/11/20/jdbc-driver-register/" itemprop="url">
                   JDBC Driver register
                 </a>
               
@@ -2009,8 +2227,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/19/jdbc-driver-register/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/19/jdbc-driver-register/" itemprop="commentsCount"></span>
+                <a href="/2015/11/20/jdbc-driver-register/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/20/jdbc-driver-register/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -2048,277 +2266,6 @@
 <li>DB2 JDBC driver <code>db2jcc4.jar</code> is packaged following the service provider convention, so you needn’t invoke <code>Class.forName(..)</code> in your code.</li>
 <li>MySQL JDBC driver <code>mysql-connector-java.jar</code> uses the same way.</li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/06/mybatis-cache/" itemprop="url">
-                  mybatis cache
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-11-06T21:41:29+08:00" content="2015-11-06">
-              2015-11-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
-                    <span itemprop="name">Uncategorized</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/06/mybatis-cache/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/06/mybatis-cache/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些statements来useCache, 哪些statements触发flushCache.</p>
-<p>一旦触发了flushCache, cache将invalidate并清空，下次的查询都将从数据库查询，并放入cache</p>
-<p>限制：</p>
-<ul>
-<li>同一个应用，一旦使用cache，需遵循：</li>
-</ul>
-<ol>
-<li>查询：先查询cache，命中返回; 未命中，查询数据库后放入cache</li>
-<li>修改：修改数据库，flush cache</li>
-</ol>
-<ul>
-<li>一旦修改了cache区域中数据，一定要flush，否则会出现cache与数据库不一致</li>
-<li>使用cache的应用，外部程序(工具)直接修改数据库一定要慎重，因为极有可能导致数据不一致</li>
-</ul>
-<p>下面是一个例子：</p>
-<figure class="highlight xml"><figcaption><span>mybatis-config.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE configuration</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Config 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">”cacheEnabled”</span> <span class="attr">value</span>=<span class="string">”true”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">”development”</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">”JDBC”/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">”POOLED”</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”driver”</span> <span class="attr">value</span>=<span class="string">”com.mysql.jdbc.Driver”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”url”</span> <span class="attr">value</span>=<span class="string">”jdbc:mysql://localhost:3306/test”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”username”</span> <span class="attr">value</span>=<span class="string">”root”/</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">”password”</span> <span class="attr">value</span>=<span class="string">””/</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">”SqlMapper.xml”/</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight xml"><figcaption><span>SqlMapper.xml</span></figcaption><table><tr><td class="code"><pre><div class="line">&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE mapper</span></div><div class="line">        PUBLIC “-//mybatis.org//DTD Mapper 3.0//EN”</div><div class="line">        “http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">”person”</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cache</span> <span class="attr">eviction</span>=<span class="string">"FIFO"</span></span></div><div class="line">       <span class="attr">flushInterval</span>=<span class="string">"60000"</span></div><div class="line">       <span class="attr">size</span>=<span class="string">"512"</span></div><div class="line">       <span class="attr">readOnly</span>=<span class="string">"true"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectPerson"</span> <span class="attr">resultType</span>=<span class="string">"java.util.HashMap"</span> <span class="attr">flushCache</span>=<span class="string">"false"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    select * from person</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertPerson"</span>&gt;</span></div><div class="line">    insert into person values ('ccccc', 23, 'shenzhen')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertStaff"</span>&gt;</span></div><div class="line">    insert into staff values ('richard')</div><div class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</div><div class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	    String resource = <span class="string">"mybatis-config.xml"</span>;</div><div class="line">	    InputStream inputStream = Resources.getResourceAsStream(resource);</div><div class="line">	    sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">	</div><div class="line">	    String command = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">while</span> ((command = br.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">	</div><div class="line">	        SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line">	        <span class="keyword">if</span>(command.equals(<span class="string">"q"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql query:"</span>);</div><div class="line">	            List&lt;Map&gt; list = sqlSession.selectList(<span class="string">"person.selectPerson"</span>);</div><div class="line">	            System.out.println(list);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"i"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertPerson"</span>);</div><div class="line">	        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(command.equals(<span class="string">"is"</span>)) &#123;</div><div class="line">	            System.out.println(<span class="string">"sql insert:"</span>);</div><div class="line">	            sqlSession.insert(<span class="string">"person.insertStaff"</span>);</div><div class="line">	        &#125;</div><div class="line">	</div><div class="line">	        sqlSession.commit();</div><div class="line">	        sqlSession.close();</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如何测试：</p>
-<ol>
-<li>控制台输入”q”触发查询，可以看到首次查询，会使用sql从数据库查询</li>
-<li>这时，我们控制台或数据库客户端(如mysql客户端)再向数据库中插入一些数据</li>
-<li>再次控制台输入”q”再次触发查询，日志显示，这次cache命中，直接从cache中读数据，程序外部（客户端）插入的数据并没有得到。很容易解释，因为这些外部的插入，mybatis并不知道。</li>
-<li>控制台输入”i”触发插入数据，然后再输入”q”触发查询，这次可以看到，会使用sql从数据库查询。可见insert触发了flushCache</li>
-<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
-<li>控制台输入”is”触发插入另一个表的数据，然后再输入”q”触发查询，可以看到这时同样使用sql从数据库查询。可见虽然是不同的表的插入，也将flush整个cache, 因为他们共用位于同一个SqlMapper的namespace中的cache</li>
-<li>控制台输入”q”触发查询，发现cache命中, 不执行SQL</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:26,103 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:26,417 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt;  Preparing: select * from person</div><div class="line">2015-11-06 21:39:26,447 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:26,463 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;==      Total: 0</div><div class="line">[]</div><div class="line">i</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:39:42,303 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into person values (‘ccccc’, 23, ‘shenzhen’)</div><div class="line">2015-11-06 21:39:42,304 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:42,305 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:44,711 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.0</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:39:44,718 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:39:50,878 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.3333333333333333</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">is</div><div class="line">sql insert:</div><div class="line">2015-11-06 21:40:00,431 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: insert into staff values (‘richard’)</div><div class="line">2015-11-06 21:40:00,432 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:00,439 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Updates: 1</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:03,310 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.25</div><div class="line">2015-11-06 21:40:03,315 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Preparing: select * from person</div><div class="line">2015-11-06 21:40:03,316 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">==&gt; Parameters:</div><div class="line">2015-11-06 21:40:03,317 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">&lt;== Total: 1</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div><div class="line">q</div><div class="line">sql query:</div><div class="line">2015-11-06 21:40:04,337 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -</div><div class="line">Cache Hit Ratio [person]: 0.4</div><div class="line">[&#123;city=shenzhen, name=ccccc, age=23&#125;]</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/05/bytecodeviewer-for-mac/" itemprop="url">
-                  BytecodeViewer for Mac
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-11-05T19:14:26+08:00" content="2015-11-05">
-              2015-11-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Uncategorized/" itemprop="url" rel="index">
-                    <span itemprop="name">Uncategorized</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/05/bytecodeviewer-for-mac/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/05/bytecodeviewer-for-mac/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>BytecodeViewer only has the Windows executable release.</p>
-<p>I use the Automator to get an app for Mac OSX.</p>
-<p>Now I provide a download link here:</p>
-<p><a href="https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8" target="_blank" rel="external">https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</a></p>
 
           
         
@@ -2393,7 +2340,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -2494,7 +2441,7 @@
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

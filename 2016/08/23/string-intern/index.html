@@ -1,0 +1,848 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Several simple code snippetsSample1char[] chars = &amp;#123;&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;&amp;#125;;String str1 = new String(chars);System.out.println(str1 == str1.intern());
+print: true
+Sample2String str1 = new St">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String intern">
+<meta property="og:url" content="https://richyang.me/2016/08/23/string-intern/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Several simple code snippetsSample1char[] chars = &amp;#123;&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;&amp;#125;;String str1 = new String(chars);System.out.println(str1 == str1.intern());
+print: true
+Sample2String str1 = new St">
+<meta property="og:image" content="https://richyang.me/media/string-table1.png">
+<meta property="og:image" content="https://richyang.me/media/string-table2.png">
+<meta property="og:image" content="https://richyang.me/media/string-table3.png">
+<meta property="og:updated_time" content="2016-09-07T03:13:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="String intern">
+<meta name="twitter:description" content="Several simple code snippetsSample1char[] chars = &amp;#123;&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;&amp;#125;;String str1 = new String(chars);System.out.println(str1 == str1.intern());
+print: true
+Sample2String str1 = new St">
+<meta name="twitter:image" content="https://richyang.me/media/string-table1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> String intern | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                String intern
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T01:36:25+12:00" content="2016-08-22">
+              2016-08-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/string-intern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/23/string-intern/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Several-simple-code-snippets"><a href="#Several-simple-code-snippets" class="headerlink" title="Several simple code snippets"></a>Several simple code snippets</h1><figure class="highlight java"><figcaption><span>Sample1</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">char</span>[] chars = &#123;<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>&#125;;</div><div class="line">String str1 = <span class="keyword">new</span> String(chars);</div><div class="line">System.out.println(str1 == str1.intern());</div></pre></td></tr></table></figure>
+<p>print: true</p>
+<figure class="highlight java"><figcaption><span>Sample2</span></figcaption><table><tr><td class="code"><pre><div class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">System.out.println(str1 == str1.intern());</div></pre></td></tr></table></figure>
+<p>print: false</p>
+<figure class="highlight java"><figcaption><span>Sample3</span></figcaption><table><tr><td class="code"><pre><div class="line">String a = <span class="string">"hello"</span>;</div><div class="line">String b = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">String c = <span class="keyword">new</span> String(<span class="string">"h"</span> + <span class="string">"e"</span> + <span class="string">"l"</span> + <span class="string">"l"</span> + <span class="string">"o"</span>);</div><div class="line">String d = b.intern();</div></pre></td></tr></table></figure>
+<p>How many String objects is created?<br>Answer is 3. Are you right?</p>
+<h1 id="questions"><a href="#questions" class="headerlink" title="questions"></a>questions</h1><ul>
+<li>when and where is the String object from string literal created, even if we don’t explicitly initialize it?</li>
+<li>what happens for <code>intern()</code>?</li>
+<li>how is the “pool of strings” implemented?</li>
+<li>what’s the difference of two constructors between String(char[]) and String(String)?</li>
+</ul>
+<h1 id="constant-string-loading-and-intern"><a href="#constant-string-loading-and-intern" class="headerlink" title="constant string loading and intern"></a>constant string loading and intern</h1><p>As we know, string literal is compiled into constant pool of the class file. And the bytecode to load it is <code>ldc</code>.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringLiteral</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StringLiteral</span><span class="params">()</span> </span>&#123;</div><div class="line">        String str = <span class="string">"hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>will be compiled to:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Constant pool:</div><div class="line">   #1 = Methodref          #4.#16         //  java/lang/Object.&quot;&lt;init&gt;&quot;:()V</div><div class="line">   #2 = String             #17            //  hello</div><div class="line">   #3 = Class              #18            //  StringLiteral</div><div class="line">   #4 = Class              #19            //  java/lang/Object</div><div class="line">   #5 = Utf8               &lt;init&gt;</div><div class="line">   #6 = Utf8               ()V</div><div class="line">   #7 = Utf8               Code</div><div class="line">   #8 = Utf8               LineNumberTable</div><div class="line">   #9 = Utf8               LocalVariableTable</div><div class="line">  #10 = Utf8               this</div><div class="line">  #11 = Utf8               LStringLiteral;</div><div class="line">  #12 = Utf8               str</div><div class="line">  #13 = Utf8               Ljava/lang/String;</div><div class="line">  #14 = Utf8               SourceFile</div><div class="line">  #15 = Utf8               StringLiteral.java</div><div class="line">  #16 = NameAndType        #5:#6          //  &quot;&lt;init&gt;&quot;:()V</div><div class="line">  #17 = Utf8               hello</div><div class="line">  #18 = Utf8               StringLiteral</div><div class="line">  #19 = Utf8               java/lang/Object</div><div class="line">&#123;</div><div class="line">  public StringLiteral();</div><div class="line">    flags: ACC_PUBLIC</div><div class="line">    Code:</div><div class="line">      stack=1, locals=2, args_size=1</div><div class="line">         0: aload_0</div><div class="line">         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</div><div class="line">         4: ldc           #2                  // String hello</div><div class="line">         6: astore_1</div><div class="line">         7: return</div><div class="line">      LineNumberTable:</div><div class="line">        line 5: 0</div><div class="line">        line 6: 4</div><div class="line">        line 7: 7</div><div class="line">      LocalVariableTable:</div><div class="line">        Start  Length  Slot  Name   Signature</div><div class="line">               0       8     0  this   LStringLiteral;</div><div class="line">               7       1     1   str   Ljava/lang/String;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>when <code>ldc</code> is executed, it must firstly resolve the symbol to the actual reference if not resolved.</p>
+<p>NOTICE:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">4: ldc           #2                  // String hello</div><div class="line">6: astore_1</div></pre></td></tr></table></figure></p>
+<p>will find #2 in constant pool:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#2 = String             #17            //  hello</div><div class="line">#17 = Utf8               hello</div></pre></td></tr></table></figure></p>
+<p>Initially, #2 is Constant_String_info symbol, and it assoiciates with #17 which is Constant_Utf8_info (UTF-8 encoding char array).<br><figure class="highlight c++"><figcaption><span>line2111-2161 share/vm/interpreter/bytecodeInterpreter.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">CASE(<span class="number">_l</span>dc):</div><div class="line">   &#123;</div><div class="line">     u2 index;</div><div class="line">     <span class="keyword">bool</span> wide = <span class="literal">false</span>;</div><div class="line">     <span class="keyword">int</span> incr = <span class="number">2</span>; <span class="comment">// frequent case</span></div><div class="line">     <span class="keyword">if</span> (opcode == Bytecodes::<span class="number">_l</span>dc) &#123;</div><div class="line">       index = pc[<span class="number">1</span>];</div><div class="line">     &#125; <span class="keyword">else</span> &#123;</div><div class="line">       index = Bytes::get_Java_u2(pc+<span class="number">1</span>);</div><div class="line">       incr = <span class="number">3</span>;</div><div class="line">       wide = <span class="literal">true</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     ConstantPool* constants = METHOD-&gt;constants();</div><div class="line">     <span class="keyword">switch</span> (constants-&gt;tag_at(index).value()) &#123;</div><div class="line">     ....</div><div class="line">     </div><div class="line">     <span class="keyword">case</span> JVM_CONSTANT_String:</div><div class="line">       &#123;</div><div class="line">         oop result = constants-&gt;resolved_references()-&gt;obj_at(index);</div><div class="line">         <span class="keyword">if</span> (result == <span class="literal">NULL</span>) &#123;</div><div class="line">           CALL_VM(InterpreterRuntime::resolve_ldc(THREAD, (Bytecodes::Code) opcode), handle_exception);</div><div class="line">           SET_STACK_OBJECT(THREAD-&gt;vm_result(), <span class="number">0</span>);</div><div class="line">           THREAD-&gt;set_vm_result(<span class="literal">NULL</span>);</div><div class="line">         &#125; <span class="keyword">else</span> &#123;</div><div class="line">           VERIFY_OOP(result);</div><div class="line">           SET_STACK_OBJECT(result, <span class="number">0</span>);</div><div class="line">         &#125;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">      ....</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>when it’s JVM_CONSTANT_String, jvm first checks resolved reference in line <code>oop result = constants-&gt;resolved_references()-&gt;obj_at(index);</code>. If it is not resolved, then call <code>InterpreterRuntime::resolve_ldc(THREAD, (Bytecodes::Code) opcode)</code>.</p>
+<figure class="highlight"><figcaption><span>line125-142 share/vm/interpreter/interpreterRuntime.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">IRT_ENTRY(void, InterpreterRuntime::resolve_ldc(JavaThread* thread, Bytecodes::Code bytecode)) &#123;</div><div class="line">  assert(bytecode == Bytecodes::_fast_aldc ||</div><div class="line">         bytecode == Bytecodes::_fast_aldc_w, "wrong bc");</div><div class="line">  ResourceMark rm(thread);</div><div class="line">  methodHandle m (thread, method(thread));</div><div class="line">  Bytecode_loadconstant ldc(m, bci(thread));</div><div class="line">  oop result = ldc.resolve_constant(CHECK);</div><div class="line">#ifdef ASSERT</div><div class="line">  &#123;</div><div class="line">    // The bytecode wrappers aren't GC-safe so construct a new one</div><div class="line">    Bytecode_loadconstant ldc2(m, bci(thread));</div><div class="line">    oop coop = m-&gt;constants()-&gt;resolved_references()-&gt;obj_at(ldc2.cache_index());</div><div class="line">    assert(result == coop, "expected result for assembly code");</div><div class="line">  &#125;</div><div class="line">#endif</div><div class="line">  thread-&gt;set_vm_result(result);</div><div class="line">&#125;</div><div class="line">IRT_END</div></pre></td></tr></table></figure>
+<p>here, it then calls <code>Bytecode_loadconstant::resolve_constant(..)</code>.</p>
+<figure class="highlight c++"><figcaption><span>line217-226 share/vm/interpreter/bytecode.cpp </span></figcaption><table><tr><td class="code"><pre><div class="line">oop Bytecode_loadconstant::resolve_constant(TRAPS) <span class="keyword">const</span> &#123;</div><div class="line">  assert(<span class="number">_</span>method.not_null(), <span class="string">"must supply method to resolve constant"</span>);</div><div class="line">  <span class="keyword">int</span> index = raw_index();</div><div class="line">  ConstantPool* constants = <span class="number">_</span>method-&gt;constants();</div><div class="line">  <span class="keyword">if</span> (has_cache_index()) &#123;</div><div class="line">    <span class="keyword">return</span> constants-&gt;resolve_cached_constant_at(index, THREAD);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> constants-&gt;resolve_constant_at(index, THREAD);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>here, no cache temporarily, it calls <code>constants-&gt;resolve_constant_at(index, THREAD)</code>.</p>
+<figure class="highlight c++"><figcaption><span>line705-709 share/vm/oops/constantPool.hpp</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">// Resolve late bound constants.</span></div><div class="line"><span class="function">oop <span class="title">resolve_constant_at</span><span class="params">(<span class="keyword">int</span> index, TRAPS)</span> </span>&#123;</div><div class="line">  <span class="function">constantPoolHandle <span class="title">h_this</span><span class="params">(THREAD, <span class="keyword">this</span>)</span></span>;</div><div class="line">  <span class="keyword">return</span> resolve_constant_at_impl(h_this, index, <span class="number">_</span>no_index_sentinel, THREAD);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>line614-718 shared/vm/oops/contantPool.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">// Called to resolve constants in the constant pool and return an oop.</div><div class="line">// Some constant pool entries cache their resolved oop. This is also</div><div class="line">// called to create oops from constants to use in arguments for invokedynamic</div><div class="line">oop ConstantPool::resolve_constant_at_impl(constantPoolHandle this_oop, int index, int cache_index, TRAPS) &#123;</div><div class="line">  oop result_oop = NULL;</div><div class="line">  Handle throw_exception;</div><div class="line"></div><div class="line">  if (cache_index == _possible_index_sentinel) &#123;</div><div class="line">    // It is possible that this constant is one which is cached in the objects.</div><div class="line">    // We'll do a linear search.  This should be OK because this usage is rare.</div><div class="line">    assert(index &gt; 0, "valid index");</div><div class="line">    cache_index = this_oop-&gt;cp_to_object_index(index);</div><div class="line">  &#125;</div><div class="line">  assert(cache_index == _no_index_sentinel || cache_index &gt;= 0, "");</div><div class="line">  assert(index == _no_index_sentinel || index &gt;= 0, "");</div><div class="line"></div><div class="line">  if (cache_index &gt;= 0) &#123;</div><div class="line">    result_oop = this_oop-&gt;resolved_references()-&gt;obj_at(cache_index);</div><div class="line">    if (result_oop != NULL) &#123;</div><div class="line">      return result_oop;</div><div class="line">      // That was easy...</div><div class="line">    &#125;</div><div class="line">    index = this_oop-&gt;object_to_cp_index(cache_index);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  jvalue prim_value;  // temp used only in a few cases below</div><div class="line"></div><div class="line">  int tag_value = this_oop-&gt;tag_at(index).value();</div><div class="line"></div><div class="line">  switch (tag_value) &#123;</div><div class="line"></div><div class="line">  ....</div><div class="line"></div><div class="line">  case JVM_CONSTANT_String:</div><div class="line">    assert(cache_index != _no_index_sentinel, "should have been set");</div><div class="line">    if (this_oop-&gt;is_pseudo_string_at(index)) &#123;</div><div class="line">      result_oop = this_oop-&gt;pseudo_string_at(index, cache_index);</div><div class="line">      break;</div><div class="line">    &#125;</div><div class="line">    result_oop = string_at_impl(this_oop, index, cache_index, CHECK_NULL);</div><div class="line">    break;</div><div class="line"></div><div class="line">  ....</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  if (cache_index &gt;= 0) &#123;</div><div class="line">    // Cache the oop here also.</div><div class="line">    Handle result_handle(THREAD, result_oop);</div><div class="line">    MonitorLockerEx ml(this_oop-&gt;lock());  // don't know if we really need this</div><div class="line">    oop result = this_oop-&gt;resolved_references()-&gt;obj_at(cache_index);</div><div class="line">    // Benign race condition:  resolved_references may already be filled in while we were trying to lock.</div><div class="line">    // The important thing here is that all threads pick up the same result.</div><div class="line">    // It doesn't matter which racing thread wins, as long as only one</div><div class="line">    // result is used by all threads, and all future queries.</div><div class="line">    // That result may be either a resolved constant or a failure exception.</div><div class="line">    if (result == NULL) &#123;</div><div class="line">      this_oop-&gt;resolved_references()-&gt;obj_at_put(cache_index, result_handle());</div><div class="line">      return result_handle();</div><div class="line">    &#125; else &#123;</div><div class="line">      // Return the winning thread's result.  This can be different than</div><div class="line">      // result_handle() for MethodHandles.</div><div class="line">      return result;</div><div class="line">    &#125;</div><div class="line">  &#125; else &#123;</div><div class="line">    return result_oop;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>And then calls <code>string_at_impl</code>.</p>
+<figure class="highlight c++"><figcaption><span>line816-825 share/vm/oops/contantPool.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">oop ConstantPool::string_at_impl(constantPoolHandle this_oop, <span class="keyword">int</span> which, <span class="keyword">int</span> obj_index, TRAPS) &#123;</div><div class="line">  <span class="comment">// If the string has already been interned, this entry will be non-null</span></div><div class="line">  oop str = this_oop-&gt;resolved_references()-&gt;obj_at(obj_index);</div><div class="line">  <span class="keyword">if</span> (str != <span class="literal">NULL</span>) <span class="keyword">return</span> str;</div><div class="line">  Symbol* sym = this_oop-&gt;unresolved_string_at(which);</div><div class="line">  str = StringTable::intern(sym, CHECK_(<span class="literal">NULL</span>));</div><div class="line">  this_oop-&gt;string_at_put(which, obj_index, str);</div><div class="line">  assert(java_lang_String::is_instance(str), <span class="string">"must be string"</span>);</div><div class="line">  <span class="keyword">return</span> str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Finally, we find these two lines:<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line">Symbol* sym = this_oop-&gt;unresolved_string_at(which);</div><div class="line">str = StringTable::intern(sym, CHECK_(<span class="literal">NULL</span>));</div></pre></td></tr></table></figure></p>
+<p>Here sym is <code>Utf8</code> the String is associate with.</p>
+<figure class="highlight c++"><figcaption><span>vm/classfile/symbolTable.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">oop StringTable::intern(Symbol* symbol, TRAPS) &#123;</div><div class="line">  <span class="keyword">if</span> (symbol == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">  <span class="function">ResourceMark <span class="title">rm</span><span class="params">(THREAD)</span></span>;</div><div class="line">  <span class="keyword">int</span> length;</div><div class="line">  jchar* chars = symbol-&gt;as_unicode(length);</div><div class="line">  Handle <span class="built_in">string</span>;</div><div class="line">  oop result = intern(<span class="built_in">string</span>, chars, length, CHECK_NULL);</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">oop StringTable::intern(Handle string_or_null, jchar* name,</div><div class="line">                        <span class="keyword">int</span> len, TRAPS) &#123;</div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> hashValue = hash_string(name, len);</div><div class="line">  <span class="keyword">int</span> index = the_table()-&gt;hash_to_index(hashValue);</div><div class="line">  oop found_string = the_table()-&gt;lookup(index, name, len, hashValue);</div><div class="line"></div><div class="line">  <span class="comment">// Found</span></div><div class="line">  <span class="keyword">if</span> (found_string != <span class="literal">NULL</span>) <span class="keyword">return</span> found_string;</div><div class="line"></div><div class="line">  debug_only(StableMemoryChecker smc(name, len * <span class="keyword">sizeof</span>(name[<span class="number">0</span>])));</div><div class="line">  assert(!Universe::heap()-&gt;is_in_reserved(name),</div><div class="line">         <span class="string">"proposed name of symbol must be stable"</span>);</div><div class="line"></div><div class="line">  Handle <span class="built_in">string</span>;</div><div class="line">  <span class="comment">// try to reuse the string if possible</span></div><div class="line">  <span class="keyword">if</span> (!string_or_null.is_null()) &#123;</div><div class="line">    <span class="built_in">string</span> = string_or_null;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">string</span> = java_lang_String::create_from_unicode(name, len, CHECK_NULL);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// Grab the StringTable_lock before getting the_table() because it could</span></div><div class="line">  <span class="comment">// change at safepoint.</span></div><div class="line">  <span class="function">MutexLocker <span class="title">ml</span><span class="params">(StringTable_lock, THREAD)</span></span>;</div><div class="line"></div><div class="line">  <span class="comment">// Otherwise, add to symbol to table</span></div><div class="line">  <span class="keyword">return</span> the_table()-&gt;basic_add(index, <span class="built_in">string</span>, name, len,</div><div class="line">                                hashValue, CHECK_NULL);</div><div class="line">&#125;</div><div class="line"></div><div class="line">oop StringTable::basic_add(<span class="keyword">int</span> index_arg, Handle <span class="built_in">string</span>, jchar* name,</div><div class="line">                           <span class="keyword">int</span> len, <span class="keyword">unsigned</span> <span class="keyword">int</span> hashValue_arg, TRAPS) &#123;</div><div class="line"></div><div class="line">  assert(java_lang_String::equals(<span class="built_in">string</span>(), name, len),</div><div class="line">         <span class="string">"string must be properly initialized"</span>);</div><div class="line">  <span class="comment">// Cannot hit a safepoint in this function because the "this" pointer can move.</span></div><div class="line">  No_Safepoint_Verifier nsv;</div><div class="line"></div><div class="line">  <span class="comment">// Check if the symbol table has been rehashed, if so, need to recalculate</span></div><div class="line">  <span class="comment">// the hash value and index before second lookup.</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> hashValue;</div><div class="line">  <span class="keyword">int</span> index;</div><div class="line">  <span class="keyword">if</span> (use_alternate_hashcode()) &#123;</div><div class="line">    hashValue = hash_string(name, len);</div><div class="line">    index = hash_to_index(hashValue);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    hashValue = hashValue_arg;</div><div class="line">    index = index_arg;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// Since look-up was done lock-free, we need to check if another</span></div><div class="line">  <span class="comment">// thread beat us in the race to insert the symbol.</span></div><div class="line"></div><div class="line">  oop test = lookup(index, name, len, hashValue); <span class="comment">// calls lookup(u1*, int)</span></div><div class="line">  <span class="keyword">if</span> (test != <span class="literal">NULL</span>) &#123;</div><div class="line">    <span class="comment">// Entry already added</span></div><div class="line">    <span class="keyword">return</span> test;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  HashtableEntry&lt;oop, mtSymbol&gt;* entry = new_entry(hashValue, <span class="built_in">string</span>());</div><div class="line">  add_entry(index, entry);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">string</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Firstly, it converts the Utf8 symbol to Java char array. Then using this char array to crate a <code>String</code> object by <code>java_lang_String::create_from_unicode(name, len, CHECK_NULL);</code>. Finally, add this oop of String to the table and return its oop. Here the_table is StringTable. StringTable is just a Hashtable<oop, mtsymbol="">.</oop,></p>
+<figure class="highlight c++"><figcaption><span>line185-192 shared/vm/classfile/javaClasses.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">Handle java_lang_String::create_from_unicode(jchar* unicode, <span class="keyword">int</span> length, TRAPS) &#123;</div><div class="line">  Handle h_obj = basic_create(length, CHECK_NH);</div><div class="line">  typeArrayOop buffer = value(h_obj());</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; length; index++) &#123;</div><div class="line">    buffer-&gt;char_at_put(index, unicode[index]);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> h_obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="explicitly-call-String-intern"><a href="#explicitly-call-String-intern" class="headerlink" title="explicitly call String#intern()"></a>explicitly call String#intern()</h1><p>This is the JNI method of String#intern():<br><figure class="highlight c"><figcaption><span>share/native/java/lang/String.c</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function">JNIEXPORT jobject JNICALL</span></div><div class="line"><span class="title">Java_java_lang_String_intern</span><span class="params">(JNIEnv *env, jobject <span class="keyword">this</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> JVM_InternString(env, <span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><figcaption><span>share/vm/prims/jvm.cpp</span></figcaption><table><tr><td class="code"><pre><div class="line">JVM_ENTRY(jstring, JVM_InternString(JNIEnv *env, jstring str))</div><div class="line">  JVMWrapper(<span class="string">"JVM_InternString"</span>);</div><div class="line">  JvmtiVMObjectAllocEventCollector oam;</div><div class="line">  <span class="keyword">if</span> (str == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">  oop <span class="built_in">string</span> = JNIHandles::resolve_non_null(str);</div><div class="line">  oop result = StringTable::intern(<span class="built_in">string</span>, CHECK_NULL);</div><div class="line">  <span class="keyword">return</span> (jstring) JNIHandles::make_local(env, result);</div><div class="line">JVM_END</div></pre></td></tr></table></figure>
+<p>You can see: <code>oop result = StringTable::intern(string, CHECK_NULL);</code><br>It calls the same method as the above code when loading constant string.</p>
+<h1 id="visualization"><a href="#visualization" class="headerlink" title="visualization"></a>visualization</h1><p>StringTable has a static field _the_table and it can be accessed directly by StringTable::the_table(); So actually this is a JVM internal data structure belonging to JVM. It is globally created in universe. It makes no sense to say it is located in the method area.</p>
+<h2 id="for-Sample1"><a href="#for-Sample1" class="headerlink" title="for Sample1"></a>for Sample1</h2><p><img src="/media/string-table1.png" alt="memory layout for Sample1"></p>
+<h2 id="for-Sample2"><a href="#for-Sample2" class="headerlink" title="for Sample2"></a>for Sample2</h2><p><img src="/media/string-table2.png" alt="memory layout for Sample2"></p>
+<h2 id="for-Sample3"><a href="#for-Sample3" class="headerlink" title="for Sample3"></a>for Sample3</h2><p><img src="/media/string-table3.png" alt="memory layout for Sample3"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/23/java-array-has-length-field/" rel="next" title="Java array has length field?">
+                <i class="fa fa-chevron-left"></i> Java array has length field?
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/23/thread-interrupt-and-cancelable-mechanism/" rel="prev" title="thread interrupt and cancelable mechanism">
+                thread interrupt and cancelable mechanism <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">133</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Several-simple-code-snippets"><span class="nav-number">1.</span> <span class="nav-text">Several simple code snippets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#questions"><span class="nav-number">2.</span> <span class="nav-text">questions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#constant-string-loading-and-intern"><span class="nav-number">3.</span> <span class="nav-text">constant string loading and intern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#explicitly-call-String-intern"><span class="nav-number">4.</span> <span class="nav-text">explicitly call String#intern()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#visualization"><span class="nav-number">5.</span> <span class="nav-text">visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-Sample1"><span class="nav-number">5.1.</span> <span class="nav-text">for Sample1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-Sample2"><span class="nav-number">5.2.</span> <span class="nav-text">for Sample2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-Sample3"><span class="nav-number">5.3.</span> <span class="nav-text">for Sample3</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2016/08/23/string-intern/';
+      var disqus_title = 'String intern';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

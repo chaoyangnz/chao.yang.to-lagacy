@@ -1,0 +1,998 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Richard Yang, Java Developer, Senior software engineer" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Some conceptsmetacharacters&amp;lt;([{\^-=$!|]})?*+.&amp;gt; these characters have special meaning which can affect the way a pattern is matached.
+character classesa set of characters enclosed within square b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regex in Java">
+<meta property="og:url" content="https://richyang.me/2016/01/10/regex-in-java/index.html">
+<meta property="og:site_name" content="Richard Yang">
+<meta property="og:description" content="Some conceptsmetacharacters&amp;lt;([{\^-=$!|]})?*+.&amp;gt; these characters have special meaning which can affect the way a pattern is matached.
+character classesa set of characters enclosed within square b">
+<meta property="og:updated_time" content="2016-01-13T14:29:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regex in Java">
+<meta name="twitter:description" content="Some conceptsmetacharacters&amp;lt;([{\^-=$!|]})?*+.&amp;gt; these characters have special meaning which can affect the way a pattern is matached.
+character classesa set of characters enclosed within square b">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'X0H1P7HDKY',
+      apiKey: 'ddc0af00a6e07c9b1be9f4da4cf5b9d9',
+      indexName: 'richyang.me',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Regex in Java | Richard Yang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <!--span class="logo-line-before"><i></i></span-->
+      <span class="site-title">Richard Yang</span>
+      <!--span class="logo-line-after"><i></i></span-->
+    </a>
+  </div>
+  <p class="site-subtitle">Full-stack software engineer mainly focusing on Java-based technologies and web front-end</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="https://www.gitbook.com/@richdyang" rel="section">
+            
+            Books
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-showcase">
+          <a href="/showcase" rel="section">
+            
+            Showcase
+          </a>
+        </li>
+        
+      
+        
+        
+        <li class="menu-item menu-item-resume">
+          <a href="http://linkedin.com/in/richdyang" rel="section">
+            
+            Résumé
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            About
+          </a>
+        </li>
+        
+      
+        
+        
+      
+        
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+            <i class="menu-item-icon fa fa-search fa-lg"></i>Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+<div class="social-links" style="float: right; padding-left: 50px; margin-right: 10px">
+      
+        
+          <span class="links-of-author-item">
+            <a href="http://linkedin.com/in/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://github.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-github-alt"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://bitbucket.org/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-bitbucket"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+          <span class="links-of-author-item">
+            <a href="http://twitter.com/richdyang" target="_blank" style="border-bottom: none">
+              
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+                </span>
+                 
+              
+            </a>
+          </span>
+        
+      
+  </div>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Regex in Java
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-10T03:05:25+13:00" content="2016-01-09">
+              2016-01-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/10/regex-in-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/10/regex-in-java/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Some-concepts"><a href="#Some-concepts" class="headerlink" title="Some concepts"></a>Some concepts</h1><h2 id="metacharacters"><a href="#metacharacters" class="headerlink" title="metacharacters"></a>metacharacters</h2><p><code>&lt;([{\^-=$!|]})?*+.&gt;</code><br> these characters have special meaning which can affect the way a pattern is matached.</p>
+<h2 id="character-classes"><a href="#character-classes" class="headerlink" title="character classes"></a>character classes</h2><p>a set of characters enclosed within square brackets.</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[abc]</td>
+<td>a, b, or c (simple class)</td>
+</tr>
+<tr>
+<td>[^abc]</td>
+<td>Any character except a, b, or c (negation)</td>
+</tr>
+<tr>
+<td>[a-zA-Z]</td>
+<td>a through z, or A through Z, inclusive (range)</td>
+</tr>
+<tr>
+<td>[a-d[m-p]]</td>
+<td>a through d, or m through p: [a-dm-p] (union)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[def]]</td>
+<td>d, e, or f (intersection)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[^bc]]</td>
+<td>a through z, except for b and c: [ad-z] (subtraction)</td>
+</tr>
+<tr>
+<td>[a-z&amp;&amp;[^m-p]]</td>
+<td>a through z, and not m through p: [a-lq-z] (subtraction)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="predefined-character-classes"><a href="#predefined-character-classes" class="headerlink" title="predefined character classes"></a>predefined character classes</h2><p>convenient shorthands for commonly used regular expressions</p>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Any character (may or may not match line terminators)</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>A digit: [0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>A non-digit: [^0-9]</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>A whitespace character: [ \t\n\x0B\f\r]</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>A non-whitespace character: [^\s]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>A word character: [a-zA-Z_0-9]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>A non-word character: [^\w]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bounary-matchers"><a href="#bounary-matchers" class="headerlink" title="bounary matchers"></a>bounary matchers</h2><table>
+<thead>
+<tr>
+<th>Boundary Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>The beginning of a line</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>A word boundary</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>A non-word boundary</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>The beginning of the input</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>The end of the previous match</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>The end of the input but for the final terminator, if any</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>The end of the input</td>
+</tr>
+</tbody>
+</table>
+<h2 id="qualifier"><a href="#qualifier" class="headerlink" title="qualifier"></a>qualifier</h2><p>the number of occurrences to match against</p>
+<table>
+<thead>
+<tr>
+<th>qualifier</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X?</td>
+<td>once or not at all</td>
+</tr>
+<tr>
+<td>X*</td>
+<td>zero or more times</td>
+</tr>
+<tr>
+<td>X+</td>
+<td>one or more times</td>
+</tr>
+<tr>
+<td>X{n}</td>
+<td>exactly n times</td>
+</tr>
+<tr>
+<td>X{n,}</td>
+<td>at least n times</td>
+</tr>
+<tr>
+<td>X{n,m}</td>
+<td>at least n but not more than m times</td>
+</tr>
+</tbody>
+</table>
+<p>Qualifier can be applied on character, character class, capturing group.</p>
+<h2 id="capturing-groups"><a href="#capturing-groups" class="headerlink" title="capturing groups"></a>capturing groups</h2><p>treat multiple characters as a single unit</p>
+<p><strong>Capturing groups are numbered by counting their opening parentheses from left to right.</strong></p>
+<p>There is also a special group, group 0, which always represents the entire expression. This group is not included in the total reported by groupCount. </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">s(\d\w),f(dfd(\Sgd)er)3=pr</div><div class="line"> --1---  ------2-----</div><div class="line">             --3--</div></pre></td></tr></table></figure>
+<p>Group 1: (\d\w)<br>Group 2: (dfd(\Sgd)er)<br>Group 3: (\Sgd)</p>
+<h2 id="backreferences"><a href="#backreferences" class="headerlink" title="backreferences"></a>backreferences</h2><p>In your regular expression, you can reference the previous capturing group by a backslash () followed by a digit indicating the number of the group to be recalled.</p>
+<p><code>(\d\d)\1(abc)dfd\2-ellre</code></p>
+<p>Here, <code>\1</code> is refered as <strong>the matched content</strong> of <code>(\d\d)</code> and <code>\2</code> is refered as <strong>the matched content</strong> of <code>(abc)</code>. Note, backreference doesn’t mean the replacement of the sub pattern of the group.</p>
+<h1 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Pattern pattern = Pattern.compile(<span class="string">"(\\d\\d).(abc)"</span>;</div></pre></td></tr></table></figure>
+<h1 id="Matcher"><a href="#Matcher" class="headerlink" title="Matcher"></a>Matcher</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Matcher matcher = pattern.matcher(<span class="string">"string-to-match"</span>)</div></pre></td></tr></table></figure>
+<h2 id="find-vs-matches-vs-lookingAt"><a href="#find-vs-matches-vs-lookingAt" class="headerlink" title="find() vs. matches() vs. lookingAt()"></a>find() vs. matches() vs. lookingAt()</h2><ul>
+<li><code>matches()</code> matches the full string starting from 0.</li>
+<li><code>lookingAt()</code> like <code>matches()</code> starting from 0, but not requre to match the full string.</li>
+<li><code>find()</code> tries to find the next occurrence within the substring that matches the regex. That means, the result of calling find() multiple times might not be the same.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Pattern pattern = Pattern.compile(<span class="string">"\\d\\d"</span>);</div><div class="line">Matcher matcher = pattern.matcher(<span class="string">"2345"</span>);</div><div class="line">matcher.matches(); <span class="comment">//false</span></div><div class="line">matcher.lookingAt(); <span class="comment">// true</span></div><div class="line">matcher.find(); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>If you care about the full string matching, use <code>matches()</code>, otherwise use <code>lookingAt()</code>.<br><code>find()</code> is better to use to match multiple occurrences and call multiple times.</p>
+</blockquote>
+<h2 id="query-state"><a href="#query-state" class="headerlink" title="query state"></a>query state</h2><p>Once matched, we can always query the state by method <code>group()</code>, <code>start()</code>, and <code>end()</code>.</p>
+<p>Because <code>find()</code> can call multiple times to get all the matched substrings, we can get more detailed group state by <code>group(i)</code>, <code>start(i)</code>, and <code>end(i)</code>.</p>
+<figure class="highlight java"><figcaption><span>typical usage of find()</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">while</span>(matcher.find())</div><div class="line">    out.prinf(<span class="string">"Found the text \"%s\" from %d to %d"</span>, </div><div class="line">              matcher.group(), </div><div class="line">              matcher.start(), </div><div class="line">              matcher.end()</div><div class="line">    );</div><div class="line">    </div><div class="line">    <span class="comment">// further group details</span></div><div class="line">    <span class="comment">// although group 0 is excluded from groupCount(), we can safely get it</span></div><div class="line">    <span class="comment">// group() is equivlent with group(0) here</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= matcher.groupCount(); ++i) &#123;</div><div class="line">        out.printf(<span class="string">"Group %d: %s from %d to %d"</span>,</div><div class="line">                   matcher.group(i),</div><div class="line">                   matcher.start(i),</div><div class="line">                   matcher.end(i)</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="replacement"><a href="#replacement" class="headerlink" title="replacement"></a>replacement</h2><p><code>replaceAll(..)</code> and <code>replaceFirst(..)</code> is very useful to replace the whole matches.<br>And in the replacement, you can use <code>$0, $1, $2, ..</code> to represent respective group matches.</p>
+<p>But the powerful way is using <code>appendReplacement(..)</code> and <code>applendTail()</code>.</p>
+<p>The following example, I need to replace the domain part of all emails in multiple lines.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String emails = <span class="string">"richd.yang@googlemail.com\n"</span> +</div><div class="line">                <span class="string">"richdyang@yahoo.com"</span>;</div><div class="line">String EMAIL_PATTERN = <span class="string">"^([a-zA-Z0-9._]+)@((\\w+)\\.(\\w+))$"</span>;</div><div class="line">StringBuffer sbf = <span class="keyword">new</span> StringBuffer();</div><div class="line">Matcher m = Pattern.compile(EMAIL_PATTERN, Pattern.MULTILINE).matcher(emails);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    String domain = m.group(<span class="number">3</span>);</div><div class="line">    <span class="keyword">if</span>(<span class="string">"googlemail"</span>.equals(domain)) &#123;</div><div class="line">        m.appendReplacement(sbf, <span class="string">"$1@gmail.$4"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">m.appendTail(sbf);</div><div class="line"></div><div class="line">System.out.printf(<span class="string">"%s"</span>, sbf);</div></pre></td></tr></table></figure>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><figure class="highlight java"><figcaption><span>SimpleEmailMatcher</span></figcaption><table><tr><td class="code"><pre><div class="line">String EMAIL_PATTERN = <span class="string">"([a-zA-Z0-9._]+)@((\\w+\\.)+\\w+)"</span>;</div><div class="line">Matcher m = Pattern.compile(EMAIL_PATTERN).matcher(<span class="string">"richd.yang@gmail.com"</span>);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    System.out.printf(<span class="string">"Found \"%s\" (%d - %d) %n"</span>, m.group(), m.start(), m.end());</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= m.groupCount(); ++i) &#123;</div><div class="line">        System.out.printf(<span class="string">"Group %d: %s (%d - %d) %n"</span>, i, m.group(i), m.start(i), m.end(i));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Found “richd.yang@gmail.com” (0 - 20)<br>Group 0: richd.yang@gmail.com (0 - 20)<br>Group 1: richd.yang (0 - 10)<br>Group 2: gmail.com (11 - 20)<br>Group 3: gmail. (11 - 17) </p>
+</blockquote>
+<p>Now we can get the Email domain from group 2.</p>
+<figure class="highlight java"><figcaption><span>SimpleIPMatcher</span></figcaption><table><tr><td class="code"><pre><div class="line">String IPADDRESS_PATTERN =</div><div class="line">        <span class="string">"^([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\."</span> +</div><div class="line">         <span class="string">"([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])$"</span>;</div><div class="line">Matcher m = Pattern.compile(IPADDRESS_PATTERN).matcher(<span class="string">"10.233.29.5"</span>);</div><div class="line"><span class="keyword">while</span>(m.find()) &#123;</div><div class="line">    System.out.printf(<span class="string">"Found \"%s\" (%d - %d) %n"</span>, m.group(), m.start(), m.end());</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt;= m.groupCount(); ++i) &#123;</div><div class="line">        System.out.printf(<span class="string">"Group %d: %s (%d - %d) %n"</span>, i, m.group(i), m.start(i), m.end(i));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Found “10.233.29.5” (0 - 11)<br>Group 0: 10.233.29.5 (0 - 11)<br>Group 1: 10 (0 - 2)<br>Group 2: 233 (3 - 6)<br>Group 3: 29 (7 - 9)<br>Group 4: 5 (10 - 11) </p>
+</blockquote>
+<p>reference: <a href="http://www.mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/" target="_blank" rel="external">how to validate ip address</a></p>
+<h1 id="Further-references"><a href="#Further-references" class="headerlink" title="Further references"></a>Further references</h1><ul>
+<li><p><a href="https://docs.oracle.com/javase/tutorial/essential/regex/index.html" target="_blank" rel="external">Oracle Java Tutorial for Regular Expressions</a></p>
+</li>
+<li><p><a href="http://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124" target="_blank" rel="external">Mastering Regular Expressions</a></p>
+</li>
+<li><p><a href="http://regexr.com/" target="_blank" rel="external">Java Regex Tester online</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/08/book-reading-plan-for-2016/" rel="next" title="Book reading plan for 2016">
+                <i class="fa fa-chevron-left"></i> Book reading plan for 2016
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/11/book-notes-oracle-database-transactions-and-locking-revealed/" rel="prev" title="Book notes: Oracle Database Transactions and Locking revealed">
+                Book notes: Oracle Database Transactions and Locking revealed <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://qph.is.quoracdn.net/main-thumb-27403014-200-azcnfpakpayhgojvmueqcfjeyufbjpcx.jpeg"
+               alt="Richard Yang" />
+          <p class="site-author-name" itemprop="name">Richard Yang</p>
+          <p class="site-description motion-element" itemprop="description">Nothing seek, nothing find</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">133</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/richdyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github-alt"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://bitbucket.org/richdyang" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-bitbucket"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/4344443/richard" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://twitter.com/richdyang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-concepts"><span class="nav-number">1.</span> <span class="nav-text">Some concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#metacharacters"><span class="nav-number">1.1.</span> <span class="nav-text">metacharacters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#character-classes"><span class="nav-number">1.2.</span> <span class="nav-text">character classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predefined-character-classes"><span class="nav-number">1.3.</span> <span class="nav-text">predefined character classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bounary-matchers"><span class="nav-number">1.4.</span> <span class="nav-text">bounary matchers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qualifier"><span class="nav-number">1.5.</span> <span class="nav-text">qualifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#capturing-groups"><span class="nav-number">1.6.</span> <span class="nav-text">capturing groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backreferences"><span class="nav-number">1.7.</span> <span class="nav-text">backreferences</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pattern"><span class="nav-number">2.</span> <span class="nav-text">Pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matcher"><span class="nav-number">3.</span> <span class="nav-text">Matcher</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#find-vs-matches-vs-lookingAt"><span class="nav-number">3.1.</span> <span class="nav-text">find() vs. matches() vs. lookingAt()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#query-state"><span class="nav-number">3.2.</span> <span class="nav-text">query state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replacement"><span class="nav-number">3.3.</span> <span class="nav-text">replacement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Further-references"><span class="nav-number">5.</span> <span class="nav-text">Further references</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yang</span>
+</div>
+
+<!--div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div-->
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'richyang';
+      var disqus_identifier = '2016/01/10/regex-in-java/';
+      var disqus_title = 'Regex in Java';
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/vendors/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/vendors/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
