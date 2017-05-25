@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Java array has length field? - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Java array has length field?">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Java array has length field? - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/java-array-has-length-field/" itemprop="url">
+        Java array has length field?
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-22">
+    2016-08-22
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">814 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there must be length information stored in the object header. But where?</p>
+
+<h1 id="array-is-special">array is special</h1>
+
+<p>There is no &ldquo;class definition&rdquo; of an array (you can&rsquo;t find it in any .class file), they&rsquo;re a part of the language itself.</p>
+
+<p>This is quoted from JLS:</p>
+
+<hr />
+
+<blockquote>
+<p>10.7. Array Members</p>
+
+<p>The members of an array type are all of the following:</p>
+
+<p>The public final field length, which contains the number of components of the array. length may be positive or zero.
+The public method clone, which overrides the method of the same name in class Object and throws no checked exceptions. The return type of the clone method of an array type T[] is T[].</p>
+
+<p>A clone of a multidimensional array is shallow, which is to say that it creates only a single new array. Subarrays are shared.
+All the members inherited from class Object; the only method of Object that is not inherited is its clone method.</p>
+</blockquote>
+
+<h1 id="length-is-a-field-of-array-class">length is a field of array class?</h1>
+
+<p>No. It is not a field of an array class. You cannot reflect it from its class.</p>
+
+<pre><code class="language-java">String[] arr = {&quot;a&quot;, &quot;b&quot;};
+Field field = arr.getClass().getField(&quot;length&quot;);
+System.out.println(field.get(arr));
+</code></pre>
+
+<p>To be disappointed, you cannot get this <code>length</code> field.
+<!-- more --></p>
+
+<h1 id="specify-length-when-array-creation">specify length when array creation</h1>
+
+<pre><code class="language-java">	public void foo(int i) {
+		String[] arr = new String[i];
+		int l = arr.length;
+	}
+</code></pre>
+
+<p>The following is the decompiled bytecode:</p>
+
+<pre><code class="language-bytecode">	public void foo(int);
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=2
+         0: iload_1
+         1: anewarray     #16                 // class java/lang/String
+         4: astore_2
+         5: aload_2
+         6: arraylength
+         7: istore_3
+         8: return
+      LineNumberTable:
+        line 6: 0
+        line 7: 5
+        line 8: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+               0       9     0  this   Lplayground/ArrayLength;
+               0       9     1     i   I
+               5       4     2   arr   [Ljava/lang/String;
+               8       1     3     l   I
+</code></pre>
+
+<h1 id="get-length-using-specilized-opcode">get length using specilized opcode</h1>
+
+<p><code>arraylength</code> is a specialized opcode to get the array length.</p>
+
+<h1 id="where-to-store-this-length">where to store this length</h1>
+
+<p>This is really JVM implementation related. From the <a href="http://www.oracle.com/technetwork/java/whitepaper-135217.html#memory">The Java HotSpot Performance Engine Architecture</a></p>
+
+<hr />
+
+<blockquote>
+<p>Two-Word Object Headers
+The Java HotSpot VM uses a two machine-word object header, as opposed to three words in the Classic VM. Since the average Java object size is small, this has a significant impact on space consumption &ndash; saving approximately eight percent in heap size for typical applications. The first header word contains information such as the identity hash code and GC status information. The second is a reference to the object&rsquo;s class. <strong>Only arrays have a third header field, for the array size</strong>.</p>
+</blockquote>
+
+<p><em>NOTE: Hotspot uses an extra word in the object header to store the array length.</em></p>
+
+<p>To verfiy this statement, we write some code to view the object header</p>
+
+<pre><code class="language-java">import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.vm.VM;
+
+public class ObjectHeaderView {
+
+	public static void main(String[] args) throws Exception {
+        System.out.println(VM.current().details());
+        
+        A a = new A();
+        A[] arr = new A[100];
+        System.out.println(ClassLayout.parseInstance(a).toPrintable());
+        System.out.println(ClassLayout.parseInstance(arr).toPrintable());
+    }
+}
+
+class A {}
+</code></pre>
+
+<p>This is the output:</p>
+
+<pre><code class="language-text">
+# Running 64-bit HotSpot VM.
+# Using compressed oop with 3-bit shift.
+# Using compressed klass with 3-bit shift.
+# WARNING | Compressed references base/shifts are guessed by the experiment!
+# WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE.
+# WARNING | Make sure to attach Serviceability Agent to get the reliable addresses.
+# Objects are 8 bytes aligned.
+# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+
+playground.A object internals:
+ OFFSET  SIZE  TYPE DESCRIPTION                    VALUE
+      0     4       (object header)                01 00 00 00 (00000001 00000000 00000000 00000000) (1)
+      4     4       (object header)                00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+      8     4       (object header)                33 de 0c f8 (00110011 11011110 00001100 11111000) (-133374413)
+     12     4       (loss due to the next object alignment)
+Instance size: 16 bytes
+Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
+
+[Lplayground.A; object internals:
+ OFFSET  SIZE         TYPE DESCRIPTION                    VALUE
+      0     4              (object header)                01 00 00 00 (00000001 00000000 00000000 00000000) (1)
+      4     4              (object header)                00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+      8     4              (object header)                85 de 0c f8 (10000101 11011110 00001100 11111000) (-133374331)
+     12     4              (object header)                64 00 00 00 (01100100 00000000 00000000 00000000) (100)
+     16   400 playground.A [Lplayground.A;.&lt;elements&gt;     N/A
+Instance size: 416 bytes
+Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
+</code></pre>
+
+<p>You can see, for JDK 7 on 64-bit MacOS:
+- normal object has one-word (64-bit) mark word and half-word (32-bit) kclass pointer(due to use of compressed oop).
+- array object has one-word mark word, half-word kclass pointer and extra half-word arrary size. (in the example, its value is 100).</p>
+
+<p>More implementation details, please refer to:
+- <a href="http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/share/vm/oops/markOop.hpp">markOop.hpp</a>
+- <a href="http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/share/vm/oops/oop.hpp">oop.hpp</a></p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/string-intern/" rel="next" title="String intern">
+        <i class="fa fa-chevron-left"></i> String intern
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/" rel="prev" title="thread interrupt and cancelable mechanism">
+        thread interrupt and cancelable mechanism <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#array-is-special">array is special</a></li>
+<li><a href="#length-is-a-field-of-array-class">length is a field of array class?</a></li>
+<li><a href="#specify-length-when-array-creation">specify length when array creation</a></li>
+<li><a href="#get-length-using-specilized-opcode">get length using specilized opcode</a></li>
+<li><a href="#where-to-store-this-length">where to store this length</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

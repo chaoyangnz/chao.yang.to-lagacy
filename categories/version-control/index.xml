@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Version Control on Charvis Yang</title>
+    <link>http://yangchao.me/categories/version-control/</link>
+    <description>Recent content in Version Control on Charvis Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Apr 2015 13:50:15 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/version-control/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git basics</title>
+      <link>http://yangchao.me/post/git-basics/</link>
+      <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/git-basics/</guid>
+      <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch java git checkout dev  checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
+copy the &amp;lt;commit&amp;gt; tree to index tree and working tree. java git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3  reset reset &amp;lt;commit&amp;gt; [files]  move the HEAD, and copying &amp;lt;commit&amp;gt; tree to index or working tree.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>ACID and transaction - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="ACID and transaction">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="ACID and transaction - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/acid-and-transaction/" itemprop="url">
+        ACID and transaction
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-13">
+    2015-04-13
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/databases" itemprop="url" rel="index">
+        <span itemprop="name">Databases</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">627 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>Transaction provides data integrity in highly concurrent environments. It&rsquo;s also called Unit of Work.</p>
+
+<ul>
+<li>For database systems, transaction is a must-have feature. But also some exceptions, like MySQL MyISAM engine.</li>
+<li>For messaging systems like <a href="http://en.wikipedia.org/wiki/Java_Message_Service">JMS</a>, transactions are not mandatory which has  non-transacted <a href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html">acknowledgement modes</a>.</li>
+<li>File system operations are usually non-managed, but if your business requirements demand transaction file operations, you might make use a tool such as <a href="https://xadisk.java.net/">XADisk</a>.</li>
+</ul>
+
+<h3 id="acid">ACID</h3>
+
+<p>Inherently a transaction is characterized by four properties (commonly referred as ACID) :</p>
+
+<ol>
+<li>Atomicity  <em>- process</em></li>
+<li>Consistency <em>- data state</em></li>
+<li>Isolation <em>- across transactions</em></li>
+<li>Durability <em>- storage</em>
+&gt; Atomicity takes individual operations and turns them into an all-or-nothing unit of work, succeeding if and only if all contained operations succeed.
+&gt;
+&gt;
+&gt; Consistency is about the state change. A transaction must always leave the system in a consistent state.
+&gt;
+&gt;
+&gt; Isolation brings us the benefit of hiding uncommitted state changes from the outside world (other transactions), as failing transactions shouldn’t ever corrupt the state of the system.Isolation is achieved through <a href="http://en.wikipedia.org/wiki/Concurrency_control">concurrency control</a> using pessimistic or optimistic locking mechanisms.
+&gt;
+&gt;
+&gt; Durability ensure permanently change the state of a system after successful committed transaction, or logging the state changes before commit.
+Of the four properties, the atomicity is a fixed property, but everything else may be traded-off for performance/scalability reasons.</li>
+</ol>
+
+<h3 id="three-phenomena-and-isolation">three phenomena and isolation</h3>
+
+<p>The SQL standard defines four Isolation levels:</p>
+
+<ul>
+<li>READ_UNCOMMITTED</li>
+<li>READ_COMMITTED</li>
+<li>REPEATABLE_READ</li>
+<li>SERIALIZABLE
+<table style="height: 152px;" border="1" width="604">
+<tbody>
+<tr>
+<th>Isolation Level</th>
+<th>Dirty read</th>
+<th>Non-repeatable read</th>
+<th>Phantom read</th>
+</tr>
+<tr>
+<td>READ_UNCOMMITTED</td>
+<td>allowed</td>
+<td>allowed</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>READ_COMMITTED</td>
+<td>prevented</td>
+<td>allowed</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>REPEATABLE_READ</td>
+<td>prevented</td>
+<td>prevented</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>prevented</td>
+<td>prevented</td>
+<td>prevented</td>
+</tr>
+</tbody>
+</table>
+Every isolation level resolves one or multiple phenomena.</li>
+</ul>
+
+<h4 id="dirty-read">Dirty read</h4>
+
+<p><img src="http://yangchao.me/media/acid-dirty-read.gif" alt="acid-dirty-read" /></p>
+
+<p>Transaction 2 reads the uncommitted(temporary or dirty) data of transaction 1. It&rsquo;s called dirty because the change may be discarded if rollback.</p>
+
+<h4 id="non-repeatable-read">Non-repeatable read</h4>
+
+<p><img src="http://yangchao.me/media/acid-non-repeatable-read.gif" alt="acid-non-repeatable-read" /></p>
+
+<p>Transaction 2 commits after transaction 1, so the queried record in memory differs in <span style="text-decoration: underline;"><em>state</em> </span>(changed) from that in database when commit.</p>
+
+<h4 id="phantom-read">Phantom read</h4>
+
+<h4 id="acid-phantom-read-media-acid-phantom-read-gif"><img src="http://yangchao.me/media/acid-phantom-read.gif" alt="acid-phantom-read" /></h4>
+
+<p>Transaction 2 commits after transaction 1, so the queried records in memory differ in <span style="text-decoration: underline;"><em>range </em></span>(more or less) from that in database when commit.</p>
+
+<p>You can regard phantom read is an extensive version of unrepeatable read.</p>
+
+<p>&nbsp;</p>
+
+<p>Even if the SQL standard mandates the use of the SERIALIZABLE isolation level, most database management system use a different default level.
+<table border="1">
+<tbody>
+<tr>
+<th>Database</th>
+<th>Default isolation Level</th>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>REPEATABLE_READ</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>DB2</td>
+<td>CURSOR STABILITY (a.k.a READ_COMMITTED)</td>
+</tr>
+</tbody>
+</table>
+Usually, READ_COMMITED is the right choice, since even SERIALIZABLE cannot protect you from a “lost update” where the read/write happen in different transactions (and web requests).</p>
+
+<h3 id="a-classic-database-problem-lost-update">a classic database problem - lost update</h3>
+
+<h4 id="transactional-scenario">transactional scenario</h4>
+
+<p><img src="http://yangchao.me/media/lost-update.png" alt="lost-update" /></p>
+
+<h4 id="offline-concurrency-scenario">offline concurrency scenario</h4>
+
+<p><img src="http://yangchao.me/media/offline-lost-update.png" alt="offline-lost-update" /></p>
+
+<p>In this case, we should differentiate the <em><strong>system transaction boundary</strong></em> and <em><strong>business transaction boundary</strong></em>. All the above discussed is about system transaction.</p>
+
+<h3 id="locking-and-mvcc">locking and MVCC</h3>
+
+<p>Two ways for concurrency control:</p>
+
+<ul>
+<li>MVCC</li>
+<li>locking
+But as we all know, locking increases the serializable portion of the executed code, affecting <a href="http://en.wikipedia.org/wiki/Amdahl%27s_law#Parallelization">parallelization</a>.</li>
+</ul>
+
+<p>In low level, how the database uses locks or MVCC to control concurrency is very complicated and different from one to another. The explanation is worth explaining in a big book.</p>
+
+<p>Here we consider locking and MVCC in a high level.</p>
+
+<p>(We consider implicit locking is database-specific and ubiquitous when interacting with database using SQL, like read lock, write lock, share lock, mutually exclusive lock, table lock, row lock, range lock, lock escalation etc&hellip;.the list goes, so many buzzwords!)</p>
+
+<p>Basically, we mention locking just in pessimistic locking context, where locking is explicitly requested. This is from the SQL:
+&gt; select &hellip;. for update/insert/delete
+And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>application-level</em></span> optimistic locking implementation &ndash; version column. Other optimistic locking implementations include:</p>
+
+<ul>
+<li><strong><em>old/new value comparison in committing time</em></strong></li>
+<li><em><strong>checksum or hash computation</strong></em> on original data</li>
+</ul>
+
+<h4 id="pessimistic-locking">pessimistic locking</h4>
+
+<h4 id="optimistic-locking">optimistic locking</h4>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/jpa-advanced-topics/" rel="next" title="JPA - advanced topics">
+        <i class="fa fa-chevron-left"></i> JPA - advanced topics
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/" rel="prev" title="To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)">
+        To find a job is a full time job 羊生煎之羊村求职攻略(ICT向) <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#acid">ACID</a></li>
+<li><a href="#three-phenomena-and-isolation">three phenomena and isolation</a>
+<ul>
+<li><a href="#dirty-read">Dirty read</a></li>
+<li><a href="#non-repeatable-read">Non-repeatable read</a></li>
+<li><a href="#phantom-read">Phantom read</a></li>
+<li><a href="#acid-phantom-read-media-acid-phantom-read-gif"><img src="http://yangchao.me/media/acid-phantom-read.gif" alt="acid-phantom-read" /></a></li>
+</ul></li>
+<li><a href="#a-classic-database-problem-lost-update">a classic database problem - lost update</a>
+<ul>
+<li><a href="#transactional-scenario">transactional scenario</a></li>
+<li><a href="#offline-concurrency-scenario">offline concurrency scenario</a></li>
+</ul></li>
+<li><a href="#locking-and-mvcc">locking and MVCC</a>
+<ul>
+<li><a href="#pessimistic-locking">pessimistic locking</a></li>
+<li><a href="#optimistic-locking">optimistic locking</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

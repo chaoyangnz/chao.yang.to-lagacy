@@ -1,0 +1,647 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Spring framework - IoC / DI - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Spring framework - IoC / DI">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Spring framework - IoC / DI - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/spring-framework-ioc-di/" itemprop="url">
+        Spring framework - IoC / DI
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-03">
+    2015-04-03
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/spring" itemprop="url" rel="index">
+        <span itemprop="name">Spring</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">850 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="ioc-di-and-beans">IoC/DI and beans</h3>
+
+<p>IoC is also known as <span class="emphasis"><em>dependency injection</em></span> (DI).</p>
+
+<p>A bean just need to define its dependencies through its constructor arguments, its factory method arguments or its properties setter. And then the container will inject these dependencies when initializing this bean.</p>
+
+<p>Traditionally, the bean itself control the initialization process or location of its dependencies by directly invoking its constructor of the class or some look-up mechanism such as Service Locator pattern(e.g. JNDI or something).</p>
+
+<p>So DI is a converse of the above traditional process, and that&rsquo;s the reason it&rsquo;s called Inverse-of-Control (IoC).</p>
+
+<p>A <strong>bean</strong> is a manged object, whose creation, assembly, even whole lifecycle is controlled by the container.</p>
+
+<p><img src="http://yangchao.me/media/container-magic.png" alt="container-magic" /></p>
+
+<p>Configuration metadata can be specified by XML-based configuration style or Annotation-based configuration style.</p>
+
+<h3 id="bean-definition">bean definition</h3>
+
+<h4 id="bean-name">bean name</h4>
+
+<p>``` java
+&lt;bean id=&ldquo;only_one_id&rdquo; name=&ldquo;name1 name2 name3&rdquo; ..&gt;</p>
+
+<p>&lt;alias name=&ldquo;fromName&rdquo; alias=&ldquo;toName&rdquo;/&gt;```
+you can name a bean by use id/name attribute. What&rsquo;s more important is you can specify 0, 1, or multiple names/alias for a bean.</p>
+
+<h4 id="instantiating-beans">instantiating beans</h4>
+
+<ul>
+<li>Instantiation with a constructor
+``` java
+&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;/&gt;<br /></li>
+</ul>
+
+<p>&lt;bean name=&ldquo;anotherExample&rdquo; class=&ldquo;examples.ExampleBeanTwo$InnerClass&rdquo;/&gt;```</p>
+
+<ul>
+<li><p>Instantiation with a static factory method
+<code>java
+&amp;lt;bean id=&quot;clientService&quot; class=&quot;examples.ClientService&quot; factory-method=&quot;createInstance&quot;/&amp;gt;</code></p></li>
+
+<li><p>Instantiation using an instance factory method
+``` java
+&lt;!&ndash; the factory bean, which contains a method called createInstance() &ndash;&gt;
+&lt;bean id=&ldquo;serviceLocator&rdquo; class=&ldquo;examples.DefaultServiceLocator&rdquo;&gt;
+&lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
+&lt;/bean&gt;</p></li>
+</ul>
+
+<p>&lt;!&ndash; the bean to be created via the factory bean &ndash;&gt;
+&lt;bean id=&ldquo;clientService&rdquo;
+    factory-bean=&ldquo;serviceLocator&rdquo;
+    factory-method=&ldquo;createClientServiceInstance&rdquo;/&gt;```</p>
+
+<h4 id="dependencies">dependencies</h4>
+
+<ul>
+<li>Constructor-based dependency injection
+``` java
+&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
+&lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
+&lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
+&lt;/bean&gt;</li>
+</ul>
+
+<p>&lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;</p>
+
+<p>&lt;bean id=&ldquo;baz&rdquo; class=&ldquo;x.y.Baz&rdquo;/&gt;</p>
+
+<p>&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
+    &lt;constructor-arg type=&ldquo;int&rdquo; value=&ldquo;7500000&rdquo;/&gt;
+    &lt;constructor-arg type=&ldquo;java.lang.String&rdquo; value=&ldquo;42&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
+    &lt;constructor-arg index=&ldquo;0&rdquo; value=&ldquo;7500000&rdquo;/&gt;
+    &lt;constructor-arg index=&ldquo;1&rdquo; value=&ldquo;42&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;!&ndash; compiled with the debug flag &ndash;&gt;
+&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
+    &lt;constructor-arg name=&ldquo;years&rdquo; value=&ldquo;7500000&rdquo;/&gt;
+    &lt;constructor-arg name=&ldquo;ultimateAnswer&rdquo; value=&ldquo;42&rdquo;/&gt;
+&lt;/bean&gt;```</p>
+
+<p><strong>XML shortcut with the c-namespace</strong></p>
+
+<p>``` java
+&lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;
+&lt;bean id=&ldquo;baz&rdquo; class=&ldquo;x.y.Baz&rdquo;/&gt;</p>
+
+<p>&lt;!&ndash; traditional declaration &ndash;&gt;
+&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
+    &lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
+    &lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
+    &lt;constructor-arg value=&ldquo;foo@bar.com&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;!&ndash; c-namespace declaration &ndash;&gt;
+&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo; c:bar-ref=&ldquo;bar&rdquo; c:baz-ref=&ldquo;baz&rdquo; c:email=&ldquo;foo@bar.com&rdquo;/&gt;```</p>
+
+<ul>
+<li><p>Setter-based dependency injection
+``` java
+&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
+&lt;!&ndash; setter injection using the nested ref element &ndash;&gt;
+&lt;property name=&ldquo;beanOne&rdquo;&gt;
+    &lt;ref bean=&ldquo;anotherExampleBean&rdquo;/&gt;
+&lt;/property&gt;</p>
+
+<p>&lt;!&ndash; setter injection using the neater ref attribute &ndash;&gt;
+&lt;property name=&ldquo;beanTwo&rdquo; ref=&ldquo;yetAnotherBean&rdquo;/&gt;
+&lt;property name=&ldquo;integerProperty&rdquo; value=&ldquo;1&rdquo;/&gt;
+&lt;/bean&gt;</p></li>
+</ul>
+
+<p>&lt;bean id=&ldquo;myDataSource&rdquo; class=&ldquo;org.apache.commons.dbcp.BasicDataSource&rdquo; destroy-method=&ldquo;close&rdquo;&gt;
+    &lt;!&ndash; results in a setDriverClassName(String) call &ndash;&gt;
+    &lt;property name=&ldquo;driverClassName&rdquo; value=&ldquo;com.mysql.jdbc.Driver&rdquo;/&gt;
+    &lt;property name=&ldquo;url&rdquo; value=&ldquo;jdbc:mysql://localhost:3306/mydb&rdquo;/&gt;
+    &lt;property name=&ldquo;username&rdquo; value=&ldquo;root&rdquo;/&gt;
+    &lt;property name=&ldquo;password&rdquo; value=&ldquo;masterkaoli&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;bean id=&ldquo;outer&rdquo; class=&ldquo;&hellip;&rdquo;&gt;
+    &lt;!&ndash; instead of using a reference to a target bean, simply define the target bean inline &ndash;&gt;
+    &lt;property name=&ldquo;target&rdquo;&gt;
+        &lt;bean class=&ldquo;com.example.Person&rdquo;&gt; &lt;!&ndash; this is the inner bean &ndash;&gt;
+            &lt;property name=&ldquo;name&rdquo; value=&ldquo;Fiona Apple&rdquo;/&gt;
+            &lt;property name=&ldquo;age&rdquo; value=&ldquo;25&rdquo;/&gt;
+        &lt;/bean&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;bean id=&ldquo;moreComplexObject&rdquo; class=&ldquo;example.ComplexObject&rdquo;&gt;
+    &lt;!&ndash; results in a setAdminEmails(java.util.Properties) call &ndash;&gt;
+    &lt;property name=&ldquo;adminEmails&rdquo;&gt;
+        &lt;props&gt;
+            &lt;prop key=&ldquo;administrator&rdquo;&gt;administrator@example.org&lt;/prop&gt;
+            &lt;prop key=&ldquo;support&rdquo;&gt;support@example.org&lt;/prop&gt;
+            &lt;prop key=&ldquo;development&rdquo;&gt;development@example.org&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;!&ndash; results in a setSomeList(java.util.List) call &ndash;&gt;
+    &lt;property name=&ldquo;someList&rdquo;&gt;
+        &lt;list&gt;
+            &lt;value&gt;a list element followed by a reference&lt;/value&gt;
+            &lt;ref bean=&ldquo;myDataSource&rdquo; /&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    &lt;!&ndash; results in a setSomeMap(java.util.Map) call &ndash;&gt;
+    &lt;property name=&ldquo;someMap&rdquo;&gt;
+        &lt;map&gt;
+            &lt;entry key=&ldquo;an entry&rdquo; value=&ldquo;just some string&rdquo;/&gt;
+            &lt;entry key =&ldquo;a ref&rdquo; value-ref=&ldquo;myDataSource&rdquo;/&gt;
+        &lt;/map&gt;
+    &lt;/property&gt;
+    &lt;!&ndash; results in a setSomeSet(java.util.Set) call &ndash;&gt;
+    &lt;property name=&ldquo;someSet&rdquo;&gt;
+        &lt;set&gt;
+            &lt;value&gt;just some string&lt;/value&gt;
+            &lt;ref bean=&ldquo;myDataSource&rdquo; /&gt;
+        &lt;/set&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;<code>
+** &quot;&quot; and null**
+</code> java
+&lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
+    &lt;property name=&ldquo;email&rdquo; value=&ldquo;&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
+    &lt;property name=&ldquo;email&rdquo;&gt;
+        &lt;null/&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;```</p>
+
+<p><strong>XML shortcut with the p-namespace</strong></p>
+
+<p>``` java
+&lt;bean name=&ldquo;john-classic&rdquo; class=&ldquo;com.example.Person&rdquo;&gt;
+    &lt;property name=&ldquo;name&rdquo; value=&ldquo;John Doe&rdquo;/&gt;
+    &lt;property name=&ldquo;spouse&rdquo; ref=&ldquo;jane&rdquo;/&gt;
+&lt;/bean&gt;</p>
+
+<p>&lt;bean name=&ldquo;john-modern&rdquo;
+      class=&ldquo;com.example.Person&rdquo;
+      p:name=&ldquo;John Doe&rdquo;
+      p:spouse-ref=&ldquo;jane&rdquo;/&gt;```</p>
+
+<h4 id="bean-scopes">bean scopes</h4>
+
+<p><table border="1" summary="Bean scopes">
+<thead>
+<tr>
+<th align="left" valign="top">Scope</th>
+<th align="left" valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-singleton" title="5.5.1 The singleton scope">singleton</a></td>
+<td align="left" valign="top">(Default) Scopes a single bean definition to a single object instance per Spring IoC container.</td>
+</tr>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-prototype" title="5.5.2 The prototype scope">prototype</a></td>
+<td align="left" valign="top">Scopes a single bean definition to any number of object instances.</td>
+</tr>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-request" title="Request scope">request</a></td>
+<td align="left" valign="top">Scopes a single bean definition to the lifecycle of a single HTTP request; that is, each HTTP request has its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-session" title="Session scope">session</a></td>
+<td align="left" valign="top">Scopes a single bean definition to the lifecycle of an HTTP <code>Session</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-global-session" title="Global session scope">global session</a></td>
+<td align="left" valign="top">Scopes a single bean definition to the lifecycle of a global HTTP <code>Session</code>. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td align="left" valign="top"><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-factory-scopes-application" title="Application scope">application</a></td>
+<td align="left" valign="top">Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+</tbody>
+</table>
+request / session / application scopes need special initial configuration.</p>
+
+<h4 id="annotations-and-bean-scanning">annotations and bean scanning</h4>
+
+<p><strong>Spring annotations vs. standard annotations</strong></p>
+
+<p><div class="table-contents">
+<table border="1" summary="Spring annotations vs. standard annotations"><colgroup> <col class="col_1" /> <col class="col_2" /> <col class="col_3" /></colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Spring</th>
+<th align="left" valign="top">javax.inject.*</th>
+<th align="left" valign="top">javax.inject restrictions / comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top">@Autowired</td>
+<td align="left" valign="top">@Inject</td>
+<td align="left" valign="top">@Inject has no <span class="emphasis"><em>required</em></span> attribute</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Component</td>
+<td align="left" valign="top">@Named</td>
+<td align="left" valign="top">-</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Scope(&ldquo;singleton&rdquo;)</td>
+<td align="left" valign="top">@Singleton</td>
+<td align="left" valign="top">The JSR-330 default scope is like Spring’s <code>prototype</code>. However, in order to keep it consistent with Spring’s general defaults, a JSR-330 bean declared in the Spring container is a <code>singleton</code> by default. In order to use a scope other than <code>singleton</code>, you should use Spring’s <code>@Scope</code> annotation.<code>javax.inject</code> also provides a <a href="http://download.oracle.com/javaee/6/api/javax/inject/Scope.html">@Scope</a> annotation. Nevertheless, this one is only intended to be used for creating your own annotations.</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Qualifier</td>
+<td align="left" valign="top">@Named</td>
+<td align="left" valign="top">-</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Value</td>
+<td align="left" valign="top">-</td>
+<td align="left" valign="top">no equivalent</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Required</td>
+<td align="left" valign="top">-</td>
+<td align="left" valign="top">no equivalent</td>
+</tr>
+<tr>
+<td align="left" valign="top">@Lazy</td>
+<td align="left" valign="top">-</td>
+<td align="left" valign="top">no equivalent</td>
+</tr>
+</tbody>
+</table>
+</div>
+Spring also supports injection using the JSR-250 <code>@Resource</code> annotation on fields or bean property setter methods.</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/spring-framework-the-big-picture/" rel="next" title="Spring framework - the big picture">
+        <i class="fa fa-chevron-left"></i> Spring framework - the big picture
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/spring-framework-aop/" rel="prev" title="Spring framework - AOP">
+        Spring framework - AOP <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ioc-di-and-beans">IoC/DI and beans</a></li>
+<li><a href="#bean-definition">bean definition</a>
+<ul>
+<li><a href="#bean-name">bean name</a></li>
+<li><a href="#instantiating-beans">instantiating beans</a></li>
+<li><a href="#dependencies">dependencies</a></li>
+<li><a href="#bean-scopes">bean scopes</a></li>
+<li><a href="#annotations-and-bean-scanning">annotations and bean scanning</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

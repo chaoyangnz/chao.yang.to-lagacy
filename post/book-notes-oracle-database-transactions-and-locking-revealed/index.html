@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Book notes: Oracle Database Transactions and Locking revealed - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Book notes: Oracle Database Transactions and Locking revealed">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Book notes: Oracle Database Transactions and Locking revealed - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
+        Book notes: Oracle Database Transactions and Locking revealed
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-01-10">
+    2016-01-10
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">514 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="chapter-1-getting-started">Chapter 1 Getting Started</h1>
+
+<p>The focus of this book: locking, concurrency control, multiversioning, transactions, redo/undo.</p>
+
+<p>These concepts are all interrelated.</p>
+
+<h2 id="locking">Locking</h2>
+
+<p>The database uses <em>locks</em> mechanism that allows for concurrency.</p>
+
+<p>Each database implements locking differently:</p>
+
+<ul>
+<li>some have page-level locking, others row-level</li>
+<li>some implementations escalate locks from row level to page level, some do not</li>
+<li>some use read locks, others don&rsquo;t</li>
+<li>some implement serializable transactions via locking, others via read-consistent views of data (no locks)</li>
+</ul>
+
+<p>Oracle&rsquo;s locking policy:</p>
+
+<ul>
+<li>Oracle locks data at the row level on modification. There is <strong>no lock escalation</strong> to a block or table level.</li>
+<li>Oracle never locks data just to read it. There are no locks placed on rows of data simply by reads.</li>
+<li>reads are not blocked by writes or reads.</li>
+<li>writes are not blocked by reads.</li>
+<li>A write is blocked only when another write has already locked the row it was going after.</li>
+</ul>
+
+<h2 id="concurrency-control">Concurrency Control</h2>
+
+<p><em>Concurrency control</em> ensures that no two transactions modify the same piece of data at the same time.</p>
+
+<h2 id="multiversioning">Multiversioning</h2>
+
+<p>Multiversioning is related to concurrency control, and it forms the foundation for Oracle&rsquo;s concurrency control mechanism.</p>
+
+<p>Oracle operates a multiversion, read-consistent concurrency model.</p>
+
+<p>This mechanism provides:</p>
+
+<ul>
+<li>Read-consistent query: query produces consitent result with respect to a time point.</li>
+<li>Nonblocking query: query is never blocked by data writes.</li>
+</ul>
+
+<p>If you understand how multiversioning and read consitency work together, you will always understand the answers you get from the database.</p>
+
+<blockquote>
+<p>Oracle doesn&rsquo;t &ldquo;pre-answer&rdquo; the query. It doesn&rsquo;t copy the data anywhere when you open a cursor. The cursor opens instantly and it answers the query as it goes along.
+The cursor just reads data from the table as you fetch from it.</p>
+</blockquote>
+
+<p>The following example demonstrates how multiversioning is implemented.</p>
+
+<p><img src="http://yangchao.me/media/multiversioning-query-delete.png" alt="multiversioning-query-delete" /></p>
+
+<p>In sesssion 1, We need to query a table with 1 billion rows. Obviously, you need time to query the data. This query opens the curson at time t1, then retrieves row 20,000 at time t2, until gets the last row at time t5.</p>
+
+<p>So just at the start point t1 of the query, Oracle doesn&rsquo;t know what&rsquo;s row 100,000,000 like.</p>
+
+<p>And session 2 deletes the row 100,000 and commited at time t3 before t4.</p>
+
+<p>From our cursor&rsquo;s perspective, the result is immutable even if it gets the full data until the time t5.</p>
+
+<p>But Oracle doesn&rsquo;t copy all of the preceding data to other location when we opened the cursor; it was actually the DELETE command that preserved our data for us by placing it into a data area called an undo or rollback segment.</p>
+
+<p>So at the time t4, the actual row 100,000 didn&rsquo;t exist, but the read-consistent query can be implemented by getting the data from the undo segment.</p>
+
+<h2 id="transactions">Transactions</h2>
+
+<p>A transaction comprises a unit of database work.</p>
+
+<p>Transactions are a core feature of database technology, which is part of what distinguishes a database from a file system.</p>
+
+<p>Transactions take the database from one consistent state to the next consistent state.</p>
+
+<h2 id="redo-and-undo">Redo and Undo</h2>
+
+<p>Key to Oracle&rsquo;s durability (recovery) mechanism is redo, and core to multiversioning (read consistency) is undo.</p>
+
+<h1 id="chapter-2-locking-and-issues">Chapter 2 Locking and Issues</h1>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/regex-in-java/" rel="next" title="Regex in Java">
+        <i class="fa fa-chevron-left"></i> Regex in Java
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/implement-stack-with-queue/" rel="prev" title="How to implement a Stack with Queue">
+        How to implement a Stack with Queue <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#chapter-1-getting-started">Chapter 1 Getting Started</a>
+<ul>
+<li><a href="#locking">Locking</a></li>
+<li><a href="#concurrency-control">Concurrency Control</a></li>
+<li><a href="#multiversioning">Multiversioning</a></li>
+<li><a href="#transactions">Transactions</a></li>
+<li><a href="#redo-and-undo">Redo and Undo</a></li>
+</ul></li>
+<li><a href="#chapter-2-locking-and-issues">Chapter 2 Locking and Issues</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

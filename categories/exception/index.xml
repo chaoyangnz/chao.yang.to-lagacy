@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exception on Charvis Yang</title>
+    <link>http://yangchao.me/categories/exception/</link>
+    <description>Recent content in Exception on Charvis Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Jan 2015 02:00:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/exception/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java Exceptions</title>
+      <link>http://yangchao.me/post/topic-serial-exceptions/</link>
+      <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/topic-serial-exceptions/</guid>
+      <description>An exception is said to be thrown from the point where it occurred and is said to be caught at the point to which control is transferred.
+exception family tree 
+All exceptions are inherited from Throwable.
+All run-time exception classes and error classes are unchecked exception classes, and the rest are checked exception classes.
+That is, the checked exception classes are all subclasses of Throwable other than RuntimeException and its subclasses and Error and its subclasses.</description>
+    </item>
+    
+  </channel>
+</rss>

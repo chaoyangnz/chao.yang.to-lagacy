@@ -1,0 +1,670 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>unreachable statements - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="unreachable statements">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="unreachable statements - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/unreachable-statements/" itemprop="url">
+        unreachable statements
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
+    2015-01-16
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/language-compiler" itemprop="url" rel="index">
+        <span itemprop="name">Language, Compiler</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">2054 words ~10min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <p>Sometimes, we will meet this compiler error: unreachable statements.</p>
+
+<p>See the following examples:</p>
+
+<pre><code class="language-java">
+public void javapapers() {
+    System.out.println(&amp;quot;java&amp;quot;);
+    return;
+    System.out.println(&amp;quot;papers&amp;quot;); // compile error
+}
+</code></pre>
+
+<pre><code class="language-java">
+public void javapapers() {
+    System.out.println(&amp;quot;java&amp;quot;);
+    if(true) {
+        return;
+    }
+    System.out.println(&amp;quot;papers&amp;quot;);
+}
+//This code compiled successfully
+</code></pre>
+
+<pre><code class="language-java">
+public void javapapers() {
+    System.out.println(&amp;quot;java&amp;quot;);
+    while(true) {
+        return;
+    }
+    System.out.println(&amp;quot;papers&amp;quot;); // compile error
+}
+</code></pre>
+
+<p>Wait, but what is strange here?</p>
+
+<p>From Java Language Specification:
+<div class="titlepage">
+<div>
+<div>
+&gt; ## 14.21. Unreachable Statements
+</div>
+</div>
+</div>
+&gt; <a name="jls-14.21-100"></a>It is a compile-time error if a statement cannot be executed because it is <span class="emphasis"><em>unreachable</em></span>.
+&gt;
+&gt; This section is devoted to a precise explanation of the word &ldquo;reachable.&rdquo; The idea is that there must be some possible execution path from the beginning of the constructor, method, instance initializer, or static initializer that contains the statement to the statement itself. The analysis takes into account the structure of statements. Except for the special treatment of <code>while</code>, <code>do</code>, and <code>for</code> statements whose condition expression has the constant value <code>true</code>, the values of expressions are not taken into account in the flow analysis.
+&gt;
+&gt; <div class="informalexample">
+&gt;
+&gt;
+&gt; For example, a Java compiler will accept the code:
+&gt;
+&gt; <code>java
+{
+&gt; 
+&gt;     int n = 5;
+&gt; 
+&gt;     while (n &amp;gt; 7) k = 2;
+&gt; 
+&gt; }
+&gt; 
+&gt;</code>
+&gt;
+&gt;
+&gt; even though the value of <code>n</code> is known at compile time and in principle it can be known at compile time that the assignment to <code>k</code> can never be executed.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-200"></a>The rules in this section define two technical terms:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt; *   <a name="jls-14.21-200-A"></a>whether a statement is <span class="emphasis"><em>reachable</em></span>
+&gt;
+&gt; *   <a name="jls-14.21-200-B"></a>whether a statement <span class="emphasis"><em>can complete normally</em></span>
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-210"></a>The definitions here allow a statement to complete normally only if it is reachable.
+&gt;
+&gt; <a name="jls-14.21-220"></a>To shorten the description of the rules, the customary abbreviation &ldquo;iff&rdquo; is used to mean &ldquo;if and only if.&rdquo;
+&gt;
+&gt; <a name="jls-14.21-230"></a>A reachable <code>break</code> statement <span class="emphasis"><em>exits a statement</em></span> if, within the break target, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>break</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>break</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.
+&gt;
+&gt; This definition is based on the logic around &ldquo;attempts to transfer control&rdquo; in <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.15" title="14.15. The break Statement">§14.15</a>.
+&gt;
+&gt; <a name="jls-14.21-240"></a>A <code>continue</code> statement <span class="emphasis"><em>continues a <code>do</code> statement</em></span> if, within the <code>do</code> statement, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>continue</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>continue</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.
+&gt;
+&gt; <a name="jls-14.21-300"></a>The rules are as follows:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt; *   <a name="jls-14.21-300-A"></a>The block that is the body of a constructor, method, instance initializer, or static initializer is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-B"></a>An empty block that is not a switch block can complete normally iff it is reachable.
+&gt;
+&gt; <a name="jls-14.21-300-B.1"></a>A non-empty block that is not a switch block can complete normally iff the last statement in it can complete normally.
+&gt;
+&gt; <a name="jls-14.21-300-B.2"></a>The first statement in a non-empty block that is not a switch block is reachable iff the block is reachable.
+&gt;
+&gt; <a name="jls-14.21-300-B.3"></a>Every other statement <code>S</code> in a non-empty block that is not a switch block is reachable iff the statement preceding <code>S</code> can complete normally.
+&gt;
+&gt; *   <a name="jls-14.21-300-C"></a>A local class declaration statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-D"></a>A local variable declaration statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-E"></a>An empty statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-F"></a>A labeled statement can complete normally if at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-F-1"></a>The contained statement can complete normally.
+&gt;
+&gt;         *   <a name="jls-14.21-300-F-2"></a>There is a reachable <code>break</code> statement that exits the labeled statement.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-300-F.1"></a>The contained statement is reachable iff the labeled statement is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-G"></a>An expression statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-H-1"></a>An <code>if-then</code> statement can complete normally iff it is reachable.
+&gt;
+&gt; <a name="jls-14.21-300-H-2"></a>The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable.
+&gt;
+&gt; <a name="jls-14.21-300-H-3"></a>An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.
+&gt;
+&gt; <a name="jls-14.21-300-H-4"></a>The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.
+&gt;
+&gt; <a name="jls-14.21-300-H-5"></a>The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.
+&gt;
+&gt; This handling of an <code>if</code> statement, whether or not it has an <code>else</code> part, is rather unusual. The rationale is given at the end of this section.
+&gt;
+&gt; *   <a name="jls-14.21-300-I"></a>An <code>assert</code> statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-J"></a>A <code>switch</code> statement can complete normally iff at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-J-1"></a>The switch block is empty or contains only switch labels.
+&gt;
+&gt;         *   <a name="jls-14.21-300-J-2"></a>The last statement in the switch block can complete normally.
+&gt;
+&gt;         *   <a name="jls-14.21-300-J-3"></a>There is at least one switch label after the last switch block statement group.
+&gt;
+&gt;         *   <a name="jls-14.21-300-J-4"></a>The switch block does not contain a <code>default</code> label.
+&gt;
+&gt;         *   <a name="jls-14.21-300-J-5"></a>There is a reachable <code>break</code> statement that exits the <code>switch</code> statement.
+&gt;
+&gt; </div>
+&gt; *   <a name="jls-14.21-300-K"></a>A switch block is reachable iff its <code>switch</code> statement is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-L"></a>A statement in a switch block is reachable iff its <code>switch</code> statement is reachable and at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-L-1"></a>It bears a <code>case</code> or <code>default</code> label.
+&gt;
+&gt;         *   <a name="jls-14.21-300-L-2"></a>There is a statement preceding it in the switch block and that preceding statement can complete normally.
+&gt;
+&gt; </div>
+&gt; *   <a name="jls-14.21-300-M"></a>A <code>while</code> statement can complete normally iff at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-M-1"></a>The <code>while</code> statement is reachable and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value <code>true</code>.
+&gt;
+&gt;         *   <a name="jls-14.21-300-M-2"></a>There is a reachable <code>break</code> statement that exits the <code>while</code> statement.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-300-M.1"></a>The contained statement is reachable iff the <code>while</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
+&gt;
+&gt; *   <a name="jls-14.21-300-N"></a>A <code>do</code> statement can complete normally iff at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-N-1"></a>The contained statement can complete normally and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value<code>true</code>.
+&gt;
+&gt;         *   <a name="jls-14.21-300-N-2"></a>The <code>do</code> statement contains a reachable <code>continue</code> statement with no label, and the <code>do</code> statement is the innermost <code>while</code>, <code>do</code>, or <code>for</code>statement that contains that <code>continue</code> statement, and the <code>continue</code> statement continues that <code>do</code> statement, and the condition expression is not a constant expression with value <code>true</code>.
+&gt;
+&gt;         *   <a name="jls-14.21-300-N-3"></a>The <code>do</code> statement contains a reachable <code>continue</code> statement with a label <code>L</code>, and the <code>do</code> statement has label <code>L</code>, and the <code>continue</code>statement continues that <code>do</code> statement, and the condition expression is not a constant expression with value <code>true</code>.
+&gt;
+&gt;         *   <a name="jls-14.21-300-N-4"></a>There is a reachable <code>break</code> statement that exits the <code>do</code> statement.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-300-N.1"></a>The contained statement is reachable iff the <code>do</code> statement is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-O"></a>A basic <code>for</code> statement can complete normally iff at least one of the following is true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-O-1"></a>The <code>for</code> statement is reachable, there is a condition expression, and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value <code>true</code>.
+&gt;
+&gt;         *   <a name="jls-14.21-300-O-2"></a>There is a reachable <code>break</code> statement that exits the <code>for</code> statement.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; <a name="jls-14.21-300-O.1"></a>The contained statement is reachable iff the <code>for</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
+&gt;
+&gt; *   <a name="jls-14.21-300-P"></a>An enhanced <code>for</code> statement can complete normally iff it is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-Q"></a>A <code>break</code>, <code>continue</code>, <code>return</code>, or <code>throw</code> statement cannot complete normally.
+&gt;
+&gt; *   <a name="jls-14.21-300-R"></a>A <code>synchronized</code> statement can complete normally iff the contained statement can complete normally.
+&gt;
+&gt; <a name="jls-14.21-300-R.1"></a>The contained statement is reachable iff the <code>synchronized</code> statement is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-S"></a>A <code>try</code> statement can complete normally iff both of the following are true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-S-1"></a>The <code>try</code> block can complete normally or any <code>catch</code> block can complete normally.
+&gt;
+&gt;         *   <a name="jls-14.21-300-S-2"></a>If the <code>try</code> statement has a <code>finally</code> block, then the <code>finally</code> block can complete normally.
+&gt;
+&gt; </div>
+&gt; *   <a name="jls-14.21-300-T"></a>The <code>try</code> block is reachable iff the <code>try</code> statement is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-U"></a>A <code>catch</code> block <code>C</code> is reachable iff both of the following are true:
+&gt;
+&gt; <div class="norm">
+&gt;
+&gt;
+&gt;     *   <a name="jls-14.21-300-U-1"></a>Either the type of <code>C</code>&rsquo;s parameter is an unchecked exception type or <code>Throwable</code>; or some expression or <code>throw</code> statement in the <code>try</code>block is reachable and can throw a checked exception whose type is assignable to the parameter of the <code>catch</code> clause <code>C</code>.
+&gt;
+&gt;     <a name="jls-14.21-300-U-1.1"></a>An expression is reachable iff the innermost statement containing it is reachable.
+&gt;
+&gt;     See <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.6" title="15.6. Normal and Abrupt Completion of Evaluation">§15.6</a> for normal and abrupt completion of expressions.
+&gt;
+&gt;         *   <a name="jls-14.21-300-U-2"></a>There is no earlier <code>catch</code> block <code>A</code> in the <code>try</code> statement such that the type of <code>C</code>&rsquo;s parameter is the same as or a subclass of the type of<code>A</code>&rsquo;s parameter.
+&gt;
+&gt; </div>
+&gt; *   <a name="jls-14.21-300-V"></a>The <span class="emphasis"><em>Block</em></span> of a <code>catch</code> block is reachable iff the <code>catch</code> block is reachable.
+&gt;
+&gt; *   <a name="jls-14.21-300-W"></a>If a <code>finally</code> block is present, it is reachable iff the <code>try</code> statement is reachable.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; One <span class="emphasis"><em>might expect</em></span> the <code>if</code> statement to be handled in the following manner:
+&gt;
+&gt; <div class="note">
+&gt;
+&gt;
+&gt; *   An <code>if-then</code> statement can complete normally iff at least one of the following is true:
+&gt;
+&gt; <div class="note">
+&gt;
+&gt;
+&gt;     *   The <code>if-then</code> statement is reachable and the condition expression is not a constant expression whose value is <code>true</code>.
+&gt;
+&gt;         *   The <code>then</code>-statement can complete normally.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
+&gt;
+&gt; *   An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.
+&gt;
+&gt; The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is<code>false</code>.
+&gt;
+&gt; The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is <code>true</code>.
+&gt;
+&gt; </div>
+&gt;
+&gt;
+&gt; This approach would be consistent with the treatment of other control structures. However, in order to allow the if statement to be used conveniently for &ldquo;conditional compilation&rdquo; purposes, the actual rules differ.
+&gt;
+&gt; As an example, the following statement results in a compile-time error:
+&gt;
+&gt; <code>java
+while (false) { x=3; }
+&gt; 
+&gt;</code>
+&gt;
+&gt;
+&gt; because the statement <code>x=3;</code> is not reachable; but the superficially similar case:
+&gt;
+&gt; <code>java
+if (false) { x=3; }
+&gt; 
+&gt;</code>
+&gt;
+&gt;
+&gt; does not result in a compile-time error. An optimizing compiler may realize that the statement <code>x=3;</code> will never be executed and may choose to omit the code for that statement from the generated <code>class</code> file, but the statement <code>x=3;</code> is not regarded as &ldquo;unreachable&rdquo; in the technical sense specified here.
+&gt;
+&gt; The rationale for this differing treatment is to allow programmers to define &ldquo;flag variables&rdquo; such as:
+&gt;
+&gt; <code>java
+static final boolean DEBUG = false;
+&gt; 
+&gt;</code>
+&gt;
+&gt;
+&gt; and then write code such as:
+&gt;
+&gt; <code>java
+if (DEBUG) { x=3; }
+&gt; 
+&gt;</code>
+&gt;
+&gt;
+&gt; The idea is that it should be possible to change the value of <code>DEBUG</code> from <code>false</code> to <code>true</code> or from <code>true</code> to <code>false</code> and then compile the code correctly with no other changes to the program text.
+&gt;
+&gt; This ability to &ldquo;conditionally compile&rdquo; has a significant impact on, and relationship to, binary compatibility (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html" title="Chapter 13. Binary Compatibility">§13</a>). If a set of classes that use such a &ldquo;flag&rdquo; variable are compiled and conditional code is omitted, it does not suffice later to distribute just a new version of the class or interface that contains the definition of the flag. A change to the value of a flag is, therefore, not binary compatible with pre-existing binaries (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>). (There are other reasons for such incompatibility as well, such as the use of constants in <code>case</code> labels in <code>switch</code> statements; see <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>.)</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/assertion/" rel="next" title="Assertion">
+        <i class="fa fa-chevron-left"></i> Assertion
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/override/" rel="prev" title="Override - some requirements">
+        Override - some requirements <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

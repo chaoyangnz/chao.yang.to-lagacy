@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concurrency on Charvis Yang</title>
+    <link>http://yangchao.me/categories/concurrency/</link>
+    <description>Recent content in Concurrency on Charvis Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Jan 2015 09:36:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JMM, Atomicity,  Visibility and Reordering</title>
+      <link>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</link>
+      <pubDate>Wed, 21 Jan 2015 09:36:18 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</guid>
+      <description>Memory that can be shared between threads is called shared memory or heap memory. The term variable as used in this section refers to both fields and array elements. Variables that are shared between threads are referred to as shared variables. All instance fields, static fields, and array elements are shared variables and are stored in heap memory. Local variables, formal method parameters, and exception handler parameters are never shared between threads and are unaffected by the memory model.</description>
+    </item>
+    
+    <item>
+      <title>Thread Synchronization</title>
+      <link>http://yangchao.me/post/thread-synchronization/</link>
+      <pubDate>Tue, 20 Jan 2015 02:16:57 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/thread-synchronization/</guid>
+      <description>Two questions about synchronized  mutual exclusion - shared data access among multiple threads - coordinating activities Some of the Java virtual machine&amp;rsquo;s runtime data areas are shared by all threads, others are private to individual threads.   The heap and method area are shared by all threads, Java programs need to coordinate multi-threaded access to two kinds of data:
+ b. class variables, which are stored in the method area</description>
+    </item>
+    
+  </channel>
+</rss>

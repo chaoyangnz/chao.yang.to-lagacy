@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project Problems on Charvis Yang</title>
+    <link>http://yangchao.me/categories/project-problems/</link>
+    <description>Recent content in Project Problems on Charvis Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Aug 2015 22:33:08 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/project-problems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Logging problem in Spring MVC project</title>
+      <link>http://yangchao.me/post/logging-problem-in-spring-mvc-project/</link>
+      <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/logging-problem-in-spring-mvc-project/</guid>
+      <description>Spring MVC uses JCL as its logging framework.
+A strange problem is when front-end reports an error, I cannot find exception stack in the log file.
+Why does Spring &amp;ldquo;swallow&amp;rdquo; the exception log? A reason is I don&amp;rsquo;t config any exception handler and the default HanderExceptionResolvers don&amp;rsquo;t log the exceptions at all.
+Another reason is the logging API delegation problem.
+I use SLF4J as the logging API, and use Log4j as its inherit implementation.</description>
+    </item>
+    
+    <item>
+      <title>No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]</title>
+      <link>http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</link>
+      <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</guid>
+      <description>When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:
+No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&amp;rsquo;t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:
+-mvc-servlet forwards to WEB-INF/views/xxx.jsp -No handler method found  So it goes to find a hander method, rather than renders directly.</description>
+    </item>
+    
+  </channel>
+</rss>

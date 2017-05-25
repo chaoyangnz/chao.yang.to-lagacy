@@ -1,0 +1,526 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Generics revisit - Charvis Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Generics revisit">
+    <meta property="og:site_name" content="Charvis Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Generics revisit - Charvis Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Charvis Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://www.gitbook.com/@charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Books
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/categories/showcase/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Showcase
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://linkedin.com/in/charvisyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/generics-revisit/" itemprop="url">
+        Generics revisit
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-24">
+    2015-03-24
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/generics" itemprop="url" rel="index">
+        <span itemprop="name">Generics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">716 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>Generics is an important feature since JDK 1.5</p>
+
+<h3 id="subtyping-and-wildcards">subtyping and wildcards</h3>
+
+<p><table style="height: 152px;" width="393">
+<tbody>
+<tr>
+<td>Integer</td>
+<td>is a subtype of</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>is a subtype of</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>ArrayList&lt;E&gt;</td>
+<td>is a subtype of</td>
+<td>List&lt;E&gt;</td>
+</tr>
+<tr>
+<td>List&lt;E&gt;</td>
+<td>is a subtype of</td>
+<td>Collection&lt;E&gt;</td>
+</tr>
+<tr>
+<td>Collection&lt;E&gt;</td>
+<td>is a subtype of</td>
+<td>Iterable&lt;E&gt;</td>
+</tr>
+<tr>
+<td>Long[]</td>
+<td>is a subtype of</td>
+<td>Number[]</td>
+</tr>
+<tr>
+<td>List&lt;Integer&gt;</td>
+<td>is <strong>NOT</strong> a subtype of</td>
+<td>List&lt;Number&gt;</td>
+</tr>
+</tbody>
+</table>
+In Java, array subtyping is <strong><em>covariant</em></strong>, meaning that type S[] is considered to be a subtype of T[] whenever S is a subtype of T.</p>
+
+<p>In contrast, the subtyping relation for generics is <strong><em>invariant</em></strong>, meaning that type List&lt;S&gt; is _not _considered to be a subtype of List&lt;T&gt;, except in the trivial case where S and T are identical.</p>
+
+<p>So now it&rsquo;s what the wildcards for.</p>
+
+<ul>
+<li>Wildcards reintroduce <strong>covariant</strong> subtyping for generics, in that type List&lt;S&gt; _is _considered to be a subtype of List&lt;? extends T&gt; when S is a subtype of T.</li>
+<li>Wildcards also introduce _<strong>contravariant</strong> _subtyping for generics, in that type List&lt;S&gt; is considered to be a _subtype _of List&lt;? super T&gt; when S is a _supertype _of T.
+<code>java
+List&amp;lt;? extends Number&amp;gt; list = new ArrayList&amp;lt;Integer&amp;gt;;</code>
+The question mark is called a <em>wildcard</em>, since it stands for some type that is a subtype of E.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>You can always consider the generic class with wildcard as a family of generic classes.</p>
+
+<p>For example,</p>
+
+<p>Collection&lt;? extends Fruit&gt; is a family of generic classes: Collection&lt;Fruit&gt;, Collection&lt;Apple&gt;, Collection&lt;Orange&gt;&hellip;</p>
+
+<p>Collection&lt;? super Apple&gt; is a family of generic classes: Collection&lt;Apple&gt;, Collection&lt;Fruit&gt;, Collection&lt;Plant&gt;&hellip;</p>
+
+<h4 id="get-and-put-principal">Get and Put principal</h4>
+
+<p>Some tutorals said:
+&gt; <em>The Get and Put Principle</em>: use an extends wildcard when you only _get _values out of a structure, use a super wildcard when you only _put _values into a structure, and don’t use a wildcard when you _both _get and put.
+I think this has a little flaw. Actually, get and put is just a too vague expression. For instance, the remove() method of List interface is get or set?</p>
+
+<p>So more general means is by using reasoning.</p>
+
+<pre><code class="language-java">public class GenericClass&amp;lt;T&amp;gt; {
+
+    public T foo() {
+        return null;
+    }
+
+    public void bar(T a) {}
+
+    public static void main() {
+
+        GenericClass&amp;lt;? extends Fruit&amp;gt; g1 = new GenericClass&amp;lt;Fruit&amp;gt;();
+        Fruit fruit = g1.foo();
+        Plant plant = g1.foo();
+        Creature creature = g1.foo();
+
+        GenericClass&amp;lt;? super Fruit&amp;gt; g2 = new GenericClass&amp;lt;Fruit&amp;gt;();
+        g2.bar(new Fruit());
+        g2.bar(new Apple());
+        g2.bar(new RoyalGala());
+    }
+}
+
+class Creature {}
+class Plant extends Creature {}
+class Fruit extends Plant {}
+class Apple extends Fruit {}
+class RoyalGala extends Apple {}
+</code></pre>
+
+<p>In the above code, we have a deep hierarchy. But all the rule is based on this:</p>
+
+<ul>
+<li>&lt;? extend Fruit&gt; means it is some fruit sub type, maybe Fruit, Apple or RoyalGala.</li>
+<li>&lt;? super Fruit&gt; means it is some fruit super type, maybe Fruit, Plant or Creature.
+``` java
+&lt;? extends Fruit&gt; a = &hellip;;
+Apple aa = a; // wrong, if a is really a fruit? downcast failed
+RoyalGala aaa = a; // wrong, if a is really a apple? downcast failed
+Fruit aa = a; // ok, whatever a is fruit, apple or royal gala.
+Plant aaa = a; // ok, whatever a is fruit, apple or royal gala.
+Creature aaaa = a; // ok, whatever a is fruit, apple or royal gala.</li>
+</ul>
+
+<p>&lt;? super Fruit&gt; b = &hellip;;
+b = new Plant(); // wrong, if b is really a fruit? downcast failed
+b = new Creature(); // wrong, if b is really a plant? downcast failed
+b = new Fruit(); // ok, whatever b is fruit, plant or royal gala.
+b = new Apple(); // ok, whatever b is fruit, plant or royal gala.
+b = new RoyalGala(); // ok, whatever b is fruit, apple or royal gala.```
+From the above pseudo code, we know how the compiler do reasoning. As per uncertain things the compiler cannot ensure, the compilation will fail naturally.</p>
+
+<p>So for g1.foo(), compiler infer to return &lt;? extends Fruit&gt; type, but this is just a parameterize type, which cannot exist standalone. But the compiler can ensure the assignment to Fruit/Plant/Creature variable is safe.</p>
+
+<p>That&rsquo;s it!</p>
+
+<h4 id="wildcard-capture">wildcard capture</h4>
+
+<p>//todo</p>
+
+<h4 id="constraints-on-wildcards">constraints on wildcards</h4>
+
+<ul>
+<li><p>instance creation
+<code>java
+List&amp;lt;?&amp;gt; list = new ArrayList&amp;lt;?&amp;gt;(); // compile-time error
+Map&amp;lt;String, ? extends Number&amp;gt; map = new HashMap&amp;lt;String, ? extends Number&amp;gt;(); // compile-time error</code>
+&nbsp;</p></li>
+
+<li><p>generic method calls
+<code>java
+List&amp;lt;?&amp;gt; list = Lists.&amp;lt;?&amp;gt;factory(); // compile-time error</code></p></li>
+</ul>
+
+<h3 id="bounds"> bounds</h3>
+
+<p>&nbsp;</p>
+
+<h3 id="bridge-method"> bridge method</h3>
+
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/todo" rel="tag" title="TODO">#TODO#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/widen-cast-vs-narrow-cast/" rel="next" title="widen cast vs. narrow cast">
+        <i class="fa fa-chevron-left"></i> widen cast vs. narrow cast
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/" rel="prev" title="GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory">
+        GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Charvis" />
+    <p class="site-author-name" itemprop="name">Charvis</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/charvisyang/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/charvisyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#subtyping-and-wildcards">subtyping and wildcards</a>
+<ul>
+<li><a href="#get-and-put-principal">Get and Put principal</a></li>
+<li><a href="#wildcard-capture">wildcard capture</a></li>
+<li><a href="#constraints-on-wildcards">constraints on wildcards</a></li>
+</ul></li>
+<li><a href="#bounds"> bounds</a></li>
+<li><a href="#bridge-method"> bridge method</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Charvis Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>
