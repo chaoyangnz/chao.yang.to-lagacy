@@ -2642,3 +2642,78 @@ body {
     text-align: justify;
   }
 }
+
+/* --------------- custom --------------------*/
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:400;
+  font-style:normal;
+  src:url(/fonts/elizabethserif-light-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-light-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-light-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-light-webfont.eot) format("eot")
+}
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:400;
+  font-style:italic;
+  src:url(/fonts/elizabethserif-lightitalic-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-lightitalic-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-lightitalic-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-lightitalic-webfont.eot) format("eot")
+}
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:500;
+  font-style:normal;
+  src:url(/fonts/elizabethserif-regular-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-regular-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-regular-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-regular-webfont.eot) format("eot")
+}
+
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:500;
+  font-style:italic;
+  src:url(/fonts/elizabethserif-italic-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-italic-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-italic-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-italic-webfont.eot) format("eot")
+}
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:700;
+  font-style:normal;
+  src:url(/fonts/elizabethserif-bold-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-bold-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-bold-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-bold-webfont.eot) format("eot")
+}
+
+@font-face{
+  font-family:'ElizabethSerif';
+  font-weight:700;
+  font-style:italic;
+  src:url(/fonts/elizabethserif-bolditalic-webfont.woff2) format("woff2"),
+    url(/fonts/elizabethserif-bolditalic-webfont.woff) format("woff"),
+    url(/fonts/elizabethserif-bolditalic-webfont.ttf) format("ttf"),
+    url(/fonts/elizabethserif-bolditalic-webfont.eot) format("eot")
+}
+
+
+.post .post-header {
+  font-size: 1.8em !important;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #f5f5f5;
+}
+
+.post .post-body a {
+  font-family: "ElizabethSerif", Georgia, helvetica, "Hiragino Sans GB", SimSun, sans-serif
+  color: #b454bf !important;
+}
