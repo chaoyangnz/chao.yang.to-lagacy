@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/post/kotlin-puzzles/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</loc>
     <lastmod>2017-01-19T17:11:25+00:00</lastmod>
   </url>
@@ -857,6 +862,12 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/tags/kotlin/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/categories/language-compiler/</loc>
     <lastmod>2015-01-16T04:42:49+00:00</lastmod>
     <priority>0</priority>
@@ -1015,6 +1026,12 @@
   <url>
     <loc>http://yangchao.me/tags/trouble-shooting/</loc>
     <lastmod>2016-01-02T10:41:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/tutorial/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

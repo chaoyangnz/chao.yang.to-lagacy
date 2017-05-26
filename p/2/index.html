@@ -117,6 +117,49 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/regex-in-java/" itemprop="url">
+        Regex in Java
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-01-09">
+    2016-01-09
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">863 words ~5min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Some concepts metacharacters &lt;([{\^-=$!|]})?*+.&gt; these characters have special meaning which can affect the way a pattern is matached.
+character classes a set of characters enclosed within square brackets.
+   Construct Description     [abc] a, b, or c (simple class)   [^abc] Any character except a, b, or c (negation)   [a-zA-Z] a through z, or A through Z, inclusive (range)   [a-d[m-p]] a through d, or m through p: a-dm-p   [a-z&amp;&amp;[def]] d, e, or f (intersection)   [a-z&amp;&amp;[^bc]] a through z, except for b and c: ad-z   [a-z&amp;&amp;[^m-p]] a through z, and not m through p: a-lq-z    predefined character classes convenient shorthands for commonly used regular expressions
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/regex-in-java/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/book-reading-plan-for-2016/" itemprop="url">
         Book reading plan for 2016
         </a>
@@ -1100,70 +1143,6 @@ No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&rsquo;
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/gc-revisit/" itemprop="url">
-        GC revisit
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-06-27">
-    2015-06-27
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/jvm" itemprop="url" rel="index">
-        <span itemprop="name">JVM</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">117 words ~1min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    In the another post, I give a short introduction of GC.
-Now for the practical purpose, I need to focus on the common used GCs: Parallel GC, CMS and G1.
-What is the tracing algorithm and mark-and-sweep method? root objects
-Root objects are the starting point of marking phase. Usually, root object references are located in the thread stacks.
-object graph
-Every object has its fields, if a field is a object reference, then the reference will be like a pointer to another object.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/gc-revisit/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1259,20 +1238,20 @@ Every object has its fields, if a field is a object reference, then the referenc
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">133</span>
+        <span class="site-state-item-count">134</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
         <a href="http://yangchao.me/categories/">       
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">Categories</span>
         </a>
     </div>
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>
