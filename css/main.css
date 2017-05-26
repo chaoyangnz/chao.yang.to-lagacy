@@ -2713,10 +2713,12 @@ body {
   border-bottom: solid 1px #f5f5f5;
 }
 
+.post .post-header a {
+  color: #b454bf !important;
+}
+
 .post .post-body {
   font-family: "ElizabethSerif", Georgia, helvetica, "Hiragino Sans GB", SimSun, sans-serif
 }
 
-.post .post-body a {
-  color: #b454bf !important;
-}
+
