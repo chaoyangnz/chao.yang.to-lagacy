@@ -135,7 +135,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">854 words ~5min</span>
+<span class="leancloud-visitors-count">851 words ~4min</span>
 </span>
       </div>
     </header>
@@ -148,36 +148,35 @@
 
 <p>Here we follow the evolution process of how to create a lazy-initialization singleton.</p>
 
-<p>```java naive version
-public class Singleton {</p>
-
-<pre><code>private static Singleton DEFAULT;
-
-public static Singleton getDefault() {
-    if(DEFAULT == null) {
-        DEFAULT = new Singleton();
+<pre><code class="language-java">// naive version
+public class Singleton {
+    
+    private static Singleton DEFAULT;
+    
+    public static Singleton getDefault() {
+        if(DEFAULT == null) {
+            DEFAULT = new Singleton();
+        }
+        return DEFAULT;
     }
-    return DEFAULT;
+    
+    private Singleton() {}
+
+    // other instance methods
+
 }
-
-private Singleton() {}
-
-// other instance methods
 </code></pre>
 
-<p>}</p>
-
-<pre><code>
-Race condition:
-- when thread 1 has executed `if(DEFAULT == null)` and then is preempted by thread 2.
+<p>Race condition:
+- when thread 1 has executed <code>if(DEFAULT == null)</code> and then is preempted by thread 2.
 - Thread 2 checks DEFAULT is null, it instantiates the DEFAULT.
-- Thread 1 starts executing again, then it instantiates the DEFAULT once again and overwrites the DEFAULT reference.
+- Thread 1 starts executing again, then it instantiates the DEFAULT once again and overwrites the DEFAULT reference.</p>
 
-Actually, more than one instances are created in the heap.
+<p>Actually, more than one instances are created in the heap.</p>
 
-Now we fix it to synchronize the instantiation.
+<p>Now we fix it to synchronize the instantiation.</p>
 
-```java synchronized version
+<pre><code class="language-java">// synchronized version
 public class Singleton {
     
     private static Singleton DEFAULT;
@@ -202,37 +201,37 @@ public class Singleton {
 
 <p>Now we continue to fix it by reducing the locking range.</p>
 
-<p>```java reducing locking range
-public class Singleton {</p>
-
-<pre><code>private static Singleton DEFAULT;
-
-public static Singleton getDefault() {
-    if(DEFAULT == null) {
-        synchronized(Singleton.class) {
-            DEFAULT = new Singleton();
+<pre><code class="language-java">// reducing locking range
+public class Singleton {
+    
+    private static Singleton DEFAULT;
+    
+    public static Singleton getDefault() {
+        if(DEFAULT == null) {
+            synchronized(Singleton.class) {
+                DEFAULT = new Singleton();
+            }
         }
+        return DEFAULT;
     }
-    return DEFAULT;
+    
+    private Singleton() {}
+
+    // other instance methods
+
 }
-
-private Singleton() {}
-
-// other instance methods
 </code></pre>
 
-<p>}</p>
-
-<pre><code> 
-Race condition:
-- when thread 1 has executed `if(DEFAULT == null) {` and then fail to acquire lock which is occupied by thread 2.
+<p>Race condition:
+- when thread 1 has executed <code>if(DEFAULT == null) {</code> and then fail to acquire lock which is occupied by thread 2.
 - Thread 2 instantiates the DEFAULT and releases the lock.
-- Thread 1 acquire the lock and continue to execute, then it instantiates the DEFAULT once again and overwrites the DEFAULT reference.
+- Thread 1 acquire the lock and continue to execute, then it instantiates the DEFAULT once again and overwrites the DEFAULT reference.</p>
 
-&lt;!-- more --&gt;
-We continue to fix the problem.
+<!-- more -->
 
-```java double-checked locking
+<p>We continue to fix the problem.</p>
+
+<pre><code class="language-java">// double-checked locking
 public class Singleton {
     
     private static Singleton DEFAULT;
@@ -283,51 +282,48 @@ It prevents some re-ordering. You can <strong>still have re-ordering outside the
 
 <p>However, after JDK 5.0, the fixed JMM make <code>volatile</code> have clear semantics. So we can make the above version workable.</p>
 
-<p>```java double-checked locking enhanced by volatile; this version is workable.
-public class Singleton {</p>
-
-<pre><code>private static volatile Singleton DEFAULT;
-
-public static Singleton getDefault() {
-    if(DEFAULT == null) {
-        synchronized(Singleton.class) {
-            if(DEFAULT == null) {
-                DEFAULT = new Singleton();
+<pre><code class="language-java">// double-checked locking enhanced by volatile; this version is workable.
+public class Singleton {
+    
+    private static volatile Singleton DEFAULT;
+    
+    public static Singleton getDefault() {
+        if(DEFAULT == null) {
+            synchronized(Singleton.class) {
+                if(DEFAULT == null) {
+                    DEFAULT = new Singleton();
+                }
             }
         }
+        return DEFAULT;
     }
-    return DEFAULT;
+    
+    private Singleton() {}
+
+    // other instance methods
+
 }
-
-private Singleton() {}
-
-// other instance methods
 </code></pre>
 
-<p>}</p>
+<p>Here, the <code>volatile</code> is the key. From the semantics of <code>volatile</code>, it makes the actions that happen before the write to helper in the code must, when the program executes, actually happen before the write to helper — no sneaky reordering is allowed.</p>
 
-<pre><code>
-Here, the `volatile` is the key. From the semantics of `volatile`, it makes the actions that happen before the write to helper in the code must, when the program executes, actually happen before the write to helper — no sneaky reordering is allowed.
-
-</code></pre>
-
-<p>1 new #1 <playground/singleton/naive/Singleton>
+<pre><code>1 new #1 &lt;playground/singleton/naive/Singleton&gt;
 2 dup
-3 invokespecial #19 <playground/singleton/naive/Singleton.<init>&gt;
+3 invokespecial #19 &lt;playground/singleton/naive/Singleton.&lt;init&gt;&gt;
 |__ store barrier __|
-4 putstatic #17 <playground/singleton/naive/Singleton.DEFAULT></p>
+4 putstatic #17 &lt;playground/singleton/naive/Singleton.DEFAULT&gt;
+</code></pre>
 
-<pre><code>
-You can see there should be a store barrier for pubstatic, which make the instructions before it cannot be reordered to after it.
+<p>You can see there should be a store barrier for pubstatic, which make the instructions before it cannot be reordered to after it.</p>
 
-Please refer to http://jeremymanson.blogspot.jp/2008/05/double-checked-locking.html
+<p>Please refer to <a href="http://jeremymanson.blogspot.jp/2008/05/double-checked-locking.html">http://jeremymanson.blogspot.jp/2008/05/double-checked-locking.html</a></p>
 
-# Better ways
+<h1 id="better-ways">Better ways</h1>
 
-I don't know how the lazy-initialization makes sense.
-Some more concise and thread-safe eager-initialization ways:
+<p>I don&rsquo;t know how the lazy-initialization makes sense.
+Some more concise and thread-safe eager-initialization ways:</p>
 
-```java final
+<pre><code class="language-java">// final
 public class Singleton {
     
     public static Singleton DEFAULT = new Singleton();
@@ -341,32 +337,31 @@ public class Singleton {
 
 <p>or static factory way:</p>
 
-<p>```java final / static factory
-public class Singleton {</p>
+<pre><code class="language-java">// final / static factory
+public class Singleton {
+    
+    private static Singleton DEFAULT = new Singleton();
+    
+    public static Singleton getDefault() {
+        return DEFAULT;
+    }
+    
+    private Singleton() {}
 
-<pre><code>private static Singleton DEFAULT = new Singleton();
+    // other instance methods
 
-public static Singleton getDefault() {
-    return DEFAULT;
 }
-
-private Singleton() {}
-
-// other instance methods
 </code></pre>
 
-<p>}</p>
+<p><code>&lt;clinint&gt;</code> is invoked by JVM, it can guarantee the thread safe and the write visible to threads. For better reasoning, we can add extra <code>final</code> to the static field.</p>
 
-<pre><code>
-`&lt;clinint&gt;` is invoked by JVM, it can guarantee the thread safe and the write visible to threads. For better reasoning, we can add extra `final` to the static field.
+<p>Refer to:
+<a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4.2">https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4.2</a>
+<a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5">https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5</a></p>
 
-Refer to:
-https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4.2
-https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5
+<p>&ldquo;Java Concurrency in Practice&rdquo; provides a way of lazy-initialization placeholder pattern.</p>
 
-&quot;Java Concurrency in Practice&quot; provides a way of lazy-initialization placeholder pattern.
-
-```java lazy-initialization placeholder
+<pre><code class="language-java">// lazy-initialization placeholder
 public class Singleton {
     private static class SingletonHolder {
         public static Singleton DEFAULT = new Singleton();
@@ -385,18 +380,17 @@ public class Singleton {
 
 <p>Another way is to use <code>enum</code>.</p>
 
-<p>```java enum
-public enum Singleton {</p>
+<pre><code class="language-java">// enum
+public enum Singleton {
+    
+    DEFAULT;
+    
+    private Singleton() {}
 
-<pre><code>DEFAULT;
+    // other instance methods
 
-private Singleton() {}
-
-// other instance methods
+}
 </code></pre>
-
-<p>}
-```</p>
 
 <p>This way is from the book &ldquo;Effective Java&rdquo;.</p>
 
@@ -520,6 +514,7 @@ private Singleton() {}
 <li><a href="#broken-versions">broken versions</a></li>
 <li><a href="#workable-version">workable version</a></li>
 </ul></li>
+<li><a href="#better-ways">Better ways</a></li>
 </ul>
 </nav></div>
     </div>

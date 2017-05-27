@@ -408,15 +408,13 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">854 words ~5min</span>
+<span class="leancloud-visitors-count">851 words ~4min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     double-checked locking idiom (aka. DCL) broken versions Here we follow the evolution process of how to create a lazy-initialization singleton.
-```java naive version public class Singleton {
-private static Singleton DEFAULT; public static Singleton getDefault() { if(DEFAULT == null) { DEFAULT = new Singleton(); } return DEFAULT; } private Singleton() {} // other instance methods  }
- Race condition: - when thread 1 has executed `if(DEFAULT == null)` and then is preempted by thread 2.
+// naive version public class Singleton { private static Singleton DEFAULT; public static Singleton getDefault() { if(DEFAULT == null) { DEFAULT = new Singleton(); } return DEFAULT; } private Singleton() {} // other instance methods }  Race condition: - when thread 1 has executed if(DEFAULT == null) and then is preempted by thread 2.
     </div>
     
     <div class="post-more-link text-center">
