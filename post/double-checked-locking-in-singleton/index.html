@@ -176,6 +176,7 @@ Race condition:
 Actually, more than one instances are created in the heap.
 
 Now we fix it to synchronize the instantiation.
+
 ```java synchronized version
 public class Singleton {
     
@@ -199,8 +200,9 @@ public class Singleton {
 
 <p>This version is inherently thread safe but not efficient.</p>
 
-<p>Now we continue to fix it by reducing the locking range.
-```java reducing locking range
+<p>Now we continue to fix it by reducing the locking range.</p>
+
+<p>```java reducing locking range
 public class Singleton {</p>
 
 <pre><code>private static Singleton DEFAULT;
@@ -229,6 +231,7 @@ Race condition:
 
 &lt;!-- more --&gt;
 We continue to fix the problem.
+
 ```java double-checked locking
 public class Singleton {
     
@@ -278,8 +281,9 @@ It prevents some re-ordering. You can <strong>still have re-ordering outside the
 
 <h2 id="workable-version">workable version</h2>
 
-<p>However, after JDK 5.0, the fixed JMM make <code>volatile</code> have clear semantics. So we can make the above version workable.
-```java double-checked locking enhanced by volatile; this version is workable.
+<p>However, after JDK 5.0, the fixed JMM make <code>volatile</code> have clear semantics. So we can make the above version workable.</p>
+
+<p>```java double-checked locking enhanced by volatile; this version is workable.
 public class Singleton {</p>
 
 <pre><code>private static volatile Singleton DEFAULT;
@@ -302,7 +306,8 @@ private Singleton() {}
 
 <p>}</p>
 
-<pre><code>Here, the `volatile` is the key. From the semantics of `volatile`, it makes the actions that happen before the write to helper in the code must, when the program executes, actually happen before the write to helper — no sneaky reordering is allowed.
+<pre><code>
+Here, the `volatile` is the key. From the semantics of `volatile`, it makes the actions that happen before the write to helper in the code must, when the program executes, actually happen before the write to helper — no sneaky reordering is allowed.
 
 </code></pre>
 
@@ -312,7 +317,8 @@ private Singleton() {}
 |__ store barrier __|
 4 putstatic #17 <playground/singleton/naive/Singleton.DEFAULT></p>
 
-<pre><code>You can see there should be a store barrier for pubstatic, which make the instructions before it cannot be reordered to after it.
+<pre><code>
+You can see there should be a store barrier for pubstatic, which make the instructions before it cannot be reordered to after it.
 
 Please refer to http://jeremymanson.blogspot.jp/2008/05/double-checked-locking.html
 
@@ -333,8 +339,9 @@ public class Singleton {
 }
 </code></pre>
 
-<p>or static factory way:
-```java final / static factory
+<p>or static factory way:</p>
+
+<p>```java final / static factory
 public class Singleton {</p>
 
 <pre><code>private static Singleton DEFAULT = new Singleton();
@@ -358,6 +365,7 @@ https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4.2
 https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.5
 
 &quot;Java Concurrency in Practice&quot; provides a way of lazy-initialization placeholder pattern.
+
 ```java lazy-initialization placeholder
 public class Singleton {
     private static class SingletonHolder {
@@ -375,8 +383,9 @@ public class Singleton {
 }
 </code></pre>
 
-<p>Another way is to use <code>enum</code>.
-```java enum
+<p>Another way is to use <code>enum</code>.</p>
+
+<p>```java enum
 public enum Singleton {</p>
 
 <pre><code>DEFAULT;
