@@ -177,30 +177,33 @@
 <ul>
 <li>System.gc()   &mdash; this is a shortcut of Runtime.getRuntime().gc()</li>
 <li>Runtime.getRuntime().runFinalization()</li>
+<li><del>Runtime.runFinalizersOnExit(true)  </del>   this method is deprecated because of being unsafe
+<strong>“This method is inherently unsafe. It may result in finalizers being called on live objects while other threads are concurrently manipulating those objects, resulting in erratic behavior or deadlock.”</strong></li>
+</ul>
 
-<li><p><del>Runtime.runFinalizersOnExit(true)  </del>   this method is deprecated because of being unsafe
-<strong>“This method is inherently unsafe. It may result in finalizers being called on live objects while other threads are concurrently manipulating those objects, resulting in erratic behavior or deadlock.”</strong>
-``` java
+<p>``` java
 class ObjectWithFinalizer {</p>
 
-<p>protected void finalized() throws Throwable {
+<pre><code>protected void finalized() throws Throwable {
     try {
-        System.out.println(&ldquo;finalize() invoked&rdquo;);
+        System.out.println(&quot;finalize() invoked&quot;);
         int i = 1 / 0; // expect to throw ArithmeticException
     } finally {
         super.finalize();
     }
-}</p>
+}
 
-<p>public static void main(String[] args) {
+public static void main(String[] args) {
     ObjectWithFinalizer o = new ObjectWithFinalizer();
     o = null; // wish GC to reclaim the memory
-//        System.gc();
-    Runtime.runFinalizersOnExit(true);
-}
-}```
-After running the above code, we cannot see the expected result.</p></li>
-</ul>
+</code></pre>
+
+<p>//        System.gc();
+        Runtime.runFinalizersOnExit(true);
+    }
+}```</p>
+
+<p>After running the above code, we cannot see the expected result.</p>
 
     </div>
     <footer class="post-footer">

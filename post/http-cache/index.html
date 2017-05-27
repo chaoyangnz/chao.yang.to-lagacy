@@ -158,23 +158,27 @@
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>Request headers:
-<code>java
+    <p>Request headers:</p>
+
+<p><code>java
 If-Modified-Since: {time}      
-If-None-Match: {etag}</code>
-These two headers are used to check if the cached resource is still fresh.</p>
+If-None-Match: {etag}</code></p>
+
+<p>These two headers are used to check if the cached resource is still fresh.</p>
 
 <p>If expired, response status is 200 and fetch the resource</p>
 
 <p>If not, response status is 304 and cache is still fresh.</p>
 
-<p>Response headers:
-<code>java
+<p>Response headers:</p>
+
+<p><code>java
 Last-Modified: {time}
 ETag: {etag}
 Expire: {time}
-Cache-Control: maxAge={seconds}</code>
-<img src="http://yangchao.me/media/image.jpeg" alt="image" /></p>
+Cache-Control: maxAge={seconds}</code></p>
+
+<p><img src="http://yangchao.me/media/image.jpeg" alt="image" /></p>
 
     </div>
     <footer class="post-footer">

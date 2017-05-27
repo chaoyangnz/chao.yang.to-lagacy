@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">2054 words ~10min</span>
+<span class="leancloud-visitors-count">1797 words ~9min</span>
 </span>
       </div>
     </header>
@@ -219,269 +219,267 @@ public void javapapers() {
 &gt; 
 &gt; }
 &gt; 
-&gt;</code>
-&gt;
-&gt;
-&gt; even though the value of <code>n</code> is known at compile time and in principle it can be known at compile time that the assignment to <code>k</code> can never be executed.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-200"></a>The rules in this section define two technical terms:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt; *   <a name="jls-14.21-200-A"></a>whether a statement is <span class="emphasis"><em>reachable</em></span>
-&gt;
-&gt; *   <a name="jls-14.21-200-B"></a>whether a statement <span class="emphasis"><em>can complete normally</em></span>
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-210"></a>The definitions here allow a statement to complete normally only if it is reachable.
-&gt;
-&gt; <a name="jls-14.21-220"></a>To shorten the description of the rules, the customary abbreviation &ldquo;iff&rdquo; is used to mean &ldquo;if and only if.&rdquo;
-&gt;
-&gt; <a name="jls-14.21-230"></a>A reachable <code>break</code> statement <span class="emphasis"><em>exits a statement</em></span> if, within the break target, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>break</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>break</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.
-&gt;
-&gt; This definition is based on the logic around &ldquo;attempts to transfer control&rdquo; in <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.15" title="14.15. The break Statement">§14.15</a>.
-&gt;
-&gt; <a name="jls-14.21-240"></a>A <code>continue</code> statement <span class="emphasis"><em>continues a <code>do</code> statement</em></span> if, within the <code>do</code> statement, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>continue</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>continue</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.
-&gt;
-&gt; <a name="jls-14.21-300"></a>The rules are as follows:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt; *   <a name="jls-14.21-300-A"></a>The block that is the body of a constructor, method, instance initializer, or static initializer is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-B"></a>An empty block that is not a switch block can complete normally iff it is reachable.
-&gt;
-&gt; <a name="jls-14.21-300-B.1"></a>A non-empty block that is not a switch block can complete normally iff the last statement in it can complete normally.
-&gt;
-&gt; <a name="jls-14.21-300-B.2"></a>The first statement in a non-empty block that is not a switch block is reachable iff the block is reachable.
-&gt;
-&gt; <a name="jls-14.21-300-B.3"></a>Every other statement <code>S</code> in a non-empty block that is not a switch block is reachable iff the statement preceding <code>S</code> can complete normally.
-&gt;
-&gt; *   <a name="jls-14.21-300-C"></a>A local class declaration statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-D"></a>A local variable declaration statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-E"></a>An empty statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-F"></a>A labeled statement can complete normally if at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-F-1"></a>The contained statement can complete normally.
-&gt;
-&gt;         *   <a name="jls-14.21-300-F-2"></a>There is a reachable <code>break</code> statement that exits the labeled statement.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-300-F.1"></a>The contained statement is reachable iff the labeled statement is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-G"></a>An expression statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-H-1"></a>An <code>if-then</code> statement can complete normally iff it is reachable.
-&gt;
-&gt; <a name="jls-14.21-300-H-2"></a>The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable.
-&gt;
-&gt; <a name="jls-14.21-300-H-3"></a>An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.
-&gt;
-&gt; <a name="jls-14.21-300-H-4"></a>The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.
-&gt;
-&gt; <a name="jls-14.21-300-H-5"></a>The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.
-&gt;
-&gt; This handling of an <code>if</code> statement, whether or not it has an <code>else</code> part, is rather unusual. The rationale is given at the end of this section.
-&gt;
-&gt; *   <a name="jls-14.21-300-I"></a>An <code>assert</code> statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-J"></a>A <code>switch</code> statement can complete normally iff at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-J-1"></a>The switch block is empty or contains only switch labels.
-&gt;
-&gt;         *   <a name="jls-14.21-300-J-2"></a>The last statement in the switch block can complete normally.
-&gt;
-&gt;         *   <a name="jls-14.21-300-J-3"></a>There is at least one switch label after the last switch block statement group.
-&gt;
-&gt;         *   <a name="jls-14.21-300-J-4"></a>The switch block does not contain a <code>default</code> label.
-&gt;
-&gt;         *   <a name="jls-14.21-300-J-5"></a>There is a reachable <code>break</code> statement that exits the <code>switch</code> statement.
-&gt;
-&gt; </div>
-&gt; *   <a name="jls-14.21-300-K"></a>A switch block is reachable iff its <code>switch</code> statement is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-L"></a>A statement in a switch block is reachable iff its <code>switch</code> statement is reachable and at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-L-1"></a>It bears a <code>case</code> or <code>default</code> label.
-&gt;
-&gt;         *   <a name="jls-14.21-300-L-2"></a>There is a statement preceding it in the switch block and that preceding statement can complete normally.
-&gt;
-&gt; </div>
-&gt; *   <a name="jls-14.21-300-M"></a>A <code>while</code> statement can complete normally iff at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-M-1"></a>The <code>while</code> statement is reachable and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value <code>true</code>.
-&gt;
-&gt;         *   <a name="jls-14.21-300-M-2"></a>There is a reachable <code>break</code> statement that exits the <code>while</code> statement.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-300-M.1"></a>The contained statement is reachable iff the <code>while</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
-&gt;
-&gt; *   <a name="jls-14.21-300-N"></a>A <code>do</code> statement can complete normally iff at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-N-1"></a>The contained statement can complete normally and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value<code>true</code>.
-&gt;
-&gt;         *   <a name="jls-14.21-300-N-2"></a>The <code>do</code> statement contains a reachable <code>continue</code> statement with no label, and the <code>do</code> statement is the innermost <code>while</code>, <code>do</code>, or <code>for</code>statement that contains that <code>continue</code> statement, and the <code>continue</code> statement continues that <code>do</code> statement, and the condition expression is not a constant expression with value <code>true</code>.
-&gt;
-&gt;         *   <a name="jls-14.21-300-N-3"></a>The <code>do</code> statement contains a reachable <code>continue</code> statement with a label <code>L</code>, and the <code>do</code> statement has label <code>L</code>, and the <code>continue</code>statement continues that <code>do</code> statement, and the condition expression is not a constant expression with value <code>true</code>.
-&gt;
-&gt;         *   <a name="jls-14.21-300-N-4"></a>There is a reachable <code>break</code> statement that exits the <code>do</code> statement.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-300-N.1"></a>The contained statement is reachable iff the <code>do</code> statement is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-O"></a>A basic <code>for</code> statement can complete normally iff at least one of the following is true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-O-1"></a>The <code>for</code> statement is reachable, there is a condition expression, and the condition expression is not a constant expression (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28" title="15.28. Constant Expressions">§15.28</a>) with value <code>true</code>.
-&gt;
-&gt;         *   <a name="jls-14.21-300-O-2"></a>There is a reachable <code>break</code> statement that exits the <code>for</code> statement.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; <a name="jls-14.21-300-O.1"></a>The contained statement is reachable iff the <code>for</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
-&gt;
-&gt; *   <a name="jls-14.21-300-P"></a>An enhanced <code>for</code> statement can complete normally iff it is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-Q"></a>A <code>break</code>, <code>continue</code>, <code>return</code>, or <code>throw</code> statement cannot complete normally.
-&gt;
-&gt; *   <a name="jls-14.21-300-R"></a>A <code>synchronized</code> statement can complete normally iff the contained statement can complete normally.
-&gt;
-&gt; <a name="jls-14.21-300-R.1"></a>The contained statement is reachable iff the <code>synchronized</code> statement is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-S"></a>A <code>try</code> statement can complete normally iff both of the following are true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-S-1"></a>The <code>try</code> block can complete normally or any <code>catch</code> block can complete normally.
-&gt;
-&gt;         *   <a name="jls-14.21-300-S-2"></a>If the <code>try</code> statement has a <code>finally</code> block, then the <code>finally</code> block can complete normally.
-&gt;
-&gt; </div>
-&gt; *   <a name="jls-14.21-300-T"></a>The <code>try</code> block is reachable iff the <code>try</code> statement is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-U"></a>A <code>catch</code> block <code>C</code> is reachable iff both of the following are true:
-&gt;
-&gt; <div class="norm">
-&gt;
-&gt;
-&gt;     *   <a name="jls-14.21-300-U-1"></a>Either the type of <code>C</code>&rsquo;s parameter is an unchecked exception type or <code>Throwable</code>; or some expression or <code>throw</code> statement in the <code>try</code>block is reachable and can throw a checked exception whose type is assignable to the parameter of the <code>catch</code> clause <code>C</code>.
-&gt;
-&gt;     <a name="jls-14.21-300-U-1.1"></a>An expression is reachable iff the innermost statement containing it is reachable.
-&gt;
-&gt;     See <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.6" title="15.6. Normal and Abrupt Completion of Evaluation">§15.6</a> for normal and abrupt completion of expressions.
-&gt;
-&gt;         *   <a name="jls-14.21-300-U-2"></a>There is no earlier <code>catch</code> block <code>A</code> in the <code>try</code> statement such that the type of <code>C</code>&rsquo;s parameter is the same as or a subclass of the type of<code>A</code>&rsquo;s parameter.
-&gt;
-&gt; </div>
-&gt; *   <a name="jls-14.21-300-V"></a>The <span class="emphasis"><em>Block</em></span> of a <code>catch</code> block is reachable iff the <code>catch</code> block is reachable.
-&gt;
-&gt; *   <a name="jls-14.21-300-W"></a>If a <code>finally</code> block is present, it is reachable iff the <code>try</code> statement is reachable.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; One <span class="emphasis"><em>might expect</em></span> the <code>if</code> statement to be handled in the following manner:
-&gt;
-&gt; <div class="note">
-&gt;
-&gt;
-&gt; *   An <code>if-then</code> statement can complete normally iff at least one of the following is true:
-&gt;
-&gt; <div class="note">
-&gt;
-&gt;
-&gt;     *   The <code>if-then</code> statement is reachable and the condition expression is not a constant expression whose value is <code>true</code>.
-&gt;
-&gt;         *   The <code>then</code>-statement can complete normally.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.
-&gt;
-&gt; *   An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.
-&gt;
-&gt; The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is<code>false</code>.
-&gt;
-&gt; The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is <code>true</code>.
-&gt;
-&gt; </div>
-&gt;
-&gt;
-&gt; This approach would be consistent with the treatment of other control structures. However, in order to allow the if statement to be used conveniently for &ldquo;conditional compilation&rdquo; purposes, the actual rules differ.
-&gt;
-&gt; As an example, the following statement results in a compile-time error:
-&gt;
-&gt; <code>java
-while (false) { x=3; }
-&gt; 
-&gt;</code>
-&gt;
-&gt;
-&gt; because the statement <code>x=3;</code> is not reachable; but the superficially similar case:
-&gt;
-&gt; <code>java
-if (false) { x=3; }
-&gt; 
-&gt;</code>
-&gt;
-&gt;
-&gt; does not result in a compile-time error. An optimizing compiler may realize that the statement <code>x=3;</code> will never be executed and may choose to omit the code for that statement from the generated <code>class</code> file, but the statement <code>x=3;</code> is not regarded as &ldquo;unreachable&rdquo; in the technical sense specified here.
-&gt;
-&gt; The rationale for this differing treatment is to allow programmers to define &ldquo;flag variables&rdquo; such as:
-&gt;
-&gt; <code>java
-static final boolean DEBUG = false;
-&gt; 
-&gt;</code>
-&gt;
-&gt;
-&gt; and then write code such as:
-&gt;
-&gt; <code>java
-if (DEBUG) { x=3; }
-&gt; 
-&gt;</code>
-&gt;
-&gt;
-&gt; The idea is that it should be possible to change the value of <code>DEBUG</code> from <code>false</code> to <code>true</code> or from <code>true</code> to <code>false</code> and then compile the code correctly with no other changes to the program text.
-&gt;
-&gt; This ability to &ldquo;conditionally compile&rdquo; has a significant impact on, and relationship to, binary compatibility (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html" title="Chapter 13. Binary Compatibility">§13</a>). If a set of classes that use such a &ldquo;flag&rdquo; variable are compiled and conditional code is omitted, it does not suffice later to distribute just a new version of the class or interface that contains the definition of the flag. A change to the value of a flag is, therefore, not binary compatible with pre-existing binaries (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>). (There are other reasons for such incompatibility as well, such as the use of constants in <code>case</code> labels in <code>switch</code> statements; see <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>.)</p>
+&gt;</code></p>
+
+<blockquote>
+<p>even though the value of <code>n</code> is known at compile time and in principle it can be known at compile time that the assignment to <code>k</code> can never be executed.</p>
+
+<p></div></p>
+
+<p><a name="jls-14.21-200"></a>The rules in this section define two technical terms:</p>
+
+<div class="norm">
+
+
+*   <a name="jls-14.21-200-A"></a>whether a statement is <span class="emphasis">_reachable_</span>
+
+*   <a name="jls-14.21-200-B"></a>whether a statement <span class="emphasis">_can complete normally_</span>
+
+</div>
+
+<p><a name="jls-14.21-210"></a>The definitions here allow a statement to complete normally only if it is reachable.</p>
+
+<p><a name="jls-14.21-220"></a>To shorten the description of the rules, the customary abbreviation &ldquo;iff&rdquo; is used to mean &ldquo;if and only if.&rdquo;</p>
+
+<p><a name="jls-14.21-230"></a>A reachable <code>break</code> statement <span class="emphasis"><em>exits a statement</em></span> if, within the break target, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>break</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>break</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.</p>
+
+<p>This definition is based on the logic around &ldquo;attempts to transfer control&rdquo; in <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.15" title="14.15. The break Statement">§14.15</a>.</p>
+
+<p><a name="jls-14.21-240"></a>A <code>continue</code> statement <span class="emphasis"><em>continues a <code>do</code> statement</em></span> if, within the <code>do</code> statement, either there are no <code>try</code> statements whose <code>try</code> blocks contain the<code>continue</code> statement, or there are <code>try</code> statements whose <code>try</code> blocks contain the <code>continue</code> statement and all <code>finally</code> clauses of those <code>try</code>statements can complete normally.</p>
+
+<p><a name="jls-14.21-300"></a>The rules are as follows:</p>
+
+<div class="norm">
+
+
+*   <a name="jls-14.21-300-A"></a>The block that is the body of a constructor, method, instance initializer, or static initializer is reachable.
+
+*   <a name="jls-14.21-300-B"></a>An empty block that is not a switch block can complete normally iff it is reachable.
+
+<a name="jls-14.21-300-B.1"></a>A non-empty block that is not a switch block can complete normally iff the last statement in it can complete normally.
+
+<a name="jls-14.21-300-B.2"></a>The first statement in a non-empty block that is not a switch block is reachable iff the block is reachable.
+
+<a name="jls-14.21-300-B.3"></a>Every other statement `S` in a non-empty block that is not a switch block is reachable iff the statement preceding `S` can complete normally.
+
+*   <a name="jls-14.21-300-C"></a>A local class declaration statement can complete normally iff it is reachable.
+
+*   <a name="jls-14.21-300-D"></a>A local variable declaration statement can complete normally iff it is reachable.
+
+*   <a name="jls-14.21-300-E"></a>An empty statement can complete normally iff it is reachable.
+
+*   <a name="jls-14.21-300-F"></a>A labeled statement can complete normally if at least one of the following is true:
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-F-1"></a>The contained statement can complete normally.
+
+        *   <a name="jls-14.21-300-F-2"></a>There is a reachable `break` statement that exits the labeled statement.
+
+</div>
+
+<p><a name="jls-14.21-300-F.1"></a>The contained statement is reachable iff the labeled statement is reachable.</p>
+
+<ul>
+<li><p><a name="jls-14.21-300-G"></a>An expression statement can complete normally iff it is reachable.</p></li>
+
+<li><p><a name="jls-14.21-300-H-1"></a>An <code>if-then</code> statement can complete normally iff it is reachable.</p></li>
+</ul>
+
+<p><a name="jls-14.21-300-H-2"></a>The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable.</p>
+
+<p><a name="jls-14.21-300-H-3"></a>An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.</p>
+
+<p><a name="jls-14.21-300-H-4"></a>The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.</p>
+
+<p><a name="jls-14.21-300-H-5"></a>The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable.</p>
+
+<p>This handling of an <code>if</code> statement, whether or not it has an <code>else</code> part, is rather unusual. The rationale is given at the end of this section.</p>
+
+<ul>
+<li><p><a name="jls-14.21-300-I"></a>An <code>assert</code> statement can complete normally iff it is reachable.</p></li>
+
+<li><p><a name="jls-14.21-300-J"></a>A <code>switch</code> statement can complete normally iff at least one of the following is true:</p></li>
+</ul>
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-J-1"></a>The switch block is empty or contains only switch labels.
+
+        *   <a name="jls-14.21-300-J-2"></a>The last statement in the switch block can complete normally.
+
+        *   <a name="jls-14.21-300-J-3"></a>There is at least one switch label after the last switch block statement group.
+
+        *   <a name="jls-14.21-300-J-4"></a>The switch block does not contain a `default` label.
+
+        *   <a name="jls-14.21-300-J-5"></a>There is a reachable `break` statement that exits the `switch` statement.
+
+</div>
+*   <a name="jls-14.21-300-K"></a>A switch block is reachable iff its `switch` statement is reachable.
+
+*   <a name="jls-14.21-300-L"></a>A statement in a switch block is reachable iff its `switch` statement is reachable and at least one of the following is true:
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-L-1"></a>It bears a `case` or `default` label.
+
+        *   <a name="jls-14.21-300-L-2"></a>There is a statement preceding it in the switch block and that preceding statement can complete normally.
+
+</div>
+*   <a name="jls-14.21-300-M"></a>A `while` statement can complete normally iff at least one of the following is true:
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-M-1"></a>The `while` statement is reachable and the condition expression is not a constant expression ([§15.28](http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28 "15.28. Constant Expressions")) with value `true`.
+
+        *   <a name="jls-14.21-300-M-2"></a>There is a reachable `break` statement that exits the `while` statement.
+
+</div>
+
+<p><a name="jls-14.21-300-M.1"></a>The contained statement is reachable iff the <code>while</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.</p>
+
+<ul>
+<li><a name="jls-14.21-300-N"></a>A <code>do</code> statement can complete normally iff at least one of the following is true:</li>
+</ul>
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-N-1"></a>The contained statement can complete normally and the condition expression is not a constant expression ([§15.28](http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28 "15.28. Constant Expressions")) with value`true`.
+
+        *   <a name="jls-14.21-300-N-2"></a>The `do` statement contains a reachable `continue` statement with no label, and the `do` statement is the innermost `while`, `do`, or `for`statement that contains that `continue` statement, and the `continue` statement continues that `do` statement, and the condition expression is not a constant expression with value `true`.
+
+        *   <a name="jls-14.21-300-N-3"></a>The `do` statement contains a reachable `continue` statement with a label `L`, and the `do` statement has label `L`, and the `continue`statement continues that `do` statement, and the condition expression is not a constant expression with value `true`.
+
+        *   <a name="jls-14.21-300-N-4"></a>There is a reachable `break` statement that exits the `do` statement.
+
+</div>
+
+<p><a name="jls-14.21-300-N.1"></a>The contained statement is reachable iff the <code>do</code> statement is reachable.</p>
+
+<ul>
+<li><a name="jls-14.21-300-O"></a>A basic <code>for</code> statement can complete normally iff at least one of the following is true:</li>
+</ul>
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-O-1"></a>The `for` statement is reachable, there is a condition expression, and the condition expression is not a constant expression ([§15.28](http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.28 "15.28. Constant Expressions")) with value `true`.
+
+        *   <a name="jls-14.21-300-O-2"></a>There is a reachable `break` statement that exits the `for` statement.
+
+</div>
+
+<p><a name="jls-14.21-300-O.1"></a>The contained statement is reachable iff the <code>for</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.</p>
+
+<ul>
+<li><p><a name="jls-14.21-300-P"></a>An enhanced <code>for</code> statement can complete normally iff it is reachable.</p></li>
+
+<li><p><a name="jls-14.21-300-Q"></a>A <code>break</code>, <code>continue</code>, <code>return</code>, or <code>throw</code> statement cannot complete normally.</p></li>
+
+<li><p><a name="jls-14.21-300-R"></a>A <code>synchronized</code> statement can complete normally iff the contained statement can complete normally.</p></li>
+</ul>
+
+<p><a name="jls-14.21-300-R.1"></a>The contained statement is reachable iff the <code>synchronized</code> statement is reachable.</p>
+
+<ul>
+<li><a name="jls-14.21-300-S"></a>A <code>try</code> statement can complete normally iff both of the following are true:</li>
+</ul>
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-S-1"></a>The `try` block can complete normally or any `catch` block can complete normally.
+
+        *   <a name="jls-14.21-300-S-2"></a>If the `try` statement has a `finally` block, then the `finally` block can complete normally.
+
+</div>
+*   <a name="jls-14.21-300-T"></a>The `try` block is reachable iff the `try` statement is reachable.
+
+*   <a name="jls-14.21-300-U"></a>A `catch` block `C` is reachable iff both of the following are true:
+
+<div class="norm">
+
+
+    *   <a name="jls-14.21-300-U-1"></a>Either the type of `C`'s parameter is an unchecked exception type or `Throwable`; or some expression or `throw` statement in the `try`block is reachable and can throw a checked exception whose type is assignable to the parameter of the `catch` clause `C`.
+
+    <a name="jls-14.21-300-U-1.1"></a>An expression is reachable iff the innermost statement containing it is reachable.
+
+    See [§15.6](http://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.6 "15.6. Normal and Abrupt Completion of Evaluation") for normal and abrupt completion of expressions.
+
+        *   <a name="jls-14.21-300-U-2"></a>There is no earlier `catch` block `A` in the `try` statement such that the type of `C`'s parameter is the same as or a subclass of the type of`A`'s parameter.
+
+</div>
+*   <a name="jls-14.21-300-V"></a>The <span class="emphasis">_Block_</span> of a `catch` block is reachable iff the `catch` block is reachable.
+
+*   <a name="jls-14.21-300-W"></a>If a `finally` block is present, it is reachable iff the `try` statement is reachable.
+
+</div>
+
+<p>One <span class="emphasis"><em>might expect</em></span> the <code>if</code> statement to be handled in the following manner:</p>
+
+<div class="note">
+
+
+*   An `if-then` statement can complete normally iff at least one of the following is true:
+
+<div class="note">
+
+
+    *   The `if-then` statement is reachable and the condition expression is not a constant expression whose value is `true`.
+
+        *   The `then`-statement can complete normally.
+
+</div>
+
+<p>The <code>then</code>-statement is reachable iff the <code>if-then</code> statement is reachable and the condition expression is not a constant expression whose value is <code>false</code>.</p>
+
+<ul>
+<li>An <code>if-then-else</code> statement can complete normally iff the <code>then</code>-statement can complete normally or the <code>else</code>-statement can complete normally.</li>
+</ul>
+
+<p>The <code>then</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is<code>false</code>.</p>
+
+<p>The <code>else</code>-statement is reachable iff the <code>if-then-else</code> statement is reachable and the condition expression is not a constant expression whose value is <code>true</code>.</p>
+
+<p></div></p>
+
+<p>This approach would be consistent with the treatment of other control structures. However, in order to allow the if statement to be used conveniently for &ldquo;conditional compilation&rdquo; purposes, the actual rules differ.</p>
+
+<p>As an example, the following statement results in a compile-time error:</p>
+
+<pre><code class="language-java">while (false) { x=3; }
+
+</code></pre>
+
+<p>because the statement <code>x=3;</code> is not reachable; but the superficially similar case:</p>
+
+<pre><code class="language-java">if (false) { x=3; }
+
+</code></pre>
+
+<p>does not result in a compile-time error. An optimizing compiler may realize that the statement <code>x=3;</code> will never be executed and may choose to omit the code for that statement from the generated <code>class</code> file, but the statement <code>x=3;</code> is not regarded as &ldquo;unreachable&rdquo; in the technical sense specified here.</p>
+
+<p>The rationale for this differing treatment is to allow programmers to define &ldquo;flag variables&rdquo; such as:</p>
+
+<pre><code class="language-java">static final boolean DEBUG = false;
+
+</code></pre>
+
+<p>and then write code such as:</p>
+
+<pre><code class="language-java">if (DEBUG) { x=3; }
+
+</code></pre>
+
+<p>The idea is that it should be possible to change the value of <code>DEBUG</code> from <code>false</code> to <code>true</code> or from <code>true</code> to <code>false</code> and then compile the code correctly with no other changes to the program text.</p>
+
+<p>This ability to &ldquo;conditionally compile&rdquo; has a significant impact on, and relationship to, binary compatibility (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html" title="Chapter 13. Binary Compatibility">§13</a>). If a set of classes that use such a &ldquo;flag&rdquo; variable are compiled and conditional code is omitted, it does not suffice later to distribute just a new version of the class or interface that contains the definition of the flag. A change to the value of a flag is, therefore, not binary compatible with pre-existing binaries (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>). (There are other reasons for such incompatibility as well, such as the use of constants in <code>case</code> labels in <code>switch</code> statements; see <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html#jls-13.4.9" title="13.4.9. final Fields and Constants">§13.4.9</a>.)</p>
+</blockquote>
 
     </div>
     <footer class="post-footer">

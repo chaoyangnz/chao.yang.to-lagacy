@@ -234,19 +234,25 @@
 
 <pre><code class="language-java">@Basic(fetch=FetchType.LAZY)```
 
+
 #### specify the column name - @Column
+
 
 ``` java
 @Column(name=&quot;ADDR&quot;)```
 
+
 #### large object - @Lob
+
 
 ``` java
 @Lob```
 
+
 #### temporal types for java.util.Date and java.util.Calendar - @Temporal
 
 If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK.
+
 ``` java
 @Temporal(TemporalType.DATE)
 private Calendar dob;
@@ -265,6 +271,7 @@ private Calendar dob;
 @Enumerated(EnumType.STRING)
 private Gender gender;```
 
+
 ### primary Key
 
 *   primitive type: byte, int, short, long, char, (float, double)
@@ -278,12 +285,15 @@ there are 4 types of identity generation.
 
 #### Automatic
 
+
 ``` java
 @Id @GeneratedValue(strategy=GenerationType.AUTO)
 private long id;```
+
 The provider can choose table-based strategy or sequence-based strategy. This strategy may need schema generation and is a choice for development or prototyping. It's not recommended for other cases. You should always specify the other three strategies.
 
 #### Table
+
 
 ``` java
 @Id @GeneratedValue(stategy=GenerationType.TABLE)
@@ -348,13 +358,15 @@ private long id;
 </tr>
 </tbody>
 </table>
-For many-to-many mapping, you can using join table to declare the many-to-many relationship
-<code>java
+For many-to-many mapping, you can using join table to declare the many-to-many relationship</p>
+
+<p><code>java
 @ManyToMany
 @JoinTable(name = &quot;BOOK_AUTHOR&quot;, 
 joinColumns = { @JoinColumn(name = &quot;BOOK_ID&quot;, referencedColumnName = &quot;id&quot;) }, 
-inverseJoinColumns = { @JoinColumn(name = &quot;AUTHORID&quot;, referencedColumnName = &quot;id&quot;) })</code>
-The three relationships can use <span style="text-decoration: underline;"><em>fetch=FetchType.LAZY</em></span>.</p>
+inverseJoinColumns = { @JoinColumn(name = &quot;AUTHORID&quot;, referencedColumnName = &quot;id&quot;) })</code></p>
+
+<p>The three relationships can use <span style="text-decoration: underline;"><em>fetch=FetchType.LAZY</em></span>.</p>
 
 <h3 id="inheritance">Inheritance</h3>
 

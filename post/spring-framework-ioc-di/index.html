@@ -183,31 +183,37 @@
 <p>``` java
 &lt;bean id=&ldquo;only_one_id&rdquo; name=&ldquo;name1 name2 name3&rdquo; ..&gt;</p>
 
-<p>&lt;alias name=&ldquo;fromName&rdquo; alias=&ldquo;toName&rdquo;/&gt;```
-you can name a bean by use id/name attribute. What&rsquo;s more important is you can specify 0, 1, or multiple names/alias for a bean.</p>
+<p>&lt;alias name=&ldquo;fromName&rdquo; alias=&ldquo;toName&rdquo;/&gt;```</p>
+
+<p>you can name a bean by use id/name attribute. What&rsquo;s more important is you can specify 0, 1, or multiple names/alias for a bean.</p>
 
 <h4 id="instantiating-beans">instantiating beans</h4>
 
 <ul>
-<li>Instantiation with a constructor
-``` java
-&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;/&gt;<br /></li>
+<li>Instantiation with a constructor</li>
 </ul>
+
+<p>``` java
+&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;/&gt;</p>
 
 <p>&lt;bean name=&ldquo;anotherExample&rdquo; class=&ldquo;examples.ExampleBeanTwo$InnerClass&rdquo;/&gt;```</p>
 
 <ul>
-<li><p>Instantiation with a static factory method
-<code>java
-&amp;lt;bean id=&quot;clientService&quot; class=&quot;examples.ClientService&quot; factory-method=&quot;createInstance&quot;/&amp;gt;</code></p></li>
+<li>Instantiation with a static factory method</li>
+</ul>
 
-<li><p>Instantiation using an instance factory method
-``` java
+<p><code>java
+&amp;lt;bean id=&quot;clientService&quot; class=&quot;examples.ClientService&quot; factory-method=&quot;createInstance&quot;/&amp;gt;</code></p>
+
+<ul>
+<li>Instantiation using an instance factory method</li>
+</ul>
+
+<p>``` java
 &lt;!&ndash; the factory bean, which contains a method called createInstance() &ndash;&gt;
 &lt;bean id=&ldquo;serviceLocator&rdquo; class=&ldquo;examples.DefaultServiceLocator&rdquo;&gt;
-&lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
-&lt;/bean&gt;</p></li>
-</ul>
+    &lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
+&lt;/bean&gt;</p>
 
 <p>&lt;!&ndash; the bean to be created via the factory bean &ndash;&gt;
 &lt;bean id=&ldquo;clientService&rdquo;
@@ -217,13 +223,14 @@ you can name a bean by use id/name attribute. What&rsquo;s more important is you
 <h4 id="dependencies">dependencies</h4>
 
 <ul>
-<li>Constructor-based dependency injection
-``` java
-&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
-&lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
-&lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
-&lt;/bean&gt;</li>
+<li>Constructor-based dependency injection</li>
 </ul>
+
+<p>``` java
+&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
+    &lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
+    &lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
+&lt;/bean&gt;</p>
 
 <p>&lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;</p>
 
@@ -262,19 +269,22 @@ you can name a bean by use id/name attribute. What&rsquo;s more important is you
 &lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo; c:bar-ref=&ldquo;bar&rdquo; c:baz-ref=&ldquo;baz&rdquo; c:email=&ldquo;foo@bar.com&rdquo;/&gt;```</p>
 
 <ul>
-<li><p>Setter-based dependency injection
-``` java
-&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
-&lt;!&ndash; setter injection using the nested ref element &ndash;&gt;
-&lt;property name=&ldquo;beanOne&rdquo;&gt;
-    &lt;ref bean=&ldquo;anotherExampleBean&rdquo;/&gt;
-&lt;/property&gt;</p>
-
-<p>&lt;!&ndash; setter injection using the neater ref attribute &ndash;&gt;
-&lt;property name=&ldquo;beanTwo&rdquo; ref=&ldquo;yetAnotherBean&rdquo;/&gt;
-&lt;property name=&ldquo;integerProperty&rdquo; value=&ldquo;1&rdquo;/&gt;
-&lt;/bean&gt;</p></li>
+<li>Setter-based dependency injection</li>
 </ul>
+
+<p>``` java
+&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
+    &lt;!&ndash; setter injection using the nested ref element &ndash;&gt;
+    &lt;property name=&ldquo;beanOne&rdquo;&gt;
+        &lt;ref bean=&ldquo;anotherExampleBean&rdquo;/&gt;
+    &lt;/property&gt;</p>
+
+<pre><code>&amp;lt;!-- setter injection using the neater ref attribute --&amp;gt;
+&amp;lt;property name=&quot;beanTwo&quot; ref=&quot;yetAnotherBean&quot;/&amp;gt;
+&amp;lt;property name=&quot;integerProperty&quot; value=&quot;1&quot;/&amp;gt;
+</code></pre>
+
+<p>&lt;/bean&gt;</p>
 
 <p>&lt;bean id=&ldquo;myDataSource&rdquo; class=&ldquo;org.apache.commons.dbcp.BasicDataSource&rdquo; destroy-method=&ldquo;close&rdquo;&gt;
     &lt;!&ndash; results in a setDriverClassName(String) call &ndash;&gt;
@@ -324,9 +334,11 @@ you can name a bean by use id/name attribute. What&rsquo;s more important is you
             &lt;ref bean=&ldquo;myDataSource&rdquo; /&gt;
         &lt;/set&gt;
     &lt;/property&gt;
-&lt;/bean&gt;<code>
-** &quot;&quot; and null**
-</code> java
+&lt;/bean&gt;```</p>
+
+<p><strong> &rdquo;&rdquo; and null</strong></p>
+
+<p>``` java
 &lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
     &lt;property name=&ldquo;email&rdquo; value=&ldquo;&rdquo;/&gt;
 &lt;/bean&gt;</p>

@@ -258,7 +258,8 @@ public class Singleton {
 <code>DEFAULT = new Singleton()</code> can be reordered by compiler or cpu.
 It may be compiled to multiple instructions:</p>
 
-<pre><code>1 new #1 &lt;playground/singleton/naive/Singleton&gt;
+<pre><code>
+1 new #1 &lt;playground/singleton/naive/Singleton&gt;
 2 dup
 3 invokespecial #19 &lt;playground/singleton/naive/Singleton.&lt;init&gt;&gt;
 4 putstatic #17 &lt;playground/singleton/naive/Singleton.DEFAULT&gt;
@@ -307,7 +308,8 @@ public class Singleton {
 
 <p>Here, the <code>volatile</code> is the key. From the semantics of <code>volatile</code>, it makes the actions that happen before the write to helper in the code must, when the program executes, actually happen before the write to helper — no sneaky reordering is allowed.</p>
 
-<pre><code>1 new #1 &lt;playground/singleton/naive/Singleton&gt;
+<pre><code>
+1 new #1 &lt;playground/singleton/naive/Singleton&gt;
 2 dup
 3 invokespecial #19 &lt;playground/singleton/naive/Singleton.&lt;init&gt;&gt;
 |__ store barrier __|

@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">312 words ~2min</span>
+<span class="leancloud-visitors-count">326 words ~2min</span>
 </span>
       </div>
     </header>
@@ -205,8 +205,9 @@ public Reference getReference() throws NamingException {
 //....
 </code></pre>
 
-<p>}``<code>
-Yes, it implements</code>Referenceable<code>, and defines an</code>ObjectFactory<code>: </code>com.mysql.jdbc.jdbc2.optional.MysqlDataSourceFactory`</p>
+<p>}```</p>
+
+<p>Yes, it implements <code>Referenceable</code>, and defines an <code>ObjectFactory</code>: <code>com.mysql.jdbc.jdbc2.optional.MysqlDataSourceFactory</code></p>
 
 <h4 id="h2">H2</h4>
 
@@ -230,8 +231,9 @@ public Reference getReference() {
 //....
 </code></pre>
 
-<p>}``<code>
-It also implements</code>Referenceable<code>, and defines an</code>ObjectFactory<code>: </code>org.h2.jdbcx.JdbcDataSourceFactory`</p>
+<p>}```</p>
+
+<p>It also implements <code>Referenceable</code>, and defines an <code>ObjectFactory</code>: <code>org.h2.jdbcx.JdbcDataSourceFactory</code></p>
 
 <h4 id="jboss-jta">JBoss JTA</h4>
 
@@ -240,11 +242,13 @@ package com.arjuna.ats.internal.jta.transaction.arjunacore;</p>
 
 <p>public class UserTransactionImple extends BaseTransaction implements UserTransaction, ObjectFactory {
     //&hellip;.
-}``<code>
-You can see,</code>UserTrancation<code>implmentation class </code>UserTransactionImple<code>doesn't implement</code>Referenceable<code>, but actions as</code>ObjectFactory`.</p>
+}```</p>
 
-<p>Now, let&rsquo;s look at the bind code:
-``` java
+<p>You can see, <code>UserTrancation</code> implmentation class <code>UserTransactionImple</code> doesn&rsquo;t implement <code>Referenceable</code>, but actions as <code>ObjectFactory</code>.</p>
+
+<p>Now, let&rsquo;s look at the bind code:</p>
+
+<p>``` java
 package com.arjuna.ats.jta.utils;</p>
 
 <p>public class JNDIManager {
@@ -255,20 +259,23 @@ package com.arjuna.ats.jta.utils;</p>
         initialContext.rebind(getUserTransactionJNDIName(), ref);
     }
     //&hellip;.
-}``<code>
-Yes, JBoss JTA binds</code>UserTransaction<code>using Reference with its</code>ObjectFactory<code>. As said above, </code>UserTransactionImple<code>is both the bound target and the</code>ObjectFactory`.</p>
+}```</p>
+
+<p>Yes, JBoss JTA binds <code>UserTransaction</code> using Reference with its <code>ObjectFactory</code>. As said above, <code>UserTransactionImple</code> is both the bound target and the <code>ObjectFactory</code>.</p>
 
 <h3 id="object-binding">Object binding</h3>
 
-<p>So once the object can be bound, the binding operation is simple.
-<code>java
+<p>So once the object can be bound, the binding operation is simple.</p>
+
+<p><code>java
 context.bind(&quot;cn=favorite&quot;, fruit);</code></p>
 
 <h3 id="object-lookup-list-search">Object lookup / list / search</h3>
 
 <p><code>java
-context.lookup(..)</code>
-&nbsp;</p>
+context.lookup(..)</code></p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 

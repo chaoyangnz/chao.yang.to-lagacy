@@ -206,7 +206,7 @@ import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Meta
     <div class="post-body" itemprop="articleBody">
     Pseudo random number Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called pseudo random.
 A simple algorithm is Linear congruential generator.
-next random = (a * random + c) mod 2^32  The initial random is seed.
+ next random = (a * random + c) mod 2^32  The initial random is seed.
 Java implementation In next(bits) method:
 nextseed = (oldseed * multiplier + addend) &amp; mask;  here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &lt;&lt; 48) - 1.
     </div>
@@ -286,7 +286,7 @@ But let in Swift has stronger semantics, which enable immutability or constant. 
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">384 words ~2min</span>
+<span class="leancloud-visitors-count">386 words ~2min</span>
 </span>
       </div>
     </header>
@@ -533,15 +533,14 @@ array is special There is no &ldquo;class definition&rdquo; of an array (you can
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1492 words ~8min</span>
+<span class="leancloud-visitors-count">1485 words ~7min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    Several simple code snippets ```java Sample1 char[] chars = {&lsquo;h&rsquo;, &lsquo;e&rsquo;, &lsquo;l&rsquo;, &lsquo;l&rsquo;, &lsquo;o&rsquo;}; String str1 = new String(chars); System.out.println(str1 == str1.intern());
-print: true ```java Sample2 String str1 = new String(&quot;hello&quot;); System.out.println(str1 == str1.intern());  print: false
-```java Sample3 String a = &ldquo;hello&rdquo;; String b = new String(&ldquo;hello&rdquo;); String c = new String(&ldquo;h&rdquo; + &ldquo;e&rdquo; + &ldquo;l&rdquo; + &ldquo;l&rdquo; + &ldquo;o&rdquo;); String d = b.intern();
-How many String objects is created?
+    Several simple code snippets // Sample1 char[] chars = {'h', 'e', 'l', 'l', 'o'}; String str1 = new String(chars); System.out.println(str1 == str1.intern());  print: true
+// Sample2 String str1 = new String(&quot;hello&quot;); System.out.println(str1 == str1.intern());  print: false
+// Sample3 String a = &quot;hello&quot;; String b = new String(&quot;hello&quot;); String c = new String(&quot;h&quot; + &quot;e&quot; + &quot;l&quot; + &quot;l&quot; + &quot;o&quot;); String d = b.intern();  How many String objects is created?
     </div>
     
     <div class="post-more-link text-center">
@@ -577,7 +576,7 @@ How many String objects is created?
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1252 words ~6min</span>
+<span class="leancloud-visitors-count">1251 words ~6min</span>
 </span>
       </div>
     </header>
@@ -619,7 +618,7 @@ invokestatic and invokevirtual Of these, invokestatic and invokevirtual are easy
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">16493 words ~78min</span>
+<span class="leancloud-visitors-count">16491 words ~78min</span>
 </span>
       </div>
     </header>
@@ -927,7 +926,7 @@ Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2
     <div class="post-body" itemprop="articleBody">
     How do you implement a Stack using Queue?
 As is known to all, the difference between Stack and Queue is the order to add and remove elements. So it&rsquo;s possible to implement a Stack using Queue by controlling the operation logic.
- push 3 elements to the queue  |	| |	3	| &lt;- top |	2	| |	1	|   pop a element  for the elements other than the top, repush into the queue
+ push 3 elements to the queue   |	| |	3	| &lt;- top |	2	| |	1	|   pop a element  for the elements other than the top, repush into the queue
     </div>
     
     <div class="post-more-link text-center">

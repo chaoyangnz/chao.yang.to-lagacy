@@ -312,8 +312,9 @@
 
 <h6 id="修改web-xml"><strong>修改web.xml</strong></h6>
 
-<p>设置应用端的web.xml，使得业务平台可以通过SSO访问资源，下例中红色部分就配置了允许访问的资源。
-<code>java
+<p>设置应用端的web.xml，使得业务平台可以通过SSO访问资源，下例中红色部分就配置了允许访问的资源。</p>
+
+<p><code>java
 &amp;lt;security-constraint&amp;gt;
     &amp;lt;web-resource-collection&amp;gt;
         &amp;lt;web-resource-name&amp;gt;sso_GUIP&amp;lt;/web-resource-name&amp;gt;
@@ -335,8 +336,9 @@
 
 <h6 id="修改web-xml-1"><strong>修改web.xml</strong></h6>
 
-<p>需要在web.xml安全认证配置部分中增加用户登录的URL，红色部分需要根据应用修改，修改为允许访问的资源
-<code>java
+<p>需要在web.xml安全认证配置部分中增加用户登录的URL，红色部分需要根据应用修改，修改为允许访问的资源</p>
+
+<p><code>java
 &amp;lt;security-constraint&amp;gt;
     &amp;lt;web-resource-collection&amp;gt;
         &amp;lt;web-resource-name&amp;gt;sso_EUIF&amp;lt;/web-resource-name&amp;gt;
@@ -358,13 +360,16 @@
 &amp;lt;/login-config&amp;gt;
 &amp;lt;security-role&amp;gt;
     &amp;lt;role-name&amp;gt;AllAuthUser&amp;lt;/role-name&amp;gt;
-&amp;lt;/security-role&amp;gt;</code>
-修改welcome页面配置，这页面是登陆成功后系统指向的页面。
-<code>java
+&amp;lt;/security-role&amp;gt;</code></p>
+
+<p>修改welcome页面配置，这页面是登陆成功后系统指向的页面。</p>
+
+<p><code>java
 &amp;lt;welcome-file-list&amp;gt;
     &amp;lt;welcome-file&amp;gt;/abf_comm/default4portal.jsp&amp;lt;/welcome-file&amp;gt;
-&amp;lt;/welcome-file-list&amp;gt;</code>
-<strong>重启应用服务器</strong></p>
+&amp;lt;/welcome-file-list&amp;gt;</code></p>
+
+<p><strong>重启应用服务器</strong></p>
 
 <p>正确设置上述配置后，需要重新启动应用服务器。</p>
 

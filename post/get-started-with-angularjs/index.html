@@ -216,25 +216,36 @@ Elements: &lt;<span style="color: #000000; background-color: #ffff00;">ng-xx</sp
 <p>Value, Constant, Factory and Service are the synaptic sugar of Provider.</p>
 
 <ul>
-<li><p>Value recipe
-<code>java
-myApp.value('clientId', 'a12345654321x');</code>
-&nbsp;</p></li>
-
-<li><p>Constant recipe
-<code>java
-myApp.constant('planetName', 'Greasy Giant');</code></p></li>
-
-<li><p>Factory recipe
-<code>java
-myApp.factory('clientId', function clientIdFactory() {
-return 'a12345654321x';
-});</code></p></li>
-
-<li><p>Service recipe
-``` java
-function UnicornLauncher(apiToken) {</p></li>
+<li>Value recipe</li>
 </ul>
+
+<p><code>java
+myApp.value('clientId', 'a12345654321x');</code></p>
+
+<p>&nbsp;</p>
+
+<ul>
+<li>Constant recipe</li>
+</ul>
+
+<p><code>java
+myApp.constant('planetName', 'Greasy Giant');</code></p>
+
+<ul>
+<li>Factory recipe</li>
+</ul>
+
+<p><code>java
+myApp.factory('clientId', function clientIdFactory() {
+  return 'a12345654321x';
+});</code></p>
+
+<ul>
+<li>Service recipe</li>
+</ul>
+
+<p>``` java
+function UnicornLauncher(apiToken) {</p>
 
 <p>this.launchedCount = 0;
   this.launch = function() {
@@ -251,11 +262,12 @@ function UnicornLauncher(apiToken) {</p></li>
 <p>myApp.service(&lsquo;unicornLauncher&rsquo;, [&ldquo;apiToken&rdquo;, UnicornLauncher]);```</p>
 
 <ul>
-<li>provider recipe
-``` java
-myApp.provider(&lsquo;unicornLauncher&rsquo;, function UnicornLauncherProvider() {
-var useTinfoilShielding = false;</li>
+<li>provider recipe</li>
 </ul>
+
+<p>``` java
+myApp.provider(&lsquo;unicornLauncher&rsquo;, function UnicornLauncherProvider() {
+  var useTinfoilShielding = false;</p>
 
 <p>this.useTinfoilShielding = function(value) {
     useTinfoilShielding = !!value;
@@ -273,7 +285,8 @@ return new UnicornLauncher(apiToken, useTinfoilShielding);
 
 <p>myApp.config([&ldquo;unicornLauncherProvider&rdquo;, function(unicornLauncherProvider) {
   unicornLauncherProvider.useTinfoilShielding(true);
-}]);```
+}]);```</p>
+
 <table class="table table-bordered code-table ng-scope" border="1">
 <thead>
 <tr>
@@ -298,8 +311,8 @@ return new UnicornLauncher(apiToken, useTinfoilShielding);
 <td>uses type friendly injection</td>
 <td class="error">no</td>
 <td class="success">yes</td>
-<td class="success">yes<em></td>
-<td class="success">yes</em></td>
+<td class="success">yes*</td>
+<td class="success">yes*</td>
 <td class="error">no</td>
 </tr>
 <tr>
@@ -327,7 +340,7 @@ return new UnicornLauncher(apiToken, useTinfoilShielding);
 <td class="success">yes</td>
 </tr>
 </tbody>
-</table></p>
+</table>
 
 <h4 id="specialized-object">Specialized object</h4>
 
@@ -343,13 +356,16 @@ myApp.directive('myPlanet', ['planetName', function myPlanetDirectiveFactory(pla
     scope: {},
     link: function($scope, $element) { $element.text('Planet: ' + planetName); }
   }
-}]);</code>
-Using Factory recipes, you can also define Angular&rsquo;s filters and animations, but the controllers are a bit special.
-<code>java
+}]);</code></p>
+
+<p>Using Factory recipes, you can also define Angular&rsquo;s filters and animations, but the controllers are a bit special.</p>
+
+<p><code>java
 myApp.controller('DemoController', ['clientId', function DemoController(clientId) {
   this.clientId = clientId;
-}]);</code>
-Unlike services, controllers are not singletons.</p>
+}]);</code></p>
+
+<p>Unlike services, controllers are not singletons.</p>
 
 <p>&nbsp;</p>
 

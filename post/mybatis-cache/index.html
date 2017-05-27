@@ -198,6 +198,7 @@
 
 <pre><code>
 
+
 ``` xml SqlMapper.xml
 &lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;
 &lt;!DOCTYPE mapper
@@ -270,6 +271,7 @@ public static void main(String[] args) throws IOException {
 <p>}</p>
 
 <pre><code>
+
 如何测试：
 
 1. 控制台输入&quot;q&quot;触发查询，可以看到首次查询，会使用sql从数据库查询
@@ -279,6 +281,7 @@ public static void main(String[] args) throws IOException {
 5. 控制台输入&quot;q&quot;触发查询，发现cache命中, 不执行SQL
 6. 控制台输入&quot;is&quot;触发插入另一个表的数据，然后再输入&quot;q&quot;触发查询，可以看到这时同样使用sql从数据库查询。可见虽然是不同的表的插入，也将flush整个cache, 因为他们共用位于同一个SqlMapper的namespace中的cache
 7. 控制台输入&quot;q&quot;触发查询，发现cache命中, 不执行SQL
+
 
 ``` undefined
 q

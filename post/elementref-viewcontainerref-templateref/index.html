@@ -135,7 +135,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">384 words ~2min</span>
+<span class="leancloud-visitors-count">386 words ~2min</span>
 </span>
       </div>
     </header>
@@ -159,42 +159,40 @@ This method is to initialize a component and insert its host view to the view co
 <li>For structural directives, since they are implemented through HTML template element, so it can get a TemplateRef.</li>
 </ol>
 
-<p>```typescript Component
-import {AfterContentInit, Component, ElementRef, ViewContainerRef} from &lsquo;@angular/core&rsquo;;</p>
+<pre><code class="language-typescript">// Component
+import {AfterContentInit, Component, ElementRef, ViewContainerRef} from '@angular/core';
 
-<p>@Component({
-    selector: &lsquo;app&rsquo;,
-    template: <code>
+@Component({
+	selector: 'app',
+	template: `
   &lt;h1&gt;My App&lt;/h1&gt;
   &lt;pre style=&quot;background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;&quot;&gt; 
     &lt;code&gt;{{ node }}&lt;/code&gt;
   &lt;/pre&gt;
-</code>
+`
 })
 export class App implements AfterContentInit {
-  node: string;</p>
-
-<p>constructor(private viewContainerRef: ViewContainerRef) {
-  }</p>
-
-<p>ngAfterContentInit() {
+  node: string;
+  
+  constructor(private viewContainerRef: ViewContainerRef) {
+  }
+  
+  ngAfterContentInit() {
     let elementRef = this.viewContainerRef.element;
-    const tmp = document.createElement(&lsquo;div&rsquo;);
-    const el = elementRef.nativeElement.cloneNode(true);</p>
-
-<pre><code>console.log(elementRef)
-console.log(this.viewContainerRef)
-
-tmp.appendChild(el);
-this.node = tmp.innerHTML;
+    const tmp = document.createElement('div');
+    const el = elementRef.nativeElement.cloneNode(true);
+    
+    console.log(elementRef)
+    console.log(this.viewContainerRef)
+    
+    tmp.appendChild(el);
+    this.node = tmp.innerHTML;
+  }
+  
+}
 </code></pre>
 
-<p>}</p>
-
-<p>}</p>
-
-<pre><code>
-```typescript Attribute Directive
+<pre><code class="language-typescript">// Attribute Directive
 import {Directive, ViewContainerRef, ElementRef, Renderer} from 'angular2/core';
 
 @Directive({
@@ -216,53 +214,53 @@ export class MyOutline {
 }
 </code></pre>
 
-<p>```typescript Structural Directive
-import {Directive, Input} from &lsquo;angular2/core&rsquo;;
-import {TemplateRef, ViewContainerRef} from &lsquo;angular2/core&rsquo;;</p>
+<pre><code class="language-typescript">// Structural Directive
+import {Directive, Input} from 'angular2/core';
+import {TemplateRef, ViewContainerRef} from 'angular2/core';
 
-<p>@Directive({ selector: &lsquo;[repeatMe]&rsquo; })
+@Directive({ selector: '[repeatMe]' })
 export class RepeatMe {
   constructor(
     private _templateRef: TemplateRef,
     private _viewContainer: ViewContainerRef
-    ) {}</p>
-
-<p>@Input() set repeatMe(count: int) {
+    ) {}
+  
+  @Input() set repeatMe(count: int) {
     for (var i = 0; i &lt; count; i++) {
       this._viewContainer.createEmbeddedView(this._templateRef);
     }
    }
-}</p>
-
-<pre><code>
-In Angular2, the View is refered to the template of a component defined in the @Component decorator.
-
-There are another view query docorators in Angualar.
+}
 </code></pre>
 
-<p>import { Component, ViewChild } from &lsquo;@angular/core&rsquo;;
-import { UserProfile } from &lsquo;../user-profile&rsquo;;</p>
+<p>In Angular2, the View is refered to the template of a component defined in the @Component decorator.</p>
 
-<p>@Component({
-  template: &lsquo;<user-profile (click)="update()"></user-profile>&rsquo;,
+<p>There are another view query docorators in Angualar.</p>
+
+<pre><code>
+import { Component, ViewChild } from '@angular/core';
+import { UserProfile } from '../user-profile';
+
+@Component({
+  template: '&lt;user-profile (click)=&quot;update()&quot;&gt;&lt;/user-profile&gt;',
 })
 export class MasterPage {
   // ViewChild takes a class type or a reference name string.
   // Here we are using the type
-  @ViewChild(UserProfile) userProfile: UserProfile</p>
+  @ViewChild(UserProfile) userProfile: UserProfile
 
-<p>constructor() { }</p>
+  constructor() { }
 
-<p>ngAfterViewInit() {
+  ngAfterViewInit() {
     // After the view is initialized, this.userProfile will be available
     this.update();
-  }</p>
+  }
 
-<p>update() {
+  update() {
     this.userProfile.sendData();
   }
 }
-```</p>
+</code></pre>
 
 <p>Here we use <code>@ViewChild</code> to query the component, since the view is associated with a component.</p>
 

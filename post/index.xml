@@ -30,7 +30,7 @@ import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Meta
       <guid>http://yangchao.me/post/pseudo-random-number-shuffle/</guid>
       <description>Pseudo random number Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called pseudo random.
 A simple algorithm is Linear congruential generator.
-next random = (a * random + c) mod 2^32  The initial random is seed.
+ next random = (a * random + c) mod 2^32  The initial random is seed.
 Java implementation In next(bits) method:
 nextseed = (oldseed * multiplier + addend) &amp;amp; mask;  here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &amp;lt;&amp;lt; 48) - 1.</description>
     </item>
@@ -112,10 +112,9 @@ array is special There is no &amp;ldquo;class definition&amp;rdquo; of an array 
       <pubDate>Mon, 22 Aug 2016 21:36:25 +0000</pubDate>
       
       <guid>http://yangchao.me/post/string-intern/</guid>
-      <description>Several simple code snippets ```java Sample1 char[] chars = {&amp;lsquo;h&amp;rsquo;, &amp;lsquo;e&amp;rsquo;, &amp;lsquo;l&amp;rsquo;, &amp;lsquo;l&amp;rsquo;, &amp;lsquo;o&amp;rsquo;}; String str1 = new String(chars); System.out.println(str1 == str1.intern());
-print: true ```java Sample2 String str1 = new String(&amp;quot;hello&amp;quot;); System.out.println(str1 == str1.intern());  print: false
-```java Sample3 String a = &amp;ldquo;hello&amp;rdquo;; String b = new String(&amp;ldquo;hello&amp;rdquo;); String c = new String(&amp;ldquo;h&amp;rdquo; + &amp;ldquo;e&amp;rdquo; + &amp;ldquo;l&amp;rdquo; + &amp;ldquo;l&amp;rdquo; + &amp;ldquo;o&amp;rdquo;); String d = b.intern();
-How many String objects is created?</description>
+      <description>Several simple code snippets // Sample1 char[] chars = {&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;}; String str1 = new String(chars); System.out.println(str1 == str1.intern());  print: true
+// Sample2 String str1 = new String(&amp;quot;hello&amp;quot;); System.out.println(str1 == str1.intern());  print: false
+// Sample3 String a = &amp;quot;hello&amp;quot;; String b = new String(&amp;quot;hello&amp;quot;); String c = new String(&amp;quot;h&amp;quot; + &amp;quot;e&amp;quot; + &amp;quot;l&amp;quot; + &amp;quot;l&amp;quot; + &amp;quot;o&amp;quot;); String d = b.intern();  How many String objects is created?</description>
     </item>
     
     <item>
@@ -213,7 +212,7 @@ Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2</description>
       <guid>http://yangchao.me/post/implement-stack-with-queue/</guid>
       <description>How do you implement a Stack using Queue?
 As is known to all, the difference between Stack and Queue is the order to add and remove elements. So it&amp;rsquo;s possible to implement a Stack using Queue by controlling the operation logic.
- push 3 elements to the queue  |	| |	3	| &amp;lt;- top |	2	| |	1	|   pop a element  for the elements other than the top, repush into the queue</description>
+ push 3 elements to the queue   |	| |	3	| &amp;lt;- top |	2	| |	1	|   pop a element  for the elements other than the top, repush into the queue</description>
     </item>
     
     <item>
@@ -386,10 +385,13 @@ https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</description>
       <pubDate>Sat, 26 Sep 2015 21:47:47 +0000</pubDate>
       
       <guid>http://yangchao.me/post/http-cache/</guid>
-      <description>Request headers: java If-Modified-Since: {time} If-None-Match: {etag} These two headers are used to check if the cached resource is still fresh.
+      <description>Request headers:
+java If-Modified-Since: {time} If-None-Match: {etag}
+These two headers are used to check if the cached resource is still fresh.
 If expired, response status is 200 and fetch the resource
 If not, response status is 304 and cache is still fresh.
-Response headers: java Last-Modified: {time} ETag: {etag} Expire: {time} Cache-Control: maxAge={seconds} </description>
+Response headers:
+java Last-Modified: {time} ETag: {etag} Expire: {time} Cache-Control: maxAge={seconds}</description>
     </item>
     
     <item>
@@ -550,7 +552,7 @@ Fundamentally, scope is function-based while context is object-based.
       <guid>http://yangchao.me/post/javascript-prototype-proto-vs-prototype/</guid>
       <description>Javascript is a prototype-based language. It resolve property using prototype chains.
 Prototype chains (aka prototype inheritance) The proto property proto is the internal property of an object, it points to the prototype object of the object and is used for property look-up. Every object has a proto perperty and its relevant prototype object. But it maybe null, which means the object has no prototype object.
-function as constructor In JavaScript you create an instance of a function like this: ``` java function Foo() { this.</description>
+function as constructor In JavaScript you create an instance of a function like this:</description>
     </item>
     
     <item>
@@ -615,8 +617,10 @@ public class MysqlDataSource extends ConnectionPropertiesImpl implements DataSou
       
       <guid>http://yangchao.me/post/html-5/</guid>
       <description>new elements &amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt; java &amp;amp;lt;figure id=&amp;quot;fig1&amp;quot;&amp;amp;gt; &amp;amp;lt;figcaption&amp;amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;amp;lt;/figcaption&amp;amp;gt; &amp;amp;lt;img src=&amp;quot;http://img2.cache.netease.com/cnews/2015/4/28/201504281107026599c.jpg&amp;quot; alt=&amp;quot;JAWS: Landmarks 1/1, Forms 4/5 … &amp;quot;&amp;amp;gt; &amp;amp;lt;/figure&amp;amp;gt;
-&amp;amp;lt;mark&amp;amp;gt; This tag is very useful for the highlight of searching result. java &amp;amp;lt;h1&amp;amp;gt;Yes, You Can Use &amp;amp;lt;mark&amp;amp;gt;HTML5&amp;amp;lt;/mark&amp;amp;gt; Today!&amp;amp;lt;/h1&amp;amp;gt;
-&amp;amp;lt;progress&amp;amp;gt; and &amp;lt;meter&amp;amp;gt; java &amp;amp;lt;progress max=&amp;quot;100&amp;quot; value=&amp;quot;0&amp;quot;&amp;amp;gt; java &amp;amp;lt;meter value=&amp;quot;50&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt; &amp;amp;lt;meter value=&amp;quot;150&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt; &amp;amp;lt;meter value=&amp;quot;350&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt; the low and high are the thresholds.</description>
+&amp;amp;lt;mark&amp;amp;gt; This tag is very useful for the highlight of searching result.
+java &amp;amp;lt;h1&amp;amp;gt;Yes, You Can Use &amp;amp;lt;mark&amp;amp;gt;HTML5&amp;amp;lt;/mark&amp;amp;gt; Today!&amp;amp;lt;/h1&amp;amp;gt;
+&amp;amp;lt;progress&amp;amp;gt; and &amp;lt;meter&amp;amp;gt; java &amp;amp;lt;progress max=&amp;quot;100&amp;quot; value=&amp;quot;0&amp;quot;&amp;amp;gt;
+java &amp;amp;lt;meter value=&amp;quot;50&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt; &amp;amp;lt;meter value=&amp;quot;150&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt; &amp;amp;lt;meter value=&amp;quot;350&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;400&amp;quot; low=&amp;quot;60&amp;quot; high=&amp;quot;300&amp;quot; title=&amp;quot;gigabytes&amp;quot;&amp;amp;gt;</description>
     </item>
     
     <item>
@@ -625,8 +629,12 @@ public class MysqlDataSource extends ConnectionPropertiesImpl implements DataSou
       <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
       
       <guid>http://yangchao.me/post/git-basics/</guid>
-      <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch java git checkout dev  checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
-copy the &amp;lt;commit&amp;gt; tree to index tree and working tree. java git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3  reset reset &amp;lt;commit&amp;gt; [files]  move the HEAD, and copying &amp;lt;commit&amp;gt; tree to index or working tree.</description>
+      <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch
+ java git checkout dev
+checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
+copy the &amp;lt;commit&amp;gt; tree to index tree and working tree.
+ java git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3
+reset reset &amp;lt;commit&amp;gt; [files]  move the HEAD, and copying &amp;lt;commit&amp;gt; tree to index or working tree.</description>
     </item>
     
     <item>
@@ -650,7 +658,8 @@ System.out.println();
 System.out.println();
 //inner class System.out.println(HashMap.SimpleEntry.class.getName()); System.out.println(HashMap.SimpleEntry.class.getCanonicalName()); System.out.println(HashMap.SimpleEntry.class.getSimpleName());
 System.out.println();
-//anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam());``` &amp;nbsp;
+//anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam());```
+&amp;nbsp;
 Prints: &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; String &amp;gt; &amp;gt; &amp;gt; java.util.AbstractMap$SimpleEntry &amp;gt; &amp;gt; java.util.AbstractMap.SimpleEntry &amp;gt; &amp;gt; SimpleEntry &amp;gt; &amp;gt; &amp;gt; ClassnameTest$1 &amp;gt; &amp;gt; null There&amp;rsquo;s an empty line in the last block where getSimpleName returns an empty string.</description>
     </item>
     
@@ -836,7 +845,9 @@ Traditionally, the bean itself control the initialization process or location 
       <pubDate>Thu, 02 Apr 2015 15:41:53 +0000</pubDate>
       
       <guid>http://yangchao.me/post/subquery-vs-join/</guid>
-      <description>what is subquery SubQuery in SQL is a query inside another query java SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;) In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
+      <description>what is subquery SubQuery in SQL is a query inside another query
+java SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;)
+In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
 non-correlated subquery In non correlated subquery, inner query doesn&amp;rsquo;t depend on outer query and can run as stand alone query.</description>
     </item>
     
@@ -865,7 +876,8 @@ inner join Inner join produces only the set of records that match in both Table 
       <pubDate>Mon, 30 Mar 2015 15:57:35 +0000</pubDate>
       
       <guid>http://yangchao.me/post/servlet-basics/</guid>
-      <description>Deployment Descriptor: web.xml The following is a complete Deployment Descriptor. ``` java &amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;ISO-8859-1&amp;rdquo;?&amp;gt; &amp;lt;web-app xmlns=&amp;ldquo;http://java.sun.com/xml/ns/j2ee&amp;quot; xmlns:xsi=&amp;ldquo;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;ldquo;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&amp;quot; version=&amp;ldquo;2.5&amp;rdquo;&amp;gt;
+      <description>Deployment Descriptor: web.xml The following is a complete Deployment Descriptor.
+``` java &amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;ISO-8859-1&amp;rdquo;?&amp;gt; &amp;lt;web-app xmlns=&amp;ldquo;http://java.sun.com/xml/ns/j2ee&amp;quot; xmlns:xsi=&amp;ldquo;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;ldquo;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&amp;quot; version=&amp;ldquo;2.5&amp;rdquo;&amp;gt;
 &amp;amp;lt;!-- ========================================================== --&amp;amp;gt; &amp;amp;lt;!-- General --&amp;amp;gt; &amp;amp;lt;!-- ========================================================== --&amp;amp;gt; &amp;amp;lt;!-- Name the application --&amp;amp;gt; &amp;amp;lt;display-name&amp;amp;gt;Example App&amp;amp;lt;/display-name&amp;amp;gt; &amp;amp;lt;description&amp;amp;gt;An example application which is used to play with some of the features of Tomcat&amp;amp;lt;/description&amp;amp;gt; &amp;amp;lt;!-- This app is cluster-ready --&amp;amp;gt; &amp;amp;lt;distributable /&amp;amp;gt; &amp;amp;lt;!-- Set timeout to 120 minutes --&amp;amp;gt; &amp;amp;lt;session-config&amp;amp;gt; &amp;amp;lt;session-timeout&amp;amp;gt;120&amp;amp;lt;/session-timeout&amp;amp;gt; &amp;amp;lt;/session-config&amp;amp;gt; &amp;amp;lt;!</description>
     </item>
     
@@ -876,7 +888,8 @@ inner join Inner join produces only the set of records that match in both Table 
       
       <guid>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</guid>
       <description>Now, ultimately we start discussing design patterns - really buzzwords.
-Singleton Singleton pattern is to ensure the unique instance of some class in a JVM. ``` java class LazySingleton { private static LazySingleton instance;
+Singleton Singleton pattern is to ensure the unique instance of some class in a JVM.
+``` java class LazySingleton { private static LazySingleton instance;
 private LazySingleton() { } public static LazySingleton getInstance() { if (instance == null) { instance = new LazySingleton(); } return instance; } public void doSomething() { System.out.println(&amp;quot;doSomething(): Singleton does something!&amp;quot;); }  }
 // DCL for thread safe class DoubleCheckedLockingLazySingleton { private static DoubleCheckedLockingLazySingleton instance;</description>
     </item>

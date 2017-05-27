@@ -18,7 +18,8 @@
       
       <guid>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</guid>
       <description>Now, ultimately we start discussing design patterns - really buzzwords.
-Singleton Singleton pattern is to ensure the unique instance of some class in a JVM. ``` java class LazySingleton { private static LazySingleton instance;
+Singleton Singleton pattern is to ensure the unique instance of some class in a JVM.
+``` java class LazySingleton { private static LazySingleton instance;
 private LazySingleton() { } public static LazySingleton getInstance() { if (instance == null) { instance = new LazySingleton(); } return instance; } public void doSomething() { System.out.println(&amp;quot;doSomething(): Singleton does something!&amp;quot;); }  }
 // DCL for thread safe class DoubleCheckedLockingLazySingleton { private static DoubleCheckedLockingLazySingleton instance;</description>
     </item>

@@ -162,33 +162,40 @@
 
 <h3 id="what-is-subquery">what is subquery</h3>
 
-<p><strong>SubQuery in SQL</strong> is a query inside another query
-<code>java
-SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone='west')</code>
-In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
+<p><strong>SubQuery in SQL</strong> is a query inside another query</p>
+
+<p><code>java
+SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone='west')</code></p>
+
+<p>In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
 
 <h4 id="non-correlated-subquery">non-correlated subquery</h4>
 
 <p>In non correlated subquery, <strong>inner query doesn&rsquo;t depend on outer query</strong> and can run as stand alone query.</p>
 
-<p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.
-<code>java
-SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY='Japan');</code>
-Here, the inner query is executed before the outer query.</p>
+<p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.</p>
+
+<p><code>java
+SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY='Japan');</code></p>
+
+<p>Here, the inner query is executed before the outer query.</p>
 
 <h4 id="correlated-subquery">correlated subquery</h4>
 
 <p>Correlated subqueries are the one in which inner query or subquery reference outer query.</p>
 
-<p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.
-<code>java
-SELECT m.NAME FROM Market m WHERE m.RIC EXISTS (SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC);</code>
-Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
+<p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.</p>
+
+<p><code>java
+SELECT m.NAME FROM Market m WHERE m.RIC EXISTS (SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC);</code></p>
+
+<p>Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
 
 <h3 id="which-is-preferable-subquery-or-join">which is preferable: subquery or join</h3>
 
-<p>Now, almost any subquery can be written in join.
-``` java
+<p>Now, almost any subquery can be written in join.</p>
+
+<p>``` java
 id  name    id  title</p>
 
 <hr />
@@ -215,8 +222,9 @@ SELECT  *
 FROM    tableA
 JOIN    tableB
     ON  tableA.id = tableB.id
-WHERE   tableB.title = &lsquo;Analyst&rsquo;;```
-Basically, there are some differences:</p>
+WHERE   tableB.title = &lsquo;Analyst&rsquo;;```</p>
+
+<p>Basically, there are some differences:</p>
 
 <ul>
 <li>Subquery is more intuitive and relatively easy to understand.</li>

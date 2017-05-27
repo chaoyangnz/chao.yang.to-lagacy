@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1573 words ~8min</span>
+<span class="leancloud-visitors-count">1574 words ~8min</span>
 </span>
       </div>
     </header>
@@ -162,8 +162,9 @@
 
 <h3 id="deployment-descriptor-web-xml">Deployment Descriptor: web.xml</h3>
 
-<p>The following is a complete Deployment Descriptor.
-``` java
+<p>The following is a complete Deployment Descriptor.</p>
+
+<p>``` java
 &lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;ISO-8859-1&rdquo;?&gt;
 &lt;web-app xmlns=&ldquo;<a href="http://java.sun.com/xml/ns/j2ee&quot;">http://java.sun.com/xml/ns/j2ee&quot;</a>
          xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
@@ -493,8 +494,9 @@
 &amp;lt;/resource-env-ref&amp;gt;
 </code></pre>
 
-<p>&lt;/web-app&gt;```
-some confusing tags: &lt;resource-ref&gt;   &lt;resource-env-ref&gt;</p>
+<p>&lt;/web-app&gt;```</p>
+
+<p>some confusing tags: &lt;resource-ref&gt;   &lt;resource-env-ref&gt;</p>
 
 <h3 id="servletcontext-servletconfig">ServletContext, ServletConfig</h3>
 
@@ -504,13 +506,15 @@ some confusing tags: &lt;resource-ref&gt;   &lt;resource-env-ref&gt;</p>
 
 <p>ServletConfig is used to pass parameters to a servlet during initialization.</p>
 
-<p>its methods include:
-<code>java
+<p>its methods include:</p>
+
+<p><code>java
 getServletName();
 getServletContext();
 getInitParameter(String name);
-getInitParameterNames();</code>
-GenericServlet has implemented ServletConfig interface.</p>
+getInitParameterNames();</code></p>
+
+<p>GenericServlet has implemented ServletConfig interface.</p>
 
 <h3 id="thread-safe-consideration">thread safe consideration</h3>
 
@@ -526,8 +530,9 @@ GenericServlet has implemented ServletConfig interface.</p>
 
 <p><img src="http://yangchao.me/media/forward_redirect.png" alt="forward_redirect" /></p>
 
-<p>As per what is RequestDespatcher include(), now look at the following test:
-``` java
+<p>As per what is RequestDespatcher include(), now look at the following test:</p>
+
+<p>``` java
 public class DispatcherServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;</p>
 
@@ -542,9 +547,11 @@ public class DispatcherServlet extends HttpServlet {
 }
 </code></pre>
 
-<p>}<code>
-&amp;nbsp;
-</code> java
+<p>}```</p>
+
+<p>&nbsp;</p>
+
+<p>``` java
 &lt;%@ page language=&ldquo;java&rdquo; contentType=&ldquo;text/html; charset=ISO-8859-1&rdquo;
     pageEncoding=&ldquo;ISO-8859-1&rdquo;%&gt;
 &lt;!DOCTYPE html PUBLIC &ldquo;-//W3C//DTD HTML 4.01 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/html4/loose.dtd&quot;&gt;">http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a>
@@ -558,12 +565,15 @@ public class DispatcherServlet extends HttpServlet {
 <p>Hello page.</p>
 
 <p>&lt;/body&gt;
-&lt;/html&gt;<code>
-Now the output is:
-</code> java
+&lt;/html&gt;```</p>
+
+<p>Now the output is:</p>
+
+<p><code>java
 In dispatcherServlet
-Hello page```
-Here we are not hard to know its accurate meaning - including and merging the response content of another servlet, JSP or static resources.</p>
+Hello page</code></p>
+
+<p>Here we are not hard to know its accurate meaning - including and merging the response content of another servlet, JSP or static resources.</p>
 
 <p><img src="http://yangchao.me/media/RequestDispatcherInclude.jpg" alt="RequestDispatcherInclude" /></p>
 
@@ -582,28 +592,33 @@ Here we are not hard to know its accurate meaning - including and merging the re
 
 <h4 id="environment-entries">Environment Entries</h4>
 
-<p>For parameter values that may need to change during deployment, it&rsquo;s better to use environment entries instead, as indicated by the <code>&amp;lt;env-entry&amp;gt;</code> tag.
-<code>java
+<p>For parameter values that may need to change during deployment, it&rsquo;s better to use environment entries instead, as indicated by the <code>&amp;lt;env-entry&amp;gt;</code> tag.</p>
+
+<p><code>java
 &amp;lt;env-entry&amp;gt;
     &amp;lt;description&amp;gt;Send pincode by mail&amp;lt;/description&amp;gt;
     &amp;lt;env-entry-name&amp;gt;mailPincode&amp;lt;/env-entry-name&amp;gt;
     &amp;lt;env-entry-value&amp;gt;false&amp;lt;/env-entry-value&amp;gt;
     &amp;lt;env-entry-type&amp;gt;java.lang.Boolean&amp;lt;/env-entry-type&amp;gt;
-&amp;lt;/env-entry&amp;gt;</code>
-This is a good way for environment-specific application variables. The type may be a <code>String</code>, <code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Boolean</code>, <code>Double</code>, or <code>Float</code> (all with their full <code>java.lang</code> qualification).</p>
+&amp;lt;/env-entry&amp;gt;</code></p>
 
-<p>Java code can retrieve the <code>&amp;lt;env-entry&amp;gt;</code> values using JNDI:
-<code>java
+<p>This is a good way for environment-specific application variables. The type may be a <code>String</code>, <code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Boolean</code>, <code>Double</code>, or <code>Float</code> (all with their full <code>java.lang</code> qualification).</p>
+
+<p>Java code can retrieve the <code>&amp;lt;env-entry&amp;gt;</code> values using JNDI:</p>
+
+<p><code>java
 Context initCtx = new InitialContext( );
-Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&quot;);</code>
-Now you could change the variable value in deployment time:</p>
+Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&quot;);</code></p>
+
+<p>Now you could change the variable value in deployment time:</p>
 
 <p><img src="http://yangchao.me/media/env-entry.png" alt="env-entry" /></p>
 
 <h4 id="references-to-external-resource-manager-connection-factories">References to External Resource Manager Connection Factories</h4>
 
-<p>When the environment entry is a resource factory, there&rsquo;s a <code>&amp;lt;resource-ref&amp;gt;</code> tag to use. A factory is an object that creates other objects on demand. A resource factory creates resource objects, such as database connections or message queues.
-<code>java
+<p>When the environment entry is a resource factory, there&rsquo;s a <code>&amp;lt;resource-ref&amp;gt;</code> tag to use. A factory is an object that creates other objects on demand. A resource factory creates resource objects, such as database connections or message queues.</p>
+
+<p><code>java
 &amp;lt;!-- JDBC DataSources (java:comp/env/jdbc) --&amp;gt;
 &amp;lt;resource-ref&amp;gt;
     &amp;lt;description&amp;gt;The default DS&amp;lt;/description&amp;gt;
@@ -624,8 +639,9 @@ Now you could change the variable value in deployment time:</p>
     &amp;lt;res-ref-name&amp;gt;jms/QueueFactory&amp;lt;/res-ref-name&amp;gt;
     &amp;lt;res-type&amp;gt;javax.jms.QueueConnectionFactory&amp;lt;/res-type&amp;gt;
     &amp;lt;res-auth&amp;gt;Container&amp;lt;/res-auth&amp;gt;
-&amp;lt;/resource-ref&amp;gt;</code>
-It can have two values: <code>CONTAINER</code> or <code>SERVLET</code>. If <code>CONTAINER</code> is specified, the servlet container (the J2EE server) handles authentication before binding the factory to JNDI, using credentials provided by the deployer. If <code>SERVLET</code> is specified, the servlet must handle authentication duties programmatically.</p>
+&amp;lt;/resource-ref&amp;gt;</code></p>
+
+<p>It can have two values: <code>CONTAINER</code> or <code>SERVLET</code>. If <code>CONTAINER</code> is specified, the servlet container (the J2EE server) handles authentication before binding the factory to JNDI, using credentials provided by the deployer. If <code>SERVLET</code> is specified, the servlet must handle authentication duties programmatically.</p>
 
 <p>It&rsquo;s recommended but not required to place the resource factories under a subcontext that describes the resource type:</p>
 
@@ -654,8 +670,9 @@ It can have two values: <code>CONTAINER</code> or <code>SERVLET</code>. If <code
   &amp;lt;ejb-ref-type&amp;gt;Entity&amp;lt;/ejb-ref-type&amp;gt;
   &amp;lt;home&amp;gt;com.titan.cabin.CabinHome&amp;lt;/home&amp;gt;
   &amp;lt;remote&amp;gt;com.titan.cabin.Cabin&amp;lt;/remote&amp;gt;
-&amp;lt;/ejb-ref&amp;gt;</code>
-&nbsp;</p>
+&amp;lt;/ejb-ref&amp;gt;</code></p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">

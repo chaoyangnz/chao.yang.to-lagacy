@@ -195,10 +195,12 @@ Java RMI heavily uses the Serialization technology and extends it, because remot
 
 <p>serialVersionUID is used to version the serializable class. When the unique id of the class in serialization and unserialzation is different, <code>java.io.InvalidClassException</code> will be thrown.</p>
 
-<p>All serializable class automatically generates this unique id implicitly. But you can specify it explicitly:
-<code>java
-static final long serialVersionUID = 229383940L;</code>
-Alternatively, the JDK comes with a <strong>serialver</strong> tool.</p>
+<p>All serializable class automatically generates this unique id implicitly. But you can specify it explicitly:</p>
+
+<p><code>java
+static final long serialVersionUID = 229383940L;</code></p>
+
+<p>Alternatively, the JDK comes with a <strong>serialver</strong> tool.</p>
 
 <h4 id="example">Example</h4>
 
@@ -231,8 +233,9 @@ public void testRead() throws Exception {
 }
 </code></pre>
 
-<p>}```
-&nbsp;</p>
+<p>}```</p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">

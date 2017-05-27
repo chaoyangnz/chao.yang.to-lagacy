@@ -165,7 +165,8 @@ $ apt-get install pptpd
 localip 192.168.0.1
 remoteip 192.168.0.234-238,192.168.0.245</p>
 
-<pre><code>enable ipv4 forword in the `/etc/sysctl.conf`
+<pre><code>
+enable ipv4 forword in the `/etc/sysctl.conf`
 ``` text /etc/sysctl.conf
 net.ipv4.ip_forward = 1
 </code></pre>
@@ -213,9 +214,11 @@ $ apt-get install shadowsocks-libev
 }</p>
 
 <pre><code>
+
 I tend to use `aes-128-fcb` method.
 
 Then reload the configuration:
+
 ``` bash
 $ service shadowsocks-libev reload
 </code></pre>

@@ -352,7 +352,8 @@
 
 <p>There is also a special group, group 0, which always represents the entire expression. This group is not included in the total reported by groupCount.</p>
 
-<pre><code>s(\d\w),f(dfd(\Sgd)er)3=pr
+<pre><code>
+s(\d\w),f(dfd(\Sgd)er)3=pr
  --1---  ------2-----
              --3--
 </code></pre>
@@ -428,6 +429,7 @@ for(int i=0; i &lt;= matcher.groupCount(); ++i) {
 <p>}</p>
 
 <pre><code>
+
 ## replacement
 
 `replaceAll(..)` and `replaceFirst(..)` is very useful to replace the whole matches.
@@ -436,6 +438,7 @@ And in the replacement, you can use `$0, $1, $2, ..` to represent respective gro
 But the powerful way is using `appendReplacement(..)` and `applendTail()`.
 
 The following example, I need to replace the domain part of all emails in multiple lines.
+
 
 ``` java
 String emails = &quot;richd.yang@googlemail.com\n&quot; +
@@ -467,6 +470,7 @@ while(m.find()) {
 }</p>
 
 <pre><code>
+
 &gt; Found &quot;richd.yang@gmail.com&quot; (0 - 20) 
 &gt; Group 0: richd.yang@gmail.com (0 - 20) 
 &gt; Group 1: richd.yang (0 - 10) 

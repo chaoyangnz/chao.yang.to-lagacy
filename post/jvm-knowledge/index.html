@@ -314,8 +314,9 @@ for non-abstract method:</p></li>
 On class method invocation, any parameters are passed in from local variable 0.</li>
 </ul>
 
-<p>On instance method invocation, local variable 0 is always the reference to the instance object. (aka, <span style="font-family: 'courier new', courier;">this</span>)
-``` java
+<p>On instance method invocation, local variable 0 is always the reference to the instance object. (aka, <span style="font-family: 'courier new', courier;">this</span>)</p>
+
+<p>``` java
 class Example3a {</p>
 
 <pre><code>public static int runClassMethod(int i, long l, float f,
@@ -331,8 +332,9 @@ public int runInstanceMethod(char c, double d, short s,
 }
 </code></pre>
 
-<p>}```
-<img src="http://yangchao.me/media/method-parameters-on-local-variables.png" alt="method-parameters-on-local-variables" /></p>
+<p>}```</p>
+
+<p><img src="http://yangchao.me/media/method-parameters-on-local-variables.png" alt="method-parameters-on-local-variables" /></p>
 
 <h5 id="operand-stack">operand stack</h5>
 
@@ -344,17 +346,21 @@ public int runInstanceMethod(char c, double d, short s,
 
 <ul>
 <li>load constants or values from local variables onto the operand stack</li>
-<li>tack operands from the operand stack, operate on them, and push the result onto the operand stack.
-<code>java
-int c = a + b</code>
-The above source code has the instructions:
-<code>java
+<li>tack operands from the operand stack, operate on them, and push the result onto the operand stack.</li>
+</ul>
+
+<p><code>java
+int c = a + b</code></p>
+
+<p>The above source code has the instructions:</p>
+
+<p><code>java
 iload_0    // push the int in local variable 0
 iload_1    // push the int in local variable 1
 iadd       // pop two ints, add them, push result
-istore_2   // pop int, store into local variable 2</code>
-<img src="http://yangchao.me/media/add-two-local-variables.png" alt="add-two-local-variables" /></li>
-</ul>
+istore_2   // pop int, store into local variable 2</code></p>
+
+<p><img src="http://yangchao.me/media/add-two-local-variables.png" alt="add-two-local-variables" /></p>
 
 <h5 id="frame-data">Frame Data</h5>
 

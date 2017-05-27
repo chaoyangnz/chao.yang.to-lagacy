@@ -270,6 +270,8 @@ public class DefaultFooService implements FooService {
 class Foo {
 
 }```
+
+
 ``` java
 public static void main(String[] args) {
     GenericXmlApplicationContext context = new GenericXmlApplicationContext(&quot;classpath:spring-tx.xml&quot;);
@@ -278,7 +280,9 @@ public static void main(String[] args) {
     TransactionInterceptor txAdvice = (TransactionInterceptor)context.getBean(&quot;txAdvice&quot;);
     fooService.insertFoo(new Foo());
 }```
+
 This is the log4j log which can show some implementation details:
+
 ``` java
 &amp;lt;!-- the DefaultFooService is actually proxied --&amp;gt;
 DEBUG {org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator}  - Creating implicit proxy for bean 'fooService' with 0 common interceptors and 2 specific interceptors

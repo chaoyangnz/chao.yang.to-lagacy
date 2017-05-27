@@ -189,23 +189,25 @@
 
 <li><p>IdentityHashMap: compare the key using == instead of equals()</p></li>
 
-<li><p>WeekHashMap: key is week reference
-``` java
-public void test() {
-Map map = new IdentityHashMap();</p>
-
-<p>String a = new String(&ldquo;aa&rdquo;);
-String b = new String(&ldquo;aa&rdquo;);</p>
-
-<p>map.put(a, 1);
-map.put(b, 2);</p>
-
-<p>System.out.println(a == b); //false
-System.out.println(a.equals(b)); //true</p>
-
-<p>System.out.println(map.get(a)); //1
-System.out.println(map.get(b)); //2</p></li>
+<li><p>WeekHashMap: key is week reference</p></li>
 </ul>
+
+<p>``` java
+public void test() {
+    Map map = new IdentityHashMap();</p>
+
+<pre><code>String a = new String(&quot;aa&quot;);
+String b = new String(&quot;aa&quot;);
+
+map.put(a, 1);
+map.put(b, 2);
+
+System.out.println(a == b); //false
+System.out.println(a.equals(b)); //true
+
+System.out.println(map.get(a)); //1
+System.out.println(map.get(b)); //2
+</code></pre>
 
 <p>}```</p>
 
@@ -311,8 +313,9 @@ This implementation always copy the backed array and set the backed array to thi
 
 <p>So it&rsquo;s suitable for the case that writing is greatly less than reading.</p>
 
-<p>Once an interator has been gotten, it will see a <strong>snapshot</strong> of the array.
-``` java
+<p>Once an interator has been gotten, it will see a <strong>snapshot</strong> of the array.</p>
+
+<p>``` java
 public void test() {
     List&lt;Integer&gt; list = new CopyOnWriteArrayList&lt;Integer&gt;(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));</p>
 
@@ -337,8 +340,9 @@ System.out.println(list);
 5
 6
 7
-[0, 1, 2, 3, 4, 5, 6, 7, 8]```
-&nbsp;</p>
+[0, 1, 2, 3, 4, 5, 6, 7, 8]```</p>
+
+<p>&nbsp;</p>
 
 <p><a href="http://www.cnblogs.com/skywang12345/p/java_threads_category.html">http://www.cnblogs.com/skywang12345/p/java_threads_category.html</a></p>
 

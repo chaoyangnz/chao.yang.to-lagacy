@@ -207,8 +207,9 @@ For more access modifier details, refer to <a href="http://richdyang.com/java-m
 As per the exception throwing, you can <strong>reduce the checked exceptions throwings</strong>, but no matter the runtime exceptions.</li>
 </ul>
 
-<p>All the rules concerning the access modifier and exception throwing, it&rsquo;s easy to understand because you must maintain the contract given by the parent class.
-``` java
+<p>All the rules concerning the access modifier and exception throwing, it&rsquo;s easy to understand because you must maintain the contract given by the parent class.</p>
+
+<p>``` java
 class Animal {</p>
 
 <pre><code>void drink() {}
@@ -239,8 +240,9 @@ protected Number eat(Grass food) { // override failed
 
 <p>class Food {}</p>
 
-<p>class Grass extends Food {}```
-For more complicated overriding example, refer to <a href="http://richdyang.com/override-a-pitfall">override - a pitfall</a></p>
+<p>class Grass extends Food {}```</p>
+
+<p>For more complicated overriding example, refer to <a href="http://richdyang.com/override-a-pitfall">override - a pitfall</a></p>
 
 <h3 id="hiding">Hiding</h3>
 
@@ -248,8 +250,9 @@ For more complicated overriding example, refer to <a href="http://richdyang.com
 
 <h4 id="variable-shadowing">variable shadowing</h4>
 
-<p>When both a parent class and its sub class have a field with the same name, this technique is called variable shadowing.
-``` java
+<p>When both a parent class and its sub class have a field with the same name, this technique is called variable shadowing.</p>
+
+<p>``` java
 public class Hiding {
     @Test
     public void testVariableShadowing() {
@@ -286,8 +289,9 @@ public class Hiding {
 }
 </code></pre>
 
-<p>}```
-Output:
+<p>}```</p>
+
+<p>Output:
 animal
 Cat
 Cat
@@ -295,8 +299,9 @@ animal
 Cat
 Cat</p>
 
-<p>Static variable is similar as per hiding.
-``` java
+<p>Static variable is similar as per hiding.</p>
+
+<p>``` java
 public class OverridingHiding {</p>
 
 <pre><code>@Test
@@ -317,15 +322,17 @@ public void testStaticVariableHiding() {
 
 <p>class Cat extends Animal {
     static String name = &ldquo;Cat&rdquo;;
-}```
-Output:
+}```</p>
+
+<p>Output:
 Animal
 Cat</p>
 
 <h4 id="static-method-hiding">static method hiding</h4>
 
-<p>When both a parent class and its sub class have a static method with the same signature, this technique is called static method hiding.
-``` java
+<p>When both a parent class and its sub class have a static method with the same signature, this technique is called static method hiding.</p>
+
+<p>``` java
 public class Hiding {
     @Test
     public void testStaticMethodHiding() {
@@ -352,8 +359,9 @@ public class Hiding {
     static String who() {
         return &ldquo;Cat&rdquo;;
     }
-}```
-Output:
+}```</p>
+
+<p>Output:
 Animal
 Cat</p>
 

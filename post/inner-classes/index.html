@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">3580 words ~8min</span>
+<span class="leancloud-visitors-count">3573 words ~8min</span>
 </span>
       </div>
     </header>
@@ -210,55 +210,57 @@ The main features of member classes are:</p>
 
 <ul>
 <li>Every instance of a member class is internally associated with an instance of the class that defines or contains the member class.</li>
-<li>The methods of a member class can implicitly refer to the fields defined within the member class, as well as those defined by any enclosing class, including **private <strong>fields of the enclosing class.
-1) Because the object of that inner class has a reference to the object of the enclosing object, so it can access the members of the enclosing object.
-<code>java
-public class Sequence {
-private Object[] items;
-private int next = 0;
-public Sequence(int size) { items = new Object[size]; }
-public void add(Object x) {
-    if(next &amp;lt; items.length)
-        items[next++] = x;
-}
-private class SequenceSelector implements Selector {
-    private int i = 0;
-    public boolean end() { return i == items.length; }
-    public Object current() { return items[i]; }
-    public void next() { if(i &amp;lt; items.length) i++; }
-}
-public Selector selector() {
-    return new SequenceSelector();
-}
-public static void main(String[] args) {
-    Sequence sequence = new Sequence(10);
-    for(int i = 0; i &amp;lt; 10; i++)
-        sequence.add(Integer.toString(i));
-    Selector selector = sequence.selector();
-    while(!selector.end()) {
-        System.out.print(selector.current() + &quot; &quot;);
-        selector.next();
-    }
-}
-}
-</code>
-2) To construct a object of the inner class, you should use the <span style="text-decoration: underline;"></strong>.new**</span> syntax
-``` java
-class AAA {
-class BBB {}
-}</li>
+<li>The methods of a member class can implicitly refer to the fields defined within the member class, as well as those defined by any enclosing class, including **private **fields of the enclosing class.
+1) Because the object of that inner class has a reference to the object of the enclosing object, so it can access the members of the enclosing object.</li>
 </ul>
 
-<p>class CCC {
+<pre><code class="language-java">public class Sequence {
+    private Object[] items;
+    private int next = 0;
+    public Sequence(int size) { items = new Object[size]; }
+    public void add(Object x) {
+        if(next &amp;lt; items.length)
+            items[next++] = x;
+    }
+    private class SequenceSelector implements Selector {
+        private int i = 0;
+        public boolean end() { return i == items.length; }
+        public Object current() { return items[i]; }
+        public void next() { if(i &amp;lt; items.length) i++; }
+    }
+    public Selector selector() {
+        return new SequenceSelector();
+    }
+    public static void main(String[] args) {
+        Sequence sequence = new Sequence(10);
+        for(int i = 0; i &amp;lt; 10; i++)
+            sequence.add(Integer.toString(i));
+        Selector selector = sequence.selector();
+        while(!selector.end()) {
+            System.out.print(selector.current() + &quot; &quot;);
+            selector.next();
+        }
+    }
+}
+</code></pre>
+
+<p>2) To construct a object of the inner class, you should use the <span style="text-decoration: underline;"><strong>.new</strong></span> syntax</p>
+
+<pre><code class="language-java">class AAA {
+    class BBB {}
+}
+
+class CCC {
     public static void main(String[] args) {
         AAA aaa = new AAA();
         AAA.BBB bbb = aaa.new BBB();
     }
-}</p>
+}
+</code></pre>
 
-<pre><code>3) To get the reference of the out-class object, you should use the **&lt;span style=&quot;text-decoration: underline;&quot;&gt;.this&lt;/span&gt;** syntax
-``` java
-public class DotThis {
+<p>3) To get the reference of the out-class object, you should use the <strong><span style="text-decoration: underline;">.this</span></strong> syntax</p>
+
+<pre><code class="language-java">public class DotThis {
     void f() { System.out.println(&quot;DotThis.f()&quot;); }
     public class Inner {
         public DotThis outer() {

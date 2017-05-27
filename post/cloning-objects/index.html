@@ -238,6 +238,7 @@ class Department
     }
 }```
 
+
 ### deep copy
 
 In most of time, default clone mechanism is enough for us. But in some special case, we need real deep copy.
@@ -245,6 +246,7 @@ In most of time, default clone mechanism is enough for us. But in some special c
 There are several method you can achieve this aim.
 
 #### overriding clone() method and write your own
+
 
 ``` java
 //Modified clone() method in Employee class
@@ -255,9 +257,11 @@ protected Object clone() throws CloneNotSupportedException {
     return cloned;
 }```
 
+
 #### in-memory serialization
 
 This method is for Serializable object.
+
 ``` java
 public static  T cloneThroughSerialize(T t) throws Exception {
    ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -294,11 +298,13 @@ cloned = org.apache.commons.lang. SerializationUtils.clone(someObject);
 <p>There’s a nice little library which can deep clone virtually any Java Object – <a href="http://code.google.com/p/cloning/" title="Java Deep Cloning library">cloning</a>. It takes advantage of Java’s excellent reflection capabilities to provide optimized deep-cloned versions of objects.
 <div id="highlighter_808936" class="syntaxhighlighter ">
 <div class="bar">
-<div class="toolbar">
-<code>java
+<div class="toolbar"></p>
+
+<p><code>java
 Cloner cloner=new Cloner();
-Object cloned = cloner.deepClone(someObject);</code>
-<strong>Option 2 – JSON Cloning</strong></p>
+Object cloned = cloner.deepClone(someObject);</code></p>
+
+<p><strong>Option 2 – JSON Cloning</strong></p>
 
 <p>This is very useful and straightforward, especially now JDK 7 has the out-of-the-box JSON library support - Java API for JSON Processing (<a href="http://jcp.org/en/jsr/detail?id=353">JSR 353</a>) .</p>
 

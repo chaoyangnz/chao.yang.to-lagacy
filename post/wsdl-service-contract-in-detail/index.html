@@ -229,8 +229,9 @@
       &lt;soap:address location=&ldquo;<a href="http://localhost:9999/rs&quot;&gt;&lt;/soap:address&gt;">http://localhost:9999/rs&quot;&gt;&lt;/soap:address&gt;</a>
     &lt;/port&gt;
   &lt;/service&gt;
-&lt;/definitions&gt;```
-In the following diagram, please observe the relationship:</p>
+&lt;/definitions&gt;```</p>
+
+<p>In the following diagram, please observe the relationship:</p>
 
 <ul>
 <li>A web service can has only one PortType, but has multiple Bindings and Ports.</li>
@@ -408,22 +409,28 @@ The soapAction attribute specifies the value of the SOAPAction header for this o
 </tbody>
 </table>
 RPC-style SOAP:
+
 ``` java
 &lt;tns:matchNoteAndNote xmlns:tns="urn:outline.demo"&gt;
     &lt;in0 xsi:type="xsd:string"&gt;0000000000&lt;/in0&gt;
     &lt;in1 xsi:type="xsd:string"&gt;000000000B&lt;/in1&gt;
 &lt;/tns:matchNoteAndNote&gt;```
+
+
 ``` java
 &lt;tns:matchNoteAndNoteResponse xmlns:tns="urn:outline.demo"&gt;
     &lt;matchNoteAndNoteReturn xsi:type="xsd:string"&gt;yes&lt;/in0&gt;
 &lt;/tns:matchNoteAndNoteResponse&gt;```
+
 Document-style SOAP:
+
 ``` java
 &lt;out:getNoteResponse xmlns:out="urn:outline.demo"&gt;
     &lt;out:note key="000000000B" &gt;
         &lt;out:content&gt;test&lt;/out:content&gt;
     &lt;/out:note&gt;
 &lt;/out:getNoteResponse&gt;```
+
 
 #### uses: literal vs. encoded
 

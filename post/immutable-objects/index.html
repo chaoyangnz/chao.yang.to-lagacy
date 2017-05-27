@@ -253,8 +253,9 @@ public class ImmutableTest {
 }
 </code></pre>
 
-<p>}```
-Output:
+<p>}```</p>
+
+<p>Output:
 [a, b, c]
 [a, b, c]
 [a, b, c]
@@ -264,17 +265,21 @@ list add a item after unmodifiableList1:[a, b, c, baby]</p>
 
 <p>From the above example, you can see unmodifiableList is not immutable. It will change if the underlying List is changed.</p>
 
-<p>So the correct usage of unmodified List is like:
-<code>java
-List list = Collections.unmodifiableList(Arrays.asList('1','2','3');</code>
-or
-<code>java
+<p>So the correct usage of unmodified List is like:</p>
+
+<p><code>java
+List list = Collections.unmodifiableList(Arrays.asList('1','2','3');</code></p>
+
+<p>or</p>
+
+<p><code>java
 List list = new ArrayList();
 list.add(&quot;1&quot;);
 list.add(2);
 list.add(&quot;333&quot;);
-list = Collections.unmodifiableList(list);</code>
-Never expose the underlying list reference to anything, so the best way is passing an argument and initialization in place.</p>
+list = Collections.unmodifiableList(list);</code></p>
+
+<p>Never expose the underlying list reference to anything, so the best way is passing an argument and initialization in place.</p>
 
     </div>
     <footer class="post-footer">

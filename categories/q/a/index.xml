@@ -23,7 +23,8 @@ System.out.println();
 System.out.println();
 //inner class System.out.println(HashMap.SimpleEntry.class.getName()); System.out.println(HashMap.SimpleEntry.class.getCanonicalName()); System.out.println(HashMap.SimpleEntry.class.getSimpleName());
 System.out.println();
-//anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam());``` &amp;nbsp;
+//anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam());```
+&amp;nbsp;
 Prints: &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; String &amp;gt; &amp;gt; &amp;gt; java.util.AbstractMap$SimpleEntry &amp;gt; &amp;gt; java.util.AbstractMap.SimpleEntry &amp;gt; &amp;gt; SimpleEntry &amp;gt; &amp;gt; &amp;gt; ClassnameTest$1 &amp;gt; &amp;gt; null There&amp;rsquo;s an empty line in the last block where getSimpleName returns an empty string.</description>
     </item>
     

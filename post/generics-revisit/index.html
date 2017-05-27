@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">716 words ~4min</span>
+<span class="leancloud-visitors-count">718 words ~4min</span>
 </span>
       </div>
     </header>
@@ -211,31 +211,33 @@ In Java, array subtyping is <strong><em>covariant</em></strong>, meaning that ty
 
 <ul>
 <li>Wildcards reintroduce <strong>covariant</strong> subtyping for generics, in that type List&lt;S&gt; _is _considered to be a subtype of List&lt;? extends T&gt; when S is a subtype of T.</li>
-<li>Wildcards also introduce _<strong>contravariant</strong> _subtyping for generics, in that type List&lt;S&gt; is considered to be a _subtype _of List&lt;? super T&gt; when S is a _supertype _of T.
-<code>java
-List&amp;lt;? extends Number&amp;gt; list = new ArrayList&amp;lt;Integer&amp;gt;;</code>
-The question mark is called a <em>wildcard</em>, since it stands for some type that is a subtype of E.</li>
+<li>Wildcards also introduce _<strong>contravariant</strong> _subtyping for generics, in that type List&lt;S&gt; is considered to be a _subtype _of List&lt;? super T&gt; when S is a _supertype _of T.</li>
 </ul>
 
-<p>&nbsp;</p>
+<pre><code class="language-java">List&amp;lt;? extends Number&amp;gt; list = new ArrayList&amp;lt;Integer&amp;gt;;```
 
-<p>You can always consider the generic class with wildcard as a family of generic classes.</p>
+The question mark is called a _wildcard_, since it stands for some type that is a subtype of E.
 
-<p>For example,</p>
+&amp;nbsp;
 
-<p>Collection&lt;? extends Fruit&gt; is a family of generic classes: Collection&lt;Fruit&gt;, Collection&lt;Apple&gt;, Collection&lt;Orange&gt;&hellip;</p>
+You can always consider the generic class with wildcard as a family of generic classes.
 
-<p>Collection&lt;? super Apple&gt; is a family of generic classes: Collection&lt;Apple&gt;, Collection&lt;Fruit&gt;, Collection&lt;Plant&gt;&hellip;</p>
+For example,
 
-<h4 id="get-and-put-principal">Get and Put principal</h4>
+Collection&amp;lt;? extends Fruit&amp;gt; is a family of generic classes: Collection&amp;lt;Fruit&amp;gt;, Collection&amp;lt;Apple&amp;gt;, Collection&amp;lt;Orange&amp;gt;...
 
-<p>Some tutorals said:
-&gt; <em>The Get and Put Principle</em>: use an extends wildcard when you only _get _values out of a structure, use a super wildcard when you only _put _values into a structure, and don’t use a wildcard when you _both _get and put.
-I think this has a little flaw. Actually, get and put is just a too vague expression. For instance, the remove() method of List interface is get or set?</p>
+Collection&amp;lt;? super Apple&amp;gt; is a family of generic classes: Collection&amp;lt;Apple&amp;gt;, Collection&amp;lt;Fruit&amp;gt;, Collection&amp;lt;Plant&amp;gt;...
 
-<p>So more general means is by using reasoning.</p>
+#### Get and Put principal
 
-<pre><code class="language-java">public class GenericClass&amp;lt;T&amp;gt; {
+Some tutorals said:
+&gt; _The Get and Put Principle_: use an extends wildcard when you only _get _values out of a structure, use a super wildcard when you only _put _values into a structure, and don’t use a wildcard when you _both _get and put.
+I think this has a little flaw. Actually, get and put is just a too vague expression. For instance, the remove() method of List interface is get or set?
+
+So more general means is by using reasoning.
+
+``` java
+public class GenericClass&amp;lt;T&amp;gt; {
 
     public T foo() {
         return null;
@@ -268,23 +270,25 @@ class RoyalGala extends Apple {}
 
 <ul>
 <li>&lt;? extend Fruit&gt; means it is some fruit sub type, maybe Fruit, Apple or RoyalGala.</li>
-<li>&lt;? super Fruit&gt; means it is some fruit super type, maybe Fruit, Plant or Creature.
-``` java
+<li>&lt;? super Fruit&gt; means it is some fruit super type, maybe Fruit, Plant or Creature.</li>
+</ul>
+
+<p>``` java
 &lt;? extends Fruit&gt; a = &hellip;;
 Apple aa = a; // wrong, if a is really a fruit? downcast failed
 RoyalGala aaa = a; // wrong, if a is really a apple? downcast failed
 Fruit aa = a; // ok, whatever a is fruit, apple or royal gala.
 Plant aaa = a; // ok, whatever a is fruit, apple or royal gala.
-Creature aaaa = a; // ok, whatever a is fruit, apple or royal gala.</li>
-</ul>
+Creature aaaa = a; // ok, whatever a is fruit, apple or royal gala.</p>
 
 <p>&lt;? super Fruit&gt; b = &hellip;;
 b = new Plant(); // wrong, if b is really a fruit? downcast failed
 b = new Creature(); // wrong, if b is really a plant? downcast failed
 b = new Fruit(); // ok, whatever b is fruit, plant or royal gala.
 b = new Apple(); // ok, whatever b is fruit, plant or royal gala.
-b = new RoyalGala(); // ok, whatever b is fruit, apple or royal gala.```
-From the above pseudo code, we know how the compiler do reasoning. As per uncertain things the compiler cannot ensure, the compilation will fail naturally.</p>
+b = new RoyalGala(); // ok, whatever b is fruit, apple or royal gala.```</p>
+
+<p>From the above pseudo code, we know how the compiler do reasoning. As per uncertain things the compiler cannot ensure, the compilation will fail naturally.</p>
 
 <p>So for g1.foo(), compiler infer to return &lt;? extends Fruit&gt; type, but this is just a parameterize type, which cannot exist standalone. But the compiler can ensure the assignment to Fruit/Plant/Creature variable is safe.</p>
 
@@ -297,16 +301,21 @@ From the above pseudo code, we know how the compiler do reasoning. As per uncert
 <h4 id="constraints-on-wildcards">constraints on wildcards</h4>
 
 <ul>
-<li><p>instance creation
-<code>java
-List&amp;lt;?&amp;gt; list = new ArrayList&amp;lt;?&amp;gt;(); // compile-time error
-Map&amp;lt;String, ? extends Number&amp;gt; map = new HashMap&amp;lt;String, ? extends Number&amp;gt;(); // compile-time error</code>
-&nbsp;</p></li>
-
-<li><p>generic method calls
-<code>java
-List&amp;lt;?&amp;gt; list = Lists.&amp;lt;?&amp;gt;factory(); // compile-time error</code></p></li>
+<li>instance creation</li>
 </ul>
+
+<p><code>java
+List&amp;lt;?&amp;gt; list = new ArrayList&amp;lt;?&amp;gt;(); // compile-time error
+Map&amp;lt;String, ? extends Number&amp;gt; map = new HashMap&amp;lt;String, ? extends Number&amp;gt;(); // compile-time error</code></p>
+
+<p>&nbsp;</p>
+
+<ul>
+<li>generic method calls</li>
+</ul>
+
+<p><code>java
+List&amp;lt;?&amp;gt; list = Lists.&amp;lt;?&amp;gt;factory(); // compile-time error</code></p>
 
 <h3 id="bounds"> bounds</h3>
 
@@ -443,7 +452,6 @@ List&amp;lt;?&amp;gt; list = Lists.&amp;lt;?&amp;gt;factory(); // compile-time e
 <ul>
 <li><a href="#subtyping-and-wildcards">subtyping and wildcards</a>
 <ul>
-<li><a href="#get-and-put-principal">Get and Put principal</a></li>
 <li><a href="#wildcard-capture">wildcard capture</a></li>
 <li><a href="#constraints-on-wildcards">constraints on wildcards</a></li>
 </ul></li>

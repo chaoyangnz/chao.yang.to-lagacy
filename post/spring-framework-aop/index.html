@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">562 words ~3min</span>
+<span class="leancloud-visitors-count">561 words ~3min</span>
 </span>
       </div>
     </header>
@@ -269,6 +269,7 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 
 ##### <aop:aspect>
 
+
 ``` java
 <aop:config>
     <!-- shared top-level pointcut -->
@@ -282,11 +283,13 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 </aop:config>
 ```
 
+
 `myAspect` bean is a plain bean, which don't necessarily implement any interface.
 
 ##### <aop:advisor>
 
 This is called aspect instantiation model.
+
 ``` java
 <aop:config>
     <aop:pointcut id="businessService"
@@ -302,6 +305,7 @@ This is called aspect instantiation model.
 </tx:advice>
 ```
 
+
 `advice-ref` is a bean which must implement one of the `Advice` interfaces family.
 
 ### @AspectJ style
@@ -309,22 +313,28 @@ This is called aspect instantiation model.
 Bascially, they use @Aspect, @Pointcut, @Around, @Before, ...
 
 To enable @AspectJ style:
+
 ``` java
 <aop:aspectj-autoproxy/>
 ```
 
+
 ### Load-time weaving
 
 enabled by:
+
 ``` java
 <context:load-time-weaver>
 ```
+
 The default `LoadTimeWeaver` is the `DefaultContextLoadTimeWeaver` class, which attempts to decorate an automatically detected`LoadTimeWeaver`: the exact type of `LoadTimeWeaver` that will be _automatically detected_ is dependent upon your runtime environment (summarized in the following table).
 
 You can also specific the exact load-time weaver rather than the automatic one in xml configuration file:
+
 ``` java
 <context:load-time-weaver weaver-class="org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"/>
 ```
+
 <table border="1" summary="DefaultContextLoadTimeWeaver LoadTimeWeavers">
 <tbody>
 <tr>
@@ -364,13 +374,13 @@ You can also specific the exact load-time weaver rather than the automatic one i
 
 <ul>
 <li>Copy <code>org.springframework.instrument.tomcat.jar</code> into <span class="emphasis">_$CATALINA<em>HOME</em></span>/lib</li>
-<li>Instruct Tomcat to use the custom class loader (instead of the default) by editing the web application context file:
-<code>java
-&lt;Context path=&quot;/myWebApp&quot; docBase=&quot;/my/webApp/location&quot;&gt;
-&lt;Loader loaderClass=&quot;org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader&quot;/&gt;
-&lt;/Context&gt;
-</code></li>
+<li>Instruct Tomcat to use the custom class loader (instead of the default) by editing the web application context file:</li>
 </ul>
+
+<pre><code class="language-java">&lt;Context path=&quot;/myWebApp&quot; docBase=&quot;/my/webApp/location&quot;&gt;
+    &lt;Loader loaderClass=&quot;org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader&quot;/&gt;
+&lt;/Context&gt;
+</code></pre>
 
 <h4 id="generic-j2se-applications">Generic J2SE applications</h4>
 

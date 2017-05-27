@@ -353,25 +353,30 @@ Such frameworks are: JSF, Wicket, ASP.NET</li>
 
 &amp;lt;/web-app&amp;gt;```
 
+
 ####  Actions
 
 If you don't specify the method of an action, its execute() will be invoked by default.
 
 An action method can return a _String_ or _Result _or no return.
+
 ``` java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
 &amp;lt;/action&amp;gt;```
+
 An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be **_sterotype_**.
 
 The above example uses the global result setting. You can specify the action-specific configs of result mapping, like
+
 ``` java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
     &amp;lt;result name=&quot;success&quot; type=&quot;dispatcher&quot;&amp;gt;1.jsp&amp;lt;/result&amp;gt;
 &amp;lt;/action&amp;gt;```
+
 &gt; NOTE: the &quot;dispatcher&quot; result type is default if you don't specify the result type.
 Most of time, the logic service object is injected by DI framework (Struts only support setter injection), but there are many non-managed objects needing to acquire in the action, like request, session, servletContext, response, etc. In this case, we can use **Aware interface.
 
@@ -401,12 +406,14 @@ Struts provides many result type, but you can implement your custom implementati
 Interceptors are conceptually the same as servlet filters or proxy, which provide a way to supply pro-processing and post-processing around the action.
 
 Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.
+
 ``` java
 public interface Interceptor extends Serializable {
     void destroy();
     void init();
     String intercept(ActionInvocation invocation) throws Exception;
 }```
+
 
 ####  Value Stack / OGNL
 
@@ -428,8 +435,11 @@ We use OGNL to access data from value stack in some cases:
 This tag is used to access value stack value.
 
 *   escape html or javascript
+
 ``` java
 &amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;```
+
+
 ``` java
 &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
     var jsFromTag1 = '&amp;lt;s:property value=&quot;javascriptExample&quot;
@@ -437,23 +447,28 @@ This tag is used to access value stack value.
     document.writeln(jsFromTag1);
 &amp;lt;/script&amp;gt;```
 
+
 *   default value
+
 ``` java
 &amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;
 </code></pre>
 
 <ul>
-<li>access scope object: request, session, application with prefix #
-<code>java
+<li>access scope object: request, session, application with prefix #</li>
+</ul>
+
+<p><code>java
 &amp;lt;s:property value=&quot;#application.anAppAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#session.aSessionAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#request.aRequestAttribute&quot;/&amp;gt;
-&amp;lt;s:property value=&quot;#parameters.aRequestParameter&quot;/&amp;gt;</code>
-parameters is for request parameters</li>
-</ul>
+&amp;lt;s:property value=&quot;#parameters.aRequestParameter&quot;/&amp;gt;</code></p>
 
-<p>No page object, but instead you use #attr to search all the attributes of application, request, session and page in order.
-<code>java
+<p>parameters is for request parameters</p>
+
+<p>No page object, but instead you use #attr to search all the attributes of application, request, session and page in order.</p>
+
+<p><code>java
 &amp;lt;s:property value=&quot;#attr.anAppAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#attr.aSessionAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#attr.aRequestAttribute&quot;/&amp;gt;
@@ -487,25 +502,29 @@ Printed if neither were true.
 <p><code>java
 &amp;lt;s:iterator value=&quot;listOfStrings&quot;&amp;gt;
 &amp;lt;li&amp;gt;&amp;lt;s:property/&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code>
-<code>java
+&amp;lt;/s:iterator&amp;gt;</code></p>
+
+<p><code>java
 &amp;lt;s:iterator value=&quot;listOfStrings&quot; var=&quot;anItem&quot;&amp;gt;
 &amp;lt;li&amp;gt;&amp;lt;s:property value=&quot;anItem&quot;/&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code>
-<code>java
+&amp;lt;/s:iterator&amp;gt;</code></p>
+
+<p><code>java
 &amp;lt;s:iterator value=&quot;mapStringString&quot;&amp;gt;
   &amp;lt;li&amp;gt;
      &amp;lt;s:property value=&quot;key&quot;/&amp;gt; : &amp;lt;s:property value=&quot;value&quot;/&amp;gt;
   &amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code>
-<code>java
+&amp;lt;/s:iterator&amp;gt;</code></p>
+
+<p><code>java
 &amp;lt;s:iterator value=&quot;mapStringString&quot; var=&quot;entry&quot;&amp;gt;
    &amp;lt;li&amp;gt;
      &amp;lt;s:property value=&quot;#entry.key&quot;/&amp;gt; ==
      &amp;lt;s:property value=&quot;#entry.value&quot;/&amp;gt;
    &amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code>
-<code>java
+&amp;lt;/s:iterator&amp;gt;</code></p>
+
+<p><code>java
 &amp;lt;s:iterator value=&quot;list1&quot; status=&quot;stat&quot;&amp;gt;
 &amp;lt;tr&amp;gt;
 &amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.index&quot;/&amp;gt;&amp;lt;/td&amp;gt;

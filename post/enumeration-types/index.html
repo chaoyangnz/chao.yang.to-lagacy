@@ -185,8 +185,9 @@
 <p>Although <strong>enum</strong>s appear to be a new data type, the keyword only produces some compiler behavior while generating a class for the <strong>enum</strong>, so in many ways you can treat an **enum **as
 if it were any other class.</p>
 
-<p>The following is the equivalent one like compiler generates:
-``` java
+<p>The following is the equivalent one like compiler generates:</p>
+
+<p>``` java
 class MetaColor extends Enum&lt;MetaColor&gt; {
     public final static MetaColor RED = new MetaColor(&ldquo;RED&rdquo;, 0);
     public final static MetaColor GREEN= new MetaColor(&ldquo;GREEN&rdquo;, 1);
@@ -195,15 +196,17 @@ class MetaColor extends Enum&lt;MetaColor&gt; {
 <pre><code>private MetaColor() {}
 </code></pre>
 
-<p>}```
-But if you really extend Enum class, the compiler will complain and the code cannot be compiled.</p>
+<p>}```</p>
+
+<p>But if you really extend Enum class, the compiler will complain and the code cannot be compiled.</p>
 
 <h3 id="adding-your-own-method-including-constructor">adding your own method, including constructor</h3>
 
 <p>In fact, enums _are _classes and can have their own methods.</p>
 
-<p>Of course, you can associate the enum instance with an inherit value or something.
-``` java
+<p>Of course, you can associate the enum instance with an inherit value or something.</p>
+
+<p>``` java
 enum MetaColor {
     RED(1), YELLOW(2), BLUE(3);</p>
 
@@ -263,8 +266,9 @@ FALL(&quot;FL&quot;) {
 public abstract void execute();
 </code></pre>
 
-<p>}```
-&nbsp;</p>
+<p>}```</p>
+
+<p>&nbsp;</p>
 
 <h3 id="immutable">immutable?</h3>
 

@@ -207,8 +207,9 @@
 
 <p><strong>Inner join</strong> produces only the set of records that match in both Table A and Table B.
 &gt; The inner keyword can be left out from SQL statements.
-<img src="http://yangchao.me/media/inner-join-300x197.png" alt="inner-join" />
-``` java
+<img src="http://yangchao.me/media/inner-join-300x197.png" alt="inner-join" /></p>
+
+<p>``` java
 SELECT * FROM TableA
 INNER JOIN TableB
 ON TableA.name = TableB.name</p>
@@ -229,8 +230,9 @@ ON TableA.name = TableB.name</p>
 
 <p><strong>Left outer join</strong> produces a complete set of records from Table A, with the matching records (where available) in Table B. If there is no match, the right side will contain null.</p>
 
-<p><img src="http://yangchao.me/media/left-outer-join-300x197.png" alt="left-outer-join" />
-``` java
+<p><img src="http://yangchao.me/media/left-outer-join-300x197.png" alt="left-outer-join" /></p>
+
+<p>``` java
 SELECT * FROM TableA
 LEFT OUTER JOIN TableB
 ON TableA.name = TableB.name</p>
@@ -242,15 +244,17 @@ ON TableA.name = TableB.name</p>
 <p>1   Pirate     2     Pirate
 2   Monkey     null  null
 3   Ninja      4     Ninja
-4   Spaghetti  null  null```
-&nbsp;</p>
+4   Spaghetti  null  null```</p>
+
+<p>&nbsp;</p>
 
 <h4 id="right-outer-join">right outer join</h4>
 
 <p><strong>Right outer join</strong> produces a complete set of records from Table B, with the matching records (where available) in Table A. If there is no match, the left side will contain null.</p>
 
-<p><img src="http://yangchao.me/media/right-outer-join-300x197.png" alt="right-outer-join" />
-``` java
+<p><img src="http://yangchao.me/media/right-outer-join-300x197.png" alt="right-outer-join" /></p>
+
+<p>``` java
 SELECT * FROM TableA
 RIGHT OUTER JOIN TableB
 ON TableA.name = TableB.name
@@ -269,8 +273,9 @@ null null      3     Darth Vader
 
 <p><strong>Full outer join</strong> produces the set of all records in Table A and Table B, with matching records from both sides where available. If there is no match, the missing side will contain null.</p>
 
-<p><img src="http://yangchao.me/media/full-outer-join-300x197.png" alt="full-outer-join" />
-``` java
+<p><img src="http://yangchao.me/media/full-outer-join-300x197.png" alt="full-outer-join" /></p>
+
+<p>``` java
 SELECT * FROM TableA
 FULL OUTER JOIN TableB
 ON TableA.name = TableB.name</p>
@@ -290,8 +295,9 @@ null  null       3     Darth Vader```</p>
 
 <p><code>java
 SELECT * FROM TableA
-CROSS JOIN TableB</code>
-This joins &ldquo;everything to everything&rdquo;, resulting in 4 x 4 = 16 rows, far more than we had in the original sets.</p>
+CROSS JOIN TableB</code></p>
+
+<p>This joins &ldquo;everything to everything&rdquo;, resulting in 4 x 4 = 16 rows, far more than we had in the original sets.</p>
 
 <p>&nbsp;</p>
 

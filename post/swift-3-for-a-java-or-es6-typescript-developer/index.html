@@ -156,12 +156,12 @@ It is more or like <code>final</code> in Java. It means the variable (value or r
 
 <p>But <code>let</code> in Swift has stronger semantics, which enable <em>immutability</em> or constant. It means not only the reference cannot be mutable but also the object it refers cannot be mutable.</p>
 
-<p>```swift swift
+<pre><code class="language-swift">// swift
 let arr = [1, 2, 3]
-arr[0] = 3 // error</p>
+arr[0] = 3 // error
+</code></pre>
 
-<pre><code>
-```java java
+<pre><code class="language-java">// java
 final int[] arr = [1, 2, 3]
 arr[0] = 3 // ok
 </code></pre>

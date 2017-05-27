@@ -44,7 +44,7 @@ Fundamentally, scope is function-based while context is object-based.
       <guid>http://yangchao.me/post/javascript-prototype-proto-vs-prototype/</guid>
       <description>Javascript is a prototype-based language. It resolve property using prototype chains.
 Prototype chains (aka prototype inheritance) The proto property proto is the internal property of an object, it points to the prototype object of the object and is used for property look-up. Every object has a proto perperty and its relevant prototype object. But it maybe null, which means the object has no prototype object.
-function as constructor In JavaScript you create an instance of a function like this: ``` java function Foo() { this.</description>
+function as constructor In JavaScript you create an instance of a function like this:</description>
     </item>
     
     <item>

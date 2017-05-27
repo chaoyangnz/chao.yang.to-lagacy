@@ -169,35 +169,50 @@
 <h4 id="scriptlet">scriptlet</h4>
 
 <pre><code class="language-java">&amp;lt;% int count=0; out.println(&quot;This is a scriptlet&quot;); %&amp;gt;```
+
 This block is placed in the body of method _jspService(request, response)
 
 #### derective
 
+
 ``` java
 &amp;lt;%@ page import=&quot;java.util.*,java.xml.*&quot; %&amp;gt;```
+
+
 ``` java
 &amp;lt;%@ include file=&quot;xxx&quot; %&amp;gt;```
+
+
 ``` java
 &amp;lt;%@ taglib tagdir=&quot;/WEB-INF/tags/xxx&quot; prefix=&quot;xxx&quot; %&amp;gt;```
 
+
 #### expression
+
 
 ``` java
 &amp;lt;%= &quot;This is a expression argument&quot; %&amp;gt;```
 
+
 #### declaration
+
 
 ``` java
 &amp;lt;%! int count=0 %&amp;gt;```
+
+
 ``` java
 &amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt;```
+
 This is equivlant with the member field and member method of the generated servlet.
 
 #### comment
 
+
 ``` java
 &amp;lt;!-- HTML Comments --&amp;gt;
 &amp;lt;%-- JSP Comments --%&amp;gt;```
+
 The first is called &lt;span style=&quot;text-decoration: underline;&quot;&gt;_output comments_&lt;/span&gt;, while the second is called _&lt;span style=&quot;text-decoration: underline;&quot;&gt;hidden comments&lt;/span&gt;_.
 
 ### implicit Objects in scriptlets and expressions
@@ -256,12 +271,16 @@ In JSP, you can get its reference by a implicit object named _**page.**_
 ![jsppage](/media/jsppage.png)
 
 The methods of _**JspPage**_:
+
 ``` java
 jspInit()
 jspDestroy()```
+
 The methods of _**HttpJspPage**_
+
 ``` java
 _jspService()```
+
 You can override the jspInit() and jspDestroy() methods, but not for _jspService() method.
 
 ### about the PageContext
@@ -272,6 +291,7 @@ PageContext is a subclass of JspContext.
 ### about the configuration
 
 1\. config jsp for global in deployment descriptor
+
 ``` java
 &amp;lt;web-app ...&amp;gt;
 
@@ -295,10 +315,12 @@ PageContext is a subclass of JspContext.
 
 </code></pre>
 
-<p>2. config jsp in the page directive
-<code>java
-&amp;lt;%@ page isELIgnored=&quot;true&quot; isScriptingEnabled=&quot;false&quot; .... %&amp;gt;</code>
-&nbsp;</p>
+<p>2. config jsp in the page directive</p>
+
+<p><code>java
+&amp;lt;%@ page isELIgnored=&quot;true&quot; isScriptingEnabled=&quot;false&quot; .... %&amp;gt;</code></p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">

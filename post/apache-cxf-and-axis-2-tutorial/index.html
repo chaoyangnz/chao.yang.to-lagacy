@@ -298,8 +298,9 @@
 
 <h4 id="how-to-deploy-a-service">How to deploy a service</h4>
 
-<p>Often axis2 uses its own package named .aar, and the layout of this archive is like:
-<code>java
+<p>Often axis2 uses its own package named .aar, and the layout of this archive is like:</p>
+
+<p><code>java
 \---BookService
     \---META-INF
     |    services.xml
@@ -311,15 +312,17 @@
     \---com
         +---company
         |    Service.class
-        |</code>
-But this is mainly for a standalone deployment scenario.</p>
+        |</code></p>
+
+<p>But this is mainly for a standalone deployment scenario.</p>
 
 <h5 id="embedded-in-war">embedded in .war</h5>
 
 <p>Most of time, we embed our service into our web application and the service implementation will reuse the application logic.</p>
 
-<p>In embedded mode, we needn&rsquo;t package as a .aar. Just a directory in WEB-INF/services is OK.
-<code>java
+<p>In embedded mode, we needn&rsquo;t package as a .aar. Just a directory in WEB-INF/services is OK.</p>
+
+<p><code>java
 \---book
     |   pom.xml
     |   README
