@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>ElementRef vs. ViewContainerRef vs. TemplateRef - Charvis Yang</title>
+    <title>Kotlin Pitfalls - Charvis Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="ElementRef vs. ViewContainerRef vs. TemplateRef">
+    <meta property="og:title" content="Kotlin Pitfalls">
     <meta property="og:site_name" content="Charvis Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="ElementRef vs. ViewContainerRef vs. TemplateRef - Charvis Yang" />
+    <meta name="title" content="Kotlin Pitfalls - Charvis Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -117,8 +117,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/elementref-viewcontainerref-templateref/" itemprop="url">
-        ElementRef vs. ViewContainerRef vs. TemplateRef
+        <a class="post-title-link" href="http://yangchao.me/post/kotlin-pitfalls/" itemprop="url">
+        Kotlin Pitfalls
         </a>
       </h1>
       <div class="post-meta">
@@ -127,167 +127,150 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-12-27">
-    2016-12-27
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-05-27">
+    2017-05-27
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/tutorial" itemprop="url" rel="index">
+        <span itemprop="name">Tutorial</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">409 words ~2min</span>
+<span class="leancloud-visitors-count">264 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>In Angular2, there are many *Ref class: <code>ElementRef</code>, <code>ViewContainerRef</code>, <code>TemplateRef</code>.</p>
-
-<p>What do they means?</p>
-
-<ol>
-<li>Nearly every components (Components, Attribute Directives, Structural Directives) have ViewContainerRef, which is the host of its view.</li>
-</ol>
-
-<p>ViewContainerRef has two important methods:
-<code>createEmbeddedView(templateRef: TemplateRef&lt;C&gt;, context?: C, index?: number) : EmbeddedViewRef&lt;C&gt;</code>
-This method is to create a view from a HTML template.
-<code>createComponent(componentFactory: ComponentFactory&lt;C&gt;, index?: number, injector?: Injector, projectableNodes?: any[][]) : ComponentRef&lt;C&gt;</code>
-This method is to initialize a component and insert its host view to the view container.</p>
-
-<ol>
-<li>From ViewContainerRef, we can get its ElementRef (further access its native DOM element).</li>
-<li>For structural directives, since they are implemented through HTML template element, so it can get a TemplateRef.</li>
-</ol>
-
-<blockquote>
-<p>ViewContainerRef is a DOM element (container) where I can put your newly component as a <strong>sibling</strong> to this element. This may be counter-intuitive.</p>
-</blockquote>
-
-<pre><code class="language-typescript">// Component
-import {AfterContentInit, Component, ElementRef, ViewContainerRef} from '@angular/core';
-
-@Component({
-	selector: 'app',
-	template: `
-  &lt;h1&gt;My App&lt;/h1&gt;
-  &lt;pre style=&quot;background: #eee; padding: 1rem; border-radius: 3px; overflow: auto;&quot;&gt; 
-    &lt;code&gt;{{ node }}&lt;/code&gt;
-  &lt;/pre&gt;
-`
-})
-export class App implements AfterContentInit {
-  node: string;
-  
-  constructor(private viewContainerRef: ViewContainerRef) {
-  }
-  
-  ngAfterContentInit() {
-    let elementRef = this.viewContainerRef.element;
-    const tmp = document.createElement('div');
-    const el = elementRef.nativeElement.cloneNode(true);
     
-    console.log(elementRef)
-    console.log(this.viewContainerRef)
-    
-    tmp.appendChild(el);
-    this.node = tmp.innerHTML;
-  }
-  
-}
+
+<h1 id="type-system">Type system</h1>
+
+<pre><code class="language-kotlin">val list: List&lt;String&gt; = java.util.ArrayList()
 </code></pre>
 
-<pre><code class="language-typescript">// Attribute Directive
-import {Directive, ViewContainerRef, ElementRef, Renderer} from 'angular2/core';
+<p>Why does it work?
+<code>java.util.ArrayList</code> is not a subclass of <code>kotlin.List</code>, and <code>kotlin.List</code> is actually read-only.</p>
 
-@Directive({
-  selector: '[my-outline]',
-  host: {
-    '(mouseenter)': 'onMouseEnter()',
-    '(mouseleave)': 'onMouseLeave()'
-  }
-})
-export class MyOutline {
-  constructor(private viewContainerRef:ViewContainerRef, private _element: ElementRef, private _renderer:Renderer) { }
-  onMouseEnter() { this._outlineToggle(true); }
-  onMouseLeave() { this._outlineToggle(false); }
-  
-  private _outlineToggle() {
-    console.log(this.viewContainerRef)
-    this._renderer.setElementStyle(this._element.nativeElement, 'border', 'solid red 1px' );
+<p>Because in bytecode level, <code>kotlin.List</code> is just <code>java.util.List</code>! I decompile the class Kotlin compiled:</p>
+
+<pre><code class="language-java">import java.util.ArrayList;
+import java.util.List;
+import kotlin.Metadata;
+
+@Metadata(mv={1, 1, 6}, bv={1, 0, 1}, k=2, d1={&quot;\000\b\n\000\n\002\020\002\n\000\032\006\020\000\032\0020\001��\006\002&quot;}, d2={&quot;a&quot;, &quot;&quot;, &quot;kotlin_demo&quot;})
+public final class _1Kt
+{
+  public static final void a()
+  {
+    List list = (List)new ArrayList();
   }
 }
 </code></pre>
 
-<pre><code class="language-typescript">// Structural Directive
-import {Directive, Input} from 'angular2/core';
-import {TemplateRef, ViewContainerRef} from 'angular2/core';
+<p>You can think as if <code>java.util.ArrayList</code> implements <code>kotlin.List</code></p>
 
-@Directive({ selector: '[repeatMe]' })
-export class RepeatMe {
-  constructor(
-    private _templateRef: TemplateRef,
-    private _viewContainer: ViewContainerRef
-    ) {}
-  
-  @Input() set repeatMe(count: int) {
-    for (var i = 0; i &lt; count; i++) {
-      this._viewContainer.createEmbeddedView(this._templateRef);
+<h1 id="operator">operator</h1>
+
+<h2 id="in"><code>in</code></h2>
+
+<p><code>in</code> is an operator in Kotlin. But it means different things in different context.</p>
+
+<h3 id="in-as-expression"><code>in</code> as expression</h3>
+
+<p>When you use <code>in</code> as an expression, it is evaluated as a <code>boolean</code> value: it means <code>contains</code>. So unsurprising, you just need to implement a <code>contains()</code> method in your class.</p>
+
+<pre><code class="language-kotlin">class MyInClass {
+    operator fun contains(bit: Int): Boolean {
+        return true
     }
-   }
+}
+
+fun main(args: Array&lt;String&gt;) {
+    val mic = MyInClass()
+    println(1 in mic) // always print true
 }
 </code></pre>
 
-<p>In Angular2, the View is refered to the template of a component defined in the @Component decorator.</p>
+<h3 id="in-within-a-for-loop"><code>in</code> within a for-loop</h3>
 
-<p>There are another view query docorators in Angualar.</p>
+<p>When you use <code>in</code> in a for-loop, it means: iteration. So you need to implement a <code>iterator()</code> method.</p>
 
-<pre><code class="language-typescript">import { Component, ViewChild } from '@angular/core';
-import { UserProfile } from '../user-profile';
+<p>Let&rsquo;s extends <code>MyInClass</code>:</p>
 
-@Component({
-  template: '&lt;user-profile (click)=&quot;update()&quot;&gt;&lt;/user-profile&gt;',
-})
-export class MasterPage {
-  // ViewChild takes a class type or a reference name string.
-  // Here we are using the type
-  @ViewChild(UserProfile) userProfile: UserProfile
+<pre><code class="language-kotlin">class MyInClass {
+    operator fun contains(bit: Int): Boolean {
+        return true
+    }
+    
+    operator fun iterator(): Iterator&lt;Int&gt; {
+        return MyIterator()
+    }
+    
+    class MyIterator: Iterator&lt;Int&gt; {
+        int i: Int = 0
+        
+        override fun hasNext(): Boolean {
+            return if(i &lt; 10) true else false
+        }
 
-  constructor() { }
+        override fun next(): Int {
+            return i++
+        }
+    }
+}
 
-  ngAfterViewInit() {
-    // After the view is initialized, this.userProfile will be available
-    this.update();
-  }
-
-  update() {
-    this.userProfile.sendData();
-  }
+fun main(args: Array&lt;String&gt;) {
+    val mic = MyInClass()
+    println(1 in mic) // always print true
+    
+    for(b in mic) { // print 1, 2, 3, 4, ...9
+        println(b)
+    }
 }
 </code></pre>
-
-<p>Here we use <code>@ViewChild</code> to query the component, since the view is associated with a component.</p>
 
     </div>
     <footer class="post-footer">
      
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/kotlin" rel="tag" title="Kotlin">#Kotlin#</a>
+    
+</div>
+
+
 
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="http://yangchao.me/post/threadlocal/" rel="next" title="ThreadLocal">
-        <i class="fa fa-chevron-left"></i> ThreadLocal
+        <a href="http://yangchao.me/post/pseudo-random-number-shuffle/" rel="next" title="pseudo-random number &amp; shuffle">
+        <i class="fa fa-chevron-left"></i> pseudo-random number &amp; shuffle
         </a>
     
     </div>
 
     <div class="post-nav-prev post-nav-item">
-    
-        <a href="http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/" rel="prev" title="Swift 3.0 for a Java or ES6/TypeScript developer">
-        Swift 3.0 for a Java or ES6/TypeScript developer <i class="fa fa-chevron-right"></i>
-        </a>
     
     </div>
 </div>
@@ -383,7 +366,19 @@ export class MasterPage {
     
 <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
     <div class="post-toc">
-        <div class="post-toc-content"></div>
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#type-system">Type system</a></li>
+<li><a href="#operator">operator</a>
+<ul>
+<li><a href="#in"><code>in</code></a>
+<ul>
+<li><a href="#in-as-expression"><code>in</code> as expression</a></li>
+<li><a href="#in-within-a-for-loop"><code>in</code> within a for-loop</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
     </div>
 </section>
 
