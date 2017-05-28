@@ -251,6 +251,7 @@ There are several method you can achieve this aim.
 #### overriding clone() method and write your own
 
 
+
 ```java
 //Modified clone() method in Employee class
 @Override
@@ -264,6 +265,7 @@ protected Object clone() throws CloneNotSupportedException {
 #### in-memory serialization
 
 This method is for Serializable object.
+
 
 ```java
 public static  T cloneThroughSerialize(T t) throws Exception {

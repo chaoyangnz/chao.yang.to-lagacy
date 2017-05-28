@@ -363,6 +363,7 @@ If you don't specify the method of an action, its execute() will be invoked by d
 
 An action method can return a _String_ or _Result _or no return.
 
+
 ```java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
@@ -372,6 +373,7 @@ An action method can return a _String_ or _Result _or no return.
 An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be **_sterotype_**.
 
 The above example uses the global result setting. You can specify the action-specific configs of result mapping, like
+
 
 ```java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
@@ -410,6 +412,7 @@ Interceptors are conceptually the same as servlet filters or proxy, which provid
 
 Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.
 
+
 ```java
 public interface Interceptor extends Serializable {
     void destroy();
@@ -439,8 +442,10 @@ This tag is used to access value stack value.
 
 *   escape html or javascript
 
+
 ```java
 &amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;```
+
 
 
 ```java
@@ -452,6 +457,7 @@ This tag is used to access value stack value.
 
 
 *   default value
+
 
 ```java
 &amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;

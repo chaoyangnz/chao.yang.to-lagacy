@@ -413,11 +413,13 @@ The soapAction attribute specifies the value of the SOAPAction header for this o
 </table>
 RPC-style SOAP:
 
+
 ```java
 &lt;tns:matchNoteAndNote xmlns:tns="urn:outline.demo"&gt;
     &lt;in0 xsi:type="xsd:string"&gt;0000000000&lt;/in0&gt;
     &lt;in1 xsi:type="xsd:string"&gt;000000000B&lt;/in1&gt;
 &lt;/tns:matchNoteAndNote&gt;```
+
 
 
 ```java
@@ -426,6 +428,7 @@ RPC-style SOAP:
 &lt;/tns:matchNoteAndNoteResponse&gt;```
 
 Document-style SOAP:
+
 
 ```java
 &lt;out:getNoteResponse xmlns:out="urn:outline.demo"&gt;

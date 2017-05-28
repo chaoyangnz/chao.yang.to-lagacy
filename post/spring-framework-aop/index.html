@@ -273,6 +273,7 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 ##### <aop:aspect>
 
 
+
 ```java
 <aop:config>
     <!-- shared top-level pointcut -->
@@ -292,6 +293,7 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 ##### <aop:advisor>
 
 This is called aspect instantiation model.
+
 
 ```java
 <aop:config>
@@ -317,6 +319,7 @@ Bascially, they use @Aspect, @Pointcut, @Around, @Before, ...
 
 To enable @AspectJ style:
 
+
 ```java
 <aop:aspectj-autoproxy/>
 ```
@@ -326,6 +329,7 @@ To enable @AspectJ style:
 
 enabled by:
 
+
 ```java
 <context:load-time-weaver>
 ```
@@ -333,6 +337,7 @@ enabled by:
 The default `LoadTimeWeaver` is the `DefaultContextLoadTimeWeaver` class, which attempts to decorate an automatically detected`LoadTimeWeaver`: the exact type of `LoadTimeWeaver` that will be _automatically detected_ is dependent upon your runtime environment (summarized in the following table).
 
 You can also specific the exact load-time weaver rather than the automatic one in xml configuration file:
+
 
 ```java
 <context:load-time-weaver weaver-class="org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"/>

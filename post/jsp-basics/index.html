@@ -178,12 +178,15 @@ This block is placed in the body of method _jspService(request, response)
 #### derective
 
 
+
 ```java
 &amp;lt;%@ page import=&quot;java.util.*,java.xml.*&quot; %&amp;gt;```
 
 
+
 ```java
 &amp;lt;%@ include file=&quot;xxx&quot; %&amp;gt;```
+
 
 
 ```java
@@ -193,6 +196,7 @@ This block is placed in the body of method _jspService(request, response)
 #### expression
 
 
+
 ```java
 &amp;lt;%= &quot;This is a expression argument&quot; %&amp;gt;```
 
@@ -200,8 +204,10 @@ This block is placed in the body of method _jspService(request, response)
 #### declaration
 
 
+
 ```java
 &amp;lt;%! int count=0 %&amp;gt;```
+
 
 
 ```java
@@ -210,6 +216,7 @@ This block is placed in the body of method _jspService(request, response)
 This is equivlant with the member field and member method of the generated servlet.
 
 #### comment
+
 
 
 ```java
@@ -275,11 +282,13 @@ In JSP, you can get its reference by a implicit object named _**page.**_
 
 The methods of _**JspPage**_:
 
+
 ```java
 jspInit()
 jspDestroy()```
 
 The methods of _**HttpJspPage**_
+
 
 ```java
 _jspService()```
@@ -294,6 +303,7 @@ PageContext is a subclass of JspContext.
 ### about the configuration
 
 1\. config jsp for global in deployment descriptor
+
 
 ```java
 &amp;lt;web-app ...&amp;gt;

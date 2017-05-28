@@ -190,6 +190,7 @@ Every object instance has a monitor that can be locked by one thread at a time.
 <div>Example of using a explicit ReentrantLock instance:</div>
 <div>
 
+
 ```java
 public class Counter {
     private final Lock lock = new ReentrantLock();
@@ -210,6 +211,7 @@ public class Counter {
 
 <div>The java.util.concurrent.locks package also contains a ReadWriteLock interface (and ReentrantReadWriteLock implementation) which is defined by a pair of locks for reading and writing, typically allowing multiple concurrent readers but only one writer. Example of using an explicit ReentrantReadWriteLock to allow multiple concurrent readers:</div>
 <div>
+
 
 ```java
 public class statistic {
@@ -242,6 +244,7 @@ public class statistic {
 <div>An example of using volatile as a signaling flag:</div>
 <div>
 
+
 ```java
 public class Processor implments Runnable {
     private volatile boolean stop;
@@ -263,6 +266,7 @@ public class Processor implments Runnable {
 <div>One shorcoming of volatile is that while it provides visibility guarantees, you cannot both check and update a volatile field in a single atomic call. The java.util.concurrent.atomic package contains a set of classes that support atomic compound actions on a single value in a lock-free manner similar to volatile.</div>
 <div>
 
+
 ```java
 public class Counter {
     private AtomicInteger value = new AtomicInteger();
@@ -280,6 +284,7 @@ Atomic classes are provided for booleans, integers, longs and object references 
 
 <div>One way to contain data within a thread and make locking unnecessary is to use ThreadLocal storage. Conceptually a ThreadLocal acts as if there is a variable with its own version in every Thread. ThreadLocals are commonly used for stashing per-Thread values like the "current transaction" or other resources. Also, they are used to maintain per-thread counters, statistics, or ID generators.</div>
 <div>
+
 
 ```java
 public class TransactionManager {
@@ -371,6 +376,7 @@ BlockingDeque interface that provides methods for blocking and timeout in the c
 <div>Threads can specify an UncaughtExceptionHandler that will receive notifiation of any uncaught exception that cause a thread to abruptly terminate.</div>
 <div>
 
+
 ```java
 Thread t = new Thread(runnable);
 t.setUncaughtExceptionHandler(new Therad.UncaughtExceptionHandler() {
@@ -400,6 +406,7 @@ The canonical usage pattern for wait and notify is as follows:</div>
 <div>
 <div></div>
 <div>
+
 
 ```java
 public class Latch {
@@ -477,6 +484,7 @@ And the code example:
 &lt;div class=&quot;dp-highlighter&quot;&gt;
 &lt;div class=&quot;bar&quot;&gt;
 &lt;div class=&quot;tools&quot;&gt;
+
 
 ```java
 final CyclicBarrier cb = new CyclicBarrier(N);
@@ -582,6 +590,7 @@ Maintains N permits which is shared between M threads. Each thread can acquire o
 Let's see what is happening on the illustration above. There are 2 permits and 4 threads. Each thread acquires/releases only 1 permit. T&lt;span class=&quot;Apple-style-span&quot;&gt;1&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;2&lt;/span&gt; do this and proceed their execution without being blocked. T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt;block and wait for permits because there are no any permits available. T&lt;span class=&quot;Apple-style-span&quot;&gt;2&lt;/span&gt; releases one permit and T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt; proceeds its calculations&lt;span class=&quot;Apple-style-span&quot;&gt; (T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; is also might be chosen?)&lt;/span&gt;. Next T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt; releases its permit and T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; resumes. An finally T&lt;span class=&quot;Apple-style-span&quot;&gt;1&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; release their permits.
 
 Simple example:
+
 
 ```java
 public static void main(String args[]) {
@@ -693,6 +702,7 @@ ScheduledExecutorService instances that will cover a wide variety of common use
 </div>
 <div>The following example creates a fied thread pool and submits a long-running task to it:</div>
 <div>
+
 
 ```java
 int processors = Runtime.getRuntime().availableProcessor();
