@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1185 words ~6min</span>
+<span class="leancloud-visitors-count">1182 words ~6min</span>
 </span>
       </div>
     </header>
@@ -319,23 +319,21 @@ On class method invocation, any parameters are passed in from local variable 0.
 
 <p>On instance method invocation, local variable 0 is always the reference to the instance object. (aka, <span style="font-family: 'courier new', courier;">this</span>)</p>
 
-<p>```java
-class Example3a {</p>
+<pre><code class="language-java">class Example3a {
 
-<pre><code>public static int runClassMethod(int i, long l, float f,
-    double d, Object o, byte b) {
+    public static int runClassMethod(int i, long l, float f,
+        double d, Object o, byte b) {
 
-    return 0;
-}
+        return 0;
+    }
 
-public int runInstanceMethod(char c, double d, short s,
-    boolean b) {
+    public int runInstanceMethod(char c, double d, short s,
+        boolean b) {
 
-    return 0;
+        return 0;
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <p><img src="http://yangchao.me/media/method-parameters-on-local-variables.png" alt="method-parameters-on-local-variables" /></p>
 
@@ -352,16 +350,16 @@ public int runInstanceMethod(char c, double d, short s,
 <li>tack operands from the operand stack, operate on them, and push the result onto the operand stack.</li>
 </ul>
 
-<p><code>java
-int c = a + b</code></p>
+<pre><code class="language-java">int c = a + b
+</code></pre>
 
 <p>The above source code has the instructions:</p>
 
-<p><code>java
-iload_0    // push the int in local variable 0
+<pre><code class="language-java">iload_0    // push the int in local variable 0
 iload_1    // push the int in local variable 1
 iadd       // pop two ints, add them, push result
-istore_2   // pop int, store into local variable 2</code></p>
+istore_2   // pop int, store into local variable 2
+</code></pre>
 
 <p><img src="http://yangchao.me/media/add-two-local-variables.png" alt="add-two-local-variables" /></p>
 

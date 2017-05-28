@@ -18,8 +18,7 @@
       
       <guid>http://yangchao.me/post/subquery-vs-join/</guid>
       <description>what is subquery SubQuery in SQL is a query inside another query
-java SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;)
-In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
+SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;)  In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
 non-correlated subquery In non correlated subquery, inner query doesn&amp;rsquo;t depend on outer query and can run as stand alone query.</description>
     </item>
     

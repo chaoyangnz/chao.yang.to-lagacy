@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">596 words ~3min</span>
+<span class="leancloud-visitors-count">590 words ~3min</span>
 </span>
       </div>
     </header>
@@ -239,36 +239,31 @@ class Department
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-}```
+}
+</code></pre>
 
+<h3 id="deep-copy">deep copy</h3>
 
-### deep copy
+<p>In most of time, default clone mechanism is enough for us. But in some special case, we need real deep copy.</p>
 
-In most of time, default clone mechanism is enough for us. But in some special case, we need real deep copy.
+<p>There are several method you can achieve this aim.</p>
 
-There are several method you can achieve this aim.
+<h4 id="overriding-clone-method-and-write-your-own">overriding clone() method and write your own</h4>
 
-#### overriding clone() method and write your own
-
-
-
-```java
-//Modified clone() method in Employee class
+<pre><code class="language-java">//Modified clone() method in Employee class
 @Override
 protected Object clone() throws CloneNotSupportedException {
     Employee cloned = (Employee)super.clone();
     cloned.setDepartment((Department)cloned.getDepartment().clone());
     return cloned;
-}```
+}
+</code></pre>
 
+<h4 id="in-memory-serialization">in-memory serialization</h4>
 
-#### in-memory serialization
+<p>This method is for Serializable object.</p>
 
-This method is for Serializable object.
-
-
-```java
-public static  T cloneThroughSerialize(T t) throws Exception {
+<pre><code class="language-java">public static  T cloneThroughSerialize(T t) throws Exception {
    ByteArrayOutputStream bos = new ByteArrayOutputStream();
    serializeToOutputStream(t, bos);
    byte[] bytes = bos.toByteArray();
@@ -305,9 +300,9 @@ cloned = org.apache.commons.lang. SerializationUtils.clone(someObject);
 <div class="bar">
 <div class="toolbar"></p>
 
-<p><code>java
-Cloner cloner=new Cloner();
-Object cloned = cloner.deepClone(someObject);</code></p>
+<pre><code class="language-java">Cloner cloner=new Cloner();
+Object cloned = cloner.deepClone(someObject);
+</code></pre>
 
 <p><strong>Option 2 – JSON Cloning</strong></p>
 
@@ -438,8 +433,11 @@ Object cloned = cloner.deepClone(someObject);</code></p>
 <ul>
 <li>
 <ul>
-<li><a href="#shadow-copy">shadow copy</a>
+<li><a href="#shadow-copy">shadow copy</a></li>
+<li><a href="#deep-copy">deep copy</a>
 <ul>
+<li><a href="#overriding-clone-method-and-write-your-own">overriding clone() method and write your own</a></li>
+<li><a href="#in-memory-serialization">in-memory serialization</a></li>
 <li><a href="#options-for-non-serializable-object">options for non Serializable object</a></li>
 </ul></li>
 </ul></li>

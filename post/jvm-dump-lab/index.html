@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1424 words ~7min</span>
+<span class="leancloud-visitors-count">1429 words ~7min</span>
 </span>
       </div>
     </header>
@@ -179,11 +179,9 @@
 <li>Some useful information about the system that the JVM runs under.</li>
 </ul>
 
-<p>```java</p>
+<pre><code class="language-java"># kill list
 
-<h1 id="kill-list">kill list</h1>
-
-<p>1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP
+1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP
 6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1
 11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM
 16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
@@ -195,7 +193,8 @@
 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7
 58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2
-63) SIGRTMAX-1 64) SIGRTMAX```</p>
+63) SIGRTMAX-1 64) SIGRTMAX
+</code></pre>
 
 <p>&nbsp;</p>
 
@@ -226,62 +225,56 @@ At Rally we run Sun’s VM so usually work with HPROF dumps. The internals vary 
 <li>by default enabled on WebSphere</li>
 </ul>
 
-<p>```java
-#java -Xdump:what</p>
+<pre><code class="language-java">#java -Xdump:what
 
-<h2 id="registered-dump-agents">Registered dump agents</h2>
-
-<p>dumpFn=doSystemDump
+Registered dump agents
+----------------------
+dumpFn=doSystemDump
 events=gpf+abort
 filter=
 label=//core.%Y%m%d.%H%M%S.%pid.%seq.dmp
 range=1..0
 priority=999
-request=serial</p>
-
-<h2 id="opts">opts=</h2>
-
-<p>dumpFn=doSnapDump
+request=serial
+opts=
+----------------------
+dumpFn=doSnapDump
 events=gpf+abort
 filter=
 label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc
 range=1..0
 priority=500
-request=serial</p>
-
-<h2 id="opts-1">opts=</h2>
-
-<p>dumpFn=doSnapDump
+request=serial
+opts=
+----------------------
+dumpFn=doSnapDump
 events=systhrow
 filter=java/lang/OutOfMemoryError
 label=//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc
 range=1..4
 priority=500
-request=serial</p>
-
-<h2 id="opts-2">opts=</h2>
-
-<p>dumpFn=doHeapDump
+request=serial
+opts=
+----------------------
+dumpFn=doHeapDump
 events=systhrow
 filter=java/lang/OutOfMemoryError
 label=//heapdump.%Y%m%d.%H%M%S.%pid.%seq.phd
 range=1..4
 priority=40
-request=exclusive+compact+prepwalk</p>
-
-<h2 id="opts-phd">opts=PHD</h2>
-
-<p>dumpFn=doJavaDump
+request=exclusive+compact+prepwalk
+opts=PHD
+----------------------
+dumpFn=doJavaDump
 events=gpf+user+abort
 filter=
 label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt
 range=1..0
 priority=10
-request=exclusive</p>
-
-<h2 id="opts-3">opts=</h2>
-
-<p>dumpFn=doJavaDump
+request=exclusive
+opts=
+----------------------
+dumpFn=doJavaDump
 events=systhrow
 filter=java/lang/OutOfMemoryError
 label=//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt
@@ -289,7 +282,8 @@ range=1..4
 priority=10
 request=exclusive
 opts=
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-```</p>
+----------------------
+</code></pre>
 
 <p>Or you can run the jmap tool:</p>
 
@@ -501,27 +495,7 @@ opts=
 <li><a href="#ibm-dump-files">IBM dump files</a>
 <ul>
 <li><a href="#what-is-java-core-or-javadump-or-thread-dump"><strong>What is java core (or javadump or thread dump)?</strong></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#kill-list">kill list</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#what-is-a-heap-dump"><strong>What is a heap dump?</strong></a></li>
-</ul></li>
-</ul></li>
-<li><a href="#registered-dump-agents">Registered dump agents</a></li>
-<li><a href="#opts">opts=</a></li>
-<li><a href="#opts-1">opts=</a></li>
-<li><a href="#opts-2">opts=</a></li>
-<li><a href="#opts-phd">opts=PHD</a></li>
-<li><a href="#opts-3">opts=</a>
-<ul>
-<li>
-<ul>
 <li><a href="#what-is-system-core-dump-and-snap-trace">What is system core dump and snap trace?</a></li>
 </ul></li>
 <li><a href="#analyzer-tools">Analyzer Tools</a>

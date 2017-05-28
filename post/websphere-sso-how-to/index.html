@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">6223 words ~13min</span>
+<span class="leancloud-visitors-count">6220 words ~13min</span>
 </span>
       </div>
     </header>
@@ -317,8 +317,7 @@
 
 <p>设置应用端的web.xml，使得业务平台可以通过SSO访问资源，下例中红色部分就配置了允许访问的资源。</p>
 
-<p><code>java
-&amp;lt;security-constraint&amp;gt;
+<pre><code class="language-java">&amp;lt;security-constraint&amp;gt;
     &amp;lt;web-resource-collection&amp;gt;
         &amp;lt;web-resource-name&amp;gt;sso_GUIP&amp;lt;/web-resource-name&amp;gt;
         &amp;lt;url-pattern&amp;gt;/abf_comm/default4portal.jsp&amp;lt;/url-pattern&amp;gt;
@@ -333,7 +332,8 @@
     &amp;lt;user-data-constraint&amp;gt;
         &amp;lt;transport-guarantee&amp;gt;NONE&amp;lt;/transport-guarantee&amp;gt;
     &amp;lt;/user-data-constraint&amp;gt;
-&amp;lt;/security-constraint&amp;gt;</code></p>
+&amp;lt;/security-constraint&amp;gt;
+</code></pre>
 
 <h5 id="业务平台端环境配置"><strong>业务平台端环境配置</strong></h5>
 
@@ -341,8 +341,7 @@
 
 <p>需要在web.xml安全认证配置部分中增加用户登录的URL，红色部分需要根据应用修改，修改为允许访问的资源</p>
 
-<p><code>java
-&amp;lt;security-constraint&amp;gt;
+<pre><code class="language-java">&amp;lt;security-constraint&amp;gt;
     &amp;lt;web-resource-collection&amp;gt;
         &amp;lt;web-resource-name&amp;gt;sso_EUIF&amp;lt;/web-resource-name&amp;gt;
         &amp;lt;url-pattern&amp;gt;/abf_comm/default4portal.jsp&amp;lt;/url-pattern&amp;gt;
@@ -363,14 +362,15 @@
 &amp;lt;/login-config&amp;gt;
 &amp;lt;security-role&amp;gt;
     &amp;lt;role-name&amp;gt;AllAuthUser&amp;lt;/role-name&amp;gt;
-&amp;lt;/security-role&amp;gt;</code></p>
+&amp;lt;/security-role&amp;gt;
+</code></pre>
 
 <p>修改welcome页面配置，这页面是登陆成功后系统指向的页面。</p>
 
-<p><code>java
-&amp;lt;welcome-file-list&amp;gt;
+<pre><code class="language-java">&amp;lt;welcome-file-list&amp;gt;
     &amp;lt;welcome-file&amp;gt;/abf_comm/default4portal.jsp&amp;lt;/welcome-file&amp;gt;
-&amp;lt;/welcome-file-list&amp;gt;</code></p>
+&amp;lt;/welcome-file-list&amp;gt;
+</code></pre>
 
 <p><strong>重启应用服务器</strong></p>
 

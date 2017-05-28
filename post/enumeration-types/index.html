@@ -163,7 +163,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">456 words ~3min</span>
+<span class="leancloud-visitors-count">453 words ~3min</span>
 </span>
       </div>
     </header>
@@ -190,16 +190,14 @@ if it were any other class.</p>
 
 <p>The following is the equivalent one like compiler generates:</p>
 
-<p>```java
-class MetaColor extends Enum&lt;MetaColor&gt; {
-    public final static MetaColor RED = new MetaColor(&ldquo;RED&rdquo;, 0);
-    public final static MetaColor GREEN= new MetaColor(&ldquo;GREEN&rdquo;, 1);
-    public final static MetaColor BLUE= new MetaColor(&ldquo;BLUE&rdquo;, 2);</p>
+<pre><code class="language-java">class MetaColor extends Enum&amp;lt;MetaColor&amp;gt; {
+    public final static MetaColor RED = new MetaColor(&quot;RED&quot;, 0);
+    public final static MetaColor GREEN= new MetaColor(&quot;GREEN&quot;, 1);
+    public final static MetaColor BLUE= new MetaColor(&quot;BLUE&quot;, 2);
 
-<pre><code>private MetaColor() {}
+    private MetaColor() {}
+}
 </code></pre>
-
-<p>}```</p>
 
 <p>But if you really extend Enum class, the compiler will complain and the code cannot be compiled.</p>
 
@@ -209,25 +207,23 @@ class MetaColor extends Enum&lt;MetaColor&gt; {
 
 <p>Of course, you can associate the enum instance with an inherit value or something.</p>
 
-<p>```java
-enum MetaColor {
-    RED(1), YELLOW(2), BLUE(3);</p>
+<pre><code class="language-java">enum MetaColor {
+    RED(1), YELLOW(2), BLUE(3);
 
-<pre><code>private int value;
+    private int value;
 
-// public MetaColor(int value) { // not permit
-// protected MetaColor(int value) { // not permit
-// private MetaColor(int value) { // permit
-MetaColor(int value) { //permit
-    this.value = value;
-}
+    // public MetaColor(int value) { // not permit
+    // protected MetaColor(int value) { // not permit
+    // private MetaColor(int value) { // permit
+    MetaColor(int value) { //permit
+        this.value = value;
+    }
 
-public int value() {
-   return this.value;
+    public int value() {
+       return this.value;
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <h3 id="some-constraints">some constraints</h3>
 
@@ -237,39 +233,37 @@ public int value() {
 
 <h3 id="go-further-abstract-enum">go further: abstract enum</h3>
 
-<p>```java
-public enum Season {
-    WINTER(&ldquo;WT&rdquo;) {
+<pre><code class="language-java">public enum Season {
+    WINTER(&quot;WT&quot;) {
         @Override
         public void execute( ) {
-            System.out.println(&ldquo;Winter&hellip;&rdquo;);
+            System.out.println(&quot;Winter...&quot;);
         }
     },
-    SPRING(&ldquo;SP&rdquo;) {
+    SPRING(&quot;SP&quot;) {
         @Override
         public void execute( ) {
-            System.out.println(&ldquo;Spring&hellip;.&rdquo;);
+            System.out.println(&quot;Spring....&quot;);
         }
-    },</p>
+    },
 
-<pre><code>SUMMER(&quot;SM&quot;) {
-    @Override
-    public void execute( ) {
-        System.out.println(&quot;Summer...&quot;);
-    }
-},
-FALL(&quot;FL&quot;) {
-    @Override
-    public void execute( ) {
-        System.out.println(&quot;Fall...&quot;);
-    }
-};
+    SUMMER(&quot;SM&quot;) {
+        @Override
+        public void execute( ) {
+            System.out.println(&quot;Summer...&quot;);
+        }
+    },
+    FALL(&quot;FL&quot;) {
+        @Override
+        public void execute( ) {
+            System.out.println(&quot;Fall...&quot;);
+        }
+    };
 
-//template method
-public abstract void execute();
+    //template method
+    public abstract void execute();
+}
 </code></pre>
-
-<p>}```</p>
 
 <p>&nbsp;</p>
 

@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">229 words ~2min</span>
+<span class="leancloud-visitors-count">227 words ~2min</span>
 </span>
       </div>
     </header>
@@ -177,25 +177,25 @@
 
 <p>In JavaScript you create an instance of a function like this:</p>
 
-<p>```java
-function Foo() {
+<pre><code class="language-java">function Foo() {
   this.kind = ‘foo’
-}</p>
+}
 
-<p>var foo = new Foo();
-foo.kind //=&gt; ‘foo’```</p>
+var foo = new Foo(); 
+foo.kind //=&amp;gt; ‘foo’
+</code></pre>
 
 <p>Behind this scenes it is like doing something like this:</p>
 
-<p>```java
-function Foo() {
+<pre><code class="language-java">function Foo() {
   var this = {}; // this is not valid, just for illustration
-  this.<strong>proto</strong> = Foo.prototype;</p>
+  this.__proto__ = Foo.prototype;
 
-<p>this.kind = ‘foo’</p>
+  this.kind = ‘foo’
 
-<p>return this;
-}```</p>
+  return this;
+}
+</code></pre>
 
 <p>But keep in mind that the implicit ‘<strong>this</strong>’ is only assigned to a new object when using ‘<strong>new</strong>’. If you forget ‘<strong>new</strong>’ keyword then ‘<strong>this</strong>’ will be the global object.</p>
 

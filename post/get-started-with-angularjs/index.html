@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">436 words ~3min</span>
+<span class="leancloud-visitors-count">429 words ~3min</span>
 </span>
       </div>
     </header>
@@ -222,8 +222,8 @@ Elements: &lt;<span style="color: #000000; background-color: #ffff00;">ng-xx</sp
 <li>Value recipe</li>
 </ul>
 
-<p><code>java
-myApp.value('clientId', 'a12345654321x');</code></p>
+<pre><code class="language-java">myApp.value('clientId', 'a12345654321x');
+</code></pre>
 
 <p>&nbsp;</p>
 
@@ -231,64 +231,62 @@ myApp.value('clientId', 'a12345654321x');</code></p>
 <li>Constant recipe</li>
 </ul>
 
-<p><code>java
-myApp.constant('planetName', 'Greasy Giant');</code></p>
+<pre><code class="language-java">myApp.constant('planetName', 'Greasy Giant');
+</code></pre>
 
 <ul>
 <li>Factory recipe</li>
 </ul>
 
-<p><code>java
-myApp.factory('clientId', function clientIdFactory() {
+<pre><code class="language-java">myApp.factory('clientId', function clientIdFactory() {
   return 'a12345654321x';
-});</code></p>
+});
+</code></pre>
 
 <ul>
 <li>Service recipe</li>
 </ul>
 
-<p>```java
-function UnicornLauncher(apiToken) {</p>
+<pre><code class="language-java">function UnicornLauncher(apiToken) {
 
-<p>this.launchedCount = 0;
+  this.launchedCount = 0;
   this.launch = function() {
     // Make a request to the remote API and include the apiToken
-    &hellip;
+    ...
     this.launchedCount++;
   }
-}</p>
+}
 
-<p>//myApp.factory(&lsquo;unicornLauncher&rsquo;, [&ldquo;apiToken&rdquo;, function(apiToken) {
+//myApp.factory('unicornLauncher', [&quot;apiToken&quot;, function(apiToken) {
 //  return new UnicornLauncher(apiToken);
-//}]);</p>
+//}]);
 
-<p>myApp.service(&lsquo;unicornLauncher&rsquo;, [&ldquo;apiToken&rdquo;, UnicornLauncher]);```</p>
+myApp.service('unicornLauncher', [&quot;apiToken&quot;, UnicornLauncher]);
+</code></pre>
 
 <ul>
 <li>provider recipe</li>
 </ul>
 
-<p>```java
-myApp.provider(&lsquo;unicornLauncher&rsquo;, function UnicornLauncherProvider() {
-  var useTinfoilShielding = false;</p>
+<pre><code class="language-java">myApp.provider('unicornLauncher', function UnicornLauncherProvider() {
+  var useTinfoilShielding = false;
 
-<p>this.useTinfoilShielding = function(value) {
+  this.useTinfoilShielding = function(value) {
     useTinfoilShielding = !!value;
-  };</p>
+  };
 
-<p>this.$get = [&ldquo;apiToken&rdquo;, function unicornLauncherFactory(apiToken) {</p>
+  this.$get = [&quot;apiToken&quot;, function unicornLauncherFactory(apiToken) {
 
-<pre><code>// let's assume that the UnicornLauncher constructor was also changed to
-// accept and use the useTinfoilShielding argument
-return new UnicornLauncher(apiToken, useTinfoilShielding);
-</code></pre>
+    // let's assume that the UnicornLauncher constructor was also changed to
+    // accept and use the useTinfoilShielding argument
+    return new UnicornLauncher(apiToken, useTinfoilShielding);
+  }];
+});
 
-<p>}];
-});</p>
-
-<p>myApp.config([&ldquo;unicornLauncherProvider&rdquo;, function(unicornLauncherProvider) {
+myApp.config([&quot;unicornLauncherProvider&quot;, function(unicornLauncherProvider) {
   unicornLauncherProvider.useTinfoilShielding(true);
-}]);```</p>
+}]);
+</code></pre>
 
 <table class="table table-bordered code-table ng-scope" border="1">
 <thead>
@@ -351,22 +349,22 @@ return new UnicornLauncher(apiToken, useTinfoilShielding);
 
 <p>Since the directives are registered via the Factory recipe, we can use the same syntax as with factories.</p>
 
-<p><code>java
-myApp.directive('myPlanet', ['planetName', function myPlanetDirectiveFactory(planetName) {
+<pre><code class="language-java">myApp.directive('myPlanet', ['planetName', function myPlanetDirectiveFactory(planetName) {
   // directive definition object
   return {
     restrict: 'E',
     scope: {},
     link: function($scope, $element) { $element.text('Planet: ' + planetName); }
   }
-}]);</code></p>
+}]);
+</code></pre>
 
 <p>Using Factory recipes, you can also define Angular&rsquo;s filters and animations, but the controllers are a bit special.</p>
 
-<p><code>java
-myApp.controller('DemoController', ['clientId', function DemoController(clientId) {
+<pre><code class="language-java">myApp.controller('DemoController', ['clientId', function DemoController(clientId) {
   this.clientId = clientId;
-}]);</code></p>
+}]);
+</code></pre>
 
 <p>Unlike services, controllers are not singletons.</p>
 

@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">468 words ~3min</span>
+<span class="leancloud-visitors-count">463 words ~3min</span>
 </span>
       </div>
     </header>
@@ -169,74 +169,68 @@
 
 <p>Singleton pattern is to ensure the unique instance of some class in a JVM.</p>
 
-<p>```java
-class LazySingleton {
-    private static LazySingleton instance;</p>
+<pre><code class="language-java">class LazySingleton {
+    private static LazySingleton instance;
 
-<pre><code>private LazySingleton() {
+    private LazySingleton() {
 
-}
-
-public static LazySingleton getInstance() {
-    if (instance == null) {
-        instance = new LazySingleton();
     }
 
-    return instance;
+    public static LazySingleton getInstance() {
+        if (instance == null) {
+            instance = new LazySingleton();
+        }
+
+        return instance;
+    }
+
+    public void doSomething() {
+        System.out.println(&quot;doSomething(): Singleton does something!&quot;);
+    }
 }
 
-public void doSomething() {
-    System.out.println(&quot;doSomething(): Singleton does something!&quot;);
-}
-</code></pre>
-
-<p>}</p>
-
-<p>// DCL for thread safe
+// DCL for thread safe
 class DoubleCheckedLockingLazySingleton {
-    private static DoubleCheckedLockingLazySingleton instance;</p>
+    private static DoubleCheckedLockingLazySingleton instance;
 
-<pre><code>private DoubleCheckedLockingLazySingleton() {
-    System.out.println(&quot;Singleton(): Initializing Instance&quot;);
-}
+    private DoubleCheckedLockingLazySingleton() {
+        System.out.println(&quot;Singleton(): Initializing Instance&quot;);
+    }
 
-public static DoubleCheckedLockingLazySingleton getInstance() {
-    if (instance == null) {
-        synchronized (DoubleCheckedLockingLazySingleton.class) {
-            if (instance == null) {
-                System.out.println(&quot;getInstance(): First time getInstance was invoked!&quot;);
-                instance = new DoubleCheckedLockingLazySingleton();
+    public static DoubleCheckedLockingLazySingleton getInstance() {
+        if (instance == null) {
+            synchronized (DoubleCheckedLockingLazySingleton.class) {
+                if (instance == null) {
+                    System.out.println(&quot;getInstance(): First time getInstance was invoked!&quot;);
+                    instance = new DoubleCheckedLockingLazySingleton();
+                }
             }
         }
+
+        return instance;
     }
 
-    return instance;
+    public void doSomething() {
+        System.out.println(&quot;doSomething(): Singleton does something!&quot;);
+    }
 }
 
-public void doSomething() {
-    System.out.println(&quot;doSomething(): Singleton does something!&quot;);
-}
-</code></pre>
+class EagerSingleton {
+    private final static EagerSingleton instance = new EagerSingleton();
 
-<p>}</p>
+    private EagerSingleton() {
+        System.out.println(&quot;Singleton(): Initializing Instance&quot;);
+    }
 
-<p>class EagerSingleton {
-    private final static EagerSingleton instance = new EagerSingleton();</p>
+    public static EagerSingleton getInstance() {
+        return instance;
+    }
 
-<pre><code>private EagerSingleton() {
-    System.out.println(&quot;Singleton(): Initializing Instance&quot;);
-}
-
-public static EagerSingleton getInstance() {
-    return instance;
-}
-
-public void doSomething() {
-    System.out.println(&quot;doSomething(): Singleton does something!&quot;);
+    public void doSomething() {
+        System.out.println(&quot;doSomething(): Singleton does something!&quot;);
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <p>You can see there is a DCL(Double-checked-Locking) implementation for lazy initialization. But this clever-seeming may not work. Please refer to <a href="http://www.javaworld.com/article/2074979/java-concurrency/double-checked-locking--clever--but-broken.html">Double-checked locking: Clever, but broken</a></p>
 
@@ -248,97 +242,87 @@ public void doSomething() {
 
 <h4 id="factory-implementation-uml-class-diagram-https-www-oodesign-com-media-stories-factory-20implementation-gif"><img src="https://www.oodesign.com/media/stories/factory%20implementation.gif" alt="Factory Implementation - UML Class Diagram" /></h4>
 
-<p>```java
-interface Product {}</p>
+<pre><code class="language-java">interface Product {}
 
-<p>class ConcreteProduct implements Product {
-}</p>
+class ConcreteProduct implements Product {
+}
 
-<p>class SimpleFactory {</p>
+class SimpleFactory {
 
-<pre><code>public static Product createProduct() {
-    Product product = new ConcreteProduct();
-    // do other tasks for initialization
-    return product;
+    public static Product createProduct() {
+        Product product = new ConcreteProduct();
+        // do other tasks for initialization
+        return product;
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <h4 id="conditional-switch-factory">conditional switch factory</h4>
 
-<p>```java
-class AnotherConcreteProduct implements Product {}</p>
+<pre><code class="language-java">class AnotherConcreteProduct implements Product {}
 
-<p>class ConditionalFactory {
+class ConditionalFactory {
     public static Product createProduct(String productId) {
         Product product = null;
-        if (&ldquo;concreteProduct&rdquo;.equals(productId)) {
+        if (&quot;concreteProduct&quot;.equals(productId)) {
             product = new ConcreteProduct();
         }
-        if (&ldquo;anotherConcreteProduct&rdquo;.equals(productId)) {
+        if (&quot;anotherConcreteProduct&quot;.equals(productId)) {
             product = new AnotherConcreteProduct();
-        }</p>
+        }
 
-<pre><code>    // do other tasks for initialization
-    return product;
+        // do other tasks for initialization
+        return product;
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <h4 id="class-registry-factory">class registry factory</h4>
 
-<p>```java
-class ProductClassRegistryFactory {
-    private HashMap&lt;String, Class&lt;Product&gt;&gt; registry = new HashMap();</p>
+<pre><code class="language-java">class ProductClassRegistryFactory {
+    private HashMap&amp;lt;String, Class&amp;lt;Product&amp;gt;&amp;gt; registry = new HashMap();
 
-<pre><code>public void registerProduct(String productID, Class productClass) {
-    registry.put(productID, productClass);
-}
+    public void registerProduct(String productID, Class productClass) {
+        registry.put(productID, productClass);
+    }
 
-public Product createProduct(String productID) throws Exception {
-    Class clazz = (Class) registry.get(productID);
-    Constructor productConstructor = clazz.getDeclaredConstructor(new Class[]{String.class});
-    return (Product) productConstructor.newInstance(new Object[]{});
+    public Product createProduct(String productID) throws Exception {
+        Class clazz = (Class) registry.get(productID);
+        Constructor productConstructor = clazz.getDeclaredConstructor(new Class[]{String.class});
+        return (Product) productConstructor.newInstance(new Object[]{});
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <h4 id="instance-registry-factory">instance registry factory</h4>
 
-<p>```java
-// For registeration on its own
+<pre><code class="language-java">// For registeration on its own
 abstract class SelfRegisterableProduct implements Product {
     public abstract Product createProduct();
-}</p>
+}
 
-<p>class OneProduct implements Product {
+class OneProduct implements Product {
     static {
-        new ProductRegistryFactory().registerProduct(&ldquo;ID1&rdquo;, new OneProduct());
-    }</p>
+        new ProductRegistryFactory().registerProduct(&quot;ID1&quot;, new OneProduct());
+    }
 
-<pre><code>public OneProduct createProduct() {
-    return new OneProduct();
+    public OneProduct createProduct() {
+        return new OneProduct();
+    }
+}
+
+class ProductRegistryFactory {
+    private HashMap&amp;lt;String, Product&amp;gt; registry = new HashMap();
+
+    public void registerProduct(String productID, Product p) {
+        registry.put(productID, p);
+    }
+
+    public Product createProduct(String productID) {
+        return ((SelfRegisterableProduct) registry.get(productID)).createProduct();
+    }
 }
 </code></pre>
-
-<p>}</p>
-
-<p>class ProductRegistryFactory {
-    private HashMap&lt;String, Product&gt; registry = new HashMap();</p>
-
-<pre><code>public void registerProduct(String productID, Product p) {
-    registry.put(productID, p);
-}
-
-public Product createProduct(String productID) {
-    return ((SelfRegisterableProduct) registry.get(productID)).createProduct();
-}
-</code></pre>
-
-<p>}```</p>
 
 <h3 id="factory-method">Factory Method</h3>
 

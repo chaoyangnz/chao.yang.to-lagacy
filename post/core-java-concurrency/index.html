@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">4054 words ~9min</span>
+<span class="leancloud-visitors-count">4034 words ~9min</span>
 </span>
       </div>
     </header>
@@ -203,7 +203,8 @@ public class Counter {
             lock.unlock();
         }
     }
-}```
+}
+```
 
 </div>
 
@@ -233,7 +234,8 @@ public class statistic {
             lock.readLock().unlock();
         }
     }
-}```
+}
+```
 
 </div>
 
@@ -256,7 +258,8 @@ public class Processor implments Runnable {
             //.. do processing
         }
     }
-}```
+}
+```
 
 </div>
 <div>Hot Tip: Marking an array as volatile does not make entries in the array volatile! In this case volatile applies only to the array reference itself. Instead, use a class like AtomicIntegerArray to create an array with volatile-like entries.</div>
@@ -273,7 +276,8 @@ public class Counter {
     public int next() {
         return value.incrementAndGet();
     }
-}```
+}
+```
 
 Atomic classes are provided for booleans, integers, longs and object references as well as arrays of integers, longs, and object references.
 
@@ -302,7 +306,8 @@ public class TransactionManager {
         }
         return current;
     }
-}```
+}
+```
 
 </div>
 
@@ -384,7 +389,8 @@ t.setUncaughtExceptionHandler(new Therad.UncaughtExceptionHandler() {
         // get Logger and log uncaught exception
     }
 });
-t.start();```
+t.start();
+```
 
 </div>
 
@@ -428,7 +434,8 @@ public class Latch {
             lock.notifyAll();
         }
     }
-}```
+}
+```
 
 Some important things to note about this code:
 
@@ -466,128 +473,133 @@ Some important things to note about this code:
             lock.unlock();
         }
     }
-}```
+}
+</code></pre>
 
-&lt;/div&gt;
+<p></div></p>
 
-#### Coordination classes
+<h4 id="coordination-classes">Coordination classes</h4>
 
-&lt;div&gt;The java.util.concurrent package contains several classes pre-built for common forms of multi-thread communication. These coordination classes cover most common scenarios where wait/notify and Condition might be used and are strongly perferred for their safety and ease of use.
+<div>The java.util.concurrent package contains several classes pre-built for common forms of multi-thread communication. These coordination classes cover most common scenarios where wait/notify and Condition might be used and are strongly perferred for their safety and ease of use.
 **CyclicBarrier**
-The CyclicBarrier is initialized with a participant count. Participants call await() and block until the count is reached, at which point an optional barrier task is executed by the last arriving thread, and all threads are released. The barrier can be reused indefiitely. Used to coordinate the start and stop of groups of threads.&lt;/div&gt;
-&lt;div&gt;字面意思循环挡板，通过它可以实现让一组线程等待至某个状态之后再全部同时执行。称为循环是因为当所有等待线程都被释放以后，CyclicBarrier可以被重用
+The CyclicBarrier is initialized with a participant count. Participants call await() and block until the count is reached, at which point an optional barrier task is executed by the last arriving thread, and all threads are released. The barrier can be reused indefiitely. Used to coordinate the start and stop of groups of threads.</div>
+<div>字面意思循环挡板，通过它可以实现让一组线程等待至某个状态之后再全部同时执行。称为循环是因为当所有等待线程都被释放以后，CyclicBarrier可以被重用
 Allows N-1 treads to wait on await() method until N-th thread calls await() method and then they resume their execution.
-&lt;div class=&quot;separator&quot;&gt;![CyclicBarrier](/media/CyclicBarrier.png)&lt;/div&gt;
+<div class="separator">![CyclicBarrier](/media/CyclicBarrier.png)</div>
 As this illustration shows there is a barrier for 3 parties. When T1 and T2 come they wait. When T3 comes an optional TA handler is called and (after it completes?) T1,2,3 resume their work. You can reuse CyclicBarrier many times by calling reset() method.
 
 And the code example:
-&lt;div class=&quot;dp-highlighter&quot;&gt;
-&lt;div class=&quot;bar&quot;&gt;
-&lt;div class=&quot;tools&quot;&gt;
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools">
 
 
 ```java
 final CyclicBarrier cb = new CyclicBarrier(N);
-for (int i = 0; i &amp;lt; N; i++) {
+for (int i = 0; i &lt; N; i++) {
     final int idx = i;
     new Thread(new Runnable() {
         public void run() {
-            System.out.println(&quot;T&quot; + idx + &quot;: await&quot;);
+            System.out.println("T" + idx + ": await");
             try {
                 cb.await();
             } catch (InterruptedException ex) {
-                System.out.println(&quot;T&quot; + idx + &quot;: interrupted&quot;);
+                System.out.println("T" + idx + ": interrupted");
                 return;
             } catch (BrokenBarrierException ex) {
-                System.out.println(&quot;T&quot; + idx + &quot;: broken&quot;);
+                System.out.println("T" + idx + ": broken");
                 return;
             }
-            System.out.println(&quot;T&quot; + idx + &quot;: continue&quot;);
+            System.out.println("T" + idx + ": continue");
         }
     }).start();
 }
 
-</code></pre>
+```
 
-<p></div>
 </div>
 </div>
-Console output:</p>
+</div>
+Console output:
 
-<pre><code class="language-java">T0: await
+
+```java
+T0: await
 T1: await
 T2: await
 T2: continue
 T1: continue
 T0: continue
-</code></pre>
+```
 
-<p>Lines can &ldquo;jump&rdquo; a little bit because threads in these examples print out information to console concurrently. So you may have slightly different results.
-<strong>CountDownLatch</strong>
-The CountDownLatch is initialized with a count. Threads may call await() to wait for the count to reach 0. Other threads (or same) may call countDown() to reduce count. Not reusable once the count has reached 0. Used to trigger an unknown set of threads once some number of actions has occurred.</p>
+Lines can "jump" a little bit because threads in these examples print out information to console concurrently. So you may have slightly different results.
+**CountDownLatch**
+The CountDownLatch is initialized with a count. Threads may call await() to wait for the count to reach 0\. Other threads (or same) may call countDown() to reduce count. Not reusable once the count has reached 0\. Used to trigger an unknown set of threads once some number of actions has occurred.
 
-<p></div>
-<div></p>
+</div>
+<div>
 
-<p>倒计时闩, 利用它可以实现类似计数器的功能。比如有一个任务A，它要等待其他4个任务执行完毕之后才能执行，此时就可以利用CountDownLatch来实现这种功能了</p>
+倒计时闩, 利用它可以实现类似计数器的功能。比如有一个任务A，它要等待其他4个任务执行完毕之后才能执行，此时就可以利用CountDownLatch来实现这种功能了
 
-<p>Works like a counter – allows one or more threads to wait on await() method for another N threads to callcountDown() method N times (total number of calls should be N).
-<div class="separator"><img src="http://yangchao.me/media/CountdownLatch.png" alt="CountdownLatch" /></div>
-As the illustration shows only T<span class="Apple-style-span">A</span> is awaiting. T<span class="Apple-style-span">1,2,3</span> call <span class="Apple-style-span">countDown()</span> and proceed their execution. When T<span class="Apple-style-span">3</span> calls<span class="Apple-style-span">countDown(),</span> T<span class="Apple-style-span">A</span> gets unlocked and can resume its work.</p>
+Works like a counter – allows one or more threads to wait on await() method for another N threads to callcountDown() method N times (total number of calls should be N).
+<div class="separator">![CountdownLatch](/media/CountdownLatch.png)</div>
+As the illustration shows only T<span class="Apple-style-span">A</span> is awaiting. T<span class="Apple-style-span">1,2,3</span> call <span class="Apple-style-span">countDown()</span> and proceed their execution. When T<span class="Apple-style-span">3</span> calls<span class="Apple-style-span">countDown(),</span> T<span class="Apple-style-span">A</span> gets unlocked and can resume its work.
 
-<p>“HelloWorld app” for CountdownLatch:</p>
+“HelloWorld app” for CountdownLatch:
 
-<pre><code class="language-java">final CountDownLatch cdl = new CountDownLatch(N);
+
+```java
+final CountDownLatch cdl = new CountDownLatch(N);
         new Thread(new Runnable() {
             public void run() {
-                System.out.println(&quot;awaiting...&quot;);
+                System.out.println("awaiting...");
                 try {
                     cdl.await();
                 } catch (InterruptedException ex) {
-                    System.out.println(&quot;await has been iterrupted&quot;);
+                    System.out.println("await has been iterrupted");
                     return;
                 }
-                System.out.println(&quot;ready&quot;);
+                System.out.println("ready");
             }
         }).start();
 
-        for (int i = 0; i &amp;lt; N; i++) {
+        for (int i = 0; i &lt; N; i++) {
             final int idx = i;
             new Thread(new Runnable() {
                 public void run() {
-                    System.out.println(&quot;T&quot; + idx + &quot;:countDown&quot;);
+                    System.out.println("T" + idx + ":countDown");
                     cdl.countDown();
-                    System.out.println(&quot;T&quot; + idx + &quot;:continue&quot;);
+                    System.out.println("T" + idx + ":continue");
                 }
             }).start();
         }
 
-</code></pre>
+```
 
-<p>Console output:
-<pre>awaiting&hellip;
+Console output:
+<pre>awaiting...
 T1:countDown
 T0:countDown
 T0:continue
 T1:continue
 T2:countDown
 T2:continue
-ready</p>
+ready
+```
 
-<pre><code>
 It is different from CyclicBarrier:
 1) it cannot be reused, used only one time
-2) it does not block these N threads when they call countDown() method. Only thread on &lt;span class=&quot;Apple-style-span&quot;&gt;await()&lt;/span&gt; method waits.
+2) it does not block these N threads when they call countDown() method. Only thread on <span class="Apple-style-span">await()</span> method waits.
 
 **Semaphore**
 A Semaphore manages a set of “permits” that can be checked out with acquire() which will block until one is available. Threads call release() to return the permit. A semaphore with one permit is equivalent to a mutual exclusion block.
 
-&lt;/div&gt;
-&lt;div&gt;
+</div>
+<div>
 
 Maintains N permits which is shared between M threads. Each thread can acquire or release permits. If there are not enough permits thread blocks until other threads release necessary amount of permits.
-&lt;div class=&quot;separator&quot;&gt;![Semaphore](/media/Semaphore.png)&lt;/div&gt;
-Let's see what is happening on the illustration above. There are 2 permits and 4 threads. Each thread acquires/releases only 1 permit. T&lt;span class=&quot;Apple-style-span&quot;&gt;1&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;2&lt;/span&gt; do this and proceed their execution without being blocked. T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt;block and wait for permits because there are no any permits available. T&lt;span class=&quot;Apple-style-span&quot;&gt;2&lt;/span&gt; releases one permit and T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt; proceeds its calculations&lt;span class=&quot;Apple-style-span&quot;&gt; (T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; is also might be chosen?)&lt;/span&gt;. Next T&lt;span class=&quot;Apple-style-span&quot;&gt;4&lt;/span&gt; releases its permit and T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; resumes. An finally T&lt;span class=&quot;Apple-style-span&quot;&gt;1&lt;/span&gt; and T&lt;span class=&quot;Apple-style-span&quot;&gt;3&lt;/span&gt; release their permits.
+<div class="separator">![Semaphore](/media/Semaphore.png)</div>
+Let's see what is happening on the illustration above. There are 2 permits and 4 threads. Each thread acquires/releases only 1 permit. T<span class="Apple-style-span">1</span> and T<span class="Apple-style-span">2</span> do this and proceed their execution without being blocked. T<span class="Apple-style-span">3</span> and T<span class="Apple-style-span">4</span>block and wait for permits because there are no any permits available. T<span class="Apple-style-span">2</span> releases one permit and T<span class="Apple-style-span">4</span> proceeds its calculations<span class="Apple-style-span"> (T<span class="Apple-style-span">3</span> is also might be chosen?)</span>. Next T<span class="Apple-style-span">4</span> releases its permit and T<span class="Apple-style-span">3</span> resumes. An finally T<span class="Apple-style-span">1</span> and T<span class="Apple-style-span">3</span> release their permits.
 
 Simple example:
 
@@ -595,24 +607,24 @@ Simple example:
 ```java
 public static void main(String args[]) {
     final Semaphore sem = new Semaphore(N);
-    acquire(&quot;T1&quot;, sem);
-    acquire(&quot;T2&quot;, sem);
+    acquire("T1", sem);
+    acquire("T2", sem);
 
-    release(&quot;Ta&quot;, sem);
-    release(&quot;Tb&quot;, sem);
+    release("Ta", sem);
+    release("Tb", sem);
 }
 
 private static void acquire(final String id, final Semaphore s){
     new Thread(new Runnable() {
         public void run() {
-            System.out.println(id + &quot;: acquire&quot;);
+            System.out.println(id + ": acquire");
             try {
                 s.acquire();
             } catch (InterruptedException ex) {
-                System.out.println(id + &quot;: acquire|interrupted&quot;);
+                System.out.println(id + ": acquire|interrupted");
                 return;
             }
-            System.out.println(id + &quot;: acquire|ready&quot;);
+            System.out.println(id + ": acquire|ready");
         }
     }).start();
 }
@@ -620,16 +632,16 @@ private static void acquire(final String id, final Semaphore s){
 private static void release(final String id, final Semaphore s){
     new Thread(new Runnable() {
         public void run() {
-            System.out.println(id + &quot;: release&quot;);
+            System.out.println(id + ": release");
             s.release();
-            System.out.println(id + &quot;: release|ready&quot;);
+            System.out.println(id + ": release|ready");
         }
     }).start();
 }
 
-</code></pre>
+```
 
-<p>Console output:
+Console output:
 <pre>T2: acquire
 T2: acquire|ready
 Tb: release
@@ -637,24 +649,25 @@ T1: acquire
 Ta: release
 Ta: release|ready
 Tb: release|ready
-T1: acquire|ready```</p>
+T1: acquire|ready
+```
 
-<p><strong>Exchanger</strong>
-An Exchanger waits for threads to meet at the exchange() method and swap values atomically. This is similar to using a SynchronousQueue but data values pass in both directions.</p>
+**Exchanger**
+An Exchanger waits for threads to meet at the exchange() method and swap values atomically. This is similar to using a SynchronousQueue but data values pass in both directions.
 
-<p></div>
+</div>
 <div></div>
-<div></p>
+<div>
 
-<p>下面对上面说的三个辅助类进行一个总结：</p>
+下面对上面说的三个辅助类进行一个总结：
 
-<p>1）CountDownLatch和CyclicBarrier都能够实现线程之间的等待，只不过它们侧重点不同：
+1）CountDownLatch和CyclicBarrier都能够实现线程之间的等待，只不过它们侧重点不同：
 CountDownLatch一般用于某个线程A等待若干个其他线程执行完任务之后，它才执行；
 而CyclicBarrier一般用于一组线程互相等待至某个状态，然后这一组线程再同时执行；
 另外，CountDownLatch是不能够重用的，而CyclicBarrier是可以重用的。
-2）Semaphore其实和锁有点类似，它一般用于控制对某组资源的访问权限。</p>
+2）Semaphore其实和锁有点类似，它一般用于控制对某组资源的访问权限。
 
-<p></div></p>
+</div>
 
 <h3 id="task-execution">Task execution</h3>
 
@@ -712,7 +725,8 @@ Future&lt;Integer&gt; futureResult = executor.submit(new Callable&lt;Integer&gt;
         // long running computation that returns an integer
     }
 });
-Integer result = futureResult.get(); //block for result```
+Integer result = futureResult.get(); //block for result
+```
 
 In this example the call that submits the task to the executor will not block but return immediately. The last line will block on the get() call until the result is available.
 
@@ -894,6 +908,7 @@ The ExecutorCompletionService is the standard implementation of CompletionServi
 <li><a href="#deadlock">Deadlock</a></li>
 <li><a href="#wait-notify">wait / notify</a></li>
 <li><a href="#condition">Condition</a></li>
+<li><a href="#coordination-classes">Coordination classes</a></li>
 </ul></li>
 <li><a href="#task-execution">Task execution</a></li>
 </ul></li>

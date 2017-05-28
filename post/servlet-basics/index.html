@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1571 words ~8min</span>
+<span class="leancloud-visitors-count">1561 words ~8min</span>
 </span>
       </div>
     </header>
@@ -167,337 +167,336 @@
 
 <p>The following is a complete Deployment Descriptor.</p>
 
-<p>```java
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;ISO-8859-1&rdquo;?&gt;
-&lt;web-app xmlns=&ldquo;<a href="http://java.sun.com/xml/ns/j2ee&quot;">http://java.sun.com/xml/ns/j2ee&quot;</a>
-         xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
-         xsi:schemaLocation=&ldquo;<a href="http://java.sun.com/xml/ns/javaee">http://java.sun.com/xml/ns/javaee</a> <a href="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;">http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;</a>
-         version=&ldquo;2.5&rdquo;&gt;</p>
+<pre><code class="language-java">&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;
+&amp;lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;
+         version=&quot;2.5&quot;&amp;gt;
 
-<pre><code>&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- General --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- General --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- Name the application --&amp;gt;
-&amp;lt;display-name&amp;gt;Example App&amp;lt;/display-name&amp;gt;
-&amp;lt;description&amp;gt;An example application which is used to play with some of the features of Tomcat&amp;lt;/description&amp;gt;
+    &amp;lt;!-- Name the application --&amp;gt;
+    &amp;lt;display-name&amp;gt;Example App&amp;lt;/display-name&amp;gt;
+    &amp;lt;description&amp;gt;An example application which is used to play with some of the features of Tomcat&amp;lt;/description&amp;gt;
 
-&amp;lt;!-- This app is cluster-ready --&amp;gt;
-&amp;lt;distributable /&amp;gt;
+    &amp;lt;!-- This app is cluster-ready --&amp;gt;
+    &amp;lt;distributable /&amp;gt;
 
-&amp;lt;!-- Set timeout to 120 minutes --&amp;gt;
-&amp;lt;session-config&amp;gt;
-    &amp;lt;session-timeout&amp;gt;120&amp;lt;/session-timeout&amp;gt;
-&amp;lt;/session-config&amp;gt;
+    &amp;lt;!-- Set timeout to 120 minutes --&amp;gt;
+    &amp;lt;session-config&amp;gt;
+        &amp;lt;session-timeout&amp;gt;120&amp;lt;/session-timeout&amp;gt;
+    &amp;lt;/session-config&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- JSP Configuration --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- JSP Configuration --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- Note that you can only have one &amp;lt;jsp-config&amp;gt; element per web.xml --&amp;gt;
-&amp;lt;jsp-config&amp;gt;
-    &amp;lt;!-- Taglib declarations are no longer required since JSP 2.0, see Removing taglib from web.xml --&amp;gt;
-    &amp;lt;!-- The &amp;lt;taglib&amp;gt; did not need to be a child of &amp;lt;jsp-config&amp;gt; in earlier versions but is required as of Tomcat 7 --&amp;gt;
-    &amp;lt;taglib&amp;gt;
-        &amp;lt;taglib-uri&amp;gt;mytags&amp;lt;/taglib-uri&amp;gt;
-        &amp;lt;taglib-location&amp;gt;/WEB-INF/jsp/mytaglib.tld&amp;lt;/taglib-location&amp;gt;
-    &amp;lt;/taglib&amp;gt;
-    &amp;lt;jsp-property-group&amp;gt;
-        &amp;lt;url-pattern&amp;gt;*.jsp&amp;lt;/url-pattern&amp;gt;
-        &amp;lt;include-prelude&amp;gt;/WEB-INF/jspf/prelude1.jspf&amp;lt;/include-prelude&amp;gt;
-        &amp;lt;include-coda&amp;gt;/WEB-INF/jspf/coda1.jspf&amp;lt;/include-coda&amp;gt;
-    &amp;lt;/jsp-property-group&amp;gt;
-&amp;lt;/jsp-config&amp;gt;
+    &amp;lt;!-- Note that you can only have one &amp;lt;jsp-config&amp;gt; element per web.xml --&amp;gt;
+    &amp;lt;jsp-config&amp;gt;
+        &amp;lt;!-- Taglib declarations are no longer required since JSP 2.0, see Removing taglib from web.xml --&amp;gt;
+        &amp;lt;!-- The &amp;lt;taglib&amp;gt; did not need to be a child of &amp;lt;jsp-config&amp;gt; in earlier versions but is required as of Tomcat 7 --&amp;gt;
+        &amp;lt;taglib&amp;gt;
+            &amp;lt;taglib-uri&amp;gt;mytags&amp;lt;/taglib-uri&amp;gt;
+            &amp;lt;taglib-location&amp;gt;/WEB-INF/jsp/mytaglib.tld&amp;lt;/taglib-location&amp;gt;
+        &amp;lt;/taglib&amp;gt;
+        &amp;lt;jsp-property-group&amp;gt;
+            &amp;lt;url-pattern&amp;gt;*.jsp&amp;lt;/url-pattern&amp;gt;
+            &amp;lt;include-prelude&amp;gt;/WEB-INF/jspf/prelude1.jspf&amp;lt;/include-prelude&amp;gt;
+            &amp;lt;include-coda&amp;gt;/WEB-INF/jspf/coda1.jspf&amp;lt;/include-coda&amp;gt;
+        &amp;lt;/jsp-property-group&amp;gt;
+    &amp;lt;/jsp-config&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Context Parameters --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Context Parameters --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;context-param&amp;gt;
-    &amp;lt;description&amp;gt;Enable debugging for the application&amp;lt;/description&amp;gt;
-    &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt;
-    &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt;
-&amp;lt;/context-param&amp;gt;
-&amp;lt;context-param&amp;gt;
-    &amp;lt;description&amp;gt;The email address of the administrator, used to send error reports.&amp;lt;/description&amp;gt;
-    &amp;lt;param-name&amp;gt;webmaster&amp;lt;/param-name&amp;gt;
-    &amp;lt;param-value&amp;gt;address@somedomain.com&amp;lt;/param-value&amp;gt;
-&amp;lt;/context-param&amp;gt;
-
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Servlets --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
-
-&amp;lt;!-- Simple Servlet, provide a name, class, description and map to URL /servlet/SimpleServlet --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;Simple&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;SimpleServlet&amp;lt;/servlet-class&amp;gt;
-    &amp;lt;description&amp;gt;This is a simple Hello World servlet&amp;lt;/description&amp;gt;
-&amp;lt;/servlet&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;servlet-name&amp;gt;Simple&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/servlet/SimpleServlet&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
-
-&amp;lt;!-- CMS Servlet, responds to *.cms URL's --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;!-- Identification --&amp;gt;
-    &amp;lt;servlet-name&amp;gt;cms&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;com.metawerx.servlets.ContentManagementSystem&amp;lt;/servlet-class&amp;gt;
-    &amp;lt;description&amp;gt;This servlet handles requests for the CMS (it is a controller in an MVC architecture)&amp;lt;/description&amp;gt;
-
-    &amp;lt;!-- This servlet has two parameters --&amp;gt;
-    &amp;lt;init-param&amp;gt;
+    &amp;lt;context-param&amp;gt;
+        &amp;lt;description&amp;gt;Enable debugging for the application&amp;lt;/description&amp;gt;
         &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt;
         &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;detail&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;2&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
+    &amp;lt;/context-param&amp;gt;
+    &amp;lt;context-param&amp;gt;
+        &amp;lt;description&amp;gt;The email address of the administrator, used to send error reports.&amp;lt;/description&amp;gt;
+        &amp;lt;param-name&amp;gt;webmaster&amp;lt;/param-name&amp;gt;
+        &amp;lt;param-value&amp;gt;address@somedomain.com&amp;lt;/param-value&amp;gt;
+    &amp;lt;/context-param&amp;gt;
 
-    &amp;lt;!-- Load this servlet when the application starts (call the init() method of the servlet) --&amp;gt;
-    &amp;lt;load-on-startup&amp;gt;5&amp;lt;/load-on-startup&amp;gt;
-    &amp;lt;!-- &amp;lt;run-at&amp;gt;0:00, 6:00, 12:00, 18:00&amp;lt;/run-at&amp;gt; This tag is only valid for Resin --&amp;gt;
-&amp;lt;/servlet&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Servlets --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- Map some URLs to the cms servlet (demonstrates *.extension mapping) --&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;!-- For any URL ending in .cms, the cms servlet will be called --&amp;gt;
-    &amp;lt;servlet-name&amp;gt;cms&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;*.cms&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
+    &amp;lt;!-- Simple Servlet, provide a name, class, description and map to URL /servlet/SimpleServlet --&amp;gt;
+    &amp;lt;servlet&amp;gt;
+        &amp;lt;servlet-name&amp;gt;Simple&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;servlet-class&amp;gt;SimpleServlet&amp;lt;/servlet-class&amp;gt;
+        &amp;lt;description&amp;gt;This is a simple Hello World servlet&amp;lt;/description&amp;gt;
+    &amp;lt;/servlet&amp;gt;
+    &amp;lt;servlet-mapping&amp;gt;
+        &amp;lt;servlet-name&amp;gt;Simple&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;/servlet/SimpleServlet&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/servlet-mapping&amp;gt;
 
-&amp;lt;!-- Rewriter Servlet, responds to /content/* and /admin/RewriterStatistics URL's --&amp;gt;
-&amp;lt;!-- Define a servlet to respond to /content/* URL's --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;com.metawerx.servlets.URLRewriter&amp;lt;/servlet-class&amp;gt;
-&amp;lt;/servlet&amp;gt;
+    &amp;lt;!-- CMS Servlet, responds to *.cms URL's --&amp;gt;
+    &amp;lt;servlet&amp;gt;
+        &amp;lt;!-- Identification --&amp;gt;
+        &amp;lt;servlet-name&amp;gt;cms&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;servlet-class&amp;gt;com.metawerx.servlets.ContentManagementSystem&amp;lt;/servlet-class&amp;gt;
+        &amp;lt;description&amp;gt;This servlet handles requests for the CMS (it is a controller in an MVC architecture)&amp;lt;/description&amp;gt;
 
-&amp;lt;!-- Map some URL's to the rewriter servlet (demonstrates /path/* and specific URL mapping) --&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;!-- For any URL starting with /content/, the rewriter servlet will be called --&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/content/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;!-- The rewriter servlet can also be called directly as /admin/RewriterStatistics, to return stats --&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/admin/RewriterStatistics&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
+        &amp;lt;!-- This servlet has two parameters --&amp;gt;
+        &amp;lt;init-param&amp;gt;
+            &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt;
+            &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt;
+        &amp;lt;/init-param&amp;gt;
+        &amp;lt;init-param&amp;gt;
+            &amp;lt;param-name&amp;gt;detail&amp;lt;/param-name&amp;gt;
+            &amp;lt;param-value&amp;gt;2&amp;lt;/param-value&amp;gt;
+        &amp;lt;/init-param&amp;gt;
 
-&amp;lt;!-- PathJSP Servlet, maps /shop/item/* URL's to a JSP file --&amp;gt;
-&amp;lt;!-- Define a JSP file to respond to /shop/item/* URL's --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;pathjsp&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;jsp-file&amp;gt;pathfinder.jsp&amp;lt;/jsp-file&amp;gt;
-&amp;lt;/servlet&amp;gt;
+        &amp;lt;!-- Load this servlet when the application starts (call the init() method of the servlet) --&amp;gt;
+        &amp;lt;load-on-startup&amp;gt;5&amp;lt;/load-on-startup&amp;gt;
+        &amp;lt;!-- &amp;lt;run-at&amp;gt;0:00, 6:00, 12:00, 18:00&amp;lt;/run-at&amp;gt; This tag is only valid for Resin --&amp;gt;
+    &amp;lt;/servlet&amp;gt;
 
-&amp;lt;!-- Map some URL's to the pathjsp servlet (demonstrates /long/path/* URL mapping) --&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;!-- For any URL starting with /shop/item/, the pathjsp servlet will be called --&amp;gt;
-    &amp;lt;servlet-name&amp;gt;pathjsp&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/shop/item/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
+    &amp;lt;!-- Map some URLs to the cms servlet (demonstrates *.extension mapping) --&amp;gt;
+    &amp;lt;servlet-mapping&amp;gt;
+        &amp;lt;!-- For any URL ending in .cms, the cms servlet will be called --&amp;gt;
+        &amp;lt;servlet-name&amp;gt;cms&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;*.cms&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/servlet-mapping&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Filters --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Rewriter Servlet, responds to /content/* and /admin/RewriterStatistics URL's --&amp;gt;
+    &amp;lt;!-- Define a servlet to respond to /content/* URL's --&amp;gt;
+    &amp;lt;servlet&amp;gt;
+        &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;servlet-class&amp;gt;com.metawerx.servlets.URLRewriter&amp;lt;/servlet-class&amp;gt;
+    &amp;lt;/servlet&amp;gt;
 
-&amp;lt;!-- Example filter to set character encoding on each request (from Tomcat servlets-examples context) --&amp;gt;
-&amp;lt;filter&amp;gt;
-    &amp;lt;filter-name&amp;gt;Set Character Encoding&amp;lt;/filter-name&amp;gt;
-    &amp;lt;filter-class&amp;gt;filters.SetCharacterEncodingFilter&amp;lt;/filter-class&amp;gt;
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;encoding&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;EUC_JP&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-&amp;lt;/filter&amp;gt;
-&amp;lt;filter-mapping&amp;gt;
-    &amp;lt;filter-name&amp;gt;Set Character Encoding&amp;lt;/filter-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/filter-mapping&amp;gt;
+    &amp;lt;!-- Map some URL's to the rewriter servlet (demonstrates /path/* and specific URL mapping) --&amp;gt;
+    &amp;lt;servlet-mapping&amp;gt;
+        &amp;lt;!-- For any URL starting with /content/, the rewriter servlet will be called --&amp;gt;
+        &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;/content/*&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/servlet-mapping&amp;gt;
+    &amp;lt;servlet-mapping&amp;gt;
+        &amp;lt;!-- The rewriter servlet can also be called directly as /admin/RewriterStatistics, to return stats --&amp;gt;
+        &amp;lt;servlet-name&amp;gt;rewriter&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;/admin/RewriterStatistics&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/servlet-mapping&amp;gt;
 
-&amp;lt;!-- Example filter to dump the HTTP request at the top of each page (from Tomcat servlets-examples context) --&amp;gt;
-&amp;lt;filter&amp;gt;
-    &amp;lt;filter-name&amp;gt;Request Dumper Filter&amp;lt;/filter-name&amp;gt;
-    &amp;lt;filter-class&amp;gt;filters.RequestDumperFilter&amp;lt;/filter-class&amp;gt;
-&amp;lt;/filter&amp;gt;
-&amp;lt;filter-mapping&amp;gt;
-    &amp;lt;filter-name&amp;gt;Request Dumper Filter&amp;lt;/filter-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/filter-mapping&amp;gt;
+    &amp;lt;!-- PathJSP Servlet, maps /shop/item/* URL's to a JSP file --&amp;gt;
+    &amp;lt;!-- Define a JSP file to respond to /shop/item/* URL's --&amp;gt;
+    &amp;lt;servlet&amp;gt;
+        &amp;lt;servlet-name&amp;gt;pathjsp&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;jsp-file&amp;gt;pathfinder.jsp&amp;lt;/jsp-file&amp;gt;
+    &amp;lt;/servlet&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Listeners --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Map some URL's to the pathjsp servlet (demonstrates /long/path/* URL mapping) --&amp;gt;
+    &amp;lt;servlet-mapping&amp;gt;
+        &amp;lt;!-- For any URL starting with /shop/item/, the pathjsp servlet will be called --&amp;gt;
+        &amp;lt;servlet-name&amp;gt;pathjsp&amp;lt;/servlet-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;/shop/item/*&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/servlet-mapping&amp;gt;
 
-&amp;lt;!-- Define example application events listeners --&amp;gt;
-&amp;lt;listener&amp;gt;
-    &amp;lt;listener-class&amp;gt;com.metawerx.listener.ContextListener&amp;lt;/listener-class&amp;gt;
-&amp;lt;/listener&amp;gt;
-&amp;lt;listener&amp;gt;
-    &amp;lt;listener-class&amp;gt;com.metawerx.listener.SessionListener&amp;lt;/listener-class&amp;gt;
-&amp;lt;/listener&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Filters --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Security --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
-
-&amp;lt;!-- Define roles --&amp;gt;
-&amp;lt;security-role&amp;gt;
-    &amp;lt;role-name&amp;gt;admin&amp;lt;/role-name&amp;gt;
-&amp;lt;/security-role&amp;gt;
-&amp;lt;security-role&amp;gt;
-    &amp;lt;role-name&amp;gt;cms_editors&amp;lt;/role-name&amp;gt;
-&amp;lt;/security-role&amp;gt;
-
-&amp;lt;!-- Define a constraint to restrict access to /private/* --&amp;gt;
-&amp;lt;security-constraint&amp;gt;
-
-    &amp;lt;display-name&amp;gt;Security constraint for the /private folder&amp;lt;/display-name&amp;gt;
-
-    &amp;lt;web-resource-collection&amp;gt;
-
-        &amp;lt;web-resource-name&amp;gt;Protected Area&amp;lt;/web-resource-name&amp;gt;
-        &amp;lt;url-pattern&amp;gt;/private/*&amp;lt;/url-pattern&amp;gt;
-
-        &amp;lt;!-- If you list http methods, only those methods are protected. --&amp;gt;
-        &amp;lt;!-- Leave this commented out to protect all access --&amp;gt;
-        &amp;lt;!--
-        &amp;lt;http-method&amp;gt;DELETE&amp;lt;/http-method&amp;gt;
-        &amp;lt;http-method&amp;gt;GET&amp;lt;/http-method&amp;gt;
-        &amp;lt;http-method&amp;gt;POST&amp;lt;/http-method&amp;gt;
-        &amp;lt;http-method&amp;gt;PUT&amp;lt;/http-method&amp;gt;
-        --&amp;gt;
-
-    &amp;lt;/web-resource-collection&amp;gt;
-
-    &amp;lt;auth-constraint&amp;gt;
-        &amp;lt;!-- Only only administrator and CMS editors to access this area --&amp;gt;
-        &amp;lt;role-name&amp;gt;admin&amp;lt;/role-name&amp;gt;
-        &amp;lt;role-name&amp;gt;cms_editors&amp;lt;/role-name&amp;gt;
-    &amp;lt;/auth-constraint&amp;gt;
-
-&amp;lt;/security-constraint&amp;gt;
-
-&amp;lt;!-- FORM based authentication --&amp;gt;
-&amp;lt;!-- Leave this commented out, we will use BASIC (HTTP) authentication instead --&amp;gt;
-&amp;lt;!--
-&amp;lt;login-config&amp;gt;
-        &amp;lt;auth-method&amp;gt;FORM&amp;lt;/auth-method&amp;gt;
-        &amp;lt;form-login-config&amp;gt;
-                &amp;lt;form-login-page&amp;gt;/login.jsp&amp;lt;/form-login-page&amp;gt;
-                &amp;lt;form-error-page&amp;gt;/error.jsp&amp;lt;/form-error-page&amp;gt;
-        &amp;lt;/form-login-config&amp;gt;
-&amp;lt;/login-config&amp;gt;
---&amp;gt;
-&amp;lt;!-- This application uses BASIC authentication --&amp;gt;
-&amp;lt;login-config&amp;gt;
-    &amp;lt;auth-method&amp;gt;BASIC&amp;lt;/auth-method&amp;gt;
-    &amp;lt;realm-name&amp;gt;Editor Login&amp;lt;/realm-name&amp;gt;
-&amp;lt;/login-config&amp;gt;
-
-&amp;lt;!-- Define a constraint to force SSL on all pages in the application --&amp;gt;
-&amp;lt;security-constraint&amp;gt;
-
-    &amp;lt;web-resource-collection&amp;gt;
-        &amp;lt;web-resource-name&amp;gt;Entire Application&amp;lt;/web-resource-name&amp;gt;
+    &amp;lt;!-- Example filter to set character encoding on each request (from Tomcat servlets-examples context) --&amp;gt;
+    &amp;lt;filter&amp;gt;
+        &amp;lt;filter-name&amp;gt;Set Character Encoding&amp;lt;/filter-name&amp;gt;
+        &amp;lt;filter-class&amp;gt;filters.SetCharacterEncodingFilter&amp;lt;/filter-class&amp;gt;
+        &amp;lt;init-param&amp;gt;
+            &amp;lt;param-name&amp;gt;encoding&amp;lt;/param-name&amp;gt;
+            &amp;lt;param-value&amp;gt;EUC_JP&amp;lt;/param-value&amp;gt;
+        &amp;lt;/init-param&amp;gt;
+    &amp;lt;/filter&amp;gt;
+    &amp;lt;filter-mapping&amp;gt;
+        &amp;lt;filter-name&amp;gt;Set Character Encoding&amp;lt;/filter-name&amp;gt;
         &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
-    &amp;lt;/web-resource-collection&amp;gt;
+    &amp;lt;/filter-mapping&amp;gt;
 
-    &amp;lt;user-data-constraint&amp;gt;
-        &amp;lt;transport-guarantee&amp;gt;CONFIDENTIAL&amp;lt;/transport-guarantee&amp;gt;
-    &amp;lt;/user-data-constraint&amp;gt;
+    &amp;lt;!-- Example filter to dump the HTTP request at the top of each page (from Tomcat servlets-examples context) --&amp;gt;
+    &amp;lt;filter&amp;gt;
+        &amp;lt;filter-name&amp;gt;Request Dumper Filter&amp;lt;/filter-name&amp;gt;
+        &amp;lt;filter-class&amp;gt;filters.RequestDumperFilter&amp;lt;/filter-class&amp;gt;
+    &amp;lt;/filter&amp;gt;
+    &amp;lt;filter-mapping&amp;gt;
+        &amp;lt;filter-name&amp;gt;Request Dumper Filter&amp;lt;/filter-name&amp;gt;
+        &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
+    &amp;lt;/filter-mapping&amp;gt;
 
-&amp;lt;/security-constraint&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Listeners --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Error Handler --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Define example application events listeners --&amp;gt;
+    &amp;lt;listener&amp;gt;
+        &amp;lt;listener-class&amp;gt;com.metawerx.listener.ContextListener&amp;lt;/listener-class&amp;gt;
+    &amp;lt;/listener&amp;gt;
+    &amp;lt;listener&amp;gt;
+        &amp;lt;listener-class&amp;gt;com.metawerx.listener.SessionListener&amp;lt;/listener-class&amp;gt;
+    &amp;lt;/listener&amp;gt;
 
-&amp;lt;!-- Define an error handler for 404 pages --&amp;gt;
-&amp;lt;error-page&amp;gt;
-    &amp;lt;error-code&amp;gt;404&amp;lt;/error-code&amp;gt;
-    &amp;lt;location&amp;gt;/error404.jsp&amp;lt;/location&amp;gt;
-&amp;lt;/error-page&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Security --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
 
-&amp;lt;!-- Define an error handler for java.lang.Throwable --&amp;gt;
-&amp;lt;error-page&amp;gt;
-    &amp;lt;exception-type&amp;gt;java.lang.Throwable&amp;lt;/exception-type&amp;gt;
-    &amp;lt;location&amp;gt;/errorThrowable.jsp&amp;lt;/location&amp;gt;
-&amp;lt;/error-page&amp;gt;
+    &amp;lt;!-- Define roles --&amp;gt;
+    &amp;lt;security-role&amp;gt;
+        &amp;lt;role-name&amp;gt;admin&amp;lt;/role-name&amp;gt;
+    &amp;lt;/security-role&amp;gt;
+    &amp;lt;security-role&amp;gt;
+        &amp;lt;role-name&amp;gt;cms_editors&amp;lt;/role-name&amp;gt;
+    &amp;lt;/security-role&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Extra MIME types --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Define a constraint to restrict access to /private/* --&amp;gt;
+    &amp;lt;security-constraint&amp;gt;
 
-&amp;lt;!-- Set XML mime-mapping so spreadsheets open properly instead of being sent as an octet/stream --&amp;gt;
-&amp;lt;mime-mapping&amp;gt;
-    &amp;lt;extension&amp;gt;xls&amp;lt;/extension&amp;gt;
-    &amp;lt;mime-type&amp;gt;application/vnd.ms-excel&amp;lt;/mime-type&amp;gt;
-&amp;lt;/mime-mapping&amp;gt;
+        &amp;lt;display-name&amp;gt;Security constraint for the /private folder&amp;lt;/display-name&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Locale --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+        &amp;lt;web-resource-collection&amp;gt;
 
-&amp;lt;!-- Set Locale Encoding --&amp;gt;
-&amp;lt;locale-encoding-mapping-list&amp;gt;
-    &amp;lt;locale-encoding-mapping&amp;gt;
-        &amp;lt;locale&amp;gt;ja&amp;lt;/locale&amp;gt;
-        &amp;lt;encoding&amp;gt;Shift_JIS&amp;lt;/encoding&amp;gt;
-    &amp;lt;/locale-encoding-mapping&amp;gt;
-&amp;lt;/locale-encoding-mapping-list&amp;gt;
+            &amp;lt;web-resource-name&amp;gt;Protected Area&amp;lt;/web-resource-name&amp;gt;
+            &amp;lt;url-pattern&amp;gt;/private/*&amp;lt;/url-pattern&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- Welcome Files --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+            &amp;lt;!-- If you list http methods, only those methods are protected. --&amp;gt;
+            &amp;lt;!-- Leave this commented out to protect all access --&amp;gt;
+            &amp;lt;!--
+            &amp;lt;http-method&amp;gt;DELETE&amp;lt;/http-method&amp;gt;
+            &amp;lt;http-method&amp;gt;GET&amp;lt;/http-method&amp;gt;
+            &amp;lt;http-method&amp;gt;POST&amp;lt;/http-method&amp;gt;
+            &amp;lt;http-method&amp;gt;PUT&amp;lt;/http-method&amp;gt;
+            --&amp;gt;
 
-&amp;lt;!-- Define, in order of preference, which file to show when no filename is defined in the path --&amp;gt;
-&amp;lt;!-- eg: when user goes to http://yoursite.com/ or http://yoursite.com/somefolder --&amp;gt;
-&amp;lt;!-- Defaults are provided in the server-wide web.xml file, such as index.jsp, index.htm --&amp;gt;
-&amp;lt;!-- Note: using this tag overrides the defaults, so don't forget to add them here --&amp;gt;
-&amp;lt;welcome-file-list&amp;gt;
-    &amp;lt;!-- Use index.swf if present, or splash.jsp, otherwise just look for the normal defaults --&amp;gt;
-    &amp;lt;welcome-file&amp;gt;index.swf&amp;lt;/welcome-file&amp;gt;
-    &amp;lt;welcome-file&amp;gt;splash.jsp&amp;lt;/welcome-file&amp;gt;
-    &amp;lt;welcome-file&amp;gt;index.html&amp;lt;/welcome-file&amp;gt;
-    &amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt;
-    &amp;lt;welcome-file&amp;gt;index.jsp&amp;lt;/welcome-file&amp;gt;
-&amp;lt;/welcome-file-list&amp;gt;
+        &amp;lt;/web-resource-collection&amp;gt;
 
-&amp;lt;!-- ========================================================== --&amp;gt;
-&amp;lt;!-- JNDI Environment Variables --&amp;gt;
-&amp;lt;!-- ========================================================== --&amp;gt;
+        &amp;lt;auth-constraint&amp;gt;
+            &amp;lt;!-- Only only administrator and CMS editors to access this area --&amp;gt;
+            &amp;lt;role-name&amp;gt;admin&amp;lt;/role-name&amp;gt;
+            &amp;lt;role-name&amp;gt;cms_editors&amp;lt;/role-name&amp;gt;
+        &amp;lt;/auth-constraint&amp;gt;
 
-&amp;lt;env-entry&amp;gt;
-    &amp;lt;env-entry-name&amp;gt;webmasterName&amp;lt;/env-entry-name&amp;gt;
-    &amp;lt;env-entry-value&amp;gt;Ms. W. Master&amp;lt;/env-entry-value&amp;gt;
-    &amp;lt;env-entry-type&amp;gt;java.lang.String&amp;lt;/env-entry-type&amp;gt;
-&amp;lt;/env-entry&amp;gt;
-&amp;lt;env-entry&amp;gt;
-    &amp;lt;env-entry-name&amp;gt;cms/defaultUserSettings/recordsPerPage&amp;lt;/env-entry-name&amp;gt;
-    &amp;lt;env-entry-value&amp;gt;30&amp;lt;/env-entry-value&amp;gt;
-    &amp;lt;env-entry-type&amp;gt;java.lang.Integer&amp;lt;/env-entry-type&amp;gt;
-&amp;lt;/env-entry&amp;gt;
+    &amp;lt;/security-constraint&amp;gt;
 
-&amp;lt;!-- ===========Programmer's virtual name for resource=====================--&amp;gt;
-&amp;lt;resource-ref&amp;gt;
-    &amp;lt;res-ref-name&amp;gt;jdbc/iass_ds&amp;lt;/res-ref-name&amp;gt;
-    &amp;lt;res-type&amp;gt;javax.sql.DataSource&amp;lt;/res-type&amp;gt;
-    &amp;lt;res-auth&amp;gt;Container&amp;lt;/res-auth&amp;gt;
-    &amp;lt;res-sharing-scope&amp;gt;Shareable&amp;lt;/res-sharing-scope&amp;gt;
-&amp;lt;/resource-ref&amp;gt;
+    &amp;lt;!-- FORM based authentication --&amp;gt;
+    &amp;lt;!-- Leave this commented out, we will use BASIC (HTTP) authentication instead --&amp;gt;
+    &amp;lt;!--
+    &amp;lt;login-config&amp;gt;
+            &amp;lt;auth-method&amp;gt;FORM&amp;lt;/auth-method&amp;gt;
+            &amp;lt;form-login-config&amp;gt;
+                    &amp;lt;form-login-page&amp;gt;/login.jsp&amp;lt;/form-login-page&amp;gt;
+                    &amp;lt;form-error-page&amp;gt;/error.jsp&amp;lt;/form-error-page&amp;gt;
+            &amp;lt;/form-login-config&amp;gt;
+    &amp;lt;/login-config&amp;gt;
+    --&amp;gt;
+    &amp;lt;!-- This application uses BASIC authentication --&amp;gt;
+    &amp;lt;login-config&amp;gt;
+        &amp;lt;auth-method&amp;gt;BASIC&amp;lt;/auth-method&amp;gt;
+        &amp;lt;realm-name&amp;gt;Editor Login&amp;lt;/realm-name&amp;gt;
+    &amp;lt;/login-config&amp;gt;
 
-&amp;lt;resource-env-ref&amp;gt;
-    &amp;lt;resource-env-ref-name&amp;gt;jms/StockQueue&amp;lt;/resource-env-ref-name&amp;gt;
-    &amp;lt;resource-env-ref-type&amp;gt;javax.jms.Queue&amp;lt;/resource-env-ref-type&amp;gt;
-&amp;lt;/resource-env-ref&amp;gt;
+    &amp;lt;!-- Define a constraint to force SSL on all pages in the application --&amp;gt;
+    &amp;lt;security-constraint&amp;gt;
+
+        &amp;lt;web-resource-collection&amp;gt;
+            &amp;lt;web-resource-name&amp;gt;Entire Application&amp;lt;/web-resource-name&amp;gt;
+            &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
+        &amp;lt;/web-resource-collection&amp;gt;
+
+        &amp;lt;user-data-constraint&amp;gt;
+            &amp;lt;transport-guarantee&amp;gt;CONFIDENTIAL&amp;lt;/transport-guarantee&amp;gt;
+        &amp;lt;/user-data-constraint&amp;gt;
+
+    &amp;lt;/security-constraint&amp;gt;
+
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Error Handler --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+
+    &amp;lt;!-- Define an error handler for 404 pages --&amp;gt;
+    &amp;lt;error-page&amp;gt;
+        &amp;lt;error-code&amp;gt;404&amp;lt;/error-code&amp;gt;
+        &amp;lt;location&amp;gt;/error404.jsp&amp;lt;/location&amp;gt;
+    &amp;lt;/error-page&amp;gt;
+
+    &amp;lt;!-- Define an error handler for java.lang.Throwable --&amp;gt;
+    &amp;lt;error-page&amp;gt;
+        &amp;lt;exception-type&amp;gt;java.lang.Throwable&amp;lt;/exception-type&amp;gt;
+        &amp;lt;location&amp;gt;/errorThrowable.jsp&amp;lt;/location&amp;gt;
+    &amp;lt;/error-page&amp;gt;
+
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Extra MIME types --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+
+    &amp;lt;!-- Set XML mime-mapping so spreadsheets open properly instead of being sent as an octet/stream --&amp;gt;
+    &amp;lt;mime-mapping&amp;gt;
+        &amp;lt;extension&amp;gt;xls&amp;lt;/extension&amp;gt;
+        &amp;lt;mime-type&amp;gt;application/vnd.ms-excel&amp;lt;/mime-type&amp;gt;
+    &amp;lt;/mime-mapping&amp;gt;
+
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Locale --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+
+    &amp;lt;!-- Set Locale Encoding --&amp;gt;
+    &amp;lt;locale-encoding-mapping-list&amp;gt;
+        &amp;lt;locale-encoding-mapping&amp;gt;
+            &amp;lt;locale&amp;gt;ja&amp;lt;/locale&amp;gt;
+            &amp;lt;encoding&amp;gt;Shift_JIS&amp;lt;/encoding&amp;gt;
+        &amp;lt;/locale-encoding-mapping&amp;gt;
+    &amp;lt;/locale-encoding-mapping-list&amp;gt;
+
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- Welcome Files --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+
+    &amp;lt;!-- Define, in order of preference, which file to show when no filename is defined in the path --&amp;gt;
+    &amp;lt;!-- eg: when user goes to http://yoursite.com/ or http://yoursite.com/somefolder --&amp;gt;
+    &amp;lt;!-- Defaults are provided in the server-wide web.xml file, such as index.jsp, index.htm --&amp;gt;
+    &amp;lt;!-- Note: using this tag overrides the defaults, so don't forget to add them here --&amp;gt;
+    &amp;lt;welcome-file-list&amp;gt;
+        &amp;lt;!-- Use index.swf if present, or splash.jsp, otherwise just look for the normal defaults --&amp;gt;
+        &amp;lt;welcome-file&amp;gt;index.swf&amp;lt;/welcome-file&amp;gt;
+        &amp;lt;welcome-file&amp;gt;splash.jsp&amp;lt;/welcome-file&amp;gt;
+        &amp;lt;welcome-file&amp;gt;index.html&amp;lt;/welcome-file&amp;gt;
+        &amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt;
+        &amp;lt;welcome-file&amp;gt;index.jsp&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;/welcome-file-list&amp;gt;
+
+    &amp;lt;!-- ========================================================== --&amp;gt;
+    &amp;lt;!-- JNDI Environment Variables --&amp;gt;
+    &amp;lt;!-- ========================================================== --&amp;gt;
+
+    &amp;lt;env-entry&amp;gt;
+        &amp;lt;env-entry-name&amp;gt;webmasterName&amp;lt;/env-entry-name&amp;gt;
+        &amp;lt;env-entry-value&amp;gt;Ms. W. Master&amp;lt;/env-entry-value&amp;gt;
+        &amp;lt;env-entry-type&amp;gt;java.lang.String&amp;lt;/env-entry-type&amp;gt;
+    &amp;lt;/env-entry&amp;gt;
+    &amp;lt;env-entry&amp;gt;
+        &amp;lt;env-entry-name&amp;gt;cms/defaultUserSettings/recordsPerPage&amp;lt;/env-entry-name&amp;gt;
+        &amp;lt;env-entry-value&amp;gt;30&amp;lt;/env-entry-value&amp;gt;
+        &amp;lt;env-entry-type&amp;gt;java.lang.Integer&amp;lt;/env-entry-type&amp;gt;
+    &amp;lt;/env-entry&amp;gt;
+
+    &amp;lt;!-- ===========Programmer's virtual name for resource=====================--&amp;gt;
+    &amp;lt;resource-ref&amp;gt;
+        &amp;lt;res-ref-name&amp;gt;jdbc/iass_ds&amp;lt;/res-ref-name&amp;gt;
+        &amp;lt;res-type&amp;gt;javax.sql.DataSource&amp;lt;/res-type&amp;gt;
+        &amp;lt;res-auth&amp;gt;Container&amp;lt;/res-auth&amp;gt;
+        &amp;lt;res-sharing-scope&amp;gt;Shareable&amp;lt;/res-sharing-scope&amp;gt;
+    &amp;lt;/resource-ref&amp;gt;
+
+    &amp;lt;resource-env-ref&amp;gt;
+        &amp;lt;resource-env-ref-name&amp;gt;jms/StockQueue&amp;lt;/resource-env-ref-name&amp;gt;
+        &amp;lt;resource-env-ref-type&amp;gt;javax.jms.Queue&amp;lt;/resource-env-ref-type&amp;gt;
+    &amp;lt;/resource-env-ref&amp;gt;
+
+&amp;lt;/web-app&amp;gt;
 </code></pre>
-
-<p>&lt;/web-app&gt;```</p>
 
 <p>some confusing tags: &lt;resource-ref&gt;   &lt;resource-env-ref&gt;</p>
 
@@ -511,11 +510,11 @@
 
 <p>its methods include:</p>
 
-<p><code>java
-getServletName();
+<pre><code class="language-java">getServletName();
 getServletContext();
 getInitParameter(String name);
-getInitParameterNames();</code></p>
+getInitParameterNames();
+</code></pre>
 
 <p>GenericServlet has implemented ServletConfig interface.</p>
 
@@ -535,46 +534,45 @@ getInitParameterNames();</code></p>
 
 <p>As per what is RequestDespatcher include(), now look at the following test:</p>
 
-<p>```java
-public class DispatcherServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;</p>
+<pre><code class="language-java">public class DispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-<pre><code>protected void doGet(HttpServletRequest request,
-        HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-    PrintWriter out = response.getWriter();
-    out.println(&quot;In dispatcherServlet &amp;lt;BR&amp;gt;&quot;);
+		PrintWriter out = response.getWriter();
+		out.println(&quot;In dispatcherServlet &amp;lt;BR&amp;gt;&quot;);
 
-    RequestDispatcher rd = request.getRequestDispatcher(&quot;Hello.jsp&quot;);
-    rd.include(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher(&quot;Hello.jsp&quot;);
+		rd.include(request, response);
+	}
+
 }
 </code></pre>
 
-<p>}```</p>
-
 <p>&nbsp;</p>
 
-<p>```java
-&lt;%@ page language=&ldquo;java&rdquo; contentType=&ldquo;text/html; charset=ISO-8859-1&rdquo;
-    pageEncoding=&ldquo;ISO-8859-1&rdquo;%&gt;
-&lt;!DOCTYPE html PUBLIC &ldquo;-//W3C//DTD HTML 4.01 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/html4/loose.dtd&quot;&gt;">http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a>
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&ldquo;Content-Type&rdquo; content=&ldquo;text/html; charset=ISO-8859-1&rdquo;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;</p>
+<pre><code class="language-java">&amp;lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=ISO-8859-1&quot;
+    pageEncoding=&quot;ISO-8859-1&quot;%&amp;gt;
+&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&amp;gt;
+&amp;lt;title&amp;gt;Insert title here&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
 
-<p>Hello page.</p>
+Hello page. 
 
-<p>&lt;/body&gt;
-&lt;/html&gt;```</p>
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre>
 
 <p>Now the output is:</p>
 
-<p><code>java
-In dispatcherServlet
-Hello page</code></p>
+<pre><code class="language-java">In dispatcherServlet
+Hello page
+</code></pre>
 
 <p>Here we are not hard to know its accurate meaning - including and merging the response content of another servlet, JSP or static resources.</p>
 
@@ -597,21 +595,21 @@ Hello page</code></p>
 
 <p>For parameter values that may need to change during deployment, it&rsquo;s better to use environment entries instead, as indicated by the <code>&amp;lt;env-entry&amp;gt;</code> tag.</p>
 
-<p><code>java
-&amp;lt;env-entry&amp;gt;
+<pre><code class="language-java">&amp;lt;env-entry&amp;gt;
     &amp;lt;description&amp;gt;Send pincode by mail&amp;lt;/description&amp;gt;
     &amp;lt;env-entry-name&amp;gt;mailPincode&amp;lt;/env-entry-name&amp;gt;
     &amp;lt;env-entry-value&amp;gt;false&amp;lt;/env-entry-value&amp;gt;
     &amp;lt;env-entry-type&amp;gt;java.lang.Boolean&amp;lt;/env-entry-type&amp;gt;
-&amp;lt;/env-entry&amp;gt;</code></p>
+&amp;lt;/env-entry&amp;gt;
+</code></pre>
 
 <p>This is a good way for environment-specific application variables. The type may be a <code>String</code>, <code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Boolean</code>, <code>Double</code>, or <code>Float</code> (all with their full <code>java.lang</code> qualification).</p>
 
 <p>Java code can retrieve the <code>&amp;lt;env-entry&amp;gt;</code> values using JNDI:</p>
 
-<p><code>java
-Context initCtx = new InitialContext( );
-Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&quot;);</code></p>
+<pre><code class="language-java">Context initCtx = new InitialContext( );
+Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&quot;);
+</code></pre>
 
 <p>Now you could change the variable value in deployment time:</p>
 
@@ -621,8 +619,7 @@ Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&q
 
 <p>When the environment entry is a resource factory, there&rsquo;s a <code>&amp;lt;resource-ref&amp;gt;</code> tag to use. A factory is an object that creates other objects on demand. A resource factory creates resource objects, such as database connections or message queues.</p>
 
-<p><code>java
-&amp;lt;!-- JDBC DataSources (java:comp/env/jdbc) --&amp;gt;
+<pre><code class="language-java">&amp;lt;!-- JDBC DataSources (java:comp/env/jdbc) --&amp;gt;
 &amp;lt;resource-ref&amp;gt;
     &amp;lt;description&amp;gt;The default DS&amp;lt;/description&amp;gt;
     &amp;lt;res-ref-name&amp;gt;jdbc/DefaultDS&amp;lt;/res-ref-name&amp;gt;
@@ -642,7 +639,8 @@ Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&q
     &amp;lt;res-ref-name&amp;gt;jms/QueueFactory&amp;lt;/res-ref-name&amp;gt;
     &amp;lt;res-type&amp;gt;javax.jms.QueueConnectionFactory&amp;lt;/res-type&amp;gt;
     &amp;lt;res-auth&amp;gt;Container&amp;lt;/res-auth&amp;gt;
-&amp;lt;/resource-ref&amp;gt;</code></p>
+&amp;lt;/resource-ref&amp;gt;
+</code></pre>
 
 <p>It can have two values: <code>CONTAINER</code> or <code>SERVLET</code>. If <code>CONTAINER</code> is specified, the servlet container (the J2EE server) handles authentication before binding the factory to JNDI, using credentials provided by the deployer. If <code>SERVLET</code> is specified, the servlet must handle authentication duties programmatically.</p>
 
@@ -657,23 +655,23 @@ Boolean mailPincode = (Boolean) initCtx.lookup(&quot;java:comp/env/mailPincode&q
 
 <h4 id="references-to-administered-objects">References to Administered Objects</h4>
 
-<p><code>java
-&amp;lt;resource-env-ref&amp;gt;
+<pre><code class="language-java">&amp;lt;resource-env-ref&amp;gt;
     &amp;lt;description&amp;gt;This is a reference to a JMS queue&amp;lt;/description&amp;gt;
     &amp;lt;resource-env-ref-name&amp;gt;jms/myqueue&amp;lt;/resource-env-ref-name&amp;gt;
     &amp;lt;resource-env-ref-type&amp;gt;javax.jms.Queue&amp;lt;/resource-env-ref-type&amp;gt;
-&amp;lt;/resource-env-ref&amp;gt;</code></p>
+&amp;lt;/resource-env-ref&amp;gt;
+</code></pre>
 
 <h4 id="references-to-ejb-components">References to EJB Components</h4>
 
-<p><code>java
-&amp;lt;ejb-ref&amp;gt;
+<pre><code class="language-java">&amp;lt;ejb-ref&amp;gt;
   &amp;lt;description&amp;gt;Cruise ship cabin&amp;lt;/description&amp;gt;
   &amp;lt;ejb-ref-name&amp;gt;ejb/CabinHome&amp;lt;/ejb-ref-name&amp;gt;
   &amp;lt;ejb-ref-type&amp;gt;Entity&amp;lt;/ejb-ref-type&amp;gt;
   &amp;lt;home&amp;gt;com.titan.cabin.CabinHome&amp;lt;/home&amp;gt;
   &amp;lt;remote&amp;gt;com.titan.cabin.Cabin&amp;lt;/remote&amp;gt;
-&amp;lt;/ejb-ref&amp;gt;</code></p>
+&amp;lt;/ejb-ref&amp;gt;
+</code></pre>
 
 <p>&nbsp;</p>
 

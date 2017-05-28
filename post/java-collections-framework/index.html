@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">399 words ~2min</span>
+<span class="leancloud-visitors-count">397 words ~2min</span>
 </span>
       </div>
     </header>
@@ -195,24 +195,23 @@
 <li><p>WeekHashMap: key is week reference</p></li>
 </ul>
 
-<p>```java
-public void test() {
-    Map map = new IdentityHashMap();</p>
+<pre><code class="language-java">public void test() {
+    Map map = new IdentityHashMap();
 
-<pre><code>String a = new String(&quot;aa&quot;);
-String b = new String(&quot;aa&quot;);
+    String a = new String(&quot;aa&quot;);
+    String b = new String(&quot;aa&quot;);
 
-map.put(a, 1);
-map.put(b, 2);
+    map.put(a, 1);
+    map.put(b, 2);
 
-System.out.println(a == b); //false
-System.out.println(a.equals(b)); //true
+    System.out.println(a == b); //false
+    System.out.println(a.equals(b)); //true
 
-System.out.println(map.get(a)); //1
-System.out.println(map.get(b)); //2
+    System.out.println(map.get(a)); //1
+    System.out.println(map.get(b)); //2
+
+}
 </code></pre>
-
-<p>}```</p>
 
 <h4 id="immutable-hash-key">immutable, hash key</h4>
 
@@ -318,24 +317,21 @@ This implementation always copy the backed array and set the backed array to thi
 
 <p>Once an interator has been gotten, it will see a <strong>snapshot</strong> of the array.</p>
 
-<p>```java
-public void test() {
-    List&lt;Integer&gt; list = new CopyOnWriteArrayList&lt;Integer&gt;(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));</p>
+<pre><code class="language-java">public void test() {
+    List&amp;lt;Integer&amp;gt; list = new CopyOnWriteArrayList&amp;lt;Integer&amp;gt;(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7));
 
-<pre><code>for(int i : list) {
-    if(i == 2) {
-        list.add(8, 8);
+    for(int i : list) {
+        if(i == 2) {
+            list.add(8, 8);
+        }
+
+        System.out.println(i);
     }
 
-    System.out.println(i);
+    System.out.println(list);
 }
 
-System.out.println(list);
-</code></pre>
-
-<p>}</p>
-
-<p>0
+0
 1
 2
 3
@@ -343,7 +339,8 @@ System.out.println(list);
 5
 6
 7
-[0, 1, 2, 3, 4, 5, 6, 7, 8]```</p>
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+</code></pre>
 
 <p>&nbsp;</p>
 

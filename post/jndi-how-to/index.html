@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">322 words ~2min</span>
+<span class="leancloud-visitors-count">316 words ~2min</span>
 </span>
       </div>
     </header>
@@ -181,88 +181,85 @@
 
 <h4 id="mysql">MySQL</h4>
 
-<p>```java
-package com.mysql.jdbc.jdbc2.optional;</p>
+<pre><code class="language-java">package com.mysql.jdbc.jdbc2.optional;
 
-<p>public class MysqlDataSource extends ConnectionPropertiesImpl implements DataSource, Referenceable, Serializable {</p>
+public class MysqlDataSource extends ConnectionPropertiesImpl implements DataSource, Referenceable, Serializable {
 
-<pre><code>//....
-public Reference getReference() throws NamingException {
-    String factoryName = &quot;com.mysql.jdbc.jdbc2.optional.MysqlDataSourceFactory&quot;;
-    Reference ref = new Reference(this.getClass().getName(), factoryName, (String)null);
-    ref.add(new StringRefAddr(&quot;user&quot;, this.getUser()));
-    ref.add(new StringRefAddr(&quot;password&quot;, this.password));
-    ref.add(new StringRefAddr(&quot;serverName&quot;, this.getServerName()));
-    ref.add(new StringRefAddr(&quot;port&quot;, &quot;&quot; + this.getPort()));
-    ref.add(new StringRefAddr(&quot;databaseName&quot;, this.getDatabaseName()));
-    ref.add(new StringRefAddr(&quot;url&quot;, this.getUrl()));
-    ref.add(new StringRefAddr(&quot;explicitUrl&quot;, String.valueOf(this.explicitUrl)));
+    //....
+    public Reference getReference() throws NamingException {
+        String factoryName = &quot;com.mysql.jdbc.jdbc2.optional.MysqlDataSourceFactory&quot;;
+        Reference ref = new Reference(this.getClass().getName(), factoryName, (String)null);
+        ref.add(new StringRefAddr(&quot;user&quot;, this.getUser()));
+        ref.add(new StringRefAddr(&quot;password&quot;, this.password));
+        ref.add(new StringRefAddr(&quot;serverName&quot;, this.getServerName()));
+        ref.add(new StringRefAddr(&quot;port&quot;, &quot;&quot; + this.getPort()));
+        ref.add(new StringRefAddr(&quot;databaseName&quot;, this.getDatabaseName()));
+        ref.add(new StringRefAddr(&quot;url&quot;, this.getUrl()));
+        ref.add(new StringRefAddr(&quot;explicitUrl&quot;, String.valueOf(this.explicitUrl)));
 
-    try {
-        this.storeToRef(ref);
-        return ref;
-    } catch (SQLException var4) {
-        throw new NamingException(var4.getMessage());
+        try {
+            this.storeToRef(ref);
+            return ref;
+        } catch (SQLException var4) {
+            throw new NamingException(var4.getMessage());
+        }
     }
+    //....
 }
-//....
 </code></pre>
-
-<p>}```</p>
 
 <p>Yes, it implements <code>Referenceable</code>, and defines an <code>ObjectFactory</code>: <code>com.mysql.jdbc.jdbc2.optional.MysqlDataSourceFactory</code></p>
 
 <h4 id="h2">H2</h4>
 
-<p>```java
-package org.h2.jdbcx;</p>
+<pre><code class="language-java">package org.h2.jdbcx;
 
-<p>public class JdbcDataSource extends TraceObject implements XADataSource, DataSource, ConnectionPoolDataSource, Serializable, Referenceable {</p>
+public class JdbcDataSource extends TraceObject implements XADataSource, DataSource, ConnectionPoolDataSource, Serializable, Referenceable {
 
-<pre><code>//....
-public Reference getReference() {
-    this.debugCodeCall(&quot;getReference&quot;);
-    String var1 = JdbcDataSourceFactory.class.getName();
-    Reference var2 = new Reference(this.getClass().getName(), var1, (String)null);
-    var2.add(new StringRefAddr(&quot;url&quot;, this.url));
-    var2.add(new StringRefAddr(&quot;user&quot;, this.userName));
-    var2.add(new StringRefAddr(&quot;password&quot;, this.convertToString(this.passwordChars)));
-    var2.add(new StringRefAddr(&quot;loginTimeout&quot;, String.valueOf(this.loginTimeout)));
-    var2.add(new StringRefAddr(&quot;description&quot;, this.description));
-    return var2;
+    //....
+    public Reference getReference() {
+        this.debugCodeCall(&quot;getReference&quot;);
+        String var1 = JdbcDataSourceFactory.class.getName();
+        Reference var2 = new Reference(this.getClass().getName(), var1, (String)null);
+        var2.add(new StringRefAddr(&quot;url&quot;, this.url));
+        var2.add(new StringRefAddr(&quot;user&quot;, this.userName));
+        var2.add(new StringRefAddr(&quot;password&quot;, this.convertToString(this.passwordChars)));
+        var2.add(new StringRefAddr(&quot;loginTimeout&quot;, String.valueOf(this.loginTimeout)));
+        var2.add(new StringRefAddr(&quot;description&quot;, this.description));
+        return var2;
+    }
+    //....
+
 }
-//....
 </code></pre>
-
-<p>}```</p>
 
 <p>It also implements <code>Referenceable</code>, and defines an <code>ObjectFactory</code>: <code>org.h2.jdbcx.JdbcDataSourceFactory</code></p>
 
 <h4 id="jboss-jta">JBoss JTA</h4>
 
-<p>```java
-package com.arjuna.ats.internal.jta.transaction.arjunacore;</p>
+<pre><code class="language-java">package com.arjuna.ats.internal.jta.transaction.arjunacore;
 
-<p>public class UserTransactionImple extends BaseTransaction implements UserTransaction, ObjectFactory {
-    //&hellip;.
-}```</p>
+public class UserTransactionImple extends BaseTransaction implements UserTransaction, ObjectFactory {
+    //....
+}
+</code></pre>
 
 <p>You can see, <code>UserTrancation</code> implmentation class <code>UserTransactionImple</code> doesn&rsquo;t implement <code>Referenceable</code>, but actions as <code>ObjectFactory</code>.</p>
 
 <p>Now, let&rsquo;s look at the bind code:</p>
 
-<p>```java
-package com.arjuna.ats.jta.utils;</p>
+<pre><code class="language-java">package com.arjuna.ats.jta.utils;
 
-<p>public class JNDIManager {
-    //&hellip;.
+public class JNDIManager {
+    //....
     public static void bindJTAUserTransactionImplementation(InitialContext initialContext) throws NamingException {
         String utImplementation = getUserTransactionImplementationClassname();
         Reference ref = new Reference(utImplementation, utImplementation, (String)null);
         initialContext.rebind(getUserTransactionJNDIName(), ref);
     }
-    //&hellip;.
-}```</p>
+    //....
+}
+</code></pre>
 
 <p>Yes, JBoss JTA binds <code>UserTransaction</code> using Reference with its <code>ObjectFactory</code>. As said above, <code>UserTransactionImple</code> is both the bound target and the <code>ObjectFactory</code>.</p>
 
@@ -270,13 +267,13 @@ package com.arjuna.ats.jta.utils;</p>
 
 <p>So once the object can be bound, the binding operation is simple.</p>
 
-<p><code>java
-context.bind(&quot;cn=favorite&quot;, fruit);</code></p>
+<pre><code class="language-java">context.bind(&quot;cn=favorite&quot;, fruit);
+</code></pre>
 
 <h3 id="object-lookup-list-search">Object lookup / list / search</h3>
 
-<p><code>java
-context.lookup(..)</code></p>
+<pre><code class="language-java">context.lookup(..)
+</code></pre>
 
 <p>&nbsp;</p>
 

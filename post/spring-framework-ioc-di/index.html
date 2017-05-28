@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">842 words ~4min</span>
+<span class="leancloud-visitors-count">833 words ~4min</span>
 </span>
       </div>
     </header>
@@ -183,10 +183,10 @@
 
 <h4 id="bean-name">bean name</h4>
 
-<p>```java
-&lt;bean id=&ldquo;only_one_id&rdquo; name=&ldquo;name1 name2 name3&rdquo; ..&gt;</p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;only_one_id&quot; name=&quot;name1 name2 name3&quot; ..&amp;gt;
 
-<p>&lt;alias name=&ldquo;fromName&rdquo; alias=&ldquo;toName&rdquo;/&gt;```</p>
+&amp;lt;alias name=&quot;fromName&quot; alias=&quot;toName&quot;/&amp;gt;
+</code></pre>
 
 <p>you can name a bean by use id/name attribute. What&rsquo;s more important is you can specify 0, 1, or multiple names/alias for a bean.</p>
 
@@ -196,32 +196,32 @@
 <li>Instantiation with a constructor</li>
 </ul>
 
-<p>```java
-&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;/&gt;</p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;exampleBean&quot; class=&quot;examples.ExampleBean&quot;/&amp;gt;  
 
-<p>&lt;bean name=&ldquo;anotherExample&rdquo; class=&ldquo;examples.ExampleBeanTwo$InnerClass&rdquo;/&gt;```</p>
+&amp;lt;bean name=&quot;anotherExample&quot; class=&quot;examples.ExampleBeanTwo$InnerClass&quot;/&amp;gt;
+</code></pre>
 
 <ul>
 <li>Instantiation with a static factory method</li>
 </ul>
 
-<p><code>java
-&amp;lt;bean id=&quot;clientService&quot; class=&quot;examples.ClientService&quot; factory-method=&quot;createInstance&quot;/&amp;gt;</code></p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;clientService&quot; class=&quot;examples.ClientService&quot; factory-method=&quot;createInstance&quot;/&amp;gt;
+</code></pre>
 
 <ul>
 <li>Instantiation using an instance factory method</li>
 </ul>
 
-<p>```java
-&lt;!&ndash; the factory bean, which contains a method called createInstance() &ndash;&gt;
-&lt;bean id=&ldquo;serviceLocator&rdquo; class=&ldquo;examples.DefaultServiceLocator&rdquo;&gt;
-    &lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
-&lt;/bean&gt;</p>
+<pre><code class="language-java">&amp;lt;!-- the factory bean, which contains a method called createInstance() --&amp;gt;
+&amp;lt;bean id=&quot;serviceLocator&quot; class=&quot;examples.DefaultServiceLocator&quot;&amp;gt;
+    &amp;lt;!-- inject any dependencies required by this locator bean --&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;!&ndash; the bean to be created via the factory bean &ndash;&gt;
-&lt;bean id=&ldquo;clientService&rdquo;
-    factory-bean=&ldquo;serviceLocator&rdquo;
-    factory-method=&ldquo;createClientServiceInstance&rdquo;/&gt;```</p>
+&amp;lt;!-- the bean to be created via the factory bean --&amp;gt;
+&amp;lt;bean id=&quot;clientService&quot;
+    factory-bean=&quot;serviceLocator&quot;
+    factory-method=&quot;createClientServiceInstance&quot;/&amp;gt;
+</code></pre>
 
 <h4 id="dependencies">dependencies</h4>
 
@@ -229,141 +229,139 @@
 <li>Constructor-based dependency injection</li>
 </ul>
 
-<p>```java
-&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
-    &lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
-    &lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
-&lt;/bean&gt;</p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot;&amp;gt;
+    &amp;lt;constructor-arg ref=&quot;bar&quot;/&amp;gt;
+    &amp;lt;constructor-arg ref=&quot;baz&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;</p>
+&amp;lt;bean id=&quot;bar&quot; class=&quot;x.y.Bar&quot;/&amp;gt;
 
-<p>&lt;bean id=&ldquo;baz&rdquo; class=&ldquo;x.y.Baz&rdquo;/&gt;</p>
+&amp;lt;bean id=&quot;baz&quot; class=&quot;x.y.Baz&quot;/&amp;gt;
 
-<p>&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
-    &lt;constructor-arg type=&ldquo;int&rdquo; value=&ldquo;7500000&rdquo;/&gt;
-    &lt;constructor-arg type=&ldquo;java.lang.String&rdquo; value=&ldquo;42&rdquo;/&gt;
-&lt;/bean&gt;</p>
+&amp;lt;bean id=&quot;exampleBean&quot; class=&quot;examples.ExampleBean&quot;&amp;gt;
+    &amp;lt;constructor-arg type=&quot;int&quot; value=&quot;7500000&quot;/&amp;gt;
+    &amp;lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;42&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
-    &lt;constructor-arg index=&ldquo;0&rdquo; value=&ldquo;7500000&rdquo;/&gt;
-    &lt;constructor-arg index=&ldquo;1&rdquo; value=&ldquo;42&rdquo;/&gt;
-&lt;/bean&gt;</p>
+&amp;lt;bean id=&quot;exampleBean&quot; class=&quot;examples.ExampleBean&quot;&amp;gt;
+    &amp;lt;constructor-arg index=&quot;0&quot; value=&quot;7500000&quot;/&amp;gt;
+    &amp;lt;constructor-arg index=&quot;1&quot; value=&quot;42&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;!&ndash; compiled with the debug flag &ndash;&gt;
-&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
-    &lt;constructor-arg name=&ldquo;years&rdquo; value=&ldquo;7500000&rdquo;/&gt;
-    &lt;constructor-arg name=&ldquo;ultimateAnswer&rdquo; value=&ldquo;42&rdquo;/&gt;
-&lt;/bean&gt;```</p>
+&amp;lt;!-- compiled with the debug flag --&amp;gt;
+&amp;lt;bean id=&quot;exampleBean&quot; class=&quot;examples.ExampleBean&quot;&amp;gt;
+    &amp;lt;constructor-arg name=&quot;years&quot; value=&quot;7500000&quot;/&amp;gt;
+    &amp;lt;constructor-arg name=&quot;ultimateAnswer&quot; value=&quot;42&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
+</code></pre>
 
 <p><strong>XML shortcut with the c-namespace</strong></p>
 
-<p>```java
-&lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;
-&lt;bean id=&ldquo;baz&rdquo; class=&ldquo;x.y.Baz&rdquo;/&gt;</p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;bar&quot; class=&quot;x.y.Bar&quot;/&amp;gt;
+&amp;lt;bean id=&quot;baz&quot; class=&quot;x.y.Baz&quot;/&amp;gt;
 
-<p>&lt;!&ndash; traditional declaration &ndash;&gt;
-&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
-    &lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
-    &lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
-    &lt;constructor-arg value=&ldquo;foo@bar.com&rdquo;/&gt;
-&lt;/bean&gt;</p>
+&amp;lt;!-- traditional declaration --&amp;gt;
+&amp;lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot;&amp;gt;
+    &amp;lt;constructor-arg ref=&quot;bar&quot;/&amp;gt;
+    &amp;lt;constructor-arg ref=&quot;baz&quot;/&amp;gt;
+    &amp;lt;constructor-arg value=&quot;foo@bar.com&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;!&ndash; c-namespace declaration &ndash;&gt;
-&lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo; c:bar-ref=&ldquo;bar&rdquo; c:baz-ref=&ldquo;baz&rdquo; c:email=&ldquo;foo@bar.com&rdquo;/&gt;```</p>
+&amp;lt;!-- c-namespace declaration --&amp;gt;
+&amp;lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot; c:bar-ref=&quot;bar&quot; c:baz-ref=&quot;baz&quot; c:email=&quot;foo@bar.com&quot;/&amp;gt;
+</code></pre>
 
 <ul>
 <li>Setter-based dependency injection</li>
 </ul>
 
-<p>```java
-&lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
-    &lt;!&ndash; setter injection using the nested ref element &ndash;&gt;
-    &lt;property name=&ldquo;beanOne&rdquo;&gt;
-        &lt;ref bean=&ldquo;anotherExampleBean&rdquo;/&gt;
-    &lt;/property&gt;</p>
+<pre><code class="language-java">&amp;lt;bean id=&quot;exampleBean&quot; class=&quot;examples.ExampleBean&quot;&amp;gt;
+    &amp;lt;!-- setter injection using the nested ref element --&amp;gt;
+    &amp;lt;property name=&quot;beanOne&quot;&amp;gt;
+        &amp;lt;ref bean=&quot;anotherExampleBean&quot;/&amp;gt;
+    &amp;lt;/property&amp;gt;
 
-<pre><code>&amp;lt;!-- setter injection using the neater ref attribute --&amp;gt;
-&amp;lt;property name=&quot;beanTwo&quot; ref=&quot;yetAnotherBean&quot;/&amp;gt;
-&amp;lt;property name=&quot;integerProperty&quot; value=&quot;1&quot;/&amp;gt;
+    &amp;lt;!-- setter injection using the neater ref attribute --&amp;gt;
+    &amp;lt;property name=&quot;beanTwo&quot; ref=&quot;yetAnotherBean&quot;/&amp;gt;
+    &amp;lt;property name=&quot;integerProperty&quot; value=&quot;1&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id=&quot;myDataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; destroy-method=&quot;close&quot;&amp;gt;
+    &amp;lt;!-- results in a setDriverClassName(String) call --&amp;gt;
+    &amp;lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&amp;gt;
+    &amp;lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mydb&quot;/&amp;gt;
+    &amp;lt;property name=&quot;username&quot; value=&quot;root&quot;/&amp;gt;
+    &amp;lt;property name=&quot;password&quot; value=&quot;masterkaoli&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id=&quot;outer&quot; class=&quot;...&quot;&amp;gt;
+    &amp;lt;!-- instead of using a reference to a target bean, simply define the target bean inline --&amp;gt;
+    &amp;lt;property name=&quot;target&quot;&amp;gt;
+        &amp;lt;bean class=&quot;com.example.Person&quot;&amp;gt; &amp;lt;!-- this is the inner bean --&amp;gt;
+            &amp;lt;property name=&quot;name&quot; value=&quot;Fiona Apple&quot;/&amp;gt;
+            &amp;lt;property name=&quot;age&quot; value=&quot;25&quot;/&amp;gt;
+        &amp;lt;/bean&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id=&quot;moreComplexObject&quot; class=&quot;example.ComplexObject&quot;&amp;gt;
+    &amp;lt;!-- results in a setAdminEmails(java.util.Properties) call --&amp;gt;
+    &amp;lt;property name=&quot;adminEmails&quot;&amp;gt;
+        &amp;lt;props&amp;gt;
+            &amp;lt;prop key=&quot;administrator&quot;&amp;gt;administrator@example.org&amp;lt;/prop&amp;gt;
+            &amp;lt;prop key=&quot;support&quot;&amp;gt;support@example.org&amp;lt;/prop&amp;gt;
+            &amp;lt;prop key=&quot;development&quot;&amp;gt;development@example.org&amp;lt;/prop&amp;gt;
+        &amp;lt;/props&amp;gt;
+    &amp;lt;/property&amp;gt;
+    &amp;lt;!-- results in a setSomeList(java.util.List) call --&amp;gt;
+    &amp;lt;property name=&quot;someList&quot;&amp;gt;
+        &amp;lt;list&amp;gt;
+            &amp;lt;value&amp;gt;a list element followed by a reference&amp;lt;/value&amp;gt;
+            &amp;lt;ref bean=&quot;myDataSource&quot; /&amp;gt;
+        &amp;lt;/list&amp;gt;
+    &amp;lt;/property&amp;gt;
+    &amp;lt;!-- results in a setSomeMap(java.util.Map) call --&amp;gt;
+    &amp;lt;property name=&quot;someMap&quot;&amp;gt;
+        &amp;lt;map&amp;gt;
+            &amp;lt;entry key=&quot;an entry&quot; value=&quot;just some string&quot;/&amp;gt;
+            &amp;lt;entry key =&quot;a ref&quot; value-ref=&quot;myDataSource&quot;/&amp;gt;
+        &amp;lt;/map&amp;gt;
+    &amp;lt;/property&amp;gt;
+    &amp;lt;!-- results in a setSomeSet(java.util.Set) call --&amp;gt;
+    &amp;lt;property name=&quot;someSet&quot;&amp;gt;
+        &amp;lt;set&amp;gt;
+            &amp;lt;value&amp;gt;just some string&amp;lt;/value&amp;gt;
+            &amp;lt;ref bean=&quot;myDataSource&quot; /&amp;gt;
+        &amp;lt;/set&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
 </code></pre>
-
-<p>&lt;/bean&gt;</p>
-
-<p>&lt;bean id=&ldquo;myDataSource&rdquo; class=&ldquo;org.apache.commons.dbcp.BasicDataSource&rdquo; destroy-method=&ldquo;close&rdquo;&gt;
-    &lt;!&ndash; results in a setDriverClassName(String) call &ndash;&gt;
-    &lt;property name=&ldquo;driverClassName&rdquo; value=&ldquo;com.mysql.jdbc.Driver&rdquo;/&gt;
-    &lt;property name=&ldquo;url&rdquo; value=&ldquo;jdbc:mysql://localhost:3306/mydb&rdquo;/&gt;
-    &lt;property name=&ldquo;username&rdquo; value=&ldquo;root&rdquo;/&gt;
-    &lt;property name=&ldquo;password&rdquo; value=&ldquo;masterkaoli&rdquo;/&gt;
-&lt;/bean&gt;</p>
-
-<p>&lt;bean id=&ldquo;outer&rdquo; class=&ldquo;&hellip;&rdquo;&gt;
-    &lt;!&ndash; instead of using a reference to a target bean, simply define the target bean inline &ndash;&gt;
-    &lt;property name=&ldquo;target&rdquo;&gt;
-        &lt;bean class=&ldquo;com.example.Person&rdquo;&gt; &lt;!&ndash; this is the inner bean &ndash;&gt;
-            &lt;property name=&ldquo;name&rdquo; value=&ldquo;Fiona Apple&rdquo;/&gt;
-            &lt;property name=&ldquo;age&rdquo; value=&ldquo;25&rdquo;/&gt;
-        &lt;/bean&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;</p>
-
-<p>&lt;bean id=&ldquo;moreComplexObject&rdquo; class=&ldquo;example.ComplexObject&rdquo;&gt;
-    &lt;!&ndash; results in a setAdminEmails(java.util.Properties) call &ndash;&gt;
-    &lt;property name=&ldquo;adminEmails&rdquo;&gt;
-        &lt;props&gt;
-            &lt;prop key=&ldquo;administrator&rdquo;&gt;administrator@example.org&lt;/prop&gt;
-            &lt;prop key=&ldquo;support&rdquo;&gt;support@example.org&lt;/prop&gt;
-            &lt;prop key=&ldquo;development&rdquo;&gt;development@example.org&lt;/prop&gt;
-        &lt;/props&gt;
-    &lt;/property&gt;
-    &lt;!&ndash; results in a setSomeList(java.util.List) call &ndash;&gt;
-    &lt;property name=&ldquo;someList&rdquo;&gt;
-        &lt;list&gt;
-            &lt;value&gt;a list element followed by a reference&lt;/value&gt;
-            &lt;ref bean=&ldquo;myDataSource&rdquo; /&gt;
-        &lt;/list&gt;
-    &lt;/property&gt;
-    &lt;!&ndash; results in a setSomeMap(java.util.Map) call &ndash;&gt;
-    &lt;property name=&ldquo;someMap&rdquo;&gt;
-        &lt;map&gt;
-            &lt;entry key=&ldquo;an entry&rdquo; value=&ldquo;just some string&rdquo;/&gt;
-            &lt;entry key =&ldquo;a ref&rdquo; value-ref=&ldquo;myDataSource&rdquo;/&gt;
-        &lt;/map&gt;
-    &lt;/property&gt;
-    &lt;!&ndash; results in a setSomeSet(java.util.Set) call &ndash;&gt;
-    &lt;property name=&ldquo;someSet&rdquo;&gt;
-        &lt;set&gt;
-            &lt;value&gt;just some string&lt;/value&gt;
-            &lt;ref bean=&ldquo;myDataSource&rdquo; /&gt;
-        &lt;/set&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;```</p>
 
 <p><strong> &rdquo;&rdquo; and null</strong></p>
 
-<p>```java
-&lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
-    &lt;property name=&ldquo;email&rdquo; value=&ldquo;&rdquo;/&gt;
-&lt;/bean&gt;</p>
+<pre><code class="language-java">&amp;lt;bean class=&quot;ExampleBean&quot;&amp;gt;
+    &amp;lt;property name=&quot;email&quot; value=&quot;&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
-    &lt;property name=&ldquo;email&rdquo;&gt;
-        &lt;null/&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;```</p>
+&amp;lt;bean class=&quot;ExampleBean&quot;&amp;gt;
+    &amp;lt;property name=&quot;email&quot;&amp;gt;
+        &amp;lt;null/&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+</code></pre>
 
 <p><strong>XML shortcut with the p-namespace</strong></p>
 
-<p>```java
-&lt;bean name=&ldquo;john-classic&rdquo; class=&ldquo;com.example.Person&rdquo;&gt;
-    &lt;property name=&ldquo;name&rdquo; value=&ldquo;John Doe&rdquo;/&gt;
-    &lt;property name=&ldquo;spouse&rdquo; ref=&ldquo;jane&rdquo;/&gt;
-&lt;/bean&gt;</p>
+<pre><code class="language-java">&amp;lt;bean name=&quot;john-classic&quot; class=&quot;com.example.Person&quot;&amp;gt;
+    &amp;lt;property name=&quot;name&quot; value=&quot;John Doe&quot;/&amp;gt;
+    &amp;lt;property name=&quot;spouse&quot; ref=&quot;jane&quot;/&amp;gt;
+&amp;lt;/bean&amp;gt;
 
-<p>&lt;bean name=&ldquo;john-modern&rdquo;
-      class=&ldquo;com.example.Person&rdquo;
-      p:name=&ldquo;John Doe&rdquo;
-      p:spouse-ref=&ldquo;jane&rdquo;/&gt;```</p>
+&amp;lt;bean name=&quot;john-modern&quot;
+      class=&quot;com.example.Person&quot;
+      p:name=&quot;John Doe&quot;
+      p:spouse-ref=&quot;jane&quot;/&amp;gt;
+</code></pre>
 
 <h4 id="bean-scopes">bean scopes</h4>
 

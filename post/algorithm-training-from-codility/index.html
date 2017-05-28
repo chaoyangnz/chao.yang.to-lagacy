@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">7510 words ~15min</span>
+<span class="leancloud-visitors-count">7497 words ~15min</span>
 </span>
       </div>
     </header>
@@ -532,28 +532,28 @@ public class Solution {
 
         assertEquals(expected, actual);
     }
-}```
+}
+</code></pre>
 
+<h5 id="permmissingelem-https-codility-com-demo-take-sample-test-perm-missing-elem"><a href="https://codility.com/demo/take-sample-test/perm_missing_elem">PermMissingElem</a></h5>
 
-##### [PermMissingElem](https://codility.com/demo/take-sample-test/perm_missing_elem)
+<p><strong>Short Problem Definition:</strong></p>
 
-**Short Problem Definition:**
+<p>Find the missing element in a given permutation.</p>
 
-Find the missing element in a given permutation.
+<p><strong>Complexity:</strong></p>
 
-**Complexity:**
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
 
-*   expected worst-case time complexity is O(N);
-*   expected worst-case space complexity is O(1)
-**Execution:**
+<p>Sum all elements that should be in the list and sum all elements that actually are in the list. The sum is 0 based, so +1 is required. The first solution using the + operator can cause int overflow in not-python languages. Therefore the use of a binary XOR is adequate.</p>
 
-Sum all elements that should be in the list and sum all elements that actually are in the list. The sum is 0 based, so +1 is required. The first solution using the + operator can cause int overflow in not-python languages. Therefore the use of a binary XOR is adequate.
+<p><strong>Solution:</strong></p>
 
-**Solution:**
-
-
-```java
-package PermMissingElem;
+<pre><code class="language-java">package PermMissingElem;
 
 /*
 A zero-indexed array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], which means that exactly one element is missing.
@@ -995,28 +995,28 @@ public class Solution {
         assertArrayEquals(expected, actual);
     }
 
-}```
+}
+</code></pre>
 
+<h5 id="missinginteger-https-codility-com-demo-take-sample-test-missing-integer"><a href="https://codility.com/demo/take-sample-test/missing_integer">MissingInteger</a></h5>
 
-##### [MissingInteger](https://codility.com/demo/take-sample-test/missing_integer)
+<p><strong>Short Problem Definition:</strong></p>
 
-**Short Problem Definition:**
+<p>Find the minimal positive integer not occurring in a given sequence.</p>
 
-Find the minimal positive integer not occurring in a given sequence.
+<p><strong>Complexity:</strong></p>
 
-**Complexity:**
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
 
-*   expected worst-case time complexity is O(N);
-*   expected worst-case space complexity is O(N)
-**Execution:**
+<p>You only need to consider the first (N) positive integers. In this specification 0 does not count as a valid candidate! Any value that is below 1 or above N can be ignored.</p>
 
-You only need to consider the first (N) positive integers. In this specification 0 does not count as a valid candidate! Any value that is below 1 or above N can be ignored.
+<p><strong>Solution:</strong></p>
 
-**Solution:**
-
-
-```java
-package MissingInteger;
+<pre><code class="language-java">package MissingInteger;
 
 /*
 Write a function:
@@ -1088,30 +1088,30 @@ public class Solution {
 
         assertEquals(expected, actual);
     }
-}```
+}
+</code></pre>
 
+<h4 id="prefix-sums-1">Prefix Sums</h4>
 
-#### Prefix Sums
+<h5 id="passingcars-https-codility-com-demo-take-sample-test-passing-cars"><a href="https://codility.com/demo/take-sample-test/passing_cars">PassingCars</a></h5>
 
-##### [PassingCars](https://codility.com/demo/take-sample-test/passing_cars)
+<p><strong>Short Problem Definition:</strong></p>
 
-**Short Problem Definition:**
+<p>Count the number of passing cars on the road.</p>
 
-Count the number of passing cars on the road.
+<p><strong>Complexity:</strong></p>
 
-**Complexity:**
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
 
-*   expected worst-case time complexity is O(N);
-*   expected worst-case space complexity is O(1)
-**Execution:**
+<p>Count all cars heading in one direction (west). Each car heading the other direction (east) passes all cars that went west so far. Note that east cars at the beginning of the list pass no cars! Also do not forget the upper limit!</p>
 
-Count all cars heading in one direction (west). Each car heading the other direction (east) passes all cars that went west so far. Note that east cars at the beginning of the list pass no cars! Also do not forget the upper limit!
+<p><strong>Solution:</strong></p>
 
-**Solution:**
-
-
-```java
-package PassingCars;
+<pre><code class="language-java">package PassingCars;
 
 /*
 A non-empty zero-indexed array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.
@@ -2164,12 +2164,18 @@ public class Solution {
 <ul>
 <li><a href="#tapeequilibrium-https-codility-com-demo-take-sample-test-tape-equilibrium"><a href="https://codility.com/demo/take-sample-test/tape_equilibrium">TapeEquilibrium</a></a></li>
 <li><a href="#frogjmp-https-codility-com-demo-take-sample-test-frog-jmp"><a href="https://codility.com/demo/take-sample-test/frog_jmp">FrogJmp</a></a></li>
+<li><a href="#permmissingelem-https-codility-com-demo-take-sample-test-perm-missing-elem"><a href="https://codility.com/demo/take-sample-test/perm_missing_elem">PermMissingElem</a></a></li>
 </ul></li>
 <li><a href="#counting-elements-1">Counting Elements</a>
 <ul>
 <li><a href="#permcheck-https-codility-com-demo-take-sample-test-perm-check"><a href="https://codility.com/demo/take-sample-test/perm_check">PermCheck</a></a></li>
 <li><a href="#frogriverone-https-codility-com-demo-take-sample-test-frog-river-one"><a href="https://codility.com/demo/take-sample-test/frog_river_one">FrogRiverOne</a></a></li>
 <li><a href="#maxcounters-https-codility-com-demo-take-sample-test-max-counters"><a href="https://codility.com/demo/take-sample-test/max_counters">MaxCounters</a></a></li>
+<li><a href="#missinginteger-https-codility-com-demo-take-sample-test-missing-integer"><a href="https://codility.com/demo/take-sample-test/missing_integer">MissingInteger</a></a></li>
+</ul></li>
+<li><a href="#prefix-sums-1">Prefix Sums</a>
+<ul>
+<li><a href="#passingcars-https-codility-com-demo-take-sample-test-passing-cars"><a href="https://codility.com/demo/take-sample-test/passing_cars">PassingCars</a></a></li>
 <li><a href="#genomicrangequery-https-codility-com-demo-take-sample-test-genomic-range-query"><a href="https://codility.com/demo/take-sample-test/genomic_range_query">GenomicRangeQuery</a></a></li>
 <li><a href="#minavgtwoslice-https-codility-com-demo-take-sample-test-min-avg-two-slice"><a href="https://codility.com/demo/take-sample-test/min_avg_two_slice">MinAvgTwoSlice</a></a></li>
 <li><a href="#countdiv-https-codility-com-demo-take-sample-test-count-div"><a href="https://codility.com/demo/take-sample-test/count_div">CountDiv</a></a></li>

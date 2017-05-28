@@ -167,8 +167,8 @@
 
 <p><strong>SubQuery in SQL</strong> is a query inside another query</p>
 
-<p><code>java
-SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone='west')</code></p>
+<pre><code class="language-java">SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone='west')
+</code></pre>
 
 <p>In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
 
@@ -178,8 +178,8 @@ SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone='west
 
 <p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.</p>
 
-<p><code>java
-SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY='Japan');</code></p>
+<pre><code class="language-java">SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHERE COUNTRY='Japan');
+</code></pre>
 
 <p>Here, the inner query is executed before the outer query.</p>
 
@@ -189,8 +189,8 @@ SELECT COMPANY FROM Stock WHERE LISTED_ON_EXCHANGE = (SELECT RIC FROM Market WHE
 
 <p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.</p>
 
-<p><code>java
-SELECT m.NAME FROM Market m WHERE m.RIC EXISTS (SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC);</code></p>
+<pre><code class="language-java">SELECT m.NAME FROM Market m WHERE m.RIC EXISTS (SELECT s.LISTED_ON_EXCHANGE FROM Stock s WHERE s.LISTED_ON_EXCHANGE=m.RIC);
+</code></pre>
 
 <p>Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
 
@@ -198,34 +198,32 @@ SELECT m.NAME FROM Market m WHERE m.RIC EXISTS (SELECT s.LISTED_ON_EXCHANGE FROM
 
 <p>Now, almost any subquery can be written in join.</p>
 
-<p>```java
-id  name    id  title</p>
-
-<hr />
-
-<p>1   Kenny   1   Analyst
+<pre><code class="language-java">id  name    id  title
+--  ----    --  ----
+1   Kenny   1   Analyst
 1   Rob     2   Sales
 4   Molly   3   Manager
 1   Greg
-2   John</p>
+2   John
 
-<p>&ndash; non correlated subquery using IN
-&ndash; Returns 3 records - Kenny, Rob, and Greg
+-- non correlated subquery using IN
+-- Returns 3 records - Kenny, Rob, and Greg
 SELECT  *
 FROM    tableA
-WHERE   tableA.id IN (SELECT tableB.id FROM tableB WHERE title = &lsquo;Analyst&rsquo;);</p>
+WHERE   tableA.id IN (SELECT tableB.id FROM tableB WHERE title = 'Analyst');
 
-<p>&ndash; correlated subquery using EXISTS
+-- correlated subquery using EXISTS
 SELECT  *
 FROM    tableA
-WHERE   EXISTS (SELECT 1 FROM tableB WHERE title = &lsquo;Analyst&rsquo; AND tableA.id = tableB.id);</p>
+WHERE   EXISTS (SELECT 1 FROM tableB WHERE title = 'Analyst' AND tableA.id = tableB.id);
 
-<p>&ndash; JOIN (INNER is the default when only JOIN is specified)
+-- JOIN (INNER is the default when only JOIN is specified)
 SELECT  *
 FROM    tableA
 JOIN    tableB
     ON  tableA.id = tableB.id
-WHERE   tableB.title = &lsquo;Analyst&rsquo;;```</p>
+WHERE   tableB.title = 'Analyst';
+</code></pre>
 
 <p>Basically, there are some differences:</p>
 

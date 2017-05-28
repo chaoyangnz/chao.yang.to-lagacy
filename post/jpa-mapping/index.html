@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">875 words ~2min</span>
+<span class="leancloud-visitors-count">858 words ~2min</span>
 </span>
       </div>
     </header>
@@ -235,32 +235,24 @@
 
 <p>@Basic can specify the lazy fetching mode.</p>
 
-<pre><code class="language-java">@Basic(fetch=FetchType.LAZY)```
+<pre><code class="language-java">@Basic(fetch=FetchType.LAZY)
+</code></pre>
 
+<h4 id="specify-the-column-name-column">specify the column name - @Column</h4>
 
-#### specify the column name - @Column
+<pre><code class="language-java">@Column(name=&quot;ADDR&quot;)
+</code></pre>
 
+<h4 id="large-object-lob">large object - @Lob</h4>
 
+<pre><code class="language-java">@Lob
+</code></pre>
 
-```java
-@Column(name=&quot;ADDR&quot;)```
+<h4 id="temporal-types-for-java-util-date-and-java-util-calendar-temporal">temporal types for java.util.Date and java.util.Calendar - @Temporal</h4>
 
+<p>If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK.</p>
 
-#### large object - @Lob
-
-
-
-```java
-@Lob```
-
-
-#### temporal types for java.util.Date and java.util.Calendar - @Temporal
-
-If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK.
-
-
-```java
-@Temporal(TemporalType.DATE)
+<pre><code class="language-java">@Temporal(TemporalType.DATE)
 private Calendar dob;
 </code></pre>
 
@@ -275,36 +267,33 @@ private Calendar dob;
 
 <pre><code class="language-java">@Basic
 @Enumerated(EnumType.STRING)
-private Gender gender;```
+private Gender gender;
+</code></pre>
 
+<h3 id="primary-key">primary Key</h3>
 
-### primary Key
+<ul>
+<li>primitive type: byte, int, short, long, char, (float, double)</li>
+<li>wrapper classes of primitives: Byte, Integer, Short, Long, Character, (Float, Double)</li>
+<li>string: String</li>
+<li>large numeric type: java.math.BigInteger, (java.math.BigDecimal)</li>
+<li>temporal type: java.sql.Date, java.util.Date
+<em>WARNING: using floating types for primary keys is risky endevour and is not recommended.</em></li>
+</ul>
 
-*   primitive type: byte, int, short, long, char, (float, double)
-*   wrapper classes of primitives: Byte, Integer, Short, Long, Character, (Float, Double)
-*   string: String
-*   large numeric type: java.math.BigInteger, (java.math.BigDecimal)
-*   temporal type: java.sql.Date, java.util.Date
-_WARNING: using floating types for primary keys is risky endevour and is not recommended._
+<p>there are 4 types of identity generation.</p>
 
-there are 4 types of identity generation.
+<h4 id="automatic">Automatic</h4>
 
-#### Automatic
+<pre><code class="language-java">@Id @GeneratedValue(strategy=GenerationType.AUTO)
+private long id;
+</code></pre>
 
+<p>The provider can choose table-based strategy or sequence-based strategy. This strategy may need schema generation and is a choice for development or prototyping. It&rsquo;s not recommended for other cases. You should always specify the other three strategies.</p>
 
+<h4 id="table">Table</h4>
 
-```java
-@Id @GeneratedValue(strategy=GenerationType.AUTO)
-private long id;```
-
-The provider can choose table-based strategy or sequence-based strategy. This strategy may need schema generation and is a choice for development or prototyping. It's not recommended for other cases. You should always specify the other three strategies.
-
-#### Table
-
-
-
-```java
-@Id @GeneratedValue(stategy=GenerationType.TABLE)
+<pre><code class="language-java">@Id @GeneratedValue(stategy=GenerationType.TABLE)
 private long id;
 </code></pre>
 
@@ -368,11 +357,11 @@ private long id;
 </table>
 For many-to-many mapping, you can using join table to declare the many-to-many relationship</p>
 
-<p><code>java
-@ManyToMany
+<pre><code class="language-java">@ManyToMany
 @JoinTable(name = &quot;BOOK_AUTHOR&quot;, 
 joinColumns = { @JoinColumn(name = &quot;BOOK_ID&quot;, referencedColumnName = &quot;id&quot;) }, 
-inverseJoinColumns = { @JoinColumn(name = &quot;AUTHORID&quot;, referencedColumnName = &quot;id&quot;) })</code></p>
+inverseJoinColumns = { @JoinColumn(name = &quot;AUTHORID&quot;, referencedColumnName = &quot;id&quot;) })
+</code></pre>
 
 <p>The three relationships can use <span style="text-decoration: underline;"><em>fetch=FetchType.LAZY</em></span>.</p>
 
@@ -516,8 +505,16 @@ inverseJoinColumns = { @JoinColumn(name = &quot;AUTHORID&quot;, referencedColumn
 <li><a href="#basic-mapping">Basic mapping</a>
 <ul>
 <li><a href="#lazy-fetching">lazy fetching</a></li>
+<li><a href="#specify-the-column-name-column">specify the column name - @Column</a></li>
+<li><a href="#large-object-lob">large object - @Lob</a></li>
+<li><a href="#temporal-types-for-java-util-date-and-java-util-calendar-temporal">temporal types for java.util.Date and java.util.Calendar - @Temporal</a></li>
 <li><a href="#transient-state-transient">transient state - @Transient</a></li>
 <li><a href="#enums-enumerated">enums - @Enumerated</a></li>
+</ul></li>
+<li><a href="#primary-key">primary Key</a>
+<ul>
+<li><a href="#automatic">Automatic</a></li>
+<li><a href="#table">Table</a></li>
 <li><a href="#sequence">Sequence</a></li>
 <li><a href="#identity">Identity</a></li>
 </ul></li>

@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1123 words ~6min</span>
+<span class="leancloud-visitors-count">1080 words ~6min</span>
 </span>
       </div>
     </header>
@@ -354,134 +354,136 @@ Such frameworks are: JSF, Wicket, ASP.NET</li>
 		&amp;lt;session-timeout&amp;gt;30&amp;lt;/session-timeout&amp;gt;
 	&amp;lt;/session-config&amp;gt;
 
-&amp;lt;/web-app&amp;gt;```
+&amp;lt;/web-app&amp;gt;
+</code></pre>
 
+<h4 id="actions"> Actions</h4>
 
-####  Actions
+<p>If you don&rsquo;t specify the method of an action, its execute() will be invoked by default.</p>
 
-If you don't specify the method of an action, its execute() will be invoked by default.
+<p>An action method can return a <em>String</em> or _Result _or no return.</p>
 
-An action method can return a _String_ or _Result _or no return.
-
-
-```java
-&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
+<pre><code class="language-java">&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
-&amp;lt;/action&amp;gt;```
+&amp;lt;/action&amp;gt;
+</code></pre>
 
-An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be **_sterotype_**.
+<p>An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be <strong><em>sterotype</em></strong>.</p>
 
-The above example uses the global result setting. You can specify the action-specific configs of result mapping, like
+<p>The above example uses the global result setting. You can specify the action-specific configs of result mapping, like</p>
 
-
-```java
-&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
+<pre><code class="language-java">&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
     &amp;lt;result name=&quot;success&quot; type=&quot;dispatcher&quot;&amp;gt;1.jsp&amp;lt;/result&amp;gt;
-&amp;lt;/action&amp;gt;```
+&amp;lt;/action&amp;gt;
+</code></pre>
 
-&gt; NOTE: the &quot;dispatcher&quot; result type is default if you don't specify the result type.
-Most of time, the logic service object is injected by DI framework (Struts only support setter injection), but there are many non-managed objects needing to acquire in the action, like request, session, servletContext, response, etc. In this case, we can use **Aware interface.
+<blockquote>
+<p>NOTE: the &ldquo;dispatcher&rdquo; result type is default if you don&rsquo;t specify the result type.
+Most of time, the logic service object is injected by DI framework (Struts only support setter injection), but there are many non-managed objects needing to acquire in the action, like request, session, servletContext, response, etc. In this case, we can use **Aware interface.</p>
+</blockquote>
 
-*   SessionAware
-*   ServletRequestAware
-*   RequestAware
-*   ApplicationAware
-*   ServletResponseAware
-*   ParameterAware
-*   PrincipalAware
-*   ServletContextAware
+<ul>
+<li>SessionAware</li>
+<li>ServletRequestAware</li>
+<li>RequestAware</li>
+<li>ApplicationAware</li>
+<li>ServletResponseAware</li>
+<li>ParameterAware</li>
+<li>PrincipalAware</li>
+<li>ServletContextAware</li>
+</ul>
 
-#### Result type
+<h4 id="result-type">Result type</h4>
 
-Struts provides many result type, but you can implement your custom implementation by implements _**Result** _interface.
+<p>Struts provides many result type, but you can implement your custom implementation by implements _<strong>Result</strong> _interface.</p>
 
-*   dispatcher
-*   httpheader
-*   redirect
-*   redirectAction
-*   plainText
-*   stream
-*   velocity
+<ul>
+<li>dispatcher</li>
+<li>httpheader</li>
+<li>redirect</li>
+<li>redirectAction</li>
+<li>plainText</li>
+<li>stream</li>
+<li>velocity</li>
+</ul>
 
-#### Interceptors
+<h4 id="interceptors">Interceptors</h4>
 
-Interceptors are conceptually the same as servlet filters or proxy, which provide a way to supply pro-processing and post-processing around the action.
+<p>Interceptors are conceptually the same as servlet filters or proxy, which provide a way to supply pro-processing and post-processing around the action.</p>
 
-Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.
+<p>Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.</p>
 
-
-```java
-public interface Interceptor extends Serializable {
+<pre><code class="language-java">public interface Interceptor extends Serializable {
     void destroy();
     void init();
     String intercept(ActionInvocation invocation) throws Exception;
-}```
+}
+</code></pre>
 
+<h4 id="value-stack-ognl"> Value Stack / OGNL</h4>
 
-####  Value Stack / OGNL
+<p>Value stack and OGNL are all related to accessing data. OGNL is an expression language, aka. Object Graphic Navigational Language.</p>
 
-Value stack and OGNL are all related to accessing data. OGNL is an expression language, aka. Object Graphic Navigational Language.
+<p>We use OGNL to access data from value stack in some cases:</p>
 
-We use OGNL to access data from value stack in some cases:
+<ul>
+<li>JSP tags</li>
+<li>Velocity or Freemarker template</li>
+</ul>
 
-*   JSP tags
-*   Velocity or Freemarker template
+<h5 id="what-are-there-in-value-stack">What are there in Value stack?</h5>
 
-##### What are there in Value stack?
+<p><img src="http://yangchao.me/media/struts-value-stack.png" alt="struts-value-stack" /></p>
 
-![struts-value-stack](/media/struts-value-stack.png)
+<h3 id="tags">Tags</h3>
 
-### Tags
+<h4 id="lt-s-property-gt">&lt;s:property&gt;</h4>
 
-#### &amp;lt;s:property&amp;gt;
+<p>This tag is used to access value stack value.</p>
 
-This tag is used to access value stack value.
+<ul>
+<li>escape html or javascript</li>
+</ul>
 
-*   escape html or javascript
+<pre><code class="language-java">&amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;
+</code></pre>
 
-
-```java
-&amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;```
-
-
-
-```java
-&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
     var jsFromTag1 = '&amp;lt;s:property value=&quot;javascriptExample&quot;
     escapeJavaScript=&quot;true&quot;/&amp;gt;';
     document.writeln(jsFromTag1);
-&amp;lt;/script&amp;gt;```
+&amp;lt;/script&amp;gt;
+</code></pre>
 
+<ul>
+<li>default value</li>
+</ul>
 
-*   default value
-
-
-```java
-&amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;
+<pre><code class="language-java">&amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;
 </code></pre>
 
 <ul>
 <li>access scope object: request, session, application with prefix #</li>
 </ul>
 
-<p><code>java
-&amp;lt;s:property value=&quot;#application.anAppAttribute&quot;/&amp;gt;
+<pre><code class="language-java">&amp;lt;s:property value=&quot;#application.anAppAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#session.aSessionAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#request.aRequestAttribute&quot;/&amp;gt;
-&amp;lt;s:property value=&quot;#parameters.aRequestParameter&quot;/&amp;gt;</code></p>
+&amp;lt;s:property value=&quot;#parameters.aRequestParameter&quot;/&amp;gt;
+</code></pre>
 
 <p>parameters is for request parameters</p>
 
 <p>No page object, but instead you use #attr to search all the attributes of application, request, session and page in order.</p>
 
-<p><code>java
-&amp;lt;s:property value=&quot;#attr.anAppAttribute&quot;/&amp;gt;
+<pre><code class="language-java">&amp;lt;s:property value=&quot;#attr.anAppAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#attr.aSessionAttribute&quot;/&amp;gt;
 &amp;lt;s:property value=&quot;#attr.aRequestAttribute&quot;/&amp;gt;
-&amp;lt;s:property value=&quot;#attr.aPageAttribute&quot;/&amp;gt;</code></p>
+&amp;lt;s:property value=&quot;#attr.aPageAttribute&quot;/&amp;gt;
+</code></pre>
 
 <h4 id="lt-s-debug-gt"><code>&amp;lt;s:debug&amp;gt;</code></h4>
 
@@ -495,8 +497,7 @@ This tag is used to access value stack value.
 
 <h4 id="lt-s-if-gt-lt-s-elseif-gt-and-lt-s-else-gt"><code>&amp;lt;s:if&amp;gt;, &amp;lt;s:elseif&amp;gt;</code>, and<code>&amp;lt;s:else&amp;gt;</code></h4>
 
-<p><code>java
-&amp;lt;s:if test=&quot;aBooleanExpression&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:if test=&quot;aBooleanExpression&quot;&amp;gt;
 Printed when test is true.
 &amp;lt;/s:if&amp;gt;
 &amp;lt;s:elseif test=&quot;aDifferentBooleanExpression&quot;&amp;gt;
@@ -504,37 +505,37 @@ Printed when test is true.
 &amp;lt;selseif&amp;gt; tag&amp;lt;/s:elseif&amp;gt;
 &amp;lt;s:else&amp;gt;
 Printed if neither were true.
-&amp;lt;selse&amp;gt; tag&amp;lt;/s:else&amp;gt;</code></p>
+&amp;lt;selse&amp;gt; tag&amp;lt;/s:else&amp;gt;
+</code></pre>
 
 <h4 id="lt-s-iterator-gt">&lt;s:iterator&gt;</h4>
 
-<p><code>java
-&amp;lt;s:iterator value=&quot;listOfStrings&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;listOfStrings&quot;&amp;gt;
 &amp;lt;li&amp;gt;&amp;lt;s:property/&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code></p>
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
 
-<p><code>java
-&amp;lt;s:iterator value=&quot;listOfStrings&quot; var=&quot;anItem&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;listOfStrings&quot; var=&quot;anItem&quot;&amp;gt;
 &amp;lt;li&amp;gt;&amp;lt;s:property value=&quot;anItem&quot;/&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code></p>
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
 
-<p><code>java
-&amp;lt;s:iterator value=&quot;mapStringString&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;mapStringString&quot;&amp;gt;
   &amp;lt;li&amp;gt;
      &amp;lt;s:property value=&quot;key&quot;/&amp;gt; : &amp;lt;s:property value=&quot;value&quot;/&amp;gt;
   &amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code></p>
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
 
-<p><code>java
-&amp;lt;s:iterator value=&quot;mapStringString&quot; var=&quot;entry&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;mapStringString&quot; var=&quot;entry&quot;&amp;gt;
    &amp;lt;li&amp;gt;
      &amp;lt;s:property value=&quot;#entry.key&quot;/&amp;gt; ==
      &amp;lt;s:property value=&quot;#entry.value&quot;/&amp;gt;
    &amp;lt;/li&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code></p>
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
 
-<p><code>java
-&amp;lt;s:iterator value=&quot;list1&quot; status=&quot;stat&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;list1&quot; status=&quot;stat&quot;&amp;gt;
 &amp;lt;tr&amp;gt;
 &amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.index&quot;/&amp;gt;&amp;lt;/td&amp;gt;
 &amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.count&quot;/&amp;gt;&amp;lt;/td&amp;gt;
@@ -546,7 +547,8 @@ Printed if neither were true.
 &amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.modulus(4)&quot;/&amp;gt;&amp;lt;/td&amp;gt;
 &amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.count % 4&quot;/&amp;gt;&amp;lt;/td&amp;gt;
 &amp;lt;/tr&amp;gt;
-&amp;lt;/s:iterator&amp;gt;</code></p>
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
 
 <h4 id="lt-s-include-gt">&lt;s:include&gt;</h4>
 
@@ -554,8 +556,8 @@ Printed if neither were true.
 
 <h4 id="lt-s-action-gt">&lt;s:action&gt;</h4>
 
-<p><code>java
-&amp;lt;s:action name=&quot;includedAction&quot;/&amp;gt;</code></p>
+<pre><code class="language-java">&amp;lt;s:action name=&quot;includedAction&quot;/&amp;gt;
+</code></pre>
 
 <h4 id="lt-s-url-gt">&lt;s:url&gt;</h4>
 
@@ -703,6 +705,17 @@ Printed if neither were true.
 <li><a href="#struts-properties">struts.properties</a></li>
 <li><a href="#struts-xml">struts.xml</a></li>
 </ul></li>
+<li><a href="#actions"> Actions</a></li>
+<li><a href="#result-type">Result type</a></li>
+<li><a href="#interceptors">Interceptors</a></li>
+<li><a href="#value-stack-ognl"> Value Stack / OGNL</a>
+<ul>
+<li><a href="#what-are-there-in-value-stack">What are there in Value stack?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tags">Tags</a>
+<ul>
+<li><a href="#lt-s-property-gt">&lt;s:property&gt;</a></li>
 <li><a href="#lt-s-debug-gt"><code>&amp;lt;s:debug&amp;gt;</code></a></li>
 <li><a href="#anactionproperty">${anActionProperty}</a></li>
 <li><a href="#lt-s-set-gt">&lt;s:set&gt;</a></li>

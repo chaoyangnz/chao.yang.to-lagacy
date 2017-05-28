@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">272 words ~2min</span>
+<span class="leancloud-visitors-count">219 words ~2min</span>
 </span>
       </div>
     </header>
@@ -171,142 +171,123 @@
 
 <h4 id="scriptlet">scriptlet</h4>
 
-<pre><code class="language-java">&amp;lt;% int count=0; out.println(&quot;This is a scriptlet&quot;); %&amp;gt;```
+<pre><code class="language-java">&amp;lt;% int count=0; out.println(&quot;This is a scriptlet&quot;); %&amp;gt;
+</code></pre>
 
-This block is placed in the body of method _jspService(request, response)
+<p>This block is placed in the body of method _jspService(request, response)</p>
 
-#### derective
+<h4 id="derective">derective</h4>
 
+<pre><code class="language-java">&amp;lt;%@ page import=&quot;java.util.*,java.xml.*&quot; %&amp;gt;
+</code></pre>
 
+<pre><code class="language-java">&amp;lt;%@ include file=&quot;xxx&quot; %&amp;gt;
+</code></pre>
 
-```java
-&amp;lt;%@ page import=&quot;java.util.*,java.xml.*&quot; %&amp;gt;```
+<pre><code class="language-java">&amp;lt;%@ taglib tagdir=&quot;/WEB-INF/tags/xxx&quot; prefix=&quot;xxx&quot; %&amp;gt;
+</code></pre>
 
+<h4 id="expression">expression</h4>
 
+<pre><code class="language-java">&amp;lt;%= &quot;This is a expression argument&quot; %&amp;gt;
+</code></pre>
 
-```java
-&amp;lt;%@ include file=&quot;xxx&quot; %&amp;gt;```
+<h4 id="declaration">declaration</h4>
 
+<pre><code class="language-java">&amp;lt;%! int count=0 %&amp;gt;
+</code></pre>
 
+<pre><code class="language-java">&amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt;
+</code></pre>
 
-```java
-&amp;lt;%@ taglib tagdir=&quot;/WEB-INF/tags/xxx&quot; prefix=&quot;xxx&quot; %&amp;gt;```
+<p>This is equivlant with the member field and member method of the generated servlet.</p>
 
+<h4 id="comment">comment</h4>
 
-#### expression
+<pre><code class="language-java">&amp;lt;!-- HTML Comments --&amp;gt;
+&amp;lt;%-- JSP Comments --%&amp;gt;
+</code></pre>
 
+<p>The first is called <span style="text-decoration: underline;"><em>output comments</em></span>, while the second is called <em><span style="text-decoration: underline;">hidden comments</span></em>.</p>
 
+<h3 id="implicit-objects-in-scriptlets-and-expressions">implicit Objects in scriptlets and expressions</h3>
 
-```java
-&amp;lt;%= &quot;This is a expression argument&quot; %&amp;gt;```
+<table style="height: 272px;" border="1" width="349">
+<tbody>
+<tr>
+<td>Type</td>
+<td>implicit variable</td>
+</tr>
+<tr>
+<td>JspWriter</td>
+<td>out</td>
+</tr>
+<tr>
+<td>HttpServletRequest</td>
+<td>request</td>
+</tr>
+<tr>
+<td>HttpServletResponse</td>
+<td>response</td>
+</tr>
+<tr>
+<td>HttpSession</td>
+<td>session</td>
+</tr>
+<tr>
+<td>ServletContext</td>
+<td>application</td>
+</tr>
+<tr>
+<td>ServletConfig</td>
+<td>config</td>
+</tr>
+<tr>
+<td>Throwable</td>
+<td>exception</td>
+</tr>
+<tr>
+<td>PageContext</td>
+<td>pageContext</td>
+</tr>
+<tr>
+<td>HttpJspPage</td>
+<td>page</td>
+</tr>
+</tbody>
+</table>
 
+<h3 id="about-the-generated-servlet">about the generated servlet</h3>
 
-#### declaration
+<p>it&rsquo;s a subclass of HttpJspPage, which inherited JspPage</p>
 
+<p>In JSP, you can get its reference by a implicit object named <em><strong>page.</strong></em></p>
 
+<p><img src="http://yangchao.me/media/jsppage.png" alt="jsppage" /></p>
 
-```java
-&amp;lt;%! int count=0 %&amp;gt;```
+<p>The methods of <em><strong>JspPage</strong></em>:</p>
 
+<pre><code class="language-java">jspInit()
+jspDestroy()
+</code></pre>
 
+<p>The methods of <em><strong>HttpJspPage</strong></em></p>
 
-```java
-&amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt;```
+<pre><code class="language-java">_jspService()
+</code></pre>
 
-This is equivlant with the member field and member method of the generated servlet.
+<p>You can override the jspInit() and jspDestroy() methods, but not for _jspService() method.</p>
 
-#### comment
+<h3 id="about-the-pagecontext">about the PageContext</h3>
 
+<p>PageContext is a subclass of JspContext.
+<img src="http://yangchao.me/media/jspContext.png" alt="jspContext" /><img src="http://yangchao.me/media/pageContext.png" alt="pageContext" /></p>
 
+<h3 id="about-the-configuration">about the configuration</h3>
 
-```java
-&amp;lt;!-- HTML Comments --&amp;gt;
-&amp;lt;%-- JSP Comments --%&amp;gt;```
+<p>1. config jsp for global in deployment descriptor</p>
 
-The first is called &lt;span style=&quot;text-decoration: underline;&quot;&gt;_output comments_&lt;/span&gt;, while the second is called _&lt;span style=&quot;text-decoration: underline;&quot;&gt;hidden comments&lt;/span&gt;_.
-
-### implicit Objects in scriptlets and expressions
-
-&lt;table style=&quot;height: 272px;&quot; border=&quot;1&quot; width=&quot;349&quot;&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Type&lt;/td&gt;
-&lt;td&gt;implicit variable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;JspWriter&lt;/td&gt;
-&lt;td&gt;out&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;HttpServletRequest&lt;/td&gt;
-&lt;td&gt;request&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;HttpServletResponse&lt;/td&gt;
-&lt;td&gt;response&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;HttpSession&lt;/td&gt;
-&lt;td&gt;session&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ServletContext&lt;/td&gt;
-&lt;td&gt;application&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ServletConfig&lt;/td&gt;
-&lt;td&gt;config&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Throwable&lt;/td&gt;
-&lt;td&gt;exception&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PageContext&lt;/td&gt;
-&lt;td&gt;pageContext&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;HttpJspPage&lt;/td&gt;
-&lt;td&gt;page&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-### about the generated servlet
-
-it's a subclass of HttpJspPage, which inherited JspPage
-
-In JSP, you can get its reference by a implicit object named _**page.**_
-
-![jsppage](/media/jsppage.png)
-
-The methods of _**JspPage**_:
-
-
-```java
-jspInit()
-jspDestroy()```
-
-The methods of _**HttpJspPage**_
-
-
-```java
-_jspService()```
-
-You can override the jspInit() and jspDestroy() methods, but not for _jspService() method.
-
-### about the PageContext
-
-PageContext is a subclass of JspContext.
-![jspContext](/media/jspContext.png)![pageContext](/media/pageContext.png)
-
-### about the configuration
-
-1\. config jsp for global in deployment descriptor
-
-
-```java
-&amp;lt;web-app ...&amp;gt;
+<pre><code class="language-java">&amp;lt;web-app ...&amp;gt;
 
 ...
 
@@ -330,8 +311,8 @@ PageContext is a subclass of JspContext.
 
 <p>2. config jsp in the page directive</p>
 
-<p><code>java
-&amp;lt;%@ page isELIgnored=&quot;true&quot; isScriptingEnabled=&quot;false&quot; .... %&amp;gt;</code></p>
+<pre><code class="language-java">&amp;lt;%@ page isELIgnored=&quot;true&quot; isScriptingEnabled=&quot;false&quot; .... %&amp;gt;
+</code></pre>
 
 <p>&nbsp;</p>
 
@@ -458,7 +439,15 @@ PageContext is a subclass of JspContext.
 <li><a href="#syntax">Syntax</a>
 <ul>
 <li><a href="#scriptlet">scriptlet</a></li>
+<li><a href="#derective">derective</a></li>
+<li><a href="#expression">expression</a></li>
+<li><a href="#declaration">declaration</a></li>
+<li><a href="#comment">comment</a></li>
 </ul></li>
+<li><a href="#implicit-objects-in-scriptlets-and-expressions">implicit Objects in scriptlets and expressions</a></li>
+<li><a href="#about-the-generated-servlet">about the generated servlet</a></li>
+<li><a href="#about-the-pagecontext">about the PageContext</a></li>
+<li><a href="#about-the-configuration">about the configuration</a></li>
 </ul></li>
 </ul></li>
 </ul>

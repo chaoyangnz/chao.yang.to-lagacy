@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">693 words ~4min</span>
+<span class="leancloud-visitors-count">692 words ~4min</span>
 </span>
       </div>
     </header>
@@ -221,8 +221,7 @@ MySQL suggests to use Read Uncommitted and Serializable rarely.</p>
 
 <p><img src="http://yangchao.me/media/primary_index.png" alt="primary_index" /></p>
 
-<p><code>java
-CREATE TABLE article (
+<pre><code class="language-java">CREATE TABLE article (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   userid VARCHAR(20) NOT NULL,
   blogid CHAR(4),
@@ -230,7 +229,8 @@ CREATE TABLE article (
   comment VARCHAR(1024),
   PRIMARY KEY(id),
   KEY when_who (pubtime, userid)
-) ENGINE=InnoDB DEFAULT CHARSET latin1;</code></p>
+) ENGINE=InnoDB DEFAULT CHARSET latin1;
+</code></pre>
 
 <p><img src="http://yangchao.me/media/mysql_index.png" alt="mysql_index" /></p>
 

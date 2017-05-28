@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">543 words ~3min</span>
+<span class="leancloud-visitors-count">539 words ~3min</span>
 </span>
       </div>
     </header>
@@ -212,38 +212,34 @@ As per the exception throwing, you can <strong>reduce the checked exceptions thr
 
 <p>All the rules concerning the access modifier and exception throwing, it&rsquo;s easy to understand because you must maintain the contract given by the parent class.</p>
 
-<p>```java
-class Animal {</p>
+<pre><code class="language-java">class Animal {
 
-<pre><code>void drink() {}
+    void drink() {}
 
-protected Number eat(Food food) {
-    return 1;
+    protected Number eat(Food food) {
+        return 1;
+    }
 }
+
+class Horse extends Animal {
+
+    @Override
+    protected void drink() {}
+
+    @Override
+    protected Integer eat(Food food) {
+        return 2;
+    }
+
+    protected Number eat(Grass food) { // override failed
+        return 2;
+    }
+}
+
+class Food {}
+
+class Grass extends Food {}
 </code></pre>
-
-<p>}</p>
-
-<p>class Horse extends Animal {</p>
-
-<pre><code>@Override
-protected void drink() {}
-
-@Override
-protected Integer eat(Food food) {
-    return 2;
-}
-
-protected Number eat(Grass food) { // override failed
-    return 2;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>class Food {}</p>
-
-<p>class Grass extends Food {}```</p>
 
 <p>For more complicated overriding example, refer to <a href="http://richdyang.com/override-a-pitfall">override - a pitfall</a></p>
 
@@ -255,44 +251,38 @@ protected Number eat(Grass food) { // override failed
 
 <p>When both a parent class and its sub class have a field with the same name, this technique is called variable shadowing.</p>
 
-<p>```java
-public class Hiding {
+<pre><code class="language-java">public class Hiding {
     @Test
     public void testVariableShadowing() {
         Animal animal = new Cat();
-        Cat cat = new Cat();</p>
+        Cat cat = new Cat();
 
-<pre><code>    System.out.println(animal.name);
-    System.out.println(cat.name);
-    System.out.println(((Cat)animal).name);
-    System.out.println(((Animal)cat).name);
+        System.out.println(animal.name);
+        System.out.println(cat.name);
+        System.out.println(((Cat)animal).name);
+        System.out.println(((Animal)cat).name);
 
-    System.out.println(animal.getName());
-    System.out.println(cat.getName());
+        System.out.println(animal.getName());
+        System.out.println(cat.getName());
+    }
+}
+
+abstract class Animal {
+    String name = &quot;animal&quot;;
+
+    public String getName() {
+        return this.name;
+    }
+}
+
+class Cat extends Animal {
+    String name = &quot;Cat&quot;;
+
+    public String getName() {
+        return this.name;
+    }
 }
 </code></pre>
-
-<p>}</p>
-
-<p>abstract class Animal {
-    String name = &ldquo;animal&rdquo;;</p>
-
-<pre><code>public String getName() {
-    return this.name;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>class Cat extends Animal {
-    String name = &ldquo;Cat&rdquo;;</p>
-
-<pre><code>public String getName() {
-    return this.name;
-}
-</code></pre>
-
-<p>}```</p>
 
 <p>Output:
 animal
@@ -304,28 +294,27 @@ Cat</p>
 
 <p>Static variable is similar as per hiding.</p>
 
-<p>```java
-public class OverridingHiding {</p>
+<pre><code class="language-java">public class OverridingHiding {
 
-<pre><code>@Test
-public void testStaticVariableHiding() {
-    Animal animal = new Cat();
-    Cat cat = new Cat();
+    @Test
+    public void testStaticVariableHiding() {
+        Animal animal = new Cat();
+        Cat cat = new Cat();
 
-    System.out.println(animal.name);
-    System.out.println(cat.name);
+        System.out.println(animal.name);
+        System.out.println(cat.name);
+    }
+
+}
+
+class Animal {
+    static String name = &quot;Animal&quot;;
+}
+
+class Cat extends Animal {
+    static String name = &quot;Cat&quot;;
 }
 </code></pre>
-
-<p>}</p>
-
-<p>class Animal {
-    static String name = &ldquo;Animal&rdquo;;
-}</p>
-
-<p>class Cat extends Animal {
-    static String name = &ldquo;Cat&rdquo;;
-}```</p>
 
 <p>Output:
 Animal
@@ -335,34 +324,31 @@ Cat</p>
 
 <p>When both a parent class and its sub class have a static method with the same signature, this technique is called static method hiding.</p>
 
-<p>```java
-public class Hiding {
+<pre><code class="language-java">public class Hiding {
     @Test
     public void testStaticMethodHiding() {
         Animal animal = new Cat();
-        Cat cat = new Cat();</p>
+        Cat cat = new Cat();
 
-<pre><code>    System.out.println(animal.who());
-    System.out.println(cat.who());
-}
-</code></pre>
-
-<p>}</p>
-
-<p>abstract class Animal {</p>
-
-<pre><code>static String who() {
-    return &quot;Animal&quot;;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>class Cat extends Animal {
-    static String who() {
-        return &ldquo;Cat&rdquo;;
+        System.out.println(animal.who());
+        System.out.println(cat.who());
     }
-}```</p>
+}
+
+abstract class Animal {
+
+    static String who() {
+        return &quot;Animal&quot;;
+    }
+
+}
+
+class Cat extends Animal {
+    static String who() {
+        return &quot;Cat&quot;;
+    }
+}
+</code></pre>
 
 <p>Output:
 Animal

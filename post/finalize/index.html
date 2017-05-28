@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">251 words ~2min</span>
+<span class="leancloud-visitors-count">250 words ~2min</span>
 </span>
       </div>
     </header>
@@ -184,27 +184,25 @@
 <strong>“This method is inherently unsafe. It may result in finalizers being called on live objects while other threads are concurrently manipulating those objects, resulting in erratic behavior or deadlock.”</strong></li>
 </ul>
 
-<p>```java
-class ObjectWithFinalizer {</p>
+<pre><code class="language-java">class ObjectWithFinalizer {
 
-<pre><code>protected void finalized() throws Throwable {
-    try {
-        System.out.println(&quot;finalize() invoked&quot;);
-        int i = 1 / 0; // expect to throw ArithmeticException
-    } finally {
-        super.finalize();
+    protected void finalized() throws Throwable {
+        try {
+            System.out.println(&quot;finalize() invoked&quot;);
+            int i = 1 / 0; // expect to throw ArithmeticException
+        } finally {
+            super.finalize();
+        }
     }
-}
 
-public static void main(String[] args) {
-    ObjectWithFinalizer o = new ObjectWithFinalizer();
-    o = null; // wish GC to reclaim the memory
-</code></pre>
-
-<p>//        System.gc();
+    public static void main(String[] args) {
+        ObjectWithFinalizer o = new ObjectWithFinalizer();
+        o = null; // wish GC to reclaim the memory
+//        System.gc();
         Runtime.runFinalizersOnExit(true);
     }
-}```</p>
+}
+</code></pre>
 
 <p>After running the above code, we cannot see the expected result.</p>
 

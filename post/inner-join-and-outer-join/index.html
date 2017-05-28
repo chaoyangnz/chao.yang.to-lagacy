@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">374 words ~2min</span>
+<span class="leancloud-visitors-count">385 words ~2min</span>
 </span>
       </div>
     </header>
@@ -212,17 +212,15 @@
 &gt; The inner keyword can be left out from SQL statements.
 <img src="http://yangchao.me/media/inner-join-300x197.png" alt="inner-join" /></p>
 
-<p>```java
-SELECT * FROM TableA
+<pre><code class="language-java">SELECT * FROM TableA
 INNER JOIN TableB
-ON TableA.name = TableB.name</p>
+ON TableA.name = TableB.name
 
-<p>id  name       id   name</p>
-
-<hr />
-
-<p>1   Pirate     2    Pirate
-3   Ninja      4    Ninja```</p>
+id  name       id   name
+--  ----       --   ----
+1   Pirate     2    Pirate
+3   Ninja      4    Ninja
+</code></pre>
 
 <h3 id="outer-join">outer join</h3>
 
@@ -235,19 +233,17 @@ ON TableA.name = TableB.name</p>
 
 <p><img src="http://yangchao.me/media/left-outer-join-300x197.png" alt="left-outer-join" /></p>
 
-<p>```java
-SELECT * FROM TableA
+<pre><code class="language-java">SELECT * FROM TableA
 LEFT OUTER JOIN TableB
-ON TableA.name = TableB.name</p>
+ON TableA.name = TableB.name
 
-<p>id  name       id    name</p>
-
-<hr />
-
-<p>1   Pirate     2     Pirate
+id  name       id    name
+--  ----       --    ----
+1   Pirate     2     Pirate
 2   Monkey     null  null
 3   Ninja      4     Ninja
-4   Spaghetti  null  null```</p>
+4   Spaghetti  null  null
+</code></pre>
 
 <p>&nbsp;</p>
 
@@ -257,20 +253,18 @@ ON TableA.name = TableB.name</p>
 
 <p><img src="http://yangchao.me/media/right-outer-join-300x197.png" alt="right-outer-join" /></p>
 
-<p>```java
-SELECT * FROM TableA
+<pre><code class="language-java">SELECT * FROM TableA
 RIGHT OUTER JOIN TableB
 ON TableA.name = TableB.name
-WHERE TableB.id IS null</p>
+WHERE TableB.id IS null
 
-<p>id  name       id    name</p>
-
-<hr />
-
-<p>null null      1     Rutabaga
+id  name       id    name
+--  ----       --    ----
+null null      1     Rutabaga
 1    Pirate    2     Pirate
 null null      3     Darth Vader
-3    Ninja     4     Ninja```</p>
+3    Ninja     4     Ninja
+</code></pre>
 
 <h4 id="full-outer-join">full outer join</h4>
 
@@ -278,27 +272,25 @@ null null      3     Darth Vader
 
 <p><img src="http://yangchao.me/media/full-outer-join-300x197.png" alt="full-outer-join" /></p>
 
-<p>```java
-SELECT * FROM TableA
+<pre><code class="language-java">SELECT * FROM TableA
 FULL OUTER JOIN TableB
-ON TableA.name = TableB.name</p>
+ON TableA.name = TableB.name
 
-<p>id    name       id    name</p>
-
-<hr />
-
-<p>1     Pirate     2     Pirate
+id    name       id    name
+--    ----       --    ----
+1     Pirate     2     Pirate
 2     Monkey     null  null
 3     Ninja      4     Ninja
 4     Spaghetti  null  null
 null  null       1     Rutabaga
-null  null       3     Darth Vader```</p>
+null  null       3     Darth Vader
+</code></pre>
 
 <h3 id="cross-join-cartesian-product"><strong>cross join (cartesian product)</strong></h3>
 
-<p><code>java
-SELECT * FROM TableA
-CROSS JOIN TableB</code></p>
+<pre><code class="language-java">SELECT * FROM TableA
+CROSS JOIN TableB
+</code></pre>
 
 <p>This joins &ldquo;everything to everything&rdquo;, resulting in 4 x 4 = 16 rows, far more than we had in the original sets.</p>
 

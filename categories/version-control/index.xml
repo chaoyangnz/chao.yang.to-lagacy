@@ -18,11 +18,9 @@
       
       <guid>http://yangchao.me/post/git-basics/</guid>
       <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch
- java git checkout dev
-checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
+ git checkout dev  checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
 copy the &amp;lt;commit&amp;gt; tree to index tree and working tree.
- java git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3
-reset reset &amp;lt;commit&amp;gt; [files]  move the HEAD, and copying &amp;lt;commit&amp;gt; tree to index or working tree.</description>
+ git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3  reset reset &amp;lt;commit&amp;gt; [files]  move the HEAD, and copying &amp;lt;commit&amp;gt; tree to index or working tree.</description>
     </item>
     
   </channel>

@@ -163,7 +163,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">553 words ~3min</span>
+<span class="leancloud-visitors-count">550 words ~3min</span>
 </span>
       </div>
     </header>
@@ -223,40 +223,38 @@
 
 <h3 id="collections-unmodifiablelist-like-isn-t-immutable">Collections.unmodifiableList(..) like ISN&rsquo;T immutable</h3>
 
-<p>```java
-public class ImmutableTest {
+<pre><code class="language-java">public class ImmutableTest {
     @Test
-    public void testUnmodifiedCollectionImmutable(){<br />
-        List&lt;String&gt; list=new ArrayList&lt;String&gt;();<br />
-        list.add(&ldquo;a&rdquo;);<br />
-        list.add(&ldquo;b&rdquo;);<br />
-        list.add(&ldquo;c&rdquo;);</p>
+    public void testUnmodifiedCollectionImmutable(){                                                                                                                                                                                                                                    
+        List&amp;lt;String&amp;gt; list=new ArrayList&amp;lt;String&amp;gt;();                                                                               
+        list.add(&quot;a&quot;);                                                                                                           
+        list.add(&quot;b&quot;);                                                                                                           
+        list.add(&quot;c&quot;);
 
-<pre><code>    System.out.println(list);
+        System.out.println(list);
 
-    List&amp;lt;String&amp;gt; unmodifiableList=Collections.unmodifiableList(list); 
+        List&amp;lt;String&amp;gt; unmodifiableList=Collections.unmodifiableList(list); 
 
-    System.out.println(unmodifiableList);
+        System.out.println(unmodifiableList);
 
-    List&amp;lt;String&amp;gt; unmodifiableList1=Collections.unmodifiableList(Arrays.asList(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)); 
-    System.out.println(unmodifiableList1);
+        List&amp;lt;String&amp;gt; unmodifiableList1=Collections.unmodifiableList(Arrays.asList(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)); 
+        System.out.println(unmodifiableList1);
 
-    String temp=unmodifiableList.get(1);
-    System.out.println(&quot;unmodifiableList [0]：&quot;+temp);
+        String temp=unmodifiableList.get(1);
+        System.out.println(&quot;unmodifiableList [0]：&quot;+temp);
 
-    list.add(&quot;baby&quot;);
-    System.out.println(&quot;list add a item after list:&quot;+list);
-    System.out.println(&quot;list add a item after unmodifiableList:&quot;+unmodifiableList);
+        list.add(&quot;baby&quot;);
+        System.out.println(&quot;list add a item after list:&quot;+list);
+        System.out.println(&quot;list add a item after unmodifiableList:&quot;+unmodifiableList);
 
-    unmodifiableList1.add(&quot;bb&quot;);
-    System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList1);
+        unmodifiableList1.add(&quot;bb&quot;);
+        System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList1);
 
-    unmodifiableList.add(&quot;cc&quot;);
-    System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList);        
+        unmodifiableList.add(&quot;cc&quot;);
+        System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList);        
+    }
 }
 </code></pre>
-
-<p>}```</p>
 
 <p>Output:
 [a, b, c]
@@ -270,17 +268,17 @@ list add a item after unmodifiableList1:[a, b, c, baby]</p>
 
 <p>So the correct usage of unmodified List is like:</p>
 
-<p><code>java
-List list = Collections.unmodifiableList(Arrays.asList('1','2','3');</code></p>
+<pre><code class="language-java">List list = Collections.unmodifiableList(Arrays.asList('1','2','3');
+</code></pre>
 
 <p>or</p>
 
-<p><code>java
-List list = new ArrayList();
+<pre><code class="language-java">List list = new ArrayList();
 list.add(&quot;1&quot;);
 list.add(2);
 list.add(&quot;333&quot;);
-list = Collections.unmodifiableList(list);</code></p>
+list = Collections.unmodifiableList(list);
+</code></pre>
 
 <p>Never expose the underlying list reference to anything, so the best way is passing an argument and initialization in place.</p>
 

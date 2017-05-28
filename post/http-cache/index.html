@@ -156,16 +156,16 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">53 words ~1min</span>
+<span class="leancloud-visitors-count">51 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     <p>Request headers:</p>
 
-<p><code>java
-If-Modified-Since: {time}      
-If-None-Match: {etag}</code></p>
+<pre><code class="language-java">If-Modified-Since: {time}      
+If-None-Match: {etag}
+</code></pre>
 
 <p>These two headers are used to check if the cached resource is still fresh.</p>
 
@@ -175,11 +175,11 @@ If-None-Match: {etag}</code></p>
 
 <p>Response headers:</p>
 
-<p><code>java
-Last-Modified: {time}
+<pre><code class="language-java">Last-Modified: {time}
 ETag: {etag}
 Expire: {time}
-Cache-Control: maxAge={seconds}</code></p>
+Cache-Control: maxAge={seconds}
+</code></pre>
 
 <p><img src="http://yangchao.me/media/image.jpeg" alt="image" /></p>
 

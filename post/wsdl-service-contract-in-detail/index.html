@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">762 words ~4min</span>
+<span class="leancloud-visitors-count">760 words ~4min</span>
 </span>
       </div>
     </header>
@@ -165,74 +165,74 @@
 
 <h3 id="concepts-in-wsdl-definition">Concepts in WSDL definition</h3>
 
-<p>```java
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt;
-&lt;definitions xmlns:soap=&ldquo;<a href="http://schemas.xmlsoap.org/wsdl/soap/&quot;">http://schemas.xmlsoap.org/wsdl/soap/&quot;</a>
-             xmlns:tns=&ldquo;<a href="http://rand/&quot;">http://rand/&quot;</a>
-             xmlns:xsd=&ldquo;<a href="http://www.w3.org/2001/XMLSchema&quot;">http://www.w3.org/2001/XMLSchema&quot;</a>
-             xmlns=&ldquo;<a href="http://schemas.xmlsoap.org/wsdl/&quot;">http://schemas.xmlsoap.org/wsdl/&quot;</a>
-             targetNamespace=&ldquo;<a href="http://rand/&quot;">http://rand/&quot;</a> name=&ldquo;RandServiceService&rdquo;&gt;
-  &lt;types&gt;
-    &lt;xsd:schema&gt;
-      &lt;xsd:import namespace=&ldquo;<a href="http://rand/&quot;">http://rand/&quot;</a>
-                  schemaLocation=&ldquo;<a href="http://localhost:8888/rs?xsd=1&quot;&gt;&lt;/xsd:import&gt;">http://localhost:8888/rs?xsd=1&quot;&gt;&lt;/xsd:import&gt;</a>
-    &lt;/xsd:schema&gt;
-  &lt;/types&gt;
-  &lt;message name=&ldquo;next1&rdquo;&gt;
-    &lt;part name=&ldquo;parameters&rdquo; element=&ldquo;tns:next1&rdquo;&gt;&lt;/part&gt;
-  &lt;/message&gt;
-  &lt;message name=&ldquo;next1Response&rdquo;&gt;
-    &lt;part name=&ldquo;parameters&rdquo; element=&ldquo;tns:next1Response&rdquo;&gt;&lt;/part&gt;
-  &lt;/message&gt;
-  &lt;message name=&ldquo;nextN&rdquo;&gt;
-    &lt;part name=&ldquo;parameters&rdquo; element=&ldquo;tns:nextN&rdquo;&gt;&lt;/part&gt;
-  &lt;/message&gt;
-  &lt;message name=&ldquo;nextNResponse&rdquo;&gt;
-    &lt;part name=&ldquo;parameters&rdquo; element=&ldquo;tns:nextNResponse&rdquo;&gt;&lt;/part&gt;
-  &lt;/message&gt;
-  &lt;portType name=&ldquo;RandService&rdquo;&gt;
-    &lt;operation name=&ldquo;next1&rdquo;&gt;
-      &lt;input message=&ldquo;tns:next1&rdquo;&gt;&lt;/input&gt;
-      &lt;output message=&ldquo;tns:next1Response&rdquo;&gt;&lt;/output&gt;
-    &lt;/operation&gt;
-    &lt;operation name=&ldquo;nextN&rdquo;&gt;
-      &lt;input message=&ldquo;tns:nextN&rdquo;&gt;&lt;/input&gt;
-      &lt;output message=&ldquo;tns:nextNResponse&rdquo;&gt;&lt;/output&gt;
-    &lt;/operation&gt;
-  &lt;/portType&gt;</p>
+<pre><code class="language-java">&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;definitions xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot;
+             xmlns:tns=&quot;http://rand/&quot;
+             xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;
+             xmlns=&quot;http://schemas.xmlsoap.org/wsdl/&quot;
+             targetNamespace=&quot;http://rand/&quot; name=&quot;RandServiceService&quot;&amp;gt;
+  &amp;lt;types&amp;gt;
+    &amp;lt;xsd:schema&amp;gt;
+      &amp;lt;xsd:import namespace=&quot;http://rand/&quot;
+                  schemaLocation=&quot;http://localhost:8888/rs?xsd=1&quot;&amp;gt;&amp;lt;/xsd:import&amp;gt;
+    &amp;lt;/xsd:schema&amp;gt;
+  &amp;lt;/types&amp;gt;
+  &amp;lt;message name=&quot;next1&quot;&amp;gt;
+    &amp;lt;part name=&quot;parameters&quot; element=&quot;tns:next1&quot;&amp;gt;&amp;lt;/part&amp;gt;
+  &amp;lt;/message&amp;gt;
+  &amp;lt;message name=&quot;next1Response&quot;&amp;gt;
+    &amp;lt;part name=&quot;parameters&quot; element=&quot;tns:next1Response&quot;&amp;gt;&amp;lt;/part&amp;gt;
+  &amp;lt;/message&amp;gt;
+  &amp;lt;message name=&quot;nextN&quot;&amp;gt;
+    &amp;lt;part name=&quot;parameters&quot; element=&quot;tns:nextN&quot;&amp;gt;&amp;lt;/part&amp;gt;
+  &amp;lt;/message&amp;gt;
+  &amp;lt;message name=&quot;nextNResponse&quot;&amp;gt;
+    &amp;lt;part name=&quot;parameters&quot; element=&quot;tns:nextNResponse&quot;&amp;gt;&amp;lt;/part&amp;gt;
+  &amp;lt;/message&amp;gt;
+  &amp;lt;portType name=&quot;RandService&quot;&amp;gt;
+    &amp;lt;operation name=&quot;next1&quot;&amp;gt;
+      &amp;lt;input message=&quot;tns:next1&quot;&amp;gt;&amp;lt;/input&amp;gt;
+      &amp;lt;output message=&quot;tns:next1Response&quot;&amp;gt;&amp;lt;/output&amp;gt;
+    &amp;lt;/operation&amp;gt;
+    &amp;lt;operation name=&quot;nextN&quot;&amp;gt;
+      &amp;lt;input message=&quot;tns:nextN&quot;&amp;gt;&amp;lt;/input&amp;gt;
+      &amp;lt;output message=&quot;tns:nextNResponse&quot;&amp;gt;&amp;lt;/output&amp;gt;
+    &amp;lt;/operation&amp;gt;
+  &amp;lt;/portType&amp;gt;
 
-<p>&lt;!&ndash; implementation dependent definition &ndash;&gt;
-  &lt;binding name=&ldquo;RandServicePortBinding&rdquo; type=&ldquo;tns:RandService&rdquo;&gt;
-    &lt;soap:binding transport=&ldquo;<a href="http://schemas.xmlsoap.org/soap/http&quot;">http://schemas.xmlsoap.org/soap/http&quot;</a>
-                  style=&ldquo;document&rdquo;&gt;&lt;/soap:binding&gt;
-    &lt;operation name=&ldquo;next1&rdquo;&gt;
-      &lt;soap:operation soapAction=&ldquo;&rdquo;&gt;&lt;/soap:operation&gt;
-      &lt;input&gt;
-        &lt;soap:body use=&ldquo;literal&rdquo;&gt;&lt;/soap:body&gt;
-      &lt;/input&gt;
-      &lt;output&gt;
-        &lt;soap:body use=&ldquo;literal&rdquo;&gt;&lt;/soap:body&gt;
-      &lt;/output&gt;
-    &lt;/operation&gt;
-    &lt;operation name=&ldquo;nextN&rdquo;&gt;
-      &lt;soap:operation soapAction=&ldquo;&rdquo;&gt;&lt;/soap:operation&gt;
-      &lt;input&gt;
-        &lt;soap:body use=&ldquo;literal&rdquo;&gt;&lt;/soap:body&gt;
-      &lt;/input&gt;
-      &lt;output&gt;
-        &lt;soap:body use=&ldquo;literal&rdquo;&gt;&lt;/soap:body&gt;
-      &lt;/output&gt;
-    &lt;/operation&gt;
-  &lt;/binding&gt;
-  &lt;service name=&ldquo;RandServiceService&rdquo;&gt;
-    &lt;port name=&ldquo;RandServicePort&rdquo; binding=&ldquo;tns:RandServicePortBinding&rdquo;&gt;
-      &lt;soap:address location=&ldquo;<a href="http://localhost:8888/rs&quot;&gt;&lt;/soap:address&gt;">http://localhost:8888/rs&quot;&gt;&lt;/soap:address&gt;</a>
-    &lt;/port&gt;
-    &lt;port name=&ldquo;StandbyServicePort&rdquo; binding=&ldquo;tns:RandServicePortBinding&rdquo;&gt;
-      &lt;soap:address location=&ldquo;<a href="http://localhost:9999/rs&quot;&gt;&lt;/soap:address&gt;">http://localhost:9999/rs&quot;&gt;&lt;/soap:address&gt;</a>
-    &lt;/port&gt;
-  &lt;/service&gt;
-&lt;/definitions&gt;```</p>
+  &amp;lt;!-- implementation dependent definition --&amp;gt;
+  &amp;lt;binding name=&quot;RandServicePortBinding&quot; type=&quot;tns:RandService&quot;&amp;gt;
+    &amp;lt;soap:binding transport=&quot;http://schemas.xmlsoap.org/soap/http&quot;
+                  style=&quot;document&quot;&amp;gt;&amp;lt;/soap:binding&amp;gt;
+    &amp;lt;operation name=&quot;next1&quot;&amp;gt;
+      &amp;lt;soap:operation soapAction=&quot;&quot;&amp;gt;&amp;lt;/soap:operation&amp;gt;
+      &amp;lt;input&amp;gt;
+        &amp;lt;soap:body use=&quot;literal&quot;&amp;gt;&amp;lt;/soap:body&amp;gt;
+      &amp;lt;/input&amp;gt;
+      &amp;lt;output&amp;gt;
+        &amp;lt;soap:body use=&quot;literal&quot;&amp;gt;&amp;lt;/soap:body&amp;gt;
+      &amp;lt;/output&amp;gt;
+    &amp;lt;/operation&amp;gt;
+    &amp;lt;operation name=&quot;nextN&quot;&amp;gt;
+      &amp;lt;soap:operation soapAction=&quot;&quot;&amp;gt;&amp;lt;/soap:operation&amp;gt;
+      &amp;lt;input&amp;gt;
+        &amp;lt;soap:body use=&quot;literal&quot;&amp;gt;&amp;lt;/soap:body&amp;gt;
+      &amp;lt;/input&amp;gt;
+      &amp;lt;output&amp;gt;
+        &amp;lt;soap:body use=&quot;literal&quot;&amp;gt;&amp;lt;/soap:body&amp;gt;
+      &amp;lt;/output&amp;gt;
+    &amp;lt;/operation&amp;gt;
+  &amp;lt;/binding&amp;gt;
+  &amp;lt;service name=&quot;RandServiceService&quot;&amp;gt;
+    &amp;lt;port name=&quot;RandServicePort&quot; binding=&quot;tns:RandServicePortBinding&quot;&amp;gt;
+      &amp;lt;soap:address location=&quot;http://localhost:8888/rs&quot;&amp;gt;&amp;lt;/soap:address&amp;gt;
+    &amp;lt;/port&amp;gt;
+    &amp;lt;port name=&quot;StandbyServicePort&quot; binding=&quot;tns:RandServicePortBinding&quot;&amp;gt;
+      &amp;lt;soap:address location=&quot;http://localhost:9999/rs&quot;&amp;gt;&amp;lt;/soap:address&amp;gt;
+    &amp;lt;/port&amp;gt;
+  &amp;lt;/service&amp;gt;
+&amp;lt;/definitions&amp;gt;
+</code></pre>
 
 <p>In the following diagram, please observe the relationship:</p>
 
@@ -310,41 +310,41 @@
 
 <h5 id="in-out">In-Out</h5>
 
-<p><code>java
-...
+<pre><code class="language-java">...
 &amp;lt;operation name=&quot;query&quot;&amp;gt;
   &amp;lt;input message=&quot;tns:query&quot;&amp;gt;&amp;lt;/input&amp;gt;
   &amp;lt;output message=&quot;tns:queryResponse&quot;&amp;gt;&amp;lt;/output&amp;gt;
 &amp;lt;/operation&amp;gt;
-...</code></p>
+...
+</code></pre>
 
 <h5 id="out-in"> Out-In</h5>
 
-<p><code>java
-...
+<pre><code class="language-java">...
 &amp;lt;operation name=&quot;questionnaire&quot;&amp;gt;
   &amp;lt;output message=&quot;tns:questionnaire&quot;&amp;gt;&amp;lt;/output&amp;gt;
   &amp;lt;input message=&quot;tns:questionnaireFeedback&quot;&amp;gt;&amp;lt;/input&amp;gt;
 &amp;lt;/operation&amp;gt;
-...</code></p>
+...
+</code></pre>
 
 <h5 id="in-only">In-Only</h5>
 
-<p><code>java
-...
+<pre><code class="language-java">...
 &amp;lt;operation name=&quot;ping&quot;&amp;gt;
   &amp;lt;input message=&quot;tns:ping&quot;&amp;gt;&amp;lt;/input&amp;gt;
 &amp;lt;/operation&amp;gt;
-...</code></p>
+...
+</code></pre>
 
 <h5 id="out-only">Out-Only</h5>
 
-<p><code>java
-...
+<pre><code class="language-java">...
 &amp;lt;operation name=&quot;notification&quot;&amp;gt;
   &amp;lt;output message=&quot;tns:notificationResponse&quot;&amp;gt;&amp;lt;/output&amp;gt;
 &amp;lt;/operation&amp;gt;
-...</code></p>
+...
+</code></pre>
 
 <h4 id="bindings-section">bindings section</h4>
 
@@ -418,14 +418,16 @@ RPC-style SOAP:
 &lt;tns:matchNoteAndNote xmlns:tns="urn:outline.demo"&gt;
     &lt;in0 xsi:type="xsd:string"&gt;0000000000&lt;/in0&gt;
     &lt;in1 xsi:type="xsd:string"&gt;000000000B&lt;/in1&gt;
-&lt;/tns:matchNoteAndNote&gt;```
+&lt;/tns:matchNoteAndNote&gt;
+```
 
 
 
 ```java
 &lt;tns:matchNoteAndNoteResponse xmlns:tns="urn:outline.demo"&gt;
     &lt;matchNoteAndNoteReturn xsi:type="xsd:string"&gt;yes&lt;/in0&gt;
-&lt;/tns:matchNoteAndNoteResponse&gt;```
+&lt;/tns:matchNoteAndNoteResponse&gt;
+```
 
 Document-style SOAP:
 
@@ -435,7 +437,8 @@ Document-style SOAP:
     &lt;out:note key="000000000B" &gt;
         &lt;out:content&gt;test&lt;/out:content&gt;
     &lt;/out:note&gt;
-&lt;/out:getNoteResponse&gt;```
+&lt;/out:getNoteResponse&gt;
+```
 
 
 #### uses: literal vs. encoded

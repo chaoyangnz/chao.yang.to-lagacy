@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">2610 words ~6min</span>
+<span class="leancloud-visitors-count">2608 words ~6min</span>
 </span>
       </div>
     </header>
@@ -167,15 +167,15 @@
 
 <p>首先看下面的代码：</p>
 
-<p>```java
-function foo() {
-    console.log( &lsquo;first&rsquo; );
-    setTimeout( ( function(){ console.log(&lsquo;second&rsquo;); } ), 5);
-}</p>
+<pre><code class="language-java">function foo() {
+    console.log( 'first' );
+    setTimeout( ( function(){ console.log('second'); } ), 5);
+}
 
-<p>for (var i = 0; i &lt; 1000000; i++) {
+for (var i = 0; i &amp;lt; 1000000; i++) {
     foo();
-}```</p>
+}
+</code></pre>
 
 <div>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</div>
 
@@ -226,37 +226,37 @@ function foo() {
 例如：下面的例子，点击按钮就会显示&rdquo;calculating&hellip;.&ldquo;，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。</li>
 </ul>
 
-<p><code>java
-&amp;lt;button id='do'&amp;gt; Do long calc!&amp;lt;/button&amp;gt;
+<pre><code class="language-java">&amp;lt;button id='do'&amp;gt; Do long calc!&amp;lt;/button&amp;gt;
 &amp;lt;div id='status'&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;br&amp;gt;</code></p>
+&amp;lt;br&amp;gt;
+</code></pre>
 
-<p>```java
-// Write JavaScript here</p>
+<pre><code class="language-java">// Write JavaScript here 
 
-<p>$(&lsquo;#do&rsquo;).on(&lsquo;click&rsquo;, function(){</p>
+$('#do').on('click', function(){
 
-<p>$(&lsquo;#status&rsquo;).text(&lsquo;calculating&hellip;.&rsquo;); //此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。</p>
+  $('#status').text('calculating....'); //此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。
 
-<p>// without set timeout, user will never see &ldquo;calculating&hellip;.&rdquo;
-  //long();//执行长时间任务，阻塞</p>
+  // without set timeout, user will never see &quot;calculating....&quot;
+  //long();//执行长时间任务，阻塞
 
-<p>// with set timeout, works as expected
-  setTimeout(long,0);//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则</p>
+  // with set timeout, works as expected
+  setTimeout(long,0);//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则
 
-<p>})</p>
+ })
 
-<p>function long(){
+function long(){
   var result = 0
-  for (var i = 0; i&lt;1000; i++){
-    for (var j = 0; j&lt;1000; j++){
-      for (var k = 0; k&lt;1000; k++){
+  for (var i = 0; i&amp;lt;1000; i++){
+    for (var j = 0; j&amp;lt;1000; j++){
+      for (var k = 0; k&amp;lt;1000; k++){
         result = result + i+j+k
       }
-    }
+    } 
   }
-  $(&lsquo;#status&rsquo;).text(&lsquo;calclation done&rsquo;) // has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback
-}```</p>
+  $('#status').text('calclation done') // has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback 
+}
+</code></pre>
 
 <h4 id="非阻塞js的实现-non-blocking-javascript">非阻塞js的实现（non-blocking javascript）</h4>
 
@@ -270,8 +270,8 @@ function foo() {
 
 <p>defer</p>
 
-<p><code>java
-&amp;lt;script type=&quot;text/javascript&quot; defer src=&quot;foo.js&quot;&amp;gt;&amp;lt;/script&amp;gt;</code></p>
+<pre><code class="language-java">&amp;lt;script type=&quot;text/javascript&quot; defer src=&quot;foo.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+</code></pre>
 
 <div></div>
 async
@@ -280,7 +280,8 @@ async
 
 
 ```java
-&lt;script type="text/javascript" async src="foo.js"&gt;&lt;/script&gt;```
+&lt;script type="text/javascript" async src="foo.js"&gt;&lt;/script&gt;
+```
 
 </div>
 </div>
@@ -326,7 +327,8 @@ function loadJs(jsurl, head, callback){
     else
       document.body.appendChild(script);
 
-}```
+}
+```
 
 <div></div>
 

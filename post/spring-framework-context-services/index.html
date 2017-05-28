@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">698 words ~2min</span>
+<span class="leancloud-visitors-count">687 words ~2min</span>
 </span>
       </div>
     </header>
@@ -169,94 +169,90 @@
 
 <p><img src="http://yangchao.me/media/spring-bean-lifecycle.jpg" alt="spring-bean-lifecycle" /></p>
 
-<p>```java
-package context.lifecycle;</p>
+<pre><code class="language-java">package context.lifecycle;
 
-<p>import org.springframework.beans.BeansException;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;</p>
+import org.springframework.context.ApplicationContextAware;
 
-<p>import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;</p>
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-<p>public class LifecycleExposureBean implements BeanNameAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean, DisposableBean {</p>
+public class LifecycleExposureBean implements BeanNameAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
-<pre><code>private String injectedProperty;
+    private String injectedProperty;
 
-public void setInjectedProperty(String injectedProperty) {
-    System.out.println(&quot;Injection: injectedProperty = [&quot; + injectedProperty + &quot;]&quot;);
-    this.injectedProperty = injectedProperty;
-}
+    public void setInjectedProperty(String injectedProperty) {
+        System.out.println(&quot;Injection: injectedProperty = [&quot; + injectedProperty + &quot;]&quot;);
+        this.injectedProperty = injectedProperty;
+    }
 
-//----------------context aware-------------------------
+    //----------------context aware-------------------------
 
-public void setBeanName(String beanName) {
-    System.out.println(&quot;BeanNameAware: beanName = [&quot; + beanName + &quot;]&quot;);
-}
+    public void setBeanName(String beanName) {
+        System.out.println(&quot;BeanNameAware: beanName = [&quot; + beanName + &quot;]&quot;);
+    }
 
-public void setBeanClassLoader(ClassLoader classLoader) {
-    System.out.println(&quot;BeanClassLoaderAware: classLoader = [&quot; + classLoader + &quot;]&quot;);
-}
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        System.out.println(&quot;BeanClassLoaderAware: classLoader = [&quot; + classLoader + &quot;]&quot;);
+    }
 
-public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-    System.out.println(&quot;ApplicationAware: applicationContext = [&quot; + applicationContext + &quot;]&quot;);
-}
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println(&quot;ApplicationAware: applicationContext = [&quot; + applicationContext + &quot;]&quot;);
+    }
 
-//----------------initialization hook-------------------------
+    //----------------initialization hook-------------------------
 
-@PostConstruct
-public void postContructCallBack() {
-    System.out.println(&quot;@PostContruc: Post contruct invocation&quot;);
-}
+    @PostConstruct
+    public void postContructCallBack() {
+        System.out.println(&quot;@PostContruc: Post contruct invocation&quot;);
+    }
 
-public void afterPropertiesSet() throws Exception {
-    System.out.println(&quot;IntializingBean: afterPropertiesSet() called&quot;);
-}
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(&quot;IntializingBean: afterPropertiesSet() called&quot;);
+    }
 
-public void initMethod() {
-    System.out.println(&quot;init-method: called&quot;);
-}
+    public void initMethod() {
+        System.out.println(&quot;init-method: called&quot;);
+    }
 
-//----------------destroy hook-------------------------
-@PreDestroy
-public void preDestroy() {
-    System.out.println(&quot;@PreDestory: called&quot;);
-}
+    //----------------destroy hook-------------------------
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println(&quot;@PreDestory: called&quot;);
+    }
 
-public void destroy() throws Exception {
-    System.out.println(&quot;DisposableBean: destroy() called&quot;);
-}
+    public void destroy() throws Exception {
+        System.out.println(&quot;DisposableBean: destroy() called&quot;);
+    }
 
-public void destroyMethod() {
-    System.out.println(&quot;destroy-method: called&quot;);
-}
+    public void destroyMethod() {
+        System.out.println(&quot;destroy-method: called&quot;);
+    }
 
-public static void main(String[] args) {
-    GenericXmlApplicationContext context = new GenericXmlApplicationContext(&quot;classpath:spring-lifecycle.xml&quot;);
+    public static void main(String[] args) {
+        GenericXmlApplicationContext context = new GenericXmlApplicationContext(&quot;classpath:spring-lifecycle.xml&quot;);
 
-    context.destroy();
+        context.destroy();
+    }
 }
 </code></pre>
 
-<p>}```</p>
+<pre><code class="language-java">&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&amp;gt;
 
-<p>```java
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt;
-&lt;beans xmlns=&ldquo;<a href="http://www.springframework.org/schema/beans&quot;">http://www.springframework.org/schema/beans&quot;</a>
-       xmlns:p=&ldquo;<a href="http://www.springframework.org/schema/p&quot;">http://www.springframework.org/schema/p&quot;</a>
-       xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
-       xsi:schemaLocation=&ldquo;<a href="http://www.springframework.org/schema/beans">http://www.springframework.org/schema/beans</a> <a href="http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;">http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</a></p>
-
-<pre><code>   &amp;lt;bean class=&quot;context.lifecycle.LifecycleExposureBean&quot; init-method=&quot;initMethod&quot; destroy-method=&quot;destroyMethod&quot;&amp;gt;
-          &amp;lt;property name=&quot;injectedProperty&quot; value=&quot;This is the value of injected property&quot; /&amp;gt;
-   &amp;lt;/bean&amp;gt;
+       &amp;lt;bean class=&quot;context.lifecycle.LifecycleExposureBean&quot; init-method=&quot;initMethod&quot; destroy-method=&quot;destroyMethod&quot;&amp;gt;
+              &amp;lt;property name=&quot;injectedProperty&quot; value=&quot;This is the value of injected property&quot; /&amp;gt;
+       &amp;lt;/bean&amp;gt;
+&amp;lt;/beans&amp;gt;
 </code></pre>
-
-<p>&lt;/beans&gt;```</p>
 
 <blockquote>
 <p>Injection: injectedProperty = [This is the value of injected property]</p>
@@ -291,43 +287,40 @@ public static void main(String[] args) {
 
 <p>You implement your custom PropertyEditor for the specified JavaBean class, and then configure it using <code>org.springframework.beans.factory.config.CustomEditorConfigurer</code></p>
 
-<p>```java
-public class CustomBean {
+<pre><code class="language-java">public class CustomBean {
     private String firstName;
-    private String lastName;</p>
+    private String lastName;
 
-<pre><code>public CustomBean(String firstName, String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+    public CustomBean(String firstName, String lastName) {
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    }
+
+    public String toString() {
+    	return &quot;First name: &quot; + firstName + &quot;, last name: &quot; + lastName;
+    }
+
 }
 
-public String toString() {
-    return &quot;First name: &quot; + firstName + &quot;, last name: &quot; + lastName;
+public class CustomBeanEditor extends PropertyEditorSupport {
+
+    public void setAsText(String text) {
+        String[] segs = text.split(&quot; &quot;);
+        CustomBean customBean = new CustomBean(segs[0], segs[1]);
+
+        setValue(customBean);
+    }
 }
 </code></pre>
 
-<p>}</p>
-
-<p>public class CustomBeanEditor extends PropertyEditorSupport {</p>
-
-<pre><code>public void setAsText(String text) {
-    String[] segs = text.split(&quot; &quot;);
-    CustomBean customBean = new CustomBean(segs[0], segs[1]);
-
-    setValue(customBean);
-}
+<pre><code class="language-java">&amp;lt;bean id=&quot;customEditorConfigurer&quot; class=&quot;org.springframework.beans.factory.config.CustomEditorConfigurer&quot;&amp;gt;
+	&amp;lt;property name=&quot;customEditors&quot;&amp;gt;
+		&amp;lt;map&amp;gt;
+			&amp;lt;entry key=&quot;context.propertyeditor.CustomBean&quot; value=&quot;context.propertyeditor.CustomBeanEditor&quot; /&amp;gt;
+		&amp;lt;/map&amp;gt;
+	&amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
 </code></pre>
-
-<p>}```</p>
-
-<p><code>java
-&amp;lt;bean id=&quot;customEditorConfigurer&quot; class=&quot;org.springframework.beans.factory.config.CustomEditorConfigurer&quot;&amp;gt;
-    &amp;lt;property name=&quot;customEditors&quot;&amp;gt;
-        &amp;lt;map&amp;gt;
-            &amp;lt;entry key=&quot;context.propertyeditor.CustomBean&quot; value=&quot;context.propertyeditor.CustomBeanEditor&quot; /&amp;gt;
-        &amp;lt;/map&amp;gt;
-    &amp;lt;/property&amp;gt;
-&amp;lt;/bean&amp;gt;</code></p>
 
 <h3 id="applicationcontext-capabilities">ApplicationContext capabilities</h3>
 
@@ -337,32 +330,32 @@ public String toString() {
 
 <h4 id="messagesource">MessageSource</h4>
 
-<p><code>java
-&amp;lt;bean id=&quot;messageSource&quot; class=&quot;org.springframework.context.support.ResourceBundleMessageSource&quot;&amp;gt;
+<pre><code class="language-java">&amp;lt;bean id=&quot;messageSource&quot; class=&quot;org.springframework.context.support.ResourceBundleMessageSource&quot;&amp;gt;
     &amp;lt;property name=&quot;basenames&quot;&amp;gt;
         &amp;lt;list&amp;gt;
             &amp;lt;value&amp;gt;message&amp;lt;/value&amp;gt;
         &amp;lt;/list&amp;gt;
     &amp;lt;/property&amp;gt;
-&amp;lt;/bean&amp;gt;</code></p>
+&amp;lt;/bean&amp;gt;
+</code></pre>
 
-<p>```java
-GenericXmlApplicationContext context = new GenericXmlApplicationContext(&ldquo;classpath:spring-messagesource.xml&rdquo;);</p>
+<pre><code class="language-java">GenericXmlApplicationContext context = new GenericXmlApplicationContext(&quot;classpath:spring-messagesource.xml&quot;);
 
-<p>String name = &ldquo;Richard&rdquo;;
-String greeting = context.getMessage(&ldquo;greeting&rdquo;, new String[]{name}, Locale.US);
-String greetingCN = context.getMessage(&ldquo;greeting&rdquo;, new String[]{name}, Locale.CHINA);</p>
+String name = &quot;Richard&quot;;
+String greeting = context.getMessage(&quot;greeting&quot;, new String[]{name}, Locale.US);
+String greetingCN = context.getMessage(&quot;greeting&quot;, new String[]{name}, Locale.CHINA);
 
-<p>System.out.println(&ldquo;greeting = [&rdquo; + greeting + &ldquo;]&rdquo;);
-System.out.println(&ldquo;greetingCN = [&rdquo; + greetingCN + &ldquo;]&rdquo;);```</p>
+System.out.println(&quot;greeting = [&quot; + greeting + &quot;]&quot;);
+System.out.println(&quot;greetingCN = [&quot; + greetingCN + &quot;]&quot;);
+</code></pre>
 
 <p>Then I have two message file: message_en_US.properties and message_zh_CN</p>
 
-<p><code>java
-greeting=你好, {0}！</code></p>
+<pre><code class="language-java">greeting=你好, {0}！
+</code></pre>
 
-<p><code>java
-greeting=How is it going, {0}?</code></p>
+<pre><code class="language-java">greeting=How is it going, {0}?
+</code></pre>
 
 <p>Output:
 &gt; greeting = [How is it going, Richard?]
@@ -391,14 +384,14 @@ greeting=How is it going, {0}?</code></p>
 
 <p>Environment &ndash;&gt; PropertySource</p>
 
-<p>```java
-ConfigurableEnvironment env =&amp;nbsp;ctx.getEnvironment();
-MutablePropertySources propertySources =&amp;nbsp;env.getPropertySources();</p>
+<pre><code class="language-java">ConfigurableEnvironment env =&amp;amp;nbsp;ctx.getEnvironment();
+MutablePropertySources propertySources =&amp;amp;nbsp;env.getPropertySources();
 
-<p>Map appMap =&amp;nbsp;new HashMap();
-appMap.put(&ldquo;application.home&rdquo;, &ldquo;application_home&rdquo;);</p>
+Map appMap =&amp;amp;nbsp;new HashMap();
+appMap.put(&quot;application.home&quot;, &quot;application_home&quot;);
 
-<p>propertySources.addLast(new MapPropertySource(&ldquo;application_properties&rdquo;, appMap));```</p>
+propertySources.addLast(new MapPropertySource(&quot;application_properties&quot;, appMap));
+</code></pre>
 
 <p>For the <span class="FontName1">PropertySource</span> abstraction, Spring will access the properties in the following default order:<a id="cXXX.328"></a></p>
 
@@ -409,24 +402,22 @@ appMap.put(&ldquo;application.home&rdquo;, &ldquo;application_home&rdquo;);</p>
 Most of time, we use PropertyPlaceHolder</li>
 </ul>
 
-<p>```java
-&lt;beans xmlns=&ldquo;<a href="http://www.springframework.org/schema/beans&quot;">http://www.springframework.org/schema/beans&quot;</a>
-    xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
-    xmlns:context=&ldquo;<a href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a>
-    xsi:schemaLocation=&ldquo;<a href="http://www.springframework.org/schema/beans">http://www.springframework.org/schema/beans</a>
-        <a href="http://www.springframework.org/schema/beans/spring-beans.xsd">http://www.springframework.org/schema/beans/spring-beans.xsd</a>
-        <a href="http://www.springframework.org/schema/context">http://www.springframework.org/schema/context</a>
-        <a href="http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;">http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</a></p>
+<pre><code class="language-java">&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd&quot;&amp;gt;
 
-<pre><code>&amp;lt;context:property-placeholder location=&quot;classpath:application.properties&quot;/&amp;gt;
+    &amp;lt;context:property-placeholder location=&quot;classpath:application.properties&quot;/&amp;gt;
 
-&amp;lt;bean id=&quot;somebean&quot; class=&quot;com.apress.prospring4.ch4.AppProperty&quot;&amp;gt;
-    &amp;lt;property name=&quot;applicationHome&quot; value=&quot;${application.home}&quot;/&amp;gt;
-    &amp;lt;property name=&quot;userHome&quot; value=&quot;${user.home}&quot;&amp;gt;&amp;lt;/property&amp;gt;
-&amp;lt;/bean&amp;gt;
+    &amp;lt;bean id=&quot;somebean&quot; class=&quot;com.apress.prospring4.ch4.AppProperty&quot;&amp;gt;
+        &amp;lt;property name=&quot;applicationHome&quot; value=&quot;${application.home}&quot;/&amp;gt;
+        &amp;lt;property name=&quot;userHome&quot; value=&quot;${user.home}&quot;&amp;gt;&amp;lt;/property&amp;gt;
+    &amp;lt;/bean&amp;gt;
+&amp;lt;/beans&amp;gt;
 </code></pre>
-
-<p>&lt;/beans&gt;```</p>
 
 <p>You can see, once you get the properties, you can use them in configuration files using <code>{....}</code></p>
 
@@ -440,14 +431,14 @@ Most of time, we use PropertyPlaceHolder</li>
 <li>How to associated with a profile?</li>
 </ul>
 
-<p><code>java
-&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+<pre><code class="language-java">&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
     xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd&quot;
         profile=&quot;devProfile&quot;&amp;gt;
 ...
-&amp;lt;/bean&amp;gt;</code></p>
+&amp;lt;/bean&amp;gt;
+</code></pre>
 
 <p>Those beans in the file should be instantiated only when the specified profile is <span class="FontName1">active. If its profile is not active, actually these beans will not be initialized.</span></p>
 

@@ -138,7 +138,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1485 words ~7min</span>
+<span class="leancloud-visitors-count">1484 words ~7min</span>
 </span>
       </div>
     </header>
@@ -233,30 +233,28 @@ Constant pool:
         Start  Length  Slot  Name   Signature
                0       8     0  this   LStringLiteral;
                7       1     1   str   Ljava/lang/String;
-}```
-
-
-when `ldc` is executed, it must firstly resolve the symbol to the actual reference if not resolved.
-
-NOTICE:
+}
 </code></pre>
 
-<p>4: ldc           #2                  // String hello
-6: astore_1</p>
+<p>when <code>ldc</code> is executed, it must firstly resolve the symbol to the actual reference if not resolved.</p>
+
+<p>NOTICE:</p>
 
 <pre><code>
-will find #2 in constant pool:
+4: ldc           #2                  // String hello
+6: astore_1
 </code></pre>
 
-<p>#2 = String             #17            //  hello
-#17 = Utf8               hello</p>
+<p>will find #2 in constant pool:</p>
 
 <pre><code>
-Initially, #2 is Constant_String_info symbol, and it assoiciates with #17 which is Constant_Utf8_info (UTF-8 encoding char array).
+#2 = String             #17            //  hello
+#17 = Utf8               hello
+</code></pre>
 
+<p>Initially, #2 is Constant_String_info symbol, and it assoiciates with #17 which is Constant_Utf8_info (UTF-8 encoding char array).</p>
 
-```c++
-// line2111-2161 share/vm/interpreter/bytecodeInterpreter.cpp
+<pre><code class="language-c++">// line2111-2161 share/vm/interpreter/bytecodeInterpreter.cpp
 CASE(_ldc):
    {
      u2 index;

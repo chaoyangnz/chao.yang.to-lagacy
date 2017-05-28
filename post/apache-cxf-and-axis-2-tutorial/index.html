@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">394 words ~1min</span>
+<span class="leancloud-visitors-count">392 words ~1min</span>
 </span>
       </div>
     </header>
@@ -303,8 +303,7 @@
 
 <p>Often axis2 uses its own package named .aar, and the layout of this archive is like:</p>
 
-<p><code>java
-\---BookService
+<pre><code class="language-java">\---BookService
     \---META-INF
     |    services.xml
     |
@@ -315,7 +314,8 @@
     \---com
         +---company
         |    Service.class
-        |</code></p>
+        |
+</code></pre>
 
 <p>But this is mainly for a standalone deployment scenario.</p>
 
@@ -325,8 +325,7 @@
 
 <p>In embedded mode, we needn&rsquo;t package as a .aar. Just a directory in WEB-INF/services is OK.</p>
 
-<p><code>java
-\---book
+<pre><code class="language-java">\---book
     |   pom.xml
     |   README
     |
@@ -349,7 +348,8 @@
                 \---services
                     \---BookService
                         \---META-INF
-                                services.xml</code></p>
+                                services.xml
+</code></pre>
 
     </div>
     <footer class="post-footer">
