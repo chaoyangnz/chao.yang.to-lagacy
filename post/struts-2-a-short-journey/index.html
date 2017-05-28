@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1129 words ~6min</span>
+<span class="leancloud-visitors-count">1123 words ~6min</span>
 </span>
       </div>
     </header>
@@ -363,7 +363,7 @@ If you don't specify the method of an action, its execute() will be invoked by d
 
 An action method can return a _String_ or _Result _or no return.
 
-``` java
+```java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
@@ -373,7 +373,7 @@ An action instance should be one per request. So when you integrate Struts2 with
 
 The above example uses the global result setting. You can specify the action-specific configs of result mapping, like
 
-``` java
+```java
 &amp;lt;action name=&quot;submitDiscardColAppAction&quot;
 			class=&quot;com.my.ManageDiscardColAction&quot;
 			method=&quot;submitDiscardColApp&quot;&amp;gt;
@@ -410,7 +410,7 @@ Interceptors are conceptually the same as servlet filters or proxy, which provid
 
 Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.
 
-``` java
+```java
 public interface Interceptor extends Serializable {
     void destroy();
     void init();
@@ -439,11 +439,11 @@ This tag is used to access value stack value.
 
 *   escape html or javascript
 
-``` java
+```java
 &amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;```
 
 
-``` java
+```java
 &amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
     var jsFromTag1 = '&amp;lt;s:property value=&quot;javascriptExample&quot;
     escapeJavaScript=&quot;true&quot;/&amp;gt;';
@@ -453,7 +453,7 @@ This tag is used to access value stack value.
 
 *   default value
 
-``` java
+```java
 &amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;
 </code></pre>
 

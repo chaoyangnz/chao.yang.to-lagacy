@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">704 words ~2min</span>
+<span class="leancloud-visitors-count">698 words ~2min</span>
 </span>
       </div>
     </header>
@@ -169,7 +169,7 @@
 
 <p><img src="http://yangchao.me/media/spring-bean-lifecycle.jpg" alt="spring-bean-lifecycle" /></p>
 
-<p>``` java
+<p>```java
 package context.lifecycle;</p>
 
 <p>import org.springframework.beans.BeansException;
@@ -244,7 +244,7 @@ public static void main(String[] args) {
 
 <p>}```</p>
 
-<p>``` java
+<p>```java
 &lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?&gt;
 &lt;beans xmlns=&ldquo;<a href="http://www.springframework.org/schema/beans&quot;">http://www.springframework.org/schema/beans&quot;</a>
        xmlns:p=&ldquo;<a href="http://www.springframework.org/schema/p&quot;">http://www.springframework.org/schema/p&quot;</a>
@@ -291,7 +291,7 @@ public static void main(String[] args) {
 
 <p>You implement your custom PropertyEditor for the specified JavaBean class, and then configure it using <code>org.springframework.beans.factory.config.CustomEditorConfigurer</code></p>
 
-<p>``` java
+<p>```java
 public class CustomBean {
     private String firstName;
     private String lastName;</p>
@@ -346,7 +346,7 @@ public String toString() {
     &amp;lt;/property&amp;gt;
 &amp;lt;/bean&amp;gt;</code></p>
 
-<p>``` java
+<p>```java
 GenericXmlApplicationContext context = new GenericXmlApplicationContext(&ldquo;classpath:spring-messagesource.xml&rdquo;);</p>
 
 <p>String name = &ldquo;Richard&rdquo;;
@@ -391,7 +391,7 @@ greeting=How is it going, {0}?</code></p>
 
 <p>Environment &ndash;&gt; PropertySource</p>
 
-<p>``` java
+<p>```java
 ConfigurableEnvironment env =&amp;nbsp;ctx.getEnvironment();
 MutablePropertySources propertySources =&amp;nbsp;env.getPropertySources();</p>
 
@@ -409,7 +409,7 @@ appMap.put(&ldquo;application.home&rdquo;, &ldquo;application_home&rdquo;);</p>
 Most of time, we use PropertyPlaceHolder</li>
 </ul>
 
-<p>``` java
+<p>```java
 &lt;beans xmlns=&ldquo;<a href="http://www.springframework.org/schema/beans&quot;">http://www.springframework.org/schema/beans&quot;</a>
     xmlns:xsi=&ldquo;<a href="http://www.w3.org/2001/XMLSchema-instance&quot;">http://www.w3.org/2001/XMLSchema-instance&quot;</a>
     xmlns:context=&ldquo;<a href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a>

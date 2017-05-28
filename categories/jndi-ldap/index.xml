@@ -20,7 +20,7 @@
       <description>JNDI - Java Naming and Directory Interface
 Object storing There are several ways an object satisfies the condition to be bound to a JDNI context.
  serializable objects: Serializable referenceable objects and references: Reference, ObjectFactory, Referenceable, RefAddr objects with attributes: DirContext remote objects: Remote &amp;nbsp;  Let&amp;rsquo;s look at the real life example: how we bind DataSource and UserTransaction to a JNDI context
-MySQL ``` java package com.mysql.jdbc.jdbc2.optional;
+MySQL ```java package com.mysql.jdbc.jdbc2.optional;
 public class MysqlDataSource extends ConnectionPropertiesImpl implements DataSource, Referenceable, Serializable {</description>
     </item>
     

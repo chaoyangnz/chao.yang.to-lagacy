@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">880 words ~2min</span>
+<span class="leancloud-visitors-count">875 words ~2min</span>
 </span>
       </div>
     </header>
@@ -241,14 +241,14 @@
 #### specify the column name - @Column
 
 
-``` java
+```java
 @Column(name=&quot;ADDR&quot;)```
 
 
 #### large object - @Lob
 
 
-``` java
+```java
 @Lob```
 
 
@@ -256,7 +256,7 @@
 
 If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK.
 
-``` java
+```java
 @Temporal(TemporalType.DATE)
 private Calendar dob;
 </code></pre>
@@ -289,7 +289,7 @@ there are 4 types of identity generation.
 #### Automatic
 
 
-``` java
+```java
 @Id @GeneratedValue(strategy=GenerationType.AUTO)
 private long id;```
 
@@ -298,7 +298,7 @@ The provider can choose table-based strategy or sequence-based strategy. This st
 #### Table
 
 
-``` java
+```java
 @Id @GeneratedValue(stategy=GenerationType.TABLE)
 private long id;
 </code></pre>

@@ -17,7 +17,7 @@
       <pubDate>Thu, 23 Apr 2015 19:02:25 +0000</pubDate>
       
       <guid>http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</guid>
-      <description>``` java //primitive System.out.println(int.class.getName()); System.out.println(int.class.getCanonicalName()); System.out.println(int.class.getSimpleName());
+      <description>```java //primitive System.out.println(int.class.getName()); System.out.println(int.class.getCanonicalName()); System.out.println(int.class.getSimpleName());
 System.out.println();
 //class System.out.println(String.class.getName()); System.out.println(String.class.getCanonicalName()); System.out.println(String.class.getSimpleName());
 System.out.println();

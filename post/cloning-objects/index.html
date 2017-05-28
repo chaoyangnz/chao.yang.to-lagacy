@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">598 words ~3min</span>
+<span class="leancloud-visitors-count">596 words ~3min</span>
 </span>
       </div>
     </header>
@@ -251,7 +251,7 @@ There are several method you can achieve this aim.
 #### overriding clone() method and write your own
 
 
-``` java
+```java
 //Modified clone() method in Employee class
 @Override
 protected Object clone() throws CloneNotSupportedException {
@@ -265,7 +265,7 @@ protected Object clone() throws CloneNotSupportedException {
 
 This method is for Serializable object.
 
-``` java
+```java
 public static  T cloneThroughSerialize(T t) throws Exception {
    ByteArrayOutputStream bos = new ByteArrayOutputStream();
    serializeToOutputStream(t, bos);

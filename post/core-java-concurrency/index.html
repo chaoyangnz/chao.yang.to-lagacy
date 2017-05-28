@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">4064 words ~9min</span>
+<span class="leancloud-visitors-count">4054 words ~9min</span>
 </span>
       </div>
     </header>
@@ -190,7 +190,7 @@ Every object instance has a monitor that can be locked by one thread at a time.
 <div>Example of using a explicit ReentrantLock instance:</div>
 <div>
 
-``` java
+```java
 public class Counter {
     private final Lock lock = new ReentrantLock();
     private int value = 0;
@@ -211,7 +211,7 @@ public class Counter {
 <div>The java.util.concurrent.locks package also contains a ReadWriteLock interface (and ReentrantReadWriteLock implementation) which is defined by a pair of locks for reading and writing, typically allowing multiple concurrent readers but only one writer. Example of using an explicit ReentrantReadWriteLock to allow multiple concurrent readers:</div>
 <div>
 
-``` java
+```java
 public class statistic {
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
     private int value;
@@ -242,7 +242,7 @@ public class statistic {
 <div>An example of using volatile as a signaling flag:</div>
 <div>
 
-``` java
+```java
 public class Processor implments Runnable {
     private volatile boolean stop;
     public void stopProcessing() {
@@ -263,7 +263,7 @@ public class Processor implments Runnable {
 <div>One shorcoming of volatile is that while it provides visibility guarantees, you cannot both check and update a volatile field in a single atomic call. The java.util.concurrent.atomic package contains a set of classes that support atomic compound actions on a single value in a lock-free manner similar to volatile.</div>
 <div>
 
-``` java
+```java
 public class Counter {
     private AtomicInteger value = new AtomicInteger();
     public int next() {
@@ -281,7 +281,7 @@ Atomic classes are provided for booleans, integers, longs and object references 
 <div>One way to contain data within a thread and make locking unnecessary is to use ThreadLocal storage. Conceptually a ThreadLocal acts as if there is a variable with its own version in every Thread. ThreadLocals are commonly used for stashing per-Thread values like the "current transaction" or other resources. Also, they are used to maintain per-thread counters, statistics, or ID generators.</div>
 <div>
 
-``` java
+```java
 public class TransactionManager {
     private static final ThreadLocal&lt;Transaction&gt; currentTransaction = new ThreadLocal&lt;Transaction&gt;() {
         @Override
@@ -371,7 +371,7 @@ BlockingDeque interface that provides methods for blocking and timeout in the c
 <div>Threads can specify an UncaughtExceptionHandler that will receive notifiation of any uncaught exception that cause a thread to abruptly terminate.</div>
 <div>
 
-``` java
+```java
 Thread t = new Thread(runnable);
 t.setUncaughtExceptionHandler(new Therad.UncaughtExceptionHandler() {
     void uncaughtException(Thread t, Throwable e) {
@@ -401,7 +401,7 @@ The canonical usage pattern for wait and notify is as follows:</div>
 <div></div>
 <div>
 
-``` java
+```java
 public class Latch {
     private final Object lock = new Object();
     private volatile boolean flag = false;
@@ -478,7 +478,7 @@ And the code example:
 &lt;div class=&quot;bar&quot;&gt;
 &lt;div class=&quot;tools&quot;&gt;
 
-``` java
+```java
 final CyclicBarrier cb = new CyclicBarrier(N);
 for (int i = 0; i &amp;lt; N; i++) {
     final int idx = i;
@@ -583,7 +583,7 @@ Let's see what is happening on the illustration above. There are 2 permits and 4
 
 Simple example:
 
-``` java
+```java
 public static void main(String args[]) {
     final Semaphore sem = new Semaphore(N);
     acquire(&quot;T1&quot;, sem);
@@ -694,7 +694,7 @@ ScheduledExecutorService instances that will cover a wide variety of common use
 <div>The following example creates a fied thread pool and submits a long-running task to it:</div>
 <div>
 
-``` java
+```java
 int processors = Runtime.getRuntime().availableProcessor();
 ExecutorService excutor = Executors.newFixedThreadPool(processors);
 Future&lt;Integer&gt; futureResult = executor.submit(new Callable&lt;Integer&gt;() {

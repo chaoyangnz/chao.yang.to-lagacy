@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">473 words ~3min</span>
+<span class="leancloud-visitors-count">468 words ~3min</span>
 </span>
       </div>
     </header>
@@ -169,7 +169,7 @@
 
 <p>Singleton pattern is to ensure the unique instance of some class in a JVM.</p>
 
-<p>``` java
+<p>```java
 class LazySingleton {
     private static LazySingleton instance;</p>
 
@@ -248,7 +248,7 @@ public void doSomething() {
 
 <h4 id="factory-implementation-uml-class-diagram-https-www-oodesign-com-media-stories-factory-20implementation-gif"><img src="https://www.oodesign.com/media/stories/factory%20implementation.gif" alt="Factory Implementation - UML Class Diagram" /></h4>
 
-<p>``` java
+<p>```java
 interface Product {}</p>
 
 <p>class ConcreteProduct implements Product {
@@ -267,7 +267,7 @@ interface Product {}</p>
 
 <h4 id="conditional-switch-factory">conditional switch factory</h4>
 
-<p>``` java
+<p>```java
 class AnotherConcreteProduct implements Product {}</p>
 
 <p>class ConditionalFactory {
@@ -289,7 +289,7 @@ class AnotherConcreteProduct implements Product {}</p>
 
 <h4 id="class-registry-factory">class registry factory</h4>
 
-<p>``` java
+<p>```java
 class ProductClassRegistryFactory {
     private HashMap&lt;String, Class&lt;Product&gt;&gt; registry = new HashMap();</p>
 
@@ -308,7 +308,7 @@ public Product createProduct(String productID) throws Exception {
 
 <h4 id="instance-registry-factory">instance registry factory</h4>
 
-<p>``` java
+<p>```java
 // For registeration on its own
 abstract class SelfRegisterableProduct implements Product {
     public abstract Product createProduct();

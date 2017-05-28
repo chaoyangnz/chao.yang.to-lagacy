@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">561 words ~3min</span>
+<span class="leancloud-visitors-count">556 words ~3min</span>
 </span>
       </div>
     </header>
@@ -273,7 +273,7 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 ##### <aop:aspect>
 
 
-``` java
+```java
 <aop:config>
     <!-- shared top-level pointcut -->
     <aop:pointcut id="fooExecution" expression="execution(* com.apress.prospring4.ch5..foo*(int))"/>
@@ -293,7 +293,7 @@ The main difference between <code>Advice</code>and <code>Advisor</code>is that <
 
 This is called aspect instantiation model.
 
-``` java
+```java
 <aop:config>
     <aop:pointcut id="businessService"
         expression="execution(* com.xyz.myapp.service.*.*(..))"/>
@@ -317,7 +317,7 @@ Bascially, they use @Aspect, @Pointcut, @Around, @Before, ...
 
 To enable @AspectJ style:
 
-``` java
+```java
 <aop:aspectj-autoproxy/>
 ```
 
@@ -326,7 +326,7 @@ To enable @AspectJ style:
 
 enabled by:
 
-``` java
+```java
 <context:load-time-weaver>
 ```
 
@@ -334,7 +334,7 @@ The default `LoadTimeWeaver` is the `DefaultContextLoadTimeWeaver` class, which 
 
 You can also specific the exact load-time weaver rather than the automatic one in xml configuration file:
 
-``` java
+```java
 <context:load-time-weaver weaver-class="org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver"/>
 ```
 

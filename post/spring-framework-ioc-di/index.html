@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">850 words ~4min</span>
+<span class="leancloud-visitors-count">842 words ~4min</span>
 </span>
       </div>
     </header>
@@ -183,7 +183,7 @@
 
 <h4 id="bean-name">bean name</h4>
 
-<p>``` java
+<p>```java
 &lt;bean id=&ldquo;only_one_id&rdquo; name=&ldquo;name1 name2 name3&rdquo; ..&gt;</p>
 
 <p>&lt;alias name=&ldquo;fromName&rdquo; alias=&ldquo;toName&rdquo;/&gt;```</p>
@@ -196,7 +196,7 @@
 <li>Instantiation with a constructor</li>
 </ul>
 
-<p>``` java
+<p>```java
 &lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;/&gt;</p>
 
 <p>&lt;bean name=&ldquo;anotherExample&rdquo; class=&ldquo;examples.ExampleBeanTwo$InnerClass&rdquo;/&gt;```</p>
@@ -212,7 +212,7 @@
 <li>Instantiation using an instance factory method</li>
 </ul>
 
-<p>``` java
+<p>```java
 &lt;!&ndash; the factory bean, which contains a method called createInstance() &ndash;&gt;
 &lt;bean id=&ldquo;serviceLocator&rdquo; class=&ldquo;examples.DefaultServiceLocator&rdquo;&gt;
     &lt;!&ndash; inject any dependencies required by this locator bean &ndash;&gt;
@@ -229,7 +229,7 @@
 <li>Constructor-based dependency injection</li>
 </ul>
 
-<p>``` java
+<p>```java
 &lt;bean id=&ldquo;foo&rdquo; class=&ldquo;x.y.Foo&rdquo;&gt;
     &lt;constructor-arg ref=&ldquo;bar&rdquo;/&gt;
     &lt;constructor-arg ref=&ldquo;baz&rdquo;/&gt;
@@ -257,7 +257,7 @@
 
 <p><strong>XML shortcut with the c-namespace</strong></p>
 
-<p>``` java
+<p>```java
 &lt;bean id=&ldquo;bar&rdquo; class=&ldquo;x.y.Bar&rdquo;/&gt;
 &lt;bean id=&ldquo;baz&rdquo; class=&ldquo;x.y.Baz&rdquo;/&gt;</p>
 
@@ -275,7 +275,7 @@
 <li>Setter-based dependency injection</li>
 </ul>
 
-<p>``` java
+<p>```java
 &lt;bean id=&ldquo;exampleBean&rdquo; class=&ldquo;examples.ExampleBean&rdquo;&gt;
     &lt;!&ndash; setter injection using the nested ref element &ndash;&gt;
     &lt;property name=&ldquo;beanOne&rdquo;&gt;
@@ -341,7 +341,7 @@
 
 <p><strong> &rdquo;&rdquo; and null</strong></p>
 
-<p>``` java
+<p>```java
 &lt;bean class=&ldquo;ExampleBean&rdquo;&gt;
     &lt;property name=&ldquo;email&rdquo; value=&ldquo;&rdquo;/&gt;
 &lt;/bean&gt;</p>
@@ -354,7 +354,7 @@
 
 <p><strong>XML shortcut with the p-namespace</strong></p>
 
-<p>``` java
+<p>```java
 &lt;bean name=&ldquo;john-classic&rdquo; class=&ldquo;com.example.Person&rdquo;&gt;
     &lt;property name=&ldquo;name&rdquo; value=&ldquo;John Doe&rdquo;/&gt;
     &lt;property name=&ldquo;spouse&rdquo; ref=&ldquo;jane&rdquo;/&gt;
