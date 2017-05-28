@@ -251,14 +251,14 @@ fun main(args: Array&lt;String&gt;) {
 
 <h1 id="generics">Generics</h1>
 
-<p>Kotlin&rsquo;s Generic is as complex as Java&rsquo;s. It introduce <code>in</code> <code>out</code> type parameter and <code>declaration-site</code> vs. <code>use-site</code>..</p>
+<p>Kotlin&rsquo;s Generic is as complex as Java&rsquo;s. It introduces <code>in</code> <code>out</code> type parameters and <code>declaration-site</code> vs. <code>use-site</code>..</p>
 
 <pre><code class="language-kotlin">val map = mutableMapOf&lt;Int,Int&gt;()
 map[1] = 1
-map[1] + 1 // compiler complain here
+map[1] + 1 // compiler complains here
 </code></pre>
 
-<p>Although we declare the value of map is <code>Int</code> which means it cannot be null. But <code>map.get(..)</code> return `Int?&rsquo; which can be null. Wield?!</p>
+<p>Although we declare the value of map is <code>Int</code> which means it cannot be null. But <code>map.get(..)</code> return <code>Int?</code> which can be null. Wield?!</p>
 
 <pre><code class="language-kotlin">val map = mutableMapOf&lt;Int,Int?&gt;()
 println(map[1])
