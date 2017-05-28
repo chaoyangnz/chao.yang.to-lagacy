@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">264 words ~2min</span>
+<span class="leancloud-visitors-count">363 words ~2min</span>
 </span>
       </div>
     </header>
@@ -248,6 +248,28 @@ fun main(args: Array&lt;String&gt;) {
     }
 }
 </code></pre>
+
+<h1 id="generic">Generic</h1>
+
+<p>Kotlin&rsquo;s Generic is as complex as Java&rsquo;s. It introduce <code>in</code> <code>out</code> type parameter and <code>declaration-site</code> vs. <code>use-site</code>..</p>
+
+<pre><code class="language-kotlin">val map = mutableMapOf&lt;Int,Int&gt;()
+map[1] = 1
+map[1] + 1 // compiler complain here
+</code></pre>
+
+<p>Although we declare the value of map is <code>Int</code> which means it cannot be null. But <code>map.get(..)</code> return `Int?&rsquo; which can be null. Wield?!</p>
+
+<pre><code class="language-kotlin">val map = mutableMapOf&lt;Int,Int?&gt;()
+println(map[1])
+println(1 in map.keys)
+map[1] = null
+println(map[1])
+println(1 in map.keys)
+</code></pre>
+
+<p>So <code>map.get(..)</code> cannot differentiate if the key doesn&rsquo;t exist or just its value is set as null.
+The best way to differentiate is to use <code>key in map.keys</code>.</p>
 
     </div>
     <footer class="post-footer">
@@ -377,6 +399,7 @@ fun main(args: Array&lt;String&gt;) {
 <li><a href="#in-within-a-for-loop"><code>in</code> within a for-loop</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#generic">Generic</a></li>
 </ul>
 </nav></div>
     </div>
