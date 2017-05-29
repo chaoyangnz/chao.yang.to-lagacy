@@ -83,16 +83,6 @@
   </url>
   
   <url>
-    <loc>http://yangchao.me/post/leetcode-#2-add-two-numbers/</loc>
-    <lastmod>2016-02-03T23:18:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yangchao.me/post/leetcode-#1-two-sum/</loc>
-    <lastmod>2016-02-03T22:10:25+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://yangchao.me/post/implement-stack-with-queue/</loc>
     <lastmod>2016-01-18T20:04:25+00:00</lastmod>
   </url>
@@ -870,12 +860,6 @@
   <url>
     <loc>http://yangchao.me/categories/language-compiler/</loc>
     <lastmod>2015-01-16T04:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://yangchao.me/tags/leetcode/</loc>
-    <lastmod>2016-02-03T23:18:25+00:00</lastmod>
     <priority>0</priority>
   </url>
   
