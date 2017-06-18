@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Abouts on Charvis Yang</title>
+    <title>Abouts on Chao Yang</title>
     <link>http://yangchao.me/about/</link>
-    <description>Recent content in Abouts on Charvis Yang</description>
+    <description>Recent content in Abouts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -16,7 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://yangchao.me/about/</guid>
-      <description>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; writing; studying history; and getting jealous of people who can sing, dance, or paint. I have learned a lot since I&amp;rsquo;ve started blogging, so I might contradict views I&amp;rsquo;ve previously expressed. I always reserve the</description>
+      <description>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; writing; studying history; and getting jealous of people who can sing, dance, or paint.
+I have learned a lot since I&amp;rsquo;ve started blogging, so I might contradict views I&amp;rsquo;ve previously expressed. I always reserve the right to change my mind, so don&amp;rsquo;t be surprised if I do.</description>
     </item>
     
   </channel>
