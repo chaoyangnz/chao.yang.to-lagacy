@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 May 2017 02:19:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A developer learns design</title>
+      <link>http://yangchao.me/post/a-developer-leanrns-design/</link>
+      <pubDate>Thu, 29 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/a-developer-leanrns-design/</guid>
+      <description>I do not forget the time when I produced a Flash animation in my university and I also had a dream to design a 3D game on my own.
+So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
+I also learn how to program with Unity and 3D model with Maya.</description>
+    </item>
     
     <item>
       <title>Kotlin Pitfalls</title>
@@ -33,17 +44,6 @@ A simple algorithm is Linear congruential generator.
  next random = (a * random + c) mod 2^32  The initial random is seed.
 Java implementation In next(bits) method:
 nextseed = (oldseed * multiplier + addend) &amp;amp; mask;  here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &amp;lt;&amp;lt; 48) - 1.</description>
-    </item>
-    
-    <item>
-      <title>A developer learns design</title>
-      <link>http://yangchao.me/post/a-developer-leanrns-design/</link>
-      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/a-developer-leanrns-design/</guid>
-      <description>I do not forget the time when I produced a Flash animation in my university and I also had a dream to design a 3D game on my own.
-So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
-I also learn how to program with Unity and 3D model with Maya.</description>
     </item>
     
     <item>
