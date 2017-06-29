@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Affinity on Chao Yang</title>
+    <link>http://yangchao.me/tags/affinity/</link>
+    <description>Recent content in Affinity on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/tags/affinity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A developer learns design</title>
+      <link>http://yangchao.me/post/a-developer-leanrns-design/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/a-developer-leanrns-design/</guid>
+      <description>I do not forget the time when I produced a Flash animation in my university and I also had a dream to design a 3D game on my own.
+So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
+I also learn how to program with Unity and 3D model with Maya.</description>
+    </item>
+    
+  </channel>
+</rss>

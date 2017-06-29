@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/post/a-developer-leanrns-design/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</loc>
     <lastmod>2017-01-19T17:11:25+00:00</lastmod>
   </url>
@@ -663,11 +668,161 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/arraylist/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/hashmap/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/priorityqueue/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrency/theadpool/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrency/threadlocal/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrent/threadlocal/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/helpers/stringjoiner/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/bitset/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/float-point/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/integer/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/string/intern/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/bit-operation/group-by-bit/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/bit-operation/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/linked-list/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/linked-list/two-pointers-race/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/2017-06-27/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/chapter1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/loading-linking-and-initializing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</loc>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/about/</loc>
   </url>
   
   <url>
     <loc>http://yangchao.me/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/affinity/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -686,6 +841,11 @@
   <url>
     <loc>http://yangchao.me/categories/best-pricatice/</loc>
     <lastmod>2015-03-19T16:54:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/</loc>
     <priority>0</priority>
   </url>
   
@@ -722,6 +882,18 @@
   <url>
     <loc>http://yangchao.me/categories/databases/</loc>
     <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/design/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/design/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -991,7 +1163,7 @@
   
   <url>
     <loc>http://yangchao.me/tags/</loc>
-    <lastmod>2015-03-19T16:54:45+00:00</lastmod>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
