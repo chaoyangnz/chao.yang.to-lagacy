@@ -812,6 +812,14 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/books/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/books/index2/</loc>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/about/</loc>
   </url>
   
@@ -846,6 +854,11 @@
   
   <url>
     <loc>http://yangchao.me/book/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/books/</loc>
     <priority>0</priority>
   </url>
   
