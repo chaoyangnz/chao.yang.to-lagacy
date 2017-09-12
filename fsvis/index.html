@@ -45,6 +45,10 @@ line.link {
             <div class="tooltip" style="position: absolute; z-index: 10; visibility: hidden;">
                 <div id="tt-name"></div>
                 <div id="tt-size"></div>
+                <div id="tt-path"></div>
+                <div id="tt-ctime"></div>
+                <div id="tt-mtime"></div>
+                <div id="tt-stsize"></div>
             </div>
     </div>
     <div style="margin-left: 150px">
@@ -88,7 +92,7 @@ var width = 1280,
 
 var force = d3.layout.force()
     .on("tick", tick)
-    .charge(function(d) { return d._children ? -d.size / 100 : -60; })
+    .charge(function(d) { return d._children ? -d.size / 300 : -100; })
     .linkDistance(function(d) { return d.target._children ? 80 : 30; })
     .size([width, height - 160]);
 
@@ -175,7 +179,11 @@ function update() {
       .on("click", click)
       .on("mouseover", function (d) { 
         tooltip.select("#tt-name").text(d.name)
+        tooltip.select("#tt-path").text(d.path)
         tooltip.select("#tt-size").text(d.size + " lines")
+        tooltip.select("#tt-ctime").text("created at " + d.ctime)
+        tooltip.select("#tt-mtime").text("created at " + d.mtime)
+        tooltip.select("#tt-stsize").text(d.st_size + " bytes")
         return tooltip.style("visibility", "visible");
       })
       .on("mousemove", function () {
