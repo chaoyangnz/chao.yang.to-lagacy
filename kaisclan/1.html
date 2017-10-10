@@ -20,7 +20,10 @@
         //filter: `${viewName}/robotsOnThisClassRoomOnly`,
         query_params: { classRoomCode: classRoomCode},
     };
-    db.sync(remoteDbUrl, syncOptions);
+    db.sync(remoteDbUrl, syncOptions).on('complete', function () {
+    // yay, we're in sync!
+        console.log('sync done')
+    });
     db.changes({
         since: 'now',
         live: true,
@@ -35,7 +38,9 @@
     db.query(`${viewName}/robots`, { classRoomCode: classRoomCode})
         .then(res => res.rows.map(it => it.key))
         .then(robots => console.log(robots))
-        .catch(e => console.error(e));
+        .catch(e => {
+            console.error(e)
+        });
 
     </script>
   </head>
