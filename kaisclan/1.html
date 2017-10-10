@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | kaisclan</title>
+    <script src="node_modules/pouchdb/dist/pouchdb.js"></script>
+    <script>
+
+    const db = new PouchDB('kaisclan', { cache: false });
+
+    const classRoomCode = 'fhoYutDBz';
+    const viewName = `classRoom_${classRoomCode}`;
+    const remoteDbUrl = `http://database.kaisclan.ai:5984/kaisclan`;
+    console.log('Connecting ..', remoteDbUrl)
+    console.log('query view:', viewName)
+    const syncOptions = {
+        live: true,
+        retry: true,
+        //filter: `${viewName}/robotsOnThisClassRoomOnly`,
+        query_params: { classRoomCode: classRoomCode},
+    };
+    db.sync(remoteDbUrl, syncOptions);
+    db.changes({
+        since: 'now',
+        live: true,
+        include_docs: true,
+        filter: `${viewName}/robotsOnThisClassRoomOnly`,
+        query_params: { classRoomCode: classRoomCode },
+    })
+    .on('change', (change) => {
+        console.log('Robot Changed!', change);
+    });
+    
+    db.query(`${viewName}/robots`, { classRoomCode: classRoomCode})
+        .then(res => res.rows.map(it => it.key))
+        .then(robots => console.log(robots))
+        .catch(e => console.error(e));
+
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

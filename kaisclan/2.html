@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | kaisclan</title>
+    <script src="node_modules/pouchdb/dist/pouchdb.js"></script>
+    <script>
+
+    var db = new PouchDB('http://database.kaisclan.ai:5984/kaisclan');
+
+    var classRoomCode = "fhoYutDBz"
+    
+    db.query(`classRoom_${classRoomCode}/robots`, {
+        classRoomCode: this.classRoomCode,
+    }).then(res => {
+        console.log(res)
+        res.rows.map(it => it.key)
+    });
+
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
