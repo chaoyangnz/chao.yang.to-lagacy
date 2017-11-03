@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Jun 2017 12:36:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Nov 2017 11:36:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
+      <link>http://yangchao.me/post/build-opencv-android-sdk/</link>
+      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/build-opencv-android-sdk/</guid>
+      <description>By default, the official OpenCV Android SDK doesn&amp;rsquo;t contain the contrib libraries, like Aruco.
+Preposition  NDK r10e Android Studio opencv 3.31 git clone https://github.com/opencv/opencv.git opencv_contrib git clone https://github.com/opencv/opencv.git CMake brew install cmake ninja ant  How to do it Assue the following is my unziped directories in my home. ls opencv opencv_contrib android-ndk-r10e
+Then run these commands:
+cd ~/opencv/ &amp;amp; mkdir build cd ~/opencv/platforms/android ./build_sdk.py --ndk_path ~/android-ndk-r10e --sdk_path ~/Library/Android/sdk --extra_modules_path ~/opencv_contrib/modules ~/opencv/build ~/opencv  Go to ~/opencv/build/sdk, you can see all are there.</description>
+    </item>
     
     <item>
       <title>A developer learns design</title>
@@ -20,18 +32,6 @@
       <description>I do not forget the time when I crafted a Flash animation in my university and I also had a dream to design a 3D game on my own.
 So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
 I also learn how to program with Unity and 3D model with Maya.</description>
-    </item>
-    
-    <item>
-      <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
-      <link>http://yangchao.me/post/build-opencv-android-sdk/</link>
-      <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/build-opencv-android-sdk/</guid>
-      <description>By default, the official OpenCV Android SDK doesn&amp;rsquo;t contain the contrib libraries, like Aruco.
-Preposition  NDK r10e Android Studio opencv 3.31 git clone https://github.com/opencv/opencv.git opencv_contrib git clone https://github.com/opencv/opencv.git CMake brew install cmake ninja ant  How to do it Assue the following is my unziped directories in my home. ls opencv opencv_contrib android-ndk-r10e
-Then run these commands:
-cd ~/opencv/ &amp;amp; mkdir build cd ~/opencv/platforms/android ./build_sdk.py --ndk_path ~/android-ndk-r10e --sdk_path ~/Library/Android/sdk --extra_modules_path ~/opencv_contrib/modules ~/opencv/build ~/opencv  Go to ~/opencv/build/sdk, you can see all are there.</description>
     </item>
     
     <item>
