@@ -862,12 +862,12 @@
   </url>
   
   <url>
-    <loc>http://yangchao.me/book/</loc>
+    <loc>http://yangchao.me/books/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://yangchao.me/books/</loc>
+    <loc>http://yangchao.me/book/</loc>
     <priority>0</priority>
   </url>
   
