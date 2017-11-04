@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Get started with AngularJS - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Get started with AngularJS">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Get started with AngularJS - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/get-started-with-angularjs/" itemprop="url">
+        Get started with AngularJS
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-05-18">
+    2015-05-18
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/javascript" itemprop="url" rel="index">
+        <span itemprop="name">Javascript</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">429 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="angularjs-concepts">AngularJS concepts</h3>
+
+<p><img src="http://yangchao.me/media/angularjs-conception.png" alt="angularjs-conception" /></p>
+
+<p>Core concepts:</p>
+
+<ul>
+<li>2-way data binding</li>
+<li>directive</li>
+<li>expression &amp; filter</li>
+<li>view / template</li>
+<li>controller</li>
+</ul>
+
+<h4 id="2-way-data-binding">2-way data binding</h4>
+
+<p><img src="http://yangchao.me/media/jogjajs-single-page-application-nganggo-angularjs-17-638.jpg" alt="jogjajs-single-page-application-nganggo-angularjs-17-638" /></p>
+
+<h4 id="directives">directives</h4>
+
+<ul>
+<li>manipulate DOM: DOM manipulation should only happen in directive implementations</li>
+<li>manipulate data
+Elements: &lt;<span style="color: #000000; background-color: #ffff00;">ng-xx</span>&gt; &lt;/ng-xx&gt;</li>
+</ul>
+
+<p>Attributes: &lt;span <span style="background-color: #ffff00;">ng-xx=&ldquo;exp&rdquo;</span>&gt;&lt;/span&gt;</p>
+
+<p>Comments: &lt;!&ndash; directive: <span style="background-color: #ffff00;">ng-xx exp</span> &ndash;&gt;</p>
+
+<p>Classes: &lt;span class=&rdquo;<span style="background-color: #ffff00;">ng-xx: exp</span>&ldquo;&gt;&lt;/span&gt;</p>
+
+<h4 id="scope">Scope</h4>
+
+<p>Scope is a glue between controller, template and model. It keeps models and views separate, but in sync.</p>
+
+<h4 id="controller">Controller</h4>
+
+<p>Controller is for UI logic</p>
+
+<h3 id="injector">Injector</h3>
+
+<p>The injector uses recipes to create two types of objects, <strong>services</strong> and <strong>specialized objects</strong>.</p>
+
+<ul>
+<li>Services are objects whose API is defined by the developer writing the service.</li>
+<li>Specialized objects conform to a specific Angular framework API. These objects extend the framework as plugins and therefore must implement interfaces specified by Angular. These interfaces are Controller, Directive, Filter and Animation.</li>
+</ul>
+
+<h4 id="recipes">Recipes</h4>
+
+<p>There are five recipe types that define how to create objects: Value, Constant, Factory, Service and Provider.</p>
+
+<p>Value, Constant, Factory and Service are the synaptic sugar of Provider.</p>
+
+<ul>
+<li>Value recipe</li>
+</ul>
+
+<pre><code class="language-java">myApp.value('clientId', 'a12345654321x');
+</code></pre>
+
+<p>&nbsp;</p>
+
+<ul>
+<li>Constant recipe</li>
+</ul>
+
+<pre><code class="language-java">myApp.constant('planetName', 'Greasy Giant');
+</code></pre>
+
+<ul>
+<li>Factory recipe</li>
+</ul>
+
+<pre><code class="language-java">myApp.factory('clientId', function clientIdFactory() {
+  return 'a12345654321x';
+});
+</code></pre>
+
+<ul>
+<li>Service recipe</li>
+</ul>
+
+<pre><code class="language-java">function UnicornLauncher(apiToken) {
+
+  this.launchedCount = 0;
+  this.launch = function() {
+    // Make a request to the remote API and include the apiToken
+    ...
+    this.launchedCount++;
+  }
+}
+
+//myApp.factory('unicornLauncher', [&quot;apiToken&quot;, function(apiToken) {
+//  return new UnicornLauncher(apiToken);
+//}]);
+
+myApp.service('unicornLauncher', [&quot;apiToken&quot;, UnicornLauncher]);
+</code></pre>
+
+<ul>
+<li>provider recipe</li>
+</ul>
+
+<pre><code class="language-java">myApp.provider('unicornLauncher', function UnicornLauncherProvider() {
+  var useTinfoilShielding = false;
+
+  this.useTinfoilShielding = function(value) {
+    useTinfoilShielding = !!value;
+  };
+
+  this.$get = [&quot;apiToken&quot;, function unicornLauncherFactory(apiToken) {
+
+    // let's assume that the UnicornLauncher constructor was also changed to
+    // accept and use the useTinfoilShielding argument
+    return new UnicornLauncher(apiToken, useTinfoilShielding);
+  }];
+});
+
+myApp.config([&quot;unicornLauncherProvider&quot;, function(unicornLauncherProvider) {
+  unicornLauncherProvider.useTinfoilShielding(true);
+}]);
+</code></pre>
+
+<table class="table table-bordered code-table ng-scope" border="1">
+<thead>
+<tr>
+<th>Features / Recipe type</th>
+<th>Factory</th>
+<th>Service</th>
+<th>Value</th>
+<th>Constant</th>
+<th>Provider</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>can have dependencies</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+<td class="error">no</td>
+<td class="error">no</td>
+<td class="success">yes</td>
+</tr>
+<tr>
+<td>uses type friendly injection</td>
+<td class="error">no</td>
+<td class="success">yes</td>
+<td class="success">yes*</td>
+<td class="success">yes*</td>
+<td class="error">no</td>
+</tr>
+<tr>
+<td>object available in config phase</td>
+<td class="error">no</td>
+<td class="error">no</td>
+<td class="error"><span style="background-color: #99cc00;">no</span></td>
+<td class="success"><span style="background-color: #99cc00;">yes</span></td>
+<td class="success">yes**</td>
+</tr>
+<tr>
+<td>can create functions</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+</tr>
+<tr>
+<td>can create primitives</td>
+<td class="success">yes</td>
+<td class="error">no</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+<td class="success">yes</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="specialized-object">Specialized object</h4>
+
+<p>The instructions for the injector to create these special objects (with the exception of the Controller objects) use the Factory recipe behind the scenes.</p>
+
+<p>Since the directives are registered via the Factory recipe, we can use the same syntax as with factories.</p>
+
+<pre><code class="language-java">myApp.directive('myPlanet', ['planetName', function myPlanetDirectiveFactory(planetName) {
+  // directive definition object
+  return {
+    restrict: 'E',
+    scope: {},
+    link: function($scope, $element) { $element.text('Planet: ' + planetName); }
+  }
+}]);
+</code></pre>
+
+<p>Using Factory recipes, you can also define Angular&rsquo;s filters and animations, but the controllers are a bit special.</p>
+
+<pre><code class="language-java">myApp.controller('DemoController', ['clientId', function DemoController(clientId) {
+  this.clientId = clientId;
+}]);
+</code></pre>
+
+<p>Unlike services, controllers are not singletons.</p>
+
+<p>&nbsp;</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/javascript-scope-and-context/" rel="next" title="JavaScript scopes and context">
+        <i class="fa fa-chevron-left"></i> JavaScript scopes and context
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/scea-architect/" rel="prev" title="SCEA architect">
+        SCEA architect <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#angularjs-concepts">AngularJS concepts</a>
+<ul>
+<li><a href="#2-way-data-binding">2-way data binding</a></li>
+<li><a href="#directives">directives</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#controller">Controller</a></li>
+</ul></li>
+<li><a href="#injector">Injector</a>
+<ul>
+<li><a href="#recipes">Recipes</a></li>
+<li><a href="#specialized-object">Specialized object</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

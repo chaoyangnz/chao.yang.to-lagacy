@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multithreading on Chao Yang</title>
+    <link>http://yangchao.me/categories/multithreading/</link>
+    <description>Recent content in Multithreading on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Mar 2015 04:59:28 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/multithreading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Core Java Concurrency</title>
+      <link>http://yangchao.me/post/core-java-concurrency/</link>
+      <pubDate>Fri, 13 Mar 2015 04:59:28 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/core-java-concurrency/</guid>
+      <description>A birdview of core java concurrency Concepts ![table1](/media/table1.png) Procting shared data Java provides Lock-based concurrency control machanism. Locking **establishes the orderings** needed to satisfy the Java Memory Model and **guarantee the visibility** of changes to other threads. #### Synchronized Every object instance has a monitor that can be locked by one thread at a time. The _synchronized _keyword can be specifid on a method or in block form to lock</description>
+    </item>
+    
+    <item>
+      <title>Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue</title>
+      <link>http://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</link>
+      <pubDate>Tue, 17 Feb 2015 08:39:28 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</guid>
+      <description>There are a lot of differences between the two.
+For starters, what kind of data do you want to transport? Complex objects will be easier to transport between threads using a Queue, rather than a Pipe. With the Pipes you would have to serialize the objects or transform them in some way to get them through the Stream, then reverse the procedure on the receiving side. With Queues you just put the object in the Queue and pull it out on the consumer.</description>
+    </item>
+    
+    <item>
+      <title>JMM, Atomicity,  Visibility and Reordering</title>
+      <link>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</link>
+      <pubDate>Wed, 21 Jan 2015 09:36:18 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</guid>
+      <description>Memory that can be shared between threads is called shared memory or heap memory. The term variable as used in this section refers to both fields and array elements. Variables that are shared between threads are referred to as shared variables. All instance fields, static fields, and array elements are shared variables and are stored in heap memory. Local variables, formal method parameters, and exception handler parameters are never shared between threads and are unaffected by the memory model.</description>
+    </item>
+    
+    <item>
+      <title>Thread Synchronization</title>
+      <link>http://yangchao.me/post/thread-synchronization/</link>
+      <pubDate>Tue, 20 Jan 2015 02:16:57 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/thread-synchronization/</guid>
+      <description>Two questions about synchronized  mutual exclusion - shared data access among multiple threads - coordinating activities Some of the Java virtual machine&amp;rsquo;s runtime data areas are shared by all threads, others are private to individual threads.   The heap and method area are shared by all threads, Java programs need to coordinate multi-threaded access to two kinds of data:
+ b. class variables, which are stored in the method area</description>
+    </item>
+    
+    <item>
+      <title>Java Thread Management</title>
+      <link>http://yangchao.me/post/topic-serial-threads/</link>
+      <pubDate>Mon, 19 Jan 2015 07:30:46 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/topic-serial-threads/</guid>
+      <description>About thread:
+1. Single-thread and multi-thread A single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main() method), followed by many entry and exit points, which are run concurrently with the main(). 2. Lifecycle In Java, there are only 6 states when invoking_ getState()_: NEW RUNNABLE BLOCKED WAITING TIMED_WAITING TERMINATED
+In reality, we cannot differentiate the running or runnable but not running.</description>
+    </item>
+    
+  </channel>
+</rss>

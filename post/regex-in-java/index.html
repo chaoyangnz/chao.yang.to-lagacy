@@ -1,0 +1,727 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Regex in Java - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Regex in Java">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Regex in Java - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/regex-in-java/" itemprop="url">
+        Regex in Java
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-01-09">
+    2016-01-09
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">862 words ~5min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="some-concepts">Some concepts</h1>
+
+<h2 id="metacharacters">metacharacters</h2>
+
+<p><code>&lt;([{\^-=$!|]})?*+.&gt;</code>
+ these characters have special meaning which can affect the way a pattern is matached.</p>
+
+<h2 id="character-classes">character classes</h2>
+
+<p>a set of characters enclosed within square brackets.</p>
+
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>[abc]</td>
+<td>a, b, or c (simple class)</td>
+</tr>
+
+<tr>
+<td>[^abc]</td>
+<td>Any character except a, b, or c (negation)</td>
+</tr>
+
+<tr>
+<td>[a-zA-Z]</td>
+<td>a through z, or A through Z, inclusive (range)</td>
+</tr>
+
+<tr>
+<td>[a-d[m-p]]</td>
+<td>a through d, or m through p: <a href="union">a-dm-p</a></td>
+</tr>
+
+<tr>
+<td>[a-z&amp;&amp;[def]]</td>
+<td>d, e, or f (intersection)</td>
+</tr>
+
+<tr>
+<td>[a-z&amp;&amp;[^bc]]</td>
+<td>a through z, except for b and c: <a href="subtraction">ad-z</a></td>
+</tr>
+
+<tr>
+<td>[a-z&amp;&amp;[^m-p]]</td>
+<td>a through z, and not m through p: <a href="subtraction">a-lq-z</a></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="predefined-character-classes">predefined character classes</h2>
+
+<p>convenient shorthands for commonly used regular expressions</p>
+
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>.</td>
+<td>Any character (may or may not match line terminators)</td>
+</tr>
+
+<tr>
+<td>\d</td>
+<td>A digit: [0-9]</td>
+</tr>
+
+<tr>
+<td>\D</td>
+<td>A non-digit: [^0-9]</td>
+</tr>
+
+<tr>
+<td>\s</td>
+<td>A whitespace character: [ \t\n\x0B\f\r]</td>
+</tr>
+
+<tr>
+<td>\S</td>
+<td>A non-whitespace character: [^\s]</td>
+</tr>
+
+<tr>
+<td>\w</td>
+<td>A word character: [a-zA-Z_0-9]</td>
+</tr>
+
+<tr>
+<td>\W</td>
+<td>A non-word character: [^\w]</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="bounary-matchers">bounary matchers</h2>
+
+<table>
+<thead>
+<tr>
+<th>Boundary Construct</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>^</td>
+<td>The beginning of a line</td>
+</tr>
+
+<tr>
+<td>\b</td>
+<td>A word boundary</td>
+</tr>
+
+<tr>
+<td>\B</td>
+<td>A non-word boundary</td>
+</tr>
+
+<tr>
+<td>\A</td>
+<td>The beginning of the input</td>
+</tr>
+
+<tr>
+<td>\G</td>
+<td>The end of the previous match</td>
+</tr>
+
+<tr>
+<td>\Z</td>
+<td>The end of the input but for the final terminator, if any</td>
+</tr>
+
+<tr>
+<td>\z</td>
+<td>The end of the input</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="qualifier">qualifier</h2>
+
+<p>the number of occurrences to match against</p>
+
+<table>
+<thead>
+<tr>
+<th>qualifier</th>
+<th>meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>X?</td>
+<td>once or not at all</td>
+</tr>
+
+<tr>
+<td>X*</td>
+<td>zero or more times</td>
+</tr>
+
+<tr>
+<td>X+</td>
+<td>one or more times</td>
+</tr>
+
+<tr>
+<td>X{n}</td>
+<td>exactly n times</td>
+</tr>
+
+<tr>
+<td>X{n,}</td>
+<td>at least n times</td>
+</tr>
+
+<tr>
+<td>X{n,m}</td>
+<td>at least n but not more than m times</td>
+</tr>
+</tbody>
+</table>
+
+<p>Qualifier can be applied on character, character class, capturing group.</p>
+
+<h2 id="capturing-groups">capturing groups</h2>
+
+<p>treat multiple characters as a single unit</p>
+
+<p><strong>Capturing groups are numbered by counting their opening parentheses from left to right.</strong></p>
+
+<p>There is also a special group, group 0, which always represents the entire expression. This group is not included in the total reported by groupCount.</p>
+
+<pre><code>
+s(\d\w),f(dfd(\Sgd)er)3=pr
+ --1---  ------2-----
+             --3--
+</code></pre>
+
+<p>Group 1: (\d\w)
+Group 2: (dfd(\Sgd)er)
+Group 3: (\Sgd)</p>
+
+<h2 id="backreferences">backreferences</h2>
+
+<p>In your regular expression, you can reference the previous capturing group by a backslash () followed by a digit indicating the number of the group to be recalled.</p>
+
+<p><code>(\d\d)\1(abc)dfd\2-ellre</code></p>
+
+<p>Here, <code>\1</code> is refered as <strong>the matched content</strong> of <code>(\d\d)</code> and <code>\2</code> is refered as <strong>the matched content</strong> of <code>(abc)</code>. Note, backreference doesn&rsquo;t mean the replacement of the sub pattern of the group.</p>
+
+<h1 id="pattern">Pattern</h1>
+
+<pre><code class="language-java">Pattern pattern = Pattern.compile(&quot;(\\d\\d).(abc)&quot;;
+</code></pre>
+
+<h1 id="matcher">Matcher</h1>
+
+<pre><code class="language-java">Matcher matcher = pattern.matcher(&quot;string-to-match&quot;)
+</code></pre>
+
+<h2 id="find-vs-matches-vs-lookingat">find() vs. matches() vs. lookingAt()</h2>
+
+<ul>
+<li><code>matches()</code> matches the full string starting from 0.</li>
+<li><code>lookingAt()</code> like <code>matches()</code> starting from 0, but not requre to match the full string.</li>
+<li><code>find()</code> tries to find the next occurrence within the substring that matches the regex. That means, the result of calling find() multiple times might not be the same.</li>
+</ul>
+
+<pre><code class="language-java">Pattern pattern = Pattern.compile(&quot;\\d\\d&quot;);
+Matcher matcher = pattern.matcher(&quot;2345&quot;);
+matcher.matches(); //false
+matcher.lookingAt(); // true
+matcher.find(); // true
+</code></pre>
+
+<blockquote>
+<p>If you care about the full string matching, use <code>matches()</code>, otherwise use <code>lookingAt()</code>.
+<code>find()</code> is better to use to match multiple occurrences and call multiple times.</p>
+</blockquote>
+
+<h2 id="query-state">query state</h2>
+
+<p>Once matched, we can always query the state by method <code>group()</code>, <code>start()</code>, and <code>end()</code>.</p>
+
+<p>Because <code>find()</code> can call multiple times to get all the matched substrings, we can get more detailed group state by <code>group(i)</code>, <code>start(i)</code>, and <code>end(i)</code>.</p>
+
+<p>``` java typical usage of find()
+while(matcher.find())
+    out.prinf(&ldquo;Found the text \&ldquo;%s\&rdquo; from %d to %d&rdquo;,
+              matcher.group(),
+              matcher.start(),
+              matcher.end()
+    );</p>
+
+<pre><code>// further group details
+// although group 0 is excluded from groupCount(), we can safely get it
+// group() is equivlent with group(0) here
+for(int i=0; i &lt;= matcher.groupCount(); ++i) {
+    out.printf(&quot;Group %d: %s from %d to %d&quot;,
+               matcher.group(i),
+               matcher.start(i),
+               matcher.end(i)
+    );
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+
+## replacement
+
+`replaceAll(..)` and `replaceFirst(..)` is very useful to replace the whole matches.
+And in the replacement, you can use `$0, $1, $2, ..` to represent respective group matches.
+
+But the powerful way is using `appendReplacement(..)` and `applendTail()`.
+
+The following example, I need to replace the domain part of all emails in multiple lines.
+
+
+
+```java
+String emails = &quot;richd.yang@googlemail.com\n&quot; +
+                &quot;richdyang@yahoo.com&quot;;
+String EMAIL_PATTERN = &quot;^([a-zA-Z0-9._]+)@((\\w+)\\.(\\w+))$&quot;;
+StringBuffer sbf = new StringBuffer();
+Matcher m = Pattern.compile(EMAIL_PATTERN, Pattern.MULTILINE).matcher(emails);
+while(m.find()) {
+    String domain = m.group(3);
+    if(&quot;googlemail&quot;.equals(domain)) {
+        m.appendReplacement(sbf, &quot;$1@gmail.$4&quot;);
+    }
+}
+m.appendTail(sbf);
+
+System.out.printf(&quot;%s&quot;, sbf);
+</code></pre>
+
+<h1 id="examples">Examples</h1>
+
+<p>``` java SimpleEmailMatcher
+String EMAIL<em>PATTERN = &ldquo;([a-zA-Z0-9.</em>]+)@((\w+\.)+\w+)&ldquo;;
+Matcher m = Pattern.compile(EMAIL_PATTERN).matcher(&ldquo;richd.yang@gmail.com&rdquo;);
+while(m.find()) {
+    System.out.printf(&ldquo;Found \&ldquo;%s\&rdquo; (%d - %d) %n&rdquo;, m.group(), m.start(), m.end());
+    for(int i=0; i &lt;= m.groupCount(); ++i) {
+        System.out.printf(&ldquo;Group %d: %s (%d - %d) %n&rdquo;, i, m.group(i), m.start(i), m.end(i));
+    }
+}</p>
+
+<pre><code>
+
+&gt; Found &quot;richd.yang@gmail.com&quot; (0 - 20) 
+&gt; Group 0: richd.yang@gmail.com (0 - 20) 
+&gt; Group 1: richd.yang (0 - 10) 
+&gt; Group 2: gmail.com (11 - 20) 
+&gt; Group 3: gmail. (11 - 17) 
+
+Now we can get the Email domain from group 2.
+
+``` java SimpleIPMatcher
+String IPADDRESS_PATTERN =
+        &quot;^([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\.&quot; +
+         &quot;([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\.&quot; +
+         &quot;([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])\\.&quot; +
+         &quot;([0-9]|[1-9]\\d|2[0-4]\\d|25[0-5])$&quot;;
+Matcher m = Pattern.compile(IPADDRESS_PATTERN).matcher(&quot;10.233.29.5&quot;);
+while(m.find()) {
+    System.out.printf(&quot;Found \&quot;%s\&quot; (%d - %d) %n&quot;, m.group(), m.start(), m.end());
+    for(int i=0; i &lt;= m.groupCount(); ++i) {
+        System.out.printf(&quot;Group %d: %s (%d - %d) %n&quot;, i, m.group(i), m.start(i), m.end(i));
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Found &ldquo;10.233.29.5&rdquo; (0 - 11)
+Group 0: 10.233.29.5 (0 - 11)
+Group 1: 10 (0 - 2)
+Group 2: 233 (3 - 6)
+Group 3: 29 (7 - 9)
+Group 4: 5 (10 - 11)</p>
+</blockquote>
+
+<p>reference: <a href="http://www.mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/">how to validate ip address</a></p>
+
+<h1 id="further-references">Further references</h1>
+
+<ul>
+<li><p><a href="https://docs.oracle.com/javase/tutorial/essential/regex/index.html">Oracle Java Tutorial for Regular Expressions</a></p></li>
+
+<li><p><a href="http://www.amazon.com/Mastering-Regular-Expressions-Jeffrey-Friedl/dp/0596528124">Mastering Regular Expressions</a></p></li>
+
+<li><p><a href="http://regexr.com/">Java Regex Tester online</a></p></li>
+</ul>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/book-reading-plan-for-2016/" rel="next" title="Book reading plan for 2016">
+        <i class="fa fa-chevron-left"></i> Book reading plan for 2016
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/" rel="prev" title="Book notes: Oracle Database Transactions and Locking revealed">
+        Book notes: Oracle Database Transactions and Locking revealed <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#some-concepts">Some concepts</a>
+<ul>
+<li><a href="#metacharacters">metacharacters</a></li>
+<li><a href="#character-classes">character classes</a></li>
+<li><a href="#predefined-character-classes">predefined character classes</a></li>
+<li><a href="#bounary-matchers">bounary matchers</a></li>
+<li><a href="#qualifier">qualifier</a></li>
+<li><a href="#capturing-groups">capturing groups</a></li>
+<li><a href="#backreferences">backreferences</a></li>
+</ul></li>
+<li><a href="#pattern">Pattern</a></li>
+<li><a href="#matcher">Matcher</a>
+<ul>
+<li><a href="#find-vs-matches-vs-lookingat">find() vs. matches() vs. lookingAt()</a></li>
+<li><a href="#query-state">query state</a></li>
+</ul></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#further-references">Further references</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

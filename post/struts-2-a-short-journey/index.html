@@ -1,0 +1,803 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Struts 2 - a short journey - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Struts 2 - a short journey">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Struts 2 - a short journey - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/struts-2-a-short-journey/" itemprop="url">
+        Struts 2 - a short journey
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-08">
+    2015-04-08
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/struts" itemprop="url" rel="index">
+        <span itemprop="name">Struts</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1080 words ~6min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="web-framework-evolves">Web framework evolves</h3>
+
+<h4 id="servlet">Servlet</h4>
+
+<p>Write all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!</p>
+
+<h4 id="jsp-with-scriptlet-style">JSP with scriptlet style</h4>
+
+<p>Rather than writing HTML in Java code, now write Java code in HTML code. This approach is really like PHP and ASP do.</p>
+
+<h4 id="jsp-with-tags-style">JSP with tags style</h4>
+
+<p>To avoid writing Java code in HTML, introduce JSP tags as HTML-like facade for accessing underlying Java code. This approach is more designer-friendly.</p>
+
+<h4 id="action-based-framework">Action-based framework</h4>
+
+<p>Split the page processing into processing logic and presentation logic.</p>
+
+<p>Implement MVC Model 2 pattern, or Front Controller pattern.</p>
+
+<p>In this pattern, a servlet is the Front Controller, providing a centralized point for all client page requests.</p>
+
+<p>Then it maps the request URL to a Unit of Work (aka. action).</p>
+
+<p>The action can do:</p>
+
+<ul>
+<li>accessing HTTP request, form and session parameters</li>
+<li>calling business logic services</li>
+<li>mapping the response into Model - usually a POJO</li>
+<li>returning a result, which is mapped to a view for rendering</li>
+</ul>
+
+<h4 id="component-based-framework">Component-based framework</h4>
+
+<ul>
+<li>event-driven</li>
+<li>a close tie between user interface component and its class
+Such frameworks are: JSF, Wicket, ASP.NET</li>
+</ul>
+
+<h4 id="ajax-and-restful-style">AJAX and Restful style</h4>
+
+<p>AJAX requesting to an action-based framework makes the action-based framework behave like the component-based frameworks do.</p>
+
+<h3 id="core-components-of-struts">Core components of Struts</h3>
+
+<p>Struts2 is a pull-MVC (or MVC 2) framework. The &ldquo;pull&rdquo; comes from the views ability to pull data from Action, rather than having a separate model object.</p>
+
+<p><img src="http://yangchao.me/media/struts-mvc.png" alt="struts-mvc" /></p>
+
+<p>From the above figure, we know Action acts as the functionality of model object and processing logic executor.</p>
+
+<h4 id="configuration">Configuration</h4>
+
+<p>When you develop your web application using Struts2, you&rsquo;ll come across 3 configuration files: web.xml(web application deplopment descriptor), struts.properties, struts.xml</p>
+
+<p><img src="http://yangchao.me/media/struts-configure-scope.png" alt="struts-configure-scope" /></p>
+
+<h5 id="web-xml">web.xml</h5>
+
+<p>You need to config Dispatcher Filter &ndash; which is implemented as a servlet filter to dispatching requests.</p>
+
+<h5 id="struts-properties">struts.properties</h5>
+
+<p>This file is for configuration of framework itself if you want to change the default options of framework. It includes all kinds of constants.</p>
+
+<p>Of course, you can define these constants in struts.xml by using &lt;constant name=&ldquo;&rdquo; value=&ldquo;&rdquo;  /&gt;</p>
+
+<p>So struts.properties is optional.</p>
+
+<h5 id="struts-xml">struts.xml</h5>
+
+<p>This is about the specific configuration of your web application, such as actions, result type, result, interceptors, etc.</p>
+
+<p>Now the following is a practical configuration I used in my project:</p>
+
+<pre><code class="language-java">&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&amp;gt;
+&amp;lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&amp;gt;
+
+&amp;lt;struts&amp;gt;
+
+	&amp;lt;!-- what the URL ends by, such as ***.do --&amp;gt;
+	&amp;lt;constant name=&quot;struts.action.extension&quot; value=&quot;do&quot; /&amp;gt;
+
+	&amp;lt;!-- in development mode, more errors are provided --&amp;gt;
+	&amp;lt;constant name=&quot;struts.devMode&quot; value=&quot;false&quot; /&amp;gt;
+
+	&amp;lt;!--default encoding for web app--&amp;gt;
+	&amp;lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;utf-8&quot; /&amp;gt;
+
+	&amp;lt;constant name=&quot;struts.i18n.reload&quot; value=&quot;false&quot; /&amp;gt;
+
+	&amp;lt;constant name=&quot;struts.custom.i18n.resources&quot; value=&quot;properties/web/lang&quot; /&amp;gt;
+	&amp;lt;constant name=&quot;struts.configuration.xml.reload&quot; value=&quot;true&quot; /&amp;gt;
+
+	&amp;lt;constant name=&quot;struts.objectFactory&quot; value=&quot;org.apache.struts2.spring.StrutsSpringObjectFactory&quot; /&amp;gt;
+
+	&amp;lt;!-- default package --&amp;gt;
+	&amp;lt;package name=&quot;my-default&quot; namespace=&quot;/&quot; extends=&quot;json-default&quot;&amp;gt;
+
+		&amp;lt;!-- define new interceptors and interceptor stack --&amp;gt;
+		&amp;lt;interceptors&amp;gt; 
+			&amp;lt;interceptor name=&quot;myInterceptor&quot; class=&quot;com.my.web.interceptor.SecurityInterceptor&quot;/&amp;gt;
+
+			&amp;lt;interceptor-stack name=&quot;myDefaultStack&quot;&amp;gt;
+		        &amp;lt;interceptor-ref name=&quot;defaultStack&quot; /&amp;gt;
+		        &amp;lt;interceptor-ref name=&quot;myInterceptor&quot; /&amp;gt;
+		        &amp;lt;interceptor-ref name =&quot;timer&quot; /&amp;gt; 
+				&amp;lt;interceptor-ref name =&quot;logger&quot; /&amp;gt; 
+		    &amp;lt;/interceptor-stack&amp;gt;	    
+		&amp;lt;/interceptors&amp;gt;
+
+		&amp;lt;!-- set default interceptor --&amp;gt;
+	    &amp;lt;default-interceptor-ref name=&quot;myDefaultStack&quot;/&amp;gt; 
+
+	    &amp;lt;!-- Global results：error, failure, timeout, relogin --&amp;gt;
+	    &amp;lt;global-results&amp;gt;
+	    	&amp;lt;result name=&quot;success&quot; type=&quot;json&quot;&amp;gt;
+			  &amp;lt;param name=&quot;ignoreHierarchy&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			  &amp;lt;param name=&quot;excludeNullProperties&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			&amp;lt;/result&amp;gt;
+			&amp;lt;result name=&quot;exception&quot; type=&quot;json&quot;&amp;gt;
+			  &amp;lt;param name=&quot;ignoreHierarchy&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			  &amp;lt;param name=&quot;excludeNullProperties&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			&amp;lt;/result&amp;gt;
+			&amp;lt;result name=&quot;login&quot; type=&quot;json&quot;&amp;gt;
+			  &amp;lt;param name=&quot;ignoreHierarchy&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			  &amp;lt;param name=&quot;excludeNullProperties&quot;&amp;gt;false&amp;lt;/param&amp;gt;
+			&amp;lt;/result&amp;gt;
+		&amp;lt;/global-results&amp;gt;
+    &amp;lt;/package&amp;gt;
+
+	&amp;lt;!-- modules  --&amp;gt;
+	&amp;lt;include file=&quot;Struts/struts-alert.xml&quot;/&amp;gt;
+	&amp;lt;include file=&quot;Struts/struts-systemManage.xml&quot;/&amp;gt;
+	&amp;lt;include file=&quot;Struts/struts-workflow.xml&quot;/&amp;gt;
+	&amp;lt;include file=&quot;Struts/struts-revaluation.xml&quot;/&amp;gt;
+	&amp;lt;include file=&quot;Struts/struts-indexquery.xml&quot;/&amp;gt;
+&amp;lt;/struts&amp;gt;
+</code></pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<pre><code class="language-java">&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;web-app version=&quot;2.4&quot; xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;&amp;gt;
+	&amp;lt;display-name&amp;gt;icms-web&amp;lt;/display-name&amp;gt;
+
+	&amp;lt;context-param&amp;gt;
+		&amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
+		&amp;lt;param-value&amp;gt;classpath*:/SpringContext/applicationContext-*.xml,classpath*:/SpringContext/*/applicationContext-*.xml,classpath*:/SpringContext/*/*/applicationContext-*.xml,classpath*:/SpringContext/*/*/*/applicationContext-*.xml
+		&amp;lt;/param-value&amp;gt;
+	&amp;lt;/context-param&amp;gt;
+
+	&amp;lt;listener&amp;gt;
+		&amp;lt;listener-class&amp;gt;org.springframework.web.util.Log4jConfigListener&amp;lt;/listener-class&amp;gt;
+	&amp;lt;/listener&amp;gt;
+
+	&amp;lt;listener&amp;gt;
+		&amp;lt;listener-class&amp;gt;org.springframework.web.context.ContextLoaderListener&amp;lt;/listener-class&amp;gt;
+	&amp;lt;/listener&amp;gt;
+
+	&amp;lt;filter&amp;gt;
+		&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
+		&amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.FilterDispatcher&amp;lt;/filter-class&amp;gt;
+		&amp;lt;init-param&amp;gt;
+			&amp;lt;param-name&amp;gt;config&amp;lt;/param-name&amp;gt;
+			&amp;lt;param-value&amp;gt;struts-default.xml,struts-plugin.xml,Struts/struts.xml&amp;lt;/param-value&amp;gt;
+		&amp;lt;/init-param&amp;gt;
+	&amp;lt;/filter&amp;gt;
+
+	&amp;lt;filter-mapping&amp;gt;
+		&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
+		&amp;lt;url-pattern&amp;gt;*.do&amp;lt;/url-pattern&amp;gt;
+	&amp;lt;/filter-mapping&amp;gt;
+
+	&amp;lt;welcome-file-list&amp;gt;
+		&amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt;
+	&amp;lt;/welcome-file-list&amp;gt;
+
+	&amp;lt;session-config&amp;gt;
+		&amp;lt;session-timeout&amp;gt;30&amp;lt;/session-timeout&amp;gt;
+	&amp;lt;/session-config&amp;gt;
+
+&amp;lt;/web-app&amp;gt;
+</code></pre>
+
+<h4 id="actions"> Actions</h4>
+
+<p>If you don&rsquo;t specify the method of an action, its execute() will be invoked by default.</p>
+
+<p>An action method can return a <em>String</em> or _Result _or no return.</p>
+
+<pre><code class="language-java">&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
+			class=&quot;com.my.ManageDiscardColAction&quot;
+			method=&quot;submitDiscardColApp&quot;&amp;gt;
+&amp;lt;/action&amp;gt;
+</code></pre>
+
+<p>An action instance should be one per request. So when you integrate Struts2 with Spring, the bean scope of action should be <strong><em>sterotype</em></strong>.</p>
+
+<p>The above example uses the global result setting. You can specify the action-specific configs of result mapping, like</p>
+
+<pre><code class="language-java">&amp;lt;action name=&quot;submitDiscardColAppAction&quot;
+			class=&quot;com.my.ManageDiscardColAction&quot;
+			method=&quot;submitDiscardColApp&quot;&amp;gt;
+    &amp;lt;result name=&quot;success&quot; type=&quot;dispatcher&quot;&amp;gt;1.jsp&amp;lt;/result&amp;gt;
+&amp;lt;/action&amp;gt;
+</code></pre>
+
+<blockquote>
+<p>NOTE: the &ldquo;dispatcher&rdquo; result type is default if you don&rsquo;t specify the result type.
+Most of time, the logic service object is injected by DI framework (Struts only support setter injection), but there are many non-managed objects needing to acquire in the action, like request, session, servletContext, response, etc. In this case, we can use **Aware interface.</p>
+</blockquote>
+
+<ul>
+<li>SessionAware</li>
+<li>ServletRequestAware</li>
+<li>RequestAware</li>
+<li>ApplicationAware</li>
+<li>ServletResponseAware</li>
+<li>ParameterAware</li>
+<li>PrincipalAware</li>
+<li>ServletContextAware</li>
+</ul>
+
+<h4 id="result-type">Result type</h4>
+
+<p>Struts provides many result type, but you can implement your custom implementation by implements _<strong>Result</strong> _interface.</p>
+
+<ul>
+<li>dispatcher</li>
+<li>httpheader</li>
+<li>redirect</li>
+<li>redirectAction</li>
+<li>plainText</li>
+<li>stream</li>
+<li>velocity</li>
+</ul>
+
+<h4 id="interceptors">Interceptors</h4>
+
+<p>Interceptors are conceptually the same as servlet filters or proxy, which provide a way to supply pro-processing and post-processing around the action.</p>
+
+<p>Many features in Struts are implemented using interceptors: exception handling, lifecycle callbacks, validation, servlet-based object injection, application authentication etc.</p>
+
+<pre><code class="language-java">public interface Interceptor extends Serializable {
+    void destroy();
+    void init();
+    String intercept(ActionInvocation invocation) throws Exception;
+}
+</code></pre>
+
+<h4 id="value-stack-ognl"> Value Stack / OGNL</h4>
+
+<p>Value stack and OGNL are all related to accessing data. OGNL is an expression language, aka. Object Graphic Navigational Language.</p>
+
+<p>We use OGNL to access data from value stack in some cases:</p>
+
+<ul>
+<li>JSP tags</li>
+<li>Velocity or Freemarker template</li>
+</ul>
+
+<h5 id="what-are-there-in-value-stack">What are there in Value stack?</h5>
+
+<p><img src="http://yangchao.me/media/struts-value-stack.png" alt="struts-value-stack" /></p>
+
+<h3 id="tags">Tags</h3>
+
+<h4 id="lt-s-property-gt">&lt;s:property&gt;</h4>
+
+<p>This tag is used to access value stack value.</p>
+
+<ul>
+<li>escape html or javascript</li>
+</ul>
+
+<pre><code class="language-java">&amp;lt;s:property value=&quot;propWithHtml&quot; escape=&quot;false&quot;/&amp;gt;
+</code></pre>
+
+<pre><code class="language-java">&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+    var jsFromTag1 = '&amp;lt;s:property value=&quot;javascriptExample&quot;
+    escapeJavaScript=&quot;true&quot;/&amp;gt;';
+    document.writeln(jsFromTag1);
+&amp;lt;/script&amp;gt;
+</code></pre>
+
+<ul>
+<li>default value</li>
+</ul>
+
+<pre><code class="language-java">&amp;lt;s:property value=&quot;nullExample&quot; default=&quot;A default value.&quot;/&amp;gt;
+</code></pre>
+
+<ul>
+<li>access scope object: request, session, application with prefix #</li>
+</ul>
+
+<pre><code class="language-java">&amp;lt;s:property value=&quot;#application.anAppAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#session.aSessionAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#request.aRequestAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#parameters.aRequestParameter&quot;/&amp;gt;
+</code></pre>
+
+<p>parameters is for request parameters</p>
+
+<p>No page object, but instead you use #attr to search all the attributes of application, request, session and page in order.</p>
+
+<pre><code class="language-java">&amp;lt;s:property value=&quot;#attr.anAppAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#attr.aSessionAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#attr.aRequestAttribute&quot;/&amp;gt;
+&amp;lt;s:property value=&quot;#attr.aPageAttribute&quot;/&amp;gt;
+</code></pre>
+
+<h4 id="lt-s-debug-gt"><code>&amp;lt;s:debug&amp;gt;</code></h4>
+
+<p>show all the stack</p>
+
+<h4 id="anactionproperty">${anActionProperty}</h4>
+
+<p>This will search the value stack first, then fall off to use the JSP EL lookup. This is a little tricky.</p>
+
+<h4 id="lt-s-set-gt">&lt;s:set&gt;</h4>
+
+<h4 id="lt-s-if-gt-lt-s-elseif-gt-and-lt-s-else-gt"><code>&amp;lt;s:if&amp;gt;, &amp;lt;s:elseif&amp;gt;</code>, and<code>&amp;lt;s:else&amp;gt;</code></h4>
+
+<pre><code class="language-java">&amp;lt;s:if test=&quot;aBooleanExpression&quot;&amp;gt;
+Printed when test is true.
+&amp;lt;/s:if&amp;gt;
+&amp;lt;s:elseif test=&quot;aDifferentBooleanExpression&quot;&amp;gt;
+&amp;lt;sif&amp;gt; tagPrinted if previous test was false and this one is true.
+&amp;lt;selseif&amp;gt; tag&amp;lt;/s:elseif&amp;gt;
+&amp;lt;s:else&amp;gt;
+Printed if neither were true.
+&amp;lt;selse&amp;gt; tag&amp;lt;/s:else&amp;gt;
+</code></pre>
+
+<h4 id="lt-s-iterator-gt">&lt;s:iterator&gt;</h4>
+
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;listOfStrings&quot;&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;s:property/&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
+
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;listOfStrings&quot; var=&quot;anItem&quot;&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;s:property value=&quot;anItem&quot;/&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
+
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;mapStringString&quot;&amp;gt;
+  &amp;lt;li&amp;gt;
+     &amp;lt;s:property value=&quot;key&quot;/&amp;gt; : &amp;lt;s:property value=&quot;value&quot;/&amp;gt;
+  &amp;lt;/li&amp;gt;
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
+
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;mapStringString&quot; var=&quot;entry&quot;&amp;gt;
+   &amp;lt;li&amp;gt;
+     &amp;lt;s:property value=&quot;#entry.key&quot;/&amp;gt; ==
+     &amp;lt;s:property value=&quot;#entry.value&quot;/&amp;gt;
+   &amp;lt;/li&amp;gt;
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
+
+<pre><code class="language-java">&amp;lt;s:iterator value=&quot;list1&quot; status=&quot;stat&quot;&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.index&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.count&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.even&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.odd&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.first&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.last&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.modulus(2)&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.modulus(4)&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;&amp;lt;s:property value=&quot;#stat.count % 4&quot;/&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/s:iterator&amp;gt;
+</code></pre>
+
+<h4 id="lt-s-include-gt">&lt;s:include&gt;</h4>
+
+<p>similar to &lt;jsp:include&gt;</p>
+
+<h4 id="lt-s-action-gt">&lt;s:action&gt;</h4>
+
+<pre><code class="language-java">&amp;lt;s:action name=&quot;includedAction&quot;/&amp;gt;
+</code></pre>
+
+<h4 id="lt-s-url-gt">&lt;s:url&gt;</h4>
+
+<p>dynamically generate the url mapped to the action</p>
+
+<h3 id="form-validation-and-type-conversion">Form Validation and Type conversion</h3>
+
+<p>//TODO</p>
+
+<p>&nbsp;</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/spring-framework-transaction-management/" rel="next" title="Spring framework - transaction management">
+        <i class="fa fa-chevron-left"></i> Spring framework - transaction management
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/jpa-advanced-topics/" rel="prev" title="JPA - advanced topics">
+        JPA - advanced topics <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#web-framework-evolves">Web framework evolves</a>
+<ul>
+<li><a href="#servlet">Servlet</a></li>
+<li><a href="#jsp-with-scriptlet-style">JSP with scriptlet style</a></li>
+<li><a href="#jsp-with-tags-style">JSP with tags style</a></li>
+<li><a href="#action-based-framework">Action-based framework</a></li>
+<li><a href="#component-based-framework">Component-based framework</a></li>
+<li><a href="#ajax-and-restful-style">AJAX and Restful style</a></li>
+</ul></li>
+<li><a href="#core-components-of-struts">Core components of Struts</a>
+<ul>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#web-xml">web.xml</a></li>
+<li><a href="#struts-properties">struts.properties</a></li>
+<li><a href="#struts-xml">struts.xml</a></li>
+</ul></li>
+<li><a href="#actions"> Actions</a></li>
+<li><a href="#result-type">Result type</a></li>
+<li><a href="#interceptors">Interceptors</a></li>
+<li><a href="#value-stack-ognl"> Value Stack / OGNL</a>
+<ul>
+<li><a href="#what-are-there-in-value-stack">What are there in Value stack?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tags">Tags</a>
+<ul>
+<li><a href="#lt-s-property-gt">&lt;s:property&gt;</a></li>
+<li><a href="#lt-s-debug-gt"><code>&amp;lt;s:debug&amp;gt;</code></a></li>
+<li><a href="#anactionproperty">${anActionProperty}</a></li>
+<li><a href="#lt-s-set-gt">&lt;s:set&gt;</a></li>
+<li><a href="#lt-s-if-gt-lt-s-elseif-gt-and-lt-s-else-gt"><code>&amp;lt;s:if&amp;gt;, &amp;lt;s:elseif&amp;gt;</code>, and<code>&amp;lt;s:else&amp;gt;</code></a></li>
+<li><a href="#lt-s-iterator-gt">&lt;s:iterator&gt;</a></li>
+<li><a href="#lt-s-include-gt">&lt;s:include&gt;</a></li>
+<li><a href="#lt-s-action-gt">&lt;s:action&gt;</a></li>
+<li><a href="#lt-s-url-gt">&lt;s:url&gt;</a></li>
+</ul></li>
+<li><a href="#form-validation-and-type-conversion">Form Validation and Type conversion</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Swift 3.0 for a Java or ES6/TypeScript developer - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Swift 3.0 for a Java or ES6/TypeScript developer">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Swift 3.0 for a Java or ES6/TypeScript developer - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/" itemprop="url">
+        Swift 3.0 for a Java or ES6/TypeScript developer
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-01-19">
+    2017-01-19
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">805 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="basic-operators">Basic Operators</h1>
+
+<h2 id="assignment-operator">Assignment Operator</h2>
+
+<pre><code class="language-swift">let b = 10 // constant
+var a = 5	  // variable
+a = b
+</code></pre>
+
+<p><code>let</code> is not the same as that in ES6.
+It is more or like <code>final</code> in Java. It means the variable (value or reference) cannot be changed once initialization.</p>
+
+<p>But <code>let</code> in Swift has stronger semantics, which enable <em>immutability</em> or constant. It means not only the reference cannot be mutable but also the object it refers cannot be mutable.</p>
+
+<pre><code class="language-swift">// swift
+let arr = [1, 2, 3]
+arr[0] = 3 // error
+</code></pre>
+
+<pre><code class="language-java">// java
+final int[] arr = [1, 2, 3]
+arr[0] = 3 // ok
+</code></pre>
+
+<p>multiple assignment with tuple:</p>
+
+<pre><code class="language-swift">let (x, y) = (1, 2)
+</code></pre>
+
+<h2 id="vs-vs">== vs. ===, != vs. !==</h2>
+
+<p><code>==</code> is the equal operator, while <code>===</code> is identity operator which is used to test wthether two object references both refer to the same object instance.</p>
+
+<p>tuples are compared from left to right.</p>
+
+<pre><code class="language-swift">(1, &quot;zebra&quot;) &lt; (2, &quot;apple)
+
+(3, &quot;apple&quot;) &lt; (3, &quot;bird&quot;)
+</code></pre>
+
+<h2 id="nil-colaescing-operator">Nil-Colaescing Operator</h2>
+
+<pre><code class="language-swift">var a : String? = &quot;aaaa&quot;
+var b = a ?? b
+</code></pre>
+
+<p><code>a ?? b</code> is shorthand for <code>a != nil  ? a! : b</code></p>
+
+<h2 id="range-operators">Range Operators</h2>
+
+<ul>
+<li>closed range operator: <code>a...b</code></li>
+<li>half-open range operator: <code>a..&lt;b</code></li>
+</ul>
+
+<h1 id="strings-and-characters">Strings and Characters</h1>
+
+<p>Every string is composed of encoding-indepent Unicode characters.</p>
+
+<p><code>String</code> type is a value type. When you pass a String to a function or assign to a constant/variable, its value is copied.</p>
+
+<blockquote>
+<p>Actually, it seems to have the similar attribute of immutability as that in Java.</p>
+</blockquote>
+
+<h2 id="character">Character</h2>
+
+<p>Character can be created from a single-character string literal.</p>
+
+<p><code>let ch : Character = &quot;1&quot;</code></p>
+
+<h2 id="string-interpolation">String Interpolation</h2>
+
+<p>String interpolation in Swift is different from that in Javascript.</p>
+
+<pre><code class="language-swift">let a = 3
+let message = &quot;the number is: \(a), its double is: \(Double(a) * 2)&quot;
+</code></pre>
+
+<p>In ES6:</p>
+
+<pre><code class="language-javascript">let a = 3
+let message = `the number is: ${a}, its double is: ${a*2}`
+</code></pre>
+
+<h2 id="unicode">Unicode</h2>
+
+<blockquote>
+<p>Unicode code point is a number for every character in Unicode.
+Unicode scalar is any Unicode code point in the range U+0000 ~ U+D7FF or U+E000 ~ U+10FFFF.
+The range in U+D800 ~ U+DFFF is for surrogate pair code points.</p>
+</blockquote>
+
+<ul>
+<li>escaped special charaters: <code>\0, \\, \t, \n, \r, \&quot;, \'</code> ..</li>
+<li>Unicode scalar: <code>\u{00FF}</code> &hellip;</li>
+</ul>
+
+<p>The unicode literal is different from that in Java and Javascript. In Java/Javascript, it is like <code>\u00FF</code> without brackets.</p>
+
+<p>Swift <code>Character</code> is not only single Unicode character, it can combine one or more Unicode scalars. Actually, every instance of Swift&rsquo;s <code>Character</code> represents a single <em>extended grapheme cluster</em>.</p>
+
+<pre><code class="language-swift">let eAcute: Character = &quot;\u{E9}&quot;          
+let combinedEacute: Character = &quot;\u{65}\u{301}&quot; // e followed by  ́
+// both are rednered as é
+</code></pre>
+
+<blockquote>
+<p>Using <strong>extended grapheme clusters</strong> makes Swift&rsquo;s <code>Character</code> is so much different from characters in other programming languages.</p>
+</blockquote>
+
+<h2 id="accessing-and-mofifying-a-string">Accessing and Mofifying a String</h2>
+
+<p>Due to the representation of Swift <code>Character</code>, the access and modification ways are special accordingly.</p>
+
+<p>Each <code>String</code> value has an associated <em>index type</em>, <code>String.Index</code>.</p>
+
+<p><code>String</code> has <code>startIndex</code> and <code>endIndex</code> properties, which is the half-open range with <code>endIndex</code> exclusive.</p>
+
+<pre><code class="language-swift">let greeting = &quot;Hello world!&quot;
+greeting[greeting.startIndex]
+// H
+var index = greeting.index(before: greeting.endIndex)
+greeting[index]
+// !
+index = greeting.index(after: greeting.startIndex)
+greeting[index]
+// u
+index = greeting.index(greeting.startIndex, offsetBy: 2)
+greeting[index]
+// l
+</code></pre>
+
+<h1 id="control-flow">Control Flow</h1>
+
+<h2 id="switch">switch</h2>
+
+<p>No need to use explict <code>break</code> in each <code>case</code> branch.</p>
+
+<p>But if you want the behaviours when missing <code>break</code> in Java, you can use the <code>fallthrough</code> keyword.</p>
+
+<ul>
+<li>Interval Matching</li>
+</ul>
+
+<pre><code class="language-swift">let number = 62
+let desc : String
+switch number {
+	case 0:
+		desc = &quot;no&quot;
+	case 1..&lt;5:
+		desc = &quot;a few&quot;
+	case 5..&lt;12:
+		desc = &quot;several&quot;
+	default:
+		desc = &quot;many&quot;
+}
+</code></pre>
+
+<ul>
+<li>compound cases</li>
+</ul>
+
+<pre><code class="language-swift">let someCharacter: Character = &quot;e&quot;
+switch someCharacter {
+	case &quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;:
+	    print(&quot;\(someCharacter) is a vowel&quot;)
+	case &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;,
+	     &quot;n&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;:
+	    print(&quot;\(someCharacter) is a consonant&quot;)
+	default:
+	    print(&quot;\(someCharacter) is not a vowel or a consonant&quot;)
+}
+</code></pre>
+
+<ul>
+<li>test multiple values with <code>tuple</code></li>
+</ul>
+
+<pre><code class="language-swift">let somePoint = (1, 1)
+switch somePoint {
+	case (0, 0):
+	    print(&quot;(0, 0) is at the origin&quot;)
+	case (_, 0):
+	    print(&quot;(\(somePoint.0), 0) is on the x-axis&quot;)
+	case (0, _):
+	    print(&quot;(0, \(somePoint.1)) is on the y-axis&quot;)
+	case (-2...2, -2...2):
+	    print(&quot;(\(somePoint.0), \(somePoint.1)) is inside the box&quot;)
+	default:
+	    print(&quot;(\(somePoint.0), \(somePoint.1)) is outside of the box&quot;)
+}”
+</code></pre>
+
+<ul>
+<li>value binding</li>
+</ul>
+
+<pre><code class="language-swift">let anotherPoint = (2, 0)
+switch anotherPoint {
+	case (let x, 0):
+	    print(&quot;on the x-axis with an x value of \(x)&quot;)
+	case (0, let y):
+	    print(&quot;on the y-axis with a y value of \(y)&quot;)
+	case let (x, y):
+	    print(&quot;somewhere else at (\(x), \(y))&quot;)
+}
+</code></pre>
+
+<ul>
+<li>where</li>
+</ul>
+
+<pre><code class="language-swift">let yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+	case let (x, y) where x == y:
+	    print(&quot;(\(x), \(y)) is on the line x == y&quot;)
+	case let (x, y) where x == -y:
+	    print(&quot;(\(x), \(y)) is on the line x == -y&quot;)
+	case let (x, y):
+	    print(&quot;(\(x), \(y)) is just some arbitrary point&quot;)
+}
+</code></pre>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/elementref-viewcontainerref-templateref/" rel="next" title="ElementRef vs. ViewContainerRef vs. TemplateRef">
+        <i class="fa fa-chevron-left"></i> ElementRef vs. ViewContainerRef vs. TemplateRef
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/pseudo-random-number-shuffle/" rel="prev" title="pseudo-random number &amp; shuffle">
+        pseudo-random number &amp; shuffle <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#basic-operators">Basic Operators</a>
+<ul>
+<li><a href="#assignment-operator">Assignment Operator</a></li>
+<li><a href="#vs-vs">== vs. ===, != vs. !==</a></li>
+<li><a href="#nil-colaescing-operator">Nil-Colaescing Operator</a></li>
+<li><a href="#range-operators">Range Operators</a></li>
+</ul></li>
+<li><a href="#strings-and-characters">Strings and Characters</a>
+<ul>
+<li><a href="#character">Character</a></li>
+<li><a href="#string-interpolation">String Interpolation</a></li>
+<li><a href="#unicode">Unicode</a></li>
+<li><a href="#accessing-and-mofifying-a-string">Accessing and Mofifying a String</a></li>
+</ul></li>
+<li><a href="#control-flow">Control Flow</a>
+<ul>
+<li><a href="#switch">switch</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

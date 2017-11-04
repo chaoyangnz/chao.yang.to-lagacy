@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eip Frameworks on Chao Yang</title>
+    <link>http://yangchao.me/categories/eip-frameworks/</link>
+    <description>Recent content in Eip Frameworks on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Apr 2015 18:41:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/eip-frameworks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache Camel</title>
+      <link>http://yangchao.me/post/apache-camel/</link>
+      <pubDate>Sat, 18 Apr 2015 18:41:54 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/apache-camel/</guid>
+      <description>Core concepts Endpoint it refers to an address or a software entity that supports communication.
+Component _it _is confusing terminology; EndpointFactory would have been more appropriate because a Component is a factory for creating Endpoint instances.
+A component has a name, which is the prefix of the URI.
+CamelContext the Camel runtime system. You typically have one CamelContext object in an application.
+CamelTemplate It&amp;rsquo;s previously called CamelClient. It can send a Message or Exchange to an endpoint.</description>
+    </item>
+    
+  </channel>
+</rss>

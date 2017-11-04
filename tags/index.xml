@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Chao Yang</title>
+    <link>http://yangchao.me/tags/</link>
+    <description>Recent content in Tags on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jun 2017 12:36:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Affinity</title>
+      <link>http://yangchao.me/tags/affinity/</link>
+      <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/affinity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cv</title>
+      <link>http://yangchao.me/tags/cv/</link>
+      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>http://yangchao.me/tags/design/</link>
+      <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Immutable</title>
+      <link>http://yangchao.me/tags/immutable/</link>
+      <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/immutable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Innodb</title>
+      <link>http://yangchao.me/tags/innodb/</link>
+      <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/innodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iot</title>
+      <link>http://yangchao.me/tags/iot/</link>
+      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jax Rs</title>
+      <link>http://yangchao.me/tags/jax-rs/</link>
+      <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/jax-rs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jersey</title>
+      <link>http://yangchao.me/tags/jersey/</link>
+      <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/jersey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin</title>
+      <link>http://yangchao.me/tags/kotlin/</link>
+      <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>http://yangchao.me/tags/logging/</link>
+      <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/logging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://yangchao.me/tags/mysql/</link>
+      <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quoted</title>
+      <link>http://yangchao.me/tags/quoted/</link>
+      <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/quoted/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Mvc</title>
+      <link>http://yangchao.me/tags/spring-mvc/</link>
+      <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/spring-mvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Todo</title>
+      <link>http://yangchao.me/tags/todo/</link>
+      <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/todo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trouble Shooting</title>
+      <link>http://yangchao.me/tags/trouble-shooting/</link>
+      <pubDate>Sat, 02 Jan 2016 10:41:25 +0000</pubDate>
+      
+      <guid>http://yangchao.me/tags/trouble-shooting/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>JavaScript scopes and context - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="JavaScript scopes and context">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="JavaScript scopes and context - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/javascript-scope-and-context/" itemprop="url">
+        JavaScript scopes and context
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-05-12">
+    2015-05-12
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/javascript" itemprop="url" rel="index">
+        <span itemprop="name">Javascript</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">825 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="scope-vs-context">scope vs. context</h3>
+
+<p>Both two terms are related to function.</p>
+
+<p>Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be encapsulated and preserved.</p>
+
+<p>Fundamentally, scope is <strong>function-based</strong> while context is <strong>object-based</strong>.</p>
+
+<ul>
+<li>Scope pertains to the variable access of a function when it is invoked and is unique to each invocation.</li>
+<li>Context is always the value of the <code>this</code> keyword which is a reference to the object that “owns” the currently executing code.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hDT3IbvH-9I" frameborder="0" allowfullscreen="allowfullscreen"></iframe></li>
+</ul>
+
+<h3 id="scope">scope</h3>
+
+<p>A variable can be defined in either local or global scope, which establishes the variables’ accessibility from different scopes during runtime.</p>
+
+<p>Javascript has no <del><strong>block scope</strong></del>.</p>
+
+<p>All scopes in JavaScript are created with <code>function Scope</code> <em>only</em>, they aren&rsquo;t created by <code>for</code> or <code>while</code> loops or expression statements like <code>if</code> or <code>switch</code>.</p>
+
+<h4 id="global-scope">global scope</h4>
+
+<p>This is the top level scope. Any variable declared outside of a function body will live throughout runtime and can be accessed and altered in any scope.</p>
+
+<h4 id="local-scope">local scope</h4>
+
+<p>New functions = new local scope - that&rsquo;s the rule.</p>
+
+<pre><code class="language-javascript">// Scope A - global
+var myFunction = function () {
+  // Scope B - local
+  var myOtherFunction = function () {
+    // Scope C - local
+  };
+};
+</code></pre>
+
+<h4 id="scope-chain">scope chain</h4>
+
+<p>Each function defined has its own nested scope, and any function defined within another function has a local scope which is linked to the outer function.</p>
+
+<pre><code class="language-javascript">function first(){
+    second();
+    function second(){
+        third();
+        function third(){
+            fourth();
+            function fourth(){
+                // do something
+            }
+        }
+    }   
+}
+first();
+</code></pre>
+
+<h3 id="this-context"><code>&quot;this&quot;</code> context</h3>
+
+<p>Context is most often determined by how a function is invoked. When a function is called as a method of an object, <code>this</code> is set to the object the method is called on.</p>
+
+<p>invoke no-bound function</p>
+
+<ul>
+<li>bind <code>this</code> to <code>window</code> (by default) by invoking unbound function</li>
+</ul>
+
+<pre><code class="language-javascript">function Dog() {
+  console.log(this);
+  var that = this;
+  var bar = function () {
+    console.log(this);
+    console.log(this == that);
+  };
+  bar();
+
+  this.bar = bar;
+  this.bar();
+}
+
+var dog = new Dog();
+</code></pre>
+
+<ul>
+<li>bind <code>this</code> by <code>new</code></li>
+</ul>
+
+<pre><code class="language-javascript">function Cat() {
+    this.drink = function() {
+       console.log(this);
+    }
+}
+
+Cat(); // this -&gt; window
+
+var cat = new Cat();
+cat.drink(); // this -&gt; cat
+</code></pre>
+
+<ul>
+<li>bind <code>this</code> by specifying function to object property</li>
+</ul>
+
+<pre><code class="language-javascript">var obj = {
+    foo: function(){
+        alert(this === obj);    
+    }
+};
+
+obj.foo(); // true
+</code></pre>
+
+<ul>
+<li>Changing scope with <code>.call()</code>, <code>.apply()</code> and <code>.bind()</code></li>
+</ul>
+
+<pre><code class="language-javascript">function foo(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+var john = {
+  dept: 'dev'
+};
+
+foo.apply(john, ['John', 32]);
+//foo.call(obj, 'Richard', 32);
+console.log(john); // -&amp;gt; Object {dept: &quot;dev&quot;, name: &quot;John&quot;, age: 32}
+
+var tom = {
+  dept: 'test'
+};
+
+var bar = foo.bind(tom, 'Tom', 28); // just bind, not call
+console.log(tom); // Object {dept: &quot;test&quot;}
+// do something else
+// ...
+bar();
+console.log(tom); // Object {dept: &quot;test&quot;, name: &quot;Tom&quot;, age: 28}
+</code></pre>
+
+<h3 id="execution-context">Execution Context</h3>
+
+<p>This terminology is defined by ECMA specification. Don&rsquo;t confuse it with the &ldquo;<code>this</code>&rdquo; context.</p>
+
+<p>JavaScript is a single threaded language, meaning only one task can be executed at a time. When the JavaScript interpreter initially executes code, it first enters into a global execution context by default. Each invocation of a function from this point on will result in the creation of a new execution context.</p>
+
+<p>Each time a new execution context is created it is appended to the top of the <strong><em>execution stack</em></strong>.</p>
+
+<p>An execution context can be divided into a creation and execution phase. In the creation phase, the interpreter will first create a <em>variable object</em> (also called an <em>activation object</em>) that is composed of all the variables, function declarations, and arguments defined inside the execution context. From there the <em>scope chain</em> is initialized next, and the value of <code>this</code> is determined last. Then in the execution phase, code is interpreted and executed.</p>
+
+<h3 id="closure">closure</h3>
+
+<p>Accessing variables outside of the immediate lexical scope creates a closure.</p>
+
+<p>It says, a closure is formed when a nested function is defined inside of another function, allowing access to the outer functions variables.</p>
+
+<p>A simple illustration:</p>
+
+<pre><code class="language-javascript">function aa() {
+    var bb = 'hello ';
+    var cc = function() {
+        return bb + &quot;world&quot;;
+    }
+}
+</code></pre>
+
+<p><code>cc</code> as a function accesses its immediate outer scope. That creates a closure.</p>
+
+<hr />
+
+<p>Returning the nested function allows you to maintain access to the local variables, arguments, and inner function declarations of its outer function. This encapsulation allows us to hide and preserve the execution context from outside scopes while exposing a public interface and thus is subject to further manipulation.</p>
+
+<p>A more practical example:</p>
+
+<pre><code class="language-javascript">var sayHello = function (name) {
+  var text = 'Hello, ' + name;
+  return function () {
+    console.log(text);
+  };
+};
+
+sayHello(&quot;Richard&quot;)();
+</code></pre>
+
+<p>One of the most popular types of closures is what is widely known as the <em>module pattern</em>; it allows you to emulate public, private, and privileged members:</p>
+
+<pre><code class="language-javascript">var Module = (function(){
+    var privateProperty = 'foo';
+
+    function privateMethod(args){
+        // do something
+    }
+
+    return {
+
+        publicProperty: '',
+
+        publicMethod: function(args){
+            // do something
+        },
+
+        privilegedMethod: function(args){
+            return privateMethod(args);
+        }
+    };
+})();
+</code></pre>
+
+<p>References:</p>
+
+<ol>
+<li><a href="http://ryanmorr.com/understanding-scope-and-context-in-javascript/">http://ryanmorr.com/understanding-scope-and-context-in-javascript/</a></li>
+<li><a href="http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/">http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/</a></li>
+</ol>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/javascript-prototype-proto-vs-prototype/" rel="next" title="JavaScript prototype: __proto__ vs. prototype">
+        <i class="fa fa-chevron-left"></i> JavaScript prototype: __proto__ vs. prototype
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/get-started-with-angularjs/" rel="prev" title="Get started with AngularJS">
+        Get started with AngularJS <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#scope-vs-context">scope vs. context</a></li>
+<li><a href="#scope">scope</a>
+<ul>
+<li><a href="#global-scope">global scope</a></li>
+<li><a href="#local-scope">local scope</a></li>
+<li><a href="#scope-chain">scope chain</a></li>
+</ul></li>
+<li><a href="#this-context"><code>&quot;this&quot;</code> context</a></li>
+<li><a href="#execution-context">Execution Context</a></li>
+<li><a href="#closure">closure</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>JAX-RS as the one Java web framework to rule them all? - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="JAX-RS as the one Java web framework to rule them all?">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="JAX-RS as the one Java web framework to rule them all? - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/" itemprop="url">
+        JAX-RS as the one Java web framework to rule them all?
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-09">
+    2015-01-09
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/jax-rs" itemprop="url" rel="index">
+        <span itemprop="name">JAX-RS</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1918 words ~10min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <p>One of the things about Java that sometimes gets made fun of is the huge number of Java based web frameworks. There certainly are many, of all shapes and sizes! I suppose there are quite a lot of different shapes and sizes of web applications out there but it sometimes seems like there&rsquo;s a 1-1 mapping between applications and frameworks :).</p>
+
+<p>Picking the right web framework is probably a managers nightmare (Which one to pick? Pick the wrong one and we might end up using a duff dead framework that few developers know etc?). But it has lead to a ton of innovation in the web framework space. On balance I think competition and innovation are good things.</p>
+
+<p>I&rsquo;m a big Rails fan, I think its a stunning piece of work and one of the most impressive open source frameworks created in the last 10 years which together with Ruby, Erb and Rake is a good alternative to Servlets + JSP + JSTL + Spring + Hibernate + WebFrameworkOfYourChoice + SiteMesh/Tiles + Ant/Maven + a few other bits all in a surpringly small and easy to grok codebase.</p>
+
+<p>JAX-RS came along initially as a way of writing RESTful services on the Java platform; using annotations and loose coupling to bind resource beans and their public methods to URIs, HTTP methods and MIME content type negotiation. I&rsquo;ve said before I think its <a href="http://macstrac.blogspot.com/2009/01/jax-rs-as-basis-of-dry-web-framework.html">awesome</a>, one of the most impressive JSRs we&rsquo;ve had.</p>
+
+<p>From the perspective of the controller layer I actually prefer JAX-RS to Rails routes.rb &amp; controllers as</p>
+
+<ul>
+<li>the URI bindings are local to the resource beans which can be arbitrarily nested which makes refactoring much easier and avoids the complex routes.rb file with regex switches (I try and avoid regex whenever I can :)</li>
+<li>the loose coupling between the objects returned by the resource methods and the actual entity providers is clean; helping the application programmer focus on returning DTOs and letting the framework deal with the XML / JSON /Atom / multi-part-form marshalling &amp; data binding stuff really helps. e.g. its easy to drop in support for new representations in a DRY way without changing the code of your resource beans (controllers), you can just modify an annotation</li>
+<li>static typing can be a handy thing when binding URIs and parameters to your controller. e.g. having String, integer, Date fields and parameters helps you having to explicitly convert things in your controller
+There&rsquo;s lots of other stuff thats great in Rails though :-) but this post isn&rsquo;t a JAX-RS versus Rails post really - its focussing on the world of Java web frameworks for Java developers and the impact of JAX-RS.</li>
+</ul>
+
+<p>So whats interesting is - if you want to build a web application with RESTful services (e.g. a human facing website with computer facing XML/JSON APIs) why would you use JAX-RS andanother web framework? Why not just use JAX-RS as the web framework? So recently I&rsquo;ve been musing, could JAX-RS be the one Java web framework to rule them all?</p>
+
+<p>JAX-RS works well with dependency injection frameworks such as <a href="http://www.springframework.org/">Spring</a>, <a href="http://code.google.com/p/google-guice/">Guice</a>,<a href="http://code.google.com/p/guiceyfruit/">GuiceyFruit</a> or <a href="http://www.jboss.org/jbossmc/">JBossMC</a> - you can basically pick whichever one you prefer. It also does all the heavily lifting of binding URIs and HTTP methods to resource beans and their methods along with supporting content type negotiation, headers and etags elegantly. For implementing great RESTful services in Java I&rsquo;ve never seen anything close to touching it. The main question is what features are missing from JAX-RS being the main web framework?</p>
+
+<p>Incidentally in this post I&rsquo;m ignoring the server-side UI type frameworks like Wicket, Tapestry, JSF et al. I&rsquo;m focussing on web frameworks that spend most of their time rendering HTML / XML / JSON and not building complex server side UI stuff and treating the browser as a kinda dumb terminal with the real UI work being done on the server side. Having had a horrid time using Tapestry and Hibernate together on some projects in the past, I&rsquo;m kinda over the whole concept of server side UI web frameworks personally (I&rsquo;m putting my flame-proof suite on now). I kinda think if you want to do complex rich web UIs, use wizards or complex flows, just use GWT or JavaScript on the client (or Flex/Flash for video or crazy highly graphical widgets) and keep the server side fairly simple and very RESTful. (But lets leave that discussion for another day&hellip; :)</p>
+
+<p>In this post I&rsquo;m only really considering frameworks like Struts, Stripes, SpringMVC etc.Thankfully WebWork and Struts merged together so at least there&rsquo;s been someconsolidation in the space - and certainly Struts and Stripes are now kinda similar (and not too disimilar from SpringMVC). I wonder if JAX-RS will lead to further consolidation with web frameworks adding themselves as JAX-RS extensions?</p>
+
+<p>So whats is missing from JAX-RS to be able to use just it for your entire web app and set of RESTful services and not have to use it with Struts/Stripes/SpringMVC and have to map some URIs into the web framework and some to JAX-RS?</p>
+
+<p>Right now today there are definitely some holes; though currently I don&rsquo;t think there&rsquo;s thatmuch missing. Here&rsquo;s my list of things I think are missing and how we could add them - I&rsquo;m very interested in hearing if there&rsquo;s anything you&rsquo;d particularly miss from Struts/Stripes/SpringMVC/whatever; please blog about it or post a comment and I&rsquo;ll do a follow up post!</p>
+
+<p>Implict &amp; Explicit Views
+One great feature of <a href="https://jersey.dev.java.net/">Jersey</a> is the support for Implicit and Explicit Views. Update: here&rsquo;s a<a href="http://blogs.sun.com/sandoz/entry/mvcj">link describing implict/explicit views</a>. It basically allows the controller to delegate to the view layer (JSP/Velocity/Freemarker/<a href="http://code.google.com/p/gxp/">GXP</a> or whatever) using a default naming convention to find the template files in a directory named after the resource bean&rsquo;s class name and if required - the URI being requested. So a given Resource bean could have an index.jsp and edit.jsp templates for example - and referring to ${it.foo} inside the template would extract the foo property of the resource bean (you can override what &lsquo;it&rsquo; is if you like but the resource bean is a very reasonable default).</p>
+
+<p>Maybe the easiest way to understand implicit/explicit views is to look at the bookstoreexample in the Jersey distro; its basically the glue between JAX-RS resources and templates.</p>
+
+<p>However there are some issues (which are being addressed particularly by the helpful folks on the Jersey list, particularly Marc and Paul) which basically revolve around having implicit/explicit views and (say) XML/JSON representations on the same resource bean using the same URIs and getting JAX-RS to pick the right one.</p>
+
+<p>For example the URI &ldquo;/customers&rdquo; might return a HTML page for most web browsers but return XML/JSON if folks want to specify those MIME types in their Accept header. Right now Jersey tends to favour returning XML/JSON (long story but basically more specific URI paths are preferred over implicit views).</p>
+
+<p>I&rsquo;m pretty sure some kind of @ImplicitProduces annotation to allow implicit views to be associated to MIME types along with a higher priority/quality ranking specified in the next feature would solve pretty much all the issues with implicit/explicit views though am sure folks can think of other improvements&hellip;</p>
+
+<p>Better Content Negotiation Support
+It would be nice to see <a href="https://jsr311.dev.java.net/issues/show_bug.cgi?id=46">these</a> <a href="https://jsr311.dev.java.net/issues/show_bug.cgi?id=65">issues</a> resolved to be able to use <a href="http://gewis.win.tue.nl/~koen/conneg/rfc2296.txt">RFC 2296</a> to be able to raise and lower the priorities (or quality) of the different representations.</p>
+
+<p>e.g. you might want to prefer to return HTML over XML/JSON so unless folks ask specifically just for XML or JSON you return HTML.</p>
+
+<p>Bizarrely Safari uses an Accept header of
+&gt; text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,<em>/</em>;q=0.5
+which kinda means it prefers to render XML over HTML (despite rendering XML as plain text! Truly bizarre - what was Steve smoking that day :). Most web apps I know of would rather return HTML by default :)</p>
+
+<p>So you might want to specify something like this on a resource to declare that you want to return HTML by default for most users&hellip;
+&gt; @ImplicitProduces(&ldquo;text/html;q=1.0&rdquo;)
+&gt;
+&gt; @Produces(&ldquo;text/xml;q=0.5, application/xml;q=0.5; application/json;q=0.5&rdquo;)
+&gt;
+&gt; public class MyResource {
+&gt;
+&gt; &hellip;
+&gt;
+&gt; }
+Those MIME Strings could be static final constants BTW to keep things DRY and not have to repeat a ton of MIME expressions throughout your resource beans and making it real easy to add a new MIME type to your code without changing your controller methods.</p>
+
+<p>You could argue the out of the box rankings for HTML should be 1.0 and XML/JSON something lower, say 0.9 or 0.5 as thats what most folks would want.</p>
+
+<p>Dealing with static content
+The Servlet spec is a tad smelly in this area (and even in servlet 3.0) of not easily allowing you to mark URI patterns as being handled by the container (e.g. for static content or for JSP files etc) and <a href="http://n2.nabble.com/Static-references-from-JSP-td794843.html">mapping all of the rest to your default servlet</a>. Hopefully as <a href="http://n2.nabble.com/Static-references-from-JSP-td794843.html#a2223598">Paul suggests</a>we can get around this using servlet filters in Jersey; but it&rsquo;d be nicer if there was a better fix for this. (Rails wins here hands down with using regex to map URIs to controllers). But this is more a servlet issue than JAX-RS / web framework.</p>
+
+<p>Multipart support
+Having support for Struts style form beans; binding a multipart to a bean is very handy.<a href="http://n2.nabble.com/Hello-World%21-and-Welcome-to-jersey-multipart-td1343189.html#a1343189">MrStruts himself has contributed jersey-multipart</a> which goes most of the way there. Allowing direct binding with any bean to avoid having to use the MultiPart class directly would certainly help.</p>
+
+<p>Standard JAX-RS client API like Jersey&rsquo;s
+While not that relevant directly to web applications; being able to implement a REST service by invoking other RESTful services - or being able to test easily any RESTful service using an API like Jersey&rsquo;s client - while reusing the cool entity providers on both client and server side - would rock.</p>
+
+<p>GWT and JAX-RS client integration
+If you&rsquo;re building JAX-RS services and want a rich web client then <a href="http://code.google.com/webtoolkit/">GWT</a> is a great solution; you can reuse all your Java code on the client and server side and its very easy to debug the whole application in a single JVM in your Java IDE.</p>
+
+<p>GWT ships with its own RPC mechanism and there are various REST libraries for GWT such as <a href="http://code.google.com/p/gwt-rest/">gwt-rest</a> it&rsquo;d be nice if there was an easy way to reuse the same DTOs used on the server side like you can with Jersey&rsquo;s client library from inside GWT. Using JAXB inside GWT is probably non-feasaible :) but it should be pretty easy to just use GWT serialization and then support it as an entity provider in the JAX-RS runtime. (Is there a MIME type for GWT serialisation I wonder :).</p>
+
+<p>Basically as an application developer it should be trivial to be able to reuse RESTful resources in JAX-RS inside the GWT client reusing all those DTOs if you want to.</p>
+
+<p>Update: some other suggestions
+Julio Faerman <a href="http://n2.nabble.com/JAX-RS---Jersey-as-the-main-Java-web-framework-going-forward...-td2226448.html#a2227796">mentioned</a> on the Jersey list mentioned the need for better validation. So maybe we could integrate the validation layer from Struts/Stripes into JAX-RS? Or use the the Bean Validation API (<a href="http://jcp.org/en/jsr/detail?id=303">JSR 303</a>)?</p>
+
+<p>Also Julio and Jon in the comments mentioned the need for managing conversational state so integrating Web Beans (<a href="http://jcp.org/en/jsr/detail?id=299">JSR 299</a>) as an option for bijection of conversational state on resource beans sounds a good possibility.</p>
+
+<p>What else?
+Those are the things I can think of so far. Can you think of any others? What are there features in your favourite Struts/Stripes/SpringMVC/whatever framework on the server that you really can&rsquo;t live without?</p>
+
+<p>I&rsquo;d love to hear others thoughts; do you think I&rsquo;m smoking crack or do you agree? :)</p>
+
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/jax-rs" rel="tag" title="JAX-RS">#JAX-RS#</a>
+    
+    <a href="http://yangchao.me/tags/jersey" rel="tag" title="Jersey">#Jersey#</a>
+    
+    <a href="http://yangchao.me/tags/quoted" rel="tag" title="Quoted">#Quoted#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/enumeration-types/" rel="next" title="Enumeration types">
+        <i class="fa fa-chevron-left"></i> Enumeration types
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/" rel="prev" title="Behavior of polymorphic methods inside constructors">
+        Behavior of polymorphic methods inside constructors <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

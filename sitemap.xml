@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://yangchao.me/post/build-opencv-android-sdk/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/a-developer-leanrns-design/</loc>
+    <lastmod>2017-06-29T12:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/kotlin-pitfalls/</loc>
+    <lastmod>2017-05-27T02:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/pseudo-random-number-shuffle/</loc>
+    <lastmod>2017-04-26T18:45:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</loc>
+    <lastmod>2017-01-19T17:11:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/elementref-viewcontainerref-templateref/</loc>
+    <lastmod>2016-12-27T17:11:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/threadlocal/</loc>
+    <lastmod>2016-09-05T19:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/dive-into-jmm/</loc>
+    <lastmod>2016-09-05T13:34:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/double-checked-locking-in-singleton/</loc>
+    <lastmod>2016-09-02T19:36:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/</loc>
+    <lastmod>2016-08-23T10:25:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-array-has-length-field/</loc>
+    <lastmod>2016-08-22T21:36:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/string-intern/</loc>
+    <lastmod>2016-08-22T21:36:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/how-jvm-handle-method-invocation/</loc>
+    <lastmod>2016-08-22T14:39:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/dynamic-proxy-revisit/</loc>
+    <lastmod>2016-08-15T16:40:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/dbvisualizer-tips/</loc>
+    <lastmod>2016-04-21T18:08:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/understand-when-to-rollback/</loc>
+    <lastmod>2016-03-04T10:45:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/oracle-statement-level-rollback/</loc>
+    <lastmod>2016-03-01T10:45:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-security-2nd-notes-1/</loc>
+    <lastmod>2016-02-16T16:45:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/implement-stack-with-queue/</loc>
+    <lastmod>2016-01-18T20:04:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/</loc>
+    <lastmod>2016-01-10T20:05:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/regex-in-java/</loc>
+    <lastmod>2016-01-09T22:05:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/book-reading-plan-for-2016/</loc>
+    <lastmod>2016-01-08T00:05:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/a-preoblem-with-http-206-partial/</loc>
+    <lastmod>2016-01-02T10:41:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/synology-nas-netgear-router/</loc>
+    <lastmod>2016-01-02T10:41:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/mac-osx-tips/</loc>
+    <lastmod>2015-12-14T21:41:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/ssh-key-based-authentication/</loc>
+    <lastmod>2015-12-14T21:41:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/gradle-use-notes/</loc>
+    <lastmod>2015-12-08T20:59:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/perforce-p4v-use-notes/</loc>
+    <lastmod>2015-12-07T20:59:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/goodbye-wordpress-hello-hexo/</loc>
+    <lastmod>2015-12-05T20:59:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/showcase/</loc>
+    <lastmod>2015-12-04T19:39:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jdbc-driver-register/</loc>
+    <lastmod>2015-11-19T23:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/mybatis-cache/</loc>
+    <lastmod>2015-11-06T21:41:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/bytecodeviewer-for-mac/</loc>
+    <lastmod>2015-11-05T19:14:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/inner-classes-synthetic/</loc>
+    <lastmod>2015-11-04T12:40:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/closure/</loc>
+    <lastmod>2015-11-04T00:55:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javascript-execution-using-single-thread-zz/</loc>
+    <lastmod>2015-09-28T00:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/http-cache/</loc>
+    <lastmod>2015-09-26T21:47:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javaee-multi-popuse-application-frameworks/</loc>
+    <lastmod>2015-09-08T20:32:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/statically-loading-vs-dynamically-loading/</loc>
+    <lastmod>2015-09-05T22:20:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/logging-problem-in-spring-mvc-project/</loc>
+    <lastmod>2015-08-01T22:33:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</loc>
+    <lastmod>2015-08-01T22:21:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/gc-revisit/</loc>
+    <lastmod>2015-06-27T15:50:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-serialization/</loc>
+    <lastmod>2015-06-27T00:28:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-collections-framework/</loc>
+    <lastmod>2015-06-26T19:22:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</loc>
+    <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jvm-dump-lab/</loc>
+    <lastmod>2015-06-05T15:16:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/</loc>
+    <lastmod>2015-05-25T14:46:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/scea-architect/</loc>
+    <lastmod>2015-05-20T15:22:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/get-started-with-angularjs/</loc>
+    <lastmod>2015-05-18T23:32:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javascript-scope-and-context/</loc>
+    <lastmod>2015-05-12T17:06:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javascript-prototype-proto-vs-prototype/</loc>
+    <lastmod>2015-05-12T15:35:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</loc>
+    <lastmod>2015-05-08T20:25:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/websphere-sso-how-to/</loc>
+    <lastmod>2015-05-08T13:19:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/unified-identity-access-control-system/</loc>
+    <lastmod>2015-05-08T13:14:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jndi-how-to/</loc>
+    <lastmod>2015-05-07T10:09:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/classloader/</loc>
+    <lastmod>2015-05-05T14:20:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/html-5/</loc>
+    <lastmod>2015-04-28T23:27:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/git-basics/</loc>
+    <lastmod>2015-04-28T13:50:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/spring-framework-context-services/</loc>
+    <lastmod>2015-04-25T20:17:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</loc>
+    <lastmod>2015-04-23T19:02:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</loc>
+    <lastmod>2015-04-23T18:56:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/what-does-0-0-0-0-mean/</loc>
+    <lastmod>2015-04-22T22:46:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/algorithm-training-from-codility/</loc>
+    <lastmod>2015-04-22T15:00:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/wsdl-service-contract-in-detail/</loc>
+    <lastmod>2015-04-21T14:47:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/garbage-collection/</loc>
+    <lastmod>2015-04-20T14:13:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jvm-knowledge/</loc>
+    <lastmod>2015-04-18T22:28:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/apache-cxf-and-axis-2-tutorial/</loc>
+    <lastmod>2015-04-18T19:47:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/ibm-integration-bus/</loc>
+    <lastmod>2015-04-18T18:47:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/apache-camel/</loc>
+    <lastmod>2015-04-18T18:41:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</loc>
+    <lastmod>2015-04-16T09:55:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/acid-and-transaction/</loc>
+    <lastmod>2015-04-13T14:49:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jpa-advanced-topics/</loc>
+    <lastmod>2015-04-09T12:59:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/struts-2-a-short-journey/</loc>
+    <lastmod>2015-04-08T13:59:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/spring-framework-transaction-management/</loc>
+    <lastmod>2015-04-03T16:32:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/spring-framework-aop/</loc>
+    <lastmod>2015-04-03T16:17:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/spring-framework-ioc-di/</loc>
+    <lastmod>2015-04-03T16:06:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/spring-framework-the-big-picture/</loc>
+    <lastmod>2015-04-03T14:42:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/subquery-vs-join/</loc>
+    <lastmod>2015-04-02T15:41:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/inner-join-and-outer-join/</loc>
+    <lastmod>2015-04-02T15:08:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/a-glimpse-of-jms/</loc>
+    <lastmod>2015-04-01T14:59:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/servlet-basics/</loc>
+    <lastmod>2015-03-30T15:57:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</loc>
+    <lastmod>2015-03-30T11:13:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/generics-revisit/</loc>
+    <lastmod>2015-03-24T14:15:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/widen-cast-vs-narrow-cast/</loc>
+    <lastmod>2015-03-23T20:37:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/string-class-text-formatting/</loc>
+    <lastmod>2015-03-23T20:28:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/cloning-objects/</loc>
+    <lastmod>2015-03-23T20:26:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-modifiers-revist/</loc>
+    <lastmod>2015-03-23T12:31:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/wordpress-ssh-update-not-working/</loc>
+    <lastmod>2015-03-23T11:19:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/overriding-vs-hidingaka-shadowing/</loc>
+    <lastmod>2015-03-22T18:40:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/finalize/</loc>
+    <lastmod>2015-03-20T15:29:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</loc>
+    <lastmod>2015-03-20T14:24:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/immutable-objects/</loc>
+    <lastmod>2015-03-19T16:54:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/stringsubstring-implementation/</loc>
+    <lastmod>2015-03-19T15:22:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/why-two-date-classes-java-util-date-and-java-sql-date/</loc>
+    <lastmod>2015-03-19T14:35:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/autoboxing-and-valueof/</loc>
+    <lastmod>2015-03-17T19:20:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/float-numbers/</loc>
+    <lastmod>2015-03-17T14:38:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/equals-and-hashcode-contract/</loc>
+    <lastmod>2015-03-16T19:13:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/character-encoding-and-charset-in-java/</loc>
+    <lastmod>2015-03-16T19:08:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</loc>
+    <lastmod>2015-03-16T19:02:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/apache-maven-2/</loc>
+    <lastmod>2015-03-14T21:57:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/core-java-concurrency/</loc>
+    <lastmod>2015-03-13T04:59:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/postgresql-concurrency-with-mvcc/</loc>
+    <lastmod>2015-03-04T08:12:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</loc>
+    <lastmod>2015-02-17T08:39:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/cross-domain-browser-requests/</loc>
+    <lastmod>2015-02-16T06:48:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/get-started-with-weblogic/</loc>
+    <lastmod>2015-02-12T07:43:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/</loc>
+    <lastmod>2015-02-10T08:46:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jpa-runtime/</loc>
+    <lastmod>2015-02-10T03:51:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jpa-mapping/</loc>
+    <lastmod>2015-02-06T02:52:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/oracle-a-short-jouney/</loc>
+    <lastmod>2015-02-04T08:57:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/output-pre-increment-and-post-increment/</loc>
+    <lastmod>2015-02-02T09:05:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</loc>
+    <lastmod>2015-02-02T06:11:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jsp-basics/</loc>
+    <lastmod>2015-02-02T04:03:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</loc>
+    <lastmod>2015-01-21T09:36:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/thread-synchronization/</loc>
+    <lastmod>2015-01-20T02:16:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/topic-serial-threads/</loc>
+    <lastmod>2015-01-19T07:30:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/topic-serial-exceptions/</loc>
+    <lastmod>2015-01-19T02:00:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/override/</loc>
+    <lastmod>2015-01-16T06:35:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/unreachable-statements/</loc>
+    <lastmod>2015-01-16T04:42:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/assertion/</loc>
+    <lastmod>2015-01-16T01:28:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/inner-classes/</loc>
+    <lastmod>2015-01-14T10:53:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/interfaces/</loc>
+    <lastmod>2015-01-14T10:48:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/cs-interview-experience/</loc>
+    <lastmod>2015-01-13T12:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/static-final-method/</loc>
+    <lastmod>2015-01-13T10:22:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/nz-company-collection/</loc>
+    <lastmod>2015-01-12T05:38:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/override-covariant-return-types/</loc>
+    <lastmod>2015-01-12T03:37:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</loc>
+    <lastmod>2015-01-12T03:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</loc>
+    <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/enumeration-types/</loc>
+    <lastmod>2013-01-12T02:58:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/variable-argument-list-a-pitfall/</loc>
+    <lastmod>2013-01-12T02:56:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/default-constructor-no-args-constructor/</loc>
+    <lastmod>2013-01-12T02:54:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/distinguish-overloaded-methods/</loc>
+    <lastmod>2013-01-12T02:36:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/override-a-pitfall/</loc>
+    <lastmod>2013-01-12T02:30:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-access-control/</loc>
+    <lastmod>2013-01-12T02:28:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/java-object-initialization-order/</loc>
+    <lastmod>2013-01-12T02:22:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/arraylist/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/hashmap/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/collections/priorityqueue/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrency/theadpool/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrency/threadlocal/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/concurrent/threadlocal/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/helpers/stringjoiner/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/bitset/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/float-point/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/primitives/integer/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/a-close-look-at-java/string/intern/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/bit-operation/group-by-bit/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/bit-operation/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/linked-list/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/algorithm-pathway/linked-list/two-pointers-race/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/2017-06-27/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/readme/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/summary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/chapter1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/loading-linking-and-initializing/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/books/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/books/index2/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/resume/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/affinity/</loc>
+    <lastmod>2017-06-29T12:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/algorithm/</loc>
+    <lastmod>2015-04-22T15:00:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/basics/</loc>
+    <lastmod>2015-09-05T22:20:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/best-pricatice/</loc>
+    <lastmod>2015-03-19T16:54:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/books/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/book/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/building-testing-amp-ci/</loc>
+    <lastmod>2015-05-25T14:46:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/</loc>
+    <lastmod>2015-04-22T15:00:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/coding-amp-debuging/</loc>
+    <lastmod>2015-01-19T02:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/concurrency/</loc>
+    <lastmod>2015-01-21T09:36:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/cv/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/databases/</loc>
+    <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/design/</loc>
+    <lastmod>2017-06-29T12:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/design/</loc>
+    <lastmod>2017-06-29T12:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/design-patterns/</loc>
+    <lastmod>2015-03-30T11:13:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/eip-frameworks/</loc>
+    <lastmod>2015-04-18T18:41:54+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/esb/</loc>
+    <lastmod>2015-04-18T18:47:50+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/exception/</loc>
+    <lastmod>2015-01-19T02:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/exception-handling/</loc>
+    <lastmod>2015-01-19T02:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/generics/</loc>
+    <lastmod>2015-03-24T14:15:50+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/html5/</loc>
+    <lastmod>2015-04-28T23:27:29+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/immutable/</loc>
+    <lastmod>2015-03-19T16:54:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/innodb/</loc>
+    <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/iot/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/iot/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/java-5/</loc>
+    <lastmod>2013-01-12T02:58:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/javascript/</loc>
+    <lastmod>2015-05-18T23:32:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/jax-rs/</loc>
+    <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jax-rs/</loc>
+    <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jdbc/</loc>
+    <lastmod>2015-02-10T08:46:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/jersey/</loc>
+    <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jms/</loc>
+    <lastmod>2015-04-01T14:59:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jndi-ldap/</loc>
+    <lastmod>2015-05-07T10:09:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/job-seeking/</loc>
+    <lastmod>2015-01-12T05:38:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jpa/</loc>
+    <lastmod>2015-04-09T12:59:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jta/</loc>
+    <lastmod>2015-02-10T08:46:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/jvm/</loc>
+    <lastmod>2015-06-27T15:50:04+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/kotlin/</loc>
+    <lastmod>2017-05-27T02:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/language-compiler/</loc>
+    <lastmod>2015-01-16T04:42:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/logging/</loc>
+    <lastmod>2015-08-01T22:33:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/middlewares/</loc>
+    <lastmod>2015-02-12T07:43:05+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/multithreading/</loc>
+    <lastmod>2015-03-13T04:59:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/mysql/</loc>
+    <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/oop/</loc>
+    <lastmod>2015-03-22T18:40:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/performance/</loc>
+    <lastmod>2015-06-05T15:16:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/php/</loc>
+    <lastmod>2015-03-23T11:19:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/post/</loc>
+    <lastmod>2017-11-03T11:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/project-architecture/</loc>
+    <lastmod>2015-09-08T20:32:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/project-problems/</loc>
+    <lastmod>2015-08-01T22:33:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/q/a/</loc>
+    <lastmod>2015-04-23T19:02:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/quoted/</loc>
+    <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/resume/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/security/</loc>
+    <lastmod>2015-05-08T20:25:02+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/servlet-/-jsp/</loc>
+    <lastmod>2015-03-30T15:57:35+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/showcase/</loc>
+    <lastmod>2015-12-04T19:39:16+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/soap-web-service/</loc>
+    <lastmod>2015-04-21T14:47:44+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/spring/</loc>
+    <lastmod>2015-04-25T20:17:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/spring-mvc/</loc>
+    <lastmod>2015-08-01T22:21:28+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/sql/</loc>
+    <lastmod>2015-04-02T15:41:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/sso/</loc>
+    <lastmod>2015-05-08T13:19:49+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/struts/</loc>
+    <lastmod>2015-04-08T13:59:38+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/</loc>
+    <lastmod>2017-06-29T12:36:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/todo/</loc>
+    <lastmod>2015-04-18T19:47:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/transaction-management/</loc>
+    <lastmod>2015-04-03T16:32:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/trouble-shooting/</loc>
+    <lastmod>2016-01-02T10:41:25+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/tutorial/</loc>
+    <lastmod>2017-05-27T02:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/uncategorized/</loc>
+    <lastmod>2015-11-19T23:24:13+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/version-control/</loc>
+    <lastmod>2015-04-28T13:50:15+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/categories/web-service/</loc>
+    <lastmod>2015-04-18T19:47:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

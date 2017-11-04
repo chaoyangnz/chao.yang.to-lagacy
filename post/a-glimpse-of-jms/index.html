@@ -1,0 +1,567 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>A glimpse of JMS - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="A glimpse of JMS">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="A glimpse of JMS - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/a-glimpse-of-jms/" itemprop="url">
+        A glimpse of JMS
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-01">
+    2015-04-01
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/jms" itemprop="url" rel="index">
+        <span itemprop="name">JMS</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">681 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="what-messaging-provides">what messaging provides?</h3>
+
+<ul>
+<li><p><strong>loosely decoupled</strong>
+A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.</p></li>
+
+<li><p><strong>asynchronous</strong>
+A JMS provider can deliver messages to a client as they arrive; a client does not have to request messages in order to receive them.</p></li>
+
+<li><p><strong>reliable</strong>
+The JMS API can ensure that a message is delivered once and only once. Lower levels of reliability are available for applications that can afford to miss messages or to receive duplicate messages.</p></li>
+</ul>
+
+<h3 id="jms-architecture">JMS architecture</h3>
+
+<ul>
+<li><strong>JMS provider</strong> - a messaging system implementing JMS specification, like WebSphere MQ, ActiveMQ etc.</li>
+<li><strong>JMS clients</strong> - programs or components written in Java which can produce or consume message</li>
+<li><strong>messages</strong> - the objects that communicate information between JMS clients.</li>
+<li><strong>Administered objects</strong> - preconfigured JMS objects created by an administrator for the use of clients. This objects can be looked up and referenced from JNDI namespace.
+<img src="http://yangchao.me/media/jms_parts.png" alt="jms\_parts" /></li>
+</ul>
+
+<h3 id="messaging-domains">Messaging Domains</h3>
+
+<h4 id="point-to-point-messaging-domain">Point-to-Point Messaging Domain</h4>
+
+<p><img src="http://yangchao.me/media/ptp-messaging.png" alt="ptp-messaging" /></p>
+
+<ul>
+<li>Each message has only one consumer.</li>
+<li>A sender and a receiver of a message have no timing dependencies. The receiver can fetch the message whether or not it was running when the client sent the message.</li>
+<li>The receiver acknowledges the successful processing of a message.</li>
+</ul>
+
+<h4 id="publish-subscribe-messaging-domain">Publish/Subscribe Messaging Domain</h4>
+
+<p><img src="http://yangchao.me/media/pub-sub-messaging.png" alt="pub-sub-messaging" /></p>
+
+<ul>
+<li>Each message can have multiple consumers.</li>
+<li>Publishers and subscribers have a timing dependency. A client that subscribes to a topic can consume only messages published after the client has created a subscription, and the subscriber must continue to be active in order for it to consume messages.</li>
+</ul>
+
+<h3 id="the-jms-api-programming-model">The JMS API Programming Model</h3>
+
+<p><img src="http://yangchao.me/media/jms-programmingModel.gif" alt="jms-programmingModel" /></p>
+
+<h4 id="jms-administered-objects">JMS Administered Objects</h4>
+
+<p>Two parts of a JMS application, destinations and connection factories, are best maintained administratively rather than programmatically.</p>
+
+<p>A <strong>connection factory</strong> is the object a client uses to create a connection to a provider.</p>
+
+<p>In the PTP messaging domain, <strong>destinations</strong> are called queues. In the pub/sub messaging domain, <strong>destinations</strong> are called topics.</p>
+
+<h4 id="jms-connections">JMS Connections</h4>
+
+<p>You use a connection to create one or more sessions.</p>
+
+<h4 id="jms-sessions">JMS Sessions</h4>
+
+<p>A <strong>session</strong> is a single-threaded context for producing and consuming messages. You use sessions to create the following:</p>
+
+<ul>
+<li>Message producers</li>
+<li>Message consumers</li>
+<li>Messages</li>
+<li>Queue browsers</li>
+<li>Temporary queues and topics
+Session class implements <em>Runnable</em> interface.</li>
+</ul>
+
+<h4 id="jms-message-producers">JMS Message Producers</h4>
+
+<pre><code class="language-java">MessageProducer producer = session.createProducer(dest);
+MessageProducer producer = session.createProducer(queue);
+MessageProducer producer = session.createProducer(topic);
+producer.send(message);
+
+MessageProducer anon_prod = session.createProducer(null);
+anon_prod.send(dest, message);
+</code></pre>
+
+<h4 id="jms-message-consumers">JMS Message Consumers</h4>
+
+<pre><code class="language-java">MessageConsumer consumer = session.createConsumer(dest);
+MessageConsumer consumer = session.createConsumer(queue);
+MessageConsumer consumer = session.createConsumer(topic);
+ 
+connection.start();
+Message m = consumer.receive();
+connection.start();
+Message m = consumer.receive(1000); // time out after a second
+</code></pre>
+
+<h4 id="jms-message-listeners">JMS Message Listeners</h4>
+
+<pre><code class="language-java">Listener myListener = new Listener();
+consumer.setMessageListener(myListener);
+</code></pre>
+
+<h4 id="jms-message-selectors">JMS Message Selectors</h4>
+
+<p>This is for message filtering.The syntax of the expression is based on a subset of the SQL92 conditional expression syntax.
+<code>NewsType = ’Sports’ OR NewsType = ’Opinion’</code>
+The message consumer then receives only messages whose headers and properties match the selector.</p>
+
+<h4 id="jms-messages">JMS Messages</h4>
+
+<p>JMS message includes 3 parts: header, properties, body, of which only header is required.</p>
+
+<h4 id="ms-queue-browsers">MS Queue Browsers</h4>
+
+<p>This browser can browse the messages in the queue and display the header values for each message.</p>
+
+<h3 id="basic-usage-examples">basic usage examples</h3>
+
+<pre><code class="language-java">public class PointToPoint {
+
+    private ConnectionFactory factory;
+    private Connection connection;
+    private Session session;
+    private Destination destination;
+
+    @Before
+    public void setup() throws Exception {
+        factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
+        connection = factory.createConnection();
+        connection = factory.createConnection();
+        connection.start();
+        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        destination = session.createQueue(&quot;myqueue&quot;);
+    }
+
+    @Test
+    public void testSend() throws Exception {
+        MessageProducer producer = session.createProducer(destination);
+        TextMessage message = session.createTextMessage();
+        message.setText(&quot;Hello ...This is a sample message..sending from FirstClient&quot;);
+        producer.send(message);
+        System.out.println(&quot;Sent: &quot; + message.getText());
+    }
+
+    @Test
+    public void testReceive() throws Exception {
+        MessageConsumer consumer = session.createConsumer(destination);
+        Message message = consumer.receive();
+
+        if (message instanceof TextMessage) {
+            TextMessage text = (TextMessage) message;
+            System.out.println(&quot;Message is : &quot; + text.getText());
+        }
+    }
+}
+</code></pre>
+
+<h3 id="reliability-mechanisms">reliability mechanisms</h3>
+
+<h4 id="acknowledge">acknowledge</h4>
+
+<h4 id="transaction">transaction</h4>
+
+<h4 id="message-persistence">message persistence</h4>
+
+<h4 id="message-expiry">message expiry</h4>
+
+<h4 id="message-priority-level">message priority level</h4>
+
+<h4 id="durable-subscriber">durable subscriber</h4>
+
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/todo" rel="tag" title="TODO">#TODO#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/servlet-basics/" rel="next" title="servlet basics">
+        <i class="fa fa-chevron-left"></i> servlet basics
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/inner-join-and-outer-join/" rel="prev" title="inner join and outer join">
+        inner join and outer join <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-messaging-provides">what messaging provides?</a></li>
+<li><a href="#jms-architecture">JMS architecture</a></li>
+<li><a href="#messaging-domains">Messaging Domains</a>
+<ul>
+<li><a href="#point-to-point-messaging-domain">Point-to-Point Messaging Domain</a></li>
+<li><a href="#publish-subscribe-messaging-domain">Publish/Subscribe Messaging Domain</a></li>
+</ul></li>
+<li><a href="#the-jms-api-programming-model">The JMS API Programming Model</a>
+<ul>
+<li><a href="#jms-administered-objects">JMS Administered Objects</a></li>
+<li><a href="#jms-connections">JMS Connections</a></li>
+<li><a href="#jms-sessions">JMS Sessions</a></li>
+<li><a href="#jms-message-producers">JMS Message Producers</a></li>
+<li><a href="#jms-message-consumers">JMS Message Consumers</a></li>
+<li><a href="#jms-message-listeners">JMS Message Listeners</a></li>
+<li><a href="#jms-message-selectors">JMS Message Selectors</a></li>
+<li><a href="#jms-messages">JMS Messages</a></li>
+<li><a href="#ms-queue-browsers">MS Queue Browsers</a></li>
+</ul></li>
+<li><a href="#basic-usage-examples">basic usage examples</a></li>
+<li><a href="#reliability-mechanisms">reliability mechanisms</a>
+<ul>
+<li><a href="#acknowledge">acknowledge</a></li>
+<li><a href="#transaction">transaction</a></li>
+<li><a href="#message-persistence">message persistence</a></li>
+<li><a href="#message-expiry">message expiry</a></li>
+<li><a href="#message-priority-level">message priority level</a></li>
+<li><a href="#durable-subscriber">durable subscriber</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

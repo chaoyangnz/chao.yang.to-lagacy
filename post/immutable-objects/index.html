@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Immutable objects - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Immutable objects">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Immutable objects - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/richard.yang-cv20170810.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/immutable-objects/" itemprop="url">
+        Immutable objects
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-19">
+    2015-03-19
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/best-pricatice" itemprop="url" rel="index">
+        <span itemprop="name">Best Pricatice</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">550 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>An <a href="http://en.wikipedia.org/wiki/Immutable_object" title="immutable class">immutable class</a> is one whose state can not be changed once created. There are certain guidelines to create an class immutable. In this post, we will revisit these guidelines.</p>
+
+<h3 id="benefits-of-making-a-class-immutable">Benefits of making a class immutable</h3>
+
+<p>Lets first identify benefits of making a class immutable. Immutable classes are</p>
+
+<ol>
+<li>are simple to construct, test, and use</li>
+<li>are automatically thread-safe and have no synchronization issues</li>
+<li>do not need a copy constructor</li>
+<li>do not need an implementation of clone</li>
+<li>allow <a href="http://howtodoinjava.com/2012/10/09/working-with-hashcode-and-equals-methods-in-java/" title="Working with hashCode and equals methods in java">hashCode</a> to use lazy initialization, and to cache its return value</li>
+<li>do not need to be copied defensively when used as a field</li>
+<li>make good <a href="http://howtodoinjava.com/2012/10/09/how-hashmap-works-in-java/" title="How hashmap works in java">Map keys and Set elements</a> (these objects must not change state while in the collection)</li>
+<li>have their class invariant established once upon construction, and it never needs to be checked again</li>
+<li>always have “<strong>failure atomicity</strong>” (a term used by Joshua Bloch) : if an immutable object throws an exception, it’s never left in an undesirable or indeterminate state</li>
+</ol>
+
+<h3 id="guidelines-to-make-a-class-immutable">Guidelines to make a class immutable</h3>
+
+<p>Java documentation itself has some guidelines identified <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html" title="immutable classes">in this link</a>. We will understand what they mean actually:</p>
+
+<p><strong>1) Don’t provide “setter” methods — methods that modify fields or objects referred to by fields.</strong></p>
+
+<p>This principle says that for all mutable properties in your class, do not provide setter methods. Setter methods are meant to change the state of object and this is what we want to prevent here.</p>
+
+<p><strong>2) Make all fields final and private</strong></p>
+
+<p>This is another way to increase immutability. Fields declared private will not be accessible outside the class and making them final will ensure the even accidentally you can not change them.</p>
+
+<p><strong>3) Don’t allow subclasses to override methods</strong></p>
+
+<p>The simplest way to do this is to declare the class as <strong><em>final</em></strong>. Final classes in java can not be overridden.</p>
+
+<p><strong>4) Special attention when having mutable instance variables</strong></p>
+
+<p>Always remember that your instance variables will be either <strong>mutable or immutable</strong>. Identify them and <strong>return new objects with copied content for all mutable objects</strong>. Immutable variables can be returned safely without extra effort.</p>
+
+<p>A more sophisticated approach is to make the constructor <strong><em>private</em></strong> and construct instances in <strong>factory methods</strong>.</p>
+
+<p>A central idea of these rules is that you must ensure all the** accessible objects in the object graph** are immutable.</p>
+
+<p>&nbsp;</p>
+
+<p>Built-in library has many immutable classes:</p>
+
+<ul>
+<li>String</li>
+<li>Primitive wraper classes: Byte, Character, Short, Integer, Long, Float, Double</li>
+</ul>
+
+<h3 id="collections-unmodifiablelist-like-isn-t-immutable">Collections.unmodifiableList(..) like ISN&rsquo;T immutable</h3>
+
+<pre><code class="language-java">public class ImmutableTest {
+    @Test
+    public void testUnmodifiedCollectionImmutable(){                                                                                                                                                                                                                                    
+        List&amp;lt;String&amp;gt; list=new ArrayList&amp;lt;String&amp;gt;();                                                                               
+        list.add(&quot;a&quot;);                                                                                                           
+        list.add(&quot;b&quot;);                                                                                                           
+        list.add(&quot;c&quot;);
+
+        System.out.println(list);
+
+        List&amp;lt;String&amp;gt; unmodifiableList=Collections.unmodifiableList(list); 
+
+        System.out.println(unmodifiableList);
+
+        List&amp;lt;String&amp;gt; unmodifiableList1=Collections.unmodifiableList(Arrays.asList(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;)); 
+        System.out.println(unmodifiableList1);
+
+        String temp=unmodifiableList.get(1);
+        System.out.println(&quot;unmodifiableList [0]：&quot;+temp);
+
+        list.add(&quot;baby&quot;);
+        System.out.println(&quot;list add a item after list:&quot;+list);
+        System.out.println(&quot;list add a item after unmodifiableList:&quot;+unmodifiableList);
+
+        unmodifiableList1.add(&quot;bb&quot;);
+        System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList1);
+
+        unmodifiableList.add(&quot;cc&quot;);
+        System.out.println(&quot;unmodifiableList add a item after list:&quot;+unmodifiableList);        
+    }
+}
+</code></pre>
+
+<p>Output:
+[a, b, c]
+[a, b, c]
+[a, b, c]
+unmodifiableList [0]：b
+list add a item after list:[a, b, c, baby]
+list add a item after unmodifiableList1:[a, b, c, baby]</p>
+
+<p>From the above example, you can see unmodifiableList is not immutable. It will change if the underlying List is changed.</p>
+
+<p>So the correct usage of unmodified List is like:</p>
+
+<pre><code class="language-java">List list = Collections.unmodifiableList(Arrays.asList('1','2','3');
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="language-java">List list = new ArrayList();
+list.add(&quot;1&quot;);
+list.add(2);
+list.add(&quot;333&quot;);
+list = Collections.unmodifiableList(list);
+</code></pre>
+
+<p>Never expose the underlying list reference to anything, so the best way is passing an argument and initialization in place.</p>
+
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/immutable" rel="tag" title="Immutable">#Immutable#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/stringsubstring-implementation/" rel="next" title="String#substring(..) implementation">
+        <i class="fa fa-chevron-left"></i> String#substring(..) implementation
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/" rel="prev" title="What is the exact answer, When interviewer ask Architecture of the project.">
+        What is the exact answer, When interviewer ask Architecture of the project. <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#benefits-of-making-a-class-immutable">Benefits of making a class immutable</a></li>
+<li><a href="#guidelines-to-make-a-class-immutable">Guidelines to make a class immutable</a></li>
+<li><a href="#collections-unmodifiablelist-like-isn-t-immutable">Collections.unmodifiableList(..) like ISN&rsquo;T immutable</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2017</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

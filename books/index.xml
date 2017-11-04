@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Chao Yang</title>
+    <link>http://yangchao.me/books/</link>
+    <description>Recent content in Books on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://yangchao.me/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/books/</guid>
+      <description>Minibooks     -- Minibooks (In Progress)  --     Richard Yang A close look at Java    
+ 
+ 
+  
+          Flip View inside --   A close look at Java  Java JDK is a real treasure. You can learn many efficient data structure and algorithm implementation from it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/books/index2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/books/index2/</guid>
+      <description>3D Book Showcase    &amp;laquo; Previous Demo: Simple Item Slider Back to the Codrops Article 3D Book Showcase	Demo 1 Demo 2  Best viewed in WebKit browsers     Anthony Burghiss A Catwork Orange    Red snapper Kafue pike fangtooth humums slipmouth, salmon cutlassfish; swallower European perch mola mola sunfish, threadfin bream. Billfish hog sucker trout-perch lenok orbicular velvetfish. Delta smelt striped bass, medusafish dragon goby starry flounder cuchia round whitefish northern anchovy spadefish merluccid hake cat shark Black pickerel.</description>
+    </item>
+    
+  </channel>
+</rss>
