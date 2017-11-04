@@ -825,6 +825,10 @@
   </url>
   
   <url>
+    <loc>http://yangchao.me/resume/web/viewer/</loc>
+  </url>
+  
+  <url>
     <loc>http://yangchao.me/about/</loc>
   </url>
   
@@ -858,12 +862,12 @@
   </url>
   
   <url>
-    <loc>http://yangchao.me/books/</loc>
+    <loc>http://yangchao.me/book/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://yangchao.me/book/</loc>
+    <loc>http://yangchao.me/books/</loc>
     <priority>0</priority>
   </url>
   
@@ -1140,6 +1144,11 @@
   <url>
     <loc>http://yangchao.me/tags/quoted/</loc>
     <lastmod>2015-01-09T06:40:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/resume/</loc>
     <priority>0</priority>
   </url>
   
