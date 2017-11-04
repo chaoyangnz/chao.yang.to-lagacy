@@ -825,10 +825,6 @@
   </url>
   
   <url>
-    <loc>http://yangchao.me/resume/webapp/</loc>
-  </url>
-  
-  <url>
     <loc>http://yangchao.me/about/</loc>
   </url>
   
@@ -1144,11 +1140,6 @@
   <url>
     <loc>http://yangchao.me/tags/quoted/</loc>
     <lastmod>2015-01-09T06:40:09+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://yangchao.me/resume/</loc>
     <priority>0</priority>
   </url>
   
