@@ -156,7 +156,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">121 words ~1min</span>
+<span class="leancloud-visitors-count">125 words ~1min</span>
 </span>
       </div>
     </header>
@@ -202,17 +202,19 @@ Why? because otherwise, <code>android</code> command has been deprecated)</p>
 
 <h1 id="how-to-do-it">How to do it</h1>
 
-<p>Assue the following is my unziped directories in my home.
-<code>ls</code>
+<p>Assue the following is my unziped directories in my home.</p>
+
+<pre><code>$ ls
 opencv
 opencv_contrib
-android-ndk-r10e</p>
+android-ndk-r10e
+</code></pre>
 
 <p>Then run these commands:</p>
 
-<pre><code class="language-bash">cd ~/opencv/ &amp; mkdir build
-cd ~/opencv/platforms/android
-./build_sdk.py --ndk_path ~/android-ndk-r10e --sdk_path ~/Library/Android/sdk --extra_modules_path ~/opencv_contrib/modules ~/opencv/build ~/opencv
+<pre><code class="language-bash">$ cd ~/opencv/ &amp; mkdir build
+$ cd ~/opencv/platforms/android
+$ ./build_sdk.py --ndk_path ~/android-ndk-r10e --sdk_path ~/Library/Android/sdk --extra_modules_path ~/opencv_contrib/modules ~/opencv/build ~/opencv
 </code></pre>
 
 <p>Go to <code>~/opencv/build/sdk</code>, you can see all are there.</p>
