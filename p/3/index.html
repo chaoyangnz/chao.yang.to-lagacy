@@ -120,6 +120,67 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="url">
+        No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-08-01">
+    2015-08-01
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/project-problems" itemprop="url" rel="index">
+        <span itemprop="name">Project problems</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">275 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:
+No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&rsquo;t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:
+-mvc-servlet forwards to WEB-INF/views/xxx.jsp -No handler method found  So it goes to find a hander method, rather than renders directly.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/gc-revisit/" itemprop="url">
         GC revisit
         </a>
@@ -1271,66 +1332,6 @@ Prints: &gt; int &gt; &gt; int &gt; &gt; int &gt; &gt; &gt; java.lang.String &gt
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/" itemprop="url">
-        What&#39;s the difference between getPath(), getAbsolutePath(), and getCanonicalPath()?
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-23">
-    2015-04-23
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/q/a" itemprop="url" rel="index">
-        <span itemprop="name">Q/A</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">98 words ~1min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Consider these filenames:
- C:\temp\file.txt - This is a path, an absolute path, and a canonical path. .\file.txt - This is a path. It&rsquo;s neither an absolute path nor a canonical path. C:\temp\myapp\bin..\..\file.txt - This is a path and an absolute path. It&rsquo;s not a canonical path. A canonical path is always an absolute path.  Converting from a path to a canonical path makes it absolute (usually tack on the current working directory so e.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1426,7 +1427,7 @@ Prints: &gt; int &gt; &gt; int &gt; &gt; int &gt; &gt; &gt; java.lang.String &gt
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-count">135</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
@@ -1439,7 +1440,7 @@ Prints: &gt; int &gt; &gt; int &gt; &gt; int &gt; &gt; &gt; java.lang.String &gt
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>

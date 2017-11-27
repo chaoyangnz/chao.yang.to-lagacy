@@ -25,6 +25,17 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
     </item>
     
     <item>
+      <title>Javascript testing frameworks</title>
+      <link>http://yangchao.me/post/javascript-testing-frameworks/</link>
+      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/javascript-testing-frameworks/</guid>
+      <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
+Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
+So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>
+    </item>
+    
+    <item>
       <title>A developer learns design</title>
       <link>http://yangchao.me/post/a-developer-leanrns-design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>

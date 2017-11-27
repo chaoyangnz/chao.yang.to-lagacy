@@ -120,6 +120,66 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/servlet-basics/" itemprop="url">
+        servlet basics
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-30">
+    2015-03-30
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/servlet-/-jsp" itemprop="url" rel="index">
+        <span itemprop="name">Servlet / JSP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1561 words ~8min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Deployment Descriptor: web.xml The following is a complete Deployment Descriptor.
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt; &amp;lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot; version=&quot;2.5&quot;&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- General --&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- Name the application --&amp;gt; &amp;lt;display-name&amp;gt;Example App&amp;lt;/display-name&amp;gt; &amp;lt;description&amp;gt;An example application which is used to play with some of the features of Tomcat&amp;lt;/description&amp;gt; &amp;lt;!-- This app is cluster-ready --&amp;gt; &amp;lt;distributable /&amp;gt; &amp;lt;!-- Set timeout to 120 minutes --&amp;gt; &amp;lt;session-config&amp;gt; &amp;lt;session-timeout&amp;gt;120&amp;lt;/session-timeout&amp;gt; &amp;lt;/session-config&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/servlet-basics/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/" itemprop="url">
         GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory
         </a>
@@ -1263,65 +1323,6 @@ org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scop
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/core-java-concurrency/" itemprop="url">
-        Core Java Concurrency
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-13">
-    2015-03-13
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/multithreading" itemprop="url" rel="index">
-        <span itemprop="name">Multithreading</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">4034 words ~9min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    A birdview of core java concurrency Concepts ![table1](/media/table1.png) Procting shared data Java provides Lock-based concurrency control machanism. Locking **establishes the orderings** needed to satisfy the Java Memory Model and **guarantee the visibility** of changes to other threads. #### Synchronized Every object instance has a monitor that can be locked by one thread at a time. The _synchronized _keyword can be specifid on a method or in block form to lock
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/core-java-concurrency/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1414,7 +1415,7 @@ org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scop
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-count">135</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
@@ -1427,7 +1428,7 @@ org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scop
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>

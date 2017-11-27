@@ -120,6 +120,51 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
+        Book notes: Oracle Database Transactions and Locking revealed
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-01-10">
+    2016-01-10
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">514 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Chapter 1 Getting Started The focus of this book: locking, concurrency control, multiversioning, transactions, redo/undo.
+These concepts are all interrelated.
+Locking The database uses locks mechanism that allows for concurrency.
+Each database implements locking differently:
+ some have page-level locking, others row-level some implementations escalate locks from row level to page level, some do not some use read locks, others don&rsquo;t some implement serializable transactions via locking, others via read-consistent views of data (no locks)  Oracle&rsquo;s locking policy:
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/regex-in-java/" itemprop="url">
         Regex in Java
         </a>
@@ -1087,67 +1132,6 @@ I use SLF4J as the logging API, and use Log4j as its inherit implementation.
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" itemprop="url">
-        No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-08-01">
-    2015-08-01
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/project-problems" itemprop="url" rel="index">
-        <span itemprop="name">Project problems</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">275 words ~2min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:
-No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&rsquo;t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:
--mvc-servlet forwards to WEB-INF/views/xxx.jsp -No handler method found  So it goes to find a hander method, rather than renders directly.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1243,7 +1227,7 @@ No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&rsquo;
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-count">135</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
@@ -1256,7 +1240,7 @@ No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]  I don&rsquo;
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>
