@@ -6,7 +6,7 @@
     <description>Recent content in Javascript on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Nov 2017 11:36:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Javascript testing frameworks</title>
       <link>http://yangchao.me/post/javascript-testing-frameworks/</link>
-      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
       <guid>http://yangchao.me/post/javascript-testing-frameworks/</guid>
       <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.

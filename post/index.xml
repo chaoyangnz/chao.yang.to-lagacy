@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Nov 2017 11:36:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript testing frameworks</title>
+      <link>http://yangchao.me/post/javascript-testing-frameworks/</link>
+      <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/javascript-testing-frameworks/</guid>
+      <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
+Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
+So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>
+    </item>
     
     <item>
       <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
@@ -22,17 +33,6 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
  Android SDK  Note: please degrade the Android SDK tools version, 25.2.4 is fine for me http://dl-ssl.google.com/android/repository/tools_r25.2.5-macosx.zip Go to ~/Library/Android/sdk, rename tools to tools.bak, then unzip the tools_rxxx.zip to sdk/tools directory. Why? because otherwise, android command has been deprecated)
  opencv 3.3.1  git clone https://github.com/opencv/opencv.git
  opencv_contrib  git clone https://github.</description>
-    </item>
-    
-    <item>
-      <title>Javascript testing frameworks</title>
-      <link>http://yangchao.me/post/javascript-testing-frameworks/</link>
-      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/javascript-testing-frameworks/</guid>
-      <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
-Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
-So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>
     </item>
     
     <item>
