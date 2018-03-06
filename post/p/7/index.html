@@ -102,7 +102,19 @@
           </a>
         </li>
       
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
     </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
 </nav>
 
  </div>
@@ -493,15 +505,20 @@
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="http://yangchao.me/categories/">       
+        <a href="http://yangchao.me/categories/">      
+         
         <span class="site-state-item-count">48</span>
+        
         <span class="site-state-item-name">Categories</span>
+        
         </a>
     </div>
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
+         
         <span class="site-state-item-count">19</span>
+        
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>
@@ -550,14 +567,12 @@
       <div class="footer-inner">
         <div class="copyright" >
   <span itemprop="copyrightYear">  &copy; 
-  
-  2013
-   - 2018</span>
+  2009 - 2018</span>
   <span class="with-love"><i class="fa fa-heart"></i></span>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.21</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
@@ -606,5 +621,6 @@
   $('.archive-year').velocity('transition.slideLeftIn');
 </script>
 
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
 </body>
 </html>

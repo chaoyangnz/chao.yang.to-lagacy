@@ -102,7 +102,19 @@
           </a>
         </li>
       
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
     </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
 </nav>
 
  </div>
@@ -228,6 +240,23 @@ class B extends A {
     </div>
 </div>
       
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：static method and hiding
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：lanlingthink（蘭陵N散記）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
      
      
      
@@ -277,15 +306,20 @@ class B extends A {
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="http://yangchao.me/categories/">       
+        <a href="http://yangchao.me/categories/">      
+         
         <span class="site-state-item-count">48</span>
+        
         <span class="site-state-item-name">Categories</span>
+        
         </a>
     </div>
 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
+         
         <span class="site-state-item-count">19</span>
+        
         <span class="site-state-item-name">Tags</span>
         </a>
     </div>
@@ -333,12 +367,12 @@ class B extends A {
       <div class="footer-inner">
         <div class="copyright" >
   <span itemprop="copyrightYear">  &copy; 
-   - 2018</span>
+  2009 - 2018</span>
   <span class="with-love"><i class="fa fa-heart"></i></span>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.21</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
@@ -389,5 +423,6 @@ class B extends A {
 
 <script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
 
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
 </body>
 </html>
