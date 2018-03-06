@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Patterns on Chao Yang</title>
+    <link>http://yangchao.me/categories/design-patterns/</link>
+    <description>Recent content in Design Patterns on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Mar 2015 11:13:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory</title>
+      <link>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</link>
+      <pubDate>Mon, 30 Mar 2015 11:13:33 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</guid>
+      <description>Now, ultimately we start discussing design patterns - really buzzwords.
+Singleton Singleton pattern is to ensure the unique instance of some class in a JVM.
+class LazySingleton { private static LazySingleton instance; private LazySingleton() { } public static LazySingleton getInstance() { if (instance == null) { instance = new LazySingleton(); } return instance; } public void doSomething() { System.out.println(&amp;#34;doSomething(): Singleton does something!&amp;#34;); } } // DCL for thread safe class DoubleCheckedLockingLazySingleton { private static DoubleCheckedLockingLazySingleton instance; private DoubleCheckedLockingLazySingleton() { System.</description>
+    </item>
+    
+  </channel>
+</rss>

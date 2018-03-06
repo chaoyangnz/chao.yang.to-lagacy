@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>JVM dump lab - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="JVM dump lab">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="JVM dump lab - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/jvm-dump-lab/" itemprop="url">
+        JVM dump lab
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-06-05">
+    2015-06-05
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/performance" itemprop="url" rel="index">
+        <span itemprop="name">Performance</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1429 words ~7min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="ibm-dump-files">IBM dump files</h3>
+
+<p>[pdf-embedder url=&ldquo;/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf&rdquo;]</p>
+
+<h4 id="what-is-java-core-or-javadump-or-thread-dump"><strong>What is java core (or javadump or thread dump)?</strong></h4>
+
+<p>A <strong>java core</strong> is a snapshot of the threads at work in a JVM. It also details a cross section of information from the major components in the JVM like XM,XE, LK, etc (IBM Javacore only, Sun does not – it just shows threads)</p>
+
+<p>A <strong>Java dump</strong>, also known as a <strong>Java core</strong>, Java <strong>thread dump</strong>, or a thread dump is a file that contains the following sections:</p>
+
+<ul>
+<li>All of the threads that run on a Java Virtual Machine (JVM).</li>
+<li>All of the monitors on a JVM.</li>
+<li>Some useful information about the system that the JVM runs under.</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="err">#</span> <span class="n">kill</span> <span class="n">list</span>
+
+<span class="n">1</span><span class="o">)</span> <span class="n">SIGHUP</span> <span class="n">2</span><span class="o">)</span> <span class="n">SIGINT</span> <span class="n">3</span><span class="o">)</span> <span class="n">SIGQUIT</span> <span class="n">4</span><span class="o">)</span> <span class="n">SIGILL</span> <span class="n">5</span><span class="o">)</span> <span class="n">SIGTRAP</span>
+<span class="n">6</span><span class="o">)</span> <span class="n">SIGABRT</span> <span class="n">7</span><span class="o">)</span> <span class="n">SIGBUS</span> <span class="n">8</span><span class="o">)</span> <span class="n">SIGFPE</span> <span class="n">9</span><span class="o">)</span> <span class="n">SIGKILL</span> <span class="n">10</span><span class="o">)</span> <span class="n">SIGUSR1</span>
+<span class="n">11</span><span class="o">)</span> <span class="n">SIGSEGV</span> <span class="n">12</span><span class="o">)</span> <span class="n">SIGUSR2</span> <span class="n">13</span><span class="o">)</span> <span class="n">SIGPIPE</span> <span class="n">14</span><span class="o">)</span> <span class="n">SIGALRM</span> <span class="n">15</span><span class="o">)</span> <span class="n">SIGTERM</span>
+<span class="n">16</span><span class="o">)</span> <span class="n">SIGSTKFLT</span> <span class="n">17</span><span class="o">)</span> <span class="n">SIGCHLD</span> <span class="n">18</span><span class="o">)</span> <span class="n">SIGCONT</span> <span class="n">19</span><span class="o">)</span> <span class="n">SIGSTOP</span> <span class="n">20</span><span class="o">)</span> <span class="n">SIGTSTP</span>
+<span class="n">21</span><span class="o">)</span> <span class="n">SIGTTIN</span> <span class="n">22</span><span class="o">)</span> <span class="n">SIGTTOU</span> <span class="n">23</span><span class="o">)</span> <span class="n">SIGURG</span> <span class="n">24</span><span class="o">)</span> <span class="n">SIGXCPU</span> <span class="n">25</span><span class="o">)</span> <span class="n">SIGXFSZ</span>
+<span class="n">26</span><span class="o">)</span> <span class="n">SIGVTALRM</span> <span class="n">27</span><span class="o">)</span> <span class="n">SIGPROF</span> <span class="n">28</span><span class="o">)</span> <span class="n">SIGWINCH</span> <span class="n">29</span><span class="o">)</span> <span class="n">SIGIO</span> <span class="n">30</span><span class="o">)</span> <span class="n">SIGPWR</span>
+<span class="n">31</span><span class="o">)</span> <span class="n">SIGSYS</span> <span class="n">34</span><span class="o">)</span> <span class="n">SIGRTMIN</span> <span class="n">35</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">1</span> <span class="n">36</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">2</span> <span class="n">37</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">3</span>
+<span class="n">38</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">4</span> <span class="n">39</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">5</span> <span class="n">40</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">6</span> <span class="n">41</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">7</span> <span class="n">42</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">8</span>
+<span class="n">43</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">9</span> <span class="n">44</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">10</span> <span class="n">45</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">11</span> <span class="n">46</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">12</span> <span class="n">47</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">13</span>
+<span class="n">48</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">14</span> <span class="n">49</span><span class="o">)</span> <span class="n">SIGRTMIN</span><span class="o">+</span><span class="n">15</span> <span class="n">50</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">14</span> <span class="n">51</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">13</span> <span class="n">52</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">12</span>
+<span class="n">53</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">11</span> <span class="n">54</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">10</span> <span class="n">55</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">9</span> <span class="n">56</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">8</span> <span class="n">57</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">7</span>
+<span class="n">58</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">6</span> <span class="n">59</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">5</span> <span class="n">60</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">4</span> <span class="n">61</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">3</span> <span class="n">62</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">2</span>
+<span class="n">63</span><span class="o">)</span> <span class="n">SIGRTMAX</span><span class="o">-</span><span class="n">1</span> <span class="n">64</span><span class="o">)</span> <span class="n">SIGRTMAX</span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="what-is-a-heap-dump"><strong>What is a heap dump?</strong></h4>
+
+<p>A <strong>heapdump</strong> is a snapshot of JVM memory – it shows the live objects on the heap along with references between objects. It is used to determine memory usage patterns and memory leak suspects.</p>
+
+<p>A heap dump is a snapshot of memory at a given point in time. It contains information on the Java objects and classes in memory at the time the snapshot was taken. In the same way that thread dumps are an instant in time a single heap dump cannot provide much in the way of temporal information to answer questions like “where did an object come from?” or “what has it been doing?”</p>
+
+<p>Heap dumps come in various formats:</p>
+
+<ul>
+<li>the Sun VM generates HPROF</li>
+
+<li><p>the IBM VM provides portable heap dump (PHD) files.
+At Rally we run Sun’s VM so usually work with HPROF dumps. The internals vary a little but the basic principals are still the same.</p></li>
+
+<li><p>See more at: <a href="https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf">https://www.rallydev.com/blog/engineering/outofmemoryerror-fun-heap-dump-analysis#sthash.We3ozSN9.dpuf</a></p></li>
+</ul>
+
+<p><strong>How to get a heap dump?</strong></p>
+
+<p>Executing the Java VM with the appropriate parameters:</p>
+
+<ul>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnOutOfMemoryError</code></span> writes heap dump on <span class="geshifilter"><code>OutOfMemoryError</code></span> (recommended)</li>
+<li><span class="geshifilter"><code>-XX:+HeapDumpOnCtrlBreak</code></span> writes heap dump together with thread dump on <span class="geshifilter"><code>CTRL+BREAK</code></span></li>
+<li>by default enabled on WebSphere</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="err">#</span><span class="n">java</span> <span class="o">-</span><span class="nl">Xdump:</span><span class="n">what</span>
+
+<span class="n">Registered</span> <span class="n">dump</span> <span class="n">agents</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doSystemDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">gpf</span><span class="o">+</span><span class="n">abort</span>
+<span class="n">filter</span><span class="o">=</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//core.%Y%m%d.%H%M%S.%pid.%seq.dmp
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">0</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">999</span>
+<span class="n">request</span><span class="o">=</span><span class="n">serial</span>
+<span class="n">opts</span><span class="o">=</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doSnapDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">gpf</span><span class="o">+</span><span class="n">abort</span>
+<span class="n">filter</span><span class="o">=</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">0</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">500</span>
+<span class="n">request</span><span class="o">=</span><span class="n">serial</span>
+<span class="n">opts</span><span class="o">=</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doSnapDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">systhrow</span>
+<span class="n">filter</span><span class="o">=</span><span class="n">java</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">OutOfMemoryError</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//Snap.%Y%m%d.%H%M%S.%pid.%seq.trc
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">4</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">500</span>
+<span class="n">request</span><span class="o">=</span><span class="n">serial</span>
+<span class="n">opts</span><span class="o">=</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doHeapDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">systhrow</span>
+<span class="n">filter</span><span class="o">=</span><span class="n">java</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">OutOfMemoryError</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//heapdump.%Y%m%d.%H%M%S.%pid.%seq.phd
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">4</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">40</span>
+<span class="n">request</span><span class="o">=</span><span class="n">exclusive</span><span class="o">+</span><span class="n">compact</span><span class="o">+</span><span class="n">prepwalk</span>
+<span class="n">opts</span><span class="o">=</span><span class="n">PHD</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doJavaDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">gpf</span><span class="o">+</span><span class="n">user</span><span class="o">+</span><span class="n">abort</span>
+<span class="n">filter</span><span class="o">=</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">0</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">10</span>
+<span class="n">request</span><span class="o">=</span><span class="n">exclusive</span>
+<span class="n">opts</span><span class="o">=</span>
+<span class="o">----------------------</span>
+<span class="n">dumpFn</span><span class="o">=</span><span class="n">doJavaDump</span>
+<span class="n">events</span><span class="o">=</span><span class="n">systhrow</span>
+<span class="n">filter</span><span class="o">=</span><span class="n">java</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">OutOfMemoryError</span>
+<span class="n">label</span><span class="o">=</span><span class="c1">//javacore.%Y%m%d.%H%M%S.%pid.%seq.txt
+</span><span class="c1"></span><span class="n">range</span><span class="o">=</span><span class="n">1</span><span class="o">..</span><span class="na">4</span>
+<span class="n">priority</span><span class="o">=</span><span class="n">10</span>
+<span class="n">request</span><span class="o">=</span><span class="n">exclusive</span>
+<span class="n">opts</span><span class="o">=</span>
+<span class="o">----------------------</span></code></pre></div>
+<p>Or you can run the jmap tool:</p>
+
+<ul>
+<li>Sun (Linux, Solaris; not on Windows) <span class="geshifilter"><code>JMap Java 5: jmap -heap:format=b</code></span></li>
+<li>Sun (Linux, Solaris; Windows see link) <span class="geshifilter"><code>JMap Java 6: jmap.exe -dump:format=b,file=HeapDump.hprof</code></span></li>
+<li>Sun (Linus, Solaris) JMap with Core Dump File: <span class="geshifilter"><code>jmap -dump:format=b,file=HeapDump.hprof /path/to/bin/java core_dump_file</code></span></li>
+<li>Sun JConsole: Launch <span class="geshifilter"><code>jconsole.exe</code></span> and invoke operation <span class="geshifilter"><code>dumpHeap()</code></span> on HotSpotDiagnostic MBean</li>
+<li>SAP JVMMon: Launch <span class="geshifilter"><code>jvmmon.exe</code></span> and call menu for dumping the heap</li>
+</ul>
+
+<h4 id="what-is-system-core-dump-and-snap-trace">What is system core dump and snap trace?</h4>
+
+<h3 id="analyzer-tools">Analyzer Tools</h3>
+
+<h4 id="threadanalyzer"><strong>ThreadAnalyzer</strong></h4>
+
+<ul>
+<li><p>ThreadAnalyzer is a problem determination tool for WebSphere Application Server thread performance and deadlock detection. You can use it to obtain a Java dump from an application server and use its analysis features for problem determination. For performance problem determination, ThreadAnalyzer provides a top-of-the-stack (TOS) analysis that counts all of the methods at the top of the stack for the listed threads.</p></li>
+
+<li><p>It then sorts them by ‘weight’ (automatically computed by ThreadAnalyzer), and lists the possible performance bottlenecks in your application. ThreadAnalyzer does automatic deadlock detection while it analyzes the Java dump.
+<strong>Downloading ThreadAnalyzer</strong></p></li>
+</ul>
+
+<p>To download ThreadAnalyzer go to</p>
+
+<p><a href="http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html">http://www.ibm.com/developerworks/websphere/downloads/thread_analyzer.html</a></p>
+
+<h4 id="ibm-thread-and-monitor-dump-analyzer-for-java"><strong>IBM Thread and Monitor Dump Analyzer for Java</strong></h4>
+
+<ul>
+<li><p>During the run time of a Java™ process, some Java Virtual Machiness (JVMs) may not respond predictably and oftentimes seem to hang up for a long time or until JVM shutdown occurs. It is not easy to determine the root cause of these sorts of problems.</p></li>
+
+<li><p>By triggering a <em>javacore</em> when a Java process does not respond, it is possible to collect diagnostic information related to the JVM and a Java application captured at a particular point during execution. For example, the information can be about the operating system, the application environment, threads, native stack, locks, and memory. The exact contents are dependent on the platform on which the application is running.</p></li>
+
+<li><p>On some platforms, and in some cases, javacore is known as “javadump.” The code that creates javacore is part of the JVM. One can control it by using environment variables and run-time switches. By default, a javacore occurs when the JVM terminates unexpectedly. A javacore can also be triggered by sending specific signals to the JVM. Although javacore or javadump is present in Sun Solaris JVMs, much of the content of the javacore is added by IBM and, therefore, is present only in IBM JVMs.</p></li>
+
+<li><p>IBM Thread and Monitor Dump Analyzer for Java analyzes javacore and diagnoses monitor locks and thread activities in order to identify the root cause of hangs, deadlocks, and resource contention or monitor bottlenecks.
+<strong>How does it work?</strong></p></li>
+
+<li><p>This technology analyzes each thread information and provides diagnostic information, such as current thread information, the signal that caused the javacore, Java heap information (maximum Java heap size, initial Java heap size, garbage collector counter, allocation failure counter, free Java heap size, and allocated Java heap size), number of runnable threads, total number of threads, number of monitors locked, and deadlock information.</p></li>
+
+<li><p>In addition, IBM Thread and Monitor Dump Analyzer for Java provides the recommended size of the Java heap cluster (applicable only to IBM SDK 1.4.2 and 1.3.1 SR7 or above) based on the heuristic analysis engine.</p></li>
+
+<li><p>IBM Thread and Monitor Dump Analyzer for Java compares each javacore and provides process ID information for threads, time stamp of the first javacore, time stamp of the last javacore, number of garbage collections per minute, number of allocation failures per minute, time between the first javacore and the last javacore, number of hang suspects, and list of hang suspects.</p></li>
+
+<li><p>This technology also compares all monitor information in javacore and detects deadlock and resource contention or monitor bottlenecks, if there are any.</p></li>
+</ul>
+
+<h4 id="heapanalyzer"><strong>HeapAnalyzer</strong></h4>
+
+<ul>
+<li><p>HeapAnalyzer allows the finding of a possible Java™ heap leak area through its heuristic search engine and analysis of the Java heap dump in Java applications.</p></li>
+
+<li><p>Java heap areas define objects, arrays, and classes. When the Garbage Collector allocates areas of storage in the heap, an object continues to be live while a reference to it exists somewhere in the active state of the JVM; therefore the object is reachable. When an object ceases to be referenced from the active state, it becomes garbage and can be reclaimed for reuse.</p></li>
+
+<li><p>When this reclamation occurs, the Garbage Collector must process a possible finalizer and also ensure that any internal JVM resources that are associated with the object are returned to the pool of such resources. Java heap dumps are snap shots of Java heaps at specific times.
+<strong>How does it work?</strong></p></li>
+</ul>
+
+<p>HeapAnalyzer analyzes Java heap dumps by parsing the Java heap dump, creating directional graphs, transforming them into directional trees, and executing the heuristic search engine.</p>
+
+<p>The following are examples of features:</p>
+
+<ul>
+<li>List of Java heap leak suspects</li>
+<li>Recommendation of the size of kCluster</li>
+<li>List of gaps among allocated objects/classes/arrays</li>
+<li>Java objects/classes/arrays search engine</li>
+<li>List of objects/classes/arrays by type name</li>
+<li>List of objects/classes/arrays by object name</li>
+<li>List of objects/classes/arrays by address</li>
+<li>List of objects/classes/arrays by size</li>
+<li>List of objects/classes/arrays by size of child</li>
+<li>List of objects/classes/arrays by number of child</li>
+<li>List of objects/classes/arrays by frequency</li>
+<li>List of available heap spaces by size</li>
+<li>Tree view of Java heap dump</li>
+<li>Loading/saving processed Java heap dumps.</li>
+</ul>
+
+<h4 id="memory-analyzer">Memory Analyzer</h4>
+
+<p>The Memory Dump Diagnostic for Java (MDD4J) tool has been deprecated and is no longer available.</p>
+
+<p>Memory Analyzer is in the portfolio of IBM Monitoring and Diagnostic Tools for Java, which are IBM&rsquo;s primary troubleshooting tools for problems with Java applications. Memory Analyzer is the recommended heap dump analysis tool.</p>
+
+<p>Memory Analyzer extends Eclipse MAT version 1.4 using the Diagnostic Tool Framework for Java (DTFJ) which enables Java heap analysis using operating system level dumps and IBM Portable Heap Dumps (PHD).</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/" rel="next" title="Book notes - Practical Unit Test with JUnit and Mockito">
+        <i class="fa fa-chevron-left"></i> Book notes - Practical Unit Test with JUnit and Mockito
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/" rel="prev" title="MySQL InnoDB Locking and Isolation Level">
+        MySQL InnoDB Locking and Isolation Level <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：JVM dump lab
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">48</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">19</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ibm-dump-files">IBM dump files</a>
+<ul>
+<li><a href="#what-is-java-core-or-javadump-or-thread-dump"><strong>What is java core (or javadump or thread dump)?</strong></a></li>
+<li><a href="#what-is-a-heap-dump"><strong>What is a heap dump?</strong></a></li>
+<li><a href="#what-is-system-core-dump-and-snap-trace">What is system core dump and snap trace?</a></li>
+</ul></li>
+<li><a href="#analyzer-tools">Analyzer Tools</a>
+<ul>
+<li><a href="#threadanalyzer"><strong>ThreadAnalyzer</strong></a></li>
+<li><a href="#ibm-thread-and-monitor-dump-analyzer-for-java"><strong>IBM Thread and Monitor Dump Analyzer for Java</strong></a></li>
+<li><a href="#heapanalyzer"><strong>HeapAnalyzer</strong></a></li>
+<li><a href="#memory-analyzer">Memory Analyzer</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.36.1</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

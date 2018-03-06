@@ -1,0 +1,870 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Apache Maven 2 - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Apache Maven 2">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Apache Maven 2 - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/apache-maven-2/" itemprop="url">
+        Apache Maven 2
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-14">
+    2015-03-14
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/building-testing-amp-ci" itemprop="url" rel="index">
+        <span itemprop="name">Building, Testing &amp;amp; CI</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1186 words ~6min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>Although I have some experience about Maven 2, this is a simple summary.
+&gt; <span style="color: #000080;">Maven  /ˈm<span style="color: #008000;">eɪ</span>v_ə_n/</span></p>
+
+<h3 id="artifact-vector">Artifact Vector</h3>
+
+<blockquote>
+<p>groupid:artifactid:packaging:version:scope
+such as:
+org.springframework:spring:jar:2.5.6:compile</p>
+
+<p>org.mockito:mockito-core:jar:4.7:test
+Maven provides the following standard scope:
+<table style="height: 291px;" border="1" width="745">
+<tbody>
+<tr>
+<td><em>Scope</em></td>
+<td><em>Description</em></td>
+</tr>
+<tr>
+<td>compile</td>
+<td>Needed for compilation, included in packages.</td>
+</tr>
+<tr>
+<td>test</td>
+<td>Needed for unit tests, not included in packages.</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>Needed for compilation, but provided at runtime by the runtime container.</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Needed for compilation, given as absolute path on disk, and not included in
+packages.</td>
+</tr>
+<tr>
+<td>import</td>
+<td>An inline inclusion of a POM-type artifact facilitating dependency-declaring
+POM snippets.</td>
+</tr>
+</tbody>
+</table></p>
+</blockquote>
+
+<h3 id="lifecycles-phases-plugins-goals">Lifecycles, Phases, Plugins, Goals</h3>
+
+<p><img src="http://yangchao.me/media/maven-lifecycle.png" alt="maven-lifecycle" />
+<strong>Lifecycles</strong> represent a well-recognized flw of steps (Phases) used in software assembly.
+Each step in a lifecycle flow is called a <strong>phase</strong>. Zero or more plugin goals are bound to a phase.
+A <strong>plugin</strong> is a logical grouping and distribution (often a single JAR) of related goals, such as JARing.
+A <strong>goal</strong>, the most granular step in Maven, is a single executable task within a plugin. For example, discrete goals in the jar plugin include packaging the jar (jar:jar), signing the jar (jar:sign), and verifying the signature (jar:sign-verify).</p>
+
+<h3 id="built-in-lifecycles">Built-in lifecycles</h3>
+
+<p>Maven provides 3 built-in lifecycles: clean, default, site.</p>
+
+<p>The following lists all build phases and its default goals bound to them.</p>
+
+<p><strong>Clean Lifecycle</strong>
+<table class="bodyTable" border="1">
+<tbody>
+<tr>
+<td align="left"><strong><span style="color: #333333;">Phrase</span></strong></td>
+<td align="left"><strong><span style="color: #333333;">Default goal bindings</span></strong></td>
+<td align="left"><strong><span style="color: #333333;">Phase description</span></strong></td>
+</tr>
+<tr>
+<td align="left"><tt>pre-clean</tt></td>
+<td align="left"></td>
+<td align="left">executes processes needed prior to the actual project cleaning</td>
+</tr>
+<tr>
+<td align="left"><tt>clean</tt></td>
+<td align="left">maven-clean-plugin:clean</td>
+<td align="left">remove all files generated by the previous build</td>
+</tr>
+<tr>
+<td align="left"><tt>post-clean</tt></td>
+<td align="left"></td>
+<td align="left">executes processes needed to finalize the project cleaning</td>
+</tr>
+</tbody>
+</table>
+<strong>Default Lifecycle</strong>
+<table style="font-size: 0.8em;" border="1">
+<tbody>
+<tr>
+<td rowspan="2" align="left"><strong><span style="color: #333333;">Phase</span></strong></td>
+<td style="text-align: center;" colspan="4" align="left"><strong><span style="color: #333333;">Default goal bindings</span></strong></td>
+<td rowspan="2" align="left"><strong><span style="color: #333333;">Phase description</span></strong></td>
+</tr>
+<tr>
+<td align="left"><strong>packaging ejb/ejb3/jar/par/rar/war</strong></td>
+<td align="left"><strong>packaging ear</strong></td>
+<td align="left"><strong>packaging maven-plugin</strong></td>
+<td align="left"><strong>packing pom</strong></td>
+</tr>
+<tr>
+<td align="left"><tt>validate</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">validate the project is correct and all necessary information is available.</td>
+</tr>
+<tr>
+<td align="left"><tt>initialize</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">initialize build state, e.g. set properties or create directories.</td>
+</tr>
+<tr>
+<td align="left"><tt>generate-sources</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">generate any source code for inclusion in compilation.</td>
+</tr>
+<tr>
+<td align="left"><tt>process-sources</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">process the source code, for example to filter any values.</td>
+</tr>
+<tr>
+<td align="left"><tt>generate-resources</tt></td>
+<td align="left"></td>
+<td align="left">maven-ear-plugin:generate-application-xml</td>
+<td align="left">maven-plugin-plugin:descriptor</td>
+<td align="left"></td>
+<td align="left">generate resources for inclusion in the package.</td>
+</tr>
+<tr>
+<td align="left"><tt>process-resources</tt></td>
+<td align="left">maven-resources-plugin:resources</td>
+<td align="left">maven-resources-plugin:resources</td>
+<td align="left">maven-resources-plugin:resources</td>
+<td align="left"></td>
+<td align="left">copy and process the resources into the destination directory, ready for packaging.</td>
+</tr>
+<tr>
+<td align="left"><tt>compile</tt></td>
+<td align="left">maven-compiler-plugin:compile</td>
+<td align="left"></td>
+<td align="left">maven-compiler-plugin:compile</td>
+<td align="left"></td>
+<td align="left">compile the source code of the project.</td>
+</tr>
+<tr>
+<td align="left"><tt>process-classes</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">post-process the generated files from compilation, for example to do bytecode enhancement on Java classes.</td>
+</tr>
+<tr>
+<td align="left"><tt>generate-test-sources</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">generate any test source code for inclusion in compilation.</td>
+</tr>
+<tr>
+<td align="left"><tt>process-test-sources</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">process the test source code, for example to filter any values.</td>
+</tr>
+<tr>
+<td align="left"><tt>generate-test-resources</tt></td>
+<td align="left">maven-resources-plugin:testResources</td>
+<td align="left"></td>
+<td align="left">maven-resources-plugin:testResources</td>
+<td align="left"></td>
+<td align="left">create resources for testing.</td>
+</tr>
+<tr>
+<td align="left"><tt>process-test-resources</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">copy and process the resources into the test destination directory.</td>
+</tr>
+<tr>
+<td align="left"><tt>test-compile</tt></td>
+<td align="left">maven-compiler-plugin:testCompile</td>
+<td align="left"></td>
+<td align="left">maven-compiler-plugin:testCompile</td>
+<td align="left"></td>
+<td align="left">compile the test source code into the test destination directory</td>
+</tr>
+<tr>
+<td align="left"><tt>process-test-classes</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">post-process the generated files from test compilation, for example to do bytecode enhancement on Java classes. For Maven 2.0.5 and above.</td>
+</tr>
+<tr>
+<td align="left"><tt>test</tt></td>
+<td align="left">maven-surefire-plugin:test</td>
+<td align="left"></td>
+<td align="left">maven-surefire-plugin:test</td>
+<td align="left"></td>
+<td align="left">run tests using a suitable unit testing framework. These tests should not require the code be packaged or deployed.</td>
+</tr>
+<tr>
+<td align="left"><tt>prepare-package</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">perform any operations necessary to prepare a package before the actual packaging. This often results in an unpacked, processed version of the package. (Maven 2.1 and above)</td>
+</tr>
+<tr>
+<td align="left"><tt>package</tt></td>
+<td align="left">maven-ejb-plugin:ejb /
+maven-ejb3-plugin:ejb3 /
+maven-jar-plugin:jar /
+maven-par-plugin:par /
+maven-rar-plugin:rar /
+maven-war-plugin:war</td>
+<td align="left">maven-ear-plugin:ear</td>
+<td align="left">maven-jar-plugin:jar
+maven-plugin-plugin:addPluginArtifact
+Metadata</td>
+<td align="left">maven-site-plugin:attach-descriptor</td>
+<td align="left">take the compiled code and package it in its distributable format, such as a JAR.</td>
+</tr>
+<tr>
+<td align="left"><tt>pre-integration-test</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">perform actions required before integration tests are executed. This may involve things such as setting up the required environment.</td>
+</tr>
+<tr>
+<td align="left"><tt>integration-test</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">process and deploy the package if necessary into an environment where integration tests can be run.</td>
+</tr>
+<tr>
+<td align="left"><tt>post-integration-test</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">perform actions required after integration tests have been executed. This may including cleaning up the environment.</td>
+</tr>
+<tr>
+<td align="left"><tt>verify</tt></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">run any checks to verify the package is valid and meets quality criteria.</td>
+</tr>
+<tr>
+<td align="left"><tt>install</tt></td>
+<td align="left">maven-install-plugin:install</td>
+<td align="left">maven-install-plugin:install</td>
+<td align="left">maven-install-plugin:install</td>
+<td align="left">maven-install-plugin:install</td>
+<td align="left">install the package into the local repository, for use as a dependency in other projects locally.</td>
+</tr>
+<tr>
+<td align="left"><tt>deploy</tt></td>
+<td align="left">maven-deploy-plugin:deploy</td>
+<td align="left">maven-deploy-plugin:deploy</td>
+<td align="left">maven-deploy-plugin:deploy</td>
+<td align="left">maven-deploy-plugin:deploy</td>
+<td align="left">done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.</td>
+</tr>
+</tbody>
+</table>
+<strong>Site Lifecycle</strong>
+<table class="bodyTable" border="1">
+<tbody>
+<tr class="a">
+<td align="left"><span style="color: #333333;"><strong>Phase</strong></span></td>
+<td align="left"><span style="color: #333333;"><strong>Default goal bindings</strong></span></td>
+<td align="left"><span style="color: #333333;"><strong>Phase description</strong></span></td>
+</tr>
+<tr class="a">
+<td align="left">pre-site</td>
+<td align="left"></td>
+<td align="left">executes processes needed prior to the actual project site generation</td>
+</tr>
+<tr class="b">
+<td align="left">site</td>
+<td align="left">maven-site-plugin:site</td>
+<td align="left">generates the project&rsquo;s site documentation</td>
+</tr>
+<tr class="a">
+<td align="left">post-site</td>
+<td align="left"></td>
+<td align="left">executes processes needed to finalize the site generation, and to prepare for site deployment</td>
+</tr>
+<tr class="b">
+<td align="left">site-deploy</td>
+<td align="left">maven-site-plugin:deploy</td>
+<td align="left">deploys the generated site documentation to the specified web server</td>
+</tr>
+</tbody>
+</table></p>
+
+<h3 id="project-packaging">Project packaging</h3>
+
+<p>we set the packaging for your project via the equally named POM element <tt>&lt;packaging&gt;</tt>. Some of the valid packaging values are <tt>jar</tt>, <tt>war</tt>, <tt>ear</tt> and <tt>pom</tt>. If no packaging value has been specified, it will default to <tt>jar</tt>.</p>
+
+<h3 id="phase-and-goal-binding">Phase and goal binding</h3>
+
+<p>A goal may be bound to zero or more build phases. A goal not bound to any build phase could be executed outside of the build lifecycle by direct invocation.</p>
+
+<p>Moreover, if a goal is bound to one or more build phases, that goal will be called in all those phases.</p>
+
+<p>Furthermore, a build phase can also have zero or more goals bound to it. If a build phase has no goals bound to it, that build phase will not execute.</p>
+
+<p>Usually, plugin bind its goals on default phases. That&rsquo;s defined on plugin jar&rsquo;s MATE-INF/maven/plugin.xml.</p>
+
+<p>Let&rsquo;s see the plugin.xml of maven-compiler-plugin.jar:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+  <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojos</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">....</span>
+      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">....</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">help</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">....</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">testCompile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">....</span>
+      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">test</span><span class="o">-</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">....</span>
+    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+  <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojos</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<p>maven-compiler-plugin defines 3 goals, and &ldquo;compile&rdquo; and &ldquo;testCompiler&rdquo; goals have the default phase, but &ldquo;help&rdquo; goal not.</p>
+
+<p>&nbsp;</p>
+
+<p>But a goal can be bound on different phases which can be reconfigured by plugin configuration section.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">...</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">mycompany</span><span class="o">.</span><span class="na">example</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">display</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">executions</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">process</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">resources</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">time</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">anotherGoal</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">anotherGoalAgain</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">executions</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">...</span></code></pre></div>
+<h4 id="default-goal">Default goal</h4>
+
+<p>The default goal codifis the author’s intended usage of the build script. Only one goal or lifecycle can be set as the
+default.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">[...]</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">build</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">defaultGoal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">install</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">defaultGoal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">build</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">[...]</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<h3 id="execute-a-phase-or-goal">Execute a Phase or Goal</h3>
+
+<p>If you ask Maven to run a specific goal, then only that goal is run.</p>
+
+<p>For org.apache.maven:maven-***-plugin, you can run it using the plugin-prefix for short.
+&gt; mvn &lt;plugin-prefix&gt;:&lt;goal&gt;
+or</p>
+
+<p>For your customized plugins, run it:
+&gt; mvn &lt;plugin-group-id&gt;:&lt;plugin-artifact-id&gt;[:&lt;plugin-version&gt;]:&lt;goal&gt;
+For example:
+&gt; mvn compiler:compile  jar:jar
+This example runs two plugin goals: compilation of code, then JARing the result, skipping over any intermediate steps.</p>
+
+<p>mvn &lt;phase-name&gt;</p>
+
+<p>Conversely, if you ask Maven to execute a phase, all phases and bound plugin goals up to that point in the lifecycle are also executed. This example requests the deploy lifecycle phase, which will also execute the verifiation, compilation, testing and packaging phases.
+&gt; mvn deploy</p>
+
+<h3 id="profiles">Profiles</h3>
+
+<p>Profies are a means to conditionally turn on portions of Maven confiuration, including plugins, pathing and confiuration.
+The most common uses of profies are for Windows/Unix platform-specifi variations and build-time customization of JAR dependencies based on the use of a specifi Weblogic, Websphere or JBoss J2EE vendor.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">YourProfile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span><span class="na">settings</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">plugins</span> <span class="n">etc</span><span class="o">...</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependencies</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependency</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">yourcompany</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">yourlib</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">dependency</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependencies</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<h4 id="profile-activation">Profile activation</h4>
+
+<p>Profiles can be activated manually from the command line or through an activation rule (OS, fie existence, Maven version, etc.).</p>
+
+<p>Profiles are primarily additive, so best practices suggest leaving most off by default, and activating based on specific conditions.</p>
+
+<p><em><strong>Manual Profie Activation</strong></em>
+&gt; mvn –P YourProfie
+<em><strong>Automatic Profie Activation</strong></em></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">YourProfile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span><span class="na">settings</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">etc</span><span class="o">...</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">activation</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">os</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">Windows</span> <span class="n">XP</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">family</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">Windows</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">family</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">arch</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">x86</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">arch</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">2600</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">os</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">fie</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">missing</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">somefolder</span><span class="o">/</span><span class="n">somefie</span><span class="o">.</span><span class="na">txt</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">missing</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">fie</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">activation</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">...</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/core-java-concurrency/" rel="next" title="Core Java Concurrency">
+        <i class="fa fa-chevron-left"></i> Core Java Concurrency
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/" rel="prev" title="finally execution in try-catch-finnally blocks">
+        finally execution in try-catch-finnally blocks <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Apache Maven 2
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">48</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">19</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#artifact-vector">Artifact Vector</a></li>
+<li><a href="#lifecycles-phases-plugins-goals">Lifecycles, Phases, Plugins, Goals</a></li>
+<li><a href="#built-in-lifecycles">Built-in lifecycles</a></li>
+<li><a href="#project-packaging">Project packaging</a></li>
+<li><a href="#phase-and-goal-binding">Phase and goal binding</a>
+<ul>
+<li><a href="#default-goal">Default goal</a></li>
+</ul></li>
+<li><a href="#execute-a-phase-or-goal">Execute a Phase or Goal</a></li>
+<li><a href="#profiles">Profiles</a>
+<ul>
+<li><a href="#profile-activation">Profile activation</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.36.1</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

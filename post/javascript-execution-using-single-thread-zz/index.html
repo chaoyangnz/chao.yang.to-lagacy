@@ -1,0 +1,561 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>JavaScript execution using single thread (zz) - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="JavaScript execution using single thread (zz)">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="JavaScript execution using single thread (zz) - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/javascript-execution-using-single-thread-zz/" itemprop="url">
+        JavaScript execution using single thread (zz)
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-09-28">
+    2015-09-28
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/uncategorized" itemprop="url" rel="index">
+        <span itemprop="name">Uncategorized</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">2607 words ~6min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>面试的时候发现99%的童鞋不理解为什么JavaScript是单线程的却能让AJAX异步发送和回调请求，还有setTimeout也看起来像是多线程的？还有non-blocking IO, event loop等概念很不清楚。来深入分析一下：</p>
+
+<p>首先看下面的代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">function</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span> <span class="err">&#39;</span><span class="n">first</span><span class="err">&#39;</span> <span class="o">);</span>
+    <span class="n">setTimeout</span><span class="o">(</span> <span class="o">(</span> <span class="n">function</span><span class="o">(){</span> <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="err">&#39;</span><span class="n">second</span><span class="err">&#39;</span><span class="o">);</span> <span class="o">}</span> <span class="o">),</span> <span class="n">5</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">1000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">foo</span><span class="o">();</span>
+<span class="o">}</span></code></pre></div>
+<div>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</div>
+
+<h4 id="javascript执行是单线程的">Javascript执行是单线程的</h4>
+
+<p>因为<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，既然是单线程的，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。而浏览器是<strong>事件驱动的（Event driven）</strong>，浏览器中很多行为是<strong>异步（Asynchronized）</strong>的，会创建事件并放入执行队列中。javascript引擎是单线程处理它的任务队列，你可以理解成就是普通函数和回调函数构成的队列。当异步事件发生时，如mouse click, a timer firing, or an XMLHttpRequest completing（鼠标点击事件发生、定时器触发事件发生、XMLHttpRequest完成回调触发等），将他们放入执行队列，等待当前代码执行完成。</p>
+
+<h4 id="异步事件驱动">异步事件驱动</h4>
+
+<p>前面已经提到浏览器是<strong>事件驱动的（Event driven）</strong>，浏览器中很多行为是<strong>异步（Asynchronized）</strong>的，例如：鼠标点击事件、窗口大小拖拉事件、定时器触发事件、XMLHttpRequest完成回调等。当一个异步事件发生的时候，它就进入事件队列。<strong>浏览器有一个内部大消息循环，Event Loop（事件循环）</strong>，<strong>会轮询大的事件队列并处理事件</strong>。例如，浏览器当前正在忙于处理onclick事件，这时另外一个事件发生了（如：window onSize），这个异步事件就被放入事件队列等待处理，只有前面的处理完毕了，空闲了才会执行这个事件。setTimeout也是一样，当调用的时候，js引擎会启动定时器timer，大约xxms以后执行xxx，当定时器时间到，就把该事件放到主事件队列等待处理（浏览器不忙的时候才会真正执行）。</p>
+
+<p>每个浏览器具体实现主事件队列不尽相同，这不谈了。</p>
+
+<p>JavaScript引擎有事件处理队列，纯粹是为了在单线程执行限制下为了响应异步事件。</p>
+
+<h4 id="non-blocking">non-blocking</h4>
+
+<p>所有操作都不阻塞, I/O(xhr, indexDb)操作都是non-blocking. 但是也有例外：alert(..)</p>
+
+<h4 id="浏览器不是单线程的">浏览器不是单线程的</h4>
+
+<p>虽然<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，但浏览器不是单线程的，例如Webkit或是Gecko引擎，都可能有如下线程：</p>
+
+<ul>
+<li>javascript引擎线程</li>
+<li>界面渲染线程</li>
+<li>浏览器事件触发线程</li>
+<li>Http请求线程</li>
+<li>事件队列循环线程
+很多童鞋搞不清，如果js是单线程的，那么谁去轮询大的Event loop事件队列？答案是浏览器会有单独的线程去处理这个队列。</li>
+</ul>
+
+<h4 id="ajax异步请求是否真的异步">Ajax异步请求是否真的异步?</h4>
+
+<p>很多童鞋搞不清楚，既然说JavaScript是单线程运行的，那么XMLHttpRequest在连接后是否真的异步?
+其实请求确实是异步的，这请求是由<strong>浏览器新开一个线程请求</strong>（见前面的浏览器多线程）。当请求的状态变更时，如果先前已设置回调，这异步线程就产生状态变更事件放到 JavaScript引擎的事件处理队列中等待处理。当浏览器空闲的时候出队列任务被处理，JavaScript引擎始终是单线程运行回调函数。javascript引擎确实是单线程处理它的任务队列，能理解成就是普通函数和回调函数构成的队列。</p>
+
+<p>总结一下，Ajax请求确实是异步的，这请求是由<strong>浏览器新开一个线程请求，事件回调的时候是放入Event loop单线程事件队列等候处理。</strong></p>
+
+<h4 id="settimeout-func-0-为什么有时候有用">setTimeout(func, 0)为什么有时候有用？</h4>
+
+<p>写js多的童鞋可能发现，有时候加一个setTimeout(func, 0)非常有用，为什么？难道是模拟多线程吗？错！前面已经说过了，javascript是<strong>JS运行在浏览器中，是单线程的，每个window一个JS线程</strong>，既然是单线程的，setTimeout(func, 0)神奇在哪儿？那就是告诉js引擎，在0ms以后把func放到主事件队列中，等待当前的代码执行完毕再执行，注意：重点是改变了代码流程，把func的执行放到了等待当前的代码执行完毕再执行。这就是它的神奇之处了。它的用处有三个：</p>
+
+<ul>
+<li>让浏览器渲染当前的变化（很多浏览器UI render和js执行是放在一个线程中，线程阻塞会导致界面无法更新渲染）</li>
+<li>重新评估”script is running too long”警告</li>
+<li>改变执行顺序
+例如：下面的例子，点击按钮就会显示&rdquo;calculating&hellip;.&ldquo;，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="k">do</span><span class="err">&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">Do</span> <span class="kt">long</span> <span class="n">calc</span><span class="o">!&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">button</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="n">status</span><span class="err">&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">div</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">br</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Write JavaScript here 
+</span><span class="c1"></span>
+<span class="n">$</span><span class="o">(</span><span class="err">&#39;#</span><span class="k">do</span><span class="err">&#39;</span><span class="o">).</span><span class="na">on</span><span class="o">(</span><span class="err">&#39;</span><span class="n">click</span><span class="err">&#39;</span><span class="o">,</span> <span class="n">function</span><span class="o">(){</span>
+
+  <span class="n">$</span><span class="o">(</span><span class="err">&#39;#</span><span class="n">status</span><span class="err">&#39;</span><span class="o">).</span><span class="na">text</span><span class="o">(</span><span class="err">&#39;</span><span class="n">calculating</span><span class="o">....</span><span class="err">&#39;</span><span class="o">);</span> <span class="c1">//此处会触发redraw事件的fired，但会放到队列里执行，直到long()执行完。
+</span><span class="c1"></span>
+  <span class="c1">// without set timeout, user will never see &#34;calculating....&#34;
+</span><span class="c1"></span>  <span class="c1">//long();//执行长时间任务，阻塞
+</span><span class="c1"></span>
+  <span class="c1">// with set timeout, works as expected
+</span><span class="c1"></span>  <span class="n">setTimeout</span><span class="o">(</span><span class="kt">long</span><span class="o">,</span><span class="n">0</span><span class="o">);</span><span class="c1">//用定时器，大约50ms以后执行长时间任务，放入执行队列，但在redraw之后了，根据先进先出原则
+</span><span class="c1"></span>
+ <span class="o">})</span>
+
+<span class="n">function</span> <span class="nf">long</span><span class="o">(){</span>
+  <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">0</span>
+  <span class="nf">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+      <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">k</span><span class="o">++){</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="n">k</span>
+      <span class="o">}</span>
+    <span class="o">}</span> 
+  <span class="o">}</span>
+  <span class="n">$</span><span class="o">(</span><span class="err">&#39;#</span><span class="n">status</span><span class="err">&#39;</span><span class="o">).</span><span class="na">text</span><span class="o">(</span><span class="err">&#39;</span><span class="n">calclation</span> <span class="n">done</span><span class="err">&#39;</span><span class="o">)</span> <span class="c1">// has to be in here for this example. or else it will ALWAYS run instantly. This is the same as passing it a callback 
+</span><span class="c1"></span><span class="o">}</span></code></pre></div>
+<h4 id="非阻塞js的实现-non-blocking-javascript">非阻塞js的实现（non-blocking javascript）</h4>
+
+<p>js在浏览器中需要被下载、解释并执行这三步。在html body标签中的script都是阻塞的。也就是说，顺序下载、解释、执行。尽管Chrome可以实现多线程并行下载外部资源，例如：script file、image、frame等（css比较复杂，在IE中不阻塞下载，但Firefox阻塞下载）。但是，由于js是单线程的，所以尽管浏览器可以并发加快js的下载，但必须依次执行。所以chrome中image图片资源是可以并发下载的，但外部js文件并发下载没有多大意义。</p>
+
+<p><a href="http://yangchao.me/media/171639163893646.png"><img src="http://yangchao.me/media/171639190852606.png" alt="2014-02-17_16h16_34" title="2014-02-17_16h16_34" /></a></p>
+
+<p>要实现非阻塞js（non-blocking javascript）有两个方法：1. html5 2. 动态加载js</p>
+
+<p>首先一种办法是HTML5的<a href="http://www.w3schools.com/TAGs/att_script_defer.asp">defer</a>和<a href="http://www.w3schools.com/tags/att_script_async.asp">async</a>关键字：</p>
+
+<p>defer</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">defer</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;foo.js&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">script</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div></div>
+async
+<div>
+<div id="highlighter_263429" class="syntaxhighlighter js">
+
+
+```java
+&lt;script type="text/javascript" async src="foo.js"&gt;&lt;/script&gt;
+```
+
+</div>
+</div>
+然后第二种方法是动态加载js：
+
+
+```java
+setTimeout(function(){
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "foo.js";
+    var head = true; //加在头还是尾
+    if(head)
+      document.getElementsByTagName("head")[0].appendChild(script);
+    else
+      document.body.appendChild(script);
+}, 0);
+
+//另外一个独立的动态加载js的函数
+function loadJs(jsurl, head, callback){
+    var script=document.createElement('script');
+    script.setAttribute("type","text/javascript");
+
+    if(callback){
+        if (script.readyState){  //IE
+            script.onreadystatechange = function(){
+                if (script.readyState == "loaded" ||
+                        script.readyState == "complete"){
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else {  //Others
+            script.onload = function(){
+                callback();
+            };
+        }
+    }
+    script.setAttribute("src", jsurl);
+
+    if(head)
+     document.getElementsByTagName('head')[0].appendChild(script);
+    else
+      document.body.appendChild(script);
+
+}
+```
+
+<div></div>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/http-cache/" rel="next" title="HTTP cache">
+        <i class="fa fa-chevron-left"></i> HTTP cache
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/closure/" rel="prev" title="closure">
+        closure <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：JavaScript execution using single thread (zz)
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">48</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">19</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#javascript执行是单线程的">Javascript执行是单线程的</a></li>
+<li><a href="#异步事件驱动">异步事件驱动</a></li>
+<li><a href="#non-blocking">non-blocking</a></li>
+<li><a href="#浏览器不是单线程的">浏览器不是单线程的</a></li>
+<li><a href="#ajax异步请求是否真的异步">Ajax异步请求是否真的异步?</a></li>
+<li><a href="#settimeout-func-0-为什么有时候有用">setTimeout(func, 0)为什么有时候有用？</a></li>
+<li><a href="#非阻塞js的实现-non-blocking-javascript">非阻塞js的实现（non-blocking javascript）</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.36.1</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

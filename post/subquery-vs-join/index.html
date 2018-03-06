@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>subquery vs. join - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="subquery vs. join">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="subquery vs. join - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/subquery-vs-join/" itemprop="url">
+        subquery vs. join
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-02">
+    2015-04-02
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/sql" itemprop="url" rel="index">
+        <span itemprop="name">SQL</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">322 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="what-is-subquery">what is subquery</h3>
+
+<p><strong>SubQuery in SQL</strong> is a query inside another query</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="n">name</span> <span class="n">FROM</span> <span class="n">City</span> <span class="n">WHERE</span> <span class="n">pincode</span> <span class="nf">IN</span> <span class="o">(</span><span class="n">SELECT</span> <span class="n">pincode</span> <span class="n">FROM</span> <span class="n">pin</span> <span class="n">WHERE</span> <span class="n">zone</span><span class="o">=</span><span class="err">&#39;</span><span class="n">west</span><span class="err">&#39;</span><span class="o">)</span></code></pre></div>
+<p>In this SQL, the part in the brackets is called <em><strong>inner query</strong></em>, while the part out of the brackets is called <em><strong>outer query</strong></em>.</p>
+
+<h4 id="non-correlated-subquery">non-correlated subquery</h4>
+
+<p>In non correlated subquery, <strong>inner query doesn&rsquo;t depend on outer query</strong> and can run as stand alone query.</p>
+
+<p>NonCorrelated subquery are used along-with =, IN and NOT IN clause. When you use =, the subquery must return only 1 row.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="n">COMPANY</span> <span class="n">FROM</span> <span class="n">Stock</span> <span class="n">WHERE</span> <span class="n">LISTED_ON_EXCHANGE</span> <span class="o">=</span> <span class="o">(</span><span class="n">SELECT</span> <span class="n">RIC</span> <span class="n">FROM</span> <span class="n">Market</span> <span class="n">WHERE</span> <span class="n">COUNTRY</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Japan</span><span class="err">&#39;</span><span class="o">);</span></code></pre></div>
+<p>Here, the inner query is executed before the outer query.</p>
+
+<h4 id="correlated-subquery">correlated subquery</h4>
+
+<p>Correlated subqueries are the one in which inner query or subquery reference outer query.</p>
+
+<p>One of the most common <em>example of correlated subquery</em> is using keywords exits and not exits.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="n">m</span><span class="o">.</span><span class="na">NAME</span> <span class="n">FROM</span> <span class="n">Market</span> <span class="n">m</span> <span class="n">WHERE</span> <span class="n">m</span><span class="o">.</span><span class="na">RIC</span> <span class="nf">EXISTS</span> <span class="o">(</span><span class="n">SELECT</span> <span class="n">s</span><span class="o">.</span><span class="na">LISTED_ON_EXCHANGE</span> <span class="n">FROM</span> <span class="n">Stock</span> <span class="n">s</span> <span class="n">WHERE</span> <span class="n">s</span><span class="o">.</span><span class="na">LISTED_ON_EXCHANGE</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="na">RIC</span><span class="o">);</span></code></pre></div>
+<p>Here, the outer query is executed without <em>WHERE</em> clause before the inner query.</p>
+
+<h3 id="which-is-preferable-subquery-or-join">which is preferable: subquery or join</h3>
+
+<p>Now, almost any subquery can be written in join.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">id</span>  <span class="n">name</span>    <span class="n">id</span>  <span class="n">title</span>
+<span class="o">--</span>  <span class="o">----</span>    <span class="o">--</span>  <span class="o">----</span>
+<span class="n">1</span>   <span class="n">Kenny</span>   <span class="n">1</span>   <span class="n">Analyst</span>
+<span class="n">1</span>   <span class="n">Rob</span>     <span class="n">2</span>   <span class="n">Sales</span>
+<span class="n">4</span>   <span class="n">Molly</span>   <span class="n">3</span>   <span class="n">Manager</span>
+<span class="n">1</span>   <span class="n">Greg</span>
+<span class="n">2</span>   <span class="n">John</span>
+
+<span class="o">--</span> <span class="n">non</span> <span class="n">correlated</span> <span class="n">subquery</span> <span class="n">using</span> <span class="n">IN</span>
+<span class="o">--</span> <span class="n">Returns</span> <span class="n">3</span> <span class="n">records</span> <span class="o">-</span> <span class="n">Kenny</span><span class="o">,</span> <span class="n">Rob</span><span class="o">,</span> <span class="n">and</span> <span class="n">Greg</span>
+<span class="n">SELECT</span>  <span class="o">*</span>
+<span class="n">FROM</span>    <span class="n">tableA</span>
+<span class="n">WHERE</span>   <span class="n">tableA</span><span class="o">.</span><span class="na">id</span> <span class="nf">IN</span> <span class="o">(</span><span class="n">SELECT</span> <span class="n">tableB</span><span class="o">.</span><span class="na">id</span> <span class="n">FROM</span> <span class="n">tableB</span> <span class="n">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Analyst</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="o">--</span> <span class="n">correlated</span> <span class="n">subquery</span> <span class="n">using</span> <span class="n">EXISTS</span>
+<span class="n">SELECT</span>  <span class="o">*</span>
+<span class="n">FROM</span>    <span class="n">tableA</span>
+<span class="n">WHERE</span>   <span class="nf">EXISTS</span> <span class="o">(</span><span class="n">SELECT</span> <span class="n">1</span> <span class="n">FROM</span> <span class="n">tableB</span> <span class="n">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Analyst</span><span class="err">&#39;</span> <span class="n">AND</span> <span class="n">tableA</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">tableB</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+
+<span class="o">--</span> <span class="n">JOIN</span> <span class="o">(</span><span class="n">INNER</span> <span class="n">is</span> <span class="n">the</span> <span class="k">default</span> <span class="n">when</span> <span class="n">only</span> <span class="n">JOIN</span> <span class="n">is</span> <span class="n">specified</span><span class="o">)</span>
+<span class="n">SELECT</span>  <span class="o">*</span>
+<span class="n">FROM</span>    <span class="n">tableA</span>
+<span class="n">JOIN</span>    <span class="n">tableB</span>
+    <span class="n">ON</span>  <span class="n">tableA</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">tableB</span><span class="o">.</span><span class="na">id</span>
+<span class="n">WHERE</span>   <span class="n">tableB</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Analyst</span><span class="err">&#39;</span><span class="o">;</span></code></pre></div>
+<p>Basically, there are some differences:</p>
+
+<ul>
+<li>Subquery is more intuitive and relatively easy to understand.</li>
+<li>In most cases, EXISTS or JOIN will be much more efficient (and faster) than an IN statement.
+&nbsp;</li>
+</ul>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/inner-join-and-outer-join/" rel="next" title="inner join and outer join">
+        <i class="fa fa-chevron-left"></i> inner join and outer join
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/spring-framework-the-big-picture/" rel="prev" title="Spring framework - the big picture">
+        Spring framework - the big picture <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：subquery vs. join
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">48</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">19</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-subquery">what is subquery</a>
+<ul>
+<li><a href="#non-correlated-subquery">non-correlated subquery</a></li>
+<li><a href="#correlated-subquery">correlated subquery</a></li>
+</ul></li>
+<li><a href="#which-is-preferable-subquery-or-join">which is preferable: subquery or join</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.36.1</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

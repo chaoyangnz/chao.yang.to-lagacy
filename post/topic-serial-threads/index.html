@@ -1,0 +1,620 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Java Thread Management - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Java Thread Management">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Java Thread Management - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/topic-serial-threads/" itemprop="url">
+        Java Thread Management
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-19">
+    2015-01-19
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/multithreading" itemprop="url" rel="index">
+        <span itemprop="name">Multithreading</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">888 words ~5min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>About thread:</p>
+
+<h3 id="1-single-thread-and-multi-thread">1. Single-thread and multi-thread</h3>
+
+<p>A single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main() method), followed by many entry and exit points, which are run concurrently with the main().
+<img src="http://yangchao.me/media/Multithread.gif" alt="Multithread" /></p>
+
+<h3 id="2-lifecycle">2. Lifecycle</h3>
+
+<p><img src="http://yangchao.me/media/Multithread_ThreadLifeCycle.png" alt="Multithread_ThreadLifeCycle" /></p>
+
+<p>In Java, there are only 6 states when invoking_ <strong>getState()</strong>_:
+NEW
+RUNNABLE
+BLOCKED
+WAITING
+TIMED_WAITING
+TERMINATED</p>
+
+<p>In reality, we cannot differentiate the running or runnable but not running.</p>
+
+<p>a. A thread is <em>alive</em> when it is started but has not died. We can check it by <strong><em>isAlive()</em></strong>
+b. A daemon thread or a user thread mark is useful when JVM determine if it should exit. JVM exits when the only threads running are all daemon threads.</p>
+
+<h3 id="3-control-through-the-lifecycle">3. Control through the lifecycle</h3>
+
+<p>In the following writing, I will use &ldquo;control thread&rdquo; as the source thread which instantiate, operate the new produced thread, and the latter is &ldquo;target thread&rdquo;.</p>
+
+<h4 id="1-create-a-thread-in-control-thread-execution-context">1) create a thread in control thread (execution context)</h4>
+
+<p>We create a thread instance (a real thread representation in Java) by using <em>new</em> keyword.
+<a href="http://yangchao.me/media/2129351.png"><img src="http://yangchao.me/media/2129351.png" alt="" /></a></p>
+
+<p>So some properties can be provided in constructors:
+a. ThreadGroup
+b. Runnable target (define what will be run)
+c. thread name
+d. stack size</p>
+
+<p>Apart from these, there are the following perperties:
+e. daemon thread or user thread?
+f. priority
+g. id</p>
+
+<p>Other important things:</p>
+
+<p>a. stack trace (TODO)</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">getStackTrace</span><span class="o">()</span>
+<span class="n">dumpStack</span><span class="o">()</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">getAllStackTraces</span><span class="o">()</span></code></pre></div>
+<p>b. uncaught exception handler (TODO)</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">getUncaughtExceptionHandler</span><span class="o">()</span>
+<span class="n">setUncaughtExceptionHandler</span><span class="o">(</span><span class="n">UncaughtExceptionHandler</span><span class="o">)</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">getDefaultUncaughtExceptionHandler</span><span class="o">()</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">setDefaultUncaughtExceptionHandler</span><span class="o">(</span><span class="n">UncaughtExceptionHandler</span><span class="o">)</span></code></pre></div>
+<p>c.context class loader (TODO)</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">getContextClassLoader</span><span class="o">()</span>
+<span class="n">setContextClassLoader</span><span class="o">(</span><span class="n">ClassLoader</span><span class="o">)</span></code></pre></div>
+<h4 id="2-start-a-thread-in-control-thread">2) start a thread in control thread</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span></code></pre></div>
+<p>Other methods like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">();</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">obj</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroy</span><span class="o">();</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">suspend</span><span class="o">();</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">resume</span><span class="o">();</span></code></pre></div>
+<p>are all deprecated, as as they are inherently deadlock-prone.</p>
+
+<h4 id="3-interrupt">3) interrupt</h4>
+
+<p>When we need to interrupt a target thread?
+a. the target thread is waiting in an invocation of method which can response the interruption by throwing an InterruptedException; these methods include wait(), notify(), notifyAll(), Thread.sleep()
+b. you don&rsquo;t wish the target thread to execute continually (may be a infinite loop or need spending too much time)</p>
+
+<p>When control thread invokes a interrupt in the target thread instance, the target thread has two ways to response, if possible for interruption:
+a. catch the InterruptedException
+b. check the interrupted status by interrupted() method (once invoked, the interrupted status is cleared)</p>
+
+<p>The following scenarios can produce the InterruptedException:
+a. sleep(long)
+b. wait(), wait(long), wait(long, int)
+c. join(), join(long), join(long, wait)
+d. interruption channel and selector
+&gt; <span style="color: #ff0000;">NOTICE: current thread cannot interrupt itself.</span></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">Interruption</span> <span class="n">received</span><span class="o">,</span> <span class="n">now</span> <span class="n">I</span> <span class="n">exit</span><span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;);</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">2</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="n">doHardWork</span><span class="o">();</span>
+<span class="n">thread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span></code></pre></div>
+<p>If we don&rsquo;t interrupt it, the thread will be running forever.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Interruption</span> <span class="n">received</span><span class="o">,</span> <span class="n">now</span> <span class="n">I</span> <span class="n">exit</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="n">doHardWork</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">prepare</span> <span class="n">to</span> <span class="n">interrupt</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">thread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span></code></pre></div>
+<p>By using interrupted(), we don&rsquo;t depend on InterruptedException to notify interruption, we check it by my own proactively.</p>
+
+<h4 id="4-join">4) join</h4>
+
+<p>Sometimes, the control thread does something strictly after the target thread died. If the target thread has not terminated, the control thread must be blocked.
+&gt; <span style="color: #ff0000;">NOTICE: current thread can join itself, but it makes no sense because it will wait forever.</span></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="n">doHardWork</span><span class="o">();</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="k">do</span> <span class="n">my</span> <span class="n">work</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="o">//</span><span class="n">just</span> <span class="n">make</span> <span class="n">the</span> <span class="n">main</span> <span class="n">thread</span> <span class="n">not</span> <span class="n">exit</span></code></pre></div>
+<p>In this example, the &ldquo;do my work&rdquo; happens in uninsured point, like this in one run:
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+do my work
+I&rsquo;m running
+I&rsquo;m running</p>
+
+<p>Now, we use join() and see the result:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="n">doHardWork</span><span class="o">();</span>
+<span class="n">thread</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="k">do</span> <span class="n">my</span> <span class="n">work</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="o">//</span><span class="n">just</span> <span class="n">make</span> <span class="n">the</span> <span class="n">main</span> <span class="n">thread</span> <span class="n">not</span> <span class="n">exit</span></code></pre></div>
+<p>Now, the output is definitely:</p>
+
+<p>I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+I&rsquo;m running
+do my work</p>
+
+<p>It can ensure that the code behind the join() must be executed after the target thread died.
+&gt; <span style="color: #ff00ff;">WARNING: All the above examples, don&rsquo;t use JUnit for testing, becaust JUnit terminate the program once the main thread terminate, regardless of the running/waiting spawn threads.</span></p>
+
+<h5 id="5-operations-on-current-thread">5) Operations on current thread</h5>
+
+<p>When code is executed in a thread context, it always knows the current thread object which represents the current execution thread context.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">();</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="kt">long</span><span class="o">);</span>  <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="kt">long</span><span class="o">,</span> <span class="kt">int</span><span class="o">);</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">yield</span><span class="o">();</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">();</span>  <span class="c1">// Please differentiate Thread.interrupted() and thread.isInterrupted()
+</span><span class="c1"></span><span class="n">Thread</span><span class="o">.</span><span class="na">holdsLock</span><span class="o">()</span></code></pre></div>
+<p>Some convenient methods from ThreadGroup:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span><span class="o">.</span><span class="na">activeCount</span><span class="o">()</span>
+<span class="n">Thread</span><span class="o">.</span><span class="na">enumurate</span><span class="o">()</span></code></pre></div>
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/topic-serial-exceptions/" rel="next" title="Java Exceptions">
+        <i class="fa fa-chevron-left"></i> Java Exceptions
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/thread-synchronization/" rel="prev" title="Thread Synchronization">
+        Thread Synchronization <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Java Thread Management
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">48</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">19</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-single-thread-and-multi-thread">1. Single-thread and multi-thread</a></li>
+<li><a href="#2-lifecycle">2. Lifecycle</a></li>
+<li><a href="#3-control-through-the-lifecycle">3. Control through the lifecycle</a>
+<ul>
+<li><a href="#1-create-a-thread-in-control-thread-execution-context">1) create a thread in control thread (execution context)</a></li>
+<li><a href="#2-start-a-thread-in-control-thread">2) start a thread in control thread</a></li>
+<li><a href="#3-interrupt">3) interrupt</a></li>
+<li><a href="#4-join">4) join</a>
+<ul>
+<li><a href="#5-operations-on-current-thread">5) Operations on current thread</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.36.1</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>
