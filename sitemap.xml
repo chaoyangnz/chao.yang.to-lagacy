@@ -2,6 +2,31 @@
 <search>
     
      <entry>
+        <title>CSS in Depth - Master the box model</title>
+        <url>http://yangchao.me/post/css-in-depth-master-the-box-model/</url>
+        <categories>
+          <category>CSS</category>
+        </categories>
+        <tags>
+          <tag>CSS</tag><tag>Notes</tag>
+        </tags>
+        <content type="html">  default box model It includes 3 boxes:
+ content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
+difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
+To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
+adjusting the box model By setting box-sizing: border-box, the box model is adjusted. universal fix for border-box sizing *, ::before, ::after { box-sizing: border-box; } More robust fix when using 3rd-party libraries.
+:root { box-sizing: border-box; } *, ::before, ::after { box-sizing: inherit; } adding a gutter between columns A easy way is to add a percentage margin. But the gutter&amp;rsquo;s width is based on the outer container&amp;rsquo;s width. An em-based gutter is preferred: use calc() function.
+.sidebar { width: calc(30% - 1.5em); margin-left: 1.5em; } difficulties with element height Typically, it is best to avoid setting explicit height, because normal document flow is designed to work with a constrained width and an unlimited height. Contents fill the width of the viewport and then line wrap as necessary. Because of this, the height of a container is organically determined by its contents, not by the container itself.
+ height property don&amp;rsquo;t support percentage value. Never height: 100%.
+ When you explicitly set an element height, you run the risk of its contents overflowing the container.
+overflow, overflow-x, overflow-y
+ visible hidden scroll auto   alternatives to percentage-based heights Specifying height using a percentage is problematic. For percentage-based&amp;rdquo; heights to work, the parent must have an explicitly defined height.
+Columns of equal height
+display: table rescues this difficulty.
+.container { display: table; width: 100%; } .main { display: table-cell; width: 70%; background-color: #fff; border-radius: .5em; } .sidebar { display: table-cell; width: 30%; margin-left: 1.5em; padding: 1.5em; background-color: #fff; border-radius: .5em; }</content>
+    </entry>
+    
+     <entry>
         <title>CSS in Depth - Cascade, specificity and inheritance</title>
         <url>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</url>
         <categories>

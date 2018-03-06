@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>MySQL InnoDB Locking and Isolation Level - Chao Yang</title>
+    <title>CSS in Depth - Master the box model - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="MySQL InnoDB Locking and Isolation Level">
+    <meta property="og:title" content="CSS in Depth - Master the box model">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="MySQL InnoDB Locking and Isolation Level - Chao Yang" />
+    <meta name="title" content="CSS in Depth - Master the box model - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/" itemprop="url">
-        MySQL InnoDB Locking and Isolation Level
+        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-master-the-box-model/" itemprop="url">
+        CSS in Depth - Master the box model
         </a>
       </h1>
       <div class="post-meta">
@@ -139,8 +139,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-06-10">
-    2015-06-10
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
+    2018-03-06
 </time>
 </span> 
       
@@ -153,8 +153,8 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/databases" itemprop="url" rel="index">
-        <span itemprop="name">Databases</span>
+      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
+        <span itemprop="name">CSS</span>
       </a>
       &nbsp; 
     </span>
@@ -168,225 +168,115 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">692 words ~4min</span>
+<span class="leancloud-visitors-count">309 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     
 
-<h3 id="basic-knowledge">Basic knowledge</h3>
+<h1 id="default-box-model">default box model</h1>
 
-<h4 id="isolation-level">Isolation Level</h4>
+<p><img src="http://yangchao.me/media/15203293881491.jpg" alt="" /></p>
+
+<p>It includes 3 boxes:</p>
+
+<ul>
+<li>content box</li>
+<li>padding box</li>
+<li>border box</li>
+</ul>
+
+<p>Margins don&rsquo;t belong to these boxes.</p>
+
+<h1 id="difficulties-with-element-width">difficulties with element width</h1>
+
+<p>By default, <code>width</code> and <code>height</code> is for the content box. So it is hard to align two columns sometimes.</p>
+
+<p>To avoid magic number when layout, a solution is use the <code>calc()</code> function to reduce the width by exactly that much.</p>
+
+<h2 id="adjusting-the-box-model">adjusting the box model</h2>
+
+<p>By setting <code>box-sizing: border-box</code>, the box model is adjusted.
+<img src="http://yangchao.me/media/15203298663972.jpg" alt="" /></p>
+
+<h3 id="universal-fix-for-border-box-sizing">universal fix for border-box sizing</h3>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="o">*,</span> <span class="p">::</span><span class="nd">before</span><span class="o">,</span> <span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
+<p>More robust fix when using 3rd-party libraries.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"> <span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="o">*,</span>
+ <span class="p">::</span><span class="nd">before</span><span class="o">,</span>
+ <span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">inherit</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
+<h2 id="adding-a-gutter-between-columns">adding a gutter between columns</h2>
+
+<p>A easy way is to add a percentage margin. But the gutter&rsquo;s width is based on the outer container&rsquo;s width. An em-based gutter is preferred: use <code>calc()</code> function.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">sidebar</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">30</span><span class="kt">%</span> <span class="o">-</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">);</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="difficulties-with-element-height">difficulties with element height</h1>
+
+<p>Typically, it is best to avoid setting explicit height, because normal document flow is designed to work with a constrained width and an unlimited height. Contents fill the width of the viewport and then line wrap as necessary. Because of this, the height of a container is organically determined by its contents, not by the container itself.</p>
 
 <blockquote>
-<p>MySQL innodb engine support ACID appliance. (The following will be always applied to innodb)
-Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE</p>
+<p><code>height</code> property don&rsquo;t support percentage value. Never <del><code>height: 100%</code></del>.</p>
 </blockquote>
 
-<p>Innodb&rsquo;s Isolation level is slightly different from the standard SQL Isolation level definition:
-<table style="height: 122px;" border="1" width="715">
-<tbody>
-<tr>
-<td></td>
-<td>Read Uncommitted</td>
-<td>Read Committed</td>
-<td>Repeatable Read</td>
-<td>Serializable</td>
-</tr>
-<tr>
-<td>dirty reads</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-</tr>
-<tr>
-<td>unrepeatable reads</td>
-<td>yes</td>
-<td>yes</td>
-<td><span style="background-color: #ff00ff;"><strong>no</strong></span></td>
-<td>no</td>
-</tr>
-<tr>
-<td>phantom reads</td>
-<td>yes</td>
-<td>yes</td>
-<td><span style="background-color: #ff00ff;"><strong>no</strong></span></td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-MySQL suggests to use Read Uncommitted and Serializable rarely.</p>
+<p>When you explicitly set an element height, you run the risk of its contents <em>overflowing</em> the container.</p>
 
-<p>Repeatable Read is the default Isolation Level, which can ensure repeatable reads and no phantom reads.</p>
-
-<h4 id="index-structure">Index structure</h4>
-
-<p>InnoDB has two types of index: clustered index, secondary indexes</p>
-
-<p>Clustered index is synonymous with the <a href="http://dev.mysql.com/doc/refman/5.7/en/glossary.html#glos_primary_key" title="primary key">primary key</a>, which means the record is stored in the leaf node of the index B+ Tree.</p>
-
-<p>The key of leaf is the primary key. Even if you haven&rsquo;t specified any primary key, innodb will generate a hidden one for you.</p>
-
-<p>Secondary indexes are the ones other than the primary index. It doesn&rsquo;t store the record data, but has a pointer to the primary index.</p>
-
-<p><img src="http://yangchao.me/media/primary_index.png" alt="primary_index" /></p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="nf">article</span> <span class="o">(</span>
-  <span class="n">id</span> <span class="n">INT</span> <span class="n">UNSIGNED</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="o">,</span>
-  <span class="n">userid</span> <span class="nf">VARCHAR</span><span class="o">(</span><span class="n">20</span><span class="o">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="o">,</span>
-  <span class="n">blogid</span> <span class="nf">CHAR</span><span class="o">(</span><span class="n">4</span><span class="o">),</span>
-  <span class="n">pubtime</span> <span class="n">TIMESTAMP</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="o">,</span>
-  <span class="n">comment</span> <span class="nf">VARCHAR</span><span class="o">(</span><span class="n">1024</span><span class="o">),</span>
-  <span class="n">PRIMARY</span> <span class="nf">KEY</span><span class="o">(</span><span class="n">id</span><span class="o">),</span>
-  <span class="n">KEY</span> <span class="nf">when_who</span> <span class="o">(</span><span class="n">pubtime</span><span class="o">,</span> <span class="n">userid</span><span class="o">)</span>
-<span class="o">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">DEFAULT</span> <span class="n">CHARSET</span> <span class="n">latin1</span><span class="o">;</span></code></pre></div>
-<p><img src="http://yangchao.me/media/mysql_index.png" alt="mysql_index" /></p>
-
-<h4 id="locking">Locking</h4>
-
-<p>MySQL support multiple granularity locking .</p>
-
-<h5 id="lock-modes">Lock modes</h5>
-
-<p>&nbsp;</p>
+<p><strong><code>overflow</code>, <code>overflow-x</code>, <code>overflow-y</code></strong></p>
 
 <ul>
-<li>row-level:  <code>S</code> lock and <code>X</code> lock (<code>S</code> - shared/read,  <code>X</code> - exclusive/write)</li>
-<li>table-level: <code>IS</code> lock and <code>IX</code> lock (<code>IS</code> - intention shared/read, <code>IX</code> - intention exclusive/write)
-<div class="informaltable">
-<table style="height: 159px;" border="1" summary=" Compatibility matrix showing which combinations of&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-      lock types X, IX, S, and IS are allowed. Each cell in the&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-      matrix is marked as either &quot;Compatible&quot; or &quot;Conflict&quot;.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-" width="464"><colgroup> <col /> <col /> <col /> <col /> <col /></colgroup>
-<thead>
-<tr>
-<th scope="col"></th>
-<th scope="col"><em><code>X</code></em></th>
-<th scope="col"><em><code>IX</code></em></th>
-<th scope="col"><em><code>S</code></em></th>
-<th scope="col"><em><code>IS</code></em></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td scope="row"><em><code>X</code></em></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-</tr>
-<tr>
-<td scope="row"><em><code>IX</code></em></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-</tr>
-<tr>
-<td scope="row"><em><code>S</code></em></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-</tr>
-<tr>
-<td scope="row"><em><code>IS</code></em></td>
-<td><span style="background-color: #ff0000;">Conflict</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-<td><span style="background-color: #00ff00;">Compatible</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax"><code>SELECT ... LOCK IN SHARE MODE</code></a> sets an _<code>IS</code>_  lock and <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax"><code>SELECT ... FOR UPDATE</code></a> sets an _<code>IX </code>_lock.</li>
+<li><code>visible</code></li>
+<li><code>hidden</code></li>
+<li><code>scroll</code></li>
+<li><code>auto</code>
+<img src="http://yangchao.me/media/15203310046218.jpg" alt="" /></li>
 </ul>
 
-<p>A lock is granted to a requesting transaction if it is compatible with existing locks, but not if it conflicts with existing locks. A transaction waits until the conflicting existing lock is released.</p>
+<h2 id="alternatives-to-percentage-based-heights">alternatives to percentage-based heights</h2>
 
-<p>Intention locks do not block anything except full table requests (for example, <code>LOCK TABLES ... WRITE</code>)</p>
+<p>Specifying height using a percentage is problematic. For percentage-based&rdquo; heights to work, the parent must have an explicitly defined height.</p>
 
-<h5 id="lock-types">Lock types</h5>
+<p><strong>Columns of equal height</strong></p>
 
-<ul>
-<li>Record lock: This is a lock on an index record.</li>
-<li>Gap lock: This is a lock on a gap between index records, or a lock on the gap before the first or after the last index record.</li>
-<li>Next-key lock: This is a combination of a record lock on the index record and a gap lock on the gap before the index record. A next-key lock is an index-record lock plus a gap lock on the gap preceding the index record.
-InnoDB uses clustered index and the row data are always in the leaf of the index B+ Tree. Thus, the row-level locks are actually index-record locks</li>
-</ul>
-
-<h4 id="nonlocking-consistent-nonlocking-reads">Nonlocking - Consistent Nonlocking reads</h4>
-
-<p>Consistent read is the default mode in which <code>InnoDB</code> processes <a href="http://dev.mysql.com/doc/refman/5.1/en/select.html" title="13.2.8 SELECT Syntax"><code>SELECT</code></a> statements in <a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_read-committed"><code>READ COMMITTED</code></a> and<a href="http://dev.mysql.com/doc/refman/5.1/en/set-transaction.html#isolevel_repeatable-read"><code>REPEATABLE READ</code></a> isolation levels.</p>
-
-<p>In <code>REPEATABLE READ</code>,  all consistent reads within the same transaction read the snapshot established by <strong>the first such read</strong> in that transaction.</p>
-
-<p>In <code>READ COMMITTED</code>, each consistent read within a transaction sets and reads its own fresh snapshot. (snapshot update at every read statement)</p>
-
-<p>MVCC is used to naturally implement REPEATABLE READ.</p>
-
-<h4 id="locking-in-different-isolation-level">Locking in different Isolation Level</h4>
-
-<table style="height: 594px;" border="1" width="1125">
-<tbody>
-<tr>
-<td colspan="2"></td>
-<td>Read Uncommitted(RU)</td>
-<td>Read Committed(RC)</td>
-<td>Repeatable Read(RR)</td>
-<td>Serializable</td>
-</tr>
-<tr>
-<td>consistent reads</td>
-<td>[`SELECT ... FROM`](http://dev.mysql.com/doc/refman/5.6/en/select.html "13.2.9 SELECT Syntax")</td>
-<td>no lockearlier version might be used(dirty read)</td>
-<td>no lockeach consistent read reads its own fresh snapshot</td>
-<td>no lockall consistent reads read the snapshot established by the first read</td>
-<td>implicitly converts [`SELECT`](http://dev.mysql.com/doc/refman/5.6/en/select.html "13.2.9 SELECT Syntax") statements to [`SELECT ... LOCK IN SHARE MODE`](http://dev.mysql.com/doc/refman/5.6/en/select.html "13.2.9 SELECT Syntax")</td>
-</tr>
-<tr>
-<td rowspan="4">locking reads</td>
-<td>[`SELECT ... FROM ... LOCK IN SHARE MODE`](http://dev.mysql.com/doc/refman/5.6/en/select.html "13.2.9 SELECT Syntax")</td>
-<td rowspan="4"> like RC</td>
-<td rowspan="4">locks only index records, no gap locks except for foreign-key constraint checking and duplicate-key checking</td>
-<td rowspan="4">unique index: locks only the index record foundother search condition: locks the index range scanned, using [gap locks](http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_gap_lock "gap lock") or [next-key locks](http://dev.mysql.com/doc/refman/5.6/en/glossary.html#glos_next_key_lock "next-key lock")</td>
-<td rowspan="4">like RR</td>
-</tr>
-<tr>
-<td>[`SELECT ... FROM ... FOR UPDATE`](http://dev.mysql.com/doc/refman/5.6/en/select.html "13.2.9 SELECT Syntax")</td>
-</tr>
-<tr>
-<td>[`UPDATE ... WHERE ...`](http://dev.mysql.com/doc/refman/5.6/en/update.html "13.2.11 UPDATE Syntax")</td>
-</tr>
-<tr>
-<td>[`DELETE FROM ... WHERE ...`](http://dev.mysql.com/doc/refman/5.6/en/delete.html "13.2.2 DELETE Syntax")</td>
-</tr>
-<tr>
-<td></td>
-<td>[`INSERT`](http://dev.mysql.com/doc/refman/5.6/en/insert.html "13.2.5 INSERT Syntax")</td>
-<td colspan="4">index-record exclusive lock, not a next-key lockif a duplicate-key error occurs, a shared lock on the duplicate index record is set.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
+<p><code>display: table</code> rescues this difficulty.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="p">.</span><span class="nc">main</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">70</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="p">.</span><span class="nc">sidebar</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">30</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
     </div>
     <footer class="post-footer">
      
  
 <div class="post-tags">     
      
-    <a href="http://yangchao.me/tags/innodb" rel="tag" title="InnoDB">#InnoDB#</a>
+    <a href="http://yangchao.me/tags/css" rel="tag" title="CSS">#CSS#</a>
     
-    <a href="http://yangchao.me/tags/mysql" rel="tag" title="MySQL">#MySQL#</a>
+    <a href="http://yangchao.me/tags/notes" rel="tag" title="Notes">#Notes#</a>
     
 </div>
 
@@ -395,17 +285,13 @@ InnoDB uses clustered index and the row data are always in the leaf of the index
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="http://yangchao.me/post/jvm-dump-lab/" rel="next" title="JVM dump lab">
-        <i class="fa fa-chevron-left"></i> JVM dump lab
+        <a href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" rel="next" title="CSS in Depth - Cascade, specificity and inheritance">
+        <i class="fa fa-chevron-left"></i> CSS in Depth - Cascade, specificity and inheritance
         </a>
     
     </div>
 
     <div class="post-nav-prev post-nav-item">
-    
-        <a href="http://yangchao.me/post/java-collections-framework/" rel="prev" title="Java Collections Framework">
-        Java Collections Framework <i class="fa fa-chevron-right"></i>
-        </a>
     
     </div>
 </div>
@@ -418,7 +304,7 @@ InnoDB uses clustered index and the row data are always in the leaf of the index
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：MySQL InnoDB Locking and Isolation Level
+            标题：CSS in Depth - Master the box model
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -525,23 +411,18 @@ InnoDB uses clustered index and the row data are always in the leaf of the index
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#default-box-model">default box model</a></li>
+<li><a href="#difficulties-with-element-width">difficulties with element width</a>
 <ul>
-<li>
+<li><a href="#adjusting-the-box-model">adjusting the box model</a>
 <ul>
-<li><a href="#basic-knowledge">Basic knowledge</a>
-<ul>
-<li><a href="#isolation-level">Isolation Level</a></li>
-<li><a href="#index-structure">Index structure</a></li>
-<li><a href="#locking">Locking</a>
-<ul>
-<li><a href="#lock-modes">Lock modes</a></li>
-<li><a href="#lock-types">Lock types</a></li>
+<li><a href="#universal-fix-for-border-box-sizing">universal fix for border-box sizing</a></li>
 </ul></li>
-<li><a href="#nonlocking-consistent-nonlocking-reads">Nonlocking - Consistent Nonlocking reads</a></li>
-<li><a href="#locking-in-different-isolation-level">Locking in different Isolation Level</a></li>
+<li><a href="#adding-a-gutter-between-columns">adding a gutter between columns</a></li>
 </ul></li>
-</ul></li>
+<li><a href="#difficulties-with-element-height">difficulties with element height</a>
+<ul>
+<li><a href="#alternatives-to-percentage-based-heights">alternatives to percentage-based heights</a></li>
 </ul></li>
 </ul>
 </nav></div>

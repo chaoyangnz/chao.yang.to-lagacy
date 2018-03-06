@@ -6,10 +6,23 @@
     <description>Recent content in Css on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Mar 2018 16:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Mar 2018 22:41:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS in Depth - Master the box model</title>
+      <link>http://yangchao.me/post/css-in-depth-master-the-box-model/</link>
+      <pubDate>Tue, 06 Mar 2018 22:41:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/css-in-depth-master-the-box-model/</guid>
+      <description>default box model It includes 3 boxes:
+ content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
+difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
+To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
+adjusting the box model By setting box-sizing: border-box, the box model is adjusted.</description>
+    </item>
     
     <item>
       <title>CSS in Depth - Cascade, specificity and inheritance</title>
