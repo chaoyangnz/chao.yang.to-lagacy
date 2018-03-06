@@ -6,10 +6,21 @@
     <description>Recent content on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Mar 2018 16:15:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on &lt;CSS in Depth&gt; - Cascade, specificity and inheritance</title>
+      <link>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</link>
+      <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</guid>
+      <description>Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
+body { color: black; font-family: Helvetcia; }  cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
+When declarations conflict, the cascade considers three things to resolve the difference:</description>
+    </item>
     
     <item>
       <title>Javascript testing frameworks</title>
@@ -1863,17 +1874,6 @@ To implement the Java Virtual Machine correctly, you need only be able to read t
       <guid>http://yangchao.me/about/</guid>
       <description>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; writing; studying history; and getting jealous of people who can sing, dance, or paint.
 I have learned a lot since I&amp;rsquo;ve started blogging, so I might contradict views I&amp;rsquo;ve previously expressed. I always reserve the right to change my mind, so don&amp;rsquo;t be surprised if I do.</description>
-    </item>
-    
-    <item>
-      <title>Notes on &lt;CSS in Depth&gt; - Cascade, specificity and inheritance</title>
-      <link>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</guid>
-      <description>Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
-body { color: black; font-family: Helvetcia; }  cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
-When declarations conflict, the cascade considers three things to resolve the difference:</description>
     </item>
     
   </channel>

@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Mar 2018 16:15:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on &lt;CSS in Depth&gt; - Cascade, specificity and inheritance</title>
+      <link>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</link>
+      <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</guid>
+      <description>Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
+body { color: black; font-family: Helvetcia; }  cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
+When declarations conflict, the cascade considers three things to resolve the difference:</description>
+    </item>
     
     <item>
       <title>Javascript testing frameworks</title>
@@ -1448,17 +1459,6 @@ There are two types of access control, one for classes and the other for members
       
       <guid>http://yangchao.me/post/java-object-initialization-order/</guid>
       <description>See the following program, and you guess the running result: public class Dog { public static Dog dog = new Dog(); static final int val1 = -5; static int val2 = 3; public int val3; public Dog() { val3 = val1 + val2; } public static void main(String[] args) { System.out.println(Dog.dog.val3); } } Now, I tell you the result is -5. But why? To clarify this confusing initialization order, you</description>
-    </item>
-    
-    <item>
-      <title>Notes on &lt;CSS in Depth&gt; - Cascade, specificity and inheritance</title>
-      <link>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</guid>
-      <description>Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
-body { color: black; font-family: Helvetcia; }  cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
-When declarations conflict, the cascade considers three things to resolve the difference:</description>
     </item>
     
   </channel>

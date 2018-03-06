@@ -120,6 +120,66 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/" itemprop="url">
+        what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-23">
+    2015-04-23
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/q/a" itemprop="url" rel="index">
+        <span itemprop="name">Q/A</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">158 words ~1min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    //primitive System.out.println(int.class.getName()); System.out.println(int.class.getCanonicalName()); System.out.println(int.class.getSimpleName()); System.out.println(); //class System.out.println(String.class.getName()); System.out.println(String.class.getCanonicalName()); System.out.println(String.class.getSimpleName()); System.out.println(); //inner class System.out.println(HashMap.SimpleEntry.class.getName()); System.out.println(HashMap.SimpleEntry.class.getCanonicalName()); System.out.println(HashMap.SimpleEntry.class.getSimpleName()); System.out.println(); //anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam());  &nbsp;
+Prints: &gt; int &gt; &gt; int &gt; &gt; int &gt; &gt; &gt; java.lang.String &gt; &gt; java.lang.String &gt; &gt; String &gt; &gt; &gt; java.util.AbstractMap$SimpleEntry &gt; &gt; java.util.AbstractMap.SimpleEntry &gt; &gt; SimpleEntry &gt; &gt; &gt; ClassnameTest$1 &gt; &gt; null There&rsquo;s an empty line in the last block where getSimpleName returns an empty string.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/" itemprop="url">
         What&#39;s the difference between getPath(), getAbsolutePath(), and getCanonicalPath()?
         </a>
@@ -1258,65 +1318,6 @@ inner join Inner join produces only the set of records that match in both Table 
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/a-glimpse-of-jms/" itemprop="url">
-        A glimpse of JMS
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-01">
-    2015-04-01
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/jms" itemprop="url" rel="index">
-        <span itemprop="name">JMS</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">681 words ~4min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    what messaging provides?  loosely decoupled A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/a-glimpse-of-jms/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1472,7 +1473,7 @@ inner join Inner join produces only the set of records that match in both Table 
         <div class="copyright" >
   <span itemprop="copyrightYear">  &copy; 
   
-  0001
+  2013
    - 2018</span>
   <span class="with-love"><i class="fa fa-heart"></i></span>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
