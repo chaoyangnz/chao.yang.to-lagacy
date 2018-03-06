@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>&lt;CSS in Depth&gt; - Cascade, specificity and inheritance - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="&lt;CSS in Depth&gt; - Cascade, specificity and inheritance">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="&lt;CSS in Depth&gt; - Cascade, specificity and inheritance - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/richdyang" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+    </ul>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" itemprop="url">
+        &lt;CSS in Depth&gt; - Cascade, specificity and inheritance
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
+    2018-03-06
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
+        <span itemprop="name">CSS</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">591 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="cascade-specificity-and-inheritance">Cascade, specificity and inheritance</h1>
+
+<p><strong>terminology</strong>
+A <em>declaration</em> includes a property and a value: <code>color: black;</code>
+A ruleset includes a <em>selector</em> and a <code>declaration block</code> which contains a group of <code>declarations</code>.</p>
+
+<pre><code class="language-css">body {
+  color: black;
+  font-family: Helvetcia;
+}
+</code></pre>
+
+<h2 id="cascade">cascade</h2>
+
+<p>The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.</p>
+
+<p>When declarations conflict, the cascade considers three things to resolve the difference:</p>
+
+<ul>
+<li>Stylesheet origin—Where the styles come from. Your styles are applied in conjunction with the browser’s default styles.</li>
+<li>Selector specificity—Which selectors take precedence over which.</li>
+<li>Source order — Order in which styles are declared in the stylesheet.</li>
+</ul>
+
+<p><img src="http://yangchao.me/media/15203022143644.jpg" alt="" /></p>
+
+<h3 id="origin">origin</h3>
+
+<p>There are different types, or origins, of stylesheets. Yours are called author styles; there are also user agent styles, which are the browser’s default styles. Your styles will always override the user agent styles because the origins are different.</p>
+
+<blockquote>
+<p><code>!important</code> is used to raise a declaration to a higher-priority origin.</p>
+</blockquote>
+
+<h3 id="specificity">specificity</h3>
+
+<p><strong>inline style</strong>
+Inline styles have no selector because they are applied directly to the element they target.
+Inline declarations will override any declarations applied from your stylesheet or a <code>&lt;style&gt;</code> tag.
+To override inline declarations in your stylesheet, you’ll need to add an <code>!important</code> to the declaration, shifting it into a higher-priority origin.</p>
+
+<p><strong>selector specificity</strong>
+The exact rules of selector specificity are:</p>
+
+<ul>
+<li>If a selector has more IDs, it wins (that is, it’s more specific).</li>
+<li>If that results in a tie, the selector with the most classes wins.</li>
+<li>If that results in a tie, the selector with the most tag names wins.</li>
+</ul>
+
+<blockquote>
+<p>Pseudo-class selectors (e.g, <code>:hover</code>) and attribute selectors (e.g, <code>[type=&quot;input&quot;]</code>) each have the same specificity as a class selector. The universal selector (<code>*</code>) and combinators (<code>&gt;</code>, <code>+</code>, <code>~</code>) have no effect on specificity.</p>
+</blockquote>
+
+<p><em>Pitfalls</em>: Many times developers write selectors using IDs, without realizing this creates a higher specificity, one that is hard to override later. If you need to override a style applied using an ID, you have to use another ID.</p>
+
+<h3 id="source-order">source order</h3>
+
+<p>If the origin and the specificity are the same, then the declaration that appears later in the stylesheet — or appears in a stylesheet included later on the page — takes precedence.</p>
+
+<h2 id="inheritance">inheritance</h2>
+
+<p>If an element has no cascaded value for a given property, it may inherit one from an ancestor element.</p>
+
+<p>Not all properties are inherited, however.</p>
+
+<p>Primarily properties pertaining to text:</p>
+
+<ul>
+<li><code>color</code></li>
+<li><code>font</code>, <code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>font-variant</code>, <code>font-style</code></li>
+<li><code>line-height</code>, <code>letter-spacing</code></li>
+<li><code>text-align</code>, <code>text-indent</code>, <code>text-transform</code></li>
+<li><code>white-space</code>, <code>word-spacing</code></li>
+</ul>
+
+<p>List properties:</p>
+
+<ul>
+<li><code>list-style</code>, <code>list-style-type</code>, <code>list-style-position</code>, <code>list-style-image</code></li>
+</ul>
+
+<p>Table border properties:</p>
+
+<ul>
+<li><code>border-collapse</code>, <code>border-spacing</code></li>
+</ul>
+
+<h2 id="special-values">special values</h2>
+
+<p>Two special values which can be applied to any property: <code>inherit</code> and <code>initial</code>.</p>
+
+<h3 id="inherit"><code>inherit</code></h3>
+
+<ul>
+<li>use inheritance to take place when a cascaded value is preventing it.</li>
+<li>force inheritance of a property not normally inherited, such as border or padding.</li>
+</ul>
+
+<h3 id="initial"><code>initial</code></h3>
+
+<ul>
+<li>reset a property to its default value to undo styles</li>
+</ul>
+
+<blockquote>
+<p><code>initial</code> vs. <code>auto</code>: Sometimes, you can use the value <code>auto</code> do the same thing with <code>initial</code>, that&rsquo;s because some properties&rsquo; default value is <code>auto</code>. But <code>auto</code> isn&rsquo;t the default value for all properties.</p>
+
+<p><code>display: initial</code> always reset to <code>display: inline</code> regardless of what type of element. Because <code>initial</code> only resets the default value of property, <strong>NOT</strong> the element.</p>
+</blockquote>
+
+<h2 id="shorthand-properties">shorthand properties</h2>
+
+<p>Most shorthand properties let you omit certain values and only specify the bits you’re concerned with. It’s important to know, however, that doing this still sets the omitted values; they’ll be set implicitly to their <strong>initial</strong> value.</p>
+
+<p><strong>order of shorthand values</strong></p>
+
+<ul>
+<li>top, right, bottom, left: <code>margin</code>, <code>padding</code></li>
+<li>horizontal, vertical: <code>background-position</code>, <code>box-shadow</code>, <code>text-shadow</code></li>
+</ul>
+
+    </div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/css" rel="tag" title="CSS">#CSS#</a>
+    
+    <a href="http://yangchao.me/tags/notes" rel="tag" title="Notes">#Notes#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/javascript-testing-frameworks/" rel="next" title="Javascript testing frameworks">
+        <i class="fa fa-chevron-left"></i> Javascript testing frameworks
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">136</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">       
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">Categories</span>
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#cascade-specificity-and-inheritance">Cascade, specificity and inheritance</a>
+<ul>
+<li><a href="#cascade">cascade</a>
+<ul>
+<li><a href="#origin">origin</a></li>
+<li><a href="#specificity">specificity</a></li>
+<li><a href="#source-order">source order</a></li>
+</ul></li>
+<li><a href="#inheritance">inheritance</a></li>
+<li><a href="#special-values">special values</a>
+<ul>
+<li><a href="#inherit"><code>inherit</code></a></li>
+<li><a href="#initial"><code>initial</code></a></li>
+</ul></li>
+<li><a href="#shorthand-properties">shorthand properties</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+   - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+</body>
+</html>

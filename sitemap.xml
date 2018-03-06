@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://yangchao.me/post/nodes-on-css-in-depth-cascade-specificity-and-inheritance/</loc>
+    <loc>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</loc>
     <lastmod>2018-03-06T16:15:00+00:00</lastmod>
   </url>
   
@@ -1124,6 +1124,12 @@
   <url>
     <loc>http://yangchao.me/tags/mysql/</loc>
     <lastmod>2015-06-10T16:59:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangchao.me/tags/notes/</loc>
+    <lastmod>2018-03-06T16:15:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
