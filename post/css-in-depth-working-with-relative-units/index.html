@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title> - Chao Yang</title>
+    <title>CSS in Depth - Working with relative units - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="">
+    <meta property="og:title" content="CSS in Depth - Working with relative units">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content=" - Chao Yang" />
+    <meta name="title" content="CSS in Depth - Working with relative units - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/book/a-close-look-at-java/concurrency/theadpool/" itemprop="url">
-        
+        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-working-with-relative-units/" itemprop="url">
+        CSS in Depth - Working with relative units
         </a>
       </h1>
       <div class="post-meta">
@@ -139,60 +139,118 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
+    2018-03-06
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
+        <span itemprop="name">CSS</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">16 words ~1min</span>
+<span class="leancloud-visitors-count">172 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     
 
-<h1 id="java-executor-framework">Java Executor Framework</h1>
-
-<p>Interfaces:</p>
+<h1 id="absolute-units">absolute units</h1>
 
 <ul>
-<li><code>Executor</code></li>
-<li><code>ExecutorService</code></li>
-<li><code>ScheduledExecutorService</code></li>
+<li>pixel: <code>px</code></li>
+<li>point: <code>pt</code>, <code>pc</code></li>
+<li>others: <code>mm</code>, <code>cm</code>, <code>inch</code></li>
 </ul>
 
-<p>Implementations:
-* <code>ThreadPoolExecutor</code>
-* <code>ScheduledThreadPoolExecutor</code></p>
+<h1 id="ems-and-rems">Ems and rems</h1>
 
-<p>Factory:
-* <code>Executors</code></p>
+<h2 id="em">em</h2>
 
-<h1 id="threadpoolexecutor"><code>ThreadPoolExecutor</code></h1>
+<p><code>em</code> is ideal for <code>padding</code>, <code>margin</code>, <code>border-radius</code></p>
+
+<p>If using <code>em</code> for <code>font-size</code>, there is a bit tricky, because <code>em</code> in <code>font-size</code> is computed based on <code>inherited</code> font size, which can cause <em>the shrinking font problem</em>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">ul</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mf">.8</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p><img src="http://yangchao.me/media/15206441532184.jpg" alt="" /></p>
+
+<h2 id="rem">rem</h2>
+
+<blockquote>
+<p>Pseudo-class selector <code>:root</code> is equivalent to using the type selector <code>html</code>. The <code>&lt;html&gt;</code> element is the top-level (or root) node of DOM.</p>
+</blockquote>
+
+<p><code>rem</code> is short for root <code>em</code>. <code>rem</code> is well suited for font sizes: <code>font-size</code>.</p>
+
+<h2 id="viewport-relative-units">viewport-relative units</h2>
+
+<blockquote>
+<p><em>viewport</em> — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.</p>
+</blockquote>
+
+<ul>
+<li><code>vh</code>: 1/100th of the viewport height</li>
+<li><code>vw</code>: 1/100th of the viewport width</li>
+<li><code>vmin</code>: 1/100th of the smaller dimension, height or width</li>
+<li><code>vmax</code>: 1/100th of the larger dimension, height or width</li>
+</ul>
+
+<p><code>vh</code> is well suited to specify element heights or widths.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mf">.5</span><span class="kt">em</span> <span class="o">+</span> <span class="mi">1</span><span class="kt">vw</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="custom-properties">custom properties</h1>
+
+<p>// TODO</p>
 
     </div>
     <footer class="post-footer">
      
+ 
+<div class="post-tags">     
+     
+    <a href="http://yangchao.me/tags/css" rel="tag" title="CSS">#CSS#</a>
+    
+    <a href="http://yangchao.me/tags/notes" rel="tag" title="Notes">#Notes#</a>
+    
+</div>
+
+
 
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="http://yangchao.me/book/a-close-look-at-java/concurrency/threadlocal/" rel="next" title="">
-        <i class="fa fa-chevron-left"></i> 
+        <a href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" rel="next" title="CSS in Depth - Cascade, specificity and inheritance">
+        <i class="fa fa-chevron-left"></i> CSS in Depth - Cascade, specificity and inheritance
         </a>
     
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/book/a-close-look-at-java/collections/priorityqueue/" rel="prev" title="">
-         <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/css-in-depth-master-the-box-model/" rel="prev" title="CSS in Depth - Master the box model">
+        CSS in Depth - Master the box model <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -206,7 +264,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：
+            标题：CSS in Depth - Working with relative units
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -238,7 +296,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -300,6 +367,23 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#absolute-units">absolute units</a></li>
+<li><a href="#ems-and-rems">Ems and rems</a>
+<ul>
+<li><a href="#em">em</a></li>
+<li><a href="#rem">rem</a></li>
+<li><a href="#viewport-relative-units">viewport-relative units</a></li>
+</ul></li>
+<li><a href="#custom-properties">custom properties</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

@@ -25,6 +25,17 @@ adjusting the box model By setting box-sizing: border-box, the box model is adju
     </item>
     
     <item>
+      <title>CSS in Depth - Working with relative units</title>
+      <link>http://yangchao.me/post/css-in-depth-working-with-relative-units/</link>
+      <pubDate>Tue, 06 Mar 2018 22:41:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/css-in-depth-working-with-relative-units/</guid>
+      <description>absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
+If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
+ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html.</description>
+    </item>
+    
+    <item>
       <title>CSS in Depth - Cascade, specificity and inheritance</title>
       <link>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>

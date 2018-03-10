@@ -132,6 +132,68 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/subquery-vs-join/" itemprop="url">
+        subquery vs. join
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-02">
+    2015-04-02
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/sql" itemprop="url" rel="index">
+        <span itemprop="name">SQL</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">322 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    what is subquery SubQuery in SQL is a query inside another query
+SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;) In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
+non-correlated subquery In non correlated subquery, inner query doesn&rsquo;t depend on outer query and can run as stand alone query.
+NonCorrelated subquery are used along-with =, IN and NOT IN clause.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/subquery-vs-join/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/inner-join-and-outer-join/" itemprop="url">
         inner join and outer join
         </a>
@@ -1270,69 +1332,6 @@ What is equals and hashCode contract?  The interface contract for Object require
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/character-encoding-and-charset-in-java/" itemprop="url">
-        Character encoding and charset in Java
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-16">
-    2015-03-16
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
-        <span itemprop="name">Basics</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1648 words ~8min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Concepts At the beginning, we need to distinguish some key concepts.
-character Character (aka. abstract character) is a textual representation of character.
-glyph glyph is the particular images representing a character or part of a character. Glyphs for the same character may have very different shapes
-abstract character repertoire (ACR) A character repertoire is the full set of unordered abstract characters that a system supports.
-coded character set (CCS) A coded character set (CCS) specifies how to represent a repertoire of characters using a number of (typically non-negative) integer values called code points.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/character-encoding-and-charset-in-java/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1425,7 +1424,7 @@ coded character set (CCS) A coded character set (CCS) specifies how to represent
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">137</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
