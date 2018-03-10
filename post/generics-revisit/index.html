@@ -228,7 +228,7 @@ In Java, array subtyping is <strong><em>covariant</em></strong>, meaning that ty
 <li>Wildcards reintroduce <strong>covariant</strong> subtyping for generics, in that type List&lt;S&gt; _is _considered to be a subtype of List&lt;? extends T&gt; when S is a subtype of T.</li>
 <li>Wildcards also introduce _<strong>contravariant</strong> _subtyping for generics, in that type List&lt;S&gt; is considered to be a _subtype _of List&lt;? super T&gt; when S is a _supertype _of T.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Integer</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;;</span></code></pre></div>
 <p>The question mark is called a <em>wildcard</em>, since it stands for some type that is a subtype of E.</p>
 
 <p>&nbsp;</p>
@@ -248,7 +248,7 @@ In Java, array subtyping is <strong><em>covariant</em></strong>, meaning that ty
 I think this has a little flaw. Actually, get and put is just a too vague expression. For instance, the remove() method of List interface is get or set?</p>
 
 <p>So more general means is by using reasoning.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericClass</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">T</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="o">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenericClass</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
 
     <span class="kd">public</span> <span class="n">T</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
@@ -258,12 +258,12 @@ I think this has a little flaw. Actually, get and put is just a too vague expre
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
 
-        <span class="n">GenericClass</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span> <span class="kd">extends</span> <span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">g1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericClass</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;();</span>
+        <span class="n">GenericClass</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Fruit</span><span class="o">&gt;</span> <span class="n">g1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericClass</span><span class="o">&lt;</span><span class="n">Fruit</span><span class="o">&gt;();</span>
         <span class="n">Fruit</span> <span class="n">fruit</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span>
         <span class="n">Plant</span> <span class="n">plant</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span>
         <span class="n">Creature</span> <span class="n">creature</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="na">foo</span><span class="o">();</span>
 
-        <span class="n">GenericClass</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span> <span class="kd">super</span> <span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">g2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericClass</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;();</span>
+        <span class="n">GenericClass</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">Fruit</span><span class="o">&gt;</span> <span class="n">g2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericClass</span><span class="o">&lt;</span><span class="n">Fruit</span><span class="o">&gt;();</span>
         <span class="n">g2</span><span class="o">.</span><span class="na">bar</span><span class="o">(</span><span class="k">new</span> <span class="n">Fruit</span><span class="o">());</span>
         <span class="n">g2</span><span class="o">.</span><span class="na">bar</span><span class="o">(</span><span class="k">new</span> <span class="n">Apple</span><span class="o">());</span>
         <span class="n">g2</span><span class="o">.</span><span class="na">bar</span><span class="o">(</span><span class="k">new</span> <span class="n">RoyalGala</span><span class="o">());</span>
@@ -281,14 +281,14 @@ I think this has a little flaw. Actually, get and put is just a too vague expre
 <li>&lt;? extend Fruit&gt; means it is some fruit sub type, maybe Fruit, Apple or RoyalGala.</li>
 <li>&lt;? super Fruit&gt; means it is some fruit super type, maybe Fruit, Plant or Creature.</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span> <span class="kd">extends</span> <span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">a</span> <span class="o">=</span> <span class="o">...;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Fruit</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="o">...;</span>
 <span class="n">Apple</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// wrong, if a is really a fruit? downcast failed
 </span><span class="c1"></span><span class="n">RoyalGala</span> <span class="n">aaa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// wrong, if a is really a apple? downcast failed
 </span><span class="c1"></span><span class="n">Fruit</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// ok, whatever a is fruit, apple or royal gala.
 </span><span class="c1"></span><span class="n">Plant</span> <span class="n">aaa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// ok, whatever a is fruit, apple or royal gala.
 </span><span class="c1"></span><span class="n">Creature</span> <span class="n">aaaa</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span> <span class="c1">// ok, whatever a is fruit, apple or royal gala.
 </span><span class="c1"></span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span> <span class="kd">super</span> <span class="n">Fruit</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">b</span> <span class="o">=</span> <span class="o">...;</span>
+<span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">Fruit</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="o">...;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Plant</span><span class="o">();</span> <span class="c1">// wrong, if b is really a fruit? downcast failed
 </span><span class="c1"></span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Creature</span><span class="o">();</span> <span class="c1">// wrong, if b is really a plant? downcast failed
 </span><span class="c1"></span><span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fruit</span><span class="o">();</span> <span class="c1">// ok, whatever b is fruit, plant or royal gala.
@@ -309,14 +309,14 @@ I think this has a little flaw. Actually, get and put is just a too vague expre
 <ul>
 <li>instance creation</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?&amp;</span><span class="n">gt</span><span class="o">;();</span> <span class="c1">// compile-time error
-</span><span class="c1"></span><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;();</span> <span class="o">//</span> <span class="n">compile</span><span class="o">-</span><span class="n">time</span> <span class="n">error</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;?&gt;();</span> <span class="c1">// compile-time error
+</span><span class="c1"></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="o">?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&gt;();</span> <span class="o">//</span> <span class="n">compile</span><span class="o">-</span><span class="n">time</span> <span class="n">error</span></code></pre></div>
 <p>&nbsp;</p>
 
 <ul>
 <li>generic method calls</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Lists</span><span class="o">.&amp;</span><span class="n">lt</span><span class="o">;?&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">factory</span><span class="o">();</span> <span class="o">//</span> <span class="n">compile</span><span class="o">-</span><span class="n">time</span> <span class="n">error</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Lists</span><span class="o">.&lt;?&gt;</span><span class="n">factory</span><span class="o">();</span> <span class="o">//</span> <span class="n">compile</span><span class="o">-</span><span class="n">time</span> <span class="n">error</span></code></pre></div>
 <h3 id="bounds"> bounds</h3>
 
 <p>&nbsp;</p>
@@ -502,7 +502,7 @@ I think this has a little flaw. Actually, get and put is just a too vague expre
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

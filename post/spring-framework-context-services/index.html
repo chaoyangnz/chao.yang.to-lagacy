@@ -250,16 +250,16 @@
 
         <span class="n">context</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span>
+<span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
 </span><span class="nl">       xmlns:</span><span class="n">p</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/p&#34;</span><span class="nl">
 </span><span class="nl">       xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
-</span><span class="nl">       xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+</span><span class="nl">       xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="o">&gt;</span>
 
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">bean</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;context.lifecycle.LifecycleExposureBean&#34;</span> <span class="n">init</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;initMethod&#34;</span> <span class="n">destroy</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;destroyMethod&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-              <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;injectedProperty&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;This is the value of injected property&#34;</span> <span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">bean</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">beans</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+       <span class="o">&lt;</span><span class="n">bean</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;context.lifecycle.LifecycleExposureBean&#34;</span> <span class="n">init</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;initMethod&#34;</span> <span class="n">destroy</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;destroyMethod&#34;</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;injectedProperty&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;This is the value of injected property&#34;</span> <span class="o">/&gt;</span>
+       <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">beans</span><span class="o">&gt;</span></code></pre></div>
 <blockquote>
 <p>Injection: injectedProperty = [This is the value of injected property]</p>
 
@@ -315,13 +315,13 @@
 
         <span class="n">setValue</span><span class="o">(</span><span class="n">customBean</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;customEditorConfigurer&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.beans.factory.config.CustomEditorConfigurer&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-	<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;customEditors&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-		<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">map</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-			<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">entry</span> <span class="n">key</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBean&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBeanEditor&#34;</span> <span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
-		<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">map</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-	<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">property</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">bean</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;customEditorConfigurer&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.beans.factory.config.CustomEditorConfigurer&#34;</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;customEditors&#34;</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">map</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">entry</span> <span class="n">key</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBean&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBeanEditor&#34;</span> <span class="o">/&gt;</span>
+		<span class="o">&lt;/</span><span class="n">map</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div>
 <h3 id="applicationcontext-capabilities">ApplicationContext capabilities</h3>
 
 <p>Basically, AppliationContext has more extra capabilities than BeanFactory.</p>
@@ -329,13 +329,13 @@
 <p>You can regard ApplicationContext as a <code>MessageSource</code>, an <code>ApplicationEventPublisher</code>, a <code>ResourceLoader</code>.</p>
 
 <h4 id="messagesource">MessageSource</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;messageSource&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;basenames&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">list</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-            <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">value</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">message</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">value</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">list</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">property</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">bean</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">GenericXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;classpath:spring-messagesource.xml&#34;</span><span class="o">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;messageSource&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;basenames&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">list</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="n">message</span><span class="o">&lt;/</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">list</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">GenericXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;classpath:spring-messagesource.xml&#34;</span><span class="o">);</span>
 
 <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Richard&#34;</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&#34;greeting&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="n">name</span><span class="o">},</span> <span class="n">Locale</span><span class="o">.</span><span class="na">US</span><span class="o">);</span>
@@ -371,10 +371,10 @@
 <h4 id="environment-and-propertysource-abstraction">Environment and PropertySource Abstraction</h4>
 
 <p>Environment &ndash;&gt; PropertySource</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ConfigurableEnvironment</span> <span class="n">env</span> <span class="o">=&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">ctx</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">();</span>
-<span class="n">MutablePropertySources</span> <span class="n">propertySources</span> <span class="o">=&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">env</span><span class="o">.</span><span class="na">getPropertySources</span><span class="o">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ConfigurableEnvironment</span> <span class="n">env</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">ctx</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">();</span>
+<span class="n">MutablePropertySources</span> <span class="n">propertySources</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">env</span><span class="o">.</span><span class="na">getPropertySources</span><span class="o">();</span>
 
-<span class="n">Map</span> <span class="n">appMap</span> <span class="o">=&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">nbsp</span><span class="o">;</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">Map</span> <span class="n">appMap</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
 <span class="n">appMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;application.home&#34;</span><span class="o">,</span> <span class="s">&#34;application_home&#34;</span><span class="o">);</span>
 
 <span class="n">propertySources</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">MapPropertySource</span><span class="o">(</span><span class="s">&#34;application_properties&#34;</span><span class="o">,</span> <span class="n">appMap</span><span class="o">));</span></code></pre></div>
@@ -386,21 +386,21 @@
 <li>Application-defined properties
 Most of time, we use PropertyPlaceHolder</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
 </span><span class="nl">    xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
 </span><span class="nl">    xmlns:</span><span class="n">context</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span><span class="nl">
 </span><span class="nl">    xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans
 </span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
 </span><span class="s">        http://www.springframework.org/schema/context
-</span><span class="s">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+</span><span class="s">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="o">&gt;</span>
 
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="nl">context:</span><span class="n">property</span><span class="o">-</span><span class="n">placeholder</span> <span class="n">location</span><span class="o">=</span><span class="s">&#34;classpath:application.properties&#34;</span><span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&lt;</span><span class="nl">context:</span><span class="n">property</span><span class="o">-</span><span class="n">placeholder</span> <span class="n">location</span><span class="o">=</span><span class="s">&#34;classpath:application.properties&#34;</span><span class="o">/&gt;</span>
 
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;somebean&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.apress.prospring4.ch4.AppProperty&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;applicationHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${application.home}&#34;</span><span class="o">/&amp;</span><span class="n">gt</span><span class="o">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${user.home}&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">property</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">bean</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">beans</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+    <span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;somebean&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.apress.prospring4.ch4.AppProperty&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;applicationHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${application.home}&#34;</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${user.home}&#34;</span><span class="o">&gt;&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">beans</span><span class="o">&gt;</span></code></pre></div>
 <p>You can see, once you get the properties, you can use them in configuration files using <code>{....}</code></p>
 
 <p>&nbsp;</p>
@@ -412,13 +412,13 @@ Most of time, we use PropertyPlaceHolder</li>
 <ul>
 <li>How to associated with a profile?</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
 </span><span class="nl">    xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
 </span><span class="nl">    xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans
 </span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span>
-        <span class="n">profile</span><span class="o">=</span><span class="s">&#34;devProfile&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+        <span class="n">profile</span><span class="o">=</span><span class="s">&#34;devProfile&#34;</span><span class="o">&gt;</span>
 <span class="o">...</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">bean</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div>
 <p>Those beans in the file should be instantiated only when the specified profile is <span class="FontName1">active. If its profile is not active, actually these beans will not be initialized.</span></p>
 
 <ul>
@@ -608,7 +608,7 @@ Most of time, we use PropertyPlaceHolder</li>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

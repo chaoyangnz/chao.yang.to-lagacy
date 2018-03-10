@@ -182,20 +182,20 @@
 <h3 id="syntax">Syntax</h3>
 
 <h4 id="scriptlet">scriptlet</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;This is a scriptlet&#34;</span><span class="o">);</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;This is a scriptlet&#34;</span><span class="o">);</span> <span class="o">%&gt;</span></code></pre></div>
 <p>This block is placed in the body of method _jspService(request, response)</p>
 
 <h4 id="derective">derective</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">import</span><span class="o">=</span><span class="s">&#34;java.util.*,java.xml.*&#34;</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%</span><span class="err">@</span> <span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%</span><span class="err">@</span> <span class="n">taglib</span> <span class="n">tagdir</span><span class="o">=</span><span class="s">&#34;/WEB-INF/tags/xxx&#34;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">import</span><span class="o">=</span><span class="s">&#34;java.util.*,java.xml.*&#34;</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">taglib</span> <span class="n">tagdir</span><span class="o">=</span><span class="s">&#34;/WEB-INF/tags/xxx&#34;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&gt;</span></code></pre></div>
 <h4 id="expression">expression</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%=</span> <span class="s">&#34;This is a expression argument&#34;</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%=</span> <span class="s">&#34;This is a expression argument&#34;</span> <span class="o">%&gt;</span></code></pre></div>
 <h4 id="declaration">declaration</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%!</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%!</span> <span class="kt">int</span> <span class="nf">doubleCount</span><span class="o">()</span> <span class="o">{</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">*</span><span class="n">2</span><span class="o">;</span> <span class="k">return</span> <span class="n">count</span><span class="o">;</span> <span class="o">}</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%!</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%!</span> <span class="kt">int</span> <span class="nf">doubleCount</span><span class="o">()</span> <span class="o">{</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">*</span><span class="n">2</span><span class="o">;</span> <span class="k">return</span> <span class="n">count</span><span class="o">;</span> <span class="o">}</span> <span class="o">%&gt;</span></code></pre></div>
 <p>This is equivlant with the member field and member method of the generated servlet.</p>
 
 <h4 id="comment">comment</h4>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;!--</span> <span class="n">HTML</span> <span class="n">Comments</span> <span class="o">--&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;%--</span> <span class="n">JSP</span> <span class="n">Comments</span> <span class="o">--%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span> <span class="n">HTML</span> <span class="n">Comments</span> <span class="o">--&gt;</span>
+<span class="o">&lt;%--</span> <span class="n">JSP</span> <span class="n">Comments</span> <span class="o">--%&gt;</span></code></pre></div>
 <p>The first is called <span style="text-decoration: underline;"><em>output comments</em></span>, while the second is called <em><span style="text-decoration: underline;">hidden comments</span></em>.</p>
 
 <h3 id="implicit-objects-in-scriptlets-and-expressions">implicit Objects in scriptlets and expressions</h3>
@@ -268,27 +268,27 @@
 <h3 id="about-the-configuration">about the configuration</h3>
 
 <p>1. config jsp for global in deployment descriptor</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">web</span><span class="o">-</span><span class="n">app</span> <span class="o">...&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">app</span> <span class="o">...&gt;</span>
 
 <span class="o">...</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;*.</span><span class="na">jsp</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;*.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="kc">true</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
 
 <span class="o">...</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">web</span><span class="o">-</span><span class="n">app</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">app</span><span class="o">&gt;</span></code></pre></div>
 <p>2. config jsp in the page directive</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">isELIgnored</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="n">isScriptingEnabled</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="o">....</span> <span class="o">%&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">isELIgnored</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="n">isScriptingEnabled</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="o">....</span> <span class="o">%&gt;</span></code></pre></div>
 <p>&nbsp;</p>
 
     </div>
@@ -467,7 +467,7 @@
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

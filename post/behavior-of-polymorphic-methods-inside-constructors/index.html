@@ -175,13 +175,13 @@
     <div class="post-body" itemprop="articleBody">
     <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Glyph</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Glyph</span><span class="o">.</span><span class="na">draw</span><span class="o">()&amp;</span><span class="n">quot</span><span class="o">;);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Glyph.draw()&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="n">Glyph</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Glyph</span><span class="o">()</span> <span class="n">before</span> <span class="nf">draw</span><span class="o">()&amp;</span><span class="n">quot</span><span class="o">;);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Glyph() before draw()&#34;</span><span class="o">);</span>
         <span class="n">draw</span><span class="o">();</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Glyph</span><span class="o">()</span> <span class="n">after</span> <span class="nf">draw</span><span class="o">()&amp;</span><span class="n">quot</span><span class="o">;);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Glyph() after draw()&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
@@ -190,11 +190,11 @@
 
     <span class="n">RoundGlyph</span><span class="o">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">radius</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">RoundGlyph</span><span class="o">.</span><span class="na">RoundGlyph</span><span class="o">(),</span> <span class="n">radius</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">radius</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;RoundGlyph.RoundGlyph(), radius = &#34;</span> <span class="o">+</span> <span class="n">radius</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">RoundGlyph</span><span class="o">.</span><span class="na">draw</span><span class="o">(),</span> <span class="n">radius</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">radius</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;RoundGlyph.draw(), radius = &#34;</span> <span class="o">+</span> <span class="n">radius</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -366,7 +366,7 @@
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

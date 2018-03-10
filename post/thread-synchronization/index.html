@@ -282,7 +282,7 @@ b. When another thread has acquired the monitor and invoke notify() or notifyAll
 
         <span class="n">ThreadGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadGroup</span><span class="o">(</span><span class="s">&#34;group&#34;</span><span class="o">);</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">11</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">13</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">11</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">13</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="s">&#34;D #&#34;</span> <span class="o">+</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
                 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
                     <span class="k">try</span> <span class="o">{</span>
@@ -324,14 +324,14 @@ b. When another thread has acquired the monitor and invoke notify() or notifyAll
     <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">deposit</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
         <span class="kt">int</span> <span class="n">oldBalance</span> <span class="o">=</span> <span class="n">balance</span><span class="o">;</span>
         <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span><span class="o">;</span>
-        <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d + ￥%d =&amp;gt; ￥%d&#34;</span><span class="o">,</span> <span class="n">oldBalance</span><span class="o">,</span> <span class="n">amount</span><span class="o">,</span> <span class="n">balance</span><span class="o">);</span>
+        <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d + ￥%d =&gt; ￥%d&#34;</span><span class="o">,</span> <span class="n">oldBalance</span><span class="o">,</span> <span class="n">amount</span><span class="o">,</span> <span class="n">balance</span><span class="o">);</span>
         <span class="n">notifyAll</span><span class="o">();</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">balance</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">balance</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">try</span> <span class="o">{</span>
-                <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d - ￥%d =&amp;gt; FAIL&#34;</span><span class="o">,</span> <span class="n">balance</span><span class="o">,</span> <span class="n">amount</span><span class="o">);</span>
+                <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d - ￥%d =&gt; FAIL&#34;</span><span class="o">,</span> <span class="n">balance</span><span class="o">,</span> <span class="n">amount</span><span class="o">);</span>
                 <span class="n">wait</span><span class="o">();</span>
             <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
@@ -339,7 +339,7 @@ b. When another thread has acquired the monitor and invoke notify() or notifyAll
         <span class="o">}</span>
         <span class="kt">int</span> <span class="n">oldBalance</span> <span class="o">=</span> <span class="n">balance</span><span class="o">;</span>
         <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="o">;</span>
-        <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d - ￥%d =&amp;gt; ￥%d&#34;</span><span class="o">,</span> <span class="n">oldBalance</span><span class="o">,</span> <span class="n">amount</span><span class="o">,</span> <span class="n">balance</span><span class="o">);</span>
+        <span class="n">print</span><span class="o">(</span><span class="s">&#34;Balance: ￥%d - ￥%d =&gt; ￥%d&#34;</span><span class="o">,</span> <span class="n">oldBalance</span><span class="o">,</span> <span class="n">amount</span><span class="o">,</span> <span class="n">balance</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span><span class="na">args</span><span class="o">)</span> <span class="o">{</span>
@@ -543,7 +543,7 @@ W #11: Balance: ￥24 - ￥54 =&gt; FAIL
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

@@ -233,21 +233,21 @@ The main features of member classes are:</p>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
     <span class="kd">public</span> <span class="nf">Sequence</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[</span><span class="n">size</span><span class="o">];</span> <span class="o">}</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Object</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">next</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">next</span> <span class="o">&lt;</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
             <span class="n">items</span><span class="o">[</span><span class="n">next</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
     <span class="o">}</span>
     <span class="kd">private</span> <span class="kd">class</span> <span class="nc">SequenceSelector</span> <span class="kd">implements</span> <span class="n">Selector</span> <span class="o">{</span>
         <span class="kd">private</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">end</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">}</span>
         <span class="kd">public</span> <span class="n">Object</span> <span class="nf">current</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">items</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> <span class="o">}</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span> <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">i</span><span class="o">++;</span> <span class="o">}</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span> <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="n">i</span><span class="o">++;</span> <span class="o">}</span>
     <span class="o">}</span>
     <span class="kd">public</span> <span class="n">Selector</span> <span class="nf">selector</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="k">new</span> <span class="n">SequenceSelector</span><span class="o">();</span>
     <span class="o">}</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">Sequence</span> <span class="n">sequence</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sequence</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
             <span class="n">sequence</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
         <span class="n">Selector</span> <span class="n">selector</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="na">selector</span><span class="o">();</span>
         <span class="k">while</span><span class="o">(!</span><span class="n">selector</span><span class="o">.</span><span class="na">end</span><span class="o">())</span> <span class="o">{</span>
@@ -319,7 +319,7 @@ The main features of member classes are:</p>
     <span class="o">}</span>
 <span class="o">}</span></code></pre></div>
 <p>5) Member classes cannot have <strong>static</strong> members</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">pre</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="kd">class</span> <span class="nc">AAAAA</span> <span class="o">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;</span><span class="kd">class</span> <span class="nc">AAAAA</span> <span class="o">{</span>
     <span class="kd">class</span> <span class="nc">BBBBB</span> <span class="o">{</span>
         <span class="c1">//static int a =1; // Cannot compile
 </span><span class="c1"></span>        <span class="c1">//static void foo() {} // Cannot compile
@@ -758,7 +758,7 @@ You can’t have a named constructor in an anonymous class (since there’s no n
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

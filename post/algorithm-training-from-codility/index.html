@@ -234,7 +234,7 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// stack size
 </span><span class="c1"></span>        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="c1">// top value
-</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">size</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">size</span> <span class="o">+=</span> <span class="n">1</span><span class="o">;</span>
                 <span class="n">top</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
@@ -251,13 +251,13 @@ the difference between the max and min of the prefix sum.</p></li>
 
         <span class="c1">// validation
 </span><span class="c1"></span>        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">cadidate</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">count</span><span class="o">++;</span>
             <span class="o">}</span>
         <span class="o">}</span>
 
-        <span class="k">return</span> <span class="o">(</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">N</span><span class="o">/</span><span class="n">2</span><span class="o">)</span> <span class="o">?</span> <span class="n">cadidate</span> <span class="o">:</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">N</span><span class="o">/</span><span class="n">2</span><span class="o">)</span> <span class="o">?</span> <span class="n">cadidate</span> <span class="o">:</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -327,7 +327,7 @@ the difference between the max and min of the prefix sum.</p></li>
 <span class="cm">/*
 </span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. Array A represents numbers on a tape.
 </span><span class="cm">
-</span><span class="cm">Any integer P, such that 0 &amp;lt; P &amp;lt; N, splits this tape into two non-empty parts: A[0], A[1], ..., A[P − 1] and A[P], A[P + 1], ..., A[N − 1].
+</span><span class="cm">Any integer P, such that 0 &lt; P &lt; N, splits this tape into two non-empty parts: A[0], A[1], ..., A[P − 1] and A[P], A[P + 1], ..., A[N − 1].
 </span><span class="cm">
 </span><span class="cm">The difference between the two parts is the value of: |(A[0] + A[1] + ... + A[P − 1]) − (A[P] + A[P + 1] + ... + A[N − 1])|
 </span><span class="cm">
@@ -389,7 +389,7 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="c1">// write your code in Java SE 8
 </span><span class="c1"></span>        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0L</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">sum</span> <span class="o">+=</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
         <span class="o">}</span>
 
@@ -397,7 +397,7 @@ the difference between the max and min of the prefix sum.</p></li>
 
         <span class="kt">long</span><span class="o">[]</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
         <span class="n">p</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">0L</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">];</span>
 
             <span class="c1">//System.out.println(p[i]);
@@ -598,7 +598,7 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="c1">// write your code in Java SE 8
 </span><span class="c1"></span>        <span class="kt">long</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">sum</span> <span class="o">+=</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
         <span class="o">}</span>
 
@@ -618,7 +618,7 @@ the difference between the max and min of the prefix sum.</p></li>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
         <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">100000</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">100000</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100000</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">;</span>
         <span class="o">}</span>
         <span class="n">A</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">100001</span><span class="o">;</span>
@@ -709,12 +709,12 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="c1">// write your code in Java SE 8
 </span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="kt">int</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="o">;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">N</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// exceeding the range
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="o">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">N</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// exceeding the range
 </span><span class="c1"></span>            <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
         <span class="o">}</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">1</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// seen many times
 </span><span class="c1"></span>        <span class="o">}</span>
 
@@ -834,7 +834,7 @@ the difference between the max and min of the prefix sum.</p></li>
 </span><span class="c1"></span>        <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">seen</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
         <span class="kt">int</span> <span class="n">has_seen</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
                 <span class="n">has_seen</span><span class="o">++;</span>
@@ -958,8 +958,8 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="kt">int</span><span class="o">[]</span> <span class="n">counters</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
         <span class="kt">int</span> <span class="n">current_max</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="kt">int</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// new starting point
-</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">M</span><span class="o">;</span> <span class="o">++</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">M</span><span class="o">;</span> <span class="o">++</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">],</span> <span class="n">baseline</span><span class="o">);</span>
                 <span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">]++;</span>
                 <span class="n">current_max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">],</span> <span class="n">current_max</span><span class="o">);</span>
@@ -968,7 +968,7 @@ the difference between the max and min of the prefix sum.</p></li>
             <span class="o">}</span>
         <span class="o">}</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">counters</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">baseline</span><span class="o">);</span>
         <span class="o">}</span>
 
@@ -1044,13 +1044,13 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="c1">// write your code in Java SE 8
 </span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="kt">boolean</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">];</span> <span class="c1">// [0] ignored
-</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
         <span class="o">}</span>
 
@@ -1107,7 +1107,7 @@ the difference between the max and min of the prefix sum.</p></li>
 </span><span class="cm">
 </span><span class="cm">0 represents a car traveling east,
 </span><span class="cm">1 represents a car traveling west.
-</span><span class="cm">The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P &amp;lt; Q &amp;lt; N, is passing when P is traveling to the east and Q is traveling to the west.
+</span><span class="cm">The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P &lt; Q &lt; N, is passing when P is traveling to the east and Q is traveling to the west.
 </span><span class="cm">
 </span><span class="cm">For example, consider array A such that:
 </span><span class="cm">
@@ -1163,12 +1163,12 @@ the difference between the max and min of the prefix sum.</p></li>
 
         <span class="kt">int</span> <span class="n">east_cars</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">//before current, how many cars head east?
 </span><span class="c1"></span>        <span class="kt">int</span> <span class="n">cnt_passing</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">east_cars</span><span class="o">++;</span>
             <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
                 <span class="n">cnt_passing</span> <span class="o">+=</span> <span class="n">east_cars</span><span class="o">;</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">cnt_passing</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">1000000000</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">cnt_passing</span> <span class="o">&gt;</span> <span class="n">1000000000</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
 
@@ -1225,7 +1225,7 @@ the difference between the max and min of the prefix sum.</p></li>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">MinAvgTwoSlice</span><span class="o">;</span>
 
 <span class="cm">/*
-</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P &amp;lt; Q &amp;lt; N, is called a slice of array A (notice that the slice contains at least two elements). The average of a slice (P, Q) is the sum of A[P] + A[P + 1] + ... + A[Q] divided by the length of the slice. To be precise, the average equals (A[P] + A[P + 1] + ... + A[Q]) / (Q − P + 1).
+</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P &lt; Q &lt; N, is called a slice of array A (notice that the slice contains at least two elements). The average of a slice (P, Q) is the sum of A[P] + A[P + 1] + ... + A[Q] divided by the length of the slice. To be precise, the average equals (A[P] + A[P + 1] + ... + A[Q]) / (Q − P + 1).
 </span><span class="cm">For example, array A such that:
 </span><span class="cm">    A[0] = 4
 </span><span class="cm">    A[1] = 2
@@ -1277,15 +1277,15 @@ the difference between the max and min of the prefix sum.</p></li>
         <span class="kt">int</span> <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="kt">double</span> <span class="n">min_average</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
 
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
             <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">])</span> <span class="o">/</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&lt;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
                 <span class="n">min_average</span> <span class="o">=</span> <span class="n">avg</span><span class="o">;</span>
             <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="n">2</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="n">2</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">avg</span> <span class="o">=</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">2</span><span class="o">])</span> <span class="o">/</span> <span class="n">3</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&lt;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
                     <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
                     <span class="n">min_average</span> <span class="o">=</span> <span class="n">avg</span><span class="o">;</span>
                 <span class="o">}</span>
@@ -2286,7 +2286,7 @@ the difference between the max and min of the prefix sum.</p></li>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

@@ -183,7 +183,7 @@
     <span class="n">setTimeout</span><span class="o">(</span> <span class="o">(</span> <span class="n">function</span><span class="o">(){</span> <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="err">&#39;</span><span class="n">second</span><span class="err">&#39;</span><span class="o">);</span> <span class="o">}</span> <span class="o">),</span> <span class="n">5</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">1000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">1000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
     <span class="n">foo</span><span class="o">();</span>
 <span class="o">}</span></code></pre></div>
 <div>执行结果会首先全部输出first，然后全部输出second；尽管中间的执行会超过5ms。为什么？</div>
@@ -234,9 +234,9 @@
 <li>改变执行顺序
 例如：下面的例子，点击按钮就会显示&rdquo;calculating&hellip;.&ldquo;，如果删除setTimeout就不会。因为reDraw事件被进入事件队列到长时间操作的最后才能被执行，所以无法刷新。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="k">do</span><span class="err">&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">Do</span> <span class="kt">long</span> <span class="n">calc</span><span class="o">!&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">button</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="n">status</span><span class="err">&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">div</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">br</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Write JavaScript here 
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="k">do</span><span class="err">&#39;</span><span class="o">&gt;</span> <span class="n">Do</span> <span class="kt">long</span> <span class="n">calc</span><span class="o">!&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="err">&#39;</span><span class="n">status</span><span class="err">&#39;</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Write JavaScript here 
 </span><span class="c1"></span>
 <span class="n">$</span><span class="o">(</span><span class="err">&#39;#</span><span class="k">do</span><span class="err">&#39;</span><span class="o">).</span><span class="na">on</span><span class="o">(</span><span class="err">&#39;</span><span class="n">click</span><span class="err">&#39;</span><span class="o">,</span> <span class="n">function</span><span class="o">(){</span>
 
@@ -252,9 +252,9 @@
 
 <span class="n">function</span> <span class="nf">long</span><span class="o">(){</span>
   <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">0</span>
-  <span class="nf">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-    <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
-      <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">1000</span><span class="o">;</span> <span class="n">k</span><span class="o">++){</span>
+  <span class="nf">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">1000</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+      <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">1000</span><span class="o">;</span> <span class="n">k</span><span class="o">++){</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="n">k</span>
       <span class="o">}</span>
     <span class="o">}</span> 
@@ -272,7 +272,7 @@
 <p>首先一种办法是HTML5的<a href="http://www.w3schools.com/TAGs/att_script_defer.asp">defer</a>和<a href="http://www.w3schools.com/tags/att_script_async.asp">async</a>关键字：</p>
 
 <p>defer</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">defer</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;foo.js&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">script</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">defer</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;foo.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span></code></pre></div>
 <div></div>
 async
 <div>
@@ -505,7 +505,7 @@ function loadJs(jsurl, head, callback){
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

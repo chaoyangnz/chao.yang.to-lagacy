@@ -177,21 +177,21 @@
     <span class="o">{</span>
         <span class="kt">int</span> <span class="n">x</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="kt">int</span> <span class="n">y</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">z</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">5</span><span class="o">;</span> <span class="n">z</span><span class="o">++)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">5</span><span class="o">;</span> <span class="n">z</span><span class="o">++)</span>
         <span class="o">{</span>
-            <span class="k">if</span> <span class="o">((</span> <span class="n">x</span><span class="o">++</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">2</span> <span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">y</span><span class="o">++</span> <span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">2</span><span class="o">))</span>
+            <span class="k">if</span> <span class="o">((</span> <span class="n">x</span><span class="o">++</span> <span class="o">&gt;</span> <span class="n">2</span> <span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">y</span><span class="o">++</span> <span class="o">&gt;</span> <span class="n">2</span><span class="o">))</span>
             <span class="o">{</span>
                 <span class="n">x</span><span class="o">++;</span>
             <span class="o">}</span>
         <span class="o">}</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">y</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">y</span><span class="o">);</span>
     <span class="o">}</span></code></pre></div>
 <p>Output is: 7 3</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
     <span class="o">{</span>
         <span class="kt">int</span> <span class="n">x</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span>
         <span class="kt">int</span> <span class="n">y</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">z</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">5</span><span class="o">;</span> <span class="n">z</span><span class="o">++)</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="n">5</span><span class="o">;</span> <span class="n">z</span><span class="o">++)</span>
         <span class="o">{</span>
             <span class="k">if</span> <span class="o">((</span> <span class="o">++</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">2</span> <span class="o">)</span> <span class="o">||</span> <span class="o">(++</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">2</span><span class="o">))</span>
             <span class="o">{</span>
@@ -362,7 +362,7 @@ b. for logic or, if the former condition is true, the following conditions won&r
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

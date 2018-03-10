@@ -206,13 +206,13 @@
 <p><img src="http://yangchao.me/media/web-basics-jsonp.jpg" alt="web-basics-jsonp" /></p>
 
 <p>For example, in the page of url <a href="http://localhost:8080/aes-gui/simple/poc/main/sum:">http://localhost:8080/aes-gui/simple/poc/main/sum:</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="o">&gt;</span>
 <span class="n">function</span> <span class="nf">callback_for_response</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">{</span>
 <span class="c1">// data is the response
 </span><span class="c1"></span><span class="o">}</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">script</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;http://DEV:8080/aes-gui/simple/poc/main/add?callback=callback_for_response&#34;</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">script</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;http://DEV:8080/aes-gui/simple/poc/main/add?callback=callback_for_response&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span></code></pre></div>
 <p>When the application on domain sit.company.com has received this request, and found the query parameter &ldquo;callback&rdquo;(this is a kind of contract, others also use &ldquo;jsonp&rdquo; or anything others), then it generates the response like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">callback_for_response</span><span class="o">({</span><span class="nl">a:</span> <span class="n">1</span><span class="o">,</span> <span class="nl">b:</span> <span class="n">2</span><span class="o">,</span> <span class="nl">c:</span> <span class="s">&#34;3&#34;</span><span class="o">})</span></code></pre></div>
 <p>You see, the response JSON data {a:1, b:2, c:&ldquo;3&rdquo;} is surrounded/padded by the passed parameter &ldquo;callback_for_response&rdquo;, which is the origin of JSON with Padding.</p>
@@ -416,7 +416,7 @@
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

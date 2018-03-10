@@ -263,12 +263,12 @@ d. interruption channel and selector
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
             <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
             <span class="k">try</span> <span class="o">{</span>
                 <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
             <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">Interruption</span> <span class="n">received</span><span class="o">,</span> <span class="n">now</span> <span class="n">I</span> <span class="n">exit</span><span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Interruption</span> <span class="n">received</span><span class="o">,</span> <span class="n">now</span> <span class="n">I</span> <span class="n">exit</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
                 <span class="k">break</span><span class="o">;</span>
             <span class="o">}</span>
             <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">2</span><span class="o">;</span>
@@ -286,13 +286,13 @@ d. interruption channel and selector
 
         <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">interrupted</span><span class="o">())</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Interruption</span> <span class="n">received</span><span class="o">,</span> <span class="n">now</span> <span class="n">I</span> <span class="n">exit</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Interruption received, now I exit&#34;</span><span class="o">);</span>
                 <span class="k">break</span><span class="o">;</span>
             <span class="o">}</span>
 
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m running&#34;</span><span class="o">);</span>
             <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
@@ -301,7 +301,7 @@ d. interruption channel and selector
 
 <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="n">doHardWork</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">prepare</span> <span class="n">to</span> <span class="n">interrupt</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;prepare to interrupt&#34;</span><span class="o">);</span>
 <span class="n">thread</span><span class="o">.</span><span class="na">interrupt</span><span class="o">();</span></code></pre></div>
 <p>By using interrupted(), we don&rsquo;t depend on InterruptedException to notify interruption, we check it by my own proactively.</p>
 
@@ -312,10 +312,10 @@ d. interruption channel and selector
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m running&#34;</span><span class="o">);</span>
             <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
@@ -326,7 +326,7 @@ d. interruption channel and selector
 <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="n">doHardWork</span><span class="o">();</span>
 
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="k">do</span> <span class="n">my</span> <span class="n">work</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;do my work&#34;</span><span class="o">);</span>
 <span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="o">//</span><span class="n">just</span> <span class="n">make</span> <span class="n">the</span> <span class="n">main</span> <span class="n">thread</span> <span class="n">not</span> <span class="n">exit</span></code></pre></div>
 <p>In this example, the &ldquo;do my work&rdquo; happens in uninsured point, like this in one run:
 I&rsquo;m running
@@ -345,10 +345,10 @@ I&rsquo;m running</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="n">running</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m running&#34;</span><span class="o">);</span>
             <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">900000</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">+</span> <span class="n">Math</span><span class="o">.</span><span class="na">E</span><span class="o">)</span> <span class="o">/</span> <span class="n">d</span><span class="o">;</span>
             <span class="o">}</span>
         <span class="o">}</span>
@@ -359,7 +359,7 @@ I&rsquo;m running</p>
 <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="n">doHardWork</span><span class="o">();</span>
 <span class="n">thread</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="k">do</span> <span class="n">my</span> <span class="n">work</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;do my work&#34;</span><span class="o">);</span>
 <span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="o">//</span><span class="n">just</span> <span class="n">make</span> <span class="n">the</span> <span class="n">main</span> <span class="n">thread</span> <span class="n">not</span> <span class="n">exit</span></code></pre></div>
 <p>Now, the output is definitely:</p>
 
@@ -564,7 +564,7 @@ do my work</p>
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

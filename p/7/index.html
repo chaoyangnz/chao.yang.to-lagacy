@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.35" />
+	<meta name="generator" content="Hugo 0.34" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
@@ -545,7 +545,7 @@ In Java, private / final / static methods can do hiding by static binding.
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    class AA { void foo(CharSequence a) {} CharSequence bar() { return &amp;quot;1&amp;quot;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &amp;quot;2&amp;quot;; } } It&rsquo;s obvious that method &ldquo;bar&rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样
+    class AA { void foo(CharSequence a) {} CharSequence bar() { return &#34;1&#34;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &#34;2&#34;; } } It&rsquo;s obvious that method &ldquo;bar&rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样
     </div>
     
     <div class="post-more-link text-center">
@@ -604,7 +604,7 @@ In Java, private / final / static methods can do hiding by static binding.
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    class Glyph { void draw() { System.out.println(&amp;quot;Glyph.draw()&amp;quot;); } Glyph() { System.out.println(&amp;quot;Glyph() before draw()&amp;quot;); draw(); System.out.println(&amp;quot;Glyph() after draw()&amp;quot;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&amp;quot;RoundGlyph.RoundGlyph(), radius = &amp;quot; + radius); } void draw() { System.out.println(&amp;quot;RoundGlyph.draw(), radius = &amp;quot; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &gt; Glyph() before draw() &gt; &gt; RoundGlyph.draw(),
+    class Glyph { void draw() { System.out.println(&#34;Glyph.draw()&#34;); } Glyph() { System.out.println(&#34;Glyph() before draw()&#34;); draw(); System.out.println(&#34;Glyph() after draw()&#34;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&#34;RoundGlyph.RoundGlyph(), radius = &#34; + radius); } void draw() { System.out.println(&#34;RoundGlyph.draw(), radius = &#34; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &gt; Glyph() before draw() &gt; &gt; RoundGlyph.draw(),
     </div>
     
     <div class="post-more-link text-center">
@@ -973,7 +973,7 @@ This means that there are the following possible cases:
     </header>
     <div class="post-body" itemprop="articleBody">
     Let&rsquo;s see the flowing program and guess the run result:
-class Animal { protected void drink() { System.out.println(&amp;quot;animal drinks before eating&amp;quot;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&amp;quot;dog drinks before eating&amp;quot;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.
+class Animal { protected void drink() { System.out.println(&#34;animal drinks before eating&#34;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&#34;dog drinks before eating&#34;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.
     </div>
     
     <div class="post-more-link text-center">
@@ -1260,7 +1260,7 @@ There are two types of access control, one for classes and the other for members
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

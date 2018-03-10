@@ -282,7 +282,7 @@
 <span class="o">}</span></code></pre></div>
 <h4 id="class-registry-factory">class registry factory</h4>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ProductClassRegistryFactory</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">HashMap</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">Class</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Product</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">registry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;&gt;</span> <span class="n">registry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">registerProduct</span><span class="o">(</span><span class="n">String</span> <span class="n">productID</span><span class="o">,</span> <span class="n">Class</span> <span class="n">productClass</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">registry</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">productID</span><span class="o">,</span> <span class="n">productClass</span><span class="o">);</span>
@@ -311,7 +311,7 @@
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">ProductRegistryFactory</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">HashMap</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">Product</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">registry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Product</span><span class="o">&gt;</span> <span class="n">registry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">registerProduct</span><span class="o">(</span><span class="n">String</span> <span class="n">productID</span><span class="o">,</span> <span class="n">Product</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">registry</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">productID</span><span class="o">,</span> <span class="n">p</span><span class="o">);</span>
@@ -509,7 +509,7 @@
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

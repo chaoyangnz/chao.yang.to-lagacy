@@ -511,64 +511,64 @@ Metadata</td>
 <p>Usually, plugin bind its goals on default phases. That&rsquo;s defined on plugin jar&rsquo;s MATE-INF/maven/plugin.xml.</p>
 
 <p>Let&rsquo;s see the plugin.xml of maven-compiler-plugin.jar:</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-  <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojos</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">mojos</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">mojo</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">compile</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
       <span class="o">....</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">&lt;</span><span class="n">phase</span><span class="o">&gt;</span><span class="n">compile</span><span class="o">&lt;/</span><span class="n">phase</span><span class="o">&gt;</span>
       <span class="o">....</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">help</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&lt;/</span><span class="n">mojo</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">mojo</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">help</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
       <span class="o">....</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">testCompile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+    <span class="o">&lt;/</span><span class="n">mojo</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">mojo</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">testCompile</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
       <span class="o">....</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">test</span><span class="o">-</span><span class="n">compile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+      <span class="o">&lt;</span><span class="n">phase</span><span class="o">&gt;</span><span class="n">test</span><span class="o">-</span><span class="n">compile</span><span class="o">&lt;/</span><span class="n">phase</span><span class="o">&gt;</span>
       <span class="o">....</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojo</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-  <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">mojos</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+    <span class="o">&lt;/</span><span class="n">mojo</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">mojos</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span></code></pre></div>
 <p>maven-compiler-plugin defines 3 goals, and &ldquo;compile&rdquo; and &ldquo;testCompiler&rdquo; goals have the default phase, but &ldquo;help&rdquo; goal not.</p>
 
 <p>&nbsp;</p>
 
 <p>But a goal can be bound on different phases which can be reconfigured by plugin configuration section.</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">...</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">mycompany</span><span class="o">.</span><span class="na">example</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">display</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">executions</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">process</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">resources</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">time</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">phase</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">anotherGoal</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-         <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">anotherGoalAgain</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-       <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">goals</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-     <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">execution</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
-   <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">executions</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">plugin</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">plugin</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">mycompany</span><span class="o">.</span><span class="na">example</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">display</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">executions</span><span class="o">&gt;</span>
+     <span class="o">&lt;</span><span class="n">execution</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">phase</span><span class="o">&gt;</span><span class="n">process</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">resources</span><span class="o">&lt;/</span><span class="n">phase</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">goals</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">time</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
+       <span class="o">&lt;/</span><span class="n">goals</span><span class="o">&gt;</span>
+     <span class="o">&lt;/</span><span class="n">execution</span><span class="o">&gt;</span>
+     <span class="o">&lt;</span><span class="n">execution</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">phase</span><span class="o">&gt;</span><span class="n">process</span><span class="o">-</span><span class="n">resources</span><span class="o">&lt;/</span><span class="n">phase</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">goals</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">anotherGoal</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="n">goal</span><span class="o">&gt;</span><span class="n">anotherGoalAgain</span><span class="o">&lt;/</span><span class="n">goal</span><span class="o">&gt;</span>
+       <span class="o">&lt;/</span><span class="n">goals</span><span class="o">&gt;</span>
+     <span class="o">&lt;/</span><span class="n">execution</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">executions</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span>
 <span class="o">...</span></code></pre></div>
 <h4 id="default-goal">Default goal</h4>
 
 <p>The default goal codifis the author’s intended usage of the build script. Only one goal or lifecycle can be set as the
 default.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">project</span><span class="o">&gt;</span>
  <span class="o">[...]</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">build</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">defaultGoal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">install</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">defaultGoal</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">build</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">build</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">defaultGoal</span><span class="o">&gt;</span><span class="n">install</span><span class="o">&lt;/</span><span class="n">defaultGoal</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">build</span><span class="o">&gt;</span>
  <span class="o">[...]</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;/</span><span class="n">project</span><span class="o">&gt;</span></code></pre></div>
 <h3 id="execute-a-phase-or-goal">Execute a Phase or Goal</h3>
 
 <p>If you ask Maven to run a specific goal, then only that goal is run.</p>
@@ -592,22 +592,22 @@ This example runs two plugin goals: compilation of code, then JARing the result
 
 <p>Profies are a means to conditionally turn on portions of Maven confiuration, including plugins, pathing and confiuration.
 The most common uses of profies are for Windows/Unix platform-specifi variations and build-time customization of JAR dependencies based on the use of a specifi Weblogic, Websphere or JBoss J2EE vendor.</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">project</span><span class="o">&gt;</span>
  <span class="o">...</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">YourProfile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">profiles</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">profile</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="n">YourProfile</span><span class="o">&lt;/</span><span class="n">id</span><span class="o">&gt;</span>
  <span class="o">...</span><span class="na">settings</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">plugins</span> <span class="n">etc</span><span class="o">...</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependencies</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependency</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">com</span><span class="o">.</span><span class="na">yourcompany</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">groupId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">yourlib</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">artifactId</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">dependency</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">dependencies</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">yourcompany</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">yourlib</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">profile</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">profiles</span><span class="o">&gt;</span>
  <span class="o">...</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;/</span><span class="n">project</span><span class="o">&gt;</span></code></pre></div>
 <h4 id="profile-activation">Profile activation</h4>
 
 <p>Profiles can be activated manually from the command line or through an activation rule (OS, fie existence, Maven version, etc.).</p>
@@ -617,27 +617,27 @@ The most common uses of profies are for Windows/Unix platform-specifi variation
 <p><em><strong>Manual Profie Activation</strong></em>
 &gt; mvn –P YourProfie
 <em><strong>Automatic Profie Activation</strong></em></p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">project</span><span class="o">&gt;</span>
  <span class="o">...</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">YourProfile</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">id</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">profiles</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">profile</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="n">YourProfile</span><span class="o">&lt;/</span><span class="n">id</span><span class="o">&gt;</span>
  <span class="o">...</span><span class="na">settings</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">etc</span><span class="o">...</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">activation</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">os</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">Windows</span> <span class="n">XP</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">family</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">Windows</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">family</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">arch</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">x86</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">arch</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">2600</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">version</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">os</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">fie</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">missing</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="n">somefolder</span><span class="o">/</span><span class="n">somefie</span><span class="o">.</span><span class="na">txt</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">missing</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">fie</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">activation</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profile</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
- <span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">profiles</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+ <span class="o">&lt;</span><span class="n">activation</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">os</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Windows</span> <span class="n">XP</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">family</span><span class="o">&gt;</span><span class="n">Windows</span><span class="o">&lt;/</span><span class="n">family</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">arch</span><span class="o">&gt;</span><span class="n">x86</span><span class="o">&lt;/</span><span class="n">arch</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">2600</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">os</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">fie</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">missing</span><span class="o">&gt;</span><span class="n">somefolder</span><span class="o">/</span><span class="n">somefie</span><span class="o">.</span><span class="na">txt</span><span class="o">&lt;/</span><span class="n">missing</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">fie</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">activation</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">profile</span><span class="o">&gt;</span>
+ <span class="o">&lt;/</span><span class="n">profiles</span><span class="o">&gt;</span>
  <span class="o">...</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="o">;/</span><span class="n">project</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span></code></pre></div>
+<span class="o">&lt;/</span><span class="n">project</span><span class="o">&gt;</span></code></pre></div>
     </div>
     <footer class="post-footer">
      
@@ -814,7 +814,7 @@ The most common uses of profies are for Windows/Unix platform-specifi variation
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

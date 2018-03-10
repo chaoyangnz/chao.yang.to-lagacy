@@ -185,17 +185,17 @@ For static methods, when the static method of the subclasses has the same signat
 
 <p>1. hiding by class methods</p>
 <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Super</span> <span class="o">{</span>
- <span class="kd">static</span> <span class="n">String</span> <span class="nf">greeting</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Goodnight</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
- <span class="n">String</span> <span class="nf">name</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Richard</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
+ <span class="kd">static</span> <span class="n">String</span> <span class="nf">greeting</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;Goodnight&#34;</span><span class="o">;</span> <span class="o">}</span>
+ <span class="n">String</span> <span class="nf">name</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;Richard&#34;</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 <span class="kd">class</span> <span class="nc">Sub</span> <span class="kd">extends</span> <span class="n">Super</span> <span class="o">{</span>
- <span class="kd">static</span> <span class="n">String</span> <span class="nf">greeting</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Hello</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
- <span class="n">String</span> <span class="nf">name</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">Dick</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
+ <span class="kd">static</span> <span class="n">String</span> <span class="nf">greeting</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;Hello&#34;</span><span class="o">;</span> <span class="o">}</span>
+ <span class="n">String</span> <span class="nf">name</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;Dick&#34;</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
  <span class="n">Super</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sub</span><span class="o">();</span>
- <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">greeting</span><span class="o">()</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">name</span><span class="o">());</span>
+ <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">greeting</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;, &#34;</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">name</span><span class="o">());</span>
  <span class="o">}</span>
 <span class="o">}</span></code></pre></div>
 <p>// Output: Goodnight Dick</p>
@@ -364,7 +364,7 @@ For static methods, when the static method of the subclasses has the same signat
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

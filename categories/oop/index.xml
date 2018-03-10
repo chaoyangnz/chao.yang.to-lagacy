@@ -65,7 +65,7 @@ In Java, private / final / static methods can do hiding by static binding.</d
       <pubDate>Mon, 12 Jan 2015 03:37:15 +0000</pubDate>
       
       <guid>http://yangchao.me/post/override-covariant-return-types/</guid>
-      <description>class AA { void foo(CharSequence a) {} CharSequence bar() { return &amp;amp;quot;1&amp;amp;quot;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &amp;amp;quot;2&amp;amp;quot;; } } It&amp;rsquo;s obvious that method &amp;ldquo;bar&amp;rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样</description>
+      <description>class AA { void foo(CharSequence a) {} CharSequence bar() { return &amp;#34;1&amp;#34;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &amp;#34;2&amp;#34;; } } It&amp;rsquo;s obvious that method &amp;ldquo;bar&amp;rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样</description>
     </item>
     
     <item>
@@ -74,7 +74,7 @@ In Java, private / final / static methods can do hiding by static binding.</d
       <pubDate>Mon, 12 Jan 2015 03:31:57 +0000</pubDate>
       
       <guid>http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</guid>
-      <description>class Glyph { void draw() { System.out.println(&amp;amp;quot;Glyph.draw()&amp;amp;quot;); } Glyph() { System.out.println(&amp;amp;quot;Glyph() before draw()&amp;amp;quot;); draw(); System.out.println(&amp;amp;quot;Glyph() after draw()&amp;amp;quot;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&amp;amp;quot;RoundGlyph.RoundGlyph(), radius = &amp;amp;quot; + radius); } void draw() { System.out.println(&amp;amp;quot;RoundGlyph.draw(), radius = &amp;amp;quot; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &amp;gt; Glyph() before draw() &amp;gt; &amp;gt; RoundGlyph.draw(),</description>
+      <description>class Glyph { void draw() { System.out.println(&amp;#34;Glyph.draw()&amp;#34;); } Glyph() { System.out.println(&amp;#34;Glyph() before draw()&amp;#34;); draw(); System.out.println(&amp;#34;Glyph() after draw()&amp;#34;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&amp;#34;RoundGlyph.RoundGlyph(), radius = &amp;#34; + radius); } void draw() { System.out.println(&amp;#34;RoundGlyph.draw(), radius = &amp;#34; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &amp;gt; Glyph() before draw() &amp;gt; &amp;gt; RoundGlyph.draw(),</description>
     </item>
     
     <item>
@@ -106,7 +106,7 @@ This means that there are the following possible cases:
       
       <guid>http://yangchao.me/post/override-a-pitfall/</guid>
       <description>Let&amp;rsquo;s see the flowing program and guess the run result:
-class Animal { protected void drink() { System.out.println(&amp;amp;quot;animal drinks before eating&amp;amp;quot;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&amp;amp;quot;dog drinks before eating&amp;amp;quot;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.</description>
+class Animal { protected void drink() { System.out.println(&amp;#34;animal drinks before eating&amp;#34;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&amp;#34;dog drinks before eating&amp;#34;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.</description>
     </item>
     
     <item>

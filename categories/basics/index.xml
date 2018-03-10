@@ -187,7 +187,7 @@ coded character set (CCS) A coded character set (CCS) specifies how to represent
       
       <guid>http://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</guid>
       <description>The finally block will always execute, except for System.exit() is called first, or the thread has terminated or the JVM crashes. Anything that is returned in the finally block will actually override any exception or returned value that is inside the try/catch block.
-public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&amp;amp;quot;Inside try block of testMethod!&amp;amp;quot;); i = 100; return i; } catch(Exception e){ System.</description>
+public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&amp;#34;Inside try block of testMethod!&amp;#34;); i = 100; return i; } catch(Exception e){ System.</description>
     </item>
     
     <item>
@@ -196,8 +196,8 @@ public class Finally { //exception-free code, try-catch-finally blocks all have 
       <pubDate>Mon, 02 Feb 2015 09:05:24 +0000</pubDate>
       
       <guid>http://yangchao.me/post/output-pre-increment-and-post-increment/</guid>
-      <description>public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;amp;lt; 5; z++) { if (( x++ &amp;amp;gt; 2 ) || (y++ &amp;amp;gt; 2)) { x++; } } System.out.println(x + &amp;amp;quot; &amp;amp;quot; + y); } Output is: 7 3
-public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;amp;lt; 5; z++) { if (( ++x &amp;gt; 2 ) || (++y &amp;gt; 2)) { x++; } } System.</description>
+      <description>public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( x++ &amp;gt; 2 ) || (y++ &amp;gt; 2)) { x++; } } System.out.println(x + &amp;#34; &amp;#34; + y); } Output is: 7 3
+public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( ++x &amp;gt; 2 ) || (++y &amp;gt; 2)) { x++; } } System.</description>
     </item>
     
     <item>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.35" />
+	<meta name="generator" content="Hugo 0.34" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
@@ -177,7 +177,7 @@
     </header>
     <div class="post-body" itemprop="articleBody">
     The finally block will always execute, except for System.exit() is called first, or the thread has terminated or the JVM crashes. Anything that is returned in the finally block will actually override any exception or returned value that is inside the try/catch block.
-public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&amp;quot;Inside try block of testMethod!&amp;quot;); i = 100; return i; } catch(Exception e){ System.
+public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&#34;Inside try block of testMethod!&#34;); i = 100; return i; } catch(Exception e){ System.
     </div>
     
     <div class="post-more-link text-center">
@@ -858,8 +858,8 @@ It is important to understand what constitutes a resource, in this context. For 
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( x++ &amp;gt; 2 ) || (y++ &amp;gt; 2)) { x++; } } System.out.println(x + &amp;quot; &amp;quot; + y); } Output is: 7 3
-public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( ++x &gt; 2 ) || (++y &gt; 2)) { x++; } } System.
+    public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &lt; 5; z++) { if (( x++ &gt; 2 ) || (y++ &gt; 2)) { x++; } } System.out.println(x + &#34; &#34; + y); } Output is: 7 3
+public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &lt; 5; z++) { if (( ++x &gt; 2 ) || (++y &gt; 2)) { x++; } } System.
     </div>
     
     <div class="post-more-link text-center">
@@ -980,8 +980,8 @@ Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you ca
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    How JSP work Syntax scriptlet &amp;lt;% int count=0; out.println(&#34;This is a scriptlet&#34;); %&amp;gt; This block is placed in the body of method _jspService(request, response)
-derective &amp;lt;%@ page import=&#34;java.util.*,java.xml.*&#34; %&amp;gt;&amp;lt;%@ include file=&#34;xxx&#34; %&amp;gt;&amp;lt;%@ taglib tagdir=&#34;/WEB-INF/tags/xxx&#34; prefix=&#34;xxx&#34; %&amp;gt; expression &amp;lt;%= &#34;This is a expression argument&#34; %&amp;gt; declaration &amp;lt;%! int count=0 %&amp;gt;&amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt; This is equivlant with the member field and member method of the generated servlet.
+    How JSP work Syntax scriptlet &lt;% int count=0; out.println(&#34;This is a scriptlet&#34;); %&gt; This block is placed in the body of method _jspService(request, response)
+derective &lt;%@ page import=&#34;java.util.*,java.xml.*&#34; %&gt;&lt;%@ include file=&#34;xxx&#34; %&gt;&lt;%@ taglib tagdir=&#34;/WEB-INF/tags/xxx&#34; prefix=&#34;xxx&#34; %&gt; expression &lt;%= &#34;This is a expression argument&#34; %&gt; declaration &lt;%! int count=0 %&gt;&lt;%! int doubleCount() { count = count*2; return count; } %&gt; This is equivlant with the member field and member method of the generated servlet.
     </div>
     
     <div class="post-more-link text-center">
@@ -1374,7 +1374,7 @@ Identical signature means: 1) the number of formal arguments must be equal. 2) t
     <div class="post-body" itemprop="articleBody">
     Sometimes, we will meet this compiler error: unreachable statements.
 See the following examples:
-public void javapapers() { System.out.println(&amp;quot;java&amp;quot;); return; System.out.println(&amp;quot;papers&amp;quot;); // compile error }public void javapapers() { System.out.println(&amp;quot;java&amp;quot;); if(true) { return; } System.out.println(&amp;quot;papers&amp;quot;); } //This code compiled successfullypublic void javapapers() { System.out.println(&amp;quot;java&amp;quot;); while(true) { return; } System.out.println(&amp;quot;papers&amp;quot;); // compile error } Wait, but what is strange here?
+public void javapapers() { System.out.println(&#34;java&#34;); return; System.out.println(&#34;papers&#34;); // compile error }public void javapapers() { System.out.println(&#34;java&#34;); if(true) { return; } System.out.println(&#34;papers&#34;); } //This code compiled successfullypublic void javapapers() { System.out.println(&#34;java&#34;); while(true) { return; } System.out.println(&#34;papers&#34;); // compile error } Wait, but what is strange here?
 From Java Language Specification:   &gt; ## 14.21. Unreachable Statements    &gt; It is a compile-time error if a statement cannot be executed because it is unreachable.
     </div>
     
@@ -1547,7 +1547,7 @@ From Java Language Specification:   &gt; ## 14.21. Unreachable Statements    &g
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

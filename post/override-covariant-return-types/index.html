@@ -175,13 +175,13 @@
     <div class="post-body" itemprop="articleBody">
     <div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">AA</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">a</span><span class="o">)</span> <span class="o">{}</span>
-    <span class="n">CharSequence</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">1</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
+    <span class="n">CharSequence</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;1&#34;</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">BB</span> <span class="kd">extends</span> <span class="n">AA</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">)</span> <span class="o">{}</span>
     <span class="nd">@Override</span>
-    <span class="n">String</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">2</span><span class="o">&amp;</span><span class="n">quot</span><span class="o">;;</span> <span class="o">}</span>
+    <span class="n">String</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;2&#34;</span><span class="o">;</span> <span class="o">}</span>
 <span class="o">}</span></code></pre></div>
 <p>It&rsquo;s obvious that method &ldquo;bar&rdquo; overrides successfully.</p>
 
@@ -341,7 +341,7 @@
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.35</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
