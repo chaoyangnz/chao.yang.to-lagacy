@@ -132,68 +132,6 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/git-basics/" itemprop="url">
-        Git basics
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-28">
-    2015-04-28
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/version-control" itemprop="url" rel="index">
-        <span itemprop="name">Version Control</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">186 words ~1min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &lt;branch&gt;  switch branch
- git checkout dev checkout &lt;commit&gt; [files]  &lt;commit&gt; is HEAD by default. The current branch doesn&rsquo;t change, without moving the HEAD pointer location.
-copy the &lt;commit&gt; tree to index tree and working tree.
- git checkout HEAD git checkout HEAD^ git checkout HEAD~3 1.txt git checkout a47c3 reset reset &lt;commit&gt; [files]  move the HEAD, and copying &lt;commit&gt; tree to index or working tree.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/git-basics/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/spring-framework-context-services/" itemprop="url">
         Spring framework - context services
         </a>
@@ -1330,6 +1268,68 @@ Traditionally, the bean itself control the initialization process or location 
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/subquery-vs-join/" itemprop="url">
+        subquery vs. join
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-02">
+    2015-04-02
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/sql" itemprop="url" rel="index">
+        <span itemprop="name">SQL</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">322 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    what is subquery SubQuery in SQL is a query inside another query
+SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&#39;west&#39;) In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
+non-correlated subquery In non correlated subquery, inner query doesn&rsquo;t depend on outer query and can run as stand alone query.
+NonCorrelated subquery are used along-with =, IN and NOT IN clause.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/subquery-vs-join/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
 </section>
 
 
@@ -1422,7 +1422,7 @@ Traditionally, the bean itself control the initialization process or location 
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-count">137</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
