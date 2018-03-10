@@ -132,8 +132,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-master-the-box-model/" itemprop="url">
-        CSS in Depth - Master the box model
+        <a class="post-title-link" href="http://yangchao.me/post/assertion/" itemprop="url">
+        Assertion
         </a>
       </h1>
       <div class="post-meta">
@@ -142,8 +142,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
-    2018-03-06
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
+    2015-01-16
 </time>
 </span> 
       
@@ -156,8 +156,8 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
-        <span itemprop="name">CSS</span>
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
       </a>
       &nbsp; 
     </span>
@@ -171,20 +171,24 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">309 words ~2min</span>
+<span class="leancloud-visitors-count">680 words ~4min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    default box model It includes 3 boxes:
- content box padding box border box  Margins don&rsquo;t belong to these boxes.
-difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
-To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
-adjusting the box model By setting box-sizing: border-box, the box model is adjusted.
+    Java have an &ldquo;assert&rdquo; keyword since java 1.4
+Usage There are two kinds of syntax:
+1) assert expression1
+2) assert expression1 : expression2
+expression1 must be evaluated as boolean ( true or false) while expression2 can be primitive, object, or array.
+expression2 is passed into the constructor of AssertionError as an argument.
+
+So if expression2 is evaluated as void, it&rsquo;s not allowed.
+void foo() {} assert true : foo(); // cannot be compiled How to enable or disable assertion Assert statements will be evaluated only if assertion is enabled.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/css-in-depth-master-the-box-model/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/assertion/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -195,8 +199,8 @@ adjusting the box model By setting box-sizing: border-box, the box model is adju
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" itemprop="url">
-        CSS in Depth - Cascade, specificity and inheritance
+        <a class="post-title-link" href="http://yangchao.me/post/inner-classes/" itemprop="url">
+        Inner Classes
         </a>
       </h1>
       <div class="post-meta">
@@ -205,8 +209,8 @@ adjusting the box model By setting box-sizing: border-box, the box model is adju
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
-    2018-03-06
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-14">
+    2015-01-14
 </time>
 </span> 
       
@@ -219,8 +223,8 @@ adjusting the box model By setting box-sizing: border-box, the box model is adju
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
-        <span itemprop="name">CSS</span>
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
       </a>
       &nbsp; 
     </span>
@@ -234,18 +238,16 @@ adjusting the box model By setting box-sizing: border-box, the box model is adju
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">587 words ~3min</span>
+<span class="leancloud-visitors-count">3573 words ~8min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
-body { color: black; font-family: Helvetcia; } cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
-When declarations conflict, the cascade considers three things to resolve the difference:
+    There are 4 kinds of inner classes: Member classes (non-static inner classes) Local classes Anonymous classes Nested top-level classes and interfaces (static inner classes) The former three kinds are called inner classes. The last kind is called nested class. &nbsp; Member interface is implicitly static, so it&rsquo;s never considered as inner class. Member classes What is a member class? A member class is a class that is defined inside the
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/inner-classes/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -256,8 +258,8 @@ When declarations conflict, the cascade considers three things to resolve the di
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/javascript-testing-frameworks/" itemprop="url">
-        Javascript testing frameworks
+        <a class="post-title-link" href="http://yangchao.me/post/interfaces/" itemprop="url">
+        interfaces
         </a>
       </h1>
       <div class="post-meta">
@@ -266,8 +268,8 @@ When declarations conflict, the cascade considers three things to resolve the di
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-11-27">
-    2017-11-27
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-14">
+    2015-01-14
 </time>
 </span> 
       
@@ -280,8 +282,8 @@ When declarations conflict, the cascade considers three things to resolve the di
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/javascript" itemprop="url" rel="index">
-        <span itemprop="name">Javascript</span>
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
       </a>
       &nbsp; 
     </span>
@@ -295,18 +297,21 @@ When declarations conflict, the cascade considers three things to resolve the di
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">249 words ~2min</span>
+<span class="leancloud-visitors-count">165 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
-Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&rsquo;s enough.
-So when it comes to Javascript, I am really confused with so many frameworks/libraries.
+    Before Java 8, interfaces are not allowed to have static method.
+interface SS { static void bar(); // Cannot be compiled  static void foo() {} // Cannot be compiled } The compiler complains: Extension methods are not supported at this language level.
+But what are Extension methods? That&rsquo;s a term defined in Java 8.
+&nbsp;
+As for interfaces, all elements in its definition body are public:
+1) all fields are public, final and static implicitly.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/javascript-testing-frameworks/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/interfaces/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -317,8 +322,8 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/build-opencv-android-sdk/" itemprop="url">
-        Build OpenCV 3.3 Android SDK on Mac OSX
+        <a class="post-title-link" href="http://yangchao.me/post/cs-interview-experience/" itemprop="url">
+        CS interview experience
         </a>
       </h1>
       <div class="post-meta">
@@ -327,8 +332,8 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-11-03">
-    2017-11-03
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-13">
+    2015-01-13
 </time>
 </span> 
       
@@ -341,8 +346,8 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/iot" itemprop="url" rel="index">
-        <span itemprop="name">IoT</span>
+      <a href="http://yangchao.me/categories/uncategorized" itemprop="url" rel="index">
+        <span itemprop="name">Uncategorized</span>
       </a>
       &nbsp; 
     </span>
@@ -356,20 +361,16 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">125 words ~1min</span>
+<span class="leancloud-visitors-count">4663 words ~10min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    By default, the official OpenCV Android SDK doesn&rsquo;t contain the contrib libraries, like Aruco.
-prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
- Android SDK  Note: please degrade the Android SDK tools version, 25.2.4 is fine for me http://dl-ssl.google.com/android/repository/tools_r25.2.5-macosx.zip Go to ~/Library/Android/sdk, rename tools to tools.bak, then unzip the tools_rxxx.zip to sdk/tools directory. Why? because otherwise, android command has been deprecated)
- opencv 3.3.1  git clone https://github.com/opencv/opencv.git
- opencv_contrib  git clone https://github.
+    本人CS硕士名校非牛人,一年前去了一家中型软件公司做SD,不喜欢,刚刚跳去一家小HF.面试 的过程好像西游记一样,路途遥遥,艰险不断,怪物层出
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/build-opencv-android-sdk/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/cs-interview-experience/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -380,8 +381,8 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/a-developer-leanrns-design/" itemprop="url">
-        A developer learns design
+        <a class="post-title-link" href="http://yangchao.me/post/static-final-method/" itemprop="url">
+        static method and hiding
         </a>
       </h1>
       <div class="post-meta">
@@ -390,8 +391,8 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-06-29">
-    2017-06-29
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-13">
+    2015-01-13
 </time>
 </span> 
       
@@ -404,8 +405,8 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/design" itemprop="url" rel="index">
-        <span itemprop="name">Design</span>
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
       </a>
       &nbsp; 
     </span>
@@ -419,18 +420,18 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">224 words ~2min</span>
+<span class="leancloud-visitors-count">191 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    I do not forget the time when I crafted a Flash animation in my university and I also had a dream to design a 3D game on my own.
-So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
-I also learn how to program with Unity and 3D model with Maya.
+    Class method can be invoked by Class or by instance.
+When it is invoked by instance, it uses the type of the instance, to figure out, at compile time, which class method to invoke. So the polymorphism would not happen as you think. For static methods, when the static method of the subclasses has the same signature as their superclass, we call it Hiding.
+In Java, private / final / static methods can do hiding by static binding.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/a-developer-leanrns-design/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/static-final-method/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -441,8 +442,8 @@ I also learn how to program with Unity and 3D model with Maya.
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/kotlin-pitfalls/" itemprop="url">
-        Kotlin Pitfalls
+        <a class="post-title-link" href="http://yangchao.me/post/nz-company-collection/" itemprop="url">
+        NZ company collection
         </a>
       </h1>
       <div class="post-meta">
@@ -451,8 +452,8 @@ I also learn how to program with Unity and 3D model with Maya.
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-05-27">
-    2017-05-27
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-12">
+    2015-01-12
 </time>
 </span> 
       
@@ -465,8 +466,8 @@ I also learn how to program with Unity and 3D model with Maya.
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/tutorial" itemprop="url" rel="index">
-        <span itemprop="name">Tutorial</span>
+      <a href="http://yangchao.me/categories/job-seeking" itemprop="url" rel="index">
+        <span itemprop="name">Job Seeking</span>
       </a>
       &nbsp; 
     </span>
@@ -480,18 +481,16 @@ I also learn how to program with Unity and 3D model with Maya.
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">363 words ~2min</span>
+<span class="leancloud-visitors-count">821 words ~4min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    Type system val list: List&lt;String&gt; = java.util.ArrayList() Why does it work? java.util.ArrayList is not a subclass of kotlin.List, and kotlin.List is actually read-only.
-Because in bytecode level, kotlin.List is just java.util.List! I decompile the class Kotlin compiled:
-import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Metadata(mv={1, 1, 6}, bv={1, 0, 1}, k=2, d1={&#34;\000\b\n\000\n\002\020\002\n\000\032\006\020\000\032\0020\001��\006\002&#34;}, d2={&#34;a&#34;, &#34;&#34;, &#34;kotlin_demo&#34;}) public final class _1Kt { public static final void a() { List list = (List)new ArrayList(); } } You can think as if java.
+    New Zealand Post http://jobs.nzpost.co.nz/   Sovereign https://careers.asbgroup.co.nz/sovereign/home   Child, Youth &amp; Family https://msdcareers.msd.govt.nz/home   AA http://www.aa.co.nz/about/work-or-partner-with-us/careers/   Kiwibank https://workforus.kiwibank.co.nz/search   Telnet http://callcentrepeople.co.nz/jobs/candidate-resources/   iiNet http://careers.iinet.net.au/caw/en/listing/   Great Outcomes    Tower Insurance https://careers.tower.co.nz/home   Dunedin City Council http://www.dcc.jobs/   Coca Cola    Ezibuy https://ezibuy.careercentre.net.nz/   Datacraft (Dimension Data) http://www.dimensiondata.com/en-nz/aboutus/careerportal   BNZ http://www.bnzcareers.co.nz/   ANZ (include National Bank) https://www.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/kotlin-pitfalls/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/nz-company-collection/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -502,8 +501,8 @@ import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Meta
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/pseudo-random-number-shuffle/" itemprop="url">
-        pseudo-random number &amp; shuffle
+        <a class="post-title-link" href="http://yangchao.me/post/override-covariant-return-types/" itemprop="url">
+        override:  covariant return types
         </a>
       </h1>
       <div class="post-meta">
@@ -512,31 +511,45 @@ import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Meta
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-04-26">
-    2017-04-26
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-12">
+    2015-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">282 words ~2min</span>
+<span class="leancloud-visitors-count">70 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    Pseudo random number Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called pseudo random.
-A simple algorithm is Linear congruential generator.
- next random = (a * random + c) mod 2^32  The initial random is seed.
-Java implementation In next(bits) method:
-nextseed = (oldseed * multiplier + addend) &amp; mask; here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &lt;&lt; 48) - 1.
+    class AA { void foo(CharSequence a) {} CharSequence bar() { return &#34;1&#34;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &#34;2&#34;; } } It&rsquo;s obvious that method &ldquo;bar&rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/pseudo-random-number-shuffle/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/override-covariant-return-types/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -547,8 +560,8 @@ nextseed = (oldseed * multiplier + addend) &amp; mask; here, multiplier is 0x5DE
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/" itemprop="url">
-        Swift 3.0 for a Java or ES6/TypeScript developer
+        <a class="post-title-link" href="http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/" itemprop="url">
+        Behavior of polymorphic methods inside constructors
         </a>
       </h1>
       <div class="post-meta">
@@ -557,28 +570,45 @@ nextseed = (oldseed * multiplier + addend) &amp; mask; here, multiplier is 0x5DE
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-01-19">
-    2017-01-19
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-12">
+    2015-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">801 words ~4min</span>
+<span class="leancloud-visitors-count">118 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    Basic Operators Assignment Operator let b = 10 // constant var a = 5	// variable a = b let is not the same as that in ES6. It is more or like final in Java. It means the variable (value or reference) cannot be changed once initialization.
-But let in Swift has stronger semantics, which enable immutability or constant. It means not only the reference cannot be mutable but also the object it refers cannot be mutable.
+    class Glyph { void draw() { System.out.println(&#34;Glyph.draw()&#34;); } Glyph() { System.out.println(&#34;Glyph() before draw()&#34;); draw(); System.out.println(&#34;Glyph() after draw()&#34;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&#34;RoundGlyph.RoundGlyph(), radius = &#34; + radius); } void draw() { System.out.println(&#34;RoundGlyph.draw(), radius = &#34; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &gt; Glyph() before draw() &gt; &gt; RoundGlyph.draw(),
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -589,8 +619,8 @@ But let in Swift has stronger semantics, which enable immutability or constant. 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/elementref-viewcontainerref-templateref/" itemprop="url">
-        ElementRef vs. ViewContainerRef vs. TemplateRef
+        <a class="post-title-link" href="http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/" itemprop="url">
+        JAX-RS as the one Java web framework to rule them all?
         </a>
       </h1>
       <div class="post-meta">
@@ -599,29 +629,46 @@ But let in Swift has stronger semantics, which enable immutability or constant. 
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-12-27">
-    2016-12-27
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-09">
+    2015-01-09
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/jax-rs" itemprop="url" rel="index">
+        <span itemprop="name">JAX-RS</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">407 words ~2min</span>
+<span class="leancloud-visitors-count">1918 words ~10min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    In Angular2, there are many *Ref class: ElementRef, ViewContainerRef, TemplateRef.
-What do they means?
- Nearly every components (Components, Attribute Directives, Structural Directives) have ViewContainerRef, which is the host of its view.  ViewContainerRef has two important methods: createEmbeddedView(templateRef: TemplateRef&lt;C&gt;, context?: C, index?: number) : EmbeddedViewRef&lt;C&gt; This method is to create a view from a HTML template. createComponent(componentFactory: ComponentFactory&lt;C&gt;, index?: number, injector?: Injector, projectableNodes?: any[][]) : ComponentRef&lt;C&gt; This method is to initialize a component and insert its host view to the view container.
+    One of the things about Java that sometimes gets made fun of is the huge number of Java based web frameworks. There certainly are many, of all shapes and sizes! I suppose there are quite a lot of different shapes and sizes of web applications out there but it sometimes seems like there&rsquo;s a 1-1 mapping between applications and frameworks :).
+Picking the right web framework is probably a managers nightmare (Which one to pick?
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/elementref-viewcontainerref-templateref/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -632,8 +679,8 @@ What do they means?
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/threadlocal/" itemprop="url">
-        ThreadLocal
+        <a class="post-title-link" href="http://yangchao.me/post/enumeration-types/" itemprop="url">
+        Enumeration types
         </a>
       </h1>
       <div class="post-meta">
@@ -642,28 +689,55 @@ What do they means?
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-09-05">
-    2016-09-05
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/java-5" itemprop="url" rel="index">
+        <span itemprop="name">Java 5</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">978 words ~5min</span>
+<span class="leancloud-visitors-count">453 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    how to use? Basically, ThreadLocal is used for these scenarios: whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from this thread.
-When wrongly used, it may cause something counter-intuitive. For example, when you set a value/reference to a ThreadLocal, you also share it with other threads (say other threads can access the reference and mutable it.
+    enum&rsquo;s underlying implementation Define enumerated types by using enum keyword.
+enum MetaColor { RED, YELLOW, BLUE } Now, MetaColor class has three final static members all of which are of MetaColor class: RED, YELLOW and BLUE
+MetaColor has 2 static methods: values(), valueOf(..) and other instance methods: name(), ordinal() and toString(), hashCode(), equals().
+You can override the toString(), but hashCode() and equals() are final which cannot be override. Actually, enum maintains a singleton for ever enum object, so overriding hashCode() and equals() is not required.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/threadlocal/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/enumeration-types/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -674,8 +748,8 @@ When wrongly used, it may cause something counter-intuitive. For example, when y
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/dive-into-jmm/" itemprop="url">
-        Dive into JMM
+        <a class="post-title-link" href="http://yangchao.me/post/variable-argument-list-a-pitfall/" itemprop="url">
+        variable argument list: a pitfall
         </a>
       </h1>
       <div class="post-meta">
@@ -684,11 +758,93 @@ When wrongly used, it may cause something counter-intuitive. For example, when y
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-09-05">
-    2016-09-05
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">272 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    We usually define a method with a variable argument list like this:
+void bar(String...args) { //blablab } But there is a pitfall in this place. Can you ensure args is always an array, even its length is 0 when it&rsquo;s empty?
+Yes, most of time.
+obj.bar(); // here, args is a zero-length array BUT, things are not always like that.
+You can see this:
+obj.bar(null); Guess what? Here the args is also null.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/variable-argument-list-a-pitfall/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/default-constructor-no-args-constructor/" itemprop="url">
+        Default constructor (no-args constructor)
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
@@ -700,9 +856,9 @@ When wrongly used, it may cause something counter-intuitive. For example, when y
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    JMM is an advanced and abstract topic in Java. It provides well-defined semantics for synchronization and help us reason the code execution in a multi-thread enviorionment.
-Keywords: main memory, local memory, reordering, visibility, memory barrier/fence
-What do the issues come from? References  The JSR-133 Cookbook for Compiler Writers Memory Barriers and JVM Concurrency  //TODO
+    Default constructor is just synthesized by the compiler when you don&rsquo;t define any constructor.
+Once you define a constructor, the compiler won&rsquo;t make one for you.
+class C { public C(int a) { } public static void main(String[] args) { new C(); // so compiler will issue an error message here  } } &nbsp;
     </div>
     
     <footer class="post-footer"><div class="post-eof"></div></footer>
@@ -711,8 +867,8 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/double-checked-locking-in-singleton/" itemprop="url">
-        Double Checked Locking in lazy-initialization Singleton
+        <a class="post-title-link" href="http://yangchao.me/post/distinguish-overloaded-methods/" itemprop="url">
+        Distinguish overloaded methods
         </a>
       </h1>
       <div class="post-meta">
@@ -721,28 +877,47 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-09-02">
-    2016-09-02
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">851 words ~4min</span>
+<span class="leancloud-visitors-count">477 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    double-checked locking idiom (aka. DCL) broken versions Here we follow the evolution process of how to create a lazy-initialization singleton.
-// naive version public class Singleton { private static Singleton DEFAULT; public static Singleton getDefault() { if(DEFAULT == null) { DEFAULT = new Singleton(); } return DEFAULT; } private Singleton() {} // other instance methods  } Race condition: - when thread 1 has executed if(DEFAULT == null) and then is preempted by thread 2.
+    Each overloaded method must have a unique list of argument types.
+This means that there are the following possible cases:
+ argument count are different  void foo(int a) {} void foo(int a, String b) {}  argument types are different  void foo(int a) {} void foo(String b) {}  argument types are different, even if inheritance  void foo(List a) {} void foo(ArrayList a) {}  return types are different  void foo(int a) {} int foo(int b) { return 0; } NO!
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/double-checked-locking-in-singleton/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/distinguish-overloaded-methods/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -753,8 +928,8 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/" itemprop="url">
-        thread interrupt and cancelable mechanism
+        <a class="post-title-link" href="http://yangchao.me/post/override-a-pitfall/" itemprop="url">
+        Override: a pitfall
         </a>
       </h1>
       <div class="post-meta">
@@ -763,27 +938,46 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-23">
-    2016-08-23
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">247 words ~2min</span>
+<span class="leancloud-visitors-count">170 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    To begin with, I issue some questions: - what does Thread#interrupt() do? - what is the difference between Thread#isInterrupted() and Thread.interrupted? - do I have to respond to interruption event? - when an InterruptedException is thrown? - how should I handle the caught InterruptedException? - how do I implement a cancelable mechanism for my task by polling interruption event? - apart from wait(), sleep(), join(), are there other scenarios throwing InterruptedException?
+    Let&rsquo;s see the flowing program and guess the run result:
+class Animal { protected void drink() { System.out.println(&#34;animal drinks before eating&#34;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&#34;dog drinks before eating&#34;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/override-a-pitfall/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -794,8 +988,8 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/java-array-has-length-field/" itemprop="url">
-        Java array has length field?
+        <a class="post-title-link" href="http://yangchao.me/post/java-access-control/" itemprop="url">
+        Java access control
         </a>
       </h1>
       <div class="post-meta">
@@ -804,28 +998,46 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-22">
-    2016-08-22
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">814 words ~4min</span>
+<span class="leancloud-visitors-count">510 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there must be length information stored in the object header. But where?
-array is special There is no &ldquo;class definition&rdquo; of an array (you can&rsquo;t find it in any .class file), they&rsquo;re a part of the language itself.
+    Java access control is a bit weird, especially for the ones with C++ background.
+There are two types of access control, one for classes and the other for members. To simplify my discussion, in this context the class mean the top level one, which is directly defined in a compile unit. As the nested class is actually always associated with another class, so it&rsquo;s not top level class and I regard it as just a member like member variables and member methods.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/java-array-has-length-field/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/java-access-control/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -836,8 +1048,8 @@ array is special There is no &ldquo;class definition&rdquo; of an array (you can
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/string-intern/" itemprop="url">
-        String intern
+        <a class="post-title-link" href="http://yangchao.me/post/java-object-initialization-order/" itemprop="url">
+        Java Object Initialization Order
         </a>
       </h1>
       <div class="post-meta">
@@ -846,244 +1058,45 @@ array is special There is no &ldquo;class definition&rdquo; of an array (you can
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-22">
-    2016-08-22
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2013-01-12">
+    2013-01-12
 </time>
 </span> 
       
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1482 words ~7min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Several simple code snippets // Sample1 char[] chars = {&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;}; String str1 = new String(chars); System.out.println(str1 == str1.intern()); print: true
-// Sample2 String str1 = new String(&#34;hello&#34;); System.out.println(str1 == str1.intern()); print: false
-// Sample3 String a = &#34;hello&#34;; String b = new String(&#34;hello&#34;); String c = new String(&#34;h&#34; + &#34;e&#34; + &#34;l&#34; + &#34;l&#34; + &#34;o&#34;); String d = b.intern(); How many String objects is created?
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/string-intern/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/how-jvm-handle-method-invocation/" itemprop="url">
-        How JVM handle method invocation
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
 </span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-22">
-    2016-08-22
-</time>
-</span> 
-      
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">1251 words ~6min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Introduction Five forms of method invocation in Java: - invokevirtual - invokeinterface - invokestatic - invokespecial - invokedynamic
-invokestatic and invokevirtual Of these, invokestatic and invokevirtual are easy to understand. invokevirtual is the default behaviour when we invoke an instance method. invokestatic is used to invoke the class method based on the type of the reference, not the class of the object when we invoke the static method through the instance rather than the class name.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/how-jvm-handle-method-invocation/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/dynamic-proxy-revisit/" itemprop="url">
-        Dynamic Proxy revisit
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-15">
-    2016-08-15
-</time>
-</span> 
-      
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">16483 words ~78min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Dynamic Proxy in JDK Proxy is a class which can get the proxy class and create the proxy instance. It has a private default constructor and a protected constructor with a contractor argument: InvocationHandler.
-InvocationHandler is an interface which we can apply our code into the generated proxy class. It has only one method: Object invoke(Object proxy, Method method, Object[] args)
-Proxy has four static methods:
-static Class&lt;?&gt; getProxyClass(ClassLoader loader, Class&lt;?
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/dynamic-proxy-revisit/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/dbvisualizer-tips/" itemprop="url">
-        DbVisualizer Tips
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-04-21">
-    2016-04-21
-</time>
-</span> 
-      
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">114 words ~1min</span>
+<span class="leancloud-visitors-count">1135 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    DbVisualizer Tips  How do we execute stored procedure? use @call stored_procedure_name;
- Parameterize SQL with variables Write your SQL as select * from table1 where a = ${param}$ Execute it and the &ldquo;Enter data for variables&rdquo; window will pop up.
- Parameterize SQL with markers Write your SQL as select * from table1 where a = :marker Execute it and the &ldquo;Enter data for markers&rdquo; window will pop up.
+    See the following program, and you guess the running result: public class Dog { public static Dog dog = new Dog(); static final int val1 = -5; static int val2 = 3; public int val3; public Dog() { val3 = val1 + val2; } public static void main(String[] args) { System.out.println(Dog.dog.val3); } } Now, I tell you the result is -5. But why? To clarify this confusing initialization order, you
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/dbvisualizer-tips/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/understand-when-to-rollback/" itemprop="url">
-        Understand when to rollback
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-03-04">
-    2016-03-04
-</time>
-</span> 
-      
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">751 words ~4min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Prepare At first, I create a table:
-CREATE TABLE &#34;SYSTEM&#34;.&#34;TEST&#34; (	&#34;ID&#34; NUMBER(*,0), &#34;NAME&#34; VARCHAR2(200 BYTE), CONSTRAINT &#34;TEST_PK&#34; PRIMARY KEY (&#34;ID&#34;) ); Then, create a stored procedure:
-CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT INTO test VALUES (x, &#39;insert by stored procedure&#39;); -- Sometimes there might be an error.  IF x = 2 THEN RAISE_APPLICATION_ERROR(-20000, &#39;Wooops...&#39;); END IF; EXCEPTION WHEN OTHERS THEN --Rollback all the changes and then raise the error again.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/understand-when-to-rollback/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/oracle-statement-level-rollback/" itemprop="url">
-        Oracle Statement-Level ROLLBACK
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-03-01">
-    2016-03-01
-</time>
-</span> 
-      
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">474 words ~3min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Oracle Statement-Level ROLLBACK (undo of a transaction)
-Purpose Use the ROLLBACK statement to undo work done in the current transaction or to manually undo the work done by an in-doubt distributed transaction.
-Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transactions Oracle Database - Locks Oracle Database - Row Locks (TX) Oracle Database - TableSpace Oracle Database - Transactions Oracle Database - UNDO (Rollback Segment) PL/SQL - Autonomous Transactions (Pragma)
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/oracle-statement-level-rollback/" rel="contents">
+    <a class="btn" href="http://yangchao.me/post/java-object-initialization-order/" rel="contents">
       Read More &raquo;
     </a>
     </div>
@@ -1101,9 +1114,6 @@ Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transa
 
 
 
-  
-  
-
 
 
 
@@ -1112,18 +1122,10 @@ Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transa
 
 
 <nav class="pagination">
-    
-    
-        
-        
-          <span class="page-number current">1</span>
-        
-        
+    <a class="extend prev" rel="prev" href="http://yangchao.me/pages/6/"><i class="fa fa-angle-left"></i></a>
     
         
-        
-          <a class="page-number" href="http://yangchao.me/pages/2/">2</a>
-        
+    
         
     
         
@@ -1152,11 +1154,11 @@ Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transa
     
         
         
-          <a class="page-number" href="http://yangchao.me/pages/7/">7</a>
+          <span class="page-number current">7</span>
         
         
     
-    <a class="extend next" rel="next" href="http://yangchao.me/pages/2/"><i class="fa fa-angle-right"></i></a>
+    
 </nav>
 
 
