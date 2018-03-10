@@ -160,11 +160,11 @@
 <h1 id="prepare">Prepare</h1>
 
 <p>At first, I create a table:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="s2">&#34;SYSTEM&#34;</span><span class="p">.</span><span class="s2">&#34;TEST&#34;</span> 
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="ss">&#34;SYSTEM&#34;</span><span class="p">.</span><span class="ss">&#34;TEST&#34;</span> 
 <span class="p">(</span>	
-  <span class="s2">&#34;ID&#34;</span> <span class="nb">NUMBER</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
-  <span class="s2">&#34;NAME&#34;</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">200</span> <span class="n">BYTE</span><span class="p">),</span> 
-  <span class="k">CONSTRAINT</span> <span class="s2">&#34;TEST_PK&#34;</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="s2">&#34;ID&#34;</span><span class="p">)</span>
+  <span class="ss">&#34;ID&#34;</span> <span class="nb">NUMBER</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
+  <span class="ss">&#34;NAME&#34;</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">200</span> <span class="n">BYTE</span><span class="p">),</span> 
+  <span class="k">CONSTRAINT</span> <span class="ss">&#34;TEST_PK&#34;</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="ss">&#34;ID&#34;</span><span class="p">)</span>
 <span class="p">);</span></code></pre></div>
 <p>Then, create a stored procedure:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">sp_insert</span> <span class="p">(</span><span class="n">x</span> <span class="nb">NUMBER</span><span class="p">)</span> <span class="k">IS</span>
@@ -521,7 +521,7 @@ java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint 
   <span class="author" itemprop="copyrightHolder">Chao Yang</span>
 </div>
 <div class="powered-by">
-  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.34</a>
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
 </div>
 <div class="theme-info">
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT

@@ -185,12 +185,48 @@ I conclude some general patterns to address some category of problems and what I
     
     <item>
       <title></title>
+      <link>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</guid>
+      <description>Group by bit · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Group by bit       results matching &#34;&#34;   No results matching &#34;&#34;             var gitbook = gitbook || []; gitbook.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</guid>
+      <description>Summary · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Summary   Bit manipulation is the act of algorithmically manipulating bits or other pieces of data shorter than a word. Computer programming tasks that require bit manipulation include low-level device control, error detection and correction algorithms, data compression, encryption algorithms, and optimisation.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>http://yangchao.me/book/algorithm-pathway/_book/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://yangchao.me/book/algorithm-pathway/_book/</guid>
       <description>Introduction · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Introduction   Algorithm Pathway This minibook is the knowledge I absorbed from the practice of algorithmic problems on LeetCode, HackerRank etc.
 I conclude some general patterns to address some category of problems and what I want to note here more is about the thought process when I think of a solution.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</guid>
+      <description>Summary · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Summary   Linked list is a quite common data structure. Although it is easy for insertion and deletion, but sometimes it can be very tricky to use, because for a current node, its context is just its next node and its previous one if any.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</guid>
+      <description>Two pointers race · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Two pointers race   Most of time, we need 2 pointers to traverse a linked list or two linked lists.</description>
     </item>
     
     <item>
@@ -263,12 +299,40 @@ check cycle in a linked list A typical use of fast-slow pointers is to check a l
     
     <item>
       <title></title>
+      <link>http://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</guid>
+      <description>First Chapter · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        First Chapter   JVM Structure Primitive Types and Values The primary data types supported by JVM are the numeric types, the boolean types and returnAddress type.
+numberic types include integral types and floating-point types:</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>http://yangchao.me/book/annotated-jvm-specification/_book/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://yangchao.me/book/annotated-jvm-specification/_book/</guid>
       <description>Introduction · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        Introduction   My Awesome Book This file file serves as your book&amp;apos;s preface, a great place to describe your book&amp;apos;s content and ideas.
    results matching &#34;&#34;   No results matching &#34;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</guid>
+      <description>Loading, Linking, and Initializing · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        Loading, Linking, and Initializing   Chapter 5. Loading, Linking, and Initializing The Java Virtual Machine dynamically loads, links and initializes classes and interfaces. Loading is the process of finding the binary representation of a class or interface type with a particular name and_creating_a class or interface from that binary representation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</guid>
+      <description>The Structure of Java Virtual Machine · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        The Structure of Java Virtual Machine   Chapter 2. The Structure of the Java Virtual Machine This document specifies an abstract machine. It does not describe any particular implementation of the Java Virtual Machine.</description>
     </item>
     
     <item>

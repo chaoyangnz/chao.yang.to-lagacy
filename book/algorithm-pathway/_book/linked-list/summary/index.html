@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Summary · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="two-pointers-race.html" />
+    
+    
+    <link rel="prev" href="../bit-operation/group-by-bit.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Bit Operation</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../bit-operation/summary.html">
+            
+                <a href="../bit-operation/summary.html">
+            
+                    
+                    Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../bit-operation/group-by-bit.html">
+            
+                <a href="../bit-operation/group-by-bit.html">
+            
+                    
+                    Group by bit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linked List</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="summary.html">
+            
+                <a href="summary.html">
+            
+                    
+                    Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="two-pointers-race.html">
+            
+                <a href="two-pointers-race.html">
+            
+                    
+                    Two pointers race
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tree</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Dynamic Programming</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Array</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Hashing</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Summary</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Linked list is a quite common data structure. Although it is easy for insertion and deletion, but sometimes it can be very tricky to use, because for a current node, its context is just its next node and its previous one if any.</p>
+<h1 id="dummy-head">dummy head</h1>
+<p>I place <code>dummy head</code> as the first point, because I suppose it is quite convenient when handling some problems.</p>
+<blockquote>
+<p>dummy head is as its name: it has no extra purpose, just for head.</p>
+</blockquote>
+<p>It is useful when we construct a linked list from scratch or the real head node is possibly changed - delete, replace etc.</p>
+<h1 id="commonly-use-operations">commonly-use operations</h1>
+<h2 id="reverse">reverse</h2>
+<p>Always store the reversed linked list, say &apos;newHead`</p>
+<ul>
+<li>Initial state: <code>newHead = null</code>, means empty list</li>
+<li>Each iteration: </li>
+</ul>
+<pre><code>node.next = newHead;
+newHead = node;
+</code></pre><h1 id="two-pointers-race">Two pointers race</h1>
+<p>Please refer to section <code>[Two pointers race]</code></p>
+<h1 id="problem-category">Problem category</h1>
+<p><strong>dummy head</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_086_partition_list" target="_blank">86. Partition List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_024_swap_nodes_in_pairs" target="_blank">24. Swap Nodes in Pairs</a></li>
+</ul>
+<p><strong>Fast-slow pointers</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_141_linked_list_cycle" target="_blank">141. Linked List Cycle</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_143_reorder_list" target="_blank">143. Reorder List</a></li>
+</ul>
+<p><strong>Two pointers with a distance</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_019_remove_nth_node_from_end_of_list" target="_blank">19. Remove Nth Node From End of List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_061_rotate_list" target="_blank">61. Rotate List</a></li>
+</ul>
+<p><strong>Align two pointer</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_160_intersection_of_two_linked_lists" target="_blank">160. Intersection of Two Linked Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_142_linked_list_cycle_ii" target="_blank">142. Linked List Cycle II</a></li>
+</ul>
+<p><strong>Opposite pointers</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_234_palindrome_linked_list" target="_blank">234. Palindrome Linked List</a></li>
+</ul>
+<p><strong>Misc.</strong></p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_002_add_two_numbers" target="_blank">2. Add Two Numbers</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_206_reverse_linked_list" target="_blank">206. Reverse Linked List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_092_reverse_linked_list_ii" target="_blank">92. Reverse Linked List II</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_237_delete_node_in_a_linked_list" target="_blank">237. Delete Node in a Linked List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_203_remove_linked_list_elements" target="_blank">203. Remove Linked List Elements</a></li>
+<li><p><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_328_odd_even_linked_list" target="_blank">328. Odd Even Linked List</a></p>
+</li>
+<li><p>stack</p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_445_add_two_numbers_ii" target="_blank">445. Add Two Numbers II</a></li>
+</ul>
+</li>
+<li>hashtable<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_138_copy_list_with_random_pointer" target="_blank">138. Copy List with Random Pointer</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Unsolved</strong></p>
+<ul>
+<li><p><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_025_reverse_nodes_in_k_group" target="_blank">25. Reverse Nodes in k-Group</a></p>
+</li>
+<li><p>sorted list</p>
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_109_convert_sorted_list_to_binary_search_tree" target="_blank">109. Convert Sorted List to Binary Search Tree</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_147_insertion_sort_list" target="_blank">147. Insertion Sort List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_023_merge_k_sorted_lists" target="_blank">23. Merge k Sorted Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_021_merge_two_sorted_lists" target="_blank">21. Merge Two Sorted Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_083_remove_duplicates_from_sorted_list" target="_blank">83. Remove Duplicates from Sorted List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_082_remove_duplicates_from_sorted_list_ii" target="_blank">82. Remove Duplicates from Sorted List II</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_148_sort_list" target="_blank">148. Sort List</a></li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../bit-operation/group-by-bit.html" class="navigation navigation-prev " aria-label="Previous page: Group by bit">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="two-pointers-race.html" class="navigation navigation-next " aria-label="Next page: Two pointers race">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Summary","level":"3.1","depth":1,"next":{"title":"Two pointers race","level":"3.2","depth":1,"path":"linked-list/two-pointers-race.md","ref":"linked-list/two-pointers-race.md","articles":[]},"previous":{"title":"Group by bit","level":"2.2","depth":1,"path":"bit-operation/group-by-bit.md","ref":"bit-operation/group-by-bit.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"linked-list/summary.md","mtime":"2017-06-18T03:11:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-24T01:43:19.843Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
