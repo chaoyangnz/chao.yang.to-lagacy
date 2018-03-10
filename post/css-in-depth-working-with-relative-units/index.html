@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>A developer learns design - Chao Yang</title>
+    <title>CSS in Depth - Working with relative units - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="A developer learns design">
+    <meta property="og:title" content="CSS in Depth - Working with relative units">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="A developer learns design - Chao Yang" />
+    <meta name="title" content="CSS in Depth - Working with relative units - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/a-developer-leanrns-design/" itemprop="url">
-        A developer learns design
+        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-working-with-relative-units/" itemprop="url">
+        CSS in Depth - Working with relative units
         </a>
       </h1>
       <div class="post-meta">
@@ -139,8 +139,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-06-29">
-    2017-06-29
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-09">
+    2018-03-09
 </time>
 </span> 
       
@@ -153,8 +153,8 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/design" itemprop="url" rel="index">
-        <span itemprop="name">Design</span>
+      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
+        <span itemprop="name">CSS</span>
       </a>
       &nbsp; 
     </span>
@@ -168,73 +168,61 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">224 words ~2min</span>
+<span class="leancloud-visitors-count">172 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     
 
-<p>I do not forget the time when I crafted a Flash animation in my university and I also had a dream to design a 3D game on my own.</p>
-
-<p>So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.</p>
-
-<p>I also learn how to program with Unity and 3D model with Maya. All these activities are directed by my interest. I have never expect me to be a creative professional some day, but a hobbyist is satisfactory enough for me.</p>
-
-<p>The following is the video tutorials I found:</p>
-
-<h1 id="affinity-designer">Affinity Designer</h1>
-
-<h2 id="vimeo">Vimeo</h2>
+<h1 id="absolute-units">absolute units</h1>
 
 <ul>
-<li><a href="https://vimeo.com/channels/affinitydesigner">Official Tutorials</a></li>
-<li><a href="http://www.miguelboto.com/affinity/designer/video-tutorials/">Video Tutorials</a></li>
+<li>pixel: <code>px</code></li>
+<li>point: <code>pt</code>, <code>pc</code></li>
+<li>others: <code>mm</code>, <code>cm</code>, <code>inch</code></li>
 </ul>
 
-<h2 id="udemy">Udemy</h2>
+<h1 id="ems-and-rems">Ems and rems</h1>
+
+<h2 id="em">em</h2>
+
+<p><code>em</code> is ideal for <code>padding</code>, <code>margin</code>, <code>border-radius</code></p>
+
+<p>If using <code>em</code> for <code>font-size</code>, there is a bit tricky, because <code>em</code> in <code>font-size</code> is computed based on <code>inherited</code> font size, which can cause <em>the shrinking font problem</em>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">ul</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mf">.8</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p><img src="http://yangchao.me/media/15206441532184.jpg" alt="" /></p>
+
+<h2 id="rem">rem</h2>
+
+<blockquote>
+<p>Pseudo-class selector <code>:root</code> is equivalent to using the type selector <code>html</code>. The <code>&lt;html&gt;</code> element is the top-level (or root) node of DOM.</p>
+</blockquote>
+
+<p><code>rem</code> is short for root <code>em</code>. <code>rem</code> is well suited for font sizes: <code>font-size</code>.</p>
+
+<h2 id="viewport-relative-units">viewport-relative units</h2>
+
+<blockquote>
+<p><em>viewport</em> — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.</p>
+</blockquote>
 
 <ul>
-<li><a href="https://www.lynda.com/Page-Layout-tutorials/Affinity-Designer-Essential-Training/429633-2.html">Affinity Designer Essential Training (Lynda)</a></li>
-<li><a href="https://www.lynda.com/Affinity-Designer-tutorials/UX-Design-Tools-Affinity-Designer/496890-2.html">Affinity Designer for UX Design (Lynda)</a></li>
-<li><a href="https://www.udemy.com/affinity-designer-for-beginners/">Affinity Designer For Beginners</a></li>
-<li><a href="https://www.udemy.com/how-to-affinity-designer-tutorial-windows-affinity-photo">How To Quickly Get Started with Affinity Designer</a></li>
-<li><a href="https://www.udemy.com/logoaffinitydesigner">Vector Logo Design in Affinity Designer</a></li>
-<li><a href="https://www.udemy.com/the-beginners-guide-to-affinity-designer/">Affinity Designer: The Complete Guide to Creating Vector Art</a></li>
-<li><a href="https://www.udemy.com/affinity-designer-for-beginners-dc/">Affinity Designer for beginners</a></li>
-<li><a href="https://www.udemy.com/affinity-designer-making-seamless-patterns/">Affinity Designer - making seamless patterns</a></li>
+<li><code>vh</code>: 1/100th of the viewport height</li>
+<li><code>vw</code>: 1/100th of the viewport width</li>
+<li><code>vmin</code>: 1/100th of the smaller dimension, height or width</li>
+<li><code>vmax</code>: 1/100th of the larger dimension, height or width</li>
 </ul>
 
-<h2 id="tusplus">Tusplus</h2>
+<p><code>vh</code> is well suited to specify element heights or widths.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mf">.5</span><span class="kt">em</span> <span class="o">+</span> <span class="mi">1</span><span class="kt">vw</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="custom-properties">custom properties</h1>
 
-<ul>
-<li><a href="https://design.tutsplus.com/categories/affinity-designer">Affinity Designer category</a></li>
-</ul>
-
-<h2 id="skillshare">Skillshare</h2>
-
-<p><a href="https://www.skillshare.com/browse/affinity-designer">Affinity Designer</a></p>
-
-<h1 id="affinity-photo">Affinity Photo</h1>
-
-<h2 id="vimeo-1">Vimeo</h2>
-
-<ul>
-<li><a href="https://vimeo.com/channels/875980">Official Tutorials</a></li>
-<li><a href="http://www.miguelboto.com/affinity/photo/video-tutorials/">Video Tutorials</a></li>
-</ul>
-
-<h2 id="udemy-1">Udemy</h2>
-
-<ul>
-<li><a href="https://www.lynda.com/Affinity-Photo-tutorials/Affinity-Photo-Essential-Training/453344-2.html">Affinity Photo Essential Training (Lynda)</a></li>
-<li><a href="https://www.lynda.com/Affinity-Photo-tutorials/Affinity-Photo-Basic-Portrait-Retouching/505167-2.html">Affinity Photo: Basic Portrait Retouching (Lynda)</a></li>
-<li><a href="https://www.udemy.com/affinity-photo-raw-image-development">Affinity Photo: Raw Image Development</a></li>
-<li><a href="https://www.udemy.com/affinity-photo-101">Affinity Photo 101: Master The Develop Persona</a></li>
-<li><a href="https://www.udemy.com/affinityphoto-solid-foundations">Affinity Photo: Solid Foundations</a></li>
-<li><a href="https://www.udemy.com/affinity-photo-the-little-box-of-tricks">Affinity Photo: The Little Box of Tricks</a></li>
-<li><a href="https://www.udemy.com/affinity-photo-five-steps-to-better-photos/">Affinity Photo: Five Steps to Better Photos</a></li>
-</ul>
+<p>// TODO</p>
 
     </div>
     <footer class="post-footer">
@@ -242,9 +230,9 @@
  
 <div class="post-tags">     
      
-    <a href="http://yangchao.me/tags/design" rel="tag" title="Design">#Design#</a>
+    <a href="http://yangchao.me/tags/css" rel="tag" title="CSS">#CSS#</a>
     
-    <a href="http://yangchao.me/tags/affinity" rel="tag" title="Affinity">#Affinity#</a>
+    <a href="http://yangchao.me/tags/notes" rel="tag" title="Notes">#Notes#</a>
     
 </div>
 
@@ -253,17 +241,13 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="http://yangchao.me/post/kotlin-pitfalls/" rel="next" title="Kotlin Pitfalls">
-        <i class="fa fa-chevron-left"></i> Kotlin Pitfalls
+        <a href="http://yangchao.me/post/css-in-depth-master-the-box-model/" rel="next" title="CSS in Depth - Master the box model">
+        <i class="fa fa-chevron-left"></i> CSS in Depth - Master the box model
         </a>
     
     </div>
 
     <div class="post-nav-prev post-nav-item">
-    
-        <a href="http://yangchao.me/post/build-opencv-android-sdk/" rel="prev" title="Build OpenCV 3.3 Android SDK on Mac OSX">
-        Build OpenCV 3.3 Android SDK on Mac OSX <i class="fa fa-chevron-right"></i>
-        </a>
     
     </div>
 </div>
@@ -276,7 +260,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：A developer learns design
+            标题：CSS in Depth - Working with relative units
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -383,18 +367,14 @@
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
 <ul>
-<li><a href="#affinity-designer">Affinity Designer</a>
+<li><a href="#absolute-units">absolute units</a></li>
+<li><a href="#ems-and-rems">Ems and rems</a>
 <ul>
-<li><a href="#vimeo">Vimeo</a></li>
-<li><a href="#udemy">Udemy</a></li>
-<li><a href="#tusplus">Tusplus</a></li>
-<li><a href="#skillshare">Skillshare</a></li>
+<li><a href="#em">em</a></li>
+<li><a href="#rem">rem</a></li>
+<li><a href="#viewport-relative-units">viewport-relative units</a></li>
 </ul></li>
-<li><a href="#affinity-photo">Affinity Photo</a>
-<ul>
-<li><a href="#vimeo-1">Vimeo</a></li>
-<li><a href="#udemy-1">Udemy</a></li>
-</ul></li>
+<li><a href="#custom-properties">custom properties</a></li>
 </ul>
 </nav></div>
     </div>

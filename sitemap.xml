@@ -2,6 +2,25 @@
 <search>
     
      <entry>
+        <title>CSS in Depth - Working with relative units</title>
+        <url>http://yangchao.me/post/css-in-depth-working-with-relative-units/</url>
+        <categories>
+          <category>CSS</category>
+        </categories>
+        <tags>
+          <tag>CSS</tag><tag>Notes</tag>
+        </tags>
+        <content type="html">  absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
+If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
+ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html. The &amp;lt;html&amp;gt; element is the top-level (or root) node of DOM.
+ rem is short for root em. rem is well suited for font sizes: font-size.
+viewport-relative units  viewport — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.
+  vh: 1/100th of the viewport height vw: 1/100th of the viewport width vmin: 1/100th of the smaller dimension, height or width vmax: 1/100th of the larger dimension, height or width  vh is well suited to specify element heights or widths.
+:root { font-size: calc(.5em &#43; 1vw); } custom properties // TODO
+</content>
+    </entry>
+    
+     <entry>
         <title>CSS in Depth - Master the box model</title>
         <url>http://yangchao.me/post/css-in-depth-master-the-box-model/</url>
         <categories>
