@@ -31,6 +31,9 @@ viewport-relative units  viewport — The framed area in the browser window wher
         </tags>
         <content type="html">  default box model It includes 3 boxes:
  content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
+ background extend to border box by default
+ &amp;lt;div&amp;gt; test &amp;lt;/div&amp;gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
+  Box heights don&amp;rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.g. pixels or ems.) Borders ignore percentage width settings too. tweak the box model with box-sizing: border-box   Normal box model Tweaked with box-sizing: border-box Positoning position: static the default position in the normal document flow. You cannot set top/bottom/lef/right properties. - position: relative sets a scope for an element which will layout relative to it original position. - positon: absolute makes the element out of the normal document flow which means it looks non-existent for its surrounding elements. It is relative to the nearest positioned ancestor with position: relative/absolute, otherwise relative to the viewport. - position: fixed relative to the viewport.
 difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
 To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
 adjusting the box model By setting box-sizing: border-box, the box model is adjusted. universal fix for border-box sizing *, ::before, ::after { box-sizing: border-box; } More robust fix when using 3rd-party libraries.

@@ -168,7 +168,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">309 words ~2min</span>
+<span class="leancloud-visitors-count">472 words ~3min</span>
 </span>
       </div>
     </header>
@@ -188,6 +188,43 @@
 </ul>
 
 <p>Margins don&rsquo;t belong to these boxes.</p>
+
+<blockquote>
+<p><strong>background extend to <em>border box</em> by default</strong></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
+test
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">div</span> <span class="p">{</span>
+<span class="k">margin</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">border</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="mh">#0000FF</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p>This can be changed by <code>background-clip</code> property:
+- <code>background-clip: border-box;</code>
+- <code>background-clip: padding-box;</code>
+- <code>background-clip: content-box;</code></p>
+
+<blockquote>
+<ul>
+<li>Box heights don&rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.g. pixels or ems.)</li>
+<li>Borders ignore percentage width settings too.</li>
+<li>tweak the box model with <code>box-sizing: border-box</code></li>
+</ul>
+</blockquote>
+
+<p><strong>Normal box model</strong>
+<img src="http://yangchao.me/media/876E60CC-FA97-44B3-A92A-C01BCF18ECE4.png" alt="876E60CC-FA97-44B3-A92A-C01BCF18ECE4" /></p>
+
+<p><strong>Tweaked with <code>box-sizing: border-box</code></strong>
+<img src="http://yangchao.me/media/92B0D03B-7D17-4EB0-8B0B-498799181971.png" alt="92B0D03B-7D17-4EB0-8B0B-498799181971" /></p>
+
+<h1 id="positoning">Positoning</h1>
+
+<p><code>position: static</code> the default position in the normal document flow. You cannot set <code>top/bottom/lef/right</code> properties.
+- <code>position: relative</code> sets a scope for an element which will layout relative to it original position.
+- <code>positon: absolute</code> makes the element out of the normal document flow which means it looks non-existent for its surrounding elements. It is relative to the nearest positioned ancestor with <code>position: relative/absolute</code>, otherwise relative to  the <strong>viewport</strong>.
+- <code>position: fixed</code> relative to the <strong>viewport</strong>.</p>
 
 <h1 id="difficulties-with-element-width">difficulties with element width</h1>
 
@@ -416,6 +453,7 @@
         <div class="post-toc-content"><nav id="TableOfContents">
 <ul>
 <li><a href="#default-box-model">default box model</a></li>
+<li><a href="#positoning">Positoning</a></li>
 <li><a href="#difficulties-with-element-width">difficulties with element width</a>
 <ul>
 <li><a href="#adjusting-the-box-model">adjusting the box model</a>

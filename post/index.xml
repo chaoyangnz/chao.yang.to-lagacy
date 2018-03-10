@@ -30,9 +30,9 @@ ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using 
       <guid>http://yangchao.me/post/css-in-depth-master-the-box-model/</guid>
       <description>default box model It includes 3 boxes:
  content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
-difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
-To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
-adjusting the box model By setting box-sizing: border-box, the box model is adjusted.</description>
+ background extend to border box by default
+ &amp;lt;div&amp;gt; test &amp;lt;/div&amp;gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
+  Box heights don&amp;rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.</description>
     </item>
     
     <item>

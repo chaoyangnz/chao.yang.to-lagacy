@@ -232,16 +232,16 @@ ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using 
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">309 words ~2min</span>
+<span class="leancloud-visitors-count">472 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     default box model It includes 3 boxes:
  content box padding box border box  Margins don&rsquo;t belong to these boxes.
-difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
-To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
-adjusting the box model By setting box-sizing: border-box, the box model is adjusted.
+ background extend to border box by default
+ &lt;div&gt; test &lt;/div&gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
+  Box heights don&rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.
     </div>
     
     <div class="post-more-link text-center">
