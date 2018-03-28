@@ -132,6 +132,64 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/http-cache/" itemprop="url">
+        HTTP cache
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-09-26">
+    2015-09-26
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/uncategorized" itemprop="url" rel="index">
+        <span itemprop="name">Uncategorized</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">49 words ~1min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Request headers:
+If-Modified-Since: {time} If-None-Match: {etag} These two headers are used to check if the cached resource is still fresh.
+If expired, response status is 200 and fetch the resource
+If not, response status is 304 and cache is still fresh.
+Response headers:
+Last-Modified: {time}ETag: {etag}Expire: {time} Cache-Control: maxAge={seconds} 
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/javaee-multi-popuse-application-frameworks/" itemprop="url">
         JavaEE Multi-popuse Application Frameworks
         </a>
@@ -1288,66 +1346,6 @@ MySQL package com.mysql.jdbc.jdbc2.optional; public class MysqlDataSource extend
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/html-5/" itemprop="url">
-        HTML 5
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-28">
-    2015-04-28
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/html5" itemprop="url" rel="index">
-        <span itemprop="name">HTML5</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">393 words ~2min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    new elements &amp;lt;figure&amp;gt; and &lt;figcaption&amp;gt; &lt;figure id=&#34;fig1&#34;&gt; &lt;figcaption&gt;Fig.1 Screen Reader Support for WAI-ARIA&lt;/figcaption&gt; &lt;img src=&#34;http://img2.cache.netease.com/cnews/2015/4/28/201504281107026599c.jpg&#34; alt=&#34;JAWS: Landmarks 1/1, Forms 4/5 … &#34;&gt; &lt;/figure&gt; &amp;lt;mark&amp;gt; This tag is very useful for the highlight of searching result.
-&lt;h1&gt;Yes, You Can Use &lt;mark&gt;HTML5&lt;/mark&gt; Today!&lt;/h1&gt; &amp;lt;progress&amp;gt; and &lt;meter&amp;gt; &lt;progress max=&#34;100&#34; value=&#34;0&#34;&gt;&lt;meter value=&#34;50&#34; min=&#34;0&#34; max=&#34;400&#34; low=&#34;60&#34; high=&#34;300&#34; title=&#34;gigabytes&#34;&gt; &lt;meter value=&#34;150&#34; min=&#34;0&#34; max=&#34;400&#34; low=&#34;60&#34; high=&#34;300&#34; title=&#34;gigabytes&#34;&gt; &lt;meter value=&#34;350&#34; min=&#34;0&#34; max=&#34;400&#34; low=&#34;60&#34; high=&#34;300&#34; title=&#34;gigabytes&#34;&gt; the low and high are the thresholds.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/html-5/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1443,14 +1441,14 @@ MySQL package com.mysql.jdbc.jdbc2.optional; public class MysqlDataSource extend
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
         <a href="http://yangchao.me/categories/">      
          
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         
         <span class="site-state-item-name">Categories</span>
         
@@ -1460,7 +1458,7 @@ MySQL package com.mysql.jdbc.jdbc2.optional; public class MysqlDataSource extend
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
          
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         
         <span class="site-state-item-name">Tags</span>
         </a>

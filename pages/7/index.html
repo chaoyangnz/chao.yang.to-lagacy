@@ -132,6 +132,67 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/override/" itemprop="url">
+        Override - some requirements
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
+    2015-01-16
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
+        <span itemprop="name">OOP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">413 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    1. Override methods must have the identical method signature as the methods overridden Return type doesn&rsquo;t belong to the method signature, but Java supports covariant return type for overriding.
+Identical signature means: 1) the number of formal arguments must be equal. 2) the type of relevant argument must be the same. The subtype of the methond argument cannot be considered as identical.
+2. Override methods can less restricted in access control class AA { protected void foo() {} } class BB extends AA { @Override public void foo() { } } We make the foo() method accessible from weaker privilege &ldquo;protected&rdquo; to less restricted specifier &ldquo;public&rdquo;.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/override/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/unreachable-statements/" itemprop="url">
         unreachable statements
         </a>
@@ -1250,14 +1311,14 @@ There are two types of access control, one for classes and the other for members
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
         <a href="http://yangchao.me/categories/">      
          
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         
         <span class="site-state-item-name">Categories</span>
         
@@ -1267,7 +1328,7 @@ There are two types of access control, one for classes and the other for members
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
          
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         
         <span class="site-state-item-name">Tags</span>
         </a>

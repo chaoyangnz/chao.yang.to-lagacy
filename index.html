@@ -132,6 +132,66 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/cors-revisit/" itemprop="url">
+        CORS revisit
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-24">
+    2018-03-24
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/web" itemprop="url" rel="index">
+        <span itemprop="name">Web</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">138 words ~1min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Origin The issue stems from the same-origin policy which forces the browsers to restrict the resource access of a different origin (e.g. different domain) when: - AJAX request - Web Fonts (for cross-domain font usage in @font-face within CSS) - Images/video frames drawn to a canvas using drawImage. - Stylesheets (for CSSOM access). - others
+CORS is a technique for relaxing the same-origin policy and similar techniques include JSONP, or server-side proxy which were used in the past.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/cors-revisit/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-working-with-relative-units/" itemprop="url">
         CSS in Depth - Working with relative units
         </a>
@@ -1066,49 +1126,6 @@ static Class&lt;?&gt; getProxyClass(ClassLoader loader, Class&lt;?
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/understand-when-to-rollback/" itemprop="url">
-        Understand when to rollback
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-03-04">
-    2016-03-04
-</time>
-</span> 
-      
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">751 words ~4min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Prepare At first, I create a table:
-CREATE TABLE &#34;SYSTEM&#34;.&#34;TEST&#34; (	&#34;ID&#34; NUMBER(*,0), &#34;NAME&#34; VARCHAR2(200 BYTE), CONSTRAINT &#34;TEST_PK&#34; PRIMARY KEY (&#34;ID&#34;) ); Then, create a stored procedure:
-CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT INTO test VALUES (x, &#39;insert by stored procedure&#39;); -- Sometimes there might be an error.  IF x = 2 THEN RAISE_APPLICATION_ERROR(-20000, &#39;Wooops...&#39;); END IF; EXCEPTION WHEN OTHERS THEN --Rollback all the changes and then raise the error again.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/understand-when-to-rollback/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
 </section>
 
 
@@ -1204,14 +1221,14 @@ CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT 
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
         <a href="http://yangchao.me/categories/">      
          
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         
         <span class="site-state-item-name">Categories</span>
         
@@ -1221,7 +1238,7 @@ CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT 
     <div class="site-state-item site-state-tags">
         <a href="http://yangchao.me/tags/">
          
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         
         <span class="site-state-item-name">Tags</span>
         </a>

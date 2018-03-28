@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Chao Yang</title>
+    <link>http://yangchao.me/categories/web/</link>
+    <description>Recent content in Web on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Mar 2018 22:55:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://yangchao.me/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CORS revisit</title>
+      <link>http://yangchao.me/post/cors-revisit/</link>
+      <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
+      
+      <guid>http://yangchao.me/post/cors-revisit/</guid>
+      <description>Origin The issue stems from the same-origin policy which forces the browsers to restrict the resource access of a different origin (e.g. different domain) when: - AJAX request - Web Fonts (for cross-domain font usage in @font-face within CSS) - Images/video frames drawn to a canvas using drawImage. - Stylesheets (for CSSOM access). - others
+CORS is a technique for relaxing the same-origin policy and similar techniques include JSONP, or server-side proxy which were used in the past.</description>
+    </item>
+    
+  </channel>
+</rss>

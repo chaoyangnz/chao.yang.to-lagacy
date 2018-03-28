@@ -2,6 +2,22 @@
 <search>
     
      <entry>
+        <title>CORS revisit</title>
+        <url>http://yangchao.me/post/cors-revisit/</url>
+        <categories>
+          <category>Web</category>
+        </categories>
+        <tags>
+          <tag>Web</tag>
+        </tags>
+        <content type="html">  Origin The issue stems from the same-origin policy which forces the browsers to restrict the resource access of a different origin (e.g. different domain) when: - AJAX request - Web Fonts (for cross-domain font usage in @font-face within CSS) - Images/video frames drawn to a canvas using drawImage. - Stylesheets (for CSSOM access). - others
+CORS is a technique for relaxing the same-origin policy and similar techniques include JSONP, or server-side proxy which were used in the past.
+Handling simple CORS request In the simplest scenario, cross-origin communications don&amp;rsquo;t need preflight requests when satisfying the following: - GET, POST, HEAD - content type of a POST request is: application/x-www-form-urlencoded, multipart/form-data, text/plain - Origin header
+Then the server will consider the request&amp;rsquo;s Origin and either allow or disallow the request. If allowing, then it will respond with: - Access-Control-Allow-Origin
+</content>
+    </entry>
+    
+     <entry>
         <title>CSS in Depth - Working with relative units</title>
         <url>http://yangchao.me/post/css-in-depth-working-with-relative-units/</url>
         <categories>
@@ -118,7 +134,7 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
  opencv 3.3.1  git clone https://github.com/opencv/opencv.git
  opencv_contrib  git clone https://github.com/opencv/opencv.git
  CMake  brew install cmake ninja ant
-How to do it Assue the following is my unziped directories in my home.
+How to do it Assume the following is my unziped directories in my home.
 $ ls opencv opencv_contrib android-ndk-r10e  Then run these commands:
 $ cd ~/opencv/ &amp;amp; mkdir build $ cd ~/opencv/platforms/android $ ./build_sdk.py --ndk_path ~/android-ndk-r10e --sdk_path ~/Library/Android/sdk --extra_modules_path ~/opencv_contrib/modules ~/opencv/build ~/opencv Go to ~/opencv/build/sdk, you can see all are there.
 That&amp;rsquo;s it. Bingo!
