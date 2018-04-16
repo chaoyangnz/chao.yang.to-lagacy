@@ -18,53 +18,7 @@ Then the server will consider the request&amp;rsquo;s Origin and either allow or
     </entry>
     
      <entry>
-        <title>CSS in Depth - Working with relative units</title>
-        <url>http://yangchao.me/post/css-in-depth-working-with-relative-units/</url>
-        <categories>
-          <category>CSS</category>
-        </categories>
-        <tags>
-          <tag>CSS</tag><tag>Notes</tag>
-        </tags>
-        <content type="html">  absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
-If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
-ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html. The &amp;lt;html&amp;gt; element is the top-level (or root) node of DOM.
- rem is short for root em. rem is well suited for font sizes: font-size.
-viewport-relative units  viewport — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.
-  vh: 1/100th of the viewport height vw: 1/100th of the viewport width vmin: 1/100th of the smaller dimension, height or width vmax: 1/100th of the larger dimension, height or width  vh is well suited to specify element heights or widths.
-:root { font-size: calc(.5em &#43; 1vw); } custom properties // TODO
-</content>
-    </entry>
-    
-     <entry>
-        <title>CSS in Depth - Master the box model</title>
-        <url>http://yangchao.me/post/css-in-depth-master-the-box-model/</url>
-        <categories>
-          <category>CSS</category>
-        </categories>
-        <tags>
-          <tag>CSS</tag><tag>Notes</tag>
-        </tags>
-        <content type="html">  default box model It includes 3 boxes:
- content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
- background extend to border box by default
- &amp;lt;div&amp;gt; test &amp;lt;/div&amp;gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
-  Box heights don&amp;rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.g. pixels or ems.) Borders ignore percentage width settings too. tweak the box model with box-sizing: border-box   Normal box model Tweaked with box-sizing: border-box Positoning  position: static the default position in the normal document flow. You cannot set top/bottom/lef/right properties. position: relative sets a scope for an element which will layout relative to it original position. positon: absolute makes the element out of the normal document flow which means it looks non-existent for its surrounding elements. It is relative to the nearest positioned ancestor with position: relative/absolute, otherwise relative to the viewport. position: fixed relative to the viewport.  difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
-To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
-adjusting the box model By setting box-sizing: border-box, the box model is adjusted. universal fix for border-box sizing *, ::before, ::after { box-sizing: border-box; } More robust fix when using 3rd-party libraries.
-:root { box-sizing: border-box; } *, ::before, ::after { box-sizing: inherit; } adding a gutter between columns A easy way is to add a percentage margin. But the gutter&amp;rsquo;s width is based on the outer container&amp;rsquo;s width. An em-based gutter is preferred: use calc() function.
-.sidebar { width: calc(30% - 1.5em); margin-left: 1.5em; } difficulties with element height Typically, it is best to avoid setting explicit height, because normal document flow is designed to work with a constrained width and an unlimited height. Contents fill the width of the viewport and then line wrap as necessary. Because of this, the height of a container is organically determined by its contents, not by the container itself.
- height property don&amp;rsquo;t support percentage value. Never height: 100%.
- When you explicitly set an element height, you run the risk of its contents overflowing the container.
-overflow, overflow-x, overflow-y
- visible hidden scroll auto   alternatives to percentage-based heights Specifying height using a percentage is problematic. For percentage-based&amp;rdquo; heights to work, the parent must have an explicitly defined height.
-Columns of equal height
-display: table rescues this difficulty.
-.container { display: table; width: 100%; } .main { display: table-cell; width: 70%; background-color: #fff; border-radius: .5em; } .sidebar { display: table-cell; width: 30%; margin-left: 1.5em; padding: 1.5em; background-color: #fff; border-radius: .5em; }</content>
-    </entry>
-    
-     <entry>
-        <title>CSS in Depth - Cascade, specificity and inheritance</title>
+        <title>Notes - CSS in Depth</title>
         <url>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</url>
         <categories>
           <category>CSS</category>
@@ -72,7 +26,8 @@ display: table rescues this difficulty.
         <tags>
           <tag>CSS</tag><tag>Notes</tag>
         </tags>
-        <content type="html">  terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
+        <content type="html">  Nearly every web programmer I met says: I know CSS, even tell me &amp;ldquo;CSS is simple&amp;rdquo;. So they undoubtedly write CSS in their skill set. But just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to have a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.
+Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
 body { color: black; font-family: Helvetcia; } cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
 When declarations conflict, the cascade considers three things to resolve the difference:
  Stylesheet origin—Where the styles come from. Your styles are applied in conjunction with the browser’s default styles. Selector specificity—Which selectors take precedence over which. Source order — Order in which styles are declared in the stylesheet.  origin There are different types, or origins, of stylesheets. Yours are called author styles; there are also user agent styles, which are the browser’s default styles. Your styles will always override the user agent styles because the origins are different.
@@ -92,7 +47,29 @@ inherit  use inheritance to take place when a cascaded value is preventing it. f
 display: initial always reset to display: inline regardless of what type of element. Because initial only resets the default value of property, NOT the element.
  shorthand properties Most shorthand properties let you omit certain values and only specify the bits you’re concerned with. It’s important to know, however, that doing this still sets the omitted values; they’ll be set implicitly to their initial value.
 order of shorthand values
- top, right, bottom, left: margin, padding horizontal, vertical: background-position, box-shadow, text-shadow  </content>
+ top, right, bottom, left: margin, padding horizontal, vertical: background-position, box-shadow, text-shadow  Box model default box model It includes 3 boxes:
+ content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
+ background extend to border box by default
+ &amp;lt;div&amp;gt; test &amp;lt;/div&amp;gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
+  Box heights don&amp;rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.g. pixels or ems.) Borders ignore percentage width settings too. tweak the box model with box-sizing: border-box   Normal box model Tweaked with box-sizing: border-box Positoning  position: static the default position in the normal document flow. You cannot set top/bottom/lef/right properties. position: relative sets a scope for an element which will layout relative to it original position. positon: absolute makes the element out of the normal document flow which means it looks non-existent for its surrounding elements. It is relative to the nearest positioned ancestor with position: relative/absolute, otherwise relative to the viewport. position: fixed relative to the viewport.  difficulties with element width By default, width and height is for the content box. So it is hard to align two columns sometimes.
+To avoid magic number when layout, a solution is use the calc() function to reduce the width by exactly that much.
+adjusting the box model By setting box-sizing: border-box, the box model is adjusted. universal fix for border-box sizing *, ::before, ::after { box-sizing: border-box; } More robust fix when using 3rd-party libraries.
+:root { box-sizing: border-box; } *, ::before, ::after { box-sizing: inherit; } adding a gutter between columns A easy way is to add a percentage margin. But the gutter&amp;rsquo;s width is based on the outer container&amp;rsquo;s width. An em-based gutter is preferred: use calc() function.
+.sidebar { width: calc(30% - 1.5em); margin-left: 1.5em; } difficulties with element height Typically, it is best to avoid setting explicit height, because normal document flow is designed to work with a constrained width and an unlimited height. Contents fill the width of the viewport and then line wrap as necessary. Because of this, the height of a container is organically determined by its contents, not by the container itself.
+ height property don&amp;rsquo;t support percentage value. Never height: 100%.
+ When you explicitly set an element height, you run the risk of its contents overflowing the container.
+overflow, overflow-x, overflow-y
+ visible hidden scroll auto   alternatives to percentage-based heights Specifying height using a percentage is problematic. For percentage-based&amp;rdquo; heights to work, the parent must have an explicitly defined height.
+Columns of equal height
+display: table rescues this difficulty.
+.container { display: table; width: 100%; } .main { display: table-cell; width: 70%; background-color: #fff; border-radius: .5em; } .sidebar { display: table-cell; width: 30%; margin-left: 1.5em; padding: 1.5em; background-color: #fff; border-radius: .5em; } Units / Relative Units absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
+If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
+ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html. The &amp;lt;html&amp;gt; element is the top-level (or root) node of DOM.
+ rem is short for root em. rem is well suited for font sizes: font-size.
+viewport-relative units  viewport — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.
+  vh: 1/100th of the viewport height vw: 1/100th of the viewport width vmin: 1/100th of the smaller dimension, height or width vmax: 1/100th of the larger dimension, height or width  vh is well suited to specify element heights or widths.
+:root { font-size: calc(.5em &#43; 1vw); } custom properties // TODO
+</content>
     </entry>
     
      <entry>
@@ -3854,6 +3831,31 @@ public class Test { private static int k = 1; private static Test t1 = new Test(
 2:i j=0 n=0 3:构造块 j=1 n=1 4:t1 j=2 n=2 5:i j=3 n=3 6:构造块 j=4 n=4 7:t2 j=5 n=5 8:j j=6 n=99 9:静态构造块 j=7 n=100
 &amp;nbsp;
 </content>
+    </entry>
+    
+     <entry>
+        <title></title>
+        <url>http://yangchao.me/post/learn-docker/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          
+        </tags>
+        <content type="html">  This post is the notes when I learn Docker.
+What is docker Unlike virtual machines, Docker containers don’t use hardware virtualization. Programs running inside Docker containers interface directly with the host’s Linux kernel. Docker is not a virtualization technology. Docker doesn’t provide the container technology, but it specifically makes it simpler to use.
+The containers that Docker builds are isolated with respect to eight aspects: - PID namespace —Process identifiers and capabilities - UTS namespace —Host and domain name - MNT namespace —File system access and structure - IPC namespace —Process communication over shared memory - NET namespace —Network access and structure - USR namespace —User names and identifiers - chroot() —Controls the location of the file system root - cgroups —Resource protection
+Basic commands get help docker help - all help docker help - help for a certain command
+create and start a container docker run --detach --name xxx &amp;lt;image_name&amp;gt;:&amp;lt;tag&amp;gt; docker run &amp;ndash;tty &amp;ndash;interactive &amp;ndash;name xxx  /bin/bash`
+ &amp;ndash;detach or -d: daemon &amp;ndash;tty &amp;ndash;interactive: interactive with a virtual terminal and bind stdin  list docker ps - list all containers docker exec &amp;lt;container_id&amp;gt; ps - processes within a specific container
+restart &amp;amp; stop docker restart &amp;lt;container_id or name&amp;gt; docker stop &amp;lt;container_id or name&amp;gt;
+view logs docker logs &amp;lt;container_id or name&amp;gt; - Anything that the program writes to the stdout or stderr output streams will be recorded in this log
+just create a container not starting docker create &amp;lt;image_name&amp;gt; - output the container id docker create --cidfile &amp;lt;cid_file_path&amp;gt; &amp;lt;image_name&amp;gt; - save CID into a file
+how to get container id CID=$(docker ps --latest -quiet) echo $CID  Retrieve the latest running container ID
+tell the dependency docker create --link &amp;lt;CID&amp;gt; &amp;lt;image_name&amp;gt;
+The link mechanism injects IP addresses into dependent containers, and containers that aren’t running don’t have IP addresses.
+Environment-agnostic Docker has three specific features to help build environment-agnostic systems:
+ Read-only file systems Environment variable injection Volumes  </content>
     </entry>
     
      <entry>

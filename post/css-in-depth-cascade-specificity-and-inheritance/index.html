@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>CSS in Depth - Cascade, specificity and inheritance - Chao Yang</title>
+    <title>Notes - CSS in Depth - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="CSS in Depth - Cascade, specificity and inheritance">
+    <meta property="og:title" content="Notes - CSS in Depth">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="CSS in Depth - Cascade, specificity and inheritance - Chao Yang" />
+    <meta name="title" content="Notes - CSS in Depth - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -130,7 +130,7 @@
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" itemprop="url">
-        CSS in Depth - Cascade, specificity and inheritance
+        Notes - CSS in Depth
         </a>
       </h1>
       <div class="post-meta">
@@ -168,12 +168,16 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">587 words ~3min</span>
+<span class="leancloud-visitors-count">1318 words ~7min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
     
+
+<p>Nearly every web programmer I met says: I know CSS, even tell me &ldquo;CSS is simple&rdquo;. So they undoubtedly write CSS in their skill set. But just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to have a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.</p>
+
+<h1 id="cascade-specificity-and-inheritance">Cascade, specificity and inheritance</h1>
 
 <p><strong>terminology</strong>
 A <em>declaration</em> includes a property and a value: <code>color: black;</code>
@@ -182,7 +186,7 @@ A ruleset includes a <em>selector</em> and a <code>declaration block</code> whic
   <span class="k">color</span><span class="p">:</span> <span class="kc">black</span><span class="p">;</span>
   <span class="k">font-family</span><span class="p">:</span> <span class="n">Helvetcia</span><span class="p">;</span>
 <span class="p">}</span></code></pre></div>
-<h1 id="cascade">cascade</h1>
+<h2 id="cascade">cascade</h2>
 
 <p>The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.</p>
 
@@ -196,7 +200,7 @@ A ruleset includes a <em>selector</em> and a <code>declaration block</code> whic
 
 <p><img src="http://yangchao.me/media/15203022143644.jpg" alt="" /></p>
 
-<h2 id="origin">origin</h2>
+<h3 id="origin">origin</h3>
 
 <p>There are different types, or origins, of stylesheets. Yours are called author styles; there are also user agent styles, which are the browser’s default styles. Your styles will always override the user agent styles because the origins are different.</p>
 
@@ -204,7 +208,7 @@ A ruleset includes a <em>selector</em> and a <code>declaration block</code> whic
 <p><code>!important</code> is used to raise a declaration to a higher-priority origin.</p>
 </blockquote>
 
-<h2 id="specificity">specificity</h2>
+<h3 id="specificity">specificity</h3>
 
 <p><strong>inline style</strong>
 Inline styles have no selector because they are applied directly to the element they target.
@@ -226,11 +230,11 @@ The exact rules of selector specificity are:</p>
 
 <p><em>Pitfalls</em>: Many times developers write selectors using IDs, without realizing this creates a higher specificity, one that is hard to override later. If you need to override a style applied using an ID, you have to use another ID.</p>
 
-<h2 id="source-order">source order</h2>
+<h3 id="source-order">source order</h3>
 
 <p>If the origin and the specificity are the same, then the declaration that appears later in the stylesheet — or appears in a stylesheet included later on the page — takes precedence.</p>
 
-<h1 id="inheritance">inheritance</h1>
+<h2 id="inheritance">inheritance</h2>
 
 <p>If an element has no cascaded value for a given property, it may inherit one from an ancestor element.</p>
 
@@ -258,18 +262,18 @@ The exact rules of selector specificity are:</p>
 <li><code>border-collapse</code>, <code>border-spacing</code></li>
 </ul>
 
-<h1 id="special-values">special values</h1>
+<h2 id="special-values">special values</h2>
 
 <p>Two special values which can be applied to any property: <code>inherit</code> and <code>initial</code>.</p>
 
-<h2 id="inherit"><code>inherit</code></h2>
+<h3 id="inherit"><code>inherit</code></h3>
 
 <ul>
 <li>use inheritance to take place when a cascaded value is preventing it.</li>
 <li>force inheritance of a property not normally inherited, such as border or padding.</li>
 </ul>
 
-<h2 id="initial"><code>initial</code></h2>
+<h3 id="initial"><code>initial</code></h3>
 
 <ul>
 <li>reset a property to its default value to undo styles</li>
@@ -281,7 +285,7 @@ The exact rules of selector specificity are:</p>
 <p><code>display: initial</code> always reset to <code>display: inline</code> regardless of what type of element. Because <code>initial</code> only resets the default value of property, <strong>NOT</strong> the element.</p>
 </blockquote>
 
-<h1 id="shorthand-properties">shorthand properties</h1>
+<h2 id="shorthand-properties">shorthand properties</h2>
 
 <p>Most shorthand properties let you omit certain values and only specify the bits you’re concerned with. It’s important to know, however, that doing this still sets the omitted values; they’ll be set implicitly to their <strong>initial</strong> value.</p>
 
@@ -291,6 +295,191 @@ The exact rules of selector specificity are:</p>
 <li>top, right, bottom, left: <code>margin</code>, <code>padding</code></li>
 <li>horizontal, vertical: <code>background-position</code>, <code>box-shadow</code>, <code>text-shadow</code></li>
 </ul>
+
+<h1 id="box-model">Box model</h1>
+
+<h2 id="default-box-model">default box model</h2>
+
+<p><img src="http://yangchao.me/media/15203293881491.jpg" alt="" /></p>
+
+<p>It includes 3 boxes:</p>
+
+<ul>
+<li>content box</li>
+<li>padding box</li>
+<li>border box</li>
+</ul>
+
+<p>Margins don&rsquo;t belong to these boxes.</p>
+
+<blockquote>
+<p><strong>background extend to <em>border box</em> by default</strong></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
+test
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">div</span> <span class="p">{</span>
+<span class="k">margin</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">border</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="mh">#0000FF</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p>This can be changed by <code>background-clip</code> property:
+- <code>background-clip: border-box;</code>
+- <code>background-clip: padding-box;</code>
+- <code>background-clip: content-box;</code></p>
+
+<blockquote>
+<ul>
+<li>Box heights don&rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.g. pixels or ems.)</li>
+<li>Borders ignore percentage width settings too.</li>
+<li>tweak the box model with <code>box-sizing: border-box</code></li>
+</ul>
+</blockquote>
+
+<p><strong>Normal box model</strong>
+<img src="http://yangchao.me/media/876E60CC-FA97-44B3-A92A-C01BCF18ECE4.png" alt="876E60CC-FA97-44B3-A92A-C01BCF18ECE4" /></p>
+
+<p><strong>Tweaked with <code>box-sizing: border-box</code></strong>
+<img src="http://yangchao.me/media/92B0D03B-7D17-4EB0-8B0B-498799181971.png" alt="92B0D03B-7D17-4EB0-8B0B-498799181971" /></p>
+
+<h2 id="positoning">Positoning</h2>
+
+<ul>
+<li><code>position: static</code> the default position in the normal document flow. You cannot set <code>top/bottom/lef/right</code> properties.</li>
+<li><code>position: relative</code> sets a scope for an element which will layout relative to it original position.</li>
+<li><code>positon: absolute</code> makes the element out of the normal document flow which means it looks non-existent for its surrounding elements. It is relative to the nearest positioned ancestor with <code>position: relative/absolute</code>, otherwise relative to  the <strong>viewport</strong>.</li>
+<li><code>position: fixed</code> relative to the <strong>viewport</strong>.</li>
+</ul>
+
+<h2 id="difficulties-with-element-width">difficulties with element width</h2>
+
+<p>By default, <code>width</code> and <code>height</code> is for the content box. So it is hard to align two columns sometimes.</p>
+
+<p>To avoid magic number when layout, a solution is use the <code>calc()</code> function to reduce the width by exactly that much.</p>
+
+<h3 id="adjusting-the-box-model">adjusting the box model</h3>
+
+<p>By setting <code>box-sizing: border-box</code>, the box model is adjusted.
+<img src="http://yangchao.me/media/15203298663972.jpg" alt="" /></p>
+
+<h4 id="universal-fix-for-border-box-sizing">universal fix for border-box sizing</h4>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="o">*,</span> <span class="p">::</span><span class="nd">before</span><span class="o">,</span> <span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
+<p>More robust fix when using 3rd-party libraries.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"> <span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="o">*,</span>
+ <span class="p">::</span><span class="nd">before</span><span class="o">,</span>
+ <span class="p">::</span><span class="nd">after</span> <span class="p">{</span>
+    <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">inherit</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
+<h3 id="adding-a-gutter-between-columns">adding a gutter between columns</h3>
+
+<p>A easy way is to add a percentage margin. But the gutter&rsquo;s width is based on the outer container&rsquo;s width. An em-based gutter is preferred: use <code>calc()</code> function.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">sidebar</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mi">30</span><span class="kt">%</span> <span class="o">-</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">);</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="difficulties-with-element-height">difficulties with element height</h2>
+
+<p>Typically, it is best to avoid setting explicit height, because normal document flow is designed to work with a constrained width and an unlimited height. Contents fill the width of the viewport and then line wrap as necessary. Because of this, the height of a container is organically determined by its contents, not by the container itself.</p>
+
+<blockquote>
+<p><code>height</code> property don&rsquo;t support percentage value. Never <del><code>height: 100%</code></del>.</p>
+</blockquote>
+
+<p>When you explicitly set an element height, you run the risk of its contents <em>overflowing</em> the container.</p>
+
+<p><strong><code>overflow</code>, <code>overflow-x</code>, <code>overflow-y</code></strong></p>
+
+<ul>
+<li><code>visible</code></li>
+<li><code>hidden</code></li>
+<li><code>scroll</code></li>
+<li><code>auto</code>
+<img src="http://yangchao.me/media/15203310046218.jpg" alt="" /></li>
+</ul>
+
+<h3 id="alternatives-to-percentage-based-heights">alternatives to percentage-based heights</h3>
+
+<p>Specifying height using a percentage is problematic. For percentage-based&rdquo; heights to work, the parent must have an explicitly defined height.</p>
+
+<p><strong>Columns of equal height</strong></p>
+
+<p><code>display: table</code> rescues this difficulty.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="p">.</span><span class="nc">main</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">70</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>
+ <span class="p">}</span>
+  
+ <span class="p">.</span><span class="nc">sidebar</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">30</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></div>
+<h1 id="units-relative-units">Units / Relative Units</h1>
+
+<h2 id="absolute-units">absolute units</h2>
+
+<ul>
+<li>pixel: <code>px</code></li>
+<li>point: <code>pt</code>, <code>pc</code></li>
+<li>others: <code>mm</code>, <code>cm</code>, <code>inch</code></li>
+</ul>
+
+<h2 id="ems-and-rems">Ems and rems</h2>
+
+<h3 id="em">em</h3>
+
+<p><code>em</code> is ideal for <code>padding</code>, <code>margin</code>, <code>border-radius</code></p>
+
+<p>If using <code>em</code> for <code>font-size</code>, there is a bit tricky, because <code>em</code> in <code>font-size</code> is computed based on <code>inherited</code> font size, which can cause <em>the shrinking font problem</em>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">ul</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="mf">.8</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p><img src="http://yangchao.me/media/15206441532184.jpg" alt="" /></p>
+
+<h3 id="rem">rem</h3>
+
+<blockquote>
+<p>Pseudo-class selector <code>:root</code> is equivalent to using the type selector <code>html</code>. The <code>&lt;html&gt;</code> element is the top-level (or root) node of DOM.</p>
+</blockquote>
+
+<p><code>rem</code> is short for root <code>em</code>. <code>rem</code> is well suited for font sizes: <code>font-size</code>.</p>
+
+<h3 id="viewport-relative-units">viewport-relative units</h3>
+
+<blockquote>
+<p><em>viewport</em> — The framed area in the browser window where the web page is visible. This excludes the browser’s address bar, toolbars, and status bar, if present.</p>
+</blockquote>
+
+<ul>
+<li><code>vh</code>: 1/100th of the viewport height</li>
+<li><code>vw</code>: 1/100th of the viewport width</li>
+<li><code>vmin</code>: 1/100th of the smaller dimension, height or width</li>
+<li><code>vmax</code>: 1/100th of the larger dimension, height or width</li>
+</ul>
+
+<p><code>vh</code> is well suited to specify element heights or widths.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="mf">.5</span><span class="kt">em</span> <span class="o">+</span> <span class="mi">1</span><span class="kt">vw</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="custom-properties">custom properties</h2>
+
+<p>// TODO</p>
 
     </div>
     <footer class="post-footer">
@@ -317,8 +506,8 @@ The exact rules of selector specificity are:</p>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/post/css-in-depth-master-the-box-model/" rel="prev" title="CSS in Depth - Master the box model">
-        CSS in Depth - Master the box model <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/cors-revisit/" rel="prev" title="CORS revisit">
+        CORS revisit <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -332,7 +521,7 @@ The exact rules of selector specificity are:</p>
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：CSS in Depth - Cascade, specificity and inheritance
+            标题：Notes - CSS in Depth
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -385,7 +574,7 @@ The exact rules of selector specificity are:</p>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">139</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
@@ -439,6 +628,8 @@ The exact rules of selector specificity are:</p>
     <div class="post-toc">
         <div class="post-toc-content"><nav id="TableOfContents">
 <ul>
+<li><a href="#cascade-specificity-and-inheritance">Cascade, specificity and inheritance</a>
+<ul>
 <li><a href="#cascade">cascade</a>
 <ul>
 <li><a href="#origin">origin</a></li>
@@ -452,6 +643,35 @@ The exact rules of selector specificity are:</p>
 <li><a href="#initial"><code>initial</code></a></li>
 </ul></li>
 <li><a href="#shorthand-properties">shorthand properties</a></li>
+</ul></li>
+<li><a href="#box-model">Box model</a>
+<ul>
+<li><a href="#default-box-model">default box model</a></li>
+<li><a href="#positoning">Positoning</a></li>
+<li><a href="#difficulties-with-element-width">difficulties with element width</a>
+<ul>
+<li><a href="#adjusting-the-box-model">adjusting the box model</a>
+<ul>
+<li><a href="#universal-fix-for-border-box-sizing">universal fix for border-box sizing</a></li>
+</ul></li>
+<li><a href="#adding-a-gutter-between-columns">adding a gutter between columns</a></li>
+</ul></li>
+<li><a href="#difficulties-with-element-height">difficulties with element height</a>
+<ul>
+<li><a href="#alternatives-to-percentage-based-heights">alternatives to percentage-based heights</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#units-relative-units">Units / Relative Units</a>
+<ul>
+<li><a href="#absolute-units">absolute units</a></li>
+<li><a href="#ems-and-rems">Ems and rems</a>
+<ul>
+<li><a href="#em">em</a></li>
+<li><a href="#rem">rem</a></li>
+<li><a href="#viewport-relative-units">viewport-relative units</a></li>
+</ul></li>
+<li><a href="#custom-properties">custom properties</a></li>
+</ul></li>
 </ul>
 </nav></div>
     </div>

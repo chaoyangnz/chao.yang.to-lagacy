@@ -192,132 +192,8 @@ CORS is a technique for relaxing the same-origin policy and similar techniques i
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-working-with-relative-units/" itemprop="url">
-        CSS in Depth - Working with relative units
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-09">
-    2018-03-09
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
-        <span itemprop="name">CSS</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">172 words ~1min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
-If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
-ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/css-in-depth-working-with-relative-units/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-master-the-box-model/" itemprop="url">
-        CSS in Depth - Master the box model
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2018-03-06">
-    2018-03-06
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/css" itemprop="url" rel="index">
-        <span itemprop="name">CSS</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">469 words ~3min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    default box model It includes 3 boxes:
- content box padding box border box  Margins don&rsquo;t belong to these boxes.
- background extend to border box by default
- &lt;div&gt; test &lt;/div&gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
-  Box heights don&rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/css-in-depth-master-the-box-model/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/" itemprop="url">
-        CSS in Depth - Cascade, specificity and inheritance
+        Notes - CSS in Depth
         </a>
       </h1>
       <div class="post-meta">
@@ -355,14 +231,12 @@ ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using 
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">587 words ~3min</span>
+<span class="leancloud-visitors-count">1318 words ~7min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
-body { color: black; font-family: Helvetcia; } cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
-When declarations conflict, the cascade considers three things to resolve the difference:
+    Nearly every web programmer I met says: I know CSS, even tell me &ldquo;CSS is simple&rdquo;. So they undoubtedly write CSS in their skill set. But just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to have a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.
     </div>
     
     <div class="post-more-link text-center">
@@ -1126,6 +1000,92 @@ static Class&lt;?&gt; getProxyClass(ClassLoader loader, Class&lt;?
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/understand-when-to-rollback/" itemprop="url">
+        Understand when to rollback
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-03-04">
+    2016-03-04
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">751 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Prepare At first, I create a table:
+CREATE TABLE &#34;SYSTEM&#34;.&#34;TEST&#34; (	&#34;ID&#34; NUMBER(*,0), &#34;NAME&#34; VARCHAR2(200 BYTE), CONSTRAINT &#34;TEST_PK&#34; PRIMARY KEY (&#34;ID&#34;) ); Then, create a stored procedure:
+CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT INTO test VALUES (x, &#39;insert by stored procedure&#39;); -- Sometimes there might be an error.  IF x = 2 THEN RAISE_APPLICATION_ERROR(-20000, &#39;Wooops...&#39;); END IF; EXCEPTION WHEN OTHERS THEN --Rollback all the changes and then raise the error again.
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/understand-when-to-rollback/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/oracle-statement-level-rollback/" itemprop="url">
+        Oracle Statement-Level ROLLBACK
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-03-01">
+    2016-03-01
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">474 words ~3min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    Oracle Statement-Level ROLLBACK (undo of a transaction)
+Purpose Use the ROLLBACK statement to undo work done in the current transaction or to manually undo the work done by an in-doubt distributed transaction.
+Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transactions Oracle Database - Locks Oracle Database - Row Locks (TX) Oracle Database - TableSpace Oracle Database - Transactions Oracle Database - UNDO (Rollback Segment) PL/SQL - Autonomous Transactions (Pragma)
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/oracle-statement-level-rollback/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
 </section>
 
 
@@ -1221,7 +1181,7 @@ static Class&lt;?&gt; getProxyClass(ClassLoader loader, Class&lt;?
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">139</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>

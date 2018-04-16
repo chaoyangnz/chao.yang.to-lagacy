@@ -6,44 +6,18 @@
     <description>Recent content in Css on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Mar 2018 15:32:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Mar 2018 16:15:00 +0000</lastBuildDate>
     
 	<atom:link href="http://yangchao.me/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CSS in Depth - Working with relative units</title>
-      <link>http://yangchao.me/post/css-in-depth-working-with-relative-units/</link>
-      <pubDate>Fri, 09 Mar 2018 15:32:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/css-in-depth-working-with-relative-units/</guid>
-      <description>absolute units  pixel: px point: pt, pc others: mm, cm, inch  Ems and rems em em is ideal for padding, margin, border-radius
-If using em for font-size, there is a bit tricky, because em in font-size is computed based on inherited font size, which can cause the shrinking font problem.
-ul { font-size: .8em; } rem  Pseudo-class selector :root is equivalent to using the type selector html.</description>
-    </item>
-    
-    <item>
-      <title>CSS in Depth - Master the box model</title>
-      <link>http://yangchao.me/post/css-in-depth-master-the-box-model/</link>
-      <pubDate>Tue, 06 Mar 2018 22:41:00 +0000</pubDate>
-      
-      <guid>http://yangchao.me/post/css-in-depth-master-the-box-model/</guid>
-      <description>default box model It includes 3 boxes:
- content box padding box border box  Margins don&amp;rsquo;t belong to these boxes.
- background extend to border box by default
- &amp;lt;div&amp;gt; test &amp;lt;/div&amp;gt;div { margin: 20px; padding: 20px; border: 20px solid rgba(0,0,0, 0.5); background-color: #0000FF; } This can be changed by background-clip property: - background-clip: border-box; - background-clip: padding-box; - background-clip: content-box;
-  Box heights don&amp;rsquo;t observe percentage lengths; box height always adopts the height of the box content, unless a specific absolute height is set (e.</description>
-    </item>
-    
-    <item>
-      <title>CSS in Depth - Cascade, specificity and inheritance</title>
+      <title>Notes - CSS in Depth</title>
       <link>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
       <guid>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</guid>
-      <description>terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
-body { color: black; font-family: Helvetcia; } cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
-When declarations conflict, the cascade considers three things to resolve the difference:</description>
+      <description>Nearly every web programmer I met says: I know CSS, even tell me &amp;ldquo;CSS is simple&amp;rdquo;. So they undoubtedly write CSS in their skill set. But just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to have a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.</description>
     </item>
     
   </channel>

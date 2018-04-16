@@ -132,129 +132,6 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/override/" itemprop="url">
-        Override - some requirements
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
-    2015-01-16
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/oop" itemprop="url" rel="index">
-        <span itemprop="name">OOP</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">413 words ~2min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    1. Override methods must have the identical method signature as the methods overridden Return type doesn&rsquo;t belong to the method signature, but Java supports covariant return type for overriding.
-Identical signature means: 1) the number of formal arguments must be equal. 2) the type of relevant argument must be the same. The subtype of the methond argument cannot be considered as identical.
-2. Override methods can less restricted in access control class AA { protected void foo() {} } class BB extends AA { @Override public void foo() { } } We make the foo() method accessible from weaker privilege &ldquo;protected&rdquo; to less restricted specifier &ldquo;public&rdquo;.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/override/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/post/unreachable-statements/" itemprop="url">
-        unreachable statements
-        </a>
-      </h1>
-      <div class="post-meta">
-      <span class="post-time">
-<span class="post-meta-item-icon">
-    <i class="fa fa-calendar-o"></i>
-</span>
-<span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
-    2015-01-16
-</time>
-</span> 
-      
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">Categories:</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="http://yangchao.me/categories/language-compiler" itemprop="url" rel="index">
-        <span itemprop="name">Language, Compiler</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
-       <span>
-&nbsp; | &nbsp;
-<span class="post-meta-item-icon">
-    <i class="fa fa-eye"></i>
-</span>
-<span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">2157 words ~11min</span>
-</span>
-      </div>
-    </header>
-    <div class="post-body" itemprop="articleBody">
-    Sometimes, we will meet this compiler error: unreachable statements.
-See the following examples:
-public void javapapers() { System.out.println(&#34;java&#34;); return; System.out.println(&#34;papers&#34;); // compile error }public void javapapers() { System.out.println(&#34;java&#34;); if(true) { return; } System.out.println(&#34;papers&#34;); } //This code compiled successfullypublic void javapapers() { System.out.println(&#34;java&#34;); while(true) { return; } System.out.println(&#34;papers&#34;); // compile error } Wait, but what is strange here?
-From Java Language Specification:   &gt; ## 14.21. Unreachable Statements    &gt; It is a compile-time error if a statement cannot be executed because it is unreachable.
-    </div>
-    
-    <div class="post-more-link text-center">
-    <a class="btn" href="http://yangchao.me/post/unreachable-statements/" rel="contents">
-      Read More &raquo;
-    </a>
-    </div>
-    
-    <footer class="post-footer"><div class="post-eof"></div></footer>
-  </article>
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link" href="http://yangchao.me/post/assertion/" itemprop="url">
         Assertion
         </a>
@@ -1227,6 +1104,49 @@ There are two types of access control, one for classes and the other for members
     <footer class="post-footer"><div class="post-eof"></div></footer>
   </article>
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/learn-docker/" itemprop="url">
+        
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
+    0001-01-01
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">314 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    This post is the notes when I learn Docker.
+What is docker Unlike virtual machines, Docker containers don’t use hardware virtualization. Programs running inside Docker containers interface directly with the host’s Linux kernel. Docker is not a virtualization technology. Docker doesn’t provide the container technology, but it specifically makes it simpler to use.
+The containers that Docker builds are isolated with respect to eight aspects: - PID namespace —Process identifiers and capabilities - UTS namespace —Host and domain name - MNT namespace —File system access and structure - IPC namespace —Process communication over shared memory - NET namespace —Network access and structure - USR namespace —User names and identifiers - chroot() —Controls the location of the file system root - cgroups —Resource protection
+    </div>
+    
+    <div class="post-more-link text-center">
+    <a class="btn" href="http://yangchao.me/post/learn-docker/" rel="contents">
+      Read More &raquo;
+    </a>
+    </div>
+    
+    <footer class="post-footer"><div class="post-eof"></div></footer>
+  </article>
+
 </section>
 
 
@@ -1311,7 +1231,7 @@ There are two types of access control, one for classes and the other for members
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
       <a href="http://yangchao.me/post/">
-        <span class="site-state-item-count">139</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
