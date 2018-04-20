@@ -26,7 +26,7 @@ Then the server will consider the request&amp;rsquo;s Origin and either allow or
         <tags>
           <tag>CSS</tag><tag>Notes</tag>
         </tags>
-        <content type="html">  Nearly every web programmer I met says: I know CSS, even someone told me &amp;ldquo;CSS is simple&amp;rdquo;. So they undoubtedly write CSS in their skill set of CV. But wait, just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to get a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.
+        <content type="html">  Nearly every web programmer I met says: I know CSS, even someone told me &amp;ldquo;CSS is simple&amp;rdquo;. So they naturally write CSS in their skill set of CV. But wait, just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to get a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.
 Cascade, specificity and inheritance terminology A declaration includes a property and a value: color: black; A ruleset includes a selector and a declaration block which contains a group of declarations.
 body { color: black; font-family: Helvetcia; } cascade The cascade is the name for this set of rules. It determines how conflicts are resolved, and it’s a fundamental part of how the language works.
 When declarations conflict, the cascade considers three things to resolve the difference:
