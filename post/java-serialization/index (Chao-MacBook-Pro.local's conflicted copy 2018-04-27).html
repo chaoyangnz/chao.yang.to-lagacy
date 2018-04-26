@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>Java Serialization - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Java Serialization">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="Java Serialization - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/java-serialization/" itemprop="url">
+        Java Serialization
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,109 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-06-27">
+    2015-06-27
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">331 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h3 id="serialization">Serialization</h3>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<h4 id="what-is-serialization">What is Serialization?</h4>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>Serialization is the process to transfer a Java object into a sequence of bytes, often in the form of stream.</p>
+
+<p>At another time, we can unserialize from the bytes and rebuild the object in JVM.</p>
+
+<h4 id="how-to-do">How to do</h4>
+
+<ul>
+<li>make the class to be serialized implement Serializable interface (Serializable is a marker interface)</li>
+<li>use ObjectOutputStream to serialize object</li>
+<li>use OjbectInputStream to unserialize the bytes
+In order to better control the serialization process, you can implement ObjectInput and ObjectOutput on your own.</li>
+</ul>
+
+<p>ObjectOutputStream has implemented ObjectOutput interface; ObjectInputStream has implemented ObjectInput interface</p>
+
+<h4 id="what-information-is-serialized">What information is serialized</h4>
+
+<p>Simply, the sequence of bytes includes:</p>
+
+<ul>
+<li>instance fields (excluding the transient one)</li>
+<li>class name (just name!!)</li>
+<li>class serialVersionUID
+&gt; So when you serialize an object in a JVM, and unserialize it in another JVM. The latter JVM just knows the class name. If you don&rsquo;t provide the class file, then you cannot cast it to the correct specified class even if you know the class name.
+Java RMI heavily uses the Serialization technology and extends it, because remote invocation usually happens in different JVMs. So class file and related dependent classes also need to be transferred along with the object serialization stream.</li>
+</ul>
+
+<h4 id="what-is-serialversionuid">What is serialVersionUID?</h4>
+
+<p>serialVersionUID is used to version the serializable class. When the unique id of the class in serialization and unserialzation is different, <code>java.io.InvalidClassException</code> will be thrown.</p>
+
+<p>All serializable class automatically generates this unique id implicitly. But you can specify it explicitly:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="n">229383940L</span><span class="o">;</span></code></pre></div>
+<p>Alternatively, the JDK comes with a <strong>serialver</strong> tool.</p>
+
+<h4 id="example">Example</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SerializationInOneJVM</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testWrite</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&#34;a.bin&#34;</span><span class="o">);</span>
+        <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">fos</span><span class="o">);</span>
+        <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="k">new</span> <span class="n">SerializableObject</span><span class="o">());</span>
+        <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="c1">// SerializableObject not in the classpath of this JVM
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnserializationInAnotherJVM</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRead</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;a.bin&#34;</span><span class="o">);</span>
+        <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">fis</span><span class="o">);</span>
+        <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+        <span class="c1">//here we cannot cast to the concrete class. 
+</span><span class="c1"></span>
+        <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +250,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/java-collections-framework/" rel="next" title="Java Collections Framework">
+        <i class="fa fa-chevron-left"></i> Java Collections Framework
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/gc-revisit/" rel="prev" title="GC revisit">
+        GC revisit <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +273,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：Java Serialization
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +305,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +354,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +376,29 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#serialization">Serialization</a>
+<ul>
+<li><a href="#what-is-serialization">What is Serialization?</a></li>
+<li><a href="#how-to-do">How to do</a></li>
+<li><a href="#what-information-is-serialized">What information is serialized</a></li>
+<li><a href="#what-is-serialversionuid">What is serialVersionUID?</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

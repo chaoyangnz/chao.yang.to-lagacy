@@ -1,0 +1,2342 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>algorithm training from codility - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="algorithm training from codility">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="algorithm training from codility - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/algorithm-training-from-codility/" itemprop="url">
+        algorithm training from codility
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-22">
+    2015-04-22
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/algorithm" itemprop="url" rel="index">
+        <span itemprop="name">Algorithm</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">7497 words ~15min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="training">TRAINING</h3>
+
+<h4 id="counting-elements">counting elements</h4>
+
+<p>When every value of the element in a numeric array is in range. We can get a counter array of which the index of every element is the value and the value is the counter.</p>
+
+<p><img src="http://yangchao.me/media/counter-array.png" alt="counter-array" /></p>
+
+<h4 id="prefix-sums">Prefix Sums</h4>
+
+<p>Prefix sums array defines as:</p>
+
+<p><img src="http://yangchao.me/media/prefix-sums-array.png" alt="prefix-sums-array" /></p>
+
+<p>So prefix sums array is very useful to compute the sum of any array slice (contiguous segments of array).</p>
+
+<p>For example:</p>
+
+<p>sum(a<sub>2</sub>&hellip;a<sub>5</sub>) = p<sub>6</sub> - p<sub>2</sub></p>
+
+<ul>
+<li><p><strong>minimum sum of slice</strong>
+sort the prefix sum, and find the minimum difference between neighbor elements.</p></li>
+
+<li><p><strong>maximum sum of slice</strong>
+the difference between the max and min of the prefix sum.</p></li>
+</ul>
+
+<h4 id="leader">leader</h4>
+
+<p>The leader of this sequence is the element whose value occurs more than n/2 times.The array can have zero or only one leader.</p>
+
+<p><img src="http://yangchao.me/media/leader.png" alt="leader" /></p>
+
+<p>A property is:</p>
+
+<p>After removing a pair of elements of different values, the leader remain the same.</p>
+
+<p>Let&rsquo;s validate it:</p>
+
+<ul>
+<li>if the two elements contain one leader, then the original leader occurs &gt; n/2 - 1 = (n-2)/2 in the left (n-2) elements, so it&rsquo;s still the leader of the rest.</li>
+<li>if the two elements contain no leader, then the original leader occurs &gt; n/2 = (n-2)/2 +1 &gt; (n-2)/2 in the left elements, so it&rsquo;s still the leader of the rest.
+<img src="http://yangchao.me/media/leader-1.png" alt="leader-1" />           or    <img src="http://yangchao.me/media/leader-2.png" alt="leader-2" /></li>
+</ul>
+
+<p>So we loop the array, and every time we remove a pair of elements, if the two equals, we reserve; if not, we remove safely.</p>
+
+<p>The left elements MUST be all the same. But they are just candidate. We need to validate in the original elements.</p>
+
+<p>This algorithm is O(n).</p>
+
+<p><img src="http://yangchao.me/media/leader-3.png" alt="leader-3" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Leader</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">leader</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// stack size
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="c1">// top value
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">size</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">size</span> <span class="o">+=</span> <span class="n">1</span><span class="o">;</span>
+                <span class="n">top</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">top</span> <span class="o">!=</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                    <span class="n">size</span> <span class="o">-=</span> <span class="n">1</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">size</span> <span class="o">+=</span> <span class="n">1</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span> <span class="n">cadidate</span> <span class="o">=</span> <span class="n">top</span><span class="o">;</span>
+
+        <span class="c1">// validation
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">cadidate</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">N</span><span class="o">/</span><span class="n">2</span><span class="o">)</span> <span class="o">?</span> <span class="n">cadidate</span> <span class="o">:</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="o">{</span><span class="n">4</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">8</span><span class="o">,</span> <span class="n">5</span><span class="o">};</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">leader</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<h4 id="prime-and-composite-numbers">prime and composite numbers</h4>
+
+<p>This kind of algorithm is based on one divisor, we can find the <span style="text-decoration: underline;"><strong>symmetric</strong></span> divisor.</p>
+
+<h5 id="counting-divisors">counting divisors</h5>
+
+<p><img src="http://yangchao.me/media/counting-divisors.png" alt="counting-divisors" /></p>
+
+<p>for 1 to<span style="font-family: 'comic sans ms', sans-serif;"> √n<span style="font-family: arial, helvetica, sans-serif;">, divide and count it.</span></span></p>
+
+<h5 id="primality-test">Primality test</h5>
+
+<p>for 2 to <span style="font-family: 'comic sans ms', sans-serif;">√n</span>, divide and check it.</p>
+
+<h5 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h5>
+
+<h4 id="caterpillar-method">Caterpillar method</h4>
+
+<p><img src="http://yangchao.me/media/caterpillar.png" alt="caterpillar" />   <img src="http://yangchao.me/media/caterpillar-image.png" alt="caterpillar-image" /></p>
+
+<p>This idea is a reminiscent of movements of a caterpillar (毛虫).</p>
+
+<ul>
+<li>if we can, we move the right end (front) forward and increase the size of the caterpillar;</li>
+<li>otherwise, we move the left end (back) forward and decrease the size of the caterpillar.</li>
+</ul>
+
+<h4 id="greedy-algorithms">Greedy algorithms</h4>
+
+<p>Greedy programming is a method by which a solution is determined based on making the locally optimal choice at any given moment.</p>
+
+<p>The greedy method of solving a task may or may not be the best approach</p>
+
+<h3 id="problem-set">PROBLEM SET</h3>
+
+<p><a href="http://www.martinkysel.com/codility-solutions/">http://www.martinkysel.com/codility-solutions/</a></p>
+
+<h4 id="time-complexity">Time Complexity</h4>
+
+<h5 id="tapeequilibrium-https-codility-com-demo-take-sample-test-tape-equilibrium"><a href="https://codility.com/demo/take-sample-test/tape_equilibrium">TapeEquilibrium</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Minimize the value |(A[0] + … + A[P-1]) – (A[P] + … + A[N-1])|.</p>
+
+<p><strong>Complexity</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>In the first run I compute the left part up to the point i and the overall sum <em>last</em>. Then I compute the minimal difference between 0..i and i+1..n.</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">TapeEquilibrium</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. Array A represents numbers on a tape.
+</span><span class="cm">
+</span><span class="cm">Any integer P, such that 0 &lt; P &lt; N, splits this tape into two non-empty parts: A[0], A[1], ..., A[P − 1] and A[P], A[P + 1], ..., A[N − 1].
+</span><span class="cm">
+</span><span class="cm">The difference between the two parts is the value of: |(A[0] + A[1] + ... + A[P − 1]) − (A[P] + A[P + 1] + ... + A[N − 1])|
+</span><span class="cm">
+</span><span class="cm">In other words, it is the absolute difference between the sum of the first part and the sum of the second part.
+</span><span class="cm">
+</span><span class="cm">For example, consider array A such that:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 3
+</span><span class="cm">  A[1] = 1
+</span><span class="cm">  A[2] = 2
+</span><span class="cm">  A[3] = 4
+</span><span class="cm">  A[4] = 3
+</span><span class="cm">We can split this tape in four places:
+</span><span class="cm">
+</span><span class="cm">P = 1, difference = |3 − 10| = 7
+</span><span class="cm">P = 2, difference = |4 − 9| = 5
+</span><span class="cm">P = 3, difference = |6 − 7| = 1
+</span><span class="cm">P = 4, difference = |10 − 3| = 7
+</span><span class="cm">Write a function:
+</span><span class="cm">
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">
+</span><span class="cm">that, given a non-empty zero-indexed array A of N integers, returns the minimal difference that can be achieved.
+</span><span class="cm">
+</span><span class="cm">For example, given:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 3
+</span><span class="cm">  A[1] = 1
+</span><span class="cm">  A[2] = 2
+</span><span class="cm">  A[3] = 4
+</span><span class="cm">  A[4] = 3
+</span><span class="cm">the function should return 1, as explained above.
+</span><span class="cm">
+</span><span class="cm">Assume that:
+</span><span class="cm">
+</span><span class="cm">N is an integer within the range [2..100,000];
+</span><span class="cm">each element of array A is an integer within the range [−1,000..1,000].
+</span><span class="cm">Complexity:
+</span><span class="cm">
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span><span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kn">import static</span> <span class="nn">java.lang.Math.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0L</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="kt">long</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">Long</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+        <span class="kt">long</span><span class="o">[]</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+        <span class="n">p</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">0L</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">];</span>
+
+            <span class="c1">//System.out.println(p[i]);
+</span><span class="c1"></span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">min</span><span class="o">(</span><span class="n">diff</span><span class="o">,</span> <span class="n">abs</span><span class="o">(</span><span class="n">2</span><span class="o">*</span><span class="n">p</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">sum</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">diff</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-------------------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">3</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">3</span><span class="o">};</span>
+
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<h5 id="frogjmp-https-codility-com-demo-take-sample-test-frog-jmp"><a href="https://codility.com/demo/take-sample-test/frog_jmp">FrogJmp</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count minimal number of jumps from position X to Y.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(1);</li>
+<li>expected worst-case space complexity is O(1).
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Do not use float division if possible!</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">FrogJmp</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A small frog wants to get to the other side of the road. The frog is currently located at position X and wants to get to a position greater than or equal to Y. The small frog always jumps a fixed distance, D.
+</span><span class="cm">Count the minimal number of jumps that the small frog must perform to reach its target.
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int solution(int X, int Y, int D); }
+</span><span class="cm">that, given three integers X, Y and D, returns the minimal number of jumps from position X to a position equal to or greater than Y.
+</span><span class="cm">For example, given:
+</span><span class="cm">  X = 10
+</span><span class="cm">  Y = 85
+</span><span class="cm">  D = 30
+</span><span class="cm">the function should return 3, because the frog will be positioned as follows:
+</span><span class="cm">after the first jump, at position 10 + 30 = 40
+</span><span class="cm">after the second jump, at position 10 + 30 + 30 = 70
+</span><span class="cm">after the third jump, at position 10 + 30 + 30 + 30 = 100
+</span><span class="cm">Assume that:
+</span><span class="cm">X, Y and D are integers within the range [1..1,000,000,000];
+</span><span class="cm">X ≤ Y.
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(1);
+</span><span class="cm">expected worst-case space complexity is O(1).
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">X</span><span class="o">,</span> <span class="kt">int</span> <span class="n">Y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">D</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="o">(</span><span class="n">Y</span><span class="o">-</span><span class="n">X</span><span class="o">)</span> <span class="o">/</span> <span class="n">D</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="o">(</span><span class="n">Y</span><span class="o">-</span><span class="n">X</span><span class="o">)</span> <span class="o">%</span> <span class="n">D</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">left</span> <span class="o">==</span> <span class="n">0</span> <span class="o">?</span> <span class="n">count</span> <span class="o">:</span> <span class="n">count</span><span class="o">+</span><span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-------------------------------------------------
+</span><span class="c1"></span>
+    <span class="kd">private</span> <span class="n">Random</span> <span class="n">rdm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+
+    <span class="c1">// [from, to)
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">random</span><span class="o">(</span><span class="kt">int</span> <span class="n">from</span><span class="o">,</span> <span class="kt">int</span> <span class="n">to</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">rdm</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">to</span> <span class="o">-</span> <span class="n">from</span><span class="o">)</span> <span class="o">+</span> <span class="n">from</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// A[0]...A[n-1]
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">random</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="o">(</span><span class="n">0</span><span class="o">,</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">A</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">20</span><span class="o">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">19</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">Y</span><span class="o">,</span> <span class="n">D</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">20</span><span class="o">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">Y</span><span class="o">,</span> <span class="n">D</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">20</span><span class="o">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">21</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">Y</span><span class="o">,</span> <span class="n">D</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test4</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">10</span><span class="o">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">85</span><span class="o">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">30</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">3</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">Y</span><span class="o">,</span> <span class="n">D</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<h5 id="permmissingelem-https-codility-com-demo-take-sample-test-perm-missing-elem"><a href="https://codility.com/demo/take-sample-test/perm_missing_elem">PermMissingElem</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the missing element in a given permutation.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Sum all elements that should be in the list and sum all elements that actually are in the list. The sum is 0 based, so +1 is required. The first solution using the + operator can cause int overflow in not-python languages. Therefore the use of a binary XOR is adequate.</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">PermMissingElem</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A zero-indexed array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], which means that exactly one element is missing.
+</span><span class="cm">Your goal is to find that missing element.
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">that, given a zero-indexed array A, returns the value of the missing element.
+</span><span class="cm">For example, given array A such that:
+</span><span class="cm">  A[0] = 2
+</span><span class="cm">  A[1] = 3
+</span><span class="cm">  A[2] = 1
+</span><span class="cm">  A[3] = 5
+</span><span class="cm">the function should return 4, as it is the missing element.
+</span><span class="cm">Assume that:
+</span><span class="cm">N is an integer within the range [0..100,000];
+</span><span class="cm">the elements of A are all distinct;
+</span><span class="cm">each element of array A is an integer within the range [1..(N + 1)].
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kt">long</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+
+        <span class="kt">long</span> <span class="n">missing</span> <span class="o">=</span> <span class="o">(</span><span class="n">1</span><span class="o">+(</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">))</span> <span class="o">*</span> <span class="o">(</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">)</span> <span class="o">/</span><span class="n">2</span> <span class="o">-</span> <span class="n">sum</span><span class="o">;</span>
+
+        <span class="k">return</span>  <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">missing</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------test------------------------------------------------
+</span><span class="c1"></span>    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">100001</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">(</span><span class="n">1</span><span class="o">+(</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">))</span> <span class="o">*</span> <span class="o">(</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">)</span> <span class="o">/</span><span class="n">2</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">100000</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100000</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">A</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">100001</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">100000</span><span class="o">-</span><span class="n">1</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">actual</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<h4 id="counting-elements-1">Counting Elements</h4>
+
+<h5 id="permcheck-https-codility-com-demo-take-sample-test-perm-check"><a href="https://codility.com/demo/take-sample-test/perm_check">PermCheck</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Check whether array N is a permutation.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Mark elements as seen in a boolean array. Elements seen twice or out of bounds of the size indicate that the list is no permutation. The check if the boolean array only contains true elements is not required. This solution only works with permutations starting from 1.</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">PermCheck</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given.
+</span><span class="cm">A permutation is a sequence containing each element from 1 to N once, and only once.
+</span><span class="cm">For example, array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 1
+</span><span class="cm">    A[2] = 3
+</span><span class="cm">    A[3] = 2
+</span><span class="cm">is a permutation, but array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 1
+</span><span class="cm">    A[2] = 3
+</span><span class="cm">is not a permutation, because value 2 is missing.
+</span><span class="cm">The goal is to check whether array A is a permutation.
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">that, given a zero-indexed array A, returns 1 if array A is a permutation and 0 if it is not.
+</span><span class="cm">For example, given array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 1
+</span><span class="cm">    A[2] = 3
+</span><span class="cm">    A[3] = 2
+</span><span class="cm">the function should return 1.
+</span><span class="cm">Given array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 1
+</span><span class="cm">    A[2] = 3
+</span><span class="cm">the function should return 0.
+</span><span class="cm">Assume that:
+</span><span class="cm">N is an integer within the range [1..100,000];
+</span><span class="cm">each element of array A is an integer within the range [1..1,000,000,000].
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="o">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">N</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// exceeding the range
+</span><span class="c1"></span>            <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">1</span><span class="o">)</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// seen many times
+</span><span class="c1"></span>        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<h5 id="frogriverone-https-codility-com-demo-take-sample-test-frog-river-one"><a href="https://codility.com/demo/take-sample-test/frog_river_one">FrogRiverOne</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the earliest time when a frog can jump to the other side of a river.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(X)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Mark seen elements as such in a boolean array. I do not like the idea of returning the first second as 0. But specifications are specifications</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">FrogRiverOne</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A small frog wants to get to the other side of a river. The frog is currently located at position 0, and wants to get to position X. Leaves fall from a tree onto the surface of the river.
+</span><span class="cm">
+</span><span class="cm">You are given a non-empty zero-indexed array A consisting of N integers representing the falling leaves. A[K] represents the position where one leaf falls at time K, measured in minutes.
+</span><span class="cm">
+</span><span class="cm">The goal is to find the earliest time when the frog can jump to the other side of the river. The frog can cross only when leaves appear at every position across the river from 1 to X.
+</span><span class="cm">
+</span><span class="cm">For example, you are given integer X = 5 and array A such that:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 1
+</span><span class="cm">  A[1] = 3
+</span><span class="cm">  A[2] = 1
+</span><span class="cm">  A[3] = 4
+</span><span class="cm">  A[4] = 2
+</span><span class="cm">  A[5] = 3
+</span><span class="cm">  A[6] = 5
+</span><span class="cm">  A[7] = 4
+</span><span class="cm">In minute 6, a leaf falls into position 5\. This is the earliest time when leaves appear in every position across the river.
+</span><span class="cm">
+</span><span class="cm">Write a function:
+</span><span class="cm">
+</span><span class="cm">class Solution { public int solution(int X, int[] A); }
+</span><span class="cm">
+</span><span class="cm">that, given a non-empty zero-indexed array A consisting of N integers and integer X, returns the earliest time when the frog can jump to the other side of the river.
+</span><span class="cm">
+</span><span class="cm">If the frog is never able to jump to the other side of the river, the function should return −1.
+</span><span class="cm">
+</span><span class="cm">For example, given X = 5 and array A such that:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 1
+</span><span class="cm">  A[1] = 3
+</span><span class="cm">  A[2] = 1
+</span><span class="cm">  A[3] = 4
+</span><span class="cm">  A[4] = 2
+</span><span class="cm">  A[5] = 3
+</span><span class="cm">  A[6] = 5
+</span><span class="cm">  A[7] = 4
+</span><span class="cm">the function should return 6, as explained above.
+</span><span class="cm">
+</span><span class="cm">Assume that:
+</span><span class="cm">
+</span><span class="cm">N and X are integers within the range [1..100,000];
+</span><span class="cm">each element of array A is an integer within the range [1..X].
+</span><span class="cm">Complexity:
+</span><span class="cm">
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(X), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">X</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">X</span><span class="o">+</span><span class="n">1</span><span class="o">];</span> <span class="c1">// [0] ignore
+</span><span class="c1"></span>        <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">seen</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">has_seen</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="n">has_seen</span><span class="o">++;</span>
+            <span class="o">}</span>
+
+            <span class="k">if</span><span class="o">(</span><span class="n">has_seen</span> <span class="o">==</span> <span class="n">X</span><span class="o">)</span> <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">5</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">4</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">6</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">X</span> <span class="o">=</span> <span class="n">5</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">7</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">X</span><span class="o">,</span> <span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<h5 id="maxcounters-https-codility-com-demo-take-sample-test-max-counters"><a href="https://codility.com/demo/take-sample-test/max_counters">MaxCounters</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N+M);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The idea is to perform the specified operation as stated. It is not required to iterate over the whole array if a new value is set for all the values. Just save the value and check it when an increase on that position is performed.</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">MaxCounters</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">You are given N counters, initially set to 0, and you have two possible operations on them:
+</span><span class="cm">increase(X) − counter X is increased by 1,
+</span><span class="cm">max counter − all counters are set to the maximum value of any counter.
+</span><span class="cm">A non-empty zero-indexed array A of M integers is given. This array represents consecutive operations:
+</span><span class="cm">if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
+</span><span class="cm">if A[K] = N + 1 then operation K is max counter.
+</span><span class="cm">For example, given integer N = 5 and array A such that:
+</span><span class="cm">    A[0] = 3
+</span><span class="cm">    A[1] = 4
+</span><span class="cm">    A[2] = 4
+</span><span class="cm">    A[3] = 6
+</span><span class="cm">    A[4] = 1
+</span><span class="cm">    A[5] = 4
+</span><span class="cm">    A[6] = 4
+</span><span class="cm">the values of the counters after each consecutive operation will be:
+</span><span class="cm">    (0, 0, 1, 0, 0)
+</span><span class="cm">    (0, 0, 1, 1, 0)
+</span><span class="cm">    (0, 0, 1, 2, 0)
+</span><span class="cm">    (2, 2, 2, 2, 2)
+</span><span class="cm">    (3, 2, 2, 2, 2)
+</span><span class="cm">    (3, 2, 2, 3, 2)
+</span><span class="cm">    (3, 2, 2, 4, 2)
+</span><span class="cm">The goal is to calculate the value of every counter after all operations.
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int[] solution(int N, int[] A); }
+</span><span class="cm">that, given an integer N and a non-empty zero-indexed array A consisting of M integers, returns a sequence of integers representing the values of the counters.
+</span><span class="cm">The sequence should be returned as:
+</span><span class="cm">a structure Results (in C), or
+</span><span class="cm">a vector of integers (in C++), or
+</span><span class="cm">a record Results (in Pascal), or
+</span><span class="cm">an array of integers (in any other programming language).
+</span><span class="cm">For example, given:
+</span><span class="cm">    A[0] = 3
+</span><span class="cm">    A[1] = 4
+</span><span class="cm">    A[2] = 4
+</span><span class="cm">    A[3] = 6
+</span><span class="cm">    A[4] = 1
+</span><span class="cm">    A[5] = 4
+</span><span class="cm">    A[6] = 4
+</span><span class="cm">the function should return [3, 2, 2, 4, 2], as explained above.
+</span><span class="cm">Assume that:
+</span><span class="cm">N and M are integers within the range [1..100,000];
+</span><span class="cm">each element of array A is an integer within the range [1..N + 1].
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(N+M);
+</span><span class="cm">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">M</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">counters</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">current_max</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// new starting point
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">M</span><span class="o">;</span> <span class="o">++</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">],</span> <span class="n">baseline</span><span class="o">);</span>
+                <span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">]++;</span>
+                <span class="n">current_max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">k</span><span class="o">]-</span><span class="n">1</span><span class="o">],</span> <span class="n">current_max</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">baseline</span> <span class="o">=</span> <span class="n">current_max</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">counters</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">counters</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">baseline</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">counters</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">5</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">3</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">4</span><span class="o">};</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">expected</span> <span class="o">=</span> <span class="o">{</span><span class="n">3</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">2</span><span class="o">};</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertArrayEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<h5 id="missinginteger-https-codility-com-demo-take-sample-test-missing-integer"><a href="https://codility.com/demo/take-sample-test/missing_integer">MissingInteger</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the minimal positive integer not occurring in a given sequence.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>You only need to consider the first (N) positive integers. In this specification 0 does not count as a valid candidate! Any value that is below 1 or above N can be ignored.</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">MissingInteger</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">that, given a non-empty zero-indexed array A of N integers, returns the minimal positive integer that does not occur in A.
+</span><span class="cm">For example, given:
+</span><span class="cm">  A[0] = 1
+</span><span class="cm">  A[1] = 3
+</span><span class="cm">  A[2] = 6
+</span><span class="cm">  A[3] = 4
+</span><span class="cm">  A[4] = 1
+</span><span class="cm">  A[5] = 2
+</span><span class="cm">the function should return 5.
+</span><span class="cm">Assume that:
+</span><span class="cm">N is an integer within the range [1..100,000];
+</span><span class="cm">each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">seen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">];</span> <span class="c1">// [0] ignored
+</span><span class="c1"></span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">seen</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">seen</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="kc">false</span><span class="o">)</span> <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">,</span> <span class="n">6</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">2</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">5</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{-</span><span class="n">2</span><span class="o">,</span> <span class="n">29</span><span class="o">,</span> <span class="o">-</span><span class="n">9</span><span class="o">,</span> <span class="n">0</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<h4 id="prefix-sums-1">Prefix Sums</h4>
+
+<h5 id="passingcars-https-codility-com-demo-take-sample-test-passing-cars"><a href="https://codility.com/demo/take-sample-test/passing_cars">PassingCars</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the number of passing cars on the road.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Count all cars heading in one direction (west). Each car heading the other direction (east) passes all cars that went west so far. Note that east cars at the beginning of the list pass no cars! Also do not forget the upper limit!</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">PassingCars</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.
+</span><span class="cm">
+</span><span class="cm">Array A contains only 0s and/or 1s:
+</span><span class="cm">
+</span><span class="cm">0 represents a car traveling east,
+</span><span class="cm">1 represents a car traveling west.
+</span><span class="cm">The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P &lt; Q &lt; N, is passing when P is traveling to the east and Q is traveling to the west.
+</span><span class="cm">
+</span><span class="cm">For example, consider array A such that:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 0
+</span><span class="cm">  A[1] = 1
+</span><span class="cm">  A[2] = 0
+</span><span class="cm">  A[3] = 1
+</span><span class="cm">  A[4] = 1
+</span><span class="cm">We have five pairs of passing cars: (0, 1), (0, 3), (0, 4), (2, 3), (2, 4).
+</span><span class="cm">
+</span><span class="cm">Write a function:
+</span><span class="cm">
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">
+</span><span class="cm">that, given a non-empty zero-indexed array A of N integers, returns the number of pairs of passing cars.
+</span><span class="cm">
+</span><span class="cm">The function should return −1 if the number of pairs of passing cars exceeds 1,000,000,000.
+</span><span class="cm">
+</span><span class="cm">For example, given:
+</span><span class="cm">
+</span><span class="cm">  A[0] = 0
+</span><span class="cm">  A[1] = 1
+</span><span class="cm">  A[2] = 0
+</span><span class="cm">  A[3] = 1
+</span><span class="cm">  A[4] = 1
+</span><span class="cm">the function should return 5, as explained above.
+</span><span class="cm">
+</span><span class="cm">Assume that:
+</span><span class="cm">
+</span><span class="cm">N is an integer within the range [1..100,000];
+</span><span class="cm">each element of array A is an integer that can have one of the following values: 0, 1.
+</span><span class="cm">Complexity:
+</span><span class="cm">
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">east_cars</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="c1">//before current, how many cars head east?
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">cnt_passing</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">east_cars</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">cnt_passing</span> <span class="o">+=</span> <span class="n">east_cars</span><span class="o">;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">cnt_passing</span> <span class="o">&gt;</span> <span class="n">1000000000</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">cnt_passing</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">0</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">1</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">5</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<h5 id="genomicrangequery-https-codility-com-demo-take-sample-test-genomic-range-query"><a href="https://codility.com/demo/take-sample-test/genomic_range_query">GenomicRangeQuery</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the minimal nucleotide from a range of sequence DNA.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N+M);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Remember the last position on which was the genome (A, C, G, T) was seen. If the distance between Q and P is lower than the distance to the last seen genome, we have found the right candidate.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="minavgtwoslice-https-codility-com-demo-take-sample-test-min-avg-two-slice"><a href="https://codility.com/demo/take-sample-test/min_avg_two_slice">MinAvgTwoSlice</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the minimal average of any slice containing at least two elements.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Every slice must be of size two or three. Slices of bigger sizes are created from such smaller slices. Therefore should any bigger slice have an optimal value, all sub-slices must be the same, for this case to hold true. Should this not be true, one of the sub-slices must be the optimal slice. The others being bigger. Therefore we check all possible slices of size <sup>2</sup>&frasl;<sub>3</sub> and return the smallest one. The first such slice is the correct one, do not use &lt;=!</p>
+
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">MinAvgTwoSlice</span><span class="o">;</span>
+
+<span class="cm">/*
+</span><span class="cm">A non-empty zero-indexed array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P &lt; Q &lt; N, is called a slice of array A (notice that the slice contains at least two elements). The average of a slice (P, Q) is the sum of A[P] + A[P + 1] + ... + A[Q] divided by the length of the slice. To be precise, the average equals (A[P] + A[P + 1] + ... + A[Q]) / (Q − P + 1).
+</span><span class="cm">For example, array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 2
+</span><span class="cm">    A[2] = 2
+</span><span class="cm">    A[3] = 5
+</span><span class="cm">    A[4] = 1
+</span><span class="cm">    A[5] = 5
+</span><span class="cm">    A[6] = 8
+</span><span class="cm">contains the following example slices:
+</span><span class="cm">slice (1, 2), whose average is (2 + 2) / 2 = 2;
+</span><span class="cm">slice (3, 4), whose average is (5 + 1) / 2 = 3;
+</span><span class="cm">slice (1, 4), whose average is (2 + 2 + 5 + 1) / 4 = 2.5.
+</span><span class="cm">The goal is to find the starting position of a slice whose average is minimal.
+</span><span class="cm">Write a function:
+</span><span class="cm">class Solution { public int solution(int[] A); }
+</span><span class="cm">that, given a non-empty zero-indexed array A consisting of N integers, returns the starting position of the slice with the minimal average. If there is more than one slice with a minimal average, you should return the smallest starting position of such a slice.
+</span><span class="cm">For example, given array A such that:
+</span><span class="cm">    A[0] = 4
+</span><span class="cm">    A[1] = 2
+</span><span class="cm">    A[2] = 2
+</span><span class="cm">    A[3] = 5
+</span><span class="cm">    A[4] = 1
+</span><span class="cm">    A[5] = 5
+</span><span class="cm">    A[6] = 8
+</span><span class="cm">the function should return 1, as explained above.
+</span><span class="cm">Assume that:
+</span><span class="cm">N is an integer within the range [2..100,000];
+</span><span class="cm">each element of array A is an integer within the range [−10,000..10,000].
+</span><span class="cm">Complexity:
+</span><span class="cm">expected worst-case time complexity is O(N);
+</span><span class="cm">expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+</span><span class="cm">Elements of input arrays can be modified.
+</span><span class="cm">
+</span><span class="cm">*/</span>
+
+<span class="c1">// you can also use imports, for example:
+</span><span class="c1">// import java.util.*;
+</span><span class="c1"></span>
+<span class="c1">// you can use System.out.println for debugging purposes, e.g.
+</span><span class="c1">// System.out.println(&#34;this is a debug message&#34;);
+</span><span class="c1"></span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// write your code in Java SE 8
+</span><span class="c1"></span>        <span class="kd">final</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">min_average</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">-</span><span class="n">1</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">])</span> <span class="o">/</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&lt;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">min_average</span> <span class="o">=</span> <span class="n">avg</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="n">2</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="n">2</span><span class="o">])</span> <span class="o">/</span> <span class="n">3</span><span class="o">.</span><span class="na">0</span><span class="o">;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">avg</span> <span class="o">&lt;</span> <span class="n">min_average</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">min_start_index</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                    <span class="n">min_average</span> <span class="o">=</span> <span class="n">avg</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">min_start_index</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//-----------------------test------------------------------------
+</span><span class="c1"></span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">A</span> <span class="o">=</span> <span class="o">{</span><span class="n">4</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">2</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">8</span><span class="o">};</span>
+        <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">solution</span><span class="o">(</span><span class="n">A</span><span class="o">);</span>
+
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<p>&nbsp;</p>
+
+<h5 id="countdiv-https-codility-com-demo-take-sample-test-count-div"><a href="https://codility.com/demo/take-sample-test/count_div">CountDiv</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Compute number of integers divisible by k in range [a..b].</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(1);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This little check required a bit of experimentation. One needs to start from the first valid value that is bigger than A and a multiply of K.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="sorting">Sorting</h4>
+
+<h5 id="triangle-https-codility-com-demo-take-sample-test-triangle"><a href="https://codility.com/demo/take-sample-test/triangle">Triangle</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Determine whether a triangle can be built from a given set of edges.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>By sorting the array, we have guaranteed that P+R &lt; Q and Q+R &lt; P (because R is always the biggest). Now what remains, is the proof that P+Q &gt; R, that can be found out by traversing the array. The chance to find such a combination is with three adjacent values as they provide the highest P and Q.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="distinct-https-codility-com-demo-take-sample-test-distinct"><a href="https://codility.com/demo/take-sample-test/distinct">Distinct </a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Compute number of distinct values in an array.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N * log(N));</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Sorting in both C++ and Python takes N log N time. We know that for this particular problem sorting the array will be the dominant runtime complexity. This is the case for the second python solution. What about the other ones?</p>
+
+<p>The first solution is a neat pythonic way of solving a distinct entries problem. The set is implemented as a hash table so it is possible that it will degrade to a linked list. Therefore the actual worst case would be N^2.</p>
+
+<p>This is not the case with C++ (as code 3 shows). The std set is a Red-Black Tree and therefore has insertion complexity of log N. (overall N log N)</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="maxproductofthree-https-codility-com-demo-take-sample-test-max-product-of-three"><a href="https://codility.com/demo/take-sample-test/max_product_of_three">MaxProductOfThree</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Maximize A[P] * A[Q] * A[R] for any triplet (P, Q, R).</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>After sorting the largest product can be found as a combination of the last three elements. Additionally, two negative numbers add to a positive, so by multiplying the two largest negatives with the largest positive, we get another candidate. If all numbers are negative, the three largest (closest to 0) still get the largest element!</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="numberofdiscintersections">NumberOfDiscIntersections</h5>
+
+<h4 id="stacks-and-queues">Stacks and Queues</h4>
+
+<h5 id="brackets-https-codility-com-demo-take-sample-test-brackets"><a href="https://codility.com/demo/take-sample-test/brackets">Brackets</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Determine whether a given string of parentheses is properly nested.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Put every opening bracket on a stack. If a closing bracket is not the same as the top stack bracket, the string is not properly nested.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="span-style-text-decoration-underline-nesting-span"><span style="text-decoration: underline;">Nesting</span></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Determine whether given string of parentheses is properly nested.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Because there is only one type of brackets, the problem is easier than <a href="http://www.martinkysel.com/codility-brackets-solution/" title="Codility ‘Brackets’ Solution">Brackets</a>. Just check if there is always a opening bracket before a closing one.</p>
+
+<h5 id="stonewall-https-codility-com-demo-take-sample-test-stone-wall"><a href="https://codility.com/demo/take-sample-test/stone_wall">StoneWall</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Cover “Manhattan skyline” using the minimum number of rectangles.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The explanation to this challenge has been posted on the Codility web, you can read it <a href="http://blog.codility.com/2012/06/sigma-2012-codility-programming.html">here</a>.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="fish-https-codility-com-demo-take-sample-test-fish"><a href="https://codility.com/demo/take-sample-test/fish">Fish</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>N voracious fish are moving along a river. Calculate how many fish are alive.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Put all downstream swimming fishes on a stack. Any upstream swimming fish has to fight(eat) all fishes on the stack. If there is no fish on the stack, the fish survives. If the stack has some downstream fishes at the end, they also survive.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="leader-1">Leader</h4>
+
+<h5 id="dominator-https-codility-com-demo-take-sample-test-dominator"><a href="https://codility.com/demo/take-sample-test/dominator">Dominator</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find an index of an array such that its value occurs at more than half of indices in the array.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>As explained in the training material…</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="equileader-https-codility-com-demo-take-sample-test-equi-leader"><a href="https://codility.com/demo/take-sample-test/equi_leader">EquiLeader</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the index S such that the leaders of the sequences A[0], A[1], …, A[S] and A[S + 1], A[S + 2], …, A[N – 1] are the same.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Get the leader as in the training material. Afterwards check every position if both sides have enough leader occurrences.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="maximum-slice-problem">Maximum Slice Problem</h4>
+
+<h5 id="maxprofit-https-codility-com-demo-take-sample-test-max-profit"><a href="https://codility.com/demo/take-sample-test/max_profit">MaxProfit</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Given a log of stock prices compute the maximum possible earning.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Keep the minimal value up to day. The profit on day i is_ profit[i] – min<em>profit</em>.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="maxslicesum-https-codility-com-demo-take-sample-test-max-slice-sum"><a href="https://codility.com/demo/take-sample-test/max_slice_sum">MaxSliceSum</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find a maximum sum of a compact subsequence of array elements.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The only difference to the example given by Codility is the minimal slice length, which is 1.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="maxdoubleslicesum-https-codility-com-demo-take-sample-test-max-double-slice-sum"><a href="https://codility.com/demo/take-sample-test/max_double_slice_sum">MaxDoubleSliceSum</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the maximal sum of any double slice.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>To solve this task, you need to keep track of two slice arrays. The optimal double slice can be found at an index that has the maximal sum of those two arrays. It can not be the 0th or the last index.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="prime-and-composite-numbers-1">Prime and composite numbers</h4>
+
+<h5 id="minperimeterrectangle-https-codility-com-demo-take-sample-test-min-perimeter-rectangle"><a href="https://codility.com/demo/take-sample-test/min_perimeter_rectangle">MinPerimeterRectangle</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the minimal perimeter of any rectangle whose area equals N.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(sqrt(N));</li>
+<li>expected worst-case space complexity is O(1).
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Trivial search for the largest prime.</p>
+
+<h5 id="countfactors-https-codility-com-demo-take-sample-test-count-factors"><a href="https://codility.com/demo/take-sample-test/count_factors">CountFactors</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count factors of given number N.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(sqrt(N));</li>
+<li>expected worst-case space complexity is O(1).
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This example can be found in the lesson document.</p>
+
+<h5 id="peaks-https-codility-com-demo-take-sample-test-peaks"><a href="https://codility.com/demo/take-sample-test/peaks">Peaks</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>A non-empty zero-indexed array A consisting of N integers is given. A peak is an array element which is larger than its neighbors.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(log(N)));</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>I first compute all peaks. Because each block must contain a peak I start from the end and try to find a integral divisor sized block. If each block contains a peak I return the size.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="span-style-text-decoration-underline-flags-span"><span style="text-decoration: underline;">Flags</span></h5>
+
+<h4 id="sieve-or-eratosthenes">Sieve or Eratosthenes</h4>
+
+<h5 id="countsemiprimes-https-codility-com-demo-take-sample-test-count-semiprimes"><a href="https://codility.com/demo/take-sample-test/count_semiprimes">CountSemiprimes</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the semiprime numbers in the given range [a..b]</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(log(N))+M);</li>
+<li>expected worst-case space complexity is O(N+M)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>First get all semiprimes from an adaptation of the Sieve of Eratosthenes. Because we will be computing the difference many times a prefix sum is adequate. Get the number of semiprimes up to the point. The index P is decreased by 1 because we want to know all primes that start from P.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="countnondivisible-https-codility-com-demo-take-sample-test-count-non-divisible"><a href="https://codility.com/demo/take-sample-test/count_non_divisible">CountNonDivisible</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Calculate the number of elements of an array that are not divisors of each element.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Using the Sieve of Eratosthenes, you generate divisors for all input elements of A. If a given number x is a divisor of element <em>(x*N == element)</em>, then N also is a divisor. _(N = element//x)._ After all divisors are computed, we simply subtract those (multiplied by their counts or 0) from the total number of elements in A.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="euclidean-algorithm">Euclidean Algorithm</h4>
+
+<h5 id="chocolatesbynumbers-https-codility-com-demo-take-sample-test-chocolates-by-numbers"><a href="https://codility.com/demo/take-sample-test/chocolates_by_numbers">ChocolatesByNumbers</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>There are N chocolates in a circle. Count the number of chocolates you will eat.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(log(N+M));</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>N and M meet at their least common multiply. Dividing this LCM by M gets the number of steps(chocolates) that can be eaten.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="commonprimedivisors-https-codility-com-demo-take-sample-test-common-prime-divisors"><a href="https://codility.com/demo/take-sample-test/common_prime_divisors">CommonPrimeDivisors</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Check whether two numbers have the same prime divisors.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(Z*log(max(A)+max(B))<sup>2</sup>);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>I will post an explaining image soon!</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="fibonacci-numbers">Fibonacci Numbers</h4>
+
+<h5 id="fibfrog-https-codility-com-demo-take-sample-test-fib-frog"><a href="https://codility.com/demo/take-sample-test/fib_frog">FibFrog</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the minimum number of jumps required for a frog to get to the other side of a river.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N))</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This problem can be solved by in a Dynamic Programming way. You need to know the optimal count of jumps that can reach a given leaf. You get those by either reaching the leaf from the first shore or by reaching it from another leaf.</p>
+
+<p>The N*log(N) time complexity is given by the fact, that there are approximately log(N) Fibonacci numbers up to N and you visit each position once.</p>
+
+<p>As for the sequence hack: there are 26 Fibonacci numbers smaller than 100k, so I just preallocate an array of this size.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="ladder-https-codility-com-demo-take-sample-test-ladder"><a href="https://codility.com/demo/take-sample-test/ladder">Ladder</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the number of different ways of climbing to the top of a ladder.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(L)</li>
+<li>expected worst-case space complexity is O(L)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>We first compute the Fibonacci sequence for the first L+2 numbers. The first two numbers are used only as fillers, so we have to index the sequence as A[idx]+1 instead of A[idx]-1. The second step is to replace the modulo operation by removing all but the n lowest bits. A discussion can be found on <a href="http://stackoverflow.com/a/6670766" title="Mod of power 2">Stack Overflow</a>.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="binary-search">Binary Search</h4>
+
+<h5 id="minmaxdivision-https-codility-com-demo-take-sample-test-min-max-division"><a href="https://codility.com/demo/take-sample-test/min_max_division">MinMaxDivision</a></h5>
+
+<h5 id="short-problem-definition">Short Problem Definition:</h5>
+
+<p>Divide array A into K blocks and minimize the largest sum of any block.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N+M));</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Binary search for the minimal size of a block. A valid block can be checked in a boolean fashion. Two special cases can be sped up (courtesy to <a href="http://codesays.com/2014/solution-to-min-max-division-by-codility/">CodeSays</a>). At the time of writing (19.9.2014) do not use the variable passed to the solution function as M! It is NOT the maximum element in the test cases! The specification says, that no element is larger than M, yet there is not guarantee that M == max(A).</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="nailingplanks-https-codility-com-demo-take-sample-test-nailing-planks"><a href="https://codility.com/demo/take-sample-test/nailing_planks">NailingPlanks</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the minimum number of nails that allow a series of planks to be nailed..</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O((N+M)*log(M));</li>
+<li>expected worst-case space complexity is O(M)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The solution gets <sup>100</sup>&frasl;<sub>100</sub>, but I am skeptical. The runtime is rather O(N * (log(M)+M)) than O((N+M)*log(M)).  Maybe it can be proven that the execution of the linear scan will never have to scan all possible positions. I also violate the space complexity by creating a copy of A+B.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="caterpillar-method-1">Caterpillar method</h4>
+
+<h5 id="absdistinct-https-codility-com-demo-take-sample-test-abs-distinct"><a href="https://codility.com/demo/take-sample-test/abs_distinct">AbsDistinct</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Compute number of distinct absolute values of sorted array elements.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Additional storage is allowed. Therefore a simple python solution will suffice.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="countdistinctslices-https-codility-com-demo-take-sample-test-count-distinct-slices"><a href="https://codility.com/demo/take-sample-test/count_distinct_slices">CountDistinctSlices</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Count the number of distinct slices (containing only unique numbers).</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(M)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Using the caterpillar method I expand the caterpillar to the right as long as a duplicate element is found. The right side has to retract as long as this duplicate element has been eliminated from the next slice. An observation showed that the number of sub-slices is equal to front-back+1.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="counttriangles-https-codility-com-demo-take-sample-test-count-triangles"><a href="https://codility.com/demo/take-sample-test/count_triangles">CountTriangles</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p><span class="task-synopsis">Count the number of triangles that can be built from a given set of edges.</span></p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N<sup>2</sup>);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Apply the caterpillar method. We know that in a sorted array every position between Q and R will be bigger than Q and therefore P+Q will be bigger than R. I therefore either increment Q if P+Q is not larger than R or increment R as far as possible.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="minabssumoftwo-https-codility-com-demo-take-sample-test-min-abs-sum-of-two"><a href="https://codility.com/demo/take-sample-test/min_abs_sum_of_two">MinAbsSumOfTwo</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find the minimal absolute value of a sum of two elements.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Using the caterpillar method on a sorted list.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="greedy-algorithms-1">Greedy algorithms</h4>
+
+<h5 id="tieropes-https-codility-com-demo-take-sample-test-tie-ropes"><a href="https://codility.com/demo/take-sample-test/tie_ropes">TieRopes</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Tie adjacent ropes to achieve the maximum number of ropes of length &gt;= K.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>I am a bit skeptical about the correctness of my solution. It gets <sup>100</sup>&frasl;<sub>100</sub> through…</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="maxnonoverlappingsegments-https-codility-com-demo-take-sample-test-max-nonoverlapping-segments"><a href="https://codility.com/demo/take-sample-test/max_nonoverlapping_segments">MaxNonoverlappingSegments</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find a maximal set of non((-))overlapping segments.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N)</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This can be solved by using greedy search. The beginning of the next segment must come strictly after its predecessor.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="dynamic-programming">Dynamic Programming</h4>
+
+<h5 id="numbersolitaire-https-codility-com-demo-take-sample-test-number-solitaire"><a href="https://codility.com/demo/take-sample-test/number_solitaire">NumberSolitaire</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>In a given array, find the subset of maximal sum in which the distance between consecutive elements is at most 6.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Prototypical Dynamic Programming. Remember all sub-solutions and use them to compute the next step. I prefixed the array by 6 min_values to use the same computation for the whole algorithm (besides the first). Do not forget to set the minimal_value small enough to handle a purely negative input array.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="span-style-text-decoration-underline-span-style-line-height-1-5-minabssum-span-span"><span style="text-decoration: underline;"><span style="line-height: 1.5;">MinAbsSum</span></span></h5>
+
+<h4 id="future-training">Future Training</h4>
+
+<h5 id="binarygap-https-codility-com-demo-take-sample-test-binary-gap"><a href="https://codility.com/demo/take-sample-test/binary_gap">BinaryGap</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find longest sequence of zeros in binary representation of an integer.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(log(N));</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The solution is straight-forward! Use of binary shift.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="strsymmetrypoint-https-codility-com-demo-take-sample-test-str-symmetry-point"><a href="https://codility.com/demo/take-sample-test/str_symmetry_point">StrSymmetryPoint</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find a symmetry point of a string, if any.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(length(S));</li>
+<li>expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This problem gave me a lot of headache. It is so trivial I that over-complicated it. I thought that you should find a symmetry point at any possible position, ignoring the residual characters. You would obviously try to maximize the length of this symmetrical sub-array. I was not able to come with any O(S) algorithm for this problem derivation. So just to remind you,** this problem is a simple palindrome check**. Additionally, you drop all evenly sized strings as their symmetry point is between the indexes.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="oddoccurencesinarray-https-codility-com-demo-take-sample-test-odd-occurrences-in-array"><a href="https://codility.com/demo/take-sample-test/odd_occurrences_in_array">OddOccurencesInArray</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Find value that occurs in odd number of elements.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(1)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>This problem can be found in many algorithm books. A xor A cancels itself and B xor 0 is B. Therefore A xor A xor B xor C xor C is B.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="treeheight-https-codility-com-demo-take-sample-test-tree-height"><a href="https://codility.com/demo/take-sample-test/tree_height">TreeHeight</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Compute the height of a binary link-tree.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N);</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>The height of a tree is the maximal height +1 of its subtrees. In this specification a tree with just the root node has a height of 0.</p>
+
+<p><strong>Solution:</strong></p>
+
+<h5 id="arrayinversioncount-https-codility-com-demo-take-sample-test-array-inversion-count"><a href="https://codility.com/demo/take-sample-test/array_inversion_count">ArrayInversionCount</a></h5>
+
+<p><strong>Short Problem Definition:</strong></p>
+
+<p>Compute number of inversion in an array.</p>
+
+<p><strong>Complexity:</strong></p>
+
+<ul>
+<li>expected worst-case time complexity is O(N*log(N));</li>
+<li>expected worst-case space complexity is O(N)
+<strong>Execution:</strong></li>
+</ul>
+
+<p>Any sorting algorithm with a NlogN runtime will do the trick. It is important to count all (remaining) bigger elements on the left side. Do not forget to check for the maximal return value!</p>
+
+<p><strong>Solution:</strong></p>
+
+<h4 id="challenges">Challenges</h4>
+
+<ul>
+<li><a href="http://www.martinkysel.com/codility-sqlsegmentssum-kalium-2015-solution/">Kalium 2015 – SqlSegmentsSum</a></li>
+<li>Boron 2013 – Flags</li>
+<li><a href="http://www.martinkysel.com/codility-wireburnouts-2012-psi-solution/" title="Codility ‘WireBurnouts’ 2012 Psi Solution">Psi 2012 – Wire Burnouts</a></li>
+<li><a href="http://www.martinkysel.com/codility-cannonballs-2012-chi-solution/">Chi 2012 – Cannon Balls</a></li>
+<li><a href="http://www.martinkysel.com/codility-stonewall-solution/" title="Codility ‘StoneWall’ Solution">Sigma 2012 – StoneWall</a></li>
+<li>Delta 2011 – MinAbsSum</li>
+<li><a href="http://www.martinkysel.com/codility-number-of-disc-intersections-2010-beta-solution/">Beta 2010 – NumberOfDiscIntersections</a></li>
+<li><a href="http://www.martinkysel.com/codility-prefixset-2010-alpha-solution/" title="Codility ‘PrefixSet’ 2010 Alpha Solution">Alpha 2010 – PrefixSet</a></li>
+</ul>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/wsdl-service-contract-in-detail/" rel="next" title="WSDL Service Contract in Detail">
+        <i class="fa fa-chevron-left"></i> WSDL Service Contract in Detail
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/what-does-0-0-0-0-mean/" rel="prev" title="what does 0.0.0.0 mean?">
+        what does 0.0.0.0 mean? <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：algorithm training from codility
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#training">TRAINING</a>
+<ul>
+<li><a href="#counting-elements">counting elements</a></li>
+<li><a href="#prefix-sums">Prefix Sums</a></li>
+<li><a href="#leader">leader</a></li>
+<li><a href="#prime-and-composite-numbers">prime and composite numbers</a>
+<ul>
+<li><a href="#counting-divisors">counting divisors</a></li>
+<li><a href="#primality-test">Primality test</a></li>
+<li><a href="#sieve-of-eratosthenes">Sieve of Eratosthenes</a></li>
+</ul></li>
+<li><a href="#caterpillar-method">Caterpillar method</a></li>
+<li><a href="#greedy-algorithms">Greedy algorithms</a></li>
+</ul></li>
+<li><a href="#problem-set">PROBLEM SET</a>
+<ul>
+<li><a href="#time-complexity">Time Complexity</a>
+<ul>
+<li><a href="#tapeequilibrium-https-codility-com-demo-take-sample-test-tape-equilibrium"><a href="https://codility.com/demo/take-sample-test/tape_equilibrium">TapeEquilibrium</a></a></li>
+<li><a href="#frogjmp-https-codility-com-demo-take-sample-test-frog-jmp"><a href="https://codility.com/demo/take-sample-test/frog_jmp">FrogJmp</a></a></li>
+<li><a href="#permmissingelem-https-codility-com-demo-take-sample-test-perm-missing-elem"><a href="https://codility.com/demo/take-sample-test/perm_missing_elem">PermMissingElem</a></a></li>
+</ul></li>
+<li><a href="#counting-elements-1">Counting Elements</a>
+<ul>
+<li><a href="#permcheck-https-codility-com-demo-take-sample-test-perm-check"><a href="https://codility.com/demo/take-sample-test/perm_check">PermCheck</a></a></li>
+<li><a href="#frogriverone-https-codility-com-demo-take-sample-test-frog-river-one"><a href="https://codility.com/demo/take-sample-test/frog_river_one">FrogRiverOne</a></a></li>
+<li><a href="#maxcounters-https-codility-com-demo-take-sample-test-max-counters"><a href="https://codility.com/demo/take-sample-test/max_counters">MaxCounters</a></a></li>
+<li><a href="#missinginteger-https-codility-com-demo-take-sample-test-missing-integer"><a href="https://codility.com/demo/take-sample-test/missing_integer">MissingInteger</a></a></li>
+</ul></li>
+<li><a href="#prefix-sums-1">Prefix Sums</a>
+<ul>
+<li><a href="#passingcars-https-codility-com-demo-take-sample-test-passing-cars"><a href="https://codility.com/demo/take-sample-test/passing_cars">PassingCars</a></a></li>
+<li><a href="#genomicrangequery-https-codility-com-demo-take-sample-test-genomic-range-query"><a href="https://codility.com/demo/take-sample-test/genomic_range_query">GenomicRangeQuery</a></a></li>
+<li><a href="#minavgtwoslice-https-codility-com-demo-take-sample-test-min-avg-two-slice"><a href="https://codility.com/demo/take-sample-test/min_avg_two_slice">MinAvgTwoSlice</a></a></li>
+<li><a href="#countdiv-https-codility-com-demo-take-sample-test-count-div"><a href="https://codility.com/demo/take-sample-test/count_div">CountDiv</a></a></li>
+</ul></li>
+<li><a href="#sorting">Sorting</a>
+<ul>
+<li><a href="#triangle-https-codility-com-demo-take-sample-test-triangle"><a href="https://codility.com/demo/take-sample-test/triangle">Triangle</a></a></li>
+<li><a href="#distinct-https-codility-com-demo-take-sample-test-distinct"><a href="https://codility.com/demo/take-sample-test/distinct">Distinct </a></a></li>
+<li><a href="#maxproductofthree-https-codility-com-demo-take-sample-test-max-product-of-three"><a href="https://codility.com/demo/take-sample-test/max_product_of_three">MaxProductOfThree</a></a></li>
+<li><a href="#numberofdiscintersections">NumberOfDiscIntersections</a></li>
+</ul></li>
+<li><a href="#stacks-and-queues">Stacks and Queues</a>
+<ul>
+<li><a href="#brackets-https-codility-com-demo-take-sample-test-brackets"><a href="https://codility.com/demo/take-sample-test/brackets">Brackets</a></a></li>
+<li><a href="#span-style-text-decoration-underline-nesting-span"><span style="text-decoration: underline;">Nesting</span></a></li>
+<li><a href="#stonewall-https-codility-com-demo-take-sample-test-stone-wall"><a href="https://codility.com/demo/take-sample-test/stone_wall">StoneWall</a></a></li>
+<li><a href="#fish-https-codility-com-demo-take-sample-test-fish"><a href="https://codility.com/demo/take-sample-test/fish">Fish</a></a></li>
+</ul></li>
+<li><a href="#leader-1">Leader</a>
+<ul>
+<li><a href="#dominator-https-codility-com-demo-take-sample-test-dominator"><a href="https://codility.com/demo/take-sample-test/dominator">Dominator</a></a></li>
+<li><a href="#equileader-https-codility-com-demo-take-sample-test-equi-leader"><a href="https://codility.com/demo/take-sample-test/equi_leader">EquiLeader</a></a></li>
+</ul></li>
+<li><a href="#maximum-slice-problem">Maximum Slice Problem</a>
+<ul>
+<li><a href="#maxprofit-https-codility-com-demo-take-sample-test-max-profit"><a href="https://codility.com/demo/take-sample-test/max_profit">MaxProfit</a></a></li>
+<li><a href="#maxslicesum-https-codility-com-demo-take-sample-test-max-slice-sum"><a href="https://codility.com/demo/take-sample-test/max_slice_sum">MaxSliceSum</a></a></li>
+<li><a href="#maxdoubleslicesum-https-codility-com-demo-take-sample-test-max-double-slice-sum"><a href="https://codility.com/demo/take-sample-test/max_double_slice_sum">MaxDoubleSliceSum</a></a></li>
+</ul></li>
+<li><a href="#prime-and-composite-numbers-1">Prime and composite numbers</a>
+<ul>
+<li><a href="#minperimeterrectangle-https-codility-com-demo-take-sample-test-min-perimeter-rectangle"><a href="https://codility.com/demo/take-sample-test/min_perimeter_rectangle">MinPerimeterRectangle</a></a></li>
+<li><a href="#countfactors-https-codility-com-demo-take-sample-test-count-factors"><a href="https://codility.com/demo/take-sample-test/count_factors">CountFactors</a></a></li>
+<li><a href="#peaks-https-codility-com-demo-take-sample-test-peaks"><a href="https://codility.com/demo/take-sample-test/peaks">Peaks</a></a></li>
+<li><a href="#span-style-text-decoration-underline-flags-span"><span style="text-decoration: underline;">Flags</span></a></li>
+</ul></li>
+<li><a href="#sieve-or-eratosthenes">Sieve or Eratosthenes</a>
+<ul>
+<li><a href="#countsemiprimes-https-codility-com-demo-take-sample-test-count-semiprimes"><a href="https://codility.com/demo/take-sample-test/count_semiprimes">CountSemiprimes</a></a></li>
+<li><a href="#countnondivisible-https-codility-com-demo-take-sample-test-count-non-divisible"><a href="https://codility.com/demo/take-sample-test/count_non_divisible">CountNonDivisible</a></a></li>
+</ul></li>
+<li><a href="#euclidean-algorithm">Euclidean Algorithm</a>
+<ul>
+<li><a href="#chocolatesbynumbers-https-codility-com-demo-take-sample-test-chocolates-by-numbers"><a href="https://codility.com/demo/take-sample-test/chocolates_by_numbers">ChocolatesByNumbers</a></a></li>
+<li><a href="#commonprimedivisors-https-codility-com-demo-take-sample-test-common-prime-divisors"><a href="https://codility.com/demo/take-sample-test/common_prime_divisors">CommonPrimeDivisors</a></a></li>
+</ul></li>
+<li><a href="#fibonacci-numbers">Fibonacci Numbers</a>
+<ul>
+<li><a href="#fibfrog-https-codility-com-demo-take-sample-test-fib-frog"><a href="https://codility.com/demo/take-sample-test/fib_frog">FibFrog</a></a></li>
+<li><a href="#ladder-https-codility-com-demo-take-sample-test-ladder"><a href="https://codility.com/demo/take-sample-test/ladder">Ladder</a></a></li>
+</ul></li>
+<li><a href="#binary-search">Binary Search</a>
+<ul>
+<li><a href="#minmaxdivision-https-codility-com-demo-take-sample-test-min-max-division"><a href="https://codility.com/demo/take-sample-test/min_max_division">MinMaxDivision</a></a></li>
+<li><a href="#short-problem-definition">Short Problem Definition:</a></li>
+<li><a href="#nailingplanks-https-codility-com-demo-take-sample-test-nailing-planks"><a href="https://codility.com/demo/take-sample-test/nailing_planks">NailingPlanks</a></a></li>
+</ul></li>
+<li><a href="#caterpillar-method-1">Caterpillar method</a>
+<ul>
+<li><a href="#absdistinct-https-codility-com-demo-take-sample-test-abs-distinct"><a href="https://codility.com/demo/take-sample-test/abs_distinct">AbsDistinct</a></a></li>
+<li><a href="#countdistinctslices-https-codility-com-demo-take-sample-test-count-distinct-slices"><a href="https://codility.com/demo/take-sample-test/count_distinct_slices">CountDistinctSlices</a></a></li>
+<li><a href="#counttriangles-https-codility-com-demo-take-sample-test-count-triangles"><a href="https://codility.com/demo/take-sample-test/count_triangles">CountTriangles</a></a></li>
+<li><a href="#minabssumoftwo-https-codility-com-demo-take-sample-test-min-abs-sum-of-two"><a href="https://codility.com/demo/take-sample-test/min_abs_sum_of_two">MinAbsSumOfTwo</a></a></li>
+</ul></li>
+<li><a href="#greedy-algorithms-1">Greedy algorithms</a>
+<ul>
+<li><a href="#tieropes-https-codility-com-demo-take-sample-test-tie-ropes"><a href="https://codility.com/demo/take-sample-test/tie_ropes">TieRopes</a></a></li>
+<li><a href="#maxnonoverlappingsegments-https-codility-com-demo-take-sample-test-max-nonoverlapping-segments"><a href="https://codility.com/demo/take-sample-test/max_nonoverlapping_segments">MaxNonoverlappingSegments</a></a></li>
+</ul></li>
+<li><a href="#dynamic-programming">Dynamic Programming</a>
+<ul>
+<li><a href="#numbersolitaire-https-codility-com-demo-take-sample-test-number-solitaire"><a href="https://codility.com/demo/take-sample-test/number_solitaire">NumberSolitaire</a></a></li>
+<li><a href="#span-style-text-decoration-underline-span-style-line-height-1-5-minabssum-span-span"><span style="text-decoration: underline;"><span style="line-height: 1.5;">MinAbsSum</span></span></a></li>
+</ul></li>
+<li><a href="#future-training">Future Training</a>
+<ul>
+<li><a href="#binarygap-https-codility-com-demo-take-sample-test-binary-gap"><a href="https://codility.com/demo/take-sample-test/binary_gap">BinaryGap</a></a></li>
+<li><a href="#strsymmetrypoint-https-codility-com-demo-take-sample-test-str-symmetry-point"><a href="https://codility.com/demo/take-sample-test/str_symmetry_point">StrSymmetryPoint</a></a></li>
+<li><a href="#oddoccurencesinarray-https-codility-com-demo-take-sample-test-odd-occurrences-in-array"><a href="https://codility.com/demo/take-sample-test/odd_occurrences_in_array">OddOccurencesInArray</a></a></li>
+<li><a href="#treeheight-https-codility-com-demo-take-sample-test-tree-height"><a href="https://codility.com/demo/take-sample-test/tree_height">TreeHeight</a></a></li>
+<li><a href="#arrayinversioncount-https-codility-com-demo-take-sample-test-array-inversion-count"><a href="https://codility.com/demo/take-sample-test/array_inversion_count">ArrayInversionCount</a></a></li>
+</ul></li>
+<li><a href="#challenges">Challenges</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

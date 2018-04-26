@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>inner join and outer join - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="inner join and outer join">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="inner join and outer join - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/inner-join-and-outer-join/" itemprop="url">
+        inner join and outer join
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,161 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-02">
+    2015-04-02
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/sql" itemprop="url" rel="index">
+        <span itemprop="name">SQL</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">385 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>In this blog, we use two tables: TableA and TableB
+<table style="height: 85px;" border="1" width="531">
+<tbody>
+<tr>
+<td>id</td>
+<td>name</td>
+<td>id</td>
+<td>name</td>
+</tr>
+<tr>
+<td>&ndash;</td>
+<td>&mdash;-</td>
+<td>&ndash;</td>
+<td>&mdash;&ndash;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Pirate</td>
+<td>1</td>
+<td>Rutabaga</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Monkey</td>
+<td>2</td>
+<td>Pirate</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span style="color: #ff0000;">Ninja </span></td>
+<td>3</td>
+<td>Darth Vader</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Spaghetti</td>
+<td>4</td>
+<td>Ninja</td>
+</tr>
+</tbody>
+</table>
+&gt; inner or outer keyword can be omitted.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<h3 id="inner-join">inner join</h3>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p><strong>Inner join</strong> produces only the set of records that match in both Table A and Table B.
+&gt; The inner keyword can be left out from SQL statements.
+<img src="http://yangchao.me/media/inner-join-300x197.png" alt="inner-join" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">TableA</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">TableB</span>
+<span class="n">ON</span> <span class="n">TableA</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">TableB</span><span class="o">.</span><span class="na">name</span>
+
+<span class="n">id</span>  <span class="n">name</span>       <span class="n">id</span>   <span class="n">name</span>
+<span class="o">--</span>  <span class="o">----</span>       <span class="o">--</span>   <span class="o">----</span>
+<span class="n">1</span>   <span class="n">Pirate</span>     <span class="n">2</span>    <span class="n">Pirate</span>
+<span class="n">3</span>   <span class="n">Ninja</span>      <span class="n">4</span>    <span class="n">Ninja</span></code></pre></div>
+<h3 id="outer-join">outer join</h3>
+
+<p>There are 3 kinds of outer join.
+&gt; The outer keyword can be left out from SQL statements.</p>
+
+<h4 id="left-outer-join">left outer join</h4>
+
+<p><strong>Left outer join</strong> produces a complete set of records from Table A, with the matching records (where available) in Table B. If there is no match, the right side will contain null.</p>
+
+<p><img src="http://yangchao.me/media/left-outer-join-300x197.png" alt="left-outer-join" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">TableA</span>
+<span class="n">LEFT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">TableB</span>
+<span class="n">ON</span> <span class="n">TableA</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">TableB</span><span class="o">.</span><span class="na">name</span>
+
+<span class="n">id</span>  <span class="n">name</span>       <span class="n">id</span>    <span class="n">name</span>
+<span class="o">--</span>  <span class="o">----</span>       <span class="o">--</span>    <span class="o">----</span>
+<span class="n">1</span>   <span class="n">Pirate</span>     <span class="n">2</span>     <span class="n">Pirate</span>
+<span class="n">2</span>   <span class="n">Monkey</span>     <span class="kc">null</span>  <span class="kc">null</span>
+<span class="n">3</span>   <span class="n">Ninja</span>      <span class="n">4</span>     <span class="n">Ninja</span>
+<span class="n">4</span>   <span class="n">Spaghetti</span>  <span class="kc">null</span>  <span class="kc">null</span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="right-outer-join">right outer join</h4>
+
+<p><strong>Right outer join</strong> produces a complete set of records from Table B, with the matching records (where available) in Table A. If there is no match, the left side will contain null.</p>
+
+<p><img src="http://yangchao.me/media/right-outer-join-300x197.png" alt="right-outer-join" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">TableA</span>
+<span class="n">RIGHT</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">TableB</span>
+<span class="n">ON</span> <span class="n">TableA</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">TableB</span><span class="o">.</span><span class="na">name</span>
+<span class="n">WHERE</span> <span class="n">TableB</span><span class="o">.</span><span class="na">id</span> <span class="n">IS</span> <span class="kc">null</span>
+
+<span class="n">id</span>  <span class="n">name</span>       <span class="n">id</span>    <span class="n">name</span>
+<span class="o">--</span>  <span class="o">----</span>       <span class="o">--</span>    <span class="o">----</span>
+<span class="kc">null</span> <span class="kc">null</span>      <span class="n">1</span>     <span class="n">Rutabaga</span>
+<span class="n">1</span>    <span class="n">Pirate</span>    <span class="n">2</span>     <span class="n">Pirate</span>
+<span class="kc">null</span> <span class="kc">null</span>      <span class="n">3</span>     <span class="n">Darth</span> <span class="n">Vader</span>
+<span class="n">3</span>    <span class="n">Ninja</span>     <span class="n">4</span>     <span class="n">Ninja</span></code></pre></div>
+<h4 id="full-outer-join">full outer join</h4>
+
+<p><strong>Full outer join</strong> produces the set of all records in Table A and Table B, with matching records from both sides where available. If there is no match, the missing side will contain null.</p>
+
+<p><img src="http://yangchao.me/media/full-outer-join-300x197.png" alt="full-outer-join" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">TableA</span>
+<span class="n">FULL</span> <span class="n">OUTER</span> <span class="n">JOIN</span> <span class="n">TableB</span>
+<span class="n">ON</span> <span class="n">TableA</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">TableB</span><span class="o">.</span><span class="na">name</span>
+
+<span class="n">id</span>    <span class="n">name</span>       <span class="n">id</span>    <span class="n">name</span>
+<span class="o">--</span>    <span class="o">----</span>       <span class="o">--</span>    <span class="o">----</span>
+<span class="n">1</span>     <span class="n">Pirate</span>     <span class="n">2</span>     <span class="n">Pirate</span>
+<span class="n">2</span>     <span class="n">Monkey</span>     <span class="kc">null</span>  <span class="kc">null</span>
+<span class="n">3</span>     <span class="n">Ninja</span>      <span class="n">4</span>     <span class="n">Ninja</span>
+<span class="n">4</span>     <span class="n">Spaghetti</span>  <span class="kc">null</span>  <span class="kc">null</span>
+<span class="kc">null</span>  <span class="kc">null</span>       <span class="n">1</span>     <span class="n">Rutabaga</span>
+<span class="kc">null</span>  <span class="kc">null</span>       <span class="n">3</span>     <span class="n">Darth</span> <span class="n">Vader</span></code></pre></div>
+<h3 id="cross-join-cartesian-product"><strong>cross join (cartesian product)</strong></h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">TableA</span>
+<span class="n">CROSS</span> <span class="n">JOIN</span> <span class="n">TableB</span></code></pre></div>
+<p>This joins &ldquo;everything to everything&rdquo;, resulting in 4 x 4 = 16 rows, far more than we had in the original sets.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +302,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/a-glimpse-of-jms/" rel="next" title="A glimpse of JMS">
+        <i class="fa fa-chevron-left"></i> A glimpse of JMS
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/subquery-vs-join/" rel="prev" title="subquery vs. join">
+        subquery vs. join <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +325,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：inner join and outer join
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +357,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +406,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +428,29 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#inner-join">inner join</a></li>
+<li><a href="#outer-join">outer join</a>
+<ul>
+<li><a href="#left-outer-join">left outer join</a></li>
+<li><a href="#right-outer-join">right outer join</a></li>
+<li><a href="#full-outer-join">full outer join</a></li>
+</ul></li>
+<li><a href="#cross-join-cartesian-product"><strong>cross join (cartesian product)</strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

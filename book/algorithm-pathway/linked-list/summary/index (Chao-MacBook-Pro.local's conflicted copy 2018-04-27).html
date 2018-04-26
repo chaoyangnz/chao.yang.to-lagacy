@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title> - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content=" - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/book/algorithm-pathway/linked-list/summary/" itemprop="url">
+        
         </a>
       </h1>
       <div class="post-meta">
@@ -150,18 +150,121 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">285 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>Linked list is a quite common data structure. Although it is easy for insertion and deletion, but sometimes it can be very tricky to use, because for a current node, its context is just its next node and its previous one if any.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<h1 id="dummy-head">dummy head</h1>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>I place <code>dummy head</code> as the first point, because I suppose it is quite convenient when handling some problems.</p>
+
+<blockquote>
+<p>dummy head is as its name: it has no extra purpose, just for head.</p>
+</blockquote>
+
+<p>It is useful when we construct a linked list from scratch or the real head node is possibly changed - delete, replace etc.</p>
+
+<h1 id="commonly-use-operations">commonly-use operations</h1>
+
+<h2 id="reverse">reverse</h2>
+
+<p>Always store the reversed linked list, say &lsquo;newHead`</p>
+
+<ul>
+<li>Initial state: <code>newHead = null</code>, means empty list</li>
+<li>Each iteration:</li>
+</ul>
+
+<pre><code>node.next = newHead;
+newHead = node;
+</code></pre>
+
+<h1 id="two-pointers-race">Two pointers race</h1>
+
+<p>Please refer to section <code>[Two pointers race]</code></p>
+
+<h1 id="problem-category">Problem category</h1>
+
+<p><strong>dummy head</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_086_partition_list">86. Partition List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_024_swap_nodes_in_pairs">24. Swap Nodes in Pairs</a></li>
+</ul>
+
+<p><strong>Fast-slow pointers</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_141_linked_list_cycle">141. Linked List Cycle</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_143_reorder_list">143. Reorder List</a></li>
+</ul>
+
+<p><strong>Two pointers with a distance</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_019_remove_nth_node_from_end_of_list">19. Remove Nth Node From End of List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_061_rotate_list">61. Rotate List</a></li>
+</ul>
+
+<p><strong>Align two pointer</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_160_intersection_of_two_linked_lists">160. Intersection of Two Linked Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_142_linked_list_cycle_ii">142. Linked List Cycle II</a></li>
+</ul>
+
+<p><strong>Opposite pointers</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_234_palindrome_linked_list">234. Palindrome Linked List</a></li>
+</ul>
+
+<p><strong>Misc.</strong></p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_002_add_two_numbers">2. Add Two Numbers</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_206_reverse_linked_list">206. Reverse Linked List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_092_reverse_linked_list_ii">92. Reverse Linked List II</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_237_delete_node_in_a_linked_list">237. Delete Node in a Linked List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_203_remove_linked_list_elements">203. Remove Linked List Elements</a></li>
+
+<li><p><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_328_odd_even_linked_list">328. Odd Even Linked List</a></p></li>
+
+<li><p>stack</p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_445_add_two_numbers_ii">445. Add Two Numbers II</a></li>
+</ul></li>
+
+<li><p>hashtable</p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_138_copy_list_with_random_pointer">138. Copy List with Random Pointer</a></li>
+</ul></li>
+</ul>
+
+<p><strong>Unsolved</strong></p>
+
+<ul>
+<li><p><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_025_reverse_nodes_in_k_group">25. Reverse Nodes in k-Group</a></p></li>
+
+<li><p>sorted list</p>
+
+<ul>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_109_convert_sorted_list_to_binary_search_tree">109. Convert Sorted List to Binary Search Tree</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_147_insertion_sort_list">147. Insertion Sort List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_023_merge_k_sorted_lists">23. Merge k Sorted Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_021_merge_two_sorted_lists">21. Merge Two Sorted Lists</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_083_remove_duplicates_from_sorted_list">83. Remove Duplicates from Sorted List</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_082_remove_duplicates_from_sorted_list_ii">82. Remove Duplicates from Sorted List II</a></li>
+<li><a href="https://github.com/charvisyang/leetcode/tree/master/src/main/java/_148_sort_list">148. Sort List</a></li>
+</ul></li>
+</ul>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +273,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/book/algorithm-pathway/linked-list/two-pointers-race/" rel="next" title="">
+        <i class="fa fa-chevron-left"></i> 
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/book/algorithm-pathway/bit-operation/summary/" rel="prev" title="">
+         <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +296,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -261,14 +368,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>

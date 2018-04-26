@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>Goodbye Wordpress, hello Hexo!  - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Goodbye Wordpress, hello Hexo! ">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="Goodbye Wordpress, hello Hexo!  - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/goodbye-wordpress-hello-hexo/" itemprop="url">
+        Goodbye Wordpress, hello Hexo! 
         </a>
       </h1>
       <div class="post-meta">
@@ -139,8 +139,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-12-05">
+    2015-12-05
 </time>
 </span> 
       
@@ -150,18 +150,113 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">735 words ~4min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>I&rsquo;ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>At that <strong><em>time</em></strong>, I chose wordpress mainly because I&rsquo;m familiar with it and I had the experience to build a blog site using it. Once I started building a blog, the installation was pretty straightforward &ndash; just extracting the <code>tar.gz</code> and throwing the file into <code>/var/www/blog</code> (<code>/var/www/html</code> is for the static files hosting on Debian). Then I need to configure the nginx by use of fcgi to forward the dynamic contents to PHP.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>So later, I started finding a theme to make my blog beautiful and some plugins to make my writing smoothly, like the code highlighter, the TOC (aka. Table of Content) plugin, category tree plugin etc.</p>
+
+<p>After I completed 100+ posts, I suddenly realised it seemed to go far away the essence of writing, as I spent too much time on doing these technical things - although my writing were mostly related to technical stuff.</p>
+
+<p>Today I have the needs to transfer my vultr VPS from Australia to Japan. That&rsquo;s because it&rsquo;s really slow when I connect to the VPN and shadowsocks hosted on my server.</p>
+
+<p>The following is the steps after I create a new vultr instance located in the data center of Japan:</p>
+
+<h3 id="setup-the-pptpd-for-vpn">setup the pptpd for VPN</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ apt-get update
+$ apt-get install pptpd</code></pre></div>
+<p>uncomment the section in the tail of <code>/etc/pptpd.conf</code>
+``` txt /etc/pptpd.conf
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245</p>
+
+<pre><code>
+enable ipv4 forword in the `/etc/sysctl.conf`
+``` text /etc/sysctl.conf
+net.ipv4.ip_forward = 1
+</code></pre>
+
+<p>then make it effective</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sysctl -p</code></pre></div>
+<p>The last step is adding a rule to the iptables and restart pptpd</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE <span class="o">&amp;&amp;</span> iptables-save
+$ service pptpd restart</code></pre></div>
+<p>That&rsquo;s it. I refer to the <a href="http://digitalocean.com">digital oceal</a> official guide here: <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-your-own-vpn-with-pptp">How to setup your own vpn with pptp</a></p>
+
+<h3 id="anyconnect-vpn">AnyConnect VPN</h3>
+
+<p>Updated on 13/12/2015</p>
+
+<p>Although PPTP can satisfiy   my needs, I think it&rsquo;s not stable and rebust. Recent days, I always use Cisco <code>AnyConnect</code> VPN client to connect to my office internal network, so I decide to set up an AnyConnect compatible VPN server on my VPS.</p>
+
+<p>I didn&rsquo;t spend too much time to research how to do that. I just used an automatic installation script which can be refered to <a href="https://github.com/fanyueciyuan/eazy-for-ss">this Github repository</a>.</p>
+
+<h3 id="setup-shadowsocks">setup shadowsocks</h3>
+
+<p>Shadowsocks is a must-have if you live in China and need to do something by circumvention.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ wget -O- http://shadowsocks.org/debian/1D27208A.gpg <span class="p">|</span> apt-key add -
+$ <span class="nb">echo</span> <span class="s2">&#34;deb http://shadowsocks.org/debian wheezy main&#34;</span> &gt;&gt; /etc/apt/sources.list
+$ apt-get update
+$ apt-get install shadowsocks-libev</code></pre></div>
+<p>Then you need to modify the <code>/etc/shadowsocks-libev/config.json</code>
+``` json /etc/shadowsocks-libev/config.json
+{
+    &ldquo;server&rdquo;:&ldquo;my_server_ip&rdquo;,
+    &ldquo;server_port&rdquo;:8388,
+    &ldquo;local_port&rdquo;:1080,
+    &ldquo;password&rdquo;:&ldquo;my password&rdquo;,
+    &ldquo;timeout&rdquo;:600,
+    &ldquo;method&rdquo;:&ldquo;table&rdquo;
+}</p>
+
+<pre><code>
+
+I tend to use `aes-128-fcb` method.
+
+Then reload the configuration:
+
+
+```bash
+$ service shadowsocks-libev reload
+</code></pre>
+
+<p>Everything will go well!</p>
+
+<h3 id="nginx-and-dropbox-for-my-blog-hosting">nginx and dropbox for my blog hosting</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ apt-get install nginx vim
+$ <span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> wget -O - <span class="s2">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> <span class="p">|</span> tar xzf -
+$ ~/.dropbox-dist/dropboxd
+$ wget https://www.dropbox.com/download?dl<span class="o">=</span>packages/dropbox.py -o dropbox.py
+$ chmod +x dropbox.py
+$ ./dropbox.py start
+$ <span class="nb">cd</span> ~/Dropbox  <span class="c1"># must enter this directory and apply the wildcard. otherwise it didn&#39;t take effect
+</span><span class="c1"></span>$ ~/dropbox.py exclude add *
+$ ~/dropbox.py exclude remove blog
+$ <span class="nb">cd</span> ~/Dropbox/blog
+$ ~/dropbox.py exclude add *
+$ ~/dropbox.py exclude remove public</code></pre></div>
+<p>Now you can see I just synchronize the directory where the static files of my blog site locate.</p>
+
+<p>The next thing I need to do is modifying the <code>/etc/nginx/sites-available/default</code> and changing the <code>servername</code> and <code>root</code> directory.</p>
+
+<p>But I also encountered a thing I failed to fix - nginx will return a <code>500</code> server error. I reviewed the nginx log and found that&rsquo;s the issues of permission.</p>
+
+<p>So I simply changed the run user of nginx from <code>www-data</code> to <code>root</code> in <code>/etc/nginx/nginx.conf</code>. If I have spare time, I would fix the issue again.</p>
+
+<h3 id="blogging-and-publishing">blogging and publishing</h3>
+
+<p>Since I use the static blogging tool - Hexo in my local MacBook and write the article using Markdown, I need to some apps to help me manage my publishing.</p>
+
+<p>After using all sorts of markdown apps on Mac OSX, like Typera, Mou, Byword, Ulysses, TextNut, I found they always had some flaws for me - including unsupported markdown syntax, automatically modifying my file like adding some a new blank line arbitrarily, owning its own library management facility. But until I met MWeb, it&rsquo;s suitable to me and satify my personal needs very well.</p>
+
+<p><img src="http://yangchao.me/media/blogging-with-mweb.png" alt="Blogging with MWeb" /></p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +265,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/showcase/" rel="next" title="Showcase">
+        <i class="fa fa-chevron-left"></i> Showcase
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/perforce-p4v-use-notes/" rel="prev" title="Perforce P4V use notes">
+        Perforce P4V use notes <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +288,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：Goodbye Wordpress, hello Hexo! 
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +320,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +369,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +391,26 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#setup-the-pptpd-for-vpn">setup the pptpd for VPN</a></li>
+<li><a href="#anyconnect-vpn">AnyConnect VPN</a></li>
+<li><a href="#setup-shadowsocks">setup shadowsocks</a></li>
+<li><a href="#nginx-and-dropbox-for-my-blog-hosting">nginx and dropbox for my blog hosting</a></li>
+<li><a href="#blogging-and-publishing">blogging and publishing</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

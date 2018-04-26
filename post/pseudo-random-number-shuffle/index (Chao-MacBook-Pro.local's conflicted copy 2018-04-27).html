@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>pseudo-random number &amp; shuffle - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="pseudo-random number &amp; shuffle">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="pseudo-random number &amp; shuffle - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/pseudo-random-number-shuffle/" itemprop="url">
+        pseudo-random number &amp; shuffle
         </a>
       </h1>
       <div class="post-meta">
@@ -139,8 +139,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-04-26">
+    2017-04-26
 </time>
 </span> 
       
@@ -150,19 +150,89 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">282 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h1 id="pseudo-random-number">Pseudo random number</h1>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called <strong>pseudo</strong> random.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>A simple algorithm is <a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">Linear congruential generator</a>.</p>
 
+<pre><code>
+next random = (a * random + c) mod 2^32
+</code></pre>
+
+<p>The initial random is <code>seed</code>.</p>
+
+<h2 id="java-implementation">Java implementation</h2>
+
+<p>In <code>next(bits)</code> method:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">nextseed</span> <span class="o">=</span> <span class="o">(</span><span class="n">oldseed</span> <span class="o">*</span> <span class="n">multiplier</span> <span class="o">+</span> <span class="n">addend</span><span class="o">)</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="o">;</span></code></pre></div>
+<p>here, multiplier is 0x5DEECE66DL, addend is 0xBL, mask is (1L &lt;&lt; 48) - 1.</p>
+
+<h1 id="shuffle">Shuffle</h1>
+
+<p>Shuffling is a procedure used to randomize a deck of playing cards to provide an element of chance in card games.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher–Yates shuffle</a></p>
+
+<h2 id="implementation">implementation</h2>
+
+<p><img src="http://yangchao.me/media/14931931313090.png" alt="" /></p>
+
+<p>For the unshuffled subarray, always select a random element swapping with the last one.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">shuffle</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">len</span> <span class="o">&gt;</span> <span class="n">1</span><span class="o">;</span> <span class="o">--</span><span class="n">len</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">().</span><span class="na">nextInt</span><span class="o">(</span><span class="n">len</span><span class="o">);</span>
+       <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+       <span class="n">arr</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">len</span><span class="o">-</span><span class="n">1</span><span class="o">];</span>
+       <span class="n">arr</span><span class="o">[</span><span class="n">len</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>Please refer to <code>Collections.shuffle(..)</code>. This algorithm has <code>O(N)</code> time complexity.</p>
+
+<h1 id="practice">Practice</h1>
+
+<h2 id="generate-a-4-digit-pin-code-with-no-consecutive-digits-being-the-same">generate a 4-digit PIN code with no consecutive digits being the same</h2>
+
+<p>1232 is legal, but 1233 is illegal.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+	<span class="c1">// generate all PINs 
+</span><span class="c1"></span>	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span> <span class="n">9999</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+	  <span class="n">String</span> <span class="n">pin</span> <span class="o">=</span> <span class="n">padding</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+	  <span class="k">if</span><span class="o">(!</span><span class="n">pin</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="s">&#34;\\d*(\\d)\\1\\d*&#34;</span><span class="o">))</span> <span class="o">{</span>
+	      <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pin</span><span class="o">);</span>
+	  <span class="o">}</span>
+	<span class="o">}</span>
+	
+  <span class="c1">// shuffle
+</span><span class="c1"></span>  <span class="n">Collections</span><span class="o">.</span><span class="na">shuffle</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+  
+  <span class="c1">// each time, select the last PIN
+</span><span class="c1"></span>  <span class="kt">int</span> <span class="n">last</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+  <span class="n">String</span> <span class="n">pin</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">last</span><span class="o">);</span>
+  <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">last</span><span class="o">);</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pin</span><span class="o">);</span>
+<span class="o">}</span>
+	
+<span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">padding</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">remaining</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">d4</span> <span class="o">=</span> <span class="n">remaining</span> <span class="o">/</span> <span class="n">1000</span><span class="o">;</span>
+	<span class="n">remaining</span> <span class="o">%=</span> <span class="n">1000</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">d3</span> <span class="o">=</span> <span class="n">remaining</span> <span class="o">/</span> <span class="n">100</span><span class="o">;</span>
+	<span class="n">remaining</span> <span class="o">%=</span> <span class="n">100</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">remaining</span> <span class="o">/</span> <span class="n">10</span><span class="o">;</span>
+	<span class="n">remaining</span> <span class="o">%=</span> <span class="n">10</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="n">remaining</span><span class="o">;</span>
+	
+	<span class="k">return</span> <span class="s">&#34;&#34;</span> <span class="o">+</span> <span class="n">d4</span> <span class="o">+</span> <span class="n">d3</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">d1</span><span class="o">;</span>
+<span class="o">}</span></code></pre></div>
     </div>
     <footer class="post-footer">
      
@@ -170,12 +240,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/" rel="next" title="Swift 3.0 for a Java or ES6/TypeScript developer">
+        <i class="fa fa-chevron-left"></i> Swift 3.0 for a Java or ES6/TypeScript developer
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/kotlin-pitfalls/" rel="prev" title="Kotlin Pitfalls">
+        Kotlin Pitfalls <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +263,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：pseudo-random number &amp; shuffle
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +295,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +344,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +366,27 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#pseudo-random-number">Pseudo random number</a>
+<ul>
+<li><a href="#java-implementation">Java implementation</a></li>
+</ul></li>
+<li><a href="#shuffle">Shuffle</a>
+<ul>
+<li><a href="#implementation">implementation</a></li>
+</ul></li>
+<li><a href="#practice">Practice</a>
+<ul>
+<li><a href="#generate-a-4-digit-pin-code-with-no-consecutive-digits-being-the-same">generate a 4-digit PIN code with no consecutive digits being the same</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

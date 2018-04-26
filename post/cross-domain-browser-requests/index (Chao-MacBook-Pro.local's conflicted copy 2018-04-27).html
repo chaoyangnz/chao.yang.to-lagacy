@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>Cross-domain Browser Requests - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Cross-domain Browser Requests">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="Cross-domain Browser Requests - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/cross-domain-browser-requests/" itemprop="url">
+        Cross-domain Browser Requests
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,109 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-02-16">
+    2015-02-16
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/javascript" itemprop="url" rel="index">
+        <span itemprop="name">Javascript</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">405 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h4 id="problem-origin">Problem origin</h4>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>Browsers prohibit scripts in a page from one domain to request some resources from another domain.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>Take a scenario as an example:</p>
+
+<p>A page named 1.html from <a href="http://dev.company.com/1.html">http://dev.company.com/1.html</a> has a script requesting a resource from another domain by use of url: <a href="http://sit.company.com/dosomething">http://sit.company.com/dosomething</a>. This case is called <strong>Cross Domain Request</strong>. This is due to the browser&rsquo;s <strong>Same-origin Policy.</strong></p>
+
+<p>This is only limited to Javascript request like AJAX, and not limited to <span style="text-decoration: underline;">normal resource references</span>:</p>
+
+<p>1. hypertext link by <em>&lt;a href=&ldquo;&hellip;&rdquo;&gt;</em></p>
+
+<p>_2. <em>image by</em> &lt;img src=&ldquo;&hellip;&rdquo;&gt;_</p>
+
+<p>_3. external _css stylesheet link by<em> &lt;link type=&ldquo;text/css&rdquo; href=&ldquo;&hellip;&rdquo;&gt;</em></p>
+
+<p>4. external javascript by <em>&lt;script type=&ldquo;text/javascript&rdquo; src=&ldquo;&hellip;&rdquo;&gt;</em></p>
+
+<p>5. form action by_ &lt;form action=&ldquo;&hellip;&rdquo;&gt;_</p>
+
+<p>6. iframe by &lt;iframe src=&ldquo;&hellip;&rdquo;&gt;</p>
+
+<h4 id="how-to-resolve-this-issue">How to resolve this issue</h4>
+
+<h5 id="1-jsonp">1. JSONP</h5>
+
+<p>JSONP, aka JSON with Padding. It actually makes use of the normal external javascript reference. a HTML <code>&amp;lt;script&amp;gt;</code> element specifies for its <code>src</code> attribute a URL that returns JSON.</p>
+
+<p><img src="http://yangchao.me/media/web-basics-jsonp.jpg" alt="web-basics-jsonp" /></p>
+
+<p>For example, in the page of url <a href="http://localhost:8080/aes-gui/simple/poc/main/sum:">http://localhost:8080/aes-gui/simple/poc/main/sum:</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="o">&gt;</span>
+<span class="n">function</span> <span class="nf">callback_for_response</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+<span class="c1">// data is the response
+</span><span class="c1"></span><span class="o">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;http://DEV:8080/aes-gui/simple/poc/main/add?callback=callback_for_response&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span></code></pre></div>
+<p>When the application on domain sit.company.com has received this request, and found the query parameter &ldquo;callback&rdquo;(this is a kind of contract, others also use &ldquo;jsonp&rdquo; or anything others), then it generates the response like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">callback_for_response</span><span class="o">({</span><span class="nl">a:</span> <span class="n">1</span><span class="o">,</span> <span class="nl">b:</span> <span class="n">2</span><span class="o">,</span> <span class="nl">c:</span> <span class="s">&#34;3&#34;</span><span class="o">})</span></code></pre></div>
+<p>You see, the response JSON data {a:1, b:2, c:&ldquo;3&rdquo;} is surrounded/padded by the passed parameter &ldquo;callback_for_response&rdquo;, which is the origin of JSON with Padding.</p>
+
+<p>JSONP has a number of limitations like, it supports only GET requests and not PUT, POST, DELETE, etc and it does not also send headers across.</p>
+
+<h5 id="2-proxying">2. Proxying</h5>
+
+<p>Proxying is so simple that the client doesn&rsquo;t need to know the cross domain requests. It accesses the urls all from the same domain. And the proxy server is responsible for the request to another domain.</p>
+
+<p>In fact, it&rsquo;s more like a solution of system integration.</p>
+
+<h5 id="3-cors-cross-origin-resource-sharing">3. CORS (Cross Origin Resource Sharing)</h5>
+
+<p><em>CORS</em> is an evolution of JSONP.</p>
+
+<p><strong>CORS</strong> stands for Cross Origin Resource Sharing, which allows you to share GET, POST, PUT, and DELETE requests and CORS is supported by the modern browsers.The CORS make use of 2 requests.</p>
+
+<p><strong>Request 1:</strong> “<strong>OPTIONS</strong>” request as part of the handshake to determine if cross domain is allowed by the server.</p>
+
+<p>If server allows the request, it adds a response header - <strong>Access-Control-Allow-Origin: &lsquo;*&rsquo;</strong></p>
+
+<p><strong>Request 2</strong>: <strong>GET</strong>, <strong>POST</strong>, <strong>PUT</strong>, or <strong>DELETE</strong> request that performs the actual operation on the server.</p>
+
+<p><img src="http://yangchao.me/media/web-basics-CORS.jpg" alt="web-basics-CORS" /></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +250,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/get-started-with-weblogic/" rel="next" title="Get started with WebLogic">
+        <i class="fa fa-chevron-left"></i> Get started with WebLogic
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/" rel="prev" title="Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue">
+        Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +273,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：Cross-domain Browser Requests
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +305,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +354,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +376,31 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#problem-origin">Problem origin</a></li>
+<li><a href="#how-to-resolve-this-issue">How to resolve this issue</a>
+<ul>
+<li><a href="#1-jsonp">1. JSONP</a></li>
+<li><a href="#2-proxying">2. Proxying</a></li>
+<li><a href="#3-cors-cross-origin-resource-sharing">3. CORS (Cross Origin Resource Sharing)</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

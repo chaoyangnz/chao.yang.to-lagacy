@@ -1,0 +1,663 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>How JVM handle method invocation - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="How JVM handle method invocation">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="How JVM handle method invocation - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/how-jvm-handle-method-invocation/" itemprop="url">
+        How JVM handle method invocation
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-08-22">
+    2016-08-22
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1251 words ~6min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Five forms of method invocation in Java:
+- <code>invokevirtual</code>
+- <code>invokeinterface</code>
+- <code>invokestatic</code>
+- <code>invokespecial</code>
+- <code>invokedynamic</code></p>
+
+<h1 id="invokestatic-and-invokevirtual">invokestatic and invokevirtual</h1>
+
+<p>Of these, <code>invokestatic</code> and <code>invokevirtual</code> are easy to understand.
+<code>invokevirtual</code> is the default behaviour when we invoke an instance method.
+<code>invokestatic</code> is used to invoke the class method based on the type of the reference, not the class of the object when we invoke the static method through the instance rather than the class name.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Superclass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">interestingMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Superclass&#39;s interesting method.&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Subclass</span> <span class="kd">extends</span> <span class="n">Superclass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">interestingMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Subclass&#39;s interesting method.&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">Subclass</span> <span class="n">sub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Subclass</span><span class="o">();</span>
+        <span class="n">sub</span><span class="o">.</span><span class="na">interestingMethod</span><span class="o">();</span>
+
+        <span class="n">Superclass</span> <span class="n">sub1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Subclass</span><span class="o">();</span>
+        <span class="n">sub1</span><span class="o">.</span><span class="na">interestingMethod</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>It will print:
+Subclass&rsquo;s interesting method.
+Superclass&rsquo;s interesting method.
+<!-- more --></p>
+
+<h1 id="invokespecial">invokespecial</h1>
+
+<p>Now let&rsquo;s see where <code>invokespecial</code> is used.
+- invocation of instance initialization (<code>&lt;init&gt;</code>) methods
+- invocation of methods using the <code>super</code> keyword
+- invocation of <code>private</code> methods</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Superclass</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">interestingMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Superclass&#39;s interesting method.&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kt">void</span> <span class="nf">exampleMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">interestingMethod</span><span class="o">();</span> <span class="c1">// invokespecial
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Subclass</span> <span class="kd">extends</span> <span class="n">Superclass</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">interestingMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Subclass&#39;s interesting method.&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">Subclass</span> <span class="n">me</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Subclass</span><span class="o">();</span>
+        <span class="n">me</span><span class="o">.</span><span class="na">exampleMethod</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>This code snippet will print: Superclass&rsquo;s interesting method.</p>
+
+<p>Now we just change <code>Superclass#interestingMethod()</code> to <code>package</code> or <code>protected</code> modifier. Then, it will print: Subclass&rsquo;s interesting method.</p>
+
+<h1 id="invokeinterface-vs-invokevirtual">invokeinterface vs. invokevirtual</h1>
+
+<p><code>invokeinterface</code> opcode performs the same function as <code>invokevirtual</code>. The only difference is that <code>invokeinterface</code> is used when the reference is of an interface type.</p>
+
+<h2 id="difference-explanation">difference explanation</h2>
+
+<p>But why we need a different opcode: <code>invokevirtual</code> vs. <code>invokeinterface</code>?
+The essential idea is that <code>invokevirtual</code> makes it possible for JVM to cache methods resolution results.</p>
+
+<p>This is an explanation from Stackoverflow.</p>
+
+<hr />
+
+<blockquote>
+<p>Each Java class is associated with a virtual method table that contains &ldquo;links&rdquo; to the bytecode of each method of a class. That table is inherited from the superclass of a particular class and extended with regard to the new methods of a subclass. E.g.,</p>
+
+<p>class BaseClass {
+    public void method1() { }
+    public void method2() { }
+    public void method3() { }
+}</p>
+
+<p>class NextClass extends BaseClass {
+    public void method2() { } // overridden from BaseClass
+    public void method4() { }
+}
+results in the tables</p>
+
+<p>BaseClass
+1. BaseClass/method1()
+2. BaseClass/method2()
+3. BaseClass/method3()</p>
+
+<p>NextClass
+1. BaseClass/method1()
+2. NextClass/method2()
+3. BaseClass/method3()
+4. NextClass/method4()
+Note, how the virtual method table of NextClass retains the order of entries of the table of BaseClass and just overwrites the &ldquo;link&rdquo; of method2() which it overrides.</p>
+
+<p>An implementation of the JVM can thus optimize a call to invokevirtual by remembering that BaseClass/method3() will always be the third entry in the virtual method table of any object this method will ever be invoked on.</p>
+
+<p>With invokeinterface this optimization is not possible. E.g.,</p>
+
+<p>interface MyInterface {
+    void ifaceMethod();
+}</p>
+
+<p>class AnotherClass extends NextClass implements MyInterface {
+    public void method4() { } // overridden from NextClass
+    public void ifaceMethod() { }
+}</p>
+
+<p>class MyClass implements MyInterface {
+    public void method5() { }
+    public void ifaceMethod() { }
+}
+This class hierarchy results in the virtual method tables</p>
+
+<p>AnotherClass
+1. BaseClass/method1()
+2. NextClass/method2()
+3. BaseClass/method3()
+4. AnotherClass/method4()
+5. MyInterface/ifaceMethod()</p>
+
+<p>MyClass
+1. MyClass/method5()
+2. MyInterface/ifaceMethod()
+As you can see, AnotherClass contains the interface&rsquo;s method in its fifth entry and MyClass contains it in its second entry. To actually find the correct entry in the virtual method table, a call to a method with invokeinterface will always have to search the complete table without a chance for the style of optimization that invokevirtual does.</p>
+
+<p>There are additional differences like the fact, that invokeinterface can be used together with object references that do not actually implement the interface. Therefore, invokeinterface will have to check at runtime whether a method exists in the table and potentially throw an exception. If you want to dive deeper into the topic, I suggest, e.g., &ldquo;Efficient Implementation of Java Interfaces: Invokeinterface Considered Harmless&rdquo;.</p>
+</blockquote>
+
+<h2 id="vitual-interface-dispatching-performance-benchmark">vitual / interface dispatching performance benchmark</h2>
+
+<p>A benchmark code to compare invokevirtual with invokeinterface performance. invokeinterface is 38% slower. If volatile modifier is removed from <code>aand i</code> (and it becomes possible for JVM to cache methods resolution results), the performance becomes comparable for both cases and the code runs ~10x faster than with volatile variables.
+A background in essence is &ldquo;interfaces do not exist in runtime&rdquo; so virtual dispatching can&rsquo;t be applied to interface methods. The idea is very well explained above.
+Below is a benchmark to compare <code>invokevirtual</code> with <code>invokeinterface</code> performance. Prevents JVM from optimizing out <code>invokeinterface</code> by declaring target object volatile.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InvokevirtualVsInvokeinterface</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">interface</span> <span class="nc">I</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getInteger</span> <span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">A</span> <span class="kd">implements</span> <span class="n">I</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getInteger</span> <span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">0</span><span class="o">;</span> <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">B</span> <span class="kd">extends</span> <span class="n">A</span> <span class="o">{</span> <span class="o">}</span>
+
+  <span class="kd">static</span> <span class="kd">volatile</span> <span class="n">I</span> <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+  <span class="kd">static</span> <span class="kd">volatile</span> <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">tm1</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">100000000</span><span class="o">;</span> <span class="o">++</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">a</span><span class="o">.</span><span class="na">getInteger</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="kt">long</span> <span class="n">tm2</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;invokevirtual took &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">tm2</span> <span class="o">-</span> <span class="n">tm1</span><span class="o">)</span> <span class="o">/</span> <span class="n">1000</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; us&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">tm1</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">100000000</span><span class="o">;</span> <span class="o">++</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">i</span><span class="o">.</span><span class="na">getInteger</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="kt">long</span> <span class="n">tm2</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;invokeinterface took &#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">tm2</span> <span class="o">-</span> <span class="n">tm1</span><span class="o">)</span> <span class="o">/</span> <span class="n">1000</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; us&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Output on Intel Xeon X5570 @ 2.93GHz:
+</span><span class="c1"></span>    <span class="c1">// invokevirtual took 41170 us
+</span><span class="c1"></span>    <span class="c1">// invokeinterface took 66305 us
+</span><span class="c1"></span>  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>and the corresponding bytecode (the output of &ldquo;javap -c&rdquo;)</p>
+<div class="highlight"><pre class="chroma"><code class="language-bytecode" data-lang="bytecode">// Compiled from &#34;InvokevirtualVsInvokeinterface.java&#34;
+public class InvokevirtualVsInvokeinterface extends java.lang.Object{
+static volatile InvokevirtualVsInvokeinterface$I i;
+
+static volatile InvokevirtualVsInvokeinterface$A a;
+
+public InvokevirtualVsInvokeinterface();
+  Code:
+   0:	aload_0
+   1:	invokespecial	#1; //Method java/lang/Object.&#34;&lt;init&gt;&#34;:()V
+   4:	return
+
+public static void main(java.lang.String[]);
+  Code:
+   0:	invokestatic	#2; //Method java/lang/System.nanoTime:()J
+   3:	lstore_1
+   4:	iconst_0
+   5:	istore_3
+   6:	iload_3
+   7:	ldc	#3; //int 100000000
+   9:	if_icmpge	25
+   12:	getstatic	#4; //Field a:LInvokevirtualVsInvokeinterface$A;
+   15:	invokevirtual	#5; //Method InvokevirtualVsInvokeinterface$A.getInteger:()I
+   18:	pop
+   19:	iinc	3, 1
+   22:	goto	6
+   25:	invokestatic	#2; //Method java/lang/System.nanoTime:()J
+   28:	lstore_3
+   29:	getstatic	#6; //Field java/lang/System.out:Ljava/io/PrintStream;
+   32:	new	#7; //class java/lang/StringBuilder
+   35:	dup
+   36:	invokespecial	#8; //Method java/lang/StringBuilder.&#34;&lt;init&gt;&#34;:()V
+   39:	ldc	#9; //String invokevirtual took 
+   41:	invokevirtual	#10; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   44:	lload_3
+   45:	lload_1
+   46:	lsub
+   47:	invokestatic	#11; //Method java/lang/Math.abs:(J)J
+   50:	ldc2_w	#12; //long 1000l
+   53:	ldiv
+   54:	invokevirtual	#14; //Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+   57:	ldc	#15; //String  us
+   59:	invokevirtual	#10; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   62:	invokevirtual	#16; //Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+   65:	invokevirtual	#17; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   68:	invokestatic	#2; //Method java/lang/System.nanoTime:()J
+   71:	lstore_1
+   72:	iconst_0
+   73:	istore_3
+   74:	iload_3
+   75:	ldc	#3; //int 100000000
+   77:	if_icmpge	95
+   80:	getstatic	#18; //Field i:LInvokevirtualVsInvokeinterface$I;
+   83:	invokeinterface	#19,  1; //InterfaceMethod InvokevirtualVsInvokeinterface$I.getInteger:()I
+   88:	pop
+   89:	iinc	3, 1
+   92:	goto	74
+   95:	invokestatic	#2; //Method java/lang/System.nanoTime:()J
+   98:	lstore_3
+   99:	getstatic	#6; //Field java/lang/System.out:Ljava/io/PrintStream;
+   102:	new	#7; //class java/lang/StringBuilder
+   105:	dup
+   106:	invokespecial	#8; //Method java/lang/StringBuilder.&#34;&lt;init&gt;&#34;:()V
+   109:	ldc	#20; //String invokeinterface took 
+   111:	invokevirtual	#10; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   114:	lload_3
+   115:	lload_1
+   116:	lsub
+   117:	invokestatic	#11; //Method java/lang/Math.abs:(J)J
+   120:	ldc2_w	#12; //long 1000l
+   123:	ldiv
+   124:	invokevirtual	#14; //Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+   127:	ldc	#15; //String  us
+   129:	invokevirtual	#10; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   132:	invokevirtual	#16; //Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+   135:	invokevirtual	#17; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   138:	return
+
+static {};
+  Code:
+   0:	new	#21; //class InvokevirtualVsInvokeinterface$B
+   3:	dup
+   4:	aconst_null
+   5:	invokespecial	#22; //Method InvokevirtualVsInvokeinterface$B.&#34;&lt;init&gt;&#34;:(LInvokevirtualVsInvokeinterface$1;)V
+   8:	putstatic	#18; //Field i:LInvokevirtualVsInvokeinterface$I;
+   11:	new	#21; //class InvokevirtualVsInvokeinterface$B
+   14:	dup
+   15:	aconst_null
+   16:	invokespecial	#22; //Method InvokevirtualVsInvokeinterface$B.&#34;&lt;init&gt;&#34;:(LInvokevirtualVsInvokeinterface$1;)V
+   19:	putstatic	#4; //Field a:LInvokevirtualVsInvokeinterface$A;
+   22:	return
+}</code></pre></div>
+<h1 id="vtable-and-itable-in-openjdk-source-code">vtable and itable in OpenJDK source code</h1>
+
+<p>//In Progress</p>
+
+<h2 id="references">references</h2>
+
+<p><a href="media/oopsla01.pdf">Efficient Implementation of Java Interfaces: Invokeinterface Considered Harmless</a></p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/dynamic-proxy-revisit/" rel="next" title="Dynamic Proxy revisit">
+        <i class="fa fa-chevron-left"></i> Dynamic Proxy revisit
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/string-intern/" rel="prev" title="String intern">
+        String intern <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：How JVM handle method invocation
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#invokestatic-and-invokevirtual">invokestatic and invokevirtual</a></li>
+<li><a href="#invokespecial">invokespecial</a></li>
+<li><a href="#invokeinterface-vs-invokevirtual">invokeinterface vs. invokevirtual</a>
+<ul>
+<li><a href="#difference-explanation">difference explanation</a></li>
+<li><a href="#vitual-interface-dispatching-performance-benchmark">vitual / interface dispatching performance benchmark</a></li>
+</ul></li>
+<li><a href="#vtable-and-itable-in-openjdk-source-code">vtable and itable in OpenJDK source code</a>
+<ul>
+<li><a href="#references">references</a></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

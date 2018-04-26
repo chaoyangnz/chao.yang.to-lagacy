@@ -1,0 +1,850 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>WebSphere SSO how-to - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="WebSphere SSO how-to">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="WebSphere SSO how-to - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/websphere-sso-how-to/" itemprop="url">
+        WebSphere SSO how-to
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-05-08">
+    2015-05-08
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/sso" itemprop="url" rel="index">
+        <span itemprop="name">SSO</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">6220 words ~13min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="sso定义"><strong>SSO定义</strong></h3>
+
+<p>单点登录的英文名称为Single Sign-On，简写为SSO。在用户有权限访问的多个系统间，只要用户在其中一个系统做过认证(Authentication)后，就不用再次做认证即可以访问其他系统。</p>
+
+<p>IBM对SSO有一个形象的解释：“单点登录、全网漫游”。</p>
+
+<h4 id="实现原理"><strong>实现原理</strong></h4>
+
+<p>目前主流SSO的实现方案中实现机制不尽相同，大体分为Cookie机制和Session机制两大类。</p>
+
+<h5 id="基于session的机制"><strong>基于Session的机制</strong></h5>
+
+<p>WebLogic通过Session共享认证信息。Session是一种服务器端机制，当客户端访问服务器时，服务器为客户端创建一个唯一的SessionID，以使在整个交互过程中始终保持状态，而交互的信息则可由应用自行指定，因此用Session方式实现SSO，不能在多个浏览器之间实现单点登录，但却可以跨域。</p>
+
+<h5 id="基于cookie的机制"><strong>基于Cookie的机制</strong></h5>
+
+<p>WebSphere通过Cookie记录认证信息。Cookie是一种客户端机制，它存储的内容主要包括: 名字、值、过期时间、路径和域，路径与域合在一起就构成了Cookie的作用范围，因此用Cookie方式可实现SSO，但域名必须相同。目前大部分SSO产品采用的是Cookie机制，WAS、CAS也是如此。</p>
+
+<p>注意，这种Cookie机制要求实现单点登录的应用，其域名必须是相同的。例如：a.bankcomm.com, b.bankcomm.com就可以经过配置后实现SSO。</p>
+
+<h3 id="was-sso机制介绍"><strong>WAS SSO机制介绍</strong></h3>
+
+<h4 id="was-sso机制原理"><strong>WAS SSO机制原理</strong></h4>
+
+<p>WAS使用Cookie实现单点登录的原理图如图4所示。</p>
+
+<p><img src="http://yangchao.me/media/sso-1.jpg" alt="sso-1" /></p>
+
+<p>图 4  使用Cookie实现单点登录的原理图</p>
+
+<ul>
+<li>某个应用程序首先要发起第1次认证。第一次访问应用程序时会显示登录页面。</li>
+<li>用户在登录页面中，输入用户名和密码。</li>
+<li>然后应用服务器会对用户名和密码进行认证。认证本身并不是应用服务器的功能，因此，通常会引入某种认证机制。认证机制可以有很多种，例如自己写一个认证程序，或者使用一些标准的认证方法，例如LDAP或者数据库等等。在大多数情况下，会使用LDAP进行认证。这是因为LDAP在处理用户登录方面，有很多独特的优势。</li>
+<li>认证通过之后，页面重定向，回到Web应用。Web应用此时就完成了成功的登录。</li>
+<li>然后应用服务器会在客户端创建一个Cookie，Cookie里面保存了LTPA令牌。Cookie是在用户的客户端，而不是服务端创建一个Cookie。这个Cookie是一个加密的Cookie，其中保存了用户登录的信息。</li>
+<li>如果用户此时希望进入其他Web应用程序，此时WAS不再要求用户输入用户名和密码，而是首先自动寻找Cookie，根据Cookie中保存的信息，进行登录。登录之后，WAS重定向回到用户的应用程序。
+这样，就不再需要用户继续输入用户名和密码，从而实现了单点登录。</li>
+</ul>
+
+<p>这种单点登录体系中，并没有通过http进行密码的传递（但是有用户名的传递），因此是十分安全的。</p>
+
+<h5 id="ldap简介"><strong>LDAP简介</strong></h5>
+
+<p>LDAP是英文“Lightweight Directory Access Protocol”的简称，中文翻译为轻量级目录访问协议。它是一种因特网上的访问协议，主要用于从服务器上检索信息。</p>
+
+<p>LDAP服务器用来保存信息，中文有时候也称为目录服务。数据库使用“表”来储存数据，可以把一个数据库想象为日常生活中的“表格”。而LDAP用“树”来存储数据，可以把它想象为日常生活中的“电话号码簿页”，或者干脆把LDAP想象为大家常用的文件系统，就是由文件夹和文件组成的那种树形结构。</p>
+
+<p>由于LDAP的结构方式不同，因此LDAP有一个很特殊的特性，就是查询数据的速度特别快，但是写数据的速度较慢。LDAP的另一个特性就是比较适合于按照层次组织信息，例如企业的组织结构等。</p>
+
+<p>由于LDAP的查询速度比数据库快，因此经常用于诸如地址簿、用户帐号存储、组织结构信息、域名解析系统等需要大量查询的领域。</p>
+
+<p>首先，我们可以很清楚地看到，LDAP是按照树形目录进行组织的。</p>
+
+<p>假设公司的域名是macromedia.com，则LDAP首先使用域名作为整个树的根，并且用dc=com，dc=macromedia这样的标记来进行标注。dc的意思指“Domain Component”。LDAP中以后会大量使用这些令人费解的缩写。</p>
+
+<p>假设某天macromedia.com这个公司和apple.com这个公司合并，按照LDAP的树形结构，只不过多了一个分叉，而不会导致整棵树需要重新组织，这就是LDAP的好处之一。</p>
+
+<p>dc节点的后面，就是ou节点。ou是Organizational Unit的缩写，可以把ou想象为文件夹，它是用来容纳其他节点的。ou可以对应部门、组或者任何要包含其他节点的东西。</p>
+
+<p>ou下面的节点，可以是另一个ou，也可以是cn节点。cn是“Common Name”的缩写，它是树叶节点，可以把它对比为文件系统中的文件。cn节点通常用来存储用户的信息，例如某个用户的地址等。</p>
+
+<p>这样，各个节点按照树形组织起来，就变成了图5的样子。</p>
+
+<p><img src="http://yangchao.me/media/sso-2.jpg" alt="sso-2" /></p>
+
+<p>图 5  LDAP结构示意图</p>
+
+<h5 id="ltpa简介"><strong>LTPA简介</strong></h5>
+
+<p>LTPA(Lightweight Third Party Authentication)技术是IBM的标准。当某用户访问某WebSphere URL时,系统会提示他输入用户名和口令进行登录。这时用户可以输入他的唯一标识符,通过验证后,Web服务器将把该用户的Web 浏览器中显示的Web 站点内容发送回来。在后台,WebSphere入口网站服务器将会建立包含已鉴别使用者认证的单点登录Cookie,并且会一直发送该cookie，而浏览器通常的默认设置是允许接收cookie的,因此用户的浏览器将保存这个cookie。 LTPA cookie是临时的,只在浏览器内存中存留,用户如果关闭浏览器,cookie就会被永久删除。LTPA cookie的特点如下：</p>
+
+<p>(1)LTPA cookie是一种典型的浏览器cookie,它保存的信息表示该用户已经进行了登录。所有的浏览器cookies都有名称等标准属性。LTPA cookie特有的名称是LtpaToken。当配置 SSO时,在配置实用工具中,通常将LTPA cookie称为SSO LTPA“令牌”。LTPA cookie有一个被编码值,隐藏起cookie中包含的重要信息并且通过Internet传输。</p>
+
+<p>(2)LTPA cookie 具有典型的浏览器cookie的相关域的信息，LTPA的实现依赖于具有域信息的浏览器cookies，因此，通常SSO环境必须部署到单一DNS域中,即每台服务器都在同一DNS域中。</p>
+
+<p>(3)在用户已经登录并且该用户的浏览器接收到 LTPA cookie以后,在HTTP通信中不再需要进行特定的配置,浏览器运行的标准方法就是浏览器将自动发送该cookie。浏览器不断地向任何正确的DNS域中的URL目标发送HTTP请求，通过这种途径不断地向外发送LPTA cookie。当SSO服务接收到HTTP请求并且发现请求中包含了LTPA cookie时,服务器将验证cookie，随即可知道该cookie属于哪一位已经登录的用户，服务器就可以允许这个用户对这台服务器进行适当的访问。浏览器的任务就是确定在什么时候应该随同HTTP通信一起发出LTPA cookie。当用户浏览到一个不在同一DNS域中的URL时, 因为该cookie不适用于这个新的DNS域,浏览器则不会发送 LTPA cookie,新的DNS目标的接收服务器就不知道用户是谁,这时会提示用户输入他的用户名和口令。</p>
+
+<p>(4)LTPA cookie是安全的,因为服务器在创建它时，使用一组加密密钥进行了安全加密。加密密钥用于对cookie进行编码,编码后的cookie传送到用户浏览器,而浏览器只对有加密密钥的cookie进行解码和验证cookie的完整性,并随时检测cookie是否被篡改过。在SSO环境中的所有服务器必须共享同一个加密密钥。当SSO服务器接收到HTTP请求并发现其中包含LTPA cookie时,就使用它共享的加密密钥副本验证cookie,这时有效的cookie信息就使服务器能够识别出登录的用户。</p>
+
+<p>SSO服务器使用的安全加密确保了没有任何伪造cookie的机会。没有加密密钥,其他非法 的cookie不会通过验证,伪造的cookie将被忽略。因此，SSO服务器不会被入侵。</p>
+
+<p>在WebSphere Portal环境中,LTPA加密密钥通常在配置SSO时由WebSphere 创建。管理员可以将密钥导出到文件中,然后转移该文件到其他的SSO服务器（例如Domino）,在那里导入密钥。系统的管理维护人员应该非常小心地处理密钥文件,把所有的副本保护好。</p>
+
+<h5 id="ltpa生成机制"><strong>LTPA生成机制</strong></h5>
+
+<p>LTPA由以下部分组成：</p>
+
+<ul>
+<li>LTPA token 版本（4字节）</li>
+<li>创建时间（8字节）</li>
+<li>过期时间（8字节）</li>
+<li>用户名（可变长度）</li>
+<li>LTPA 密钥（20字节）</li>
+<li>接下来分别说明各部分的具体内容：</li>
+<li>LTPA token 版本，例如0×0001</li>
+<li>创建时间和过期时间为以十六进制方式表示的 Unix time，例如 2009-04-09 13:52:42 (GMT +8) = 1239256362 = 49DD8D2A。过期时间为 创建时间 + SSO 配置文档的过期时间（LTPA_TokenExpiration域）</li>
+<li>用户名为 Names 中用户文档的 FullName 域值</li>
+<li>Domino LTPA 密钥通过 Base64编码后，保存在 SSO 配置文档的 LTPA_Secret 域中。
+<img src="http://yangchao.me/media/sso-3.jpg" alt="sso-3" /></li>
+</ul>
+
+<p>图 6  LTPA结构示意图</p>
+
+<p>在这里当然不能将密钥直接发送给浏览器，所以将上述部分合并起来（如上图），计算 SHA-1 校验和。</p>
+
+<p><img src="http://yangchao.me/media/sso-4.jpg" alt="sso-4" /></p>
+
+<p>图 7  LTPA 密钥Base64编码图</p>
+
+<p>然后用 SHA-1 校验和替换掉 LTPA 密钥，最后再将内容通过 Base64 编码，形成最终的LTPA Token发送给浏览器（如上图）。这样如果 cookie 中的任何内容被修改，校验和就不对了，达到了防篡改的效果。</p>
+
+<h5 id="ltpa验证机制"><strong>LTPA验证机制</strong></h5>
+
+<p>WAS根据事先导入的密钥KEY文件，解密LTPA Token内容，验证LTPA是否有效，并判断该LTPA是否超时。</p>
+
+<p>如果LTPA验证通过，将获取LTPA中的用户信息，并再次与LDAP服务器进行验证该用户的有效性。</p>
+
+<h4 id="自定义认证实现方式"><strong>自定义认证实现方式</strong></h4>
+
+<h5 id="实现原理-1"><strong>实现原理</strong></h5>
+
+<p><img src="http://yangchao.me/media/sso-5.jpg" alt="sso-5" /></p>
+
+<p>自定义认证可以通过WAS中使用“独立定制注册表”方式实现认证。</p>
+
+<p>通过在WAS控制台中指定实现了 com.ibm.websphere.security 包中的 UserRegistry 接口的定制注册表（需要开发自定义实现类），但要求用户自定义实现类必须实现com.ibm.websphere.security.UserRegistry的接口。</p>
+
+<p>基于这个原理，我们可以自己编写一个java类，在接口实现中连接LDAP进行认证（可根据需要访问LDAP业务密码等信息），然后WAS再按照原先方式生成LTPA。</p>
+
+<h5 id="配置方式"><strong>配置方式</strong></h5>
+
+<h6 id="配置使用-独立定制注册表"><strong>配置使用“独立定制注册表”</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-6.jpg" alt="sso-6" /></p>
+
+<h6 id="配置-独立定制注册表-使用的-定制注册表类名-等信息"><strong>配置“独立定制注册表”使用的“定制注册表类名”等信息</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-7.jpg" alt="sso-7" /></p>
+
+<h6 id="与was自带ldap方式比较"><strong>与WAS自带LDAP方式比较</strong></h6>
+
+<p>&nbsp;</p>
+
+<p><img src="http://yangchao.me/media/284e6e10c9f9.jpg" alt="" /></p>
+
+<h4 id="配置方式-1"><strong>配置方式</strong></h4>
+
+<h5 id="各业务系统端环境配置"><strong>各业务系统端环境配置</strong></h5>
+
+<h6 id="修改web-xml"><strong>修改web.xml</strong></h6>
+
+<p>设置应用端的web.xml，使得业务平台可以通过SSO访问资源，下例中红色部分就配置了允许访问的资源。</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">sso_GUIP</span><span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">default4portal</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="k">default</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">common</span><span class="o">/</span><span class="n">fromITC</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">itc_agent</span><span class="o">/</span><span class="n">agentsync</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">AllAuthUser</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span><span class="n">NONE</span><span class="o">&lt;/</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span></code></pre></div>
+<h5 id="业务平台端环境配置"><strong>业务平台端环境配置</strong></h5>
+
+<h6 id="修改web-xml-1"><strong>修改web.xml</strong></h6>
+
+<p>需要在web.xml安全认证配置部分中增加用户登录的URL，红色部分需要根据应用修改，修改为允许访问的资源</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">sso_EUIF</span><span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">default4portal</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">AllAuthUser</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span><span class="n">NONE</span><span class="o">&lt;/</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">FORM</span><span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">login4portal</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">loginfailed4portal</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">AllAuthUser</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span></code></pre></div>
+<p>修改welcome页面配置，这页面是登陆成功后系统指向的页面。</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;/</span><span class="n">abf_comm</span><span class="o">/</span><span class="n">default4portal</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span></code></pre></div>
+<p><strong>重启应用服务器</strong></p>
+
+<p>正确设置上述配置后，需要重新启动应用服务器。</p>
+
+<h4 id="was环境配置-将根据was7版本进行更新"><strong>WAS环境配置（将根据WAS7版本进行更新）</strong></h4>
+
+<h5 id="设置was的ltpa协议"><strong>设置WAS的LTPA协议</strong></h5>
+
+<p>进入WAS控制台，URL是<a href="http://IP:consoleport/admin,输入安装时设置的用户名密码。">http://IP:consoleport/admin,输入安装时设置的用户名密码。</a></p>
+
+<p>&nbsp;</p>
+
+<h6 id="设置安全角色到用户-组映射"><strong>设置安全角色到用户/组映射</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-8.jpg" alt="sso-8" /></p>
+
+<p><img src="http://yangchao.me/media/sso-9.jpg" alt="sso-9" /></p>
+
+<h6 id="点击进入-安全管理-应用程序和基础结构-设置安全性"><strong>点击进入“安全管理、应用程序和基础结构”，设置安全性</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-10.jpg" alt="sso-10" /></p>
+
+<h6 id="设置ldap连接"><strong>设置LDAP连接</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-11.jpg" alt="sso-11" /></p>
+
+<h6 id="设置域名"><strong>设置域名</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-12.jpg" alt="sso-12" /></p>
+
+<h6 id="需要导入密钥文件-密钥文件可以从其他的was的控制台导出"><strong>需要导入密钥文件，密钥文件可以从其他的was的控制台导出。</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-13.jpg" alt="sso-13" /></p>
+
+<h6 id="保存配置"><strong>保存配置</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-14.jpg" alt="sso-14" /></p>
+
+<p>注意：任何修改都需要保存到主配置才能生效。</p>
+
+<h5 id="设置was的session的cookie值"><strong>设置WAS的Session的cookie值</strong></h5>
+
+<h6 id="不同应用系统配置唯一cookie值-防止多应用集成session丢失"><strong>不同应用系统配置唯一Cookie值，防止多应用集成session丢失</strong></h6>
+
+<p><img src="http://yangchao.me/media/sso-15.jpg" alt="sso-15" /></p>
+
+<h5 id="重启应用服务器"><strong>重启应用服务器</strong></h5>
+
+<p>进入应用服务器所在目录，重新启动服务器。</p>
+
+<p>以WAS为例，需要输入如下命令：</p>
+
+<p>#cd /epost/was61/IBM/WebSphere/AppServer/profiles/[profileName]/bin</p>
+
+<p>停止server</p>
+
+<p>./stopServer.sh server1 -username wpsadmin -password password</p>
+
+<p>启动server</p>
+
+<p>./startServer.sh server1</p>
+
+<h4 id="使用方式"><strong>使用方式</strong></h4>
+
+<h5 id="要求及条件"><strong>要求及条件</strong></h5>
+
+<ul>
+<li>所有系统的底层平台都是采用WebSphere</li>
+<li>系统本身的认证交给WebSphere底层平台来做</li>
+<li>所有系统采用同一个LDAP或数据一致的LDAP来做认证</li>
+<li>所有服务器必须在同一个网络域中</li>
+<li>用全域名方式访问</li>
+<li>所有服务器必须保证时间一致</li>
+</ul>
+
+<h5 id="场景描述"><strong>场景描述</strong></h5>
+
+<p><img src="http://yangchao.me/media/sso-16.jpg" alt="sso-16" /></p>
+
+<p>1) 用户成功登录新一代UI；</p>
+
+<p>2) 在用户的浏览器cookie值中保存WAS生成SSO加密信息(LTPA令牌)；</p>
+
+<p>3) 用户通过新一代UI系统访问其它系统资源；</p>
+
+<p>4) 由于浏览器cookie中保存SSO加密信息，且不过期，所以用户不需要登录，而由各个系统验证LTPA令牌达到访问业务系统资源的目的。</p>
+
+<h5 id="安全性分析"><strong>安全性分析</strong></h5>
+
+<h5 id="优势"><strong>优势</strong></h5>
+
+<ul>
+<li>WAS提供的SSO解决方案中只传递用户名，不传递密码，保证了密码安全。</li>
+<li>LTPA经过加密处理，不会被暴露在外部；即使token被截取，如果没有密钥和口令，也无法获取到其中的内容。</li>
+<li>最新版的WAS Ltpa使用先进的加密算法：Random salt；</li>
+<li>强 AES 密码；</li>
+<li>对数据签名；</li>
+<li>对数据加密</li>
+</ul>
+
+<h5 id="存在的风险">存在的风险</h5>
+
+<p>WAS SSO机制安全性依赖于密钥（KEY）文件、密钥口令以及有权限读取LDAP信息的帐号和密码。如果这三项全部被人获得，其即可仿造一个在WAS信任域中的系统，并仿造用户信息。</p>
+
+<p>需要做好密钥文件及口令的保管工作，并做好LDAP访问权限的管理，可预防此类风险的发生。</p>
+
+<p>另外，此风险在实际操作过程中难度较大，不容易出现。</p>
+
+<h3 id="附录一-常见sso方案介绍"><strong>附录一：常见SSO方案介绍</strong></h3>
+
+<h4 id="使用统一单点登录机制"><strong>使用统一单点登录机制</strong></h4>
+
+<p>前提是所有系统所使用的底层平台必须是同一家公司的，而且系统本身的认证(Authentication)会交给底层平台来做。</p>
+
+<p>WAS的SSO方案就属于这样类型，WAS和Domino等都是IBM的产品，都基于统一的SSO机制，所以它们可以直接支持统一单点登录机制。</p>
+
+<p><img src="http://yangchao.me/media/sso-17.jpg" alt="sso-17" /></p>
+
+<p>图 1  使用统一单点登录机制方案图</p>
+
+<h4 id="使用第三方系统来做单点登录"><strong>使用第三方系统来做单点登录</strong></h4>
+
+<p>例如IBM Tivoli Access Manager或者Netegrity iteminder。</p>
+
+<p><img src="http://yangchao.me/media/sso-18.jpg" alt="sso-18" /></p>
+
+<p>图 2  使用第三方系统来做单点登录方案图</p>
+
+<h4 id="利用用户名-密码映射-maping-的方式"><strong>利用用户名/密码映射(maping)的方式</strong></h4>
+
+<p>如果有系统提供映射方式的单点登录功能，例如WebSphere Portal Server。</p>
+
+<p><img src="http://yangchao.me/media/sso-19.jpg" alt="sso-19" /></p>
+
+<p>图 3  利用用户名/密码映射(mappiing)的方式方案图</p>
+
+<h4 id="其他方式"><strong>其他方式</strong></h4>
+
+<p>各个系统约定SSO规则，如：各系统判断cookie里面是否存在用户信息以及加密串，从而实现SSO登录。</p>
+
+<h3 id="附录二-单点登录产品介绍"><strong>附录二：单点登录产品介绍</strong></h3>
+
+<h4 id="商业sso软件"><strong>商业SSO软件</strong></h4>
+
+<p>1) 专门的SSO商业软件</p>
+
+<p>主要有：Netgrity的Siteminder，已经被CA收购。Novell 公司的iChain。RSA公司的ClearTrust等。</p>
+
+<p>2) 门户产品供应商自己的SSO产品，</p>
+
+<p>如： IBM 的Tivoli Access Manager，WAS自带的SSO解决方案，BEA的WLES，Sun 公司的identity Server，Oracle公司的OID等。</p>
+
+<p>上述商业软件一般适用于客户对SSO的需求很高，并且企业内部采用WAS、Domino、SAP、Sieble等系统比较多的情况下。单点登录产品通常需要在应用软件中增加代理模块，而商业SSO产品主要针对大型软件制作了代码模块。</p>
+
+<h4 id="开源sso软件"><strong>开源SSO软件</strong></h4>
+
+<p>1) Opensso</p>
+
+<p> <a href="https://opensso.dev.java.net/">https://opensso.dev.java.net/</a></p>
+
+<p> OpenSSO基于Sun Java System Access Manager，是Sun公司支持的一个开源的SSO项目。</p>
+
+<p> OpenSSO体系结构设计合理，功能比较强大。然而缺点是客户端支持不够广泛，似乎只是对基于J2EE的应用支持的比较好。</p>
+
+<p>2) josso</p>
+
+<p> <a href="http://www.josso.org/">http://www.josso.org/</a></p>
+
+<p> 这是另一个Java写的单点登录产品，通常认为比OpenSSO更成熟一些。</p>
+
+<p> JOSSO支持的客户端包括Java，PHP和ASP。</p>
+
+<p>3) CAS</p>
+
+<p> <a href="http://www.ja-sig.org/products/cas/">http://www.ja-sig.org/products/cas/</a></p>
+
+<p> 这是耶鲁大学开发的单点登录产品。</p>
+
+<p> CAS的优点很多，例如设计理念先进、体系结构合理、配置简单、客户端支持广泛、技术成熟等等。以后我们还要仔细介绍。</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/unified-identity-access-control-system/" rel="next" title="Unified Identity &amp; Access Control system">
+        <i class="fa fa-chevron-left"></i> Unified Identity &amp; Access Control system
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/" rel="prev" title="web vulnerability issues: XSS, CSRF, SQL Injection">
+        web vulnerability issues: XSS, CSRF, SQL Injection <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：WebSphere SSO how-to
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#sso定义"><strong>SSO定义</strong></a>
+<ul>
+<li><a href="#实现原理"><strong>实现原理</strong></a>
+<ul>
+<li><a href="#基于session的机制"><strong>基于Session的机制</strong></a></li>
+<li><a href="#基于cookie的机制"><strong>基于Cookie的机制</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#was-sso机制介绍"><strong>WAS SSO机制介绍</strong></a>
+<ul>
+<li><a href="#was-sso机制原理"><strong>WAS SSO机制原理</strong></a>
+<ul>
+<li><a href="#ldap简介"><strong>LDAP简介</strong></a></li>
+<li><a href="#ltpa简介"><strong>LTPA简介</strong></a></li>
+<li><a href="#ltpa生成机制"><strong>LTPA生成机制</strong></a></li>
+<li><a href="#ltpa验证机制"><strong>LTPA验证机制</strong></a></li>
+</ul></li>
+<li><a href="#自定义认证实现方式"><strong>自定义认证实现方式</strong></a>
+<ul>
+<li><a href="#实现原理-1"><strong>实现原理</strong></a></li>
+<li><a href="#配置方式"><strong>配置方式</strong></a>
+<ul>
+<li><a href="#配置使用-独立定制注册表"><strong>配置使用“独立定制注册表”</strong></a></li>
+<li><a href="#配置-独立定制注册表-使用的-定制注册表类名-等信息"><strong>配置“独立定制注册表”使用的“定制注册表类名”等信息</strong></a></li>
+<li><a href="#与was自带ldap方式比较"><strong>与WAS自带LDAP方式比较</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#配置方式-1"><strong>配置方式</strong></a>
+<ul>
+<li><a href="#各业务系统端环境配置"><strong>各业务系统端环境配置</strong></a>
+<ul>
+<li><a href="#修改web-xml"><strong>修改web.xml</strong></a></li>
+</ul></li>
+<li><a href="#业务平台端环境配置"><strong>业务平台端环境配置</strong></a>
+<ul>
+<li><a href="#修改web-xml-1"><strong>修改web.xml</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#was环境配置-将根据was7版本进行更新"><strong>WAS环境配置（将根据WAS7版本进行更新）</strong></a>
+<ul>
+<li><a href="#设置was的ltpa协议"><strong>设置WAS的LTPA协议</strong></a>
+<ul>
+<li><a href="#设置安全角色到用户-组映射"><strong>设置安全角色到用户/组映射</strong></a></li>
+<li><a href="#点击进入-安全管理-应用程序和基础结构-设置安全性"><strong>点击进入“安全管理、应用程序和基础结构”，设置安全性</strong></a></li>
+<li><a href="#设置ldap连接"><strong>设置LDAP连接</strong></a></li>
+<li><a href="#设置域名"><strong>设置域名</strong></a></li>
+<li><a href="#需要导入密钥文件-密钥文件可以从其他的was的控制台导出"><strong>需要导入密钥文件，密钥文件可以从其他的was的控制台导出。</strong></a></li>
+<li><a href="#保存配置"><strong>保存配置</strong></a></li>
+</ul></li>
+<li><a href="#设置was的session的cookie值"><strong>设置WAS的Session的cookie值</strong></a>
+<ul>
+<li><a href="#不同应用系统配置唯一cookie值-防止多应用集成session丢失"><strong>不同应用系统配置唯一Cookie值，防止多应用集成session丢失</strong></a></li>
+</ul></li>
+<li><a href="#重启应用服务器"><strong>重启应用服务器</strong></a></li>
+</ul></li>
+<li><a href="#使用方式"><strong>使用方式</strong></a>
+<ul>
+<li><a href="#要求及条件"><strong>要求及条件</strong></a></li>
+<li><a href="#场景描述"><strong>场景描述</strong></a></li>
+<li><a href="#安全性分析"><strong>安全性分析</strong></a></li>
+<li><a href="#优势"><strong>优势</strong></a></li>
+<li><a href="#存在的风险">存在的风险</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#附录一-常见sso方案介绍"><strong>附录一：常见SSO方案介绍</strong></a>
+<ul>
+<li><a href="#使用统一单点登录机制"><strong>使用统一单点登录机制</strong></a></li>
+<li><a href="#使用第三方系统来做单点登录"><strong>使用第三方系统来做单点登录</strong></a></li>
+<li><a href="#利用用户名-密码映射-maping-的方式"><strong>利用用户名/密码映射(maping)的方式</strong></a></li>
+<li><a href="#其他方式"><strong>其他方式</strong></a></li>
+</ul></li>
+<li><a href="#附录二-单点登录产品介绍"><strong>附录二：单点登录产品介绍</strong></a>
+<ul>
+<li><a href="#商业sso软件"><strong>商业SSO软件</strong></a></li>
+<li><a href="#开源sso软件"><strong>开源SSO软件</strong></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

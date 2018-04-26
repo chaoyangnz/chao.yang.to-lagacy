@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title> - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content=" - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/book/a-close-look-at-java/helpers/stringjoiner/" itemprop="url">
+        
         </a>
       </h1>
       <div class="post-meta">
@@ -150,18 +150,40 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">97 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h1 id="have-you-experienced-this">Have you experienced this?</h1>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>Not one time when we want to join a bunch of String, we have to do like that:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span><span class="o">[]</span> <span class="n">strs</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;a&#34;</span><span class="o">,</span> <span class="s">&#34;b&#34;</span><span class="o">,</span> <span class="s">&#34;c&#34;</span><span class="o">,</span> <span class="s">&#34;d&#34;</span><span class="o">};</span>
+<span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span> <span class="o">:</span> <span class="n">strs</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">str</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;,&#34;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">sb</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="n">1</span><span class="o">);</span></code></pre></div>
+<p>So simple task, we need so much code. Really sucks!</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>Now Java 8 finally provides us a great <code>StringJoiner</code>.</p>
+
+<h1 id="how-can-we-use-it">How can we use it?</h1>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">StringJoiner</span> <span class="n">joiner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringJoiner</span><span class="o">(</span><span class="s">&#34;,&#34;</span><span class="o">);</span>
+<span class="c1">//joiner.setEmptyValue(&#34;Placeholder&#34;);
+</span><span class="c1">//System.out.println(joiner);
+</span><span class="c1"></span>
+<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span> <span class="o">:</span> <span class="n">strs</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">joiner</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">joiner</span><span class="o">);</span></code></pre></div>
+<p>Actually, <code>Collectors.joining(..)</code> has also employed this class.</p>
+
+<p>So more succinct way is like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">strs</span><span class="o">).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">&#34;,&#34;</span><span class="o">));</span>  </code></pre></div>
+<p>Bingo!</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +192,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/book/a-close-look-at-java/primitives/readme/" rel="next" title="">
+        <i class="fa fa-chevron-left"></i> 
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/book/a-close-look-at-java/concurrent/threadlocal/" rel="prev" title="">
+         <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +215,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -261,14 +287,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>

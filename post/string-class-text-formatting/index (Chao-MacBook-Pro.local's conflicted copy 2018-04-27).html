@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>String class, text formatting - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="String class, text formatting">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="String class, text formatting - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/string-class-text-formatting/" itemprop="url">
+        String class, text formatting
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,100 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-23">
+    2015-03-23
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">195 words ~1min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h3 id="working-with-string-class">working with String class</h3>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>String is most frequently used class in Java.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<h4 id="immutable-and-flyweight-design">immutable and flyweight design</h4>
+
+<p>String is immutable</p>
+
+<p>String is designed with the Flyweight design pattern. A pool of Strings is maintained by the String class.</p>
+
+<h5 id="pool-of-strings-and-intern">pool of Strings and intern()</h5>
+
+<p>You can always get the string in the pool by invoking <em><strong>intern()</strong>.</em></p>
+
+<p>For any two Strings s1 &amp; s2, _s1.intern( ) _== _s2.intern( ) _only if _s1.equals(s2) _is true.</p>
+
+<p>All literal strings and string-valued constant expressions are interned.</p>
+
+<p><img src="http://yangchao.me/media/string-intern.png" alt="string-intern" /></p>
+
+<p>For more details about intern(), please refer to <a href="http://java-performance.info/string-intern-in-java-6-7-8/">http://java-performance.info/string-intern-in-java-6-7-8/</a></p>
+
+<h4 id="stings-concatenation">stings concatenation</h4>
+
+<ul>
+<li>Use plus (“+”) operator for concatenating constants.</li>
+<li>Use _concat( ) _method for concatenating 2 string variables.</li>
+<li>Use _StringBuilder _or _StringBuffer _for concatenating a number of _String _variables, and most importantly in loops.</li>
+<li>Prefer _StringBuilder _to _StringBuffer _unless multiple threads can have access to it.
+Notice:  Plus operator is more efficient than the other two as the JVM optimizes constants.</li>
+</ul>
+
+<h3 id="text-formatting">Text formatting</h3>
+
+<p>In Java, it&rsquo;s convenient to format something as text representations.</p>
+
+<h4 id="printf-style-formatting"> printf-style formatting</h4>
+
+<p>This is supported by java.util.Formatter class.</p>
+
+<p>Some class uses this Formatter indirectly:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">...)</span>
+<span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">...)</span></code></pre></div>
+<h4 id="java-text-format-family"> java.text.Format family</h4>
+
+<p>Format</p>
+
+<p>|&mdash; NumberFormat</p>
+
+<p>|&mdash; ChoiceFormat</p>
+
+<p>|&mdash; DecimalFormat</p>
+
+<p>|&mdash; DateFormat</p>
+
+<p>|&mdash; SimpleDateFormat</p>
+
+<p>|&mdash; MessageFormat</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +241,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/cloning-objects/" rel="next" title="cloning objects">
+        <i class="fa fa-chevron-left"></i> cloning objects
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/widen-cast-vs-narrow-cast/" rel="prev" title="widen cast vs. narrow cast">
+        widen cast vs. narrow cast <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +264,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：String class, text formatting
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +296,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +345,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +367,34 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#working-with-string-class">working with String class</a>
+<ul>
+<li><a href="#immutable-and-flyweight-design">immutable and flyweight design</a>
+<ul>
+<li><a href="#pool-of-strings-and-intern">pool of Strings and intern()</a></li>
+</ul></li>
+<li><a href="#stings-concatenation">stings concatenation</a></li>
+</ul></li>
+<li><a href="#text-formatting">Text formatting</a>
+<ul>
+<li><a href="#printf-style-formatting"> printf-style formatting</a></li>
+<li><a href="#java-text-format-family"> java.text.Format family</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

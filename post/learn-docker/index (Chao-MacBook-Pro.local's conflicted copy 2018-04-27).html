@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title> - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content=" - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/learn-docker/" itemprop="url">
+        
         </a>
       </h1>
       <div class="post-meta">
@@ -150,18 +150,88 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">314 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>This post is the notes when I learn Docker.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<h1 id="what-is-docker">What is docker</h1>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>Unlike virtual machines, Docker containers don’t use hardware virtualization. Programs running inside Docker containers interface directly with the host’s Linux kernel. Docker is not a virtualization technology. Docker doesn’t provide the container technology, but it specifically makes it simpler to use.</p>
+
+<p>The containers that Docker builds are isolated with respect to eight aspects:
+- PID namespace —Process identifiers and capabilities
+- UTS namespace —Host and domain name
+- MNT namespace —File system access and structure
+- IPC namespace —Process communication over shared memory
+- NET namespace —Network access and structure
+- USR namespace —User names and identifiers
+- <code>chroot()</code> —Controls the location of the file system root
+- <code>cgroups</code> —Resource protection</p>
+
+<h1 id="basic-commands">Basic commands</h1>
+
+<h2 id="get-help">get help</h2>
+
+<p><code>docker help</code> - all help
+<code>docker help</code> - help for a certain command</p>
+
+<h2 id="create-and-start-a-container">create and start a container</h2>
+
+<p><code>docker run --detach --name xxx &lt;image_name&gt;:&lt;tag&gt;
+</code>docker run &ndash;tty &ndash;interactive &ndash;name xxx <image_name> /bin/bash`</p>
+
+<ul>
+<li>&ndash;detach or -d: daemon</li>
+<li>&ndash;tty &ndash;interactive: interactive with a virtual terminal and bind stdin</li>
+</ul>
+
+<h2 id="list">list</h2>
+
+<p><code>docker ps</code> - list all containers
+<code>docker exec &lt;container_id&gt; ps</code> - processes within a specific container</p>
+
+<h2 id="restart-stop">restart &amp; stop</h2>
+
+<p><code>docker restart &lt;container_id or name&gt;</code>
+<code>docker stop &lt;container_id or name&gt;</code></p>
+
+<h2 id="view-logs">view logs</h2>
+
+<p><code>docker logs &lt;container_id or name&gt;</code> - Anything that the program writes to the stdout or stderr output streams will be recorded in this log</p>
+
+<h2 id="just-create-a-container-not-starting">just create a container not starting</h2>
+
+<p><code>docker create &lt;image_name&gt;</code> - output the container id
+<code>docker create --cidfile &lt;cid_file_path&gt; &lt;image_name&gt;</code> - save CID into a file</p>
+
+<h2 id="how-to-get-container-id">how to get container id</h2>
+
+<pre><code>CID=$(docker ps --latest -quiet)
+echo $CID
+</code></pre>
+
+<p>Retrieve the latest running container ID</p>
+
+<h2 id="tell-the-dependency">tell the dependency</h2>
+
+<p><code>docker create --link &lt;CID&gt; &lt;image_name&gt;</code></p>
+
+<p>The link mechanism injects IP addresses into dependent containers, and containers that aren’t running don’t have IP addresses.</p>
+
+<h1 id="environment-agnostic">Environment-agnostic</h1>
+
+<p>Docker has three specific features to help build environment-agnostic systems:</p>
+
+<ul>
+<li>Read-only file systems</li>
+<li>Environment variable injection</li>
+<li>Volumes</li>
+</ul>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +240,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/weiv-todomvc/" rel="next" title="">
+        <i class="fa fa-chevron-left"></i> 
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/books/index2/" rel="prev" title="">
+         <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +263,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -261,14 +335,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>

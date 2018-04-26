@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Java Transaction - JDBC, JTA, JTS - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Java Transaction - JDBC, JTA, JTS">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Java Transaction - JDBC, JTA, JTS - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/" itemprop="url">
+        Java Transaction - JDBC, JTA, JTS
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-02-10">
+    2015-02-10
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/jdbc" itemprop="url" rel="index">
+        <span itemprop="name">JDBC</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/jta" itemprop="url" rel="index">
+        <span itemprop="name">JTA</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/transaction-management" itemprop="url" rel="index">
+        <span itemprop="name">Transaction Management</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1557 words ~8min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p><a href="https://www.progress.com/products/datadirect-connect/jdbc-drivers/jdbc-developer-center/jdbc-tutorials/understanding-jta---the-java-transaction-api/accessing-databases">https://www.progress.com/products/datadirect-connect/jdbc-drivers/jdbc-developer-center/jdbc-tutorials/understanding-jta---the-java-transaction-api/accessing-databases</a></p>
+
+<h3 id="concepts-and-implementation">Concepts and implementation</h3>
+
+<h4 id="where-these-come-from">Where these come from?</h4>
+
+<p>In transaction processing, there are several participants:</p>
+
+<p><img src="http://yangchao.me/media/jta-jts.png" alt="jta jts" /></p>
+
+<p><strong>Resource Manager</strong>: like RDMS, JMS Providers(MQ), JCA Resources, transnational distributed systems</p>
+
+<p>It is important to understand what constitutes a <em><strong><span class="emphasis">resource</span></strong></em>, in this context. For example, if you are using a JMS product, the JMS resource is the single running instance of the JMS product, <span class="emphasis">not</span> the individual queues and topics. Moreover, sometimes, what appears to be multiple resources might actually be a single resource, if the same underlying resource is accessed in different ways. For example, your application might access a relational database both directly (through JDBC) and indirectly (through an object-relational mapping tool like Hibernate). In this case, the same underlying transaction manager is involved, so it should be possible to enrol both of these code fragments in the same transaction.</p>
+
+<p><strong>Resource Adapters</strong>: JDBC drivers &hellip;</p>
+
+<p><strong>Transaction Manager</strong>: the part of an application that is responsible for coordinating transactions across one or more resources.</p>
+
+<p>J2EE servers: EJB containers..</p>
+
+<p>&nbsp;</p>
+
+<p>Of these, transaction manager is the core role. Two categories of transaction manager:</p>
+
+<p><strong>Local transaction manager</strong>:</p>
+
+<p>a transaction manager that can coordinate transactions over a <span class="emphasis"><em>single</em></span> resource only. In this case, the implementation of the transaction manager is typically embedded in the resource itself.</p>
+
+<p>For example, the Oracle database has a built-in transaction manager that supports demarcation operations (using SQL operations, <code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>, or using a native Oracle API) and various levels of transaction isolation. Control over the Oracle transaction manager can be exported through JDBC, which is how Spring is able to abstract and wrap this kind of transaction manager as local transaction manager.</p>
+
+<p>When we use resource local transaction in Java, we completely depend on database (a resource manager) to provide transaction support.</p>
+
+<p>This is supported by JDBC API.</p>
+
+<p>In the class Connection, there are several methods related to the resource local transaction:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">setAutoCommit</span><span class="o">(</span><span class="kt">boolean</span><span class="o">)</span>
+<span class="n">commit</span><span class="o">()</span>
+<span class="n">rollback</span><span class="o">()</span>
+<span class="n">setTransactionIsolation</span><span class="o">()</span></code></pre></div>
+<p><strong>Global transaction manager</strong>:</p>
+
+<p>A <em>global transaction manager</em> is a transaction manager that can coordinate transactions over <span class="emphasis"><em>multiple</em></span> resources. In this case, you cannot rely on the transaction manager built into the resource itself. Instead, you require an external system, sometimes called a <em>transaction processing monitor</em> (TP monitor), that is capable of coordinating transactions across different resources.</p>
+
+<p>So the transactions coordinated by global transaction manager are called <strong>global transaction</strong>. And the transactions related with single resource and not coordinated by global transaction manager are called <strong>local transaction</strong>.</p>
+
+<p>&nbsp;</p>
+
+<p>Unlike the above general concepts, in implementation and standard level of Java transaction support:</p>
+
+<p>XA transaction is a kind of global distributed transaction which allow across multiple <em>X/Open XA resources</em>.</p>
+
+<p>JTA support XA transaction and the related classes: UserTransaction, TransactionManager, XADataSource, XAResource, XAConnection.</p>
+
+<p>JTA transaction manager is also a kind of global transaction manager, which usually runs in application server as a process and communicates with transaction participants during the <em>two-phase commit</em> protocol.
+&gt; <strong><span style="text-decoration: underline;">XA Transaction and XA Data source</span></strong>
+&gt;
+&gt;
+&gt; The JTA allows distributed transactions across multiple <em>X/Open XA resources</em>. XA stands for <em>Extended Architecture</em> which was developed by the X/Open Group to define a transaction which uses more than one back-end data store. The XA standard describes the interface between a global <em>Transaction Manager &trade;</em> and a local resource manager. XA allows multiple resources, such as application servers, databases, caches, and message queues, to participate in the same transaction, while preserving atomicity of the transaction.
+&gt;
+&gt;
+&gt; An XA datasource is a datasource which can participate in an XA global transaction.
+&gt;
+&gt;
+&gt; <span style="text-decoration: underline;"><strong>2-Phase Commit Protocol</strong></span>
+&gt;
+&gt;
+&gt; The Two-phase commit protocol (2PC) refers to the typical pattern of a database transaction.
+&gt;
+&gt; <div class="title">Phase 1</div>
+&gt;
+&gt; In the first phase, the transaction participants notify the transaction manager whether they are able to commit the transaction or must roll back.
+<div class="formalpara">
+&gt; Phase 2
+&gt;
+&gt; In the second phase, the transaction manager makes the decision about whether the overall transaction should commit or roll back. If any one of the participants cannot commit, the transaction must roll back. Otherwise, the transaction can commit. The manager directs the transactions about what to do, and they notify the manager when they have done it. At that point, the transaction is finished.
+</div>
+Because JTA transaction is not distributed across multiple application servers, and cannot be nested, when we need to cross multiple J2EE containers, JTS is for this purpose.</p>
+
+<p><strong><em>Java Transaction Service (JTS)</em></strong> is a mechanism for supporting Java Transaction API (JTA) transactions when participants of the transactions reside in multiple J2EE containers (application servers). In JTS transactions, the Transaction Coordinator manages interactions between transaction managers on different servers.</p>
+
+<p>From an application standpoint, a JTS transaction behaves in the same ways as a JTA transaction. The difference is that transaction participants and datasources reside in different containers.</p>
+
+<h4 id="how-jta-is-supported">How JTA is supported?</h4>
+
+<p>The Java Transaction API consists of three elements: a high-level application transaction demarcation interface, a high-level transaction manager interface intended for an application server, and a standard Java mapping of the X/Open XA protocol intended for a transactional resource manager.</p>
+
+<p><code>[javax.transaction.UserTransaction](http://docs.oracle.com/javaee/7/api/javax/transaction/UserTransaction.html)</code>, that is used by general client code such as a servlet or an EJB to manage the transactions, but it is usually acquired by JNDI reference (it should be available under <code>java:comp/UserTransaction)</code>, and is usually injected into EJB when you use Container-Managed Transaction(CMT).</p>
+
+<p><code>[javax.transaction.TransactionManager](http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html)</code>, that is implemented by the application server itself to begin, commit and rollback the transactions.</p>
+
+<p><code>[javax.transaction.xa.XAResource](http://docs.oracle.com/javaee/7/api/javax/transaction/xa/XAResource.html)</code> interface is required to implement  by each resource manager in order to be managed by the TP monitor. Each resource will have its own specific API, for instance:</p>
+
+<ul>
+<li>relational databases use JDBC (XADataSource, XAConnection are implemented by XA JDBC driver)</li>
+<li>messaging services use JMS</li>
+<li>generalized EIS (Enterprise Information System) resources use JCA (Java EE Connector API).
+&gt; _If you are interested in how to implement a simple/naive transaction manager just like it&rsquo;done in application server, please refer to:_<em><a href="http://blog.csdn.net/liu78778/article/details/4805308">http://blog.csdn.net/liu78778/article/details/4805308</a></em></li>
+</ul>
+
+<h4 id="how-can-we-use-them-in-traditional-j2ee-enviorment">How can we use them in traditional J2EE enviorment?</h4>
+
+<p><span style="text-decoration: underline;"><span id="UserTransaction_support_in_JNDI" class="mw-headline">UserTransaction support in servlet :</span></span></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">javax.transaction.*</span><span class="err">；</span>
+<span class="kn">import</span> <span class="nn">javax.naming.*</span><span class="err">；</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="n">InitialContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InitialContext</span><span class="o">()</span><span class="err">；</span>
+<span class="n">Object</span> <span class="n">txObj</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&#34;java:comp/UserTransaction&#34;</span><span class="err">；</span><span class="o">)</span><span class="err">；</span>
+<span class="n">UserTransaction</span> <span class="n">utx</span> <span class="o">=</span> <span class="o">(</span><span class="n">UserTransaction</span><span class="o">)</span> <span class="n">txObj</span><span class="err">；</span>
+<span class="n">utx</span><span class="o">.</span><span class="na">begin</span><span class="o">();</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="n">DataSource</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">obtainXADataSource</span><span class="o">();</span>
+<span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
+<span class="n">pstmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">prepareStatement</span><span class="o">(</span><span class="s">&#34;UPDATE MOVIES ...&#34;</span><span class="o">);</span>
+<span class="n">pstmt</span><span class="o">.</span><span class="na">setString</span><span class="o">(</span><span class="n">1</span><span class="o">,</span> <span class="s">&#34;Spinal Tap&#34;</span><span class="o">);</span>
+<span class="n">pstmt</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">();</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="n">utx</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span></code></pre></div>
+<p><span style="text-decoration: underline;">UserTransaction support in EJB:
+</span></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Stateless</span>
+<span class="nd">@TransactionManagement</span><span class="o">(</span><span class="n">BEAN</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
+
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">UserTransaction</span> <span class="n">utx</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// start a transaction
+</span><span class="c1"></span>        <span class="n">utx</span><span class="o">.</span><span class="na">begin</span><span class="o">();</span>
+
+        <span class="c1">// Do work
+</span><span class="c1"></span>
+        <span class="c1">// Commit it
+</span><span class="c1"></span>        <span class="n">utx</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>For more details, you need to refer to the EJB transaction management(CMT).</p>
+
+<h3 id="spring-transaction-management-abstraction">Spring transaction management abstraction</h3>
+
+<p>Spring intends to abstract these transaction management technology, and integrate them into a unified API.</p>
+
+<p>PlatformTransactionManager is a service provider interface Spring provides. (NOTE, it&rsquo;s not the subclass of javax.transaction.TransactionManager).</p>
+
+<p>Currently, there are the following implementations:
+<div class="simplesect"></p>
+
+<p>Table 1 summarizes the local transaction manager implementations provided by the Spring framework. These transaction managers are distinguished by the fact that they support a <span class="emphasis"><em>single resource only</em></span>.</p>
+
+<p><strong>Table 1. Local Transaction Managers</strong>
+<div class="table">
+<div class="table-contents">
+<table border="1" summary="Local Transaction Managers" width="100%" cellpadding="2"><colgroup> <col class="c1" /> <col class="c2" /></colgroup>
+<thead>
+<tr>
+<th>Transaction Manager</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/jms/connection/JmsTransactionManager.html"><code>JmsTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a <span class="emphasis"><em>single</em></span> JMS resource. That is, you can connect to any number of queues or topics, but <span class="emphasis"><em>only</em></span> if they belong to the same underlying JMS messaging product instance. Moreover, you cannot enlist any other types of resource in a transaction.For example, using this transaction manager, it would <span class="emphasis"><em>not</em></span> be possible to enlist both a SonicMQ resource and an Apache ActiveMQ resource in the same transaction. But see Table 2.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/jdbc/datasource/DataSourceTransactionManager.html"><code>DataSourceTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a <span class="emphasis"><em>single</em></span> JDBC database resource. That is, you can update any number of different database tables, but <span class="emphasis"><em>only</em></span> if they belong to the same underlying database instance.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/orm/hibernate3/HibernateTransactionManager.html"><code>HibernateTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a <a href="http://www.hibernate.org/">Hibernate</a> resource. It is not possible, however, to simultaneously enlist any other kind of resource in a transaction.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/orm/jdo/JdoTransactionManager.html"><code>JdoTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a Java Data Objects (<a href="http://db.apache.org/jdo/">JDO</a>) resource. It is not possible, however, to simultaneously enlist any other kind of resource in a transaction.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html"><code>JpaTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a Java Persistence API (<a href="http://java.sun.com/javaee/technologies/persistence.jsp">JPA</a>) resource. It is not possible, however, to simultaneously enlist any other kind of resource in a transaction.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/jca/cci/connection/CciLocalTransactionManager.html"><code>CciLocalTransactionManager</code></a></td>
+<td>A transaction manager implementation that is capable of managing a Java Connection Architecture (<a href="http://java.sun.com/j2ee/connector/">JCA</a>) resource. It is not possible, however, to simultaneously enlist any other kind of resource in a transaction.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="simplesect"></p>
+
+<p><a href="https://access.redhat.com/documentation/en-US/Fuse_ESB_Enterprise/7.1/html/EIP_Transaction_Guide/files/TxnManagers-Impls.html#TxnManagers-Impls-TableGTM" title="Table 2. Global Transaction Managers">Table 2</a> summarizes the global transaction manager implementations provided by the Spring framework. These transaction managers are distinguished by the fact that they can support <span class="emphasis"><em>multiple resources</em></span>.</p>
+
+<p><strong>Table 2. Global Transaction Managers</strong>
+<div class="table">
+<div class="table-contents">
+<table border="1" summary="Global Transaction Managers" width="100%" cellpadding="2"><colgroup> <col class="c1" /> <col class="c2" /></colgroup>
+<thead>
+<tr>
+<th>Transaction Manager</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/transaction/jta/JtaTransactionManager.html"><code>JtaTransactionManager</code></a></td>
+<td>If you require a transaction manager that is capable of enlisting more than one resource in a transaction, use the JTA transaction manager, which is capable of supporting the XA transaction API. You <span class="emphasis"><em>must</em></span> deploy your application inside either an OSGi container or a J2EE server to use this transaction manager.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/transaction/jta/OC4JJtaTransactionManager.html"><code>OC4JJtaTransactionManagner</code></a></td>
+<td>A specialization of the <code>JtaTransactionManager</code> to work with Oracle&rsquo;s OC4J. The advantage of this implementation is that it makes Spring-driven transactions visible in OC4J&rsquo;s transaction monitor</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/transaction/jta/WebLogicJtaTransactionManager.html"><code>WebLogicJtaTransactionManager</code></a></td>
+<td>A specialization of the <code>JtaTransactionManager</code> to work with the BEA WebLogic container. Makes certain advanced transaction features available: transaction names, per-transaction isolation levels, and proper suspension/resumption of transactions.</td>
+</tr>
+<tr>
+<td><a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/transaction/jta/WebSphereUowTransactionManager.html"><code>WebSphereUowTransactionManager</code></a></td>
+<td>A specialization of the <code>JtaTransactionManager</code> to work with the IBM WebSphere container. Enables proper suspension/resumption of transactions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/jpa-runtime/" rel="next" title="JPA - runtime">
+        <i class="fa fa-chevron-left"></i> JPA - runtime
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/get-started-with-weblogic/" rel="prev" title="Get started with WebLogic">
+        Get started with WebLogic <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Java Transaction - JDBC, JTA, JTS
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#concepts-and-implementation">Concepts and implementation</a>
+<ul>
+<li><a href="#where-these-come-from">Where these come from?</a></li>
+<li><a href="#how-jta-is-supported">How JTA is supported?</a></li>
+<li><a href="#how-can-we-use-them-in-traditional-j2ee-enviorment">How can we use them in traditional J2EE enviorment?</a></li>
+</ul></li>
+<li><a href="#spring-transaction-management-abstraction">Spring transaction management abstraction</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

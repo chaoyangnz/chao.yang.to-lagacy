@@ -1,0 +1,612 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Assertion - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Assertion">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Assertion - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/assertion/" itemprop="url">
+        Assertion
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-01-16">
+    2015-01-16
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">680 words ~4min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<p>Java have an &ldquo;assert&rdquo; keyword since java 1.4</p>
+
+<h4 id="usage">Usage</h4>
+
+<p>There are two kinds of syntax:</p>
+
+<p>1) assert expression1</p>
+
+<p>2) assert expression1 : expression2</p>
+
+<p>expression1 must be evaluated as boolean ( true or false) while expression2 can be primitive, object, or array.</p>
+
+<p>expression2 is passed into the constructor of AssertionError as an argument.</p>
+
+<p><a href="http://yangchao.me/media/44b0b3e9.png"><img src="http://yangchao.me/media/44b0b3e9.png" alt="44b0b3e9" /></a></p>
+
+<p>So if expression2 is evaluated as void, it&rsquo;s not allowed.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{}</span>
+
+<span class="k">assert</span> <span class="kc">true</span> <span class="o">:</span> <span class="n">foo</span><span class="o">();</span> <span class="o">//</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">compiled</span></code></pre></div>
+<h4 id="how-to-enable-or-disable-assertion">How to enable or disable assertion</h4>
+
+<p>Assert statements will be evaluated only if assertion is enabled.</p>
+
+<p>1) through command options (aka. VM options)
+<table id="table3" border="1" width="60%">
+<tbody>
+<tr>
+<td>Options</td>
+<td>Example</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-ea</td>
+<td>java -ea</td>
+<td>open assertion in all user classes</td>
+</tr>
+<tr>
+<td>-da</td>
+<td>java -da</td>
+<td>close assertion in all user classes</td>
+</tr>
+<tr>
+<td>-ea:&lt;classname&gt;</td>
+<td>java -ea:MyClass1</td>
+<td>open assertion in class MyClass1</td>
+</tr>
+<tr>
+<td>-da:&lt;classname&gt;</td>
+<td>java -da: MyClass1</td>
+<td>close assertion in class MyClass1</td>
+</tr>
+<tr>
+<td>-ea:&lt;packagename&gt;</td>
+<td>java -ea:pkg1</td>
+<td>open assertion in package pkg1</td>
+</tr>
+<tr>
+<td>-da:&lt;packagename&gt;</td>
+<td>java -da:pkg1</td>
+<td>close assertion in package pkg1</td>
+</tr>
+<tr>
+<td>-ea:&hellip;</td>
+<td>java -ea:&hellip;</td>
+<td>open assertion in default(no name) package</td>
+</tr>
+<tr>
+<td>-da:&hellip;</td>
+<td>java -da:&hellip;</td>
+<td>close assertion in default(no name) package</td>
+</tr>
+<tr>
+<td>-ea:&lt;packagename&gt;&hellip;</td>
+<td>java -ea:pkg1&hellip;</td>
+<td>open assertion in package pkg1 and its subpackage</td>
+</tr>
+<tr>
+<td>-da:&lt;packagename&gt;&hellip;</td>
+<td>java -da:pkg1&hellip;</td>
+<td>close assertion in package pkg1 and its subpackage</td>
+</tr>
+<tr>
+<td>-esa</td>
+<td>java -esa</td>
+<td>open assertion in system classes</td>
+</tr>
+<tr>
+<td>-dsa</td>
+<td>java -dsa</td>
+<td>close assertion in system classes</td>
+</tr>
+<tr>
+<td>use class and package together</td>
+<td>java -da:MyClass1:pkg1</td>
+<td>close assertion in class MyClass1 and package pkg1</td>
+</tr>
+<tr>
+<td>use -ea and -da together</td>
+<td>java -da:MyClass1 -ea:MyClass</td>
+<td>java interprets its options from left to right</td>
+</tr>
+</tbody>
+</table>
+2) through ClassLoader at runtime</p>
+
+<p>ClassLoader class has some methods related to assertion setting:
+<a href="http://yangchao.me/media/f918c7a0.bmp"><img src="http://yangchao.me/media/f918c7a0.bmp" alt="f918c7a0" /></a></p>
+
+<h4 id="some-restrictions-and-pitfalls">Some restrictions and pitfalls</h4>
+
+<p>1) assertion and inheritance</p>
+
+<p>The following is an example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Derived</span> <span class="kd">extends</span> <span class="n">Base</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">derivedMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">assert</span> <span class="kc">false</span> <span class="o">:</span> <span class="s">&#34;Assertion failed:This is derive&#34;</span><span class="o">;</span><span class="c1">//assertion always fails
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Derived Method&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">Derived</span> <span class="n">derived</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Derived</span><span class="o">();</span>
+            <span class="n">derived</span><span class="o">.</span><span class="na">baseMethod</span><span class="o">();</span>
+            <span class="n">derived</span><span class="o">.</span><span class="na">derivedMethod</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">AssertionError</span> <span class="n">ae</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ae</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>Now we use all kinds of command options and see the output results:
+<table id="table4" style="height: 326px;" border="1" width="745">
+<tbody>
+<tr>
+<td>Command options</td>
+<td>Description</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>Java Derived</td>
+<td>close all assertions(default)</td>
+<td>Base Method
+Derived Method</td>
+</tr>
+<tr>
+<td>Java -ea Derived</td>
+<td>open all assertions</td>
+<td>Java.lang.AssertionError:Assertion Failed:This is base</td>
+</tr>
+<tr>
+<td>Java -da Derived</td>
+<td>close all assertions</td>
+<td>Base Method
+Derived Method</td>
+</tr>
+<tr>
+<td>Java -ea:Base Derived</td>
+<td>open the assertion in Base class</td>
+<td>Java.lang.AssertionError:Assertion Failed:This is base</td>
+</tr>
+<tr>
+<td>Java -ea:Derived Derived</td>
+<td>close the assertion in Derived class</td>
+<td>Base Method
+Java.lang.AssertionError:Assertion Failed:This is derived</td>
+</tr>
+</tbody>
+</table>
+<span style="text-decoration: underline;">Conclusion: assertion setting cannot be inherited. Just enabling the assertion of derived class will not necessarily take effect for the assertions in the inherited methods and other methods of its base class.</span></p>
+
+<h4 id="best-bad-usage-scenarios">Best/bad usage scenarios</h4>
+
+<p>1) it&rsquo;s preferable to assert the arguments of private method.</p>
+
+<p>You should not use assertions to check arguments in public methods because it would otherwise throw runtime exceptions: IllegalArgumentException, NullPointerException, and so forth.</p>
+
+<p>2) it&rsquo;s BAD flavour that assertion has some side effects</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+
+<span class="kd">private</span> <span class="n">String</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">4</span><span class="o">;</span>
+    <span class="k">return</span> <span class="s">&#34;sss&#34;</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">assertSomething</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">assert</span> <span class="kc">false</span> <span class="o">:</span> <span class="n">a</span><span class="o">++;</span> <span class="c1">// This has a side effect
+</span><span class="c1"></span>    <span class="k">assert</span> <span class="kc">false</span><span class="o">:</span> <span class="n">foo</span><span class="o">();</span> <span class="c1">// This also has a side effect
+</span><span class="c1"></span><span class="o">}</span></code></pre></div>
+<p>As assertion can be disabled, so there will be something strange to happen if you do something depending on assertion fails.</p>
+
+<p>In the above example, if assertion is disabled, then the variable will be unchanged.</p>
+
+<p>3) in if-then-else and swith-case flow-control statements, you can add &ldquo;assert false;&ldquo; in unexpected branch of control.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="k">switch</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nl">1:</span> <span class="err">…</span><span class="o">;</span>
+    <span class="k">case</span> <span class="nl">2:</span> <span class="err">…</span><span class="o">;</span>
+    <span class="k">case</span> <span class="nl">3:</span> <span class="err">…</span><span class="nl">
+</span><span class="nl">    default:</span> <span class="k">assert</span> <span class="kc">false</span> <span class="o">:</span> <span class="s">&#34;x value is invalid: &#34;</span> <span class="o">+</span> <span class="n">x</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// some codes here
+</span><span class="c1"></span><span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">{</span>
+    <span class="c1">// some codes here
+</span><span class="c1"></span><span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">assert</span> <span class="kc">false</span> <span class="o">:</span> <span class="s">&#34;Normally, it cannot be here&#34;</span><span class="o">;</span>
+<span class="o">}</span></code></pre></div>
+<p>This is a defensive technology when you do some test. We can generalize this good style into other similar cases, for example, when you think some place in your code will never be reached. In these cases, the assertion is very useful, because once the assertion fails, there will be something critical logic errors or some programming faults.</p>
+
+<p>4) You should not use assertions to validate your business logic and avoid using assertions to check or validate method arguments.</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/inner-classes/" rel="next" title="Inner Classes">
+        <i class="fa fa-chevron-left"></i> Inner Classes
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/unreachable-statements/" rel="prev" title="unreachable statements">
+        unreachable statements <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Assertion
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#how-to-enable-or-disable-assertion">How to enable or disable assertion</a></li>
+<li><a href="#some-restrictions-and-pitfalls">Some restrictions and pitfalls</a></li>
+<li><a href="#best-bad-usage-scenarios">Best/bad usage scenarios</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

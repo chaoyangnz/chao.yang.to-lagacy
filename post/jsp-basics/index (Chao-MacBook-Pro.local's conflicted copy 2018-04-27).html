@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>JSP basics - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="JSP basics">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="JSP basics - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/jsp-basics/" itemprop="url">
+        JSP basics
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,157 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-02-02">
+    2015-02-02
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/servlet-/-jsp" itemprop="url" rel="index">
+        <span itemprop="name">Servlet / JSP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">216 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h3 id="how-jsp-work">How JSP work</h3>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p><img src="http://yangchao.me/media/jsp.png" alt="jsp" /></p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<h3 id="syntax">Syntax</h3>
+
+<h4 id="scriptlet">scriptlet</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span><span class="o">;</span> <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;This is a scriptlet&#34;</span><span class="o">);</span> <span class="o">%&gt;</span></code></pre></div>
+<p>This block is placed in the body of method _jspService(request, response)</p>
+
+<h4 id="derective">derective</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">import</span><span class="o">=</span><span class="s">&#34;java.util.*,java.xml.*&#34;</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">taglib</span> <span class="n">tagdir</span><span class="o">=</span><span class="s">&#34;/WEB-INF/tags/xxx&#34;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="o">%&gt;</span></code></pre></div>
+<h4 id="expression">expression</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%=</span> <span class="s">&#34;This is a expression argument&#34;</span> <span class="o">%&gt;</span></code></pre></div>
+<h4 id="declaration">declaration</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%!</span> <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">0</span> <span class="o">%&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%!</span> <span class="kt">int</span> <span class="nf">doubleCount</span><span class="o">()</span> <span class="o">{</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">*</span><span class="n">2</span><span class="o">;</span> <span class="k">return</span> <span class="n">count</span><span class="o">;</span> <span class="o">}</span> <span class="o">%&gt;</span></code></pre></div>
+<p>This is equivlant with the member field and member method of the generated servlet.</p>
+
+<h4 id="comment">comment</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span> <span class="n">HTML</span> <span class="n">Comments</span> <span class="o">--&gt;</span>
+<span class="o">&lt;%--</span> <span class="n">JSP</span> <span class="n">Comments</span> <span class="o">--%&gt;</span></code></pre></div>
+<p>The first is called <span style="text-decoration: underline;"><em>output comments</em></span>, while the second is called <em><span style="text-decoration: underline;">hidden comments</span></em>.</p>
+
+<h3 id="implicit-objects-in-scriptlets-and-expressions">implicit Objects in scriptlets and expressions</h3>
+
+<table style="height: 272px;" border="1" width="349">
+<tbody>
+<tr>
+<td>Type</td>
+<td>implicit variable</td>
+</tr>
+<tr>
+<td>JspWriter</td>
+<td>out</td>
+</tr>
+<tr>
+<td>HttpServletRequest</td>
+<td>request</td>
+</tr>
+<tr>
+<td>HttpServletResponse</td>
+<td>response</td>
+</tr>
+<tr>
+<td>HttpSession</td>
+<td>session</td>
+</tr>
+<tr>
+<td>ServletContext</td>
+<td>application</td>
+</tr>
+<tr>
+<td>ServletConfig</td>
+<td>config</td>
+</tr>
+<tr>
+<td>Throwable</td>
+<td>exception</td>
+</tr>
+<tr>
+<td>PageContext</td>
+<td>pageContext</td>
+</tr>
+<tr>
+<td>HttpJspPage</td>
+<td>page</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="about-the-generated-servlet">about the generated servlet</h3>
+
+<p>it&rsquo;s a subclass of HttpJspPage, which inherited JspPage</p>
+
+<p>In JSP, you can get its reference by a implicit object named <em><strong>page.</strong></em></p>
+
+<p><img src="http://yangchao.me/media/jsppage.png" alt="jsppage" /></p>
+
+<p>The methods of <em><strong>JspPage</strong></em>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">jspInit</span><span class="o">()</span>
+<span class="n">jspDestroy</span><span class="o">()</span></code></pre></div>
+<p>The methods of <em><strong>HttpJspPage</strong></em></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">_jspService</span><span class="o">()</span></code></pre></div>
+<p>You can override the jspInit() and jspDestroy() methods, but not for _jspService() method.</p>
+
+<h3 id="about-the-pagecontext">about the PageContext</h3>
+
+<p>PageContext is a subclass of JspContext.
+<img src="http://yangchao.me/media/jspContext.png" alt="jspContext" /><img src="http://yangchao.me/media/pageContext.png" alt="pageContext" /></p>
+
+<h3 id="about-the-configuration">about the configuration</h3>
+
+<p>1. config jsp for global in deployment descriptor</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">app</span> <span class="o">...&gt;</span>
+
+<span class="o">...</span>
+
+<span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;*.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">el</span><span class="o">-</span><span class="n">ignored</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">scripting</span><span class="o">-</span><span class="n">invalid</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
+
+<span class="o">...</span>
+
+<span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">app</span><span class="o">&gt;</span></code></pre></div>
+<p>2. config jsp in the page directive</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">isELIgnored</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="n">isScriptingEnabled</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="o">....</span> <span class="o">%&gt;</span></code></pre></div>
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +298,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/" rel="next" title="JMM, Atomicity,  Visibility and Reordering">
+        <i class="fa fa-chevron-left"></i> JMM, Atomicity,  Visibility and Reordering
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/" rel="prev" title="scriptless JSP - EL, JSTL and taglibs">
+        scriptless JSP - EL, JSTL and taglibs <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +321,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：JSP basics
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +353,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +402,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +424,34 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#how-jsp-work">How JSP work</a></li>
+<li><a href="#syntax">Syntax</a>
+<ul>
+<li><a href="#scriptlet">scriptlet</a></li>
+<li><a href="#derective">derective</a></li>
+<li><a href="#expression">expression</a></li>
+<li><a href="#declaration">declaration</a></li>
+<li><a href="#comment">comment</a></li>
+</ul></li>
+<li><a href="#implicit-objects-in-scriptlets-and-expressions">implicit Objects in scriptlets and expressions</a></li>
+<li><a href="#about-the-generated-servlet">about the generated servlet</a></li>
+<li><a href="#about-the-pagecontext">about the PageContext</a></li>
+<li><a href="#about-the-configuration">about the configuration</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

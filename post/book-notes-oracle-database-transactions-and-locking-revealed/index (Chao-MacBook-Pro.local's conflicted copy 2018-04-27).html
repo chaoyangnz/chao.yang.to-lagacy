@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>Book notes: Oracle Database Transactions and Locking revealed - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="Book notes: Oracle Database Transactions and Locking revealed">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="Book notes: Oracle Database Transactions and Locking revealed - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/" itemprop="url">
+        Book notes: Oracle Database Transactions and Locking revealed
         </a>
       </h1>
       <div class="post-meta">
@@ -139,8 +139,8 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2016-01-10">
+    2016-01-10
 </time>
 </span> 
       
@@ -150,18 +150,95 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">514 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<h1 id="chapter-1-getting-started">Chapter 1 Getting Started</h1>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>The focus of this book: locking, concurrency control, multiversioning, transactions, redo/undo.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>These concepts are all interrelated.</p>
+
+<h2 id="locking">Locking</h2>
+
+<p>The database uses <em>locks</em> mechanism that allows for concurrency.</p>
+
+<p>Each database implements locking differently:</p>
+
+<ul>
+<li>some have page-level locking, others row-level</li>
+<li>some implementations escalate locks from row level to page level, some do not</li>
+<li>some use read locks, others don&rsquo;t</li>
+<li>some implement serializable transactions via locking, others via read-consistent views of data (no locks)</li>
+</ul>
+
+<p>Oracle&rsquo;s locking policy:</p>
+
+<ul>
+<li>Oracle locks data at the row level on modification. There is <strong>no lock escalation</strong> to a block or table level.</li>
+<li>Oracle never locks data just to read it. There are no locks placed on rows of data simply by reads.</li>
+<li>reads are not blocked by writes or reads.</li>
+<li>writes are not blocked by reads.</li>
+<li>A write is blocked only when another write has already locked the row it was going after.</li>
+</ul>
+
+<h2 id="concurrency-control">Concurrency Control</h2>
+
+<p><em>Concurrency control</em> ensures that no two transactions modify the same piece of data at the same time.</p>
+
+<h2 id="multiversioning">Multiversioning</h2>
+
+<p>Multiversioning is related to concurrency control, and it forms the foundation for Oracle&rsquo;s concurrency control mechanism.</p>
+
+<p>Oracle operates a multiversion, read-consistent concurrency model.</p>
+
+<p>This mechanism provides:</p>
+
+<ul>
+<li>Read-consistent query: query produces consitent result with respect to a time point.</li>
+<li>Nonblocking query: query is never blocked by data writes.</li>
+</ul>
+
+<p>If you understand how multiversioning and read consitency work together, you will always understand the answers you get from the database.</p>
+
+<blockquote>
+<p>Oracle doesn&rsquo;t &ldquo;pre-answer&rdquo; the query. It doesn&rsquo;t copy the data anywhere when you open a cursor. The cursor opens instantly and it answers the query as it goes along.
+The cursor just reads data from the table as you fetch from it.</p>
+</blockquote>
+
+<p>The following example demonstrates how multiversioning is implemented.</p>
+
+<p><img src="http://yangchao.me/media/multiversioning-query-delete.png" alt="multiversioning-query-delete" /></p>
+
+<p>In sesssion 1, We need to query a table with 1 billion rows. Obviously, you need time to query the data. This query opens the curson at time t1, then retrieves row 20,000 at time t2, until gets the last row at time t5.</p>
+
+<p>So just at the start point t1 of the query, Oracle doesn&rsquo;t know what&rsquo;s row 100,000,000 like.</p>
+
+<p>And session 2 deletes the row 100,000 and commited at time t3 before t4.</p>
+
+<p>From our cursor&rsquo;s perspective, the result is immutable even if it gets the full data until the time t5.</p>
+
+<p>But Oracle doesn&rsquo;t copy all of the preceding data to other location when we opened the cursor; it was actually the DELETE command that preserved our data for us by placing it into a data area called an undo or rollback segment.</p>
+
+<p>So at the time t4, the actual row 100,000 didn&rsquo;t exist, but the read-consistent query can be implemented by getting the data from the undo segment.</p>
+
+<h2 id="transactions">Transactions</h2>
+
+<p>A transaction comprises a unit of database work.</p>
+
+<p>Transactions are a core feature of database technology, which is part of what distinguishes a database from a file system.</p>
+
+<p>Transactions take the database from one consistent state to the next consistent state.</p>
+
+<h2 id="redo-and-undo">Redo and Undo</h2>
+
+<p>Key to Oracle&rsquo;s durability (recovery) mechanism is redo, and core to multiversioning (read consistency) is undo.</p>
+
+<h1 id="chapter-2-locking-and-issues">Chapter 2 Locking and Issues</h1>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +247,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/regex-in-java/" rel="next" title="Regex in Java">
+        <i class="fa fa-chevron-left"></i> Regex in Java
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/implement-stack-with-queue/" rel="prev" title="How to implement a Stack with Queue">
+        How to implement a Stack with Queue <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +270,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：Book notes: Oracle Database Transactions and Locking revealed
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +302,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +351,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +373,24 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#chapter-1-getting-started">Chapter 1 Getting Started</a>
+<ul>
+<li><a href="#locking">Locking</a></li>
+<li><a href="#concurrency-control">Concurrency Control</a></li>
+<li><a href="#multiversioning">Multiversioning</a></li>
+<li><a href="#transactions">Transactions</a></li>
+<li><a href="#redo-and-undo">Redo and Undo</a></li>
+</ul></li>
+<li><a href="#chapter-2-locking-and-issues">Chapter 2 Locking and Issues</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

@@ -1,0 +1,664 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Spring framework - context services - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Spring framework - context services">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Spring framework - context services - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/spring-framework-context-services/" itemprop="url">
+        Spring framework - context services
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-25">
+    2015-04-25
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/spring" itemprop="url" rel="index">
+        <span itemprop="name">Spring</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">687 words ~2min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="bean-lifecycle-mangement">Bean Lifecycle Mangement</h3>
+
+<p>&nbsp;</p>
+
+<p><img src="http://yangchao.me/media/spring-bean-lifecycle.jpg" alt="spring-bean-lifecycle" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">context.lifecycle</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.BeansException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanClassLoaderAware</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.BeanNameAware</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.DisposableBean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.InitializingBean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationContextAware</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.PostConstruct</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.annotation.PreDestroy</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LifecycleExposureBean</span> <span class="kd">implements</span> <span class="n">BeanNameAware</span><span class="o">,</span> <span class="n">BeanClassLoaderAware</span><span class="o">,</span> <span class="n">ApplicationContextAware</span><span class="o">,</span> <span class="n">InitializingBean</span><span class="o">,</span> <span class="n">DisposableBean</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">injectedProperty</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInjectedProperty</span><span class="o">(</span><span class="n">String</span> <span class="n">injectedProperty</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Injection: injectedProperty = [&#34;</span> <span class="o">+</span> <span class="n">injectedProperty</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">injectedProperty</span> <span class="o">=</span> <span class="n">injectedProperty</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//----------------context aware-------------------------
+</span><span class="c1"></span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBeanName</span><span class="o">(</span><span class="n">String</span> <span class="n">beanName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;BeanNameAware: beanName = [&#34;</span> <span class="o">+</span> <span class="n">beanName</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBeanClassLoader</span><span class="o">(</span><span class="n">ClassLoader</span> <span class="n">classLoader</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;BeanClassLoaderAware: classLoader = [&#34;</span> <span class="o">+</span> <span class="n">classLoader</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setApplicationContext</span><span class="o">(</span><span class="n">ApplicationContext</span> <span class="n">applicationContext</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BeansException</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;ApplicationAware: applicationContext = [&#34;</span> <span class="o">+</span> <span class="n">applicationContext</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//----------------initialization hook-------------------------
+</span><span class="c1"></span>
+    <span class="nd">@PostConstruct</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postContructCallBack</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;@PostContruc: Post contruct invocation&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPropertiesSet</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;IntializingBean: afterPropertiesSet() called&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;init-method: called&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//----------------destroy hook-------------------------
+</span><span class="c1"></span>    <span class="nd">@PreDestroy</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">preDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;@PreDestory: called&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroy</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;DisposableBean: destroy() called&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroyMethod</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;destroy-method: called&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">GenericXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;classpath:spring-lifecycle.xml&#34;</span><span class="o">);</span>
+
+        <span class="n">context</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span>
+<span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+</span><span class="nl">       xmlns:</span><span class="n">p</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/p&#34;</span><span class="nl">
+</span><span class="nl">       xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
+</span><span class="nl">       xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="o">&gt;</span>
+
+       <span class="o">&lt;</span><span class="n">bean</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;context.lifecycle.LifecycleExposureBean&#34;</span> <span class="n">init</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;initMethod&#34;</span> <span class="n">destroy</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;destroyMethod&#34;</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;injectedProperty&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;This is the value of injected property&#34;</span> <span class="o">/&gt;</span>
+       <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">beans</span><span class="o">&gt;</span></code></pre></div>
+<blockquote>
+<p>Injection: injectedProperty = [This is the value of injected property]</p>
+
+<p>BeanNameAware: beanName = [context.lifecycle.LifecycleExposureBean#0]</p>
+
+<p>BeanClassLoaderAware: classLoader = [sun.misc.Launcher$AppClassLoader@330bedb4]</p>
+
+<p>ApplicationAware: applicationContext = [org.springframework.context.support.GenericXmlApplicationContext@18769467: startup date [Sat Apr 25 19:38:10 CST 2015]; root of context hierarchy]</p>
+
+<p>IntializingBean: afterPropertiesSet() called</p>
+
+<p>init-method: called</p>
+
+<p>DisposableBean: destroy() called</p>
+
+<p>destroy-method: called</p>
+</blockquote>
+
+<h3 id="factorybean">FactoryBean</h3>
+
+<p>When a bean depends on some beans which cannot be simply intialized by using <code>new</code></p>
+
+<ul>
+<li>implement <code>FactoryBean&amp;lt;T&amp;gt;</code></li>
+<li>specify <code>&lt;span class=&quot;FontName1&quot;&gt;factory-bean&lt;/span&gt;</code> and <code>&lt;span class=&quot;FontName1&quot;&gt;factory-method&lt;/span&gt;</code></li>
+</ul>
+
+<h3 id="propertyeditor">PropertyEditor</h3>
+
+<p>In String, PropertyEditior is mainly used as a kind of converter from String to POJO JavaBean.</p>
+
+<p>You implement your custom PropertyEditor for the specified JavaBean class, and then configure it using <code>org.springframework.beans.factory.config.CustomEditorConfigurer</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomBean</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CustomBean</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+    	<span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    	<span class="k">return</span> <span class="s">&#34;First name: &#34;</span> <span class="o">+</span> <span class="n">firstName</span> <span class="o">+</span> <span class="s">&#34;, last name: &#34;</span> <span class="o">+</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomBeanEditor</span> <span class="kd">extends</span> <span class="n">PropertyEditorSupport</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAsText</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">segs</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">);</span>
+        <span class="n">CustomBean</span> <span class="n">customBean</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CustomBean</span><span class="o">(</span><span class="n">segs</span><span class="o">[</span><span class="n">0</span><span class="o">],</span> <span class="n">segs</span><span class="o">[</span><span class="n">1</span><span class="o">]);</span>
+
+        <span class="n">setValue</span><span class="o">(</span><span class="n">customBean</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;customEditorConfigurer&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.beans.factory.config.CustomEditorConfigurer&#34;</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;customEditors&#34;</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="n">map</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="n">entry</span> <span class="n">key</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBean&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;context.propertyeditor.CustomBeanEditor&#34;</span> <span class="o">/&gt;</span>
+		<span class="o">&lt;/</span><span class="n">map</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div>
+<h3 id="applicationcontext-capabilities">ApplicationContext capabilities</h3>
+
+<p>Basically, AppliationContext has more extra capabilities than BeanFactory.</p>
+
+<p>You can regard ApplicationContext as a <code>MessageSource</code>, an <code>ApplicationEventPublisher</code>, a <code>ResourceLoader</code>.</p>
+
+<h4 id="messagesource">MessageSource</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;messageSource&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.context.support.ResourceBundleMessageSource&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;basenames&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">list</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="n">message</span><span class="o">&lt;/</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">list</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">GenericXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GenericXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;classpath:spring-messagesource.xml&#34;</span><span class="o">);</span>
+
+<span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Richard&#34;</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&#34;greeting&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="n">name</span><span class="o">},</span> <span class="n">Locale</span><span class="o">.</span><span class="na">US</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">greetingCN</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&#34;greeting&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span><span class="n">name</span><span class="o">},</span> <span class="n">Locale</span><span class="o">.</span><span class="na">CHINA</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;greeting = [&#34;</span> <span class="o">+</span> <span class="n">greeting</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;greetingCN = [&#34;</span> <span class="o">+</span> <span class="n">greetingCN</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span></code></pre></div>
+<p>Then I have two message file: message_en_US.properties and message_zh_CN</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">greeting</span><span class="o">=</span><span class="n">你好</span><span class="o">,</span> <span class="o">{</span><span class="n">0</span><span class="o">}</span><span class="err">！</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">greeting</span><span class="o">=</span><span class="n">How</span> <span class="n">is</span> <span class="n">it</span> <span class="n">going</span><span class="o">,</span> <span class="o">{</span><span class="n">0</span><span class="o">}?</span></code></pre></div>
+<p>Output:
+&gt; greeting = [How is it going, Richard?]
+&gt;
+&gt; greetingCN = [你好, Richard！]</p>
+
+<h4 id="application-events">Application Events</h4>
+
+<p><code>ApplicationEvent</code>  &ndash; derive from java.util.<code>EventObject</code></p>
+
+<p><code>ApplicationListener&amp;lt;T&amp;gt;</code> interface</p>
+
+<p><code>ApplicationEventPublisher.publishEvent()</code></p>
+
+<p><code>ApplicationContext</code> implements <code>ApplicationEventPublisher</code> interface</p>
+
+<h4 id="resource-accessing">resource accessing</h4>
+
+<p>org.springframework.core.io.Resource</p>
+
+<p>ResourceLoader</p>
+
+<p>ApplicationContext implements ResourceLoader</p>
+
+<h4 id="environment-and-propertysource-abstraction">Environment and PropertySource Abstraction</h4>
+
+<p>Environment &ndash;&gt; PropertySource</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ConfigurableEnvironment</span> <span class="n">env</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">ctx</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">();</span>
+<span class="n">MutablePropertySources</span> <span class="n">propertySources</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="n">env</span><span class="o">.</span><span class="na">getPropertySources</span><span class="o">();</span>
+
+<span class="n">Map</span> <span class="n">appMap</span> <span class="o">=&amp;</span><span class="n">nbsp</span><span class="o">;</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">appMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;application.home&#34;</span><span class="o">,</span> <span class="s">&#34;application_home&#34;</span><span class="o">);</span>
+
+<span class="n">propertySources</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">MapPropertySource</span><span class="o">(</span><span class="s">&#34;application_properties&#34;</span><span class="o">,</span> <span class="n">appMap</span><span class="o">));</span></code></pre></div>
+<p>For the <span class="FontName1">PropertySource</span> abstraction, Spring will access the properties in the following default order:<a id="cXXX.328"></a></p>
+
+<ul>
+<li>System properties for the running JVM (-Dxxxx)</li>
+<li>Environment variables (like JAVA_HOME, Path)</li>
+<li>Application-defined properties
+Most of time, we use PropertyPlaceHolder</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+</span><span class="nl">    xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
+</span><span class="nl">    xmlns:</span><span class="n">context</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span><span class="nl">
+</span><span class="nl">    xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">        http://www.springframework.org/schema/context
+</span><span class="s">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="nl">context:</span><span class="n">property</span><span class="o">-</span><span class="n">placeholder</span> <span class="n">location</span><span class="o">=</span><span class="s">&#34;classpath:application.properties&#34;</span><span class="o">/&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;somebean&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.apress.prospring4.ch4.AppProperty&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;applicationHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${application.home}&#34;</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userHome&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${user.home}&#34;</span><span class="o">&gt;&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">beans</span><span class="o">&gt;</span></code></pre></div>
+<p>You can see, once you get the properties, you can use them in configuration files using <code>{....}</code></p>
+
+<p>&nbsp;</p>
+
+<h3 id="profiles">Profiles</h3>
+
+<p>Basically, a <em>profile</em> instructs Spring to configure only the<span class="FontName1">ApplicationContext</span> that was defined when the specified profile was active.</p>
+
+<ul>
+<li>How to associated with a profile?</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">beans</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span><span class="nl">
+</span><span class="nl">    xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
+</span><span class="nl">    xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span>
+        <span class="n">profile</span><span class="o">=</span><span class="s">&#34;devProfile&#34;</span><span class="o">&gt;</span>
+<span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span></code></pre></div>
+<p>Those beans in the file should be instantiated only when the specified profile is <span class="FontName1">active. If its profile is not active, actually these beans will not be initialized.</span></p>
+
+<ul>
+<li>How to activate</li>
+</ul>
+
+<ol>
+<li>JVM argument <span class="FontName1">-Dspring.profiles.active=&ldquo;devProfile&rdquo;</span></li>
+<li>ctx.getEnvironment().setActiveProfiles(&ldquo;devProfile&rdquo;)</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/" rel="next" title="what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?">
+        <i class="fa fa-chevron-left"></i> what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/git-basics/" rel="prev" title="Git basics">
+        Git basics <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Spring framework - context services
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#bean-lifecycle-mangement">Bean Lifecycle Mangement</a></li>
+<li><a href="#factorybean">FactoryBean</a></li>
+<li><a href="#propertyeditor">PropertyEditor</a></li>
+<li><a href="#applicationcontext-capabilities">ApplicationContext capabilities</a>
+<ul>
+<li><a href="#messagesource">MessageSource</a></li>
+<li><a href="#application-events">Application Events</a></li>
+<li><a href="#resource-accessing">resource accessing</a></li>
+<li><a href="#environment-and-propertysource-abstraction">Environment and PropertySource Abstraction</a></li>
+</ul></li>
+<li><a href="#profiles">Profiles</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

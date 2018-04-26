@@ -1,0 +1,888 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>servlet basics - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="servlet basics">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="servlet basics - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/servlet-basics/" itemprop="url">
+        servlet basics
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-30">
+    2015-03-30
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/servlet-/-jsp" itemprop="url" rel="index">
+        <span itemprop="name">Servlet / JSP</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1559 words ~8min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h3 id="deployment-descriptor-web-xml">Deployment Descriptor: web.xml</h3>
+
+<p>The following is a complete Deployment Descriptor.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#34;ISO-8859-1&#34;</span><span class="o">?&gt;</span>
+<span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">app</span> <span class="n">xmlns</span><span class="o">=</span><span class="s">&#34;http://java.sun.com/xml/ns/j2ee&#34;</span><span class="nl">
+</span><span class="nl">         xmlns:</span><span class="n">xsi</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class="nl">
+</span><span class="nl">         xsi:</span><span class="n">schemaLocation</span><span class="o">=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&#34;</span>
+         <span class="n">version</span><span class="o">=</span><span class="s">&#34;2.5&#34;</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">General</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Name</span> <span class="n">the</span> <span class="n">application</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">display</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Example</span> <span class="n">App</span><span class="o">&lt;/</span><span class="n">display</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">An</span> <span class="n">example</span> <span class="n">application</span> <span class="n">which</span> <span class="n">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">play</span> <span class="n">with</span> <span class="n">some</span> <span class="n">of</span> <span class="n">the</span> <span class="n">features</span> <span class="n">of</span> <span class="n">Tomcat</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">This</span> <span class="n">app</span> <span class="n">is</span> <span class="n">cluster</span><span class="o">-</span><span class="n">ready</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">distributable</span> <span class="o">/&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Set</span> <span class="n">timeout</span> <span class="n">to</span> <span class="n">120</span> <span class="n">minutes</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">session</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">session</span><span class="o">-</span><span class="n">timeout</span><span class="o">&gt;</span><span class="n">120</span><span class="o">&lt;/</span><span class="n">session</span><span class="o">-</span><span class="n">timeout</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">session</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">JSP</span> <span class="n">Configuration</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">only</span> <span class="n">have</span> <span class="n">one</span> <span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span> <span class="n">element</span> <span class="n">per</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">Taglib</span> <span class="n">declarations</span> <span class="n">are</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">required</span> <span class="n">since</span> <span class="n">JSP</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">,</span> <span class="n">see</span> <span class="n">Removing</span> <span class="n">taglib</span> <span class="n">from</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">The</span> <span class="o">&lt;</span><span class="n">taglib</span><span class="o">&gt;</span> <span class="n">did</span> <span class="n">not</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">child</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span> <span class="n">in</span> <span class="n">earlier</span> <span class="n">versions</span> <span class="n">but</span> <span class="n">is</span> <span class="n">required</span> <span class="n">as</span> <span class="n">of</span> <span class="n">Tomcat</span> <span class="n">7</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">taglib</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">taglib</span><span class="o">-</span><span class="n">uri</span><span class="o">&gt;</span><span class="n">mytags</span><span class="o">&lt;/</span><span class="n">taglib</span><span class="o">-</span><span class="n">uri</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">taglib</span><span class="o">-</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="o">/</span><span class="n">jsp</span><span class="o">/</span><span class="n">mytaglib</span><span class="o">.</span><span class="na">tld</span><span class="o">&lt;/</span><span class="n">taglib</span><span class="o">-</span><span class="n">location</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">taglib</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;*.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">include</span><span class="o">-</span><span class="n">prelude</span><span class="o">&gt;/</span><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="o">/</span><span class="n">jspf</span><span class="o">/</span><span class="n">prelude1</span><span class="o">.</span><span class="na">jspf</span><span class="o">&lt;/</span><span class="n">include</span><span class="o">-</span><span class="n">prelude</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">include</span><span class="o">-</span><span class="n">coda</span><span class="o">&gt;/</span><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="o">/</span><span class="n">jspf</span><span class="o">/</span><span class="n">coda1</span><span class="o">.</span><span class="na">jspf</span><span class="o">&lt;/</span><span class="n">include</span><span class="o">-</span><span class="n">coda</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">group</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Context</span> <span class="n">Parameters</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">context</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Enable</span> <span class="n">debugging</span> <span class="k">for</span> <span class="n">the</span> <span class="n">application</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">debug</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">context</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">context</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">The</span> <span class="n">email</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">administrator</span><span class="o">,</span> <span class="n">used</span> <span class="n">to</span> <span class="n">send</span> <span class="n">error</span> <span class="n">reports</span><span class="o">.&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">webmaster</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="n">address</span><span class="nd">@somedomain.com</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">context</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Servlets</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Simple</span> <span class="n">Servlet</span><span class="o">,</span> <span class="n">provide</span> <span class="n">a</span> <span class="n">name</span><span class="o">,</span> <span class="n">class</span><span class="o">,</span> <span class="n">description</span> <span class="n">and</span> <span class="n">map</span> <span class="n">to</span> <span class="n">URL</span> <span class="o">/</span><span class="n">servlet</span><span class="o">/</span><span class="n">SimpleServlet</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Simple</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">SimpleServlet</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">Hello</span> <span class="n">World</span> <span class="n">servlet</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Simple</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">servlet</span><span class="o">/</span><span class="n">SimpleServlet</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">CMS</span> <span class="n">Servlet</span><span class="o">,</span> <span class="n">responds</span> <span class="n">to</span> <span class="o">*.</span><span class="na">cms</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">Identification</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">cms</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">metawerx</span><span class="o">.</span><span class="na">servlets</span><span class="o">.</span><span class="na">ContentManagementSystem</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">servlet</span> <span class="n">handles</span> <span class="n">requests</span> <span class="k">for</span> <span class="n">the</span> <span class="nf">CMS</span> <span class="o">(</span><span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="n">controller</span> <span class="n">in</span> <span class="n">an</span> <span class="n">MVC</span> <span class="n">architecture</span><span class="o">)&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;!--</span> <span class="n">This</span> <span class="n">servlet</span> <span class="n">has</span> <span class="n">two</span> <span class="n">parameters</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">debug</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">detail</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="n">2</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;!--</span> <span class="n">Load</span> <span class="k">this</span> <span class="n">servlet</span> <span class="n">when</span> <span class="n">the</span> <span class="n">application</span> <span class="nf">starts</span> <span class="o">(</span><span class="n">call</span> <span class="n">the</span> <span class="nf">init</span><span class="o">()</span> <span class="n">method</span> <span class="n">of</span> <span class="n">the</span> <span class="n">servlet</span><span class="o">)</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">load</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">startup</span><span class="o">&gt;</span><span class="n">5</span><span class="o">&lt;/</span><span class="n">load</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">startup</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="o">&lt;</span><span class="n">run</span><span class="o">-</span><span class="n">at</span><span class="o">&gt;</span><span class="nl">0:</span><span class="n">00</span><span class="o">,</span> <span class="nl">6:</span><span class="n">00</span><span class="o">,</span> <span class="nl">12:</span><span class="n">00</span><span class="o">,</span> <span class="nl">18:</span><span class="n">00</span><span class="o">&lt;/</span><span class="n">run</span><span class="o">-</span><span class="n">at</span><span class="o">&gt;</span> <span class="n">This</span> <span class="n">tag</span> <span class="n">is</span> <span class="n">only</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">Resin</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Map</span> <span class="n">some</span> <span class="n">URLs</span> <span class="n">to</span> <span class="n">the</span> <span class="n">cms</span> <span class="nf">servlet</span> <span class="o">(</span><span class="n">demonstrates</span> <span class="o">*.</span><span class="na">extension</span> <span class="n">mapping</span><span class="o">)</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">For</span> <span class="n">any</span> <span class="n">URL</span> <span class="n">ending</span> <span class="n">in</span> <span class="o">.</span><span class="na">cms</span><span class="o">,</span> <span class="n">the</span> <span class="n">cms</span> <span class="n">servlet</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">cms</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;*.</span><span class="na">cms</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Rewriter</span> <span class="n">Servlet</span><span class="o">,</span> <span class="n">responds</span> <span class="n">to</span> <span class="o">/</span><span class="n">content</span><span class="o">/*</span> <span class="n">and</span> <span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">RewriterStatistics</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">a</span> <span class="n">servlet</span> <span class="n">to</span> <span class="n">respond</span> <span class="n">to</span> <span class="o">/</span><span class="n">content</span><span class="o">/*</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">rewriter</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">metawerx</span><span class="o">.</span><span class="na">servlets</span><span class="o">.</span><span class="na">URLRewriter</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Map</span> <span class="n">some</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">to</span> <span class="n">the</span> <span class="n">rewriter</span> <span class="nf">servlet</span> <span class="o">(</span><span class="n">demonstrates</span> <span class="o">/</span><span class="n">path</span><span class="o">/*</span> <span class="n">and</span> <span class="n">specific</span> <span class="n">URL</span> <span class="n">mapping</span><span class="o">)</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">For</span> <span class="n">any</span> <span class="n">URL</span> <span class="n">starting</span> <span class="n">with</span> <span class="o">/</span><span class="n">content</span><span class="o">/,</span> <span class="n">the</span> <span class="n">rewriter</span> <span class="n">servlet</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">rewriter</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">content</span><span class="o">/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">The</span> <span class="n">rewriter</span> <span class="n">servlet</span> <span class="n">can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">called</span> <span class="n">directly</span> <span class="n">as</span> <span class="o">/</span><span class="n">admin</span><span class="o">/</span><span class="n">RewriterStatistics</span><span class="o">,</span> <span class="n">to</span> <span class="k">return</span> <span class="n">stats</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">rewriter</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">admin</span><span class="o">/</span><span class="n">RewriterStatistics</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">PathJSP</span> <span class="n">Servlet</span><span class="o">,</span> <span class="n">maps</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">item</span><span class="o">/*</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">to</span> <span class="n">a</span> <span class="n">JSP</span> <span class="n">file</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">a</span> <span class="n">JSP</span> <span class="n">file</span> <span class="n">to</span> <span class="n">respond</span> <span class="n">to</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">item</span><span class="o">/*</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">pathjsp</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">pathfinder</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">jsp</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Map</span> <span class="n">some</span> <span class="n">URL</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">to</span> <span class="n">the</span> <span class="n">pathjsp</span> <span class="nf">servlet</span> <span class="o">(</span><span class="n">demonstrates</span> <span class="o">/</span><span class="kt">long</span><span class="o">/</span><span class="n">path</span><span class="o">/*</span> <span class="n">URL</span> <span class="n">mapping</span><span class="o">)</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">For</span> <span class="n">any</span> <span class="n">URL</span> <span class="n">starting</span> <span class="n">with</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">item</span><span class="o">/,</span> <span class="n">the</span> <span class="n">pathjsp</span> <span class="n">servlet</span> <span class="n">will</span> <span class="n">be</span> <span class="n">called</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">pathjsp</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">shop</span><span class="o">/</span><span class="n">item</span><span class="o">/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Filters</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Example</span> <span class="n">filter</span> <span class="n">to</span> <span class="n">set</span> <span class="n">character</span> <span class="n">encoding</span> <span class="n">on</span> <span class="n">each</span> <span class="nf">request</span> <span class="o">(</span><span class="n">from</span> <span class="n">Tomcat</span> <span class="n">servlets</span><span class="o">-</span><span class="n">examples</span> <span class="n">context</span><span class="o">)</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Set</span> <span class="n">Character</span> <span class="n">Encoding</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">filters</span><span class="o">.</span><span class="na">SetCharacterEncodingFilter</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">encoding</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="n">EUC_JP</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">init</span><span class="o">-</span><span class="n">param</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filter</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Set</span> <span class="n">Character</span> <span class="n">Encoding</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Example</span> <span class="n">filter</span> <span class="n">to</span> <span class="n">dump</span> <span class="n">the</span> <span class="n">HTTP</span> <span class="n">request</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">each</span> <span class="nf">page</span> <span class="o">(</span><span class="n">from</span> <span class="n">Tomcat</span> <span class="n">servlets</span><span class="o">-</span><span class="n">examples</span> <span class="n">context</span><span class="o">)</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Request</span> <span class="n">Dumper</span> <span class="n">Filter</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">filters</span><span class="o">.</span><span class="na">RequestDumperFilter</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filter</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Request</span> <span class="n">Dumper</span> <span class="n">Filter</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Listeners</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">example</span> <span class="n">application</span> <span class="n">events</span> <span class="n">listeners</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">listener</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">metawerx</span><span class="o">.</span><span class="na">listener</span><span class="o">.</span><span class="na">ContextListener</span><span class="o">&lt;/</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">listener</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">listener</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">metawerx</span><span class="o">.</span><span class="na">listener</span><span class="o">.</span><span class="na">SessionListener</span><span class="o">&lt;/</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">listener</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Security</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">roles</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">admin</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">cms_editors</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">role</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">a</span> <span class="n">constraint</span> <span class="n">to</span> <span class="n">restrict</span> <span class="n">access</span> <span class="n">to</span> <span class="o">/</span><span class="kd">private</span><span class="o">/*</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">display</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Security</span> <span class="n">constraint</span> <span class="k">for</span> <span class="n">the</span> <span class="o">/</span><span class="kd">private</span> <span class="n">folder</span><span class="o">&lt;/</span><span class="n">display</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+
+            <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Protected</span> <span class="n">Area</span><span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="kd">private</span><span class="o">/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+
+            <span class="o">&lt;!--</span> <span class="n">If</span> <span class="n">you</span> <span class="n">list</span> <span class="n">http</span> <span class="n">methods</span><span class="o">,</span> <span class="n">only</span> <span class="n">those</span> <span class="n">methods</span> <span class="n">are</span> <span class="kd">protected</span><span class="o">.</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;!--</span> <span class="n">Leave</span> <span class="k">this</span> <span class="n">commented</span> <span class="n">out</span> <span class="n">to</span> <span class="n">protect</span> <span class="n">all</span> <span class="n">access</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;!--</span>
+            <span class="o">&lt;</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">DELETE</span><span class="o">&lt;/</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">GET</span><span class="o">&lt;/</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">POST</span><span class="o">&lt;/</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">PUT</span><span class="o">&lt;/</span><span class="n">http</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+            <span class="o">--&gt;</span>
+
+        <span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+            <span class="o">&lt;!--</span> <span class="n">Only</span> <span class="n">only</span> <span class="n">administrator</span> <span class="n">and</span> <span class="n">CMS</span> <span class="n">editors</span> <span class="n">to</span> <span class="n">access</span> <span class="k">this</span> <span class="n">area</span> <span class="o">--&gt;</span>
+            <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">admin</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">cms_editors</span><span class="o">&lt;/</span><span class="n">role</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">FORM</span> <span class="n">based</span> <span class="n">authentication</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Leave</span> <span class="k">this</span> <span class="n">commented</span> <span class="n">out</span><span class="o">,</span> <span class="n">we</span> <span class="n">will</span> <span class="n">use</span> <span class="nf">BASIC</span> <span class="o">(</span><span class="n">HTTP</span><span class="o">)</span> <span class="n">authentication</span> <span class="n">instead</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span>
+    <span class="o">&lt;</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">FORM</span><span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;/</span><span class="n">login</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="n">form</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;/</span><span class="n">error</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">form</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+    <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">This</span> <span class="n">application</span> <span class="n">uses</span> <span class="n">BASIC</span> <span class="n">authentication</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="n">BASIC</span><span class="o">&lt;/</span><span class="n">auth</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">realm</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Editor</span> <span class="n">Login</span><span class="o">&lt;/</span><span class="n">realm</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">login</span><span class="o">-</span><span class="n">config</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">a</span> <span class="n">constraint</span> <span class="n">to</span> <span class="n">force</span> <span class="n">SSL</span> <span class="n">on</span> <span class="n">all</span> <span class="n">pages</span> <span class="n">in</span> <span class="n">the</span> <span class="n">application</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Entire</span> <span class="n">Application</span><span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/*&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">resource</span><span class="o">-</span><span class="n">collection</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span><span class="n">CONFIDENTIAL</span><span class="o">&lt;/</span><span class="n">transport</span><span class="o">-</span><span class="n">guarantee</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">user</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;/</span><span class="n">security</span><span class="o">-</span><span class="n">constraint</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Error</span> <span class="n">Handler</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">an</span> <span class="n">error</span> <span class="n">handler</span> <span class="k">for</span> <span class="n">404</span> <span class="n">pages</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">error</span><span class="o">-</span><span class="n">code</span><span class="o">&gt;</span><span class="n">404</span><span class="o">&lt;/</span><span class="n">error</span><span class="o">-</span><span class="n">code</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">error404</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span> <span class="n">an</span> <span class="n">error</span> <span class="n">handler</span> <span class="k">for</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Throwable</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">exception</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Throwable</span><span class="o">&lt;/</span><span class="n">exception</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">location</span><span class="o">&gt;/</span><span class="n">errorThrowable</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">location</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">error</span><span class="o">-</span><span class="n">page</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Extra</span> <span class="n">MIME</span> <span class="n">types</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Set</span> <span class="n">XML</span> <span class="n">mime</span><span class="o">-</span><span class="n">mapping</span> <span class="n">so</span> <span class="n">spreadsheets</span> <span class="n">open</span> <span class="n">properly</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">being</span> <span class="n">sent</span> <span class="n">as</span> <span class="n">an</span> <span class="n">octet</span><span class="o">/</span><span class="n">stream</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">mime</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">extension</span><span class="o">&gt;</span><span class="n">xls</span><span class="o">&lt;/</span><span class="n">extension</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">application</span><span class="o">/</span><span class="n">vnd</span><span class="o">.</span><span class="na">ms</span><span class="o">-</span><span class="n">excel</span><span class="o">&lt;/</span><span class="n">mime</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">mime</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Locale</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Set</span> <span class="n">Locale</span> <span class="n">Encoding</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">locale</span><span class="o">-</span><span class="n">encoding</span><span class="o">-</span><span class="n">mapping</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">locale</span><span class="o">-</span><span class="n">encoding</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">locale</span><span class="o">&gt;</span><span class="n">ja</span><span class="o">&lt;/</span><span class="n">locale</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">encoding</span><span class="o">&gt;</span><span class="n">Shift_JIS</span><span class="o">&lt;/</span><span class="n">encoding</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">locale</span><span class="o">-</span><span class="n">encoding</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">locale</span><span class="o">-</span><span class="n">encoding</span><span class="o">-</span><span class="n">mapping</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">Welcome</span> <span class="n">Files</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="n">Define</span><span class="o">,</span> <span class="n">in</span> <span class="n">order</span> <span class="n">of</span> <span class="n">preference</span><span class="o">,</span> <span class="n">which</span> <span class="n">file</span> <span class="n">to</span> <span class="n">show</span> <span class="n">when</span> <span class="n">no</span> <span class="n">filename</span> <span class="n">is</span> <span class="n">defined</span> <span class="n">in</span> <span class="n">the</span> <span class="n">path</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="nl">eg:</span> <span class="n">when</span> <span class="n">user</span> <span class="n">goes</span> <span class="n">to</span> <span class="nl">http:</span><span class="c1">//yoursite.com/ or http://yoursite.com/somefolder --&gt;
+</span><span class="c1"></span>    <span class="o">&lt;!--</span> <span class="n">Defaults</span> <span class="n">are</span> <span class="n">provided</span> <span class="n">in</span> <span class="n">the</span> <span class="n">server</span><span class="o">-</span><span class="n">wide</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span> <span class="n">file</span><span class="o">,</span> <span class="n">such</span> <span class="n">as</span> <span class="n">index</span><span class="o">.</span><span class="na">jsp</span><span class="o">,</span> <span class="n">index</span><span class="o">.</span><span class="na">htm</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="nl">Note:</span> <span class="n">using</span> <span class="k">this</span> <span class="n">tag</span> <span class="n">overrides</span> <span class="n">the</span> <span class="n">defaults</span><span class="o">,</span> <span class="n">so</span> <span class="n">don</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">forget</span> <span class="n">to</span> <span class="n">add</span> <span class="n">them</span> <span class="n">here</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span>
+        <span class="o">&lt;!--</span> <span class="n">Use</span> <span class="n">index</span><span class="o">.</span><span class="na">swf</span> <span class="k">if</span> <span class="n">present</span><span class="o">,</span> <span class="n">or</span> <span class="n">splash</span><span class="o">.</span><span class="na">jsp</span><span class="o">,</span> <span class="n">otherwise</span> <span class="n">just</span> <span class="n">look</span> <span class="k">for</span> <span class="n">the</span> <span class="n">normal</span> <span class="n">defaults</span> <span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">index</span><span class="o">.</span><span class="na">swf</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">splash</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">index</span><span class="o">.</span><span class="na">html</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">index</span><span class="o">.</span><span class="na">htm</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span><span class="n">index</span><span class="o">.</span><span class="na">jsp</span><span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">welcome</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">list</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="n">JNDI</span> <span class="n">Environment</span> <span class="n">Variables</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;!--</span> <span class="o">==========================================================</span> <span class="o">--&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">webmasterName</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="n">Ms</span><span class="o">.</span> <span class="n">W</span><span class="o">.</span> <span class="n">Master</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">cms</span><span class="o">/</span><span class="n">defaultUserSettings</span><span class="o">/</span><span class="n">recordsPerPage</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="n">30</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Integer</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="o">===========</span><span class="n">Programmer</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">virtual</span> <span class="n">name</span> <span class="k">for</span> <span class="n">resource</span><span class="o">=====================--&gt;</span>
+    <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jdbc</span><span class="o">/</span><span class="n">iass_ds</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">DataSource</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="n">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">Shareable</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">scope</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jms</span><span class="o">/</span><span class="n">StockQueue</span><span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">jms</span><span class="o">.</span><span class="na">Queue</span><span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="n">web</span><span class="o">-</span><span class="n">app</span><span class="o">&gt;</span></code></pre></div>
+<p>some confusing tags: &lt;resource-ref&gt;   &lt;resource-env-ref&gt;</p>
+
+<h3 id="servletcontext-servletconfig">ServletContext, ServletConfig</h3>
+
+<p>Basically, ServletContext defines a set of methods that a servlet uses to communicate with its servlet container.</p>
+
+<p>There is one context per &ldquo;web application&rdquo; per Java Virtual Machine. (A web application&rdquo; is a collection of servlets and content installed under a specific subset of the server&rsquo;s URL namespace such as /catalog and possibly installed via a .war file.)</p>
+
+<p>ServletConfig is used to pass parameters to a servlet during initialization.</p>
+
+<p>its methods include:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">getServletName</span><span class="o">();</span>
+<span class="n">getServletContext</span><span class="o">();</span>
+<span class="n">getInitParameter</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="n">getInitParameterNames</span><span class="o">();</span></code></pre></div>
+<p>GenericServlet has implemented ServletConfig interface.</p>
+
+<h3 id="thread-safe-consideration">thread safe consideration</h3>
+
+<p><img src="http://yangchao.me/media/servlet-lifecycle.jpg" alt="servlet-lifecycle" /></p>
+
+<p>Generally, a typical servlet lifecyle creates a single instance of a servlet class, but pools multiple threads to handle the service() method.</p>
+
+<p>So the shared resources like instance variables, helpers must be coded in thread-safe manners.</p>
+
+<h3 id="forward-vs-redirect">forward vs. redirect</h3>
+
+<p>RequestDispatcher.forward(&hellip;), Response.sendRedirect(..)</p>
+
+<p><img src="http://yangchao.me/media/forward_redirect.png" alt="forward_redirect" /></p>
+
+<p>As per what is RequestDespatcher include(), now look at the following test:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DispatcherServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="n">1L</span><span class="o">;</span>
+
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>
+			<span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+		<span class="n">PrintWriter</span> <span class="n">out</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+		<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In dispatcherServlet &lt;BR&gt;&#34;</span><span class="o">);</span>
+
+		<span class="n">RequestDispatcher</span> <span class="n">rd</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="s">&#34;Hello.jsp&#34;</span><span class="o">);</span>
+		<span class="n">rd</span><span class="o">.</span><span class="na">include</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></div>
+<p>&nbsp;</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">language</span><span class="o">=</span><span class="s">&#34;java&#34;</span> <span class="n">contentType</span><span class="o">=</span><span class="s">&#34;text/html; charset=ISO-8859-1&#34;</span>
+    <span class="n">pageEncoding</span><span class="o">=</span><span class="s">&#34;ISO-8859-1&#34;</span><span class="o">%&gt;</span>
+<span class="o">&lt;!</span><span class="n">DOCTYPE</span> <span class="n">html</span> <span class="n">PUBLIC</span> <span class="s">&#34;-//W3C//DTD HTML 4.01 Transitional//EN&#34;</span> <span class="s">&#34;http://www.w3.org/TR/html4/loose.dtd&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">meta</span> <span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="n">content</span><span class="o">=</span><span class="s">&#34;text/html; charset=ISO-8859-1&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Insert</span> <span class="n">title</span> <span class="n">here</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+<span class="n">Hello</span> <span class="n">page</span><span class="o">.</span> 
+
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span></code></pre></div>
+<p>Now the output is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">In</span> <span class="n">dispatcherServlet</span>
+<span class="n">Hello</span> <span class="n">page</span></code></pre></div>
+<p>Here we are not hard to know its accurate meaning - including and merging the response content of another servlet, JSP or static resources.</p>
+
+<p><img src="http://yangchao.me/media/RequestDispatcherInclude.jpg" alt="RequestDispatcherInclude" /></p>
+
+<h3 id="jndi-declaration-tags">JNDI declaration tags</h3>
+
+<p>We usually use &lt;resource-ref&gt; for DataSource declaration, but there&rsquo;re also other JNDI object declarations which can be used in servlet application.</p>
+
+<h4 id="lt-env-entry-gt-lt-resource-ref-gt-and-lt-resource-env-ref-gt">&lt;env-entry&gt;, &lt;resource-ref&gt; and &lt;resource-env-ref&gt;</h4>
+
+<div id="post-body-9135694041141534953" class="post-body entry-content">
+
+*   **env-entry** - Environment entry, a single-value parameter that can be used to configure how the application will operate. An example [here](http://www.cs-repository.info/2014/04/bind-and-lookup-wrapper-objects-using.html)
+*   **resource-ref** - Resource reference, which is typically to an object factory for resources such as a JDBC DataSource, a JavaMail Session, or custom object factories configured into Tomcat. An example [here](http://www.cs-repository.info/2014/04/using-jndi-lookup-for-datasource-objects.html)
+*   **resource-env-ref** - Resource environment reference, a new variation of resource-ref added in Servlet 2.4 that is simpler to configure for resources that do not require authentication information. An example[here ](http://www.cs-repository.info/2014/04/bind-and-lookup-beans-using-resource_1.html)and [here](http://www.cs-repository.info/2014/04/bind-and-lookup-beans-using-resource.html).
+</div>
+
+<h4 id="environment-entries">Environment Entries</h4>
+
+<p>For parameter values that may need to change during deployment, it&rsquo;s better to use environment entries instead, as indicated by the <code>&amp;lt;env-entry&amp;gt;</code> tag.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Send</span> <span class="n">pincode</span> <span class="n">by</span> <span class="n">mail</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">mailPincode</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="kc">false</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Boolean</span><span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">env</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span></code></pre></div>
+<p>This is a good way for environment-specific application variables. The type may be a <code>String</code>, <code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code>, <code>Boolean</code>, <code>Double</code>, or <code>Float</code> (all with their full <code>java.lang</code> qualification).</p>
+
+<p>Java code can retrieve the <code>&amp;lt;env-entry&amp;gt;</code> values using JNDI:</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Context</span> <span class="n">initCtx</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InitialContext</span><span class="o">(</span> <span class="o">);</span>
+<span class="n">Boolean</span> <span class="n">mailPincode</span> <span class="o">=</span> <span class="o">(</span><span class="n">Boolean</span><span class="o">)</span> <span class="n">initCtx</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&#34;java:comp/env/mailPincode&#34;</span><span class="o">);</span></code></pre></div>
+<p>Now you could change the variable value in deployment time:</p>
+
+<p><img src="http://yangchao.me/media/env-entry.png" alt="env-entry" /></p>
+
+<h4 id="references-to-external-resource-manager-connection-factories">References to External Resource Manager Connection Factories</h4>
+
+<p>When the environment entry is a resource factory, there&rsquo;s a <code>&amp;lt;resource-ref&amp;gt;</code> tag to use. A factory is an object that creates other objects on demand. A resource factory creates resource objects, such as database connections or message queues.</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span> <span class="n">JDBC</span> <span class="nf">DataSources</span> <span class="o">(</span><span class="nl">java:</span><span class="n">comp</span><span class="o">/</span><span class="n">env</span><span class="o">/</span><span class="n">jdbc</span><span class="o">)</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">The</span> <span class="k">default</span> <span class="n">DS</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jdbc</span><span class="o">/</span><span class="n">DefaultDS</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">DataSource</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="n">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+<span class="o">&lt;!--</span> <span class="n">JavaMail</span> <span class="n">Connection</span> <span class="nf">Factories</span> <span class="o">(</span><span class="nl">java:</span><span class="n">comp</span><span class="o">/</span><span class="n">env</span><span class="o">/</span><span class="n">mail</span><span class="o">)</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Default</span> <span class="n">Mail</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">mail</span><span class="o">/</span><span class="n">DefaultMail</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">mail</span><span class="o">.</span><span class="na">Session</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="n">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+<span class="o">&lt;!--</span> <span class="n">JMS</span> <span class="n">Connection</span> <span class="nf">Factories</span> <span class="o">(</span><span class="nl">java:</span><span class="n">comp</span><span class="o">/</span><span class="n">env</span><span class="o">/</span><span class="n">jms</span><span class="o">)</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Default</span> <span class="n">QueueFactory</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jms</span><span class="o">/</span><span class="n">QueueFactory</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">jms</span><span class="o">.</span><span class="na">QueueConnectionFactory</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span><span class="n">Container</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">auth</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span></code></pre></div>
+<p>It can have two values: <code>CONTAINER</code> or <code>SERVLET</code>. If <code>CONTAINER</code> is specified, the servlet container (the J2EE server) handles authentication before binding the factory to JNDI, using credentials provided by the deployer. If <code>SERVLET</code> is specified, the servlet must handle authentication duties programmatically.</p>
+
+<p>It&rsquo;s recommended but not required to place the resource factories under a subcontext that describes the resource type:</p>
+
+<ul>
+<li><code>jdbc/</code> for a JDBC <code>javax.sql.DataSource</code> factory</li>
+<li><code>jms/</code> for a JMS <code>javax.jms.QueueConnectionFactory</code> or <code>javax.jms.TopicConnectionFactory</code></li>
+<li><code>mail/</code> for a JavaMail <code>javax.mail.Session</code> factory</li>
+<li><code>url/</code> for a <code>java.net.URL</code> factory</li>
+</ul>
+
+<h4 id="references-to-administered-objects">References to Administered Objects</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">a</span> <span class="n">JMS</span> <span class="n">queue</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">jms</span><span class="o">/</span><span class="n">myqueue</span><span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">jms</span><span class="o">.</span><span class="na">Queue</span><span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">env</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span></code></pre></div>
+<h4 id="references-to-ejb-components">References to EJB Components</h4>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span><span class="n">Cruise</span> <span class="n">ship</span> <span class="n">cabin</span><span class="o">&lt;/</span><span class="n">description</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">ejb</span><span class="o">/</span><span class="n">CabinHome</span><span class="o">&lt;/</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">Entity</span><span class="o">&lt;/</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">home</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">titan</span><span class="o">.</span><span class="na">cabin</span><span class="o">.</span><span class="na">CabinHome</span><span class="o">&lt;/</span><span class="n">home</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">remote</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">titan</span><span class="o">.</span><span class="na">cabin</span><span class="o">.</span><span class="na">Cabin</span><span class="o">&lt;/</span><span class="n">remote</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">ejb</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span></code></pre></div>
+<p>&nbsp;</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/" rel="next" title="GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory">
+        <i class="fa fa-chevron-left"></i> GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/a-glimpse-of-jms/" rel="prev" title="A glimpse of JMS">
+        A glimpse of JMS <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：servlet basics
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#deployment-descriptor-web-xml">Deployment Descriptor: web.xml</a></li>
+<li><a href="#servletcontext-servletconfig">ServletContext, ServletConfig</a></li>
+<li><a href="#thread-safe-consideration">thread safe consideration</a></li>
+<li><a href="#forward-vs-redirect">forward vs. redirect</a></li>
+<li><a href="#jndi-declaration-tags">JNDI declaration tags</a>
+<ul>
+<li><a href="#lt-env-entry-gt-lt-resource-ref-gt-and-lt-resource-env-ref-gt">&lt;env-entry&gt;, &lt;resource-ref&gt; and &lt;resource-env-ref&gt;</a></li>
+<li><a href="#environment-entries">Environment Entries</a></li>
+<li><a href="#references-to-external-resource-manager-connection-factories">References to External Resource Manager Connection Factories</a></li>
+<li><a href="#references-to-administered-objects">References to Administered Objects</a></li>
+<li><a href="#references-to-ejb-components">References to EJB Components</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

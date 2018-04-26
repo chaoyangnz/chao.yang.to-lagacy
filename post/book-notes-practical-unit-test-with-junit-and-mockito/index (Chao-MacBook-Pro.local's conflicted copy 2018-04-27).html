@@ -1,0 +1,856 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Book notes - Practical Unit Test with JUnit and Mockito - Chao Yang</title>
+    <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
+    
+    <meta property="og:title" content="Book notes - Practical Unit Test with JUnit and Mockito">
+    <meta property="og:site_name" content="Chao Yang">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Book notes - Practical Unit Test with JUnit and Mockito - Chao Yang" />
+    <meta name="description" content="A Developer in New Zealand"> 
+    
+    <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://yangchao.me/img/apple-touch-icon.png" />
+    <link href="http://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="http://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/typescript.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href="http://yangchao.me/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Chao Yang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing seek, nothing find</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/books" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="https://github.com/chaoyangnz" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/resume/cv.pdf" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/post/index.html" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="http://yangchao.me/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> Search</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="http://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/" itemprop="url">
+        Book notes - Practical Unit Test with JUnit and Mockito
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-05-25">
+    2015-05-25
+</time>
+</span> 
+      
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/building-testing-amp-ci" itemprop="url" rel="index">
+        <span itemprop="name">Building, Testing &amp;amp; CI</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">1237 words ~6min</span>
+</span>
+      </div>
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="developers-tests">Developers&rsquo; Tests</h1>
+
+<h2 id="on-tests-and-tools">On Tests and Tools</h2>
+
+<p><strong>SUT</strong> (aka. System Under Test) – test target being tested</p>
+
+<p><strong>DOC</strong> (aka. Dependency of Components) – collaborators and dependencies when testing</p>
+
+<h3 id="types-of-developers-tests">Types of Developers&rsquo; Tests</h3>
+
+<ul>
+<li>Unit Test</li>
+<li>Integration Test</li>
+<li>End-to-End Test
+Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.</li>
+</ul>
+
+<p>Other types of tests:
+- <strong>System Integration Test</strong> – test with external systems/applications, services etc
+- <strong>User Acceptation Test</strong> – final user verification test
+- <strong>Load Test</strong> – verify system performance under pressure / load</p>
+
+<table border="1" width="635">
+<tbody>
+<tr>
+<td>**type of test**</td>
+<td>**SUT example**</td>
+<td>**DOC example**</td>
+</tr>
+<tr>
+<td rowspan="3">unit test</td>
+<td>UserService</td>
+<td>UserDAO</td>
+</tr>
+<tr>
+<td>Invoice</td>
+<td>Product</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>Account</td>
+</tr>
+<tr>
+<td rowspan="3">integration test</td>
+<td>DAO layer (ORM based)</td>
+<td>Hibernate</td>
+</tr>
+<tr>
+<td>DAO layer (JDBC based)</td>
+<td>MySQL 5</td>
+</tr>
+<tr>
+<td>FullTextIndexer module</td>
+<td>FileStorage module</td>
+</tr>
+<tr>
+<td>end-to-end test</td>
+<td>Whole application</td>
+<td>LDAP repository</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="should-developers-test-their-own-code">Should Developers Test Their Own Code?</h3>
+
+<p>Yes!</p>
+
+<h2 id="unit-tests">Unit Tests</h2>
+
+<h3 id="what-is-a-unit-test">what is a Unit Test?</h3>
+
+<p>It&rsquo;s to make sure the class you are working on right now works correctly.</p>
+
+<p>You should test your classes** in isolation**. When writing unit tests it&rsquo;s important to test a single class and nothing more. Forget about databases, Spring configuration files, and external web services.</p>
+
+<p>Concentrate on the logic of your class!</p>
+
+<h3 id="interactions-in-unit-tests">Interactions in Unit Tests</h3>
+
+<p>Types of collaboration with an SUT</p>
+
+<p><img src="http://yangchao.me/media/collaboration-of-SUT.png" alt="collaboration-of-SUT" /></p>
+
+<p>Test class has direct operations with SUT, but its collaborations have indirect operations on the SUT state.</p>
+
+<p>We use direct inputs and indirect <strong>inputs</strong> (SUT receiveing some message) to set the SUT in a required state and to invoke its methods.</p>
+
+<p>The direct and indirect outputs (SUT sending a message) of the SUT are expressions of the SUT&rsquo;s behaviours; we use them to verify whether the SUT is working properly.</p>
+
+<table border="1">
+<tbody>
+<tr>
+<td>**type of interaction**</td>
+<td>**involved parties**</td>
+<td>**description**</td>
+</tr>
+<tr>
+<td>direct input</td>
+<td rowspan="2">Test class &amp; SUT</td>
+<td>calls the SUT methods</td>
+</tr>
+<tr>
+<td>direct output</td>
+<td>values returned by the SUT to the test class after calling some SUT method</td>
+</tr>
+<tr>
+<td>indirect output</td>
+<td rowspan="2">SUT &amp; DOCs</td>
+<td>arguments passed by the SUT to a method of one of its collaborators</td>
+</tr>
+<tr>
+<td>indirect input</td>
+<td>value returned (or an exception thrown) to the SUT by collaborators, after it called some methods of its collaborators</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="state-testing-vs-interaction-testing">State Testing vs. Interaction Testing</h3>
+
+<ul>
+<li>State Testing - uses direct inputs and outputs for what the results of actions.</li>
+<li>Interaction Testing - concentrates on how messages are passed between collaborators
+With State Testing, the SUT is a black box. Interaction testing looks inside the SUT and verifies its internal parts.</li>
+</ul>
+
+<h1 id="writing-unit-testing">Writing Unit Testing</h1>
+
+<h2 id="unit-tests-with-no-collaborator">Unit tests with no collaborator</h2>
+
+<h3 id="parameterized">parameterized</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Money</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">amount</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">currency</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Money</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">,</span> <span class="n">String</span> <span class="n">currency</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">amount</span> <span class="o">=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">currency</span> <span class="o">=</span> <span class="n">currency</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAmount</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">amount</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCurrency</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">currency</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">anObject</span> <span class="k">instanceof</span> <span class="n">Money</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Money</span> <span class="n">money</span> <span class="o">=</span> <span class="o">(</span><span class="n">Money</span><span class="o">)</span> <span class="n">anObject</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">money</span><span class="o">.</span><span class="na">getCurrency</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">getCurrency</span><span class="o">())</span>
+                    <span class="o">&amp;&amp;</span> <span class="n">getAmount</span><span class="o">()</span> <span class="o">==</span> <span class="n">money</span><span class="o">.</span><span class="na">getAmount</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runners.Parameterized</span><span class="o">;</span>
+
+<span class="nd">@RunWith</span><span class="o">(</span><span class="n">Parameterized</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MoneyParameterizedTest</span> <span class="o">{</span>
+    <span class="nd">@Parameterized.Parameters</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;{index}: money({0}, {1})&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Object</span><span class="o">[]</span> <span class="nf">data</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[]</span> <span class="o">{</span>
+                <span class="k">new</span> <span class="n">Object</span><span class="o">[]</span> <span class="o">{</span><span class="n">10</span><span class="o">,</span> <span class="s">&#34;USD&#34;</span><span class="o">},</span>
+                <span class="k">new</span> <span class="n">Object</span><span class="o">[]</span> <span class="o">{</span><span class="n">20</span><span class="o">,</span> <span class="s">&#34;EUR&#34;</span><span class="o">}</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Parameterized.Parameter</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">)</span> <span class="c1">// first data value (0) is default
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">int</span> <span class="n">amount</span><span class="o">;</span>
+
+    <span class="nd">@Parameterized.Parameter</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">1</span><span class="o">)</span> <span class="c1">// value is the index in parameter tuple
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">String</span> <span class="n">currency</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">constructorShouldSetAmountAndCurrency</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Money</span> <span class="n">money</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Money</span><span class="o">(</span><span class="n">amount</span><span class="o">,</span> <span class="n">currency</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">amount</span><span class="o">,</span> <span class="n">money</span><span class="o">.</span><span class="na">getAmount</span><span class="o">());</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">currency</span><span class="o">,</span> <span class="n">money</span><span class="o">.</span><span class="na">getCurrency</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<h3 id="test-fixture">test fixture</h3>
+
+<p>A <strong>test fixture</strong> is a fixed state of a set of objects used as a baseline for running tests. The purpose of a test fixture is to ensure that there is a well known and fixed environment in which tests are run so that results are repeatable. Examples of fixtures:</p>
+
+<ul>
+<li>Preparation of input data and setup/creation of fake or mock objects</li>
+<li>Loading a database with a specific, known set of data</li>
+<li>Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.</li>
+<li>
+JUnit supports test fixture by using:</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@BeforeClass</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUpClass</span><span class="o">()</span> <span class="o">{}</span>
+
+<span class="nd">@AfterClass</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">tearDownClass</span><span class="o">()</span> <span class="o">{}</span>
+
+<span class="nd">@Before</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{}</span>
+
+<span class="nd">@After</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">tearDown</span><span class="o">()</span> <span class="o">{}</span></code></pre></div>
+<h3 id="phases-of-a-unit-test">Phases of a unit test</h3>
+
+<p><table border="1"><colgroup> <col /> <col /> </colgroup>
+<tbody>
+<tr>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p><strong>phase</strong></p>
+
+<p></div>
+</div></td>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p><strong>explanation</strong></p>
+
+<p></div>
+</div></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2">
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>arrange</p>
+
+<p></div>
+</div></td>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>creation of all objects (except for the SUT) that are necessary for test execution</p>
+
+<p></div>
+</div></td>
+</tr>
+<tr>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>creation of the object whose functionality will be tested, and setting it in some initial state</p>
+
+<p></div>
+</div></td>
+</tr>
+<tr>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>act</p>
+
+<p></div>
+</div></td>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>execution of SUT methods to be tested</p>
+
+<p></div>
+</div></td>
+</tr>
+<tr>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>assert</p>
+
+<p></div>
+</div></td>
+<td>
+<div class="layoutArea">
+<div class="column"></p>
+
+<p>verification of the test results</p>
+
+<p></div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+The first phase relates to the preparation of a test fixture.</p>
+
+<h2 id="tdd-test-driven-development">TDD (Test-Driven Development)</h2>
+
+<p>when to write test?</p>
+
+<ul>
+<li>Test Last (aka. Code First) development</li>
+<li>Test First development</li>
+</ul>
+
+<p>How TDD do?</p>
+
+<ul>
+<li>write a test that fails ( <span style="background-color: #ff0000;">     </span> )</li>
+<li>make the code work ( <span style="background-color: #00ff00;">     </span> )</li>
+<li>eliminate redundancy ( <span style="background-color: #0000ff;">     </span> )</li>
+</ul>
+
+<p><img src="http://yangchao.me/media/tdd.png" alt="tdd" /></p>
+
+<p>Note: refractor can be done for classes to test or the test code.</p>
+
+<p>TDD should be applied to every level: unit test, integration test, end-to-end test.
+<img src="http://yangchao.me/media/tdd-on-different-levels.png" alt="tdd-on-different-levels" /></p>
+
+<h1 id="test-double-stub-test-spy-mock"> test double (stub, test spy, mock)</h1>
+
+<p><table border="1" width="644"><caption>Types of test doubles</caption>
+<tbody>
+<tr>
+<td>test double type</td>
+<td>also known as (aka.)</td>
+<td>description</td>
+</tr>
+<tr>
+<td>dummy object</td>
+<td>dummy</td>
+<td>needs to exist, no real collaboration needed</td>
+</tr>
+<tr>
+<td>test stub</td>
+<td>stub</td>
+<td>used for passing some values to the SUT (&ldquo;indirect inputs&rdquo;)</td>
+</tr>
+<tr>
+<td>test spy</td>
+<td>spy</td>
+<td rowspan="2">used to verify if the SUT calls specific method of the collaborator (&ldquo;indirect outputs&rdquo;)</td>
+</tr>
+<tr>
+<td>mock object</td>
+<td>mock</td>
+</tr>
+<tr>
+<td>fake</td>
+<td>fake</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<img src="http://yangchao.me/media/test-doubles.png" alt="test-doubles" /></p>
+
+<ul>
+<li>Dummies and stubs are used to prepare the environment for testing (test-fixture setting). They are not used for verification.</li>
+<li>Test spies and mocks are to verify the correctness of the communication between the SUT and DOCs.  Bothe can also participate in test-fixture setting.
+<strong>Fake</strong>
+For the sake of completeness, let us describe another type of test double: a fake. Fake works almost as good as the real collaborator, but is somehow simpler and/or weaker (which makes it not suitable for production use). It is also usually &ldquo;cheaper&rdquo; in use (i.e. faster or simpler to set up), which makes it suited to tests (which should run as fast as possible). A typical example is an in-memory database that is used instead of a full-blown database server. It can be used for some tests, as it serves SQL requests pretty well; however, you would not want to use it in a production environment. In tests, fake plays a similar role to dummy and stub: it is a part of the environment (test fixture), not an object of verification. Fakes are used in integration tests rather than in unit tests, so we will not be discussing them any further.</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">messenger</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Richard on 24/05/15.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Messenger</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">TemplateEngine</span> <span class="n">templateEngine</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">MailServer</span> <span class="n">mailServer</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Messenger</span><span class="o">(</span><span class="n">MailServer</span> <span class="n">mailServer</span><span class="o">,</span> <span class="n">TemplateEngine</span> <span class="n">templateEngine</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">mailServer</span> <span class="o">=</span> <span class="n">mailServer</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">templateEngine</span> <span class="o">=</span> <span class="n">templateEngine</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendMessage</span><span class="o">(</span><span class="n">Client</span> <span class="n">client</span><span class="o">,</span> <span class="n">Template</span> <span class="n">template</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">msgContent</span> <span class="o">=</span> <span class="n">templateEngine</span><span class="o">.</span><span class="na">prepareMessage</span><span class="o">(</span><span class="n">template</span><span class="o">,</span> <span class="n">client</span><span class="o">);</span>
+        <span class="n">mailServer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getEmail</span><span class="o">(),</span> <span class="n">msgContent</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">MailServer</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">send</span><span class="o">(</span><span class="n">Object</span> <span class="n">email</span><span class="o">,</span> <span class="n">String</span> <span class="n">msgContent</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Template</span> <span class="o">{</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">TemplateEngine</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="nf">prepareMessage</span><span class="o">(</span><span class="n">Template</span> <span class="n">template</span><span class="o">,</span> <span class="n">Client</span> <span class="n">client</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">messenger</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import static</span> <span class="nn">org.mockito.Mockito.*</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Richard on 24/05/15.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MessengerTest</span> <span class="o">{</span>
+    <span class="c1">// SUT
+</span><span class="c1"></span>    <span class="n">Messenger</span> <span class="n">messenger</span><span class="o">;</span>
+
+    <span class="c1">// dummy
+</span><span class="c1"></span>    <span class="n">Client</span> <span class="n">client</span><span class="o">;</span>
+    <span class="n">Template</span> <span class="n">template</span><span class="o">;</span>
+
+    <span class="c1">// stub
+</span><span class="c1"></span>    <span class="n">TemplateEngine</span> <span class="n">templateEngine</span><span class="o">;</span>
+
+    <span class="c1">// spy
+</span><span class="c1"></span>    <span class="n">MailServer</span> <span class="n">mailServer</span><span class="o">;</span>
+
+    <span class="kd">final</span> <span class="n">String</span> <span class="n">CLIENT_EMAIL</span> <span class="o">=</span> <span class="s">&#34;some@email.com&#34;</span><span class="o">;</span>
+    <span class="kd">final</span> <span class="n">String</span> <span class="n">MSG_CONTENT</span> <span class="o">=</span> <span class="s">&#34;Dear John! You are fired.&#34;</span><span class="o">;</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// dummy
+</span><span class="c1"></span>        <span class="n">template</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">Template</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="c1">// stubs
+</span><span class="c1"></span>        <span class="n">client</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">Client</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getEmail</span><span class="o">()).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">CLIENT_EMAIL</span><span class="o">);</span>
+
+        <span class="n">templateEngine</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">TemplateEngine</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">when</span><span class="o">(</span><span class="n">templateEngine</span><span class="o">.</span><span class="na">prepareMessage</span><span class="o">(</span><span class="n">template</span><span class="o">,</span> <span class="n">client</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">MSG_CONTENT</span><span class="o">);</span>
+
+        <span class="c1">// spy
+</span><span class="c1"></span>        <span class="n">mailServer</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">MailServer</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="c1">// SUT
+</span><span class="c1"></span>        <span class="n">messenger</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Messenger</span><span class="o">(</span><span class="n">mailServer</span><span class="o">,</span> <span class="n">templateEngine</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">client</span><span class="o">,</span> <span class="n">template</span><span class="o">);</span>
+
+        <span class="c1">// verify interaction
+</span><span class="c1"></span>        <span class="n">verify</span><span class="o">(</span><span class="n">mailServer</span><span class="o">).</span><span class="na">send</span><span class="o">(</span><span class="n">CLIENT_EMAIL</span><span class="o">,</span> <span class="n">MSG_CONTENT</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="http://yangchao.me/post/scea-architect/" rel="next" title="SCEA architect">
+        <i class="fa fa-chevron-left"></i> SCEA architect
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="http://yangchao.me/post/jvm-dump-lab/" rel="prev" title="JVM dump lab">
+        JVM dump lab <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     <div class="post-nav">
+<div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+    <div style="float:left;margin-top:0px;">
+    <img src="http://yangchao.me/images/qrcode/qrcode_8cm.jpg" width="129px" height="129px"/>
+    <div style="text-align:center;">微信扫一扫交流</div>
+    </div>
+    <div>
+        <p style="margin-top:0px;">
+            标题：Book notes - Practical Unit Test with JUnit and Mockito
+        <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
+        <br />关注：richdyang（CHAO）
+        <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
+        </p>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+     
+     
+     
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="http://yangchao.me/img/author.jpg"
+        alt="Chao" />
+    <p class="site-author-name" itemprop="name">Chao</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        Programmer &amp; Life explorer</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="http://yangchao.me/post/">
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">Blogs</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="http://yangchao.me/categories/">      
+         
+        <span class="site-state-item-count">49</span>
+        
+        <span class="site-state-item-name">Categories</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="http://yangchao.me/tags/">
+         
+        <span class="site-state-item-count">20</span>
+        
+        <span class="site-state-item-name">Tags</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
+            <i class="fa fa-fw fa-linkedin"></i>
+            Linkedin
+        </a>
+        </span>
+    
+</div>
+
+      
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li><a href="#developers-tests">Developers&rsquo; Tests</a>
+<ul>
+<li><a href="#on-tests-and-tools">On Tests and Tools</a>
+<ul>
+<li><a href="#types-of-developers-tests">Types of Developers&rsquo; Tests</a></li>
+<li><a href="#should-developers-test-their-own-code">Should Developers Test Their Own Code?</a></li>
+</ul></li>
+<li><a href="#unit-tests">Unit Tests</a>
+<ul>
+<li><a href="#what-is-a-unit-test">what is a Unit Test?</a></li>
+<li><a href="#interactions-in-unit-tests">Interactions in Unit Tests</a></li>
+<li><a href="#state-testing-vs-interaction-testing">State Testing vs. Interaction Testing</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#writing-unit-testing">Writing Unit Testing</a>
+<ul>
+<li><a href="#unit-tests-with-no-collaborator">Unit tests with no collaborator</a>
+<ul>
+<li><a href="#parameterized">parameterized</a></li>
+<li><a href="#test-fixture">test fixture</a></li>
+<li><a href="#phases-of-a-unit-test">Phases of a unit test</a></li>
+</ul></li>
+<li><a href="#tdd-test-driven-development">TDD (Test-Driven Development)</a></li>
+</ul></li>
+<li><a href="#test-double-stub-test-spy-mock"> test double (stub, test spy, mock)</a></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2018</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Chao Yang</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.30.2</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b07433b4ab8d587dae7d34e71973839";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58416275" charset="UTF-8"></script> 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="http://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="http://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="http://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="http://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/utils.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/motion.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/affix.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/scrollspy.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/post-details.js"></script>
+<script type="text/javascript" src="http://yangchao.me/js/toc.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://yangchao.me/js/search.js"></script>
+</body>
+</html>

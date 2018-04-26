@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>finalize() - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="finalize()">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="finalize() - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/finalize/" itemprop="url">
+        finalize()
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,81 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-03-20">
+    2015-03-20
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/basics" itemprop="url" rel="index">
+        <span itemprop="name">Basics</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">250 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    <p>finalize() method is a protected method of Object class. It&rsquo;s intended to be invoked by GC thread before GC reclaim the memory allocated to the object.</p>
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>Misguidingly it&rsquo;s regarded as a place for doing some cleaning works, like releasing resources.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p><em><strong>But this is NOT recommended!!</strong></em></p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>As we cannot know when GC do the thing, so we do some cleaning work becomes <strong>not guaranteed</strong> at all and <strong>uncertain</strong>.</p>
+
+<p>Other drawbacks:</p>
+
+<p>1) <strong>exceptions</strong> thrown in the finalize() method will <strong>be ignored by the GC thread</strong> and will not be propagated further. This is pretty bad, we cannot know what happened and no log left for error handling.</p>
+
+<p>2) Not like the constructor invoking the constructor of its super classes implicitly, you should invoke <strong>super class</strong>&rsquo;s finalize() <strong>explicitly</strong>.</p>
+
+<p>Runtime has some methods to make best efforts to do something.</p>
+
+<ul>
+<li>System.gc()   &mdash; this is a shortcut of Runtime.getRuntime().gc()</li>
+<li>Runtime.getRuntime().runFinalization()</li>
+<li><del>Runtime.runFinalizersOnExit(true)  </del>   this method is deprecated because of being unsafe
+<strong>“This method is inherently unsafe. It may result in finalizers being called on live objects while other threads are concurrently manipulating those objects, resulting in erratic behavior or deadlock.”</strong></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ObjectWithFinalizer</span> <span class="o">{</span>
+
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">finalized</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;finalize() invoked&#34;</span><span class="o">);</span>
+            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span> <span class="o">/</span> <span class="n">0</span><span class="o">;</span> <span class="c1">// expect to throw ArithmeticException
+</span><span class="c1"></span>        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">finalize</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ObjectWithFinalizer</span> <span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectWithFinalizer</span><span class="o">();</span>
+        <span class="n">o</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// wish GC to reclaim the memory
+</span><span class="c1">//        System.gc();
+</span><span class="c1"></span>        <span class="n">Runtime</span><span class="o">.</span><span class="na">runFinalizersOnExit</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+<p>After running the above code, we cannot see the expected result.</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +222,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/" rel="next" title="What is the exact answer, When interviewer ask Architecture of the project.">
+        <i class="fa fa-chevron-left"></i> What is the exact answer, When interviewer ask Architecture of the project.
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/overriding-vs-hidingaka-shadowing/" rel="prev" title="Overriding vs. hiding(aka. shadowing)">
+        Overriding vs. hiding(aka. shadowing) <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +245,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：finalize()
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +277,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +326,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +348,12 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

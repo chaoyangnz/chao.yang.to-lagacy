@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>JavaEE Multi-popuse Application Frameworks - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="JavaEE Multi-popuse Application Frameworks">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="JavaEE Multi-popuse Application Frameworks - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/javaee-multi-popuse-application-frameworks/" itemprop="url">
+        JavaEE Multi-popuse Application Frameworks
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,59 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-09-08">
+    2015-09-08
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/project-architecture" itemprop="url" rel="index">
+        <span itemprop="name">Project Architecture</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">273 words ~2min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    <p>This is an application framework to satisfy all kinds of purposes.</p>
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>Firstly, it would support all sort of channels, which I mean a variety of <strong><span style="background-color: #ffff00;">protocols</span></strong>, <span style="background-color: #ffff00;"><strong>message formats</strong></span>, channel-in &amp; chennel-out technologies and application scenarios. Typical ones are like <span style="background-color: #ffff99;"><strong>http, jms, tcp</strong></span>, <span style="background-color: #ffff00;">web service</span> and formats:<span style="background-color: #ffff00;"> json, soap, FIX, iso 8583, customized fix-length</span>.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>Secondly, it would abstract the channel-related processing, and make business logic development separate from these channel details. For example, we need to make our service layer transparent for the channel, and not aware of the protocols, devices, client types.</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>A key design consideration is we use a <strong>data bus conception</strong>. We can extract all the channel-related data into this data bus. This data bus is the data context going through all the processing of a request.</p>
+
+<p>And to acquire the flexibility and the extensibility, we use an <strong>interceptor</strong> chain mechanism., which is very similar to the Servlet filters, or the Spring interceptor.</p>
+
+<p>For the business logic, we designed the <strong>Process and Action concepts</strong>. Basically, a Process is a flow of processing, which can combine multiple actions and can be configured as complicated flow just like the workflow definition.</p>
+
+<p>For the <strong>channel adaptor</strong>, we need to implement them one by one. For example, we implement the HTTP channel just using Spring MVC and extending it. For the TCP channel, we use the Netty library to implement the server and client.</p>
+
+<p>And another important thing is the <strong>message transformation</strong>. All the data format can be defined by XML. and you can freely use all the message format for response or request. The transformation happens automatically.</p>
+
+<p>The following is a high-level conception diagram:</p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +200,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/statically-loading-vs-dynamically-loading/" rel="next" title="statically loading vs. dynamically loading">
+        <i class="fa fa-chevron-left"></i> statically loading vs. dynamically loading
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/http-cache/" rel="prev" title="HTTP cache">
+        HTTP cache <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +223,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：JavaEE Multi-popuse Application Frameworks
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +255,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +304,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +326,12 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

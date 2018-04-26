@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>mybatis cache - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="mybatis cache">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="mybatis cache - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/mybatis-cache/" itemprop="url">
+        mybatis cache
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,228 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-11-06">
+    2015-11-06
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/uncategorized" itemprop="url" rel="index">
+        <span itemprop="name">Uncategorized</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">1475 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    <p>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些statements来useCache, 哪些statements触发flushCache.</p>
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>一旦触发了flushCache, cache将invalidate并清空，下次的查询都将从数据库查询，并放入cache</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<p>限制：
+* 同一个应用，一旦使用cache，需遵循：
+1. 查询：先查询cache，命中返回; 未命中，查询数据库后放入cache
+2. 修改：修改数据库，flush cache
+* 一旦修改了cache区域中数据，一定要flush，否则会出现cache与数据库不一致
+* 使用cache的应用，外部程序(工具)直接修改数据库一定要慎重，因为极有可能导致数据不一致</p>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<p>下面是一个例子：</p>
+
+<p>``` xml mybatis-config.xml
+&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC “-//mybatis.org//DTD Config 3.0//EN”
+        “<a href="http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;">http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</a>
+<configuration>
+    <settings>
+        <setting name=”cacheEnabled” value=”true”/>
+    </settings>
+    <environments default=”development”>
+        <environment id=”development”>
+            <transactionManager type=”JDBC”/>
+            <dataSource type=”POOLED”>
+                <property name=”driver” value=”com.mysql.jdbc.Driver”/>
+                <property name=”url” value=”jdbc:mysql://localhost:3306/test”/>
+                <property name=”username” value=”root”/>
+                <property name=”password” value=””/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource=”SqlMapper.xml”/>
+    </mappers>
+</configuration></p>
+
+<pre><code>
+
+
+``` xml SqlMapper.xml
+&lt;?xml version=”1.0” encoding=”UTF-8” ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC “-//mybatis.org//DTD Mapper 3.0//EN”
+        “http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=”person”&gt;
+    &lt;cache eviction=&quot;FIFO&quot;
+       flushInterval=&quot;60000&quot;
+       size=&quot;512&quot;
+       readOnly=&quot;true&quot;/&gt;
+
+&lt;select id=&quot;selectPerson&quot; resultType=&quot;java.util.HashMap&quot; flushCache=&quot;false&quot; useCache=&quot;true&quot;&gt;
+    select * from person
+&lt;/select&gt;
+
+&lt;insert id=&quot;insertPerson&quot;&gt;
+    insert into person values ('ccccc', 23, 'shenzhen')
+&lt;/insert&gt;
+
+&lt;insert id=&quot;insertStaff&quot;&gt;
+    insert into staff values ('richard')
+&lt;/insert&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+<p>``` java Main.java
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Map;</p>
+
+<p>public class Main {</p>
+
+<pre><code>private static SqlSessionFactory sqlSessionFactory;
+private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+public static void main(String[] args) throws IOException {
+    String resource = &quot;mybatis-config.xml&quot;;
+    InputStream inputStream = Resources.getResourceAsStream(resource);
+    sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    String command = null;
+    while ((command = br.readLine()) != null) {
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        if(command.equals(&quot;q&quot;)) {
+            System.out.println(&quot;sql query:&quot;);
+            List&lt;Map&gt; list = sqlSession.selectList(&quot;person.selectPerson&quot;);
+            System.out.println(list);
+        } else if(command.equals(&quot;i&quot;)) {
+            System.out.println(&quot;sql insert:&quot;);
+            sqlSession.insert(&quot;person.insertPerson&quot;);
+        } else if(command.equals(&quot;is&quot;)) {
+            System.out.println(&quot;sql insert:&quot;);
+            sqlSession.insert(&quot;person.insertStaff&quot;);
+        }
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code>
+
+如何测试：
+
+1. 控制台输入&quot;q&quot;触发查询，可以看到首次查询，会使用sql从数据库查询
+2. 这时，我们控制台或数据库客户端(如mysql客户端)再向数据库中插入一些数据
+3. 再次控制台输入&quot;q&quot;再次触发查询，日志显示，这次cache命中，直接从cache中读数据，程序外部（客户端）插入的数据并没有得到。很容易解释，因为这些外部的插入，mybatis并不知道。
+4. 控制台输入&quot;i&quot;触发插入数据，然后再输入&quot;q&quot;触发查询，这次可以看到，会使用sql从数据库查询。可见insert触发了flushCache
+5. 控制台输入&quot;q&quot;触发查询，发现cache命中, 不执行SQL
+6. 控制台输入&quot;is&quot;触发插入另一个表的数据，然后再输入&quot;q&quot;触发查询，可以看到这时同样使用sql从数据库查询。可见虽然是不同的表的插入，也将flush整个cache, 因为他们共用位于同一个SqlMapper的namespace中的cache
+7. 控制台输入&quot;q&quot;触发查询，发现cache命中, 不执行SQL
+
+
+
+```undefined
+q
+sql query:
+2015-11-06 21:39:26,103 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+Cache Hit Ratio [person]: 0.0
+2015-11-06 21:39:26,417 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt;  Preparing: select * from person
+2015-11-06 21:39:26,447 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Parameters:
+2015-11-06 21:39:26,463 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+&lt;==      Total: 0
+[]
+i
+sql insert:
+2015-11-06 21:39:42,303 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Preparing: insert into person values (‘ccccc’, 23, ‘shenzhen’)
+2015-11-06 21:39:42,304 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Parameters:
+2015-11-06 21:39:42,305 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+&lt;== Updates: 1
+q
+sql query:
+2015-11-06 21:39:44,711 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+Cache Hit Ratio [person]: 0.0
+2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Preparing: select * from person
+2015-11-06 21:39:44,712 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Parameters:
+2015-11-06 21:39:44,718 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+&lt;== Total: 1
+[{city=shenzhen, name=ccccc, age=23}]
+q
+sql query:
+2015-11-06 21:39:50,878 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+Cache Hit Ratio [person]: 0.3333333333333333
+[{city=shenzhen, name=ccccc, age=23}]
+is
+sql insert:
+2015-11-06 21:40:00,431 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Preparing: insert into staff values (‘richard’)
+2015-11-06 21:40:00,432 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Parameters:
+2015-11-06 21:40:00,439 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+&lt;== Updates: 1
+q
+sql query:
+2015-11-06 21:40:03,310 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+Cache Hit Ratio [person]: 0.25
+2015-11-06 21:40:03,315 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Preparing: select * from person
+2015-11-06 21:40:03,316 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+==&gt; Parameters:
+2015-11-06 21:40:03,317 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+&lt;== Total: 1
+[{city=shenzhen, name=ccccc, age=23}]
+q
+sql query:
+2015-11-06 21:40:04,337 [DEBUG] (org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl.debug(JakartaCommonsLoggingImpl.java:54)) -
+Cache Hit Ratio [person]: 0.4
+[{city=shenzhen, name=ccccc, age=23}]
+
+</code></pre>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +369,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/bytecodeviewer-for-mac/" rel="next" title="BytecodeViewer for Mac">
+        <i class="fa fa-chevron-left"></i> BytecodeViewer for Mac
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/jdbc-driver-register/" rel="prev" title="JDBC Driver register">
+        JDBC Driver register <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +392,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：mybatis cache
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +424,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +473,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +495,12 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"></div>
+    </div>
+</section>
+
   </div>
 </aside>
 

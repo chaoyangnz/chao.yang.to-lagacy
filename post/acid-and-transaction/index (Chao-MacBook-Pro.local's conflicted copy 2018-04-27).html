@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>About - Chao Yang</title>
+    <title>ACID and transaction - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="About">
+    <meta property="og:title" content="ACID and transaction">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="About - Chao Yang" />
+    <meta name="title" content="ACID and transaction - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
     <link rel="shortcut icon" href="http://yangchao.me/img/favicon.ico" />
@@ -79,7 +79,7 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://github.com/richdyang" rel="section">
+          <a href="https://github.com/chaoyangnz" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Projects
           </a>
         </li>
@@ -129,8 +129,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="http://yangchao.me/about/" itemprop="url">
-        About
+        <a class="post-title-link" href="http://yangchao.me/post/acid-and-transaction/" itemprop="url">
+        ACID and transaction
         </a>
       </h1>
       <div class="post-meta">
@@ -139,29 +139,221 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">Published at:</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
-    0001-01-01
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2015-04-13">
+    2015-04-13
 </time>
 </span> 
       
+
+  <span class="post-category" >
+  &nbsp; | &nbsp;
+  <span class="post-meta-item-icon">
+    <i class="fa fa-folder-o"></i>
+  </span>
+  <span class="post-meta-item-text">Categories:</span>
+  
+    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+      <a href="http://yangchao.me/categories/databases" itemprop="url" rel="index">
+        <span itemprop="name">Databases</span>
+      </a>
+      &nbsp; 
+    </span>
+  
+</span>
+
+
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">Reading:</span>
-<span class="leancloud-visitors-count">113 words ~1min</span>
+<span class="leancloud-visitors-count">627 words ~3min</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    <p>I am a Java Developer with over 8 years enterprise-level application development experience. Low key, pragmatic, skeptical, and probably not as smart as I think I am. He/ him. I love peaceful life; reading; traveling; blogging; studying history; and getting jealous of people who can sing, dance, or paint.</p>
+    
 
-<p>I have learned a lot since I&rsquo;ve started blogging, so I might contradict views I&rsquo;ve previously expressed. I always reserve the right to change my mind, so don&rsquo;t be surprised if I do.</p>
+<p>Transaction provides data integrity in highly concurrent environments. It&rsquo;s also called Unit of Work.</p>
 
-<p>I am at the bottom of the world, welcome to the South Pacific and the land of the long white cloud - New Zealand.</p>
+<ul>
+<li>For database systems, transaction is a must-have feature. But also some exceptions, like MySQL MyISAM engine.</li>
+<li>For messaging systems like <a href="http://en.wikipedia.org/wiki/Java_Message_Service">JMS</a>, transactions are not mandatory which has  non-transacted <a href="http://docs.oracle.com/javaee/6/api/javax/jms/Session.html">acknowledgement modes</a>.</li>
+<li>File system operations are usually non-managed, but if your business requirements demand transaction file operations, you might make use a tool such as <a href="https://xadisk.java.net/">XADisk</a>.</li>
+</ul>
 
-<p>Find me on Github: Chao Yang (@richdyang)</p>
+<h3 id="acid">ACID</h3>
+
+<p>Inherently a transaction is characterized by four properties (commonly referred as ACID) :</p>
+
+<ol>
+<li>Atomicity  <em>- process</em></li>
+<li>Consistency <em>- data state</em></li>
+<li>Isolation <em>- across transactions</em></li>
+<li>Durability <em>- storage</em>
+&gt; Atomicity takes individual operations and turns them into an all-or-nothing unit of work, succeeding if and only if all contained operations succeed.
+&gt;
+&gt;
+&gt; Consistency is about the state change. A transaction must always leave the system in a consistent state.
+&gt;
+&gt;
+&gt; Isolation brings us the benefit of hiding uncommitted state changes from the outside world (other transactions), as failing transactions shouldn’t ever corrupt the state of the system.Isolation is achieved through <a href="http://en.wikipedia.org/wiki/Concurrency_control">concurrency control</a> using pessimistic or optimistic locking mechanisms.
+&gt;
+&gt;
+&gt; Durability ensure permanently change the state of a system after successful committed transaction, or logging the state changes before commit.
+Of the four properties, the atomicity is a fixed property, but everything else may be traded-off for performance/scalability reasons.</li>
+</ol>
+
+<h3 id="three-phenomena-and-isolation">three phenomena and isolation</h3>
+
+<p>The SQL standard defines four Isolation levels:</p>
+
+<ul>
+<li>READ_UNCOMMITTED</li>
+<li>READ_COMMITTED</li>
+<li>REPEATABLE_READ</li>
+<li>SERIALIZABLE
+<table style="height: 152px;" border="1" width="604">
+<tbody>
+<tr>
+<th>Isolation Level</th>
+<th>Dirty read</th>
+<th>Non-repeatable read</th>
+<th>Phantom read</th>
+</tr>
+<tr>
+<td>READ_UNCOMMITTED</td>
+<td>allowed</td>
+<td>allowed</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>READ_COMMITTED</td>
+<td>prevented</td>
+<td>allowed</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>REPEATABLE_READ</td>
+<td>prevented</td>
+<td>prevented</td>
+<td>allowed</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>prevented</td>
+<td>prevented</td>
+<td>prevented</td>
+</tr>
+</tbody>
+</table>
+Every isolation level resolves one or multiple phenomena.</li>
+</ul>
+
+<h4 id="dirty-read">Dirty read</h4>
+
+<p><img src="http://yangchao.me/media/acid-dirty-read.gif" alt="acid-dirty-read" /></p>
+
+<p>Transaction 2 reads the uncommitted(temporary or dirty) data of transaction 1. It&rsquo;s called dirty because the change may be discarded if rollback.</p>
+
+<h4 id="non-repeatable-read">Non-repeatable read</h4>
+
+<p><img src="http://yangchao.me/media/acid-non-repeatable-read.gif" alt="acid-non-repeatable-read" /></p>
+
+<p>Transaction 2 commits after transaction 1, so the queried record in memory differs in <span style="text-decoration: underline;"><em>state</em> </span>(changed) from that in database when commit.</p>
+
+<h4 id="phantom-read">Phantom read</h4>
+
+<h4 id="acid-phantom-read-media-acid-phantom-read-gif"><img src="http://yangchao.me/media/acid-phantom-read.gif" alt="acid-phantom-read" /></h4>
+
+<p>Transaction 2 commits after transaction 1, so the queried records in memory differ in <span style="text-decoration: underline;"><em>range </em></span>(more or less) from that in database when commit.</p>
+
+<p>You can regard phantom read is an extensive version of unrepeatable read.</p>
+
+<p>&nbsp;</p>
+
+<p>Even if the SQL standard mandates the use of the SERIALIZABLE isolation level, most database management system use a different default level.
+<table border="1">
+<tbody>
+<tr>
+<th>Database</th>
+<th>Default isolation Level</th>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>REPEATABLE_READ</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>READ_COMMITTED</td>
+</tr>
+<tr>
+<td>DB2</td>
+<td>CURSOR STABILITY (a.k.a READ_COMMITTED)</td>
+</tr>
+</tbody>
+</table>
+Usually, READ_COMMITED is the right choice, since even SERIALIZABLE cannot protect you from a “lost update” where the read/write happen in different transactions (and web requests).</p>
+
+<h3 id="a-classic-database-problem-lost-update">a classic database problem - lost update</h3>
+
+<h4 id="transactional-scenario">transactional scenario</h4>
+
+<p><img src="http://yangchao.me/media/lost-update.png" alt="lost-update" /></p>
+
+<h4 id="offline-concurrency-scenario">offline concurrency scenario</h4>
+
+<p><img src="http://yangchao.me/media/offline-lost-update.png" alt="offline-lost-update" /></p>
+
+<p>In this case, we should differentiate the <em><strong>system transaction boundary</strong></em> and <em><strong>business transaction boundary</strong></em>. All the above discussed is about system transaction.</p>
+
+<h3 id="locking-and-mvcc">locking and MVCC</h3>
+
+<p>Two ways for concurrency control:</p>
+
+<ul>
+<li>MVCC</li>
+<li>locking
+But as we all know, locking increases the serializable portion of the executed code, affecting <a href="http://en.wikipedia.org/wiki/Amdahl%27s_law#Parallelization">parallelization</a>.</li>
+</ul>
+
+<p>In low level, how the database uses locks or MVCC to control concurrency is very complicated and different from one to another. The explanation is worth explaining in a big book.</p>
+
+<p>Here we consider locking and MVCC in a high level.</p>
+
+<p>(We consider implicit locking is database-specific and ubiquitous when interacting with database using SQL, like read lock, write lock, share lock, mutually exclusive lock, table lock, row lock, range lock, lock escalation etc&hellip;.the list goes, so many buzzwords!)</p>
+
+<p>Basically, we mention locking just in pessimistic locking context, where locking is explicitly requested. This is from the SQL:
+&gt; select &hellip;. for update/insert/delete
+And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>application-level</em></span> optimistic locking implementation &ndash; version column. Other optimistic locking implementations include:</p>
+
+<ul>
+<li><strong><em>old/new value comparison in committing time</em></strong></li>
+<li><em><strong>checksum or hash computation</strong></em> on original data</li>
+</ul>
+
+<h4 id="pessimistic-locking">pessimistic locking</h4>
+
+<h4 id="optimistic-locking">optimistic locking</h4>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
     </div>
     <footer class="post-footer">
@@ -170,12 +362,16 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
+        <a href="http://yangchao.me/post/jpa-advanced-topics/" rel="next" title="JPA - advanced topics">
+        <i class="fa fa-chevron-left"></i> JPA - advanced topics
+        </a>
+    
     </div>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="http://yangchao.me/about/index-chao-macbook-pro.locals-conflicted-copy-2018-04-27/" rel="prev" title="About">
-        About <i class="fa fa-chevron-right"></i>
+        <a href="http://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/" rel="prev" title="To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)">
+        To find a job is a full time job 羊生煎之羊村求职攻略(ICT向) <i class="fa fa-chevron-right"></i>
         </a>
     
     </div>
@@ -189,7 +385,7 @@
     </div>
     <div>
         <p style="margin-top:0px;">
-            标题：About
+            标题：ACID and transaction
         <br />作者：<a target="_blank" href="http://yangchao.me/">Chao</a>
         <br />关注：richdyang（CHAO）
         <br />声明：自由转载-非商用-非衍生-保持署名（创作共享3.0许可证）
@@ -221,7 +417,16 @@
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
 
-    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+  <ul class="sidebar-nav motion-element">
+    <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+      Table of Content
+    </li>
+    <li class="sidebar-nav-overview" data-target="site-overview">
+      Site Information
+    </li>
+  </ul>
+
+    <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
         src="http://yangchao.me/img/author.jpg"
@@ -261,14 +466,14 @@
 <div class="links-of-author motion-element">
     
         <span class="links-of-author-item">
-        <a href="https://github.com/richdyang" target="_blank" title="GitHub">
+        <a href="https://github.com/chaoyangnz" target="_blank" title="GitHub">
             <i class="fa fa-fw fa-github"></i>
             GitHub
         </a>
         </span>
     
         <span class="links-of-author-item">
-        <a href="https://linkedin.com/in/richdyang" target="_blank" title="Linkedin">
+        <a href="https://linkedin.com/in/chaoyangnz" target="_blank" title="Linkedin">
             <i class="fa fa-fw fa-linkedin"></i>
             Linkedin
         </a>
@@ -283,6 +488,39 @@
 
     </section>
     
+<section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+    <div class="post-toc">
+        <div class="post-toc-content"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#acid">ACID</a></li>
+<li><a href="#three-phenomena-and-isolation">three phenomena and isolation</a>
+<ul>
+<li><a href="#dirty-read">Dirty read</a></li>
+<li><a href="#non-repeatable-read">Non-repeatable read</a></li>
+<li><a href="#phantom-read">Phantom read</a></li>
+<li><a href="#acid-phantom-read-media-acid-phantom-read-gif"><img src="http://yangchao.me/media/acid-phantom-read.gif" alt="acid-phantom-read" /></a></li>
+</ul></li>
+<li><a href="#a-classic-database-problem-lost-update">a classic database problem - lost update</a>
+<ul>
+<li><a href="#transactional-scenario">transactional scenario</a></li>
+<li><a href="#offline-concurrency-scenario">offline concurrency scenario</a></li>
+</ul></li>
+<li><a href="#locking-and-mvcc">locking and MVCC</a>
+<ul>
+<li><a href="#pessimistic-locking">pessimistic locking</a></li>
+<li><a href="#optimistic-locking">optimistic locking</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+    </div>
+</section>
+
   </div>
 </aside>
 
