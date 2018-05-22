@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jersey on Chao Yang</title>
-    <link>http://yangchao.me/tags/jersey/</link>
+    <link>https://yangchao.me/tags/jersey/</link>
     <description>Recent content in Jersey on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Jan 2015 06:40:09 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/tags/jersey/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/tags/jersey/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JAX-RS as the one Java web framework to rule them all?</title>
-      <link>http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</link>
+      <link>https://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</guid>
+      <guid>https://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</guid>
       <description>One of the things about Java that sometimes gets made fun of is the huge number of Java based web frameworks. There certainly are many, of all shapes and sizes! I suppose there are quite a lot of different shapes and sizes of web applications out there but it sometimes seems like there&amp;rsquo;s a 1-1 mapping between applications and frameworks :).
 Picking the right web framework is probably a managers nightmare (Which one to pick?</description>
     </item>

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring on Chao Yang</title>
-    <link>http://yangchao.me/categories/spring/</link>
+    <link>https://yangchao.me/categories/spring/</link>
     <description>Recent content in Spring on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Apr 2015 20:17:32 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/categories/spring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Spring framework - context services</title>
-      <link>http://yangchao.me/post/spring-framework-context-services/</link>
+      <link>https://yangchao.me/post/spring-framework-context-services/</link>
       <pubDate>Sat, 25 Apr 2015 20:17:32 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/spring-framework-context-services/</guid>
+      <guid>https://yangchao.me/post/spring-framework-context-services/</guid>
       <description>Bean Lifecycle Mangement &amp;nbsp; package context.lifecycle; import org.springframework.beans.BeansException; import org.springframework.beans.factory.BeanClassLoaderAware; import org.springframework.beans.factory.BeanNameAware; import org.springframework.beans.factory.DisposableBean; import org.springframework.beans.factory.InitializingBean; import org.springframework.context.ApplicationContext; import org.springframework.context.ApplicationContextAware; import javax.annotation.PostConstruct; import javax.annotation.PreDestroy; public class LifecycleExposureBean implements BeanNameAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean, DisposableBean { private String injectedProperty; public void setInjectedProperty(String injectedProperty) { System.out.println(&amp;#34;Injection: injectedProperty = [&amp;#34; + injectedProperty + &amp;#34;]&amp;#34;); this.injectedProperty = injectedProperty; } //----------------context aware------------------------- public void setBeanName(String beanName) { System.out.println(&amp;#34;BeanNameAware: beanName = [&amp;#34; + beanName + &amp;#34;]&amp;#34;); }</description>
     </item>
     
     <item>
       <title>Spring framework - transaction management</title>
-      <link>http://yangchao.me/post/spring-framework-transaction-management/</link>
+      <link>https://yangchao.me/post/spring-framework-transaction-management/</link>
       <pubDate>Fri, 03 Apr 2015 16:32:56 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/spring-framework-transaction-management/</guid>
+      <guid>https://yangchao.me/post/spring-framework-transaction-management/</guid>
       <description>In Java, there are multiple persistence APIs and all of them provides their own ways of transaction management.
  JDBC transaction: this is a resource-specific transaction, which is implemented by connection. JTA transaction: this is a transaction API for global transaction, it usually needs the support of application server. JPA transaction: JPA has its own transaction API by EntityManager. Hibernate transaction: Hibernate also provides its way to manage transaction by SessionFactory JDO: &amp;hellip; Now Spring transaction management abstracts and unifies all these API.</description>
     </item>
     
     <item>
       <title>Spring framework - AOP</title>
-      <link>http://yangchao.me/post/spring-framework-aop/</link>
+      <link>https://yangchao.me/post/spring-framework-aop/</link>
       <pubDate>Fri, 03 Apr 2015 16:17:51 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/spring-framework-aop/</guid>
+      <guid>https://yangchao.me/post/spring-framework-aop/</guid>
       <description>Crosscutting concerns refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.
 Typical use cases:
  logging security transaction  Concepts:
@@ -44,10 +44,10 @@ Typical use cases:
     
     <item>
       <title>Spring framework - IoC / DI</title>
-      <link>http://yangchao.me/post/spring-framework-ioc-di/</link>
+      <link>https://yangchao.me/post/spring-framework-ioc-di/</link>
       <pubDate>Fri, 03 Apr 2015 16:06:55 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/spring-framework-ioc-di/</guid>
+      <guid>https://yangchao.me/post/spring-framework-ioc-di/</guid>
       <description>IoC/DI and beans IoC is also known as dependency injection (DI).
 A bean just need to define its dependencies through its constructor arguments, its factory method arguments or its properties setter. And then the container will inject these dependencies when initializing this bean.
 Traditionally, the bean itself control the initialization process or location of its dependencies by directly invoking its constructor of the class or some look-up mechanism such as Service Locator pattern(e.</description>
@@ -55,10 +55,10 @@ Traditionally, the bean itself control the initialization process or location 
     
     <item>
       <title>Spring framework - the big picture</title>
-      <link>http://yangchao.me/post/spring-framework-the-big-picture/</link>
+      <link>https://yangchao.me/post/spring-framework-the-big-picture/</link>
       <pubDate>Fri, 03 Apr 2015 14:42:08 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/spring-framework-the-big-picture/</guid>
+      <guid>https://yangchao.me/post/spring-framework-the-big-picture/</guid>
       <description>Spring is a big beast. I have to sort out its design and modules.
   GroupId ArtifactId Description     org.springframework spring-aop Proxy-based AOP support   org.springframework spring-aspects AspectJ based aspects   org.springframework spring-beans Beans support, including Groovy   org.springframework spring-context Application context runtime, including scheduling and remoting abstractions   org.springframework spring-context-support Support classes for integrating common third-party libraries into a Spring application context   org.</description>
     </item>

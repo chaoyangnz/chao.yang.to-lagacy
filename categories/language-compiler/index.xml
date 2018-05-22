@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Language Compiler on Chao Yang</title>
-    <link>http://yangchao.me/categories/language-compiler/</link>
+    <link>https://yangchao.me/categories/language-compiler/</link>
     <description>Recent content in Language Compiler on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Jan 2015 04:42:49 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/categories/language-compiler/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/categories/language-compiler/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>unreachable statements</title>
-      <link>http://yangchao.me/post/unreachable-statements/</link>
+      <link>https://yangchao.me/post/unreachable-statements/</link>
       <pubDate>Fri, 16 Jan 2015 04:42:49 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/unreachable-statements/</guid>
+      <guid>https://yangchao.me/post/unreachable-statements/</guid>
       <description>Sometimes, we will meet this compiler error: unreachable statements.
 See the following examples:
 public void javapapers() { System.out.println(&amp;#34;java&amp;#34;); return; System.out.println(&amp;#34;papers&amp;#34;); // compile error }public void javapapers() { System.out.println(&amp;#34;java&amp;#34;); if(true) { return; } System.out.println(&amp;#34;papers&amp;#34;); } //This code compiled successfullypublic void javapapers() { System.out.println(&amp;#34;java&amp;#34;); while(true) { return; } System.out.println(&amp;#34;papers&amp;#34;); // compile error } Wait, but what is strange here?

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Soap Web Service on Chao Yang</title>
-    <link>http://yangchao.me/categories/soap-web-service/</link>
+    <link>https://yangchao.me/categories/soap-web-service/</link>
     <description>Recent content in Soap Web Service on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Apr 2015 14:47:44 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/categories/soap-web-service/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/categories/soap-web-service/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WSDL Service Contract in Detail</title>
-      <link>http://yangchao.me/post/wsdl-service-contract-in-detail/</link>
+      <link>https://yangchao.me/post/wsdl-service-contract-in-detail/</link>
       <pubDate>Tue, 21 Apr 2015 14:47:44 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/wsdl-service-contract-in-detail/</guid>
+      <guid>https://yangchao.me/post/wsdl-service-contract-in-detail/</guid>
       <description>Concepts in WSDL definition &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;definitions xmlns:soap=&amp;#34;http://schemas.xmlsoap.org/wsdl/soap/&amp;#34;xmlns:tns=&amp;#34;http://rand/&amp;#34;xmlns:xsd=&amp;#34;http://www.w3.org/2001/XMLSchema&amp;#34; xmlns=&amp;#34;http://schemas.xmlsoap.org/wsdl/&amp;#34; targetNamespace=&amp;#34;http://rand/&amp;#34; name=&amp;#34;RandServiceService&amp;#34;&amp;gt; &amp;lt;types&amp;gt; &amp;lt;xsd:schema&amp;gt; &amp;lt;xsd:import namespace=&amp;#34;http://rand/&amp;#34; schemaLocation=&amp;#34;http://localhost:8888/rs?xsd=1&amp;#34;&amp;gt;&amp;lt;/xsd:import&amp;gt; &amp;lt;/xsd:schema&amp;gt; &amp;lt;/types&amp;gt; &amp;lt;message name=&amp;#34;next1&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:next1&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;next1Response&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:next1Response&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;nextN&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:nextN&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;nextNResponse&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:nextNResponse&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;portType name=&amp;#34;RandService&amp;#34;&amp;gt; &amp;lt;operation name=&amp;#34;next1&amp;#34;&amp;gt; &amp;lt;input message=&amp;#34;tns:next1&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; &amp;lt;output message=&amp;#34;tns:next1Response&amp;#34;&amp;gt;&amp;lt;/output&amp;gt; &amp;lt;/operation&amp;gt; &amp;lt;operation name=&amp;#34;nextN&amp;#34;&amp;gt; &amp;lt;input message=&amp;#34;tns:nextN&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; &amp;lt;output message=&amp;#34;tns:nextNResponse&amp;#34;&amp;gt;&amp;lt;/output&amp;gt; &amp;lt;/operation&amp;gt; &amp;lt;/portType&amp;gt; &amp;lt;!-- implementation dependent definition --&amp;gt; &amp;lt;binding name=&amp;#34;RandServicePortBinding&amp;#34; type=&amp;#34;tns:RandService&amp;#34;&amp;gt; &amp;lt;soap:binding transport=&amp;#34;http://schemas.</description>
     </item>
     

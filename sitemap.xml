@@ -3,7 +3,7 @@
     
      <entry>
         <title>CORS revisit</title>
-        <url>http://yangchao.me/post/cors-revisit/</url>
+        <url>https://yangchao.me/post/cors-revisit/</url>
         <categories>
           <category>Web</category>
         </categories>
@@ -19,7 +19,7 @@ Then the server will consider the request&amp;rsquo;s Origin and either allow or
     
      <entry>
         <title>Notes - CSS in Depth</title>
-        <url>http://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</url>
+        <url>https://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</url>
         <categories>
           <category>CSS</category>
         </categories>
@@ -74,7 +74,7 @@ viewport-relative units  viewport — The framed area in the browser window wher
     
      <entry>
         <title>Javascript testing frameworks</title>
-        <url>http://yangchao.me/post/javascript-testing-frameworks/</url>
+        <url>https://yangchao.me/post/javascript-testing-frameworks/</url>
         <categories>
           <category>Javascript</category>
         </categories>
@@ -98,7 +98,7 @@ See more in A complete guide to testing Javascript in 2017
     
      <entry>
         <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
-        <url>http://yangchao.me/post/build-opencv-android-sdk/</url>
+        <url>https://yangchao.me/post/build-opencv-android-sdk/</url>
         <categories>
           <category>IoT</category>
         </categories>
@@ -120,7 +120,7 @@ That&amp;rsquo;s it. Bingo!
     
      <entry>
         <title>A developer learns design</title>
-        <url>http://yangchao.me/post/a-developer-leanrns-design/</url>
+        <url>https://yangchao.me/post/a-developer-leanrns-design/</url>
         <categories>
           <category>Design</category>
         </categories>
@@ -137,7 +137,7 @@ Affinity Photo Vimeo  Official Tutorials Video Tutorials  Udemy  Affinity Photo 
     
      <entry>
         <title>Kotlin Pitfalls</title>
-        <url>http://yangchao.me/post/kotlin-pitfalls/</url>
+        <url>https://yangchao.me/post/kotlin-pitfalls/</url>
         <categories>
           <category>Tutorial</category>
         </categories>
@@ -159,7 +159,7 @@ val map = mutableMapOf&amp;lt;Int,Int?&amp;gt;() println(map[1]) println(1 in ma
     
      <entry>
         <title>pseudo-random number &amp; shuffle</title>
-        <url>http://yangchao.me/post/pseudo-random-number-shuffle/</url>
+        <url>https://yangchao.me/post/pseudo-random-number-shuffle/</url>
         <categories>
           
         </categories>
@@ -181,7 +181,7 @@ public static void main(String[] args) { List&amp;lt;String&amp;gt; list = new A
     
      <entry>
         <title>Swift 3.0 for a Java or ES6/TypeScript developer</title>
-        <url>http://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</url>
+        <url>https://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</url>
         <categories>
           
         </categories>
@@ -215,7 +215,7 @@ But if you want the behaviours when missing break in Java, you can use the fallt
     
      <entry>
         <title>ElementRef vs. ViewContainerRef vs. TemplateRef</title>
-        <url>http://yangchao.me/post/elementref-viewcontainerref-templateref/</url>
+        <url>https://yangchao.me/post/elementref-viewcontainerref-templateref/</url>
         <categories>
           
         </categories>
@@ -234,7 +234,7 @@ import { Component, ViewChild } from &amp;#39;@angular/core&amp;#39;; import { U
     
      <entry>
         <title>ThreadLocal</title>
-        <url>http://yangchao.me/post/threadlocal/</url>
+        <url>https://yangchao.me/post/threadlocal/</url>
         <categories>
           
         </categories>
@@ -262,7 +262,7 @@ Basically, the ThreadLocalMap itself is not thread-safe, but it is associated wi
     
      <entry>
         <title>Dive into JMM</title>
-        <url>http://yangchao.me/post/dive-into-jmm/</url>
+        <url>https://yangchao.me/post/dive-into-jmm/</url>
         <categories>
           
         </categories>
@@ -277,7 +277,7 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     
      <entry>
         <title>Double Checked Locking in lazy-initialization Singleton</title>
-        <url>http://yangchao.me/post/double-checked-locking-in-singleton/</url>
+        <url>https://yangchao.me/post/double-checked-locking-in-singleton/</url>
         <categories>
           
         </categories>
@@ -314,7 +314,7 @@ Refer to: https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4
     
      <entry>
         <title>thread interrupt and cancelable mechanism</title>
-        <url>http://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/</url>
+        <url>https://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/</url>
         <categories>
           
         </categories>
@@ -332,7 +332,7 @@ Additionally, in the following scenarios, the interrupt status will be clear wit
     
      <entry>
         <title>Java array has length field?</title>
-        <url>http://yangchao.me/post/java-array-has-length-field/</url>
+        <url>https://yangchao.me/post/java-array-has-length-field/</url>
         <categories>
           
         </categories>
@@ -361,7 +361,7 @@ More implementation details, please refer to: - markOop.hpp - oop.hpp
     
      <entry>
         <title>String intern</title>
-        <url>http://yangchao.me/post/string-intern/</url>
+        <url>https://yangchao.me/post/string-intern/</url>
         <categories>
           
         </categories>
@@ -392,7 +392,7 @@ for Sample1 for Sample2 for Sample3 </content>
     
      <entry>
         <title>How JVM handle method invocation</title>
-        <url>http://yangchao.me/post/how-jvm-handle-method-invocation/</url>
+        <url>https://yangchao.me/post/how-jvm-handle-method-invocation/</url>
         <categories>
           
         </categories>
@@ -429,7 +429,7 @@ references Efficient Implementation of Java Interfaces: Invokeinterface Consider
     
      <entry>
         <title>Dynamic Proxy revisit</title>
-        <url>http://yangchao.me/post/dynamic-proxy-revisit/</url>
+        <url>https://yangchao.me/post/dynamic-proxy-revisit/</url>
         <categories>
           
         </categories>
@@ -455,7 +455,7 @@ package dynamicproxy.supportclass; import java.io.ByteArrayOutputStream; import 
     
      <entry>
         <title>DbVisualizer Tips</title>
-        <url>http://yangchao.me/post/dbvisualizer-tips/</url>
+        <url>https://yangchao.me/post/dbvisualizer-tips/</url>
         <categories>
           
         </categories>
@@ -472,7 +472,7 @@ package dynamicproxy.supportclass; import java.io.ByteArrayOutputStream; import 
     
      <entry>
         <title>Understand when to rollback</title>
-        <url>http://yangchao.me/post/understand-when-to-rollback/</url>
+        <url>https://yangchao.me/post/understand-when-to-rollback/</url>
         <categories>
           
         </categories>
@@ -498,7 +498,7 @@ BEGIN INSERT INTO TEST VALUES(1, &amp;#39;insert by clientNoErrorButProcedureRol
     
      <entry>
         <title>Oracle Statement-Level ROLLBACK</title>
-        <url>http://yangchao.me/post/oracle-statement-level-rollback/</url>
+        <url>https://yangchao.me/post/oracle-statement-level-rollback/</url>
         <categories>
           
         </categories>
@@ -525,7 +525,7 @@ Example gerardnico@orcl&amp;gt;CREATE TABLE big_table AS SELECT * FROM all_objec
     
      <entry>
         <title>Java Security 2nd - notes 1</title>
-        <url>http://yangchao.me/post/java-security-2nd-notes-1/</url>
+        <url>https://yangchao.me/post/java-security-2nd-notes-1/</url>
         <categories>
           
         </categories>
@@ -545,7 +545,7 @@ The Access Controller //TODO
     
      <entry>
         <title>How to implement a Stack with Queue</title>
-        <url>http://yangchao.me/post/implement-stack-with-queue/</url>
+        <url>https://yangchao.me/post/implement-stack-with-queue/</url>
         <categories>
           
         </categories>
@@ -563,7 +563,7 @@ import org.junit.Test; import java.util.LinkedList; import java.util.Queue; publ
     
      <entry>
         <title>Book notes: Oracle Database Transactions and Locking revealed</title>
-        <url>http://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/</url>
+        <url>https://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/</url>
         <categories>
           
         </categories>
@@ -597,7 +597,7 @@ Chapter 2 Locking and Issues </content>
     
      <entry>
         <title>Regex in Java</title>
-        <url>http://yangchao.me/post/regex-in-java/</url>
+        <url>https://yangchao.me/post/regex-in-java/</url>
         <categories>
           
         </categories>
@@ -632,7 +632,7 @@ Further references  Oracle Java Tutorial for Regular Expressions
     
      <entry>
         <title>Book reading plan for 2016</title>
-        <url>http://yangchao.me/post/book-reading-plan-for-2016/</url>
+        <url>https://yangchao.me/post/book-reading-plan-for-2016/</url>
         <categories>
           
         </categories>
@@ -645,7 +645,7 @@ Database in-depth knowledge for a programmer (February)   read the document of P
     
      <entry>
         <title>A problem with HTTP 206 Partial</title>
-        <url>http://yangchao.me/post/a-preoblem-with-http-206-partial/</url>
+        <url>https://yangchao.me/post/a-preoblem-with-http-206-partial/</url>
         <categories>
           
         </categories>
@@ -668,7 +668,7 @@ Basically, in Java, we need to know some security APIs:
     
      <entry>
         <title>Synology NAS &#43; NetGear router</title>
-        <url>http://yangchao.me/post/synology-nas-netgear-router/</url>
+        <url>https://yangchao.me/post/synology-nas-netgear-router/</url>
         <categories>
           
         </categories>
@@ -688,7 +688,7 @@ Perfect! Enjoy it.
     
      <entry>
         <title>Mac OSX tips</title>
-        <url>http://yangchao.me/post/mac-osx-tips/</url>
+        <url>https://yangchao.me/post/mac-osx-tips/</url>
         <categories>
           
         </categories>
@@ -704,7 +704,7 @@ I define &amp;ldquo;Put Display to Sleep&amp;rdquo; when I move the mouse pointe
     
      <entry>
         <title>SSH Key-based Authentication</title>
-        <url>http://yangchao.me/post/ssh-key-based-authentication/</url>
+        <url>https://yangchao.me/post/ssh-key-based-authentication/</url>
         <categories>
           
         </categories>
@@ -720,7 +720,7 @@ That&amp;rsquo;s OK. Now you can ssh to your server without password.
     
      <entry>
         <title>Gradle use notes</title>
-        <url>http://yangchao.me/post/gradle-use-notes/</url>
+        <url>https://yangchao.me/post/gradle-use-notes/</url>
         <categories>
           
         </categories>
@@ -741,7 +741,7 @@ Build Setup tasks ----------------- init - Initializes a new Gradle build. [incu
     
      <entry>
         <title>Perforce P4V use notes</title>
-        <url>http://yangchao.me/post/perforce-p4v-use-notes/</url>
+        <url>https://yangchao.me/post/perforce-p4v-use-notes/</url>
         <categories>
           
         </categories>
@@ -758,7 +758,7 @@ Perforce concepts Whenever we get to know some new products or tools, we need to
     
      <entry>
         <title>Goodbye Wordpress, hello Hexo! </title>
-        <url>http://yangchao.me/post/goodbye-wordpress-hello-hexo/</url>
+        <url>https://yangchao.me/post/goodbye-wordpress-hello-hexo/</url>
         <categories>
           
         </categories>
@@ -792,7 +792,7 @@ After using all sorts of markdown apps on Mac OSX, like Typera, Mou, Byword, Uly
     
      <entry>
         <title>JDBC Driver register</title>
-        <url>http://yangchao.me/post/jdbc-driver-register/</url>
+        <url>https://yangchao.me/post/jdbc-driver-register/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -808,7 +808,7 @@ For example: * DB2 JDBC driver db2jcc4.jar is packaged following the service pro
     
      <entry>
         <title>mybatis cache</title>
-        <url>http://yangchao.me/post/mybatis-cache/</url>
+        <url>https://yangchao.me/post/mybatis-cache/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -828,7 +828,7 @@ private static SqlSessionFactory sqlSessionFactory; private static BufferedReade
     
      <entry>
         <title>BytecodeViewer for Mac</title>
-        <url>http://yangchao.me/post/bytecodeviewer-for-mac/</url>
+        <url>https://yangchao.me/post/bytecodeviewer-for-mac/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -844,7 +844,7 @@ https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8
     
      <entry>
         <title>Inner classes synthetic</title>
-        <url>http://yangchao.me/post/inner-classes-synthetic/</url>
+        <url>https://yangchao.me/post/inner-classes-synthetic/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -862,7 +862,7 @@ class corejava/Enclosing$1LocalClass { synthetic final java.util.List val$localL
     
      <entry>
         <title>closure</title>
-        <url>http://yangchao.me/post/closure/</url>
+        <url>https://yangchao.me/post/closure/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -876,7 +876,7 @@ class corejava/Enclosing$1LocalClass { synthetic final java.util.List val$localL
     
      <entry>
         <title>JavaScript execution using single thread (zz)</title>
-        <url>http://yangchao.me/post/javascript-execution-using-single-thread-zz/</url>
+        <url>https://yangchao.me/post/javascript-execution-using-single-thread-zz/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -904,7 +904,7 @@ defer
     
      <entry>
         <title>HTTP cache</title>
-        <url>http://yangchao.me/post/http-cache/</url>
+        <url>https://yangchao.me/post/http-cache/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -921,7 +921,7 @@ Last-Modified: {time}ETag: {etag}Expire: {time} Cache-Control: maxAge={seconds} 
     
      <entry>
         <title>JavaEE Multi-popuse Application Frameworks</title>
-        <url>http://yangchao.me/post/javaee-multi-popuse-application-frameworks/</url>
+        <url>https://yangchao.me/post/javaee-multi-popuse-application-frameworks/</url>
         <categories>
           <category>Project Architecture</category>
         </categories>
@@ -943,7 +943,7 @@ The following is a high-level conception diagram:
     
      <entry>
         <title>statically loading vs. dynamically loading</title>
-        <url>http://yangchao.me/post/statically-loading-vs-dynamically-loading/</url>
+        <url>https://yangchao.me/post/statically-loading-vs-dynamically-loading/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -960,7 +960,7 @@ But if you do some operations, like
     
      <entry>
         <title>Logging problem in Spring MVC project</title>
-        <url>http://yangchao.me/post/logging-problem-in-spring-mvc-project/</url>
+        <url>https://yangchao.me/post/logging-problem-in-spring-mvc-project/</url>
         <categories>
           <category>Project problems</category>
         </categories>
@@ -981,7 +981,7 @@ A sample configurations is shown as following.
     
      <entry>
         <title>No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]</title>
-        <url>http://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</url>
+        <url>https://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</url>
         <categories>
           <category>Project problems</category>
         </categories>
@@ -998,7 +998,7 @@ url-pattern: /* and / the difference is : &amp;gt; SRV.11.2 Specification of Map
     
      <entry>
         <title>GC revisit</title>
-        <url>http://yangchao.me/post/gc-revisit/</url>
+        <url>https://yangchao.me/post/gc-revisit/</url>
         <categories>
           <category>JVM</category>
         </categories>
@@ -1018,7 +1018,7 @@ Heap layout generational heap G1 heap GC process illustrations tuning options tu
     
      <entry>
         <title>Java Serialization</title>
-        <url>http://yangchao.me/post/java-serialization/</url>
+        <url>https://yangchao.me/post/java-serialization/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -1038,7 +1038,7 @@ Example public class SerializationInOneJVM { @Test public void testWrite() throw
     
      <entry>
         <title>Java Collections Framework</title>
-        <url>http://yangchao.me/post/java-collections-framework/</url>
+        <url>https://yangchao.me/post/java-collections-framework/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -1068,7 +1068,7 @@ http://www.cnblogs.com/skywang12345/p/java_threads_category.html
     
      <entry>
         <title>MySQL InnoDB Locking and Isolation Level</title>
-        <url>http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</url>
+        <url>https://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</url>
         <categories>
           <category>Databases</category>
         </categories>
@@ -1095,7 +1095,7 @@ Locking in different Isolation Level    Read Uncommitted(RU) Read Committed(RC)
     
      <entry>
         <title>JVM dump lab</title>
-        <url>http://yangchao.me/post/jvm-dump-lab/</url>
+        <url>https://yangchao.me/post/jvm-dump-lab/</url>
         <categories>
           <category>Performance</category>
         </categories>
@@ -1139,7 +1139,7 @@ Memory Analyzer extends Eclipse MAT version 1.4 using the Diagnostic Tool Framew
     
      <entry>
         <title>Book notes - Practical Unit Test with JUnit and Mockito</title>
-        <url>http://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/</url>
+        <url>https://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/</url>
         <categories>
           <category>Building, Testing &amp;amp; CI</category>
         </categories>
@@ -1176,7 +1176,7 @@ TDD should be applied to every level: unit test, integration test, end-to-end te
     
      <entry>
         <title>SCEA architect</title>
-        <url>http://yangchao.me/post/scea-architect/</url>
+        <url>https://yangchao.me/post/scea-architect/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -1190,7 +1190,7 @@ You can define the structure of a system as the mechanisms that the system emplo
     
      <entry>
         <title>Get started with AngularJS</title>
-        <url>http://yangchao.me/post/get-started-with-angularjs/</url>
+        <url>https://yangchao.me/post/get-started-with-angularjs/</url>
         <categories>
           <category>Javascript</category>
         </categories>
@@ -1217,7 +1217,7 @@ myApp.controller(&amp;#39;DemoController&amp;#39;, [&amp;#39;clientId&amp;#39;, 
     
      <entry>
         <title>JavaScript scopes and context</title>
-        <url>http://yangchao.me/post/javascript-scope-and-context/</url>
+        <url>https://yangchao.me/post/javascript-scope-and-context/</url>
         <categories>
           <category>Javascript</category>
         </categories>
@@ -1252,7 +1252,7 @@ var Module = (function(){ var privateProperty = &amp;#39;foo&amp;#39;; function 
     
      <entry>
         <title>JavaScript prototype: __proto__ vs. prototype</title>
-        <url>http://yangchao.me/post/javascript-prototype-proto-vs-prototype/</url>
+        <url>https://yangchao.me/post/javascript-prototype-proto-vs-prototype/</url>
         <categories>
           <category>Javascript</category>
         </categories>
@@ -1273,7 +1273,7 @@ Javascript object model Now we illustrate the complete relations for prototype:
     
      <entry>
         <title>web vulnerability issues: XSS, CSRF, SQL Injection</title>
-        <url>http://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</url>
+        <url>https://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</url>
         <categories>
           <category>Security</category>
         </categories>
@@ -1289,7 +1289,7 @@ Simple solution:
     
      <entry>
         <title>WebSphere SSO how-to</title>
-        <url>http://yangchao.me/post/websphere-sso-how-to/</url>
+        <url>https://yangchao.me/post/websphere-sso-how-to/</url>
         <categories>
           <category>SSO</category>
         </categories>
@@ -1386,7 +1386,7 @@ WAS的SSO方案就属于这样类型，WAS和Domino等都是IBM的产品，都�
     
      <entry>
         <title>Unified Identity &amp; Access Control system</title>
-        <url>http://yangchao.me/post/unified-identity-access-control-system/</url>
+        <url>https://yangchao.me/post/unified-identity-access-control-system/</url>
         <categories>
           <category>Project Architecture</category>
         </categories>
@@ -1419,7 +1419,7 @@ Obviously, this solution has some limitations:
     
      <entry>
         <title>JNDI how-to</title>
-        <url>http://yangchao.me/post/jndi-how-to/</url>
+        <url>https://yangchao.me/post/jndi-how-to/</url>
         <categories>
           <category>JNDI, LDAP</category>
         </categories>
@@ -1442,7 +1442,7 @@ context.bind(&amp;#34;cn=favorite&amp;#34;, fruit); Object lookup / list / searc
     
      <entry>
         <title>ClassLoader</title>
-        <url>http://yangchao.me/post/classloader/</url>
+        <url>https://yangchao.me/post/classloader/</url>
         <categories>
           <category>JVM</category>
         </categories>
@@ -1459,7 +1459,7 @@ class loading ways  explicitly invoke new XXX() load its subclass, then the pare
     
      <entry>
         <title>HTML 5</title>
-        <url>http://yangchao.me/post/html-5/</url>
+        <url>https://yangchao.me/post/html-5/</url>
         <categories>
           <category>HTML5</category>
         </categories>
@@ -1479,7 +1479,7 @@ autofocus Attribute new input type  search email url tel date time number range 
     
      <entry>
         <title>Git basics</title>
-        <url>http://yangchao.me/post/git-basics/</url>
+        <url>https://yangchao.me/post/git-basics/</url>
         <categories>
           <category>Version Control</category>
         </categories>
@@ -1507,7 +1507,7 @@ merge fast-forward merge 3-way merge cherry-pick and rebase remote repository re
     
      <entry>
         <title>Spring framework - context services</title>
-        <url>http://yangchao.me/post/spring-framework-context-services/</url>
+        <url>https://yangchao.me/post/spring-framework-context-services/</url>
         <categories>
           <category>Spring</category>
         </categories>
@@ -1550,7 +1550,7 @@ Profiles Basically, a profile instructs Spring to configure only theApplicationC
     
      <entry>
         <title>what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?</title>
-        <url>http://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</url>
+        <url>https://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</url>
         <categories>
           <category>Q/A</category>
         </categories>
@@ -1568,7 +1568,7 @@ the name is the name that you&amp;rsquo;d use to dynamically load the class with
     
      <entry>
         <title>What&#39;s the difference between getPath(), getAbsolutePath(), and getCanonicalPath()?</title>
-        <url>http://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</url>
+        <url>https://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</url>
         <categories>
           <category>Q/A</category>
         </categories>
@@ -1582,7 +1582,7 @@ the name is the name that you&amp;rsquo;d use to dynamically load the class with
     
      <entry>
         <title>what does 0.0.0.0 mean?</title>
-        <url>http://yangchao.me/post/what-does-0-0-0-0-mean/</url>
+        <url>https://yangchao.me/post/what-does-0-0-0-0-mean/</url>
         <categories>
           <category>Q/A</category>
         </categories>
@@ -1599,7 +1599,7 @@ Note that, in a different context (routing) 0.0.0.0 usually means the default ro
     
      <entry>
         <title>algorithm training from codility</title>
-        <url>http://yangchao.me/post/algorithm-training-from-codility/</url>
+        <url>https://yangchao.me/post/algorithm-training-from-codility/</url>
         <categories>
           <category>Algorithm</category>
         </categories>
@@ -1864,7 +1864,7 @@ Challenges  Kalium 2015 – SqlSegmentsSum Boron 2013 – Flags Psi 2012 – Wir
     
      <entry>
         <title>WSDL Service Contract in Detail</title>
-        <url>http://yangchao.me/post/wsdl-service-contract-in-detail/</url>
+        <url>https://yangchao.me/post/wsdl-service-contract-in-detail/</url>
         <categories>
           <category>SOAP Web Service</category>
         </categories>
@@ -1898,7 +1898,7 @@ Common confusions service styles: document vs. rpc   RPC Document  `&amp;lt;soap
     
      <entry>
         <title>Garbage Collection</title>
-        <url>http://yangchao.me/post/garbage-collection/</url>
+        <url>https://yangchao.me/post/garbage-collection/</url>
         <categories>
           <category>JVM</category>
         </categories>
@@ -1941,7 +1941,7 @@ PerGen(JDK 7) / metaspace (JDK 8)
     
      <entry>
         <title>JVM knowledge</title>
-        <url>http://yangchao.me/post/jvm-knowledge/</url>
+        <url>https://yangchao.me/post/jvm-knowledge/</url>
         <categories>
           <category>JVM</category>
         </categories>
@@ -2004,7 +2004,7 @@ loading, linking and initializing This is for run-time representation of a clas
     
      <entry>
         <title>Apache CXF and Axis 2 tutorial</title>
-        <url>http://yangchao.me/post/apache-cxf-and-axis-2-tutorial/</url>
+        <url>https://yangchao.me/post/apache-cxf-and-axis-2-tutorial/</url>
         <categories>
           <category>Web Service</category>
         </categories>
@@ -2044,7 +2044,7 @@ In embedded mode, we needn&amp;rsquo;t package as a .aar. Just a directory in WE
     
      <entry>
         <title>IBM Integration Bus</title>
-        <url>http://yangchao.me/post/ibm-integration-bus/</url>
+        <url>https://yangchao.me/post/ibm-integration-bus/</url>
         <categories>
           <category>ESB</category>
         </categories>
@@ -2056,7 +2056,7 @@ In embedded mode, we needn&amp;rsquo;t package as a .aar. Just a directory in WE
     
      <entry>
         <title>Apache Camel</title>
-        <url>http://yangchao.me/post/apache-camel/</url>
+        <url>https://yangchao.me/post/apache-camel/</url>
         <categories>
           <category>EIP frameworks</category>
         </categories>
@@ -2082,7 +2082,7 @@ Routes, RouteBuilders and Java DSL &amp;nbsp;
     
      <entry>
         <title>To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)</title>
-        <url>http://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</url>
+        <url>https://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -2125,7 +2125,7 @@ Senior 招高级的一般是招的是个坑爹的各种擦屁股的，血泪的�
     
      <entry>
         <title>ACID and transaction</title>
-        <url>http://yangchao.me/post/acid-and-transaction/</url>
+        <url>https://yangchao.me/post/acid-and-transaction/</url>
         <categories>
           <category>Databases</category>
         </categories>
@@ -2157,7 +2157,7 @@ Basically, we mention locking just in pessimistic locking context, where locking
     
      <entry>
         <title>JPA - advanced topics</title>
-        <url>http://yangchao.me/post/jpa-advanced-topics/</url>
+        <url>https://yangchao.me/post/jpa-advanced-topics/</url>
         <categories>
           <category>JPA</category>
         </categories>
@@ -2169,7 +2169,7 @@ Basically, we mention locking just in pessimistic locking context, where locking
     
      <entry>
         <title>Struts 2 - a short journey</title>
-        <url>http://yangchao.me/post/struts-2-a-short-journey/</url>
+        <url>https://yangchao.me/post/struts-2-a-short-journey/</url>
         <categories>
           <category>Struts</category>
         </categories>
@@ -2220,7 +2220,7 @@ Form Validation and Type conversion //TODO
     
      <entry>
         <title>Spring framework - transaction management</title>
-        <url>http://yangchao.me/post/spring-framework-transaction-management/</url>
+        <url>https://yangchao.me/post/spring-framework-transaction-management/</url>
         <categories>
           <category>Spring</category><category>Transaction Management</category>
         </categories>
@@ -2237,7 +2237,7 @@ public interface FooService { Foo getFoo(String fooName); Foo getFoo(String fooN
     
      <entry>
         <title>Spring framework - AOP</title>
-        <url>http://yangchao.me/post/spring-framework-aop/</url>
+        <url>https://yangchao.me/post/spring-framework-aop/</url>
         <categories>
           <category>Spring</category>
         </categories>
@@ -2262,7 +2262,7 @@ Tomcat not support. You need do extra things to LTW
     
      <entry>
         <title>Spring framework - IoC / DI</title>
-        <url>http://yangchao.me/post/spring-framework-ioc-di/</url>
+        <url>https://yangchao.me/post/spring-framework-ioc-di/</url>
         <categories>
           <category>Spring</category>
         </categories>
@@ -2287,7 +2287,7 @@ annotations and bean scanning Spring annotations vs. standard annotations
     
      <entry>
         <title>Spring framework - the big picture</title>
-        <url>http://yangchao.me/post/spring-framework-the-big-picture/</url>
+        <url>https://yangchao.me/post/spring-framework-the-big-picture/</url>
         <categories>
           <category>Spring</category>
         </categories>
@@ -2301,7 +2301,7 @@ annotations and bean scanning Spring annotations vs. standard annotations
     
      <entry>
         <title>subquery vs. join</title>
-        <url>http://yangchao.me/post/subquery-vs-join/</url>
+        <url>https://yangchao.me/post/subquery-vs-join/</url>
         <categories>
           <category>SQL</category>
         </categories>
@@ -2323,7 +2323,7 @@ id name id title -- ---- -- ---- 1 Kenny 1 Analyst 1 Rob 2 Sales 4 Molly 3 Manag
     
      <entry>
         <title>inner join and outer join</title>
-        <url>http://yangchao.me/post/inner-join-and-outer-join/</url>
+        <url>https://yangchao.me/post/inner-join-and-outer-join/</url>
         <categories>
           <category>SQL</category>
         </categories>
@@ -2344,7 +2344,7 @@ SELECT * FROM TableA FULL OUTER JOIN TableB ON TableA.name = TableB.name id name
     
      <entry>
         <title>A glimpse of JMS</title>
-        <url>http://yangchao.me/post/a-glimpse-of-jms/</url>
+        <url>https://yangchao.me/post/a-glimpse-of-jms/</url>
         <categories>
           <category>JMS</category>
         </categories>
@@ -2367,7 +2367,7 @@ basic usage examples public class PointToPoint { private ConnectionFactory facto
     
      <entry>
         <title>servlet basics</title>
-        <url>http://yangchao.me/post/servlet-basics/</url>
+        <url>https://yangchao.me/post/servlet-basics/</url>
         <categories>
           <category>Servlet / JSP</category>
         </categories>
@@ -2402,7 +2402,7 @@ It&amp;rsquo;s recommended but not required to place the resource factories unde
     
      <entry>
         <title>GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory</title>
-        <url>http://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</url>
+        <url>https://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</url>
         <categories>
           <category>Design Patterns</category>
         </categories>
@@ -2421,7 +2421,7 @@ Abstract Factory Simply speaking, abstract factory is responsible for the creati
     
      <entry>
         <title>Generics revisit</title>
-        <url>http://yangchao.me/post/generics-revisit/</url>
+        <url>https://yangchao.me/post/generics-revisit/</url>
         <categories>
           <category>Generics</category>
         </categories>
@@ -2452,7 +2452,7 @@ bridge method </content>
     
      <entry>
         <title>widen cast vs. narrow cast</title>
-        <url>http://yangchao.me/post/widen-cast-vs-narrow-cast/</url>
+        <url>https://yangchao.me/post/widen-cast-vs-narrow-cast/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2464,7 +2464,7 @@ bridge method </content>
     
      <entry>
         <title>String class, text formatting</title>
-        <url>http://yangchao.me/post/string-class-text-formatting/</url>
+        <url>https://yangchao.me/post/string-class-text-formatting/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2493,7 +2493,7 @@ System.out.printf(String, Object...) String.format(String, Object...) java.text.
     
      <entry>
         <title>cloning objects</title>
-        <url>http://yangchao.me/post/cloning-objects/</url>
+        <url>https://yangchao.me/post/cloning-objects/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2522,7 +2522,7 @@ This is very useful and straightforward, especially now JDK 7 has the out-of-th
     
      <entry>
         <title>java modifiers revisit</title>
-        <url>http://yangchao.me/post/java-modifiers-revist/</url>
+        <url>https://yangchao.me/post/java-modifiers-revist/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2549,7 +2549,7 @@ abstract / final modifiers abstract / final is mutually exclusive. This means w
     
      <entry>
         <title>wordpress ssh update not working</title>
-        <url>http://yangchao.me/post/wordpress-ssh-update-not-working/</url>
+        <url>https://yangchao.me/post/wordpress-ssh-update-not-working/</url>
         <categories>
           <category>PHP</category>
         </categories>
@@ -2562,7 +2562,7 @@ abstract / final modifiers abstract / final is mutually exclusive. This means w
     
      <entry>
         <title>Overriding vs. hiding(aka. shadowing)</title>
-        <url>http://yangchao.me/post/overriding-vs-hidingaka-shadowing/</url>
+        <url>https://yangchao.me/post/overriding-vs-hidingaka-shadowing/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -2589,7 +2589,7 @@ public class Hiding { @Test public void testStaticMethodHiding() { Animal animal
     
      <entry>
         <title>finalize()</title>
-        <url>http://yangchao.me/post/finalize/</url>
+        <url>https://yangchao.me/post/finalize/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2610,7 +2610,7 @@ Runtime has some methods to make best efforts to do something.
     
      <entry>
         <title>What is the exact answer, When interviewer ask Architecture of the project.</title>
-        <url>http://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</url>
+        <url>https://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -2632,7 +2632,7 @@ If you cannot communicate to me how you do your work during the interview, how a
     
      <entry>
         <title>Immutable objects</title>
-        <url>http://yangchao.me/post/immutable-objects/</url>
+        <url>https://yangchao.me/post/immutable-objects/</url>
         <categories>
           <category>Basics</category><category>Best Pricatice</category>
         </categories>
@@ -2664,7 +2664,7 @@ List list = new ArrayList(); list.add(&amp;#34;1&amp;#34;); list.add(2); list.ad
     
      <entry>
         <title>String#substring(..) implementation</title>
-        <url>http://yangchao.me/post/stringsubstring-implementation/</url>
+        <url>https://yangchao.me/post/stringsubstring-implementation/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2679,7 +2679,7 @@ But note this behaviour has changed as of Java 7u6.
     
      <entry>
         <title>Why two Date classes: java.util.Date and java.sql.Date?</title>
-        <url>http://yangchao.me/post/why-two-date-classes-java-util-date-and-java-sql-date/</url>
+        <url>https://yangchao.me/post/why-two-date-classes-java-util-date-and-java-sql-date/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2697,7 +2697,7 @@ java.sql.Timestamp can represent date and time together, just like java.util.Dat
     
      <entry>
         <title>auto-boxing and valueOf(..)</title>
-        <url>http://yangchao.me/post/autoboxing-and-valueof/</url>
+        <url>https://yangchao.me/post/autoboxing-and-valueof/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2713,7 +2713,7 @@ Integer i = 12; Integer i = Integer.valueOf(12); If you don&amp;rsquo;t believe 
     
      <entry>
         <title>Float numbers</title>
-        <url>http://yangchao.me/post/float-numbers/</url>
+        <url>https://yangchao.me/post/float-numbers/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2725,7 +2725,7 @@ Integer i = 12; Integer i = Integer.valueOf(12); If you don&amp;rsquo;t believe 
     
      <entry>
         <title>equals() / hashCode() contract, Comparable contract</title>
-        <url>http://yangchao.me/post/equals-and-hashcode-contract/</url>
+        <url>https://yangchao.me/post/equals-and-hashcode-contract/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2758,7 +2758,7 @@ So to do the following things, you must implement Comparable:
     
      <entry>
         <title>Character encoding and charset in Java</title>
-        <url>http://yangchao.me/post/character-encoding-and-charset-in-java/</url>
+        <url>https://yangchao.me/post/character-encoding-and-charset-in-java/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2823,7 +2823,7 @@ request.setCharacterEncoding(&amp;#34;UTF-8&amp;#34;); database codepage/collati
     
      <entry>
         <title>finally execution in try-catch-finnally blocks</title>
-        <url>http://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</url>
+        <url>https://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -2847,7 +2847,7 @@ java.lang.ArithmeticException: / by zero
     
      <entry>
         <title>Apache Maven 2</title>
-        <url>http://yangchao.me/post/apache-maven-2/</url>
+        <url>https://yangchao.me/post/apache-maven-2/</url>
         <categories>
           <category>Building, Testing &amp;amp; CI</category>
         </categories>
@@ -2885,7 +2885,7 @@ Manual Profie Activation &amp;gt; mvn –P YourProfie Automatic Profie Activatio
     
      <entry>
         <title>Core Java Concurrency</title>
-        <url>http://yangchao.me/post/core-java-concurrency/</url>
+        <url>https://yangchao.me/post/core-java-concurrency/</url>
         <categories>
           <category>Multithreading</category>
         </categories>
@@ -2900,7 +2900,7 @@ Coordination classes The java.util.concurrent package contains several classes 
     
      <entry>
         <title>PostgreSQL Concurrency with MVCC</title>
-        <url>http://yangchao.me/post/postgresql-concurrency-with-mvcc/</url>
+        <url>https://yangchao.me/post/postgresql-concurrency-with-mvcc/</url>
         <categories>
           <category>Databases</category><category>Transaction Management</category>
         </categories>
@@ -2924,7 +2924,7 @@ Both dead rows and the transaction XID wraparound problem are solved with VACUUM
     
      <entry>
         <title>Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue</title>
-        <url>http://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</url>
+        <url>https://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</url>
         <categories>
           <category>Multithreading</category>
         </categories>
@@ -2941,7 +2941,7 @@ Which will be faster is hard to predict. If you can get both working safely the 
     
      <entry>
         <title>Cross-domain Browser Requests</title>
-        <url>http://yangchao.me/post/cross-domain-browser-requests/</url>
+        <url>https://yangchao.me/post/cross-domain-browser-requests/</url>
         <categories>
           <category>Javascript</category>
         </categories>
@@ -2977,7 +2977,7 @@ Request 2: GET, POST, PUT, or DELETE request that performs the actual operation 
     
      <entry>
         <title>Get started with WebLogic</title>
-        <url>http://yangchao.me/post/get-started-with-weblogic/</url>
+        <url>https://yangchao.me/post/get-started-with-weblogic/</url>
         <categories>
           <category>Middlewares</category>
         </categories>
@@ -2996,7 +2996,7 @@ Admin server provides all sorts of management and a web admin console. In a doma
     
      <entry>
         <title>Java Transaction - JDBC, JTA, JTS</title>
-        <url>http://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/</url>
+        <url>https://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/</url>
         <categories>
           <category>JDBC</category><category>JTA</category><category>Transaction Management</category>
         </categories>
@@ -3045,7 +3045,7 @@ Table 2. Global Transaction Managers     Transaction Manager Description     J
     
      <entry>
         <title>JPA - runtime</title>
-        <url>http://yangchao.me/post/jpa-runtime/</url>
+        <url>https://yangchao.me/post/jpa-runtime/</url>
         <categories>
           <category>JPA</category><category>Transaction Management</category>
         </categories>
@@ -3071,7 +3071,7 @@ Query Language </content>
     
      <entry>
         <title>JPA - mapping</title>
-        <url>http://yangchao.me/post/jpa-mapping/</url>
+        <url>https://yangchao.me/post/jpa-mapping/</url>
         <categories>
           <category>JPA</category>
         </categories>
@@ -3096,7 +3096,7 @@ Inheritance JPA通过在父类增加@Inheritance(strategy=InheritanceType.xxx)�
     
      <entry>
         <title>Get started with Oracle 11g</title>
-        <url>http://yangchao.me/post/oracle-a-short-jouney/</url>
+        <url>https://yangchao.me/post/oracle-a-short-jouney/</url>
         <categories>
           <category>Databases</category>
         </categories>
@@ -3108,7 +3108,7 @@ Inheritance JPA通过在父类增加@Inheritance(strategy=InheritanceType.xxx)�
     
      <entry>
         <title>output - pre-increment and post-increment</title>
-        <url>http://yangchao.me/post/output-pre-increment-and-post-increment/</url>
+        <url>https://yangchao.me/post/output-pre-increment-and-post-increment/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -3123,7 +3123,7 @@ Two things you should notice: 1) defference between pre-increment and post-incre
     
      <entry>
         <title>scriptless JSP - EL, JSTL and taglibs</title>
-        <url>http://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</url>
+        <url>https://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</url>
         <categories>
           <category>Servlet / JSP</category>
         </categories>
@@ -3143,7 +3143,7 @@ Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you ca
     
      <entry>
         <title>JSP basics</title>
-        <url>http://yangchao.me/post/jsp-basics/</url>
+        <url>https://yangchao.me/post/jsp-basics/</url>
         <categories>
           <category>Servlet / JSP</category>
         </categories>
@@ -3166,7 +3166,7 @@ about the PageContext PageContext is a subclass of JspContext. about the configu
     
      <entry>
         <title>JMM, Atomicity,  Visibility and Reordering</title>
-        <url>http://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</url>
+        <url>https://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</url>
         <categories>
           <category>Concurrency</category><category>Multithreading</category>
         </categories>
@@ -3182,7 +3182,7 @@ Cause:
     
      <entry>
         <title>Thread Synchronization</title>
-        <url>http://yangchao.me/post/thread-synchronization/</url>
+        <url>https://yangchao.me/post/thread-synchronization/</url>
         <categories>
           <category>Concurrency</category><category>Multithreading</category>
         </categories>
@@ -3225,7 +3225,7 @@ Another output which will be await always: W #11: Balance: ￥0 - ￥54 =&amp;gt
     
      <entry>
         <title>Java Thread Management</title>
-        <url>http://yangchao.me/post/topic-serial-threads/</url>
+        <url>https://yangchao.me/post/topic-serial-threads/</url>
         <categories>
           <category>Multithreading</category>
         </categories>
@@ -3264,7 +3264,7 @@ Thread.activeCount() Thread.enumurate()</content>
     
      <entry>
         <title>Java Exceptions</title>
-        <url>http://yangchao.me/post/topic-serial-exceptions/</url>
+        <url>https://yangchao.me/post/topic-serial-exceptions/</url>
         <categories>
           <category>Coding &amp;amp; Debuging</category><category>Exception</category><category>Exception Handling</category>
         </categories>
@@ -3289,7 +3289,7 @@ try { int x = 0; int y = 5 / x; } catch (Exception e) { System.out.println(&amp;
     
      <entry>
         <title>Override - some requirements</title>
-        <url>http://yangchao.me/post/override/</url>
+        <url>https://yangchao.me/post/override/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3307,7 +3307,7 @@ class AA { protected void foo() throws IOException {} } class BB extends AA { //
     
      <entry>
         <title>unreachable statements</title>
-        <url>http://yangchao.me/post/unreachable-statements/</url>
+        <url>https://yangchao.me/post/unreachable-statements/</url>
         <categories>
           <category>Language, Compiler</category>
         </categories>
@@ -3329,7 +3329,7 @@ This ability to &amp;ldquo;conditionally compile&amp;rdquo; has a significant im
     
      <entry>
         <title>Assertion</title>
-        <url>http://yangchao.me/post/assertion/</url>
+        <url>https://yangchao.me/post/assertion/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -3363,7 +3363,7 @@ switch(x) { case 1: …; case 2: …; case 3: …default: assert false : &amp;#3
     
      <entry>
         <title>Inner Classes</title>
-        <url>http://yangchao.me/post/inner-classes/</url>
+        <url>https://yangchao.me/post/inner-classes/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -3472,7 +3472,7 @@ http://www.developer.com/java/other/article.php/3358491/The-Essence-of-OOP-using
     
      <entry>
         <title>interfaces</title>
-        <url>http://yangchao.me/post/interfaces/</url>
+        <url>https://yangchao.me/post/interfaces/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3494,7 +3494,7 @@ An appropriate guideline is to prefer classes to interfaces. Start with classes,
     
      <entry>
         <title>CS interview experience</title>
-        <url>http://yangchao.me/post/cs-interview-experience/</url>
+        <url>https://yangchao.me/post/cs-interview-experience/</url>
         <categories>
           <category>Uncategorized</category>
         </categories>
@@ -3557,7 +3557,7 @@ fiverings:很小的HF,10几个人吧,问一下brain teaser和古怪的程序,有
     
      <entry>
         <title>static method and hiding</title>
-        <url>http://yangchao.me/post/static-final-method/</url>
+        <url>https://yangchao.me/post/static-final-method/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3577,7 +3577,7 @@ class A { static final void m1(){} } class B extends A { static void m1(){} } A 
     
      <entry>
         <title>NZ company collection</title>
-        <url>http://yangchao.me/post/nz-company-collection/</url>
+        <url>https://yangchao.me/post/nz-company-collection/</url>
         <categories>
           <category>Job Seeking</category>
         </categories>
@@ -3594,7 +3594,7 @@ These are New Zealand&amp;rsquo;s top 100 companies/orgnizations ranked by numbe
     
      <entry>
         <title>override:  covariant return types</title>
-        <url>http://yangchao.me/post/override-covariant-return-types/</url>
+        <url>https://yangchao.me/post/override-covariant-return-types/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3608,7 +3608,7 @@ Java多态时，允许协变的返回类型，但是形式参数列表必须一�
     
      <entry>
         <title>Behavior of polymorphic methods inside constructors</title>
-        <url>http://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</url>
+        <url>https://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3622,7 +3622,7 @@ Java多态时，允许协变的返回类型，但是形式参数列表必须一�
     
      <entry>
         <title>JAX-RS as the one Java web framework to rule them all?</title>
-        <url>http://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</url>
+        <url>https://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</url>
         <categories>
           <category>JAX-RS</category>
         </categories>
@@ -3665,7 +3665,7 @@ I&amp;rsquo;d love to hear others thoughts; do you think I&amp;rsquo;m smoking c
     
      <entry>
         <title>Enumeration types</title>
-        <url>http://yangchao.me/post/enumeration-types/</url>
+        <url>https://yangchao.me/post/enumeration-types/</url>
         <categories>
           <category>Basics</category><category>Java 5</category>
         </categories>
@@ -3692,7 +3692,7 @@ enum vs. static final variables What are the advantages of enums if compared wit
     
      <entry>
         <title>variable argument list: a pitfall</title>
-        <url>http://yangchao.me/post/variable-argument-list-a-pitfall/</url>
+        <url>https://yangchao.me/post/variable-argument-list-a-pitfall/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -3716,7 +3716,7 @@ It&amp;rsquo;s a sort of syntax sugar. 1) when only one actual parameter passes,
     
      <entry>
         <title>Default constructor (no-args constructor)</title>
-        <url>http://yangchao.me/post/default-constructor-no-args-constructor/</url>
+        <url>https://yangchao.me/post/default-constructor-no-args-constructor/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3731,7 +3731,7 @@ class C { public C(int a) { } public static void main(String[] args) { new C(); 
     
      <entry>
         <title>Distinguish overloaded methods</title>
-        <url>http://yangchao.me/post/distinguish-overloaded-methods/</url>
+        <url>https://yangchao.me/post/distinguish-overloaded-methods/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3753,7 +3753,7 @@ From the above example, you can see the same rule: the compiler decide method bi
     
      <entry>
         <title>Override: a pitfall</title>
-        <url>http://yangchao.me/post/override-a-pitfall/</url>
+        <url>https://yangchao.me/post/override-a-pitfall/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3774,7 +3774,7 @@ Anyway, that&amp;rsquo;s it.
     
      <entry>
         <title>Java access control</title>
-        <url>http://yangchao.me/post/java-access-control/</url>
+        <url>https://yangchao.me/post/java-access-control/</url>
         <categories>
           <category>Basics</category>
         </categories>
@@ -3810,7 +3810,7 @@ More comprehensive discussions, please refer to java modifiers review
     
      <entry>
         <title>Java Object Initialization Order</title>
-        <url>http://yangchao.me/post/java-object-initialization-order/</url>
+        <url>https://yangchao.me/post/java-object-initialization-order/</url>
         <categories>
           <category>OOP</category>
         </categories>
@@ -3835,7 +3835,7 @@ public class Test { private static int k = 1; private static Test t1 = new Test(
     
      <entry>
         <title></title>
-        <url>http://yangchao.me/post/learn-docker/</url>
+        <url>https://yangchao.me/post/learn-docker/</url>
         <categories>
           
         </categories>
@@ -3860,7 +3860,7 @@ Environment-agnostic Docker has three specific features to help build environmen
     
      <entry>
         <title>Posts</title>
-        <url>http://yangchao.me/post/</url>
+        <url>https://yangchao.me/post/</url>
         <categories>
           
         </categories>

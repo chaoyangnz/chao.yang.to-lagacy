@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on Chao Yang</title>
-    <link>http://yangchao.me/tags/mysql/</link>
+    <link>https://yangchao.me/tags/mysql/</link>
     <description>Recent content in Mysql on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jun 2015 16:59:43 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySQL InnoDB Locking and Isolation Level</title>
-      <link>http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</link>
+      <link>https://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</guid>
+      <guid>https://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</guid>
       <description>Basic knowledge Isolation Level  MySQL innodb engine support ACID appliance. (The following will be always applied to innodb) Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE
  Innodb&amp;rsquo;s Isolation level is slightly different from the standard SQL Isolation level definition:    Read Uncommitted Read Committed Repeatable Read Serializable   dirty reads yes no no no   unrepeatable reads yes yes no no   phantom reads yes yes no no    MySQL suggests to use Read Uncommitted and Serializable rarely.</description>
     </item>

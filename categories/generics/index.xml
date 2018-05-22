@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Generics on Chao Yang</title>
-    <link>http://yangchao.me/categories/generics/</link>
+    <link>https://yangchao.me/categories/generics/</link>
     <description>Recent content in Generics on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Mar 2015 14:15:50 +0000</lastBuildDate>
     
-	<atom:link href="http://yangchao.me/categories/generics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yangchao.me/categories/generics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Generics revisit</title>
-      <link>http://yangchao.me/post/generics-revisit/</link>
+      <link>https://yangchao.me/post/generics-revisit/</link>
       <pubDate>Tue, 24 Mar 2015 14:15:50 +0000</pubDate>
       
-      <guid>http://yangchao.me/post/generics-revisit/</guid>
+      <guid>https://yangchao.me/post/generics-revisit/</guid>
       <description>Generics is an important feature since JDK 1.5
 subtyping and wildcards   Integer is a subtype of Number   Double is a subtype of Number   ArrayList&amp;lt;E&amp;gt; is a subtype of List&amp;lt;E&amp;gt;   List&amp;lt;E&amp;gt; is a subtype of Collection&amp;lt;E&amp;gt;   Collection&amp;lt;E&amp;gt; is a subtype of Iterable&amp;lt;E&amp;gt;   Long[] is a subtype of Number[]   List&amp;lt;Integer&amp;gt; is NOT a subtype of List&amp;lt;Number&amp;gt;    In Java, array subtyping is covariant, meaning that type S[] is considered to be a subtype of T[] whenever S is a subtype of T.</description>
     </item>
