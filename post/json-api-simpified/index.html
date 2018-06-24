@@ -4,27 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>Sso - Chao Yang</title>
+    <title> - Chao Yang</title>
     <meta name="keywords" content="Java, Programming, Android, JavaScript, Angular, Kotlin, Swift, iOS, Machine Learning, Big Data">
     
-    <meta property="og:title" content="Sso">
+    <meta property="og:title" content="">
     <meta property="og:site_name" content="Chao Yang">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="Sso - Chao Yang" />
+    <meta name="title" content=" - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
-    <link rel="alternate" href="https://chaoyang.io/categories/sso/index.xml" title="Chao Yang" type="application/rss+xml" />
+    
     <link rel="shortcut icon" href="https://chaoyang.io/img/favicon.ico" />
     <link rel="apple-touch-icon" href="https://chaoyang.io/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="https://chaoyang.io/img/apple-touch-icon.png" />
     <link href="https://chaoyang.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    
+    <link href="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
     <link href="https://chaoyang.io/css/main.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
-    fancybox: false, 
+     fancybox: true, 
     motion: true
   };
 </script>
@@ -38,7 +38,7 @@
 
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left   ">
+<div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -125,68 +125,127 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-<section id="posts" class="posts-collapse">
-<div class="collection-title">
-    <h2 >Sso
-    <small>Categories</small>
-    </h2>
-</div>
-
-<div class="collection-title">
-  <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
-</div>
-
-  <article class="post post-type-normal }}" itemscope itemtype="http://schema.org/Article">
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="https://chaoyang.io/post/websphere-sso-how-to/" itemprop="url">
-            <span itemprop="name">WebSphere SSO how-to</span>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="https://chaoyang.io/post/json-api-simpified/" itemprop="url">
+        
         </a>
       </h1>
-
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-05-08"
-              content="05-08" >
-          05-08
-        </time>
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">Published at:</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
+    0001-01-01
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">Reading:</span>
+<span class="leancloud-visitors-count">135 words ~1min</span>
+</span>
       </div>
     </header>
+    <div class="post-body" itemprop="articleBody">
+    
+
+<h1 id="content-negotiation">Content Negotiation</h1>
+
+<p><code>Content-Type: application/vnd.api+json</code>
+<code>Accept: application/vnd.api+json</code></p>
+
+<p>media type without parameter</p>
+
+<h1 id="document-structure">Document Structure</h1>
+
+<p>3 top-level members:
+- <code>data</code>: the document&rsquo;s &lsquo;primary data&rsquo;
+- <code>errors</code>: an array of error objects
+- <code>meta</code>: non-standard meta-information</p>
+
+<p><code>data</code> and <code>errors</code> MUST NOT coexists.</p>
+
+<p>Optional top-level memeber:
+- <code>jsonapi</code>: describe the server&rsquo;s implementation
+- <code>links</code>: links related to the primary data
+- <code>included</code>: included resources</p>
+
+<h2 id="resource-object">resource object</h2>
+
+<ul>
+<li><code>id</code></li>
+<li><code>type</code>
+Optional:</li>
+<li><code>attributes</code></li>
+<li><code>relationships</code></li>
+<li><code>links</code></li>
+<li><code>meta</code></li>
+</ul>
+
+<pre><code>// ...
+{
+  &quot;type&quot;: &quot;articles&quot;,
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;attributes&quot;: {
+    &quot;title&quot;: &quot;Rails is Omakase&quot;
+  },
+  &quot;relationships&quot;: {
+    &quot;author&quot;: {
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;/articles/1/relationships/author&quot;,
+        &quot;related&quot;: &quot;/articles/1/author&quot;
+      },
+      &quot;data&quot;: { &quot;type&quot;: &quot;people&quot;, &quot;id&quot;: &quot;9&quot; }
+    }
+  }
+}
+// ...
+</code></pre>
+
+<p>A resource object&rsquo;s <code>attributes</code> and its <code>relationships</code> are collectively called its <code>fields</code>.</p>
+
+<p>Fields of a resource object MUST share a common namespace with each other and with <code>type</code> and <code>id</code>.</p>
+
+    </div>
+    <footer class="post-footer">
+     
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="https://chaoyang.io/post/learn-docker/" rel="next" title="">
+        <i class="fa fa-chevron-left"></i> 
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="https://chaoyang.io/books/index2/" rel="prev" title="">
+         <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+    </footer>
   </article>
-
-
- </section>
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-<nav class="pagination">
-    
-    
-        
-        
-          <span class="page-number current">1</span>
-        
-        
-    
-    
-</nav>
-
+</section>
 
           </div>
         </div>
@@ -236,13 +295,6 @@
     </div>
 </nav>
       
-<div class="feed-link motion-element">
-<a href="https://chaoyang.io/categories/sso/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
-    <i class="fa fa-rss"></i>
-    RSS
-</a>
-</div>
-
       
 <div class="links-of-author motion-element">
     
@@ -322,16 +374,18 @@
 <script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="https://chaoyang.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
+<script src="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
 <script type="text/javascript" src="https://chaoyang.io/js/utils.js"></script>
 <script type="text/javascript" src="https://chaoyang.io/js/motion.js"></script>
 <script type="text/javascript" src="https://chaoyang.io/js/affix.js"></script>
 <script type="text/javascript" src="https://chaoyang.io/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/post-details.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/toc.js"></script>
 
-<script type="text/javascript" id="motion.page.archive">
-  $('.archive-year').velocity('transition.slideLeftIn');
-</script>
+<script type="text/javascript" src="https://chaoyang.io/js/bootstrap.js"></script>
 
 <script type="text/javascript" src="https://chaoyang.io/js/search.js"></script>
 </body>

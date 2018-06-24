@@ -2,453 +2,453 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Chao Yang</title>
-    <link>https://yangchao.me/categories/</link>
+    <link>https://chaoyang.io/categories/</link>
     <description>Recent content in Categories on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Apr 2015 15:00:22 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Algorithm</title>
-      <link>https://yangchao.me/categories/algorithm/</link>
+      <link>https://chaoyang.io/categories/algorithm/</link>
       <pubDate>Wed, 22 Apr 2015 15:00:22 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/algorithm/</guid>
+      <guid>https://chaoyang.io/categories/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Basics</title>
-      <link>https://yangchao.me/categories/basics/</link>
+      <link>https://chaoyang.io/categories/basics/</link>
       <pubDate>Sat, 05 Sep 2015 22:20:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/basics/</guid>
+      <guid>https://chaoyang.io/categories/basics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Best Pricatice</title>
-      <link>https://yangchao.me/categories/best-pricatice/</link>
+      <link>https://chaoyang.io/categories/best-pricatice/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/best-pricatice/</guid>
+      <guid>https://chaoyang.io/categories/best-pricatice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Building Testing Amp Ci</title>
-      <link>https://yangchao.me/categories/building-testing-amp-ci/</link>
+      <link>https://chaoyang.io/categories/building-testing-amp-ci/</link>
       <pubDate>Mon, 25 May 2015 14:46:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/building-testing-amp-ci/</guid>
+      <guid>https://chaoyang.io/categories/building-testing-amp-ci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Coding Amp Debuging</title>
-      <link>https://yangchao.me/categories/coding-amp-debuging/</link>
+      <link>https://chaoyang.io/categories/coding-amp-debuging/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/coding-amp-debuging/</guid>
+      <guid>https://chaoyang.io/categories/coding-amp-debuging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Concurrency</title>
-      <link>https://yangchao.me/categories/concurrency/</link>
+      <link>https://chaoyang.io/categories/concurrency/</link>
       <pubDate>Wed, 21 Jan 2015 09:36:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/concurrency/</guid>
+      <guid>https://chaoyang.io/categories/concurrency/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Css</title>
-      <link>https://yangchao.me/categories/css/</link>
+      <link>https://chaoyang.io/categories/css/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/css/</guid>
+      <guid>https://chaoyang.io/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Databases</title>
-      <link>https://yangchao.me/categories/databases/</link>
+      <link>https://chaoyang.io/categories/databases/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/databases/</guid>
+      <guid>https://chaoyang.io/categories/databases/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://yangchao.me/categories/design/</link>
+      <link>https://chaoyang.io/categories/design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/design/</guid>
+      <guid>https://chaoyang.io/categories/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design Patterns</title>
-      <link>https://yangchao.me/categories/design-patterns/</link>
+      <link>https://chaoyang.io/categories/design-patterns/</link>
       <pubDate>Mon, 30 Mar 2015 11:13:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/design-patterns/</guid>
+      <guid>https://chaoyang.io/categories/design-patterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Eip Frameworks</title>
-      <link>https://yangchao.me/categories/eip-frameworks/</link>
+      <link>https://chaoyang.io/categories/eip-frameworks/</link>
       <pubDate>Sat, 18 Apr 2015 18:41:54 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/eip-frameworks/</guid>
+      <guid>https://chaoyang.io/categories/eip-frameworks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Esb</title>
-      <link>https://yangchao.me/categories/esb/</link>
+      <link>https://chaoyang.io/categories/esb/</link>
       <pubDate>Sat, 18 Apr 2015 18:47:50 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/esb/</guid>
+      <guid>https://chaoyang.io/categories/esb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exception</title>
-      <link>https://yangchao.me/categories/exception/</link>
+      <link>https://chaoyang.io/categories/exception/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/exception/</guid>
+      <guid>https://chaoyang.io/categories/exception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exception Handling</title>
-      <link>https://yangchao.me/categories/exception-handling/</link>
+      <link>https://chaoyang.io/categories/exception-handling/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/exception-handling/</guid>
+      <guid>https://chaoyang.io/categories/exception-handling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Generics</title>
-      <link>https://yangchao.me/categories/generics/</link>
+      <link>https://chaoyang.io/categories/generics/</link>
       <pubDate>Tue, 24 Mar 2015 14:15:50 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/generics/</guid>
+      <guid>https://chaoyang.io/categories/generics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Html5</title>
-      <link>https://yangchao.me/categories/html5/</link>
+      <link>https://chaoyang.io/categories/html5/</link>
       <pubDate>Tue, 28 Apr 2015 23:27:29 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/html5/</guid>
+      <guid>https://chaoyang.io/categories/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iot</title>
-      <link>https://yangchao.me/categories/iot/</link>
+      <link>https://chaoyang.io/categories/iot/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/iot/</guid>
+      <guid>https://chaoyang.io/categories/iot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java 5</title>
-      <link>https://yangchao.me/categories/java-5/</link>
+      <link>https://chaoyang.io/categories/java-5/</link>
       <pubDate>Sat, 12 Jan 2013 02:58:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/java-5/</guid>
+      <guid>https://chaoyang.io/categories/java-5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://yangchao.me/categories/javascript/</link>
+      <link>https://chaoyang.io/categories/javascript/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/javascript/</guid>
+      <guid>https://chaoyang.io/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jax Rs</title>
-      <link>https://yangchao.me/categories/jax-rs/</link>
+      <link>https://chaoyang.io/categories/jax-rs/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jax-rs/</guid>
+      <guid>https://chaoyang.io/categories/jax-rs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jdbc</title>
-      <link>https://yangchao.me/categories/jdbc/</link>
+      <link>https://chaoyang.io/categories/jdbc/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jdbc/</guid>
+      <guid>https://chaoyang.io/categories/jdbc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jms</title>
-      <link>https://yangchao.me/categories/jms/</link>
+      <link>https://chaoyang.io/categories/jms/</link>
       <pubDate>Wed, 01 Apr 2015 14:59:19 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jms/</guid>
+      <guid>https://chaoyang.io/categories/jms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jndi Ldap</title>
-      <link>https://yangchao.me/categories/jndi-ldap/</link>
+      <link>https://chaoyang.io/categories/jndi-ldap/</link>
       <pubDate>Thu, 07 May 2015 10:09:04 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jndi-ldap/</guid>
+      <guid>https://chaoyang.io/categories/jndi-ldap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Job Seeking</title>
-      <link>https://yangchao.me/categories/job-seeking/</link>
+      <link>https://chaoyang.io/categories/job-seeking/</link>
       <pubDate>Mon, 12 Jan 2015 05:38:05 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/job-seeking/</guid>
+      <guid>https://chaoyang.io/categories/job-seeking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jpa</title>
-      <link>https://yangchao.me/categories/jpa/</link>
+      <link>https://chaoyang.io/categories/jpa/</link>
       <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jpa/</guid>
+      <guid>https://chaoyang.io/categories/jpa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jta</title>
-      <link>https://yangchao.me/categories/jta/</link>
+      <link>https://chaoyang.io/categories/jta/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jta/</guid>
+      <guid>https://chaoyang.io/categories/jta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jvm</title>
-      <link>https://yangchao.me/categories/jvm/</link>
+      <link>https://chaoyang.io/categories/jvm/</link>
       <pubDate>Sat, 27 Jun 2015 15:50:04 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/jvm/</guid>
+      <guid>https://chaoyang.io/categories/jvm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Language Compiler</title>
-      <link>https://yangchao.me/categories/language-compiler/</link>
+      <link>https://chaoyang.io/categories/language-compiler/</link>
       <pubDate>Fri, 16 Jan 2015 04:42:49 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/language-compiler/</guid>
+      <guid>https://chaoyang.io/categories/language-compiler/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Middlewares</title>
-      <link>https://yangchao.me/categories/middlewares/</link>
+      <link>https://chaoyang.io/categories/middlewares/</link>
       <pubDate>Thu, 12 Feb 2015 07:43:05 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/middlewares/</guid>
+      <guid>https://chaoyang.io/categories/middlewares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multithreading</title>
-      <link>https://yangchao.me/categories/multithreading/</link>
+      <link>https://chaoyang.io/categories/multithreading/</link>
       <pubDate>Fri, 13 Mar 2015 04:59:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/multithreading/</guid>
+      <guid>https://chaoyang.io/categories/multithreading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Oop</title>
-      <link>https://yangchao.me/categories/oop/</link>
+      <link>https://chaoyang.io/categories/oop/</link>
       <pubDate>Sun, 22 Mar 2015 18:40:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/oop/</guid>
+      <guid>https://chaoyang.io/categories/oop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Performance</title>
-      <link>https://yangchao.me/categories/performance/</link>
+      <link>https://chaoyang.io/categories/performance/</link>
       <pubDate>Fri, 05 Jun 2015 15:16:23 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/performance/</guid>
+      <guid>https://chaoyang.io/categories/performance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Php</title>
-      <link>https://yangchao.me/categories/php/</link>
+      <link>https://chaoyang.io/categories/php/</link>
       <pubDate>Mon, 23 Mar 2015 11:19:52 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/php/</guid>
+      <guid>https://chaoyang.io/categories/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project Architecture</title>
-      <link>https://yangchao.me/categories/project-architecture/</link>
+      <link>https://chaoyang.io/categories/project-architecture/</link>
       <pubDate>Tue, 08 Sep 2015 20:32:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/project-architecture/</guid>
+      <guid>https://chaoyang.io/categories/project-architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project Problems</title>
-      <link>https://yangchao.me/categories/project-problems/</link>
+      <link>https://chaoyang.io/categories/project-problems/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/project-problems/</guid>
+      <guid>https://chaoyang.io/categories/project-problems/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Q/A</title>
-      <link>https://yangchao.me/categories/q/a/</link>
+      <link>https://chaoyang.io/categories/q/a/</link>
       <pubDate>Thu, 23 Apr 2015 19:02:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/q/a/</guid>
+      <guid>https://chaoyang.io/categories/q/a/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>https://yangchao.me/categories/security/</link>
+      <link>https://chaoyang.io/categories/security/</link>
       <pubDate>Fri, 08 May 2015 20:25:02 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/security/</guid>
+      <guid>https://chaoyang.io/categories/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servlet / Jsp</title>
-      <link>https://yangchao.me/categories/servlet-/-jsp/</link>
+      <link>https://chaoyang.io/categories/servlet-/-jsp/</link>
       <pubDate>Mon, 30 Mar 2015 15:57:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/servlet-/-jsp/</guid>
+      <guid>https://chaoyang.io/categories/servlet-/-jsp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Soap Web Service</title>
-      <link>https://yangchao.me/categories/soap-web-service/</link>
+      <link>https://chaoyang.io/categories/soap-web-service/</link>
       <pubDate>Tue, 21 Apr 2015 14:47:44 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/soap-web-service/</guid>
+      <guid>https://chaoyang.io/categories/soap-web-service/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring</title>
-      <link>https://yangchao.me/categories/spring/</link>
+      <link>https://chaoyang.io/categories/spring/</link>
       <pubDate>Sat, 25 Apr 2015 20:17:32 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/spring/</guid>
+      <guid>https://chaoyang.io/categories/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sql</title>
-      <link>https://yangchao.me/categories/sql/</link>
+      <link>https://chaoyang.io/categories/sql/</link>
       <pubDate>Thu, 02 Apr 2015 15:41:53 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/sql/</guid>
+      <guid>https://chaoyang.io/categories/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sso</title>
-      <link>https://yangchao.me/categories/sso/</link>
+      <link>https://chaoyang.io/categories/sso/</link>
       <pubDate>Fri, 08 May 2015 13:19:49 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/sso/</guid>
+      <guid>https://chaoyang.io/categories/sso/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Struts</title>
-      <link>https://yangchao.me/categories/struts/</link>
+      <link>https://chaoyang.io/categories/struts/</link>
       <pubDate>Wed, 08 Apr 2015 13:59:38 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/struts/</guid>
+      <guid>https://chaoyang.io/categories/struts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Transaction Management</title>
-      <link>https://yangchao.me/categories/transaction-management/</link>
+      <link>https://chaoyang.io/categories/transaction-management/</link>
       <pubDate>Fri, 03 Apr 2015 16:32:56 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/transaction-management/</guid>
+      <guid>https://chaoyang.io/categories/transaction-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>https://yangchao.me/categories/tutorial/</link>
+      <link>https://chaoyang.io/categories/tutorial/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/tutorial/</guid>
+      <guid>https://chaoyang.io/categories/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncategorized</title>
-      <link>https://yangchao.me/categories/uncategorized/</link>
+      <link>https://chaoyang.io/categories/uncategorized/</link>
       <pubDate>Thu, 19 Nov 2015 23:24:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/uncategorized/</guid>
+      <guid>https://chaoyang.io/categories/uncategorized/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Version Control</title>
-      <link>https://yangchao.me/categories/version-control/</link>
+      <link>https://chaoyang.io/categories/version-control/</link>
       <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/version-control/</guid>
+      <guid>https://chaoyang.io/categories/version-control/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://yangchao.me/categories/web/</link>
+      <link>https://chaoyang.io/categories/web/</link>
       <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/web/</guid>
+      <guid>https://chaoyang.io/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Service</title>
-      <link>https://yangchao.me/categories/web-service/</link>
+      <link>https://chaoyang.io/categories/web-service/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://yangchao.me/categories/web-service/</guid>
+      <guid>https://chaoyang.io/categories/web-service/</guid>
       <description></description>
     </item>
     

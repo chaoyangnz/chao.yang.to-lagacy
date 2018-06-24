@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sso on Chao Yang</title>
-    <link>https://yangchao.me/categories/sso/</link>
+    <link>https://chaoyang.io/categories/sso/</link>
     <description>Recent content in Sso on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 May 2015 13:19:49 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/sso/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/sso/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WebSphere SSO how-to</title>
-      <link>https://yangchao.me/post/websphere-sso-how-to/</link>
+      <link>https://chaoyang.io/post/websphere-sso-how-to/</link>
       <pubDate>Fri, 08 May 2015 13:19:49 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/websphere-sso-how-to/</guid>
+      <guid>https://chaoyang.io/post/websphere-sso-how-to/</guid>
       <description>SSO定义 单点登录的英文名称为Single Sign-On，简写为SSO。在用户有权限访问的多个系统间，只要用户在其中一个系统做过认证(Aut</description>
     </item>
     

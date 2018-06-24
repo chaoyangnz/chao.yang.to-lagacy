@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Books on Chao Yang</title>
-    <link>https://yangchao.me/book/</link>
+    <link>https://chaoyang.io/book/</link>
     <description>Recent content in Books on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://yangchao.me/book/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/book/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/readme/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/readme/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/readme/</guid>
       <description>A close look at Java Having use Java as the professional programming language for many years, I still feel there are something I don&amp;rsquo;t dive into in depth. So to be a well-grounded Java Developer, I need to keep an attention to these trivial, seemingly easy but not-complete-understood knowledge.
 This minibook includes some discussion about the API classes in JDK. I always keep the style of exploring how the JDK implement them and trying to implement the major idea on my own.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/summary/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/summary/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/summary/</guid>
       <description> Summary Chapter 1. Get started  Introduction  Chapter 2. Primitives  integer float point  Chapter 3. String  intern  Chapter 3. Collections  ArrayList HashMap PriorityQueue BitSet  Chapter 4. Concurrency  threadlocal  Chapter 5. Stream Chapter 6. Misc.  StringJoiner  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/collections/readme/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/collections/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/collections/readme/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/collections/readme/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/collections/arraylist/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/collections/arraylist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/collections/arraylist/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/collections/arraylist/</guid>
       <description>capacity and size Initially, ArrayList has a capacity specified by its constructor. If capacity is zero, then it will be DEFAULTCAPACITY_EMPTY_ELEMENTDATA.
 The underlying array with the length capacity acts as a buffer. There is a size field to indicate the actual elements occupied.
 expand capacity Once the size exceeds the capacity, the list should expand accordingly. Each time when expanding, it increases half of the previous capacity. You can notice, empty capacity increases to INITIAL_CAPACITY, which is 10.</description>
@@ -51,10 +51,10 @@ expand capacity Once the size exceeds the capacity, the list should expand accor
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/collections/hashmap/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/collections/hashmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/collections/hashmap/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/collections/hashmap/</guid>
       <description>inner structure The major structure of HashMap is a table which is an array of Node. Every node can be linked to other nodes with the same index but different key. HashMap names the bucket a Bin: plain bin, tree bin.
 When the linked list for the bin is too long (more than 8 nodes), its need to be treeified.
 capacity and size In HashMap, capacity refers the length of the underlying table and size refers to the actual number of nodes (NOT the number of bins).</description>
@@ -62,10 +62,10 @@ capacity and size In HashMap, capacity refers the length of the underlying table
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/collections/priorityqueue/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/collections/priorityqueue/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/collections/priorityqueue/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/collections/priorityqueue/</guid>
       <description>complete binary tree and array representation Tree is not necessarily constructed by linked nodes. If we store it as an array, it needs to be a complete binary tree.
 A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.
 So when an array is used to store this tree, a node at n has its two children at 2*n+1 and 2*(n+1).</description>
@@ -73,10 +73,10 @@ So when an array is used to store this tree, a node at n has its two children at
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/concurrency/theadpool/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/concurrency/theadpool/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/concurrency/theadpool/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/concurrency/theadpool/</guid>
       <description> Java Executor Framework Interfaces:
  Executor ExecutorService ScheduledExecutorService  Implementations: * ThreadPoolExecutor * ScheduledThreadPoolExecutor
 Factory: * Executors
@@ -85,29 +85,29 @@ ThreadPoolExecutor </description>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/concurrency/threadlocal/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/concurrency/threadlocal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/concurrency/threadlocal/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/concurrency/threadlocal/</guid>
       <description>how to use? Basically,ThreadLocalis used for these scenarios:whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from this thread.
 When wrongly used, it may cause something counter-intuitive. For example, when you set a value/reference to a ThreadLocal, you also share it with other threads (say other threads can access the reference and mutable it.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/concurrent/threadlocal/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/concurrent/threadlocal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/concurrent/threadlocal/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/concurrent/threadlocal/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/helpers/stringjoiner/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/helpers/stringjoiner/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/helpers/stringjoiner/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/helpers/stringjoiner/</guid>
       <description>Have you experienced this? Not one time when we want to join a bunch of String, we have to do like that:
 String[] strs = {&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;, &amp;#34;d&amp;#34;}; StringBuilder sb = new StringBuilder(); for(String str : strs) { sb.append(str).append(&amp;#34;,&amp;#34;); } sb.delete(sb.size()-1); So simple task, we need so much code. Really sucks!
 Now Java 8 finally provides us a great StringJoiner.
@@ -116,19 +116,19 @@ How can we use it? StringJoiner joiner = new StringJoiner(&amp;#34;,&amp;#34;); 
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/primitives/readme/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/primitives/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/primitives/readme/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/primitives/readme/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/primitives/bitset/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/primitives/bitset/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/primitives/bitset/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/primitives/bitset/</guid>
       <description>BitSet is not of collections framework, but it is very useful for some memory efficient algorithm.
 bit index =&amp;gt; word index In Java, the smallest unit of primitive data type is byte. To represent bit array, we just need to use wider data type and when needed translate the indices.
 BitSet uses long[] array as the underlying data structure. A long word has 8 bytes with 64 bits, say 26.</description>
@@ -136,29 +136,29 @@ BitSet uses long[] array as the underlying data structure. A long word has 8 byt
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/primitives/float-point/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/primitives/float-point/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/primitives/float-point/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/primitives/float-point/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/primitives/integer/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/primitives/integer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/primitives/integer/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/primitives/integer/</guid>
       <description>I don&amp;rsquo;t know if only I feel we become farther away from the machine when using Java. But that&amp;rsquo;s not the truth. Once we need to think of how some more &amp;ldquo;advanced&amp;rdquo; things happen, we cannot bypass it. So getting clear about the mechanism of these underlying representation will help us develop more confidently.
 Some people complain that Java is not a pure object-oriented language, because it provides primitives types and they seems to be not well suitable to other features, like generics.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/a-close-look-at-java/string/intern/</link>
+      <link>https://chaoyang.io/book/a-close-look-at-java/string/intern/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/a-close-look-at-java/string/intern/</guid>
+      <guid>https://chaoyang.io/book/a-close-look-at-java/string/intern/</guid>
       <description>Several simple code snippets //Sample1 char[] chars = {&amp;#39;h&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;o&amp;#39;}; String str1 = new String(chars); System.out.println(str1 == str1.intern()); print: true
 //Sample2 String str1 = new String(&amp;#34;hello&amp;#34;); System.out.println(str1 == str1.intern()); print: false
 //Sample3 String a = &amp;#34;hello&amp;#34;; String b = new String(&amp;#34;hello&amp;#34;); String c = new String(&amp;#34;h&amp;#34; + &amp;#34;e&amp;#34; + &amp;#34;l&amp;#34; + &amp;#34;l&amp;#34; + &amp;#34;o&amp;#34;); String d = b.intern(); How many String objects is created? Answer is 3.</description>
@@ -166,93 +166,93 @@ Some people complain that Java is not a pure object-oriented language, because i
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/readme/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/readme/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/readme/</guid>
       <description>Algorithm Pathway This minibook is the knowledge I absorbed from the practice of algorithmic problems on LeetCode, HackerRank etc.
 I conclude some general patterns to address some category of problems and what I want to note here more is about the thought process when I think of a solution.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/summary/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/summary/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/summary/</guid>
       <description> Summary  Introduction  Bit Operation  Summary Group by bit  Linked List  Summary Two pointers race  Tree Dynamic Programming Array Hashing </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/_book/bit-operation/group-by-bit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/_book/bit-operation/group-by-bit/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/_book/bit-operation/group-by-bit/</guid>
       <description>Group by bit · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Group by bit       results matching &#34;&#34;   No results matching &#34;&#34;             var gitbook = gitbook || []; gitbook.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/_book/bit-operation/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/_book/bit-operation/summary/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/_book/bit-operation/summary/</guid>
       <description>Summary · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Summary   Bit manipulation is the act of algorithmically manipulating bits or other pieces of data shorter than a word. Computer programming tasks that require bit manipulation include low-level device control, error detection and correction algorithms, data compression, encryption algorithms, and optimisation.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/_book/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/_book/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/_book/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/_book/</guid>
       <description>Introduction · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Introduction   Algorithm Pathway This minibook is the knowledge I absorbed from the practice of algorithmic problems on LeetCode, HackerRank etc.
 I conclude some general patterns to address some category of problems and what I want to note here more is about the thought process when I think of a solution.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/_book/linked-list/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/_book/linked-list/summary/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/_book/linked-list/summary/</guid>
       <description>Summary · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Summary   Linked list is a quite common data structure. Although it is easy for insertion and deletion, but sometimes it can be very tricky to use, because for a current node, its context is just its next node and its previous one if any.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/_book/linked-list/two-pointers-race/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/_book/linked-list/two-pointers-race/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/_book/linked-list/two-pointers-race/</guid>
       <description>Two pointers race · GitBook    Introduction   Bit Operation Summary   Group by bit   Linked List Summary   Two pointers race   Tree Dynamic Programming Array Hashing   Published with GitBook        Two pointers race   Most of time, we need 2 pointers to traverse a linked list or two linked lists.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/bit-operation/group-by-bit/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/bit-operation/group-by-bit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/bit-operation/group-by-bit/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/bit-operation/group-by-bit/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/bit-operation/summary/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/bit-operation/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/bit-operation/summary/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/bit-operation/summary/</guid>
       <description>Bit manipulation is the act of algorithmically manipulating bits or other pieces of data shorter than a word. Computer programming tasks that require bit manipulation include low-level device control, error detection and correction algorithms, data compression, encryption algorithms, and optimisation. For most other tasks, modern programming languages allow the programmer to work directly with abstractions instead of bits that represent those abstractions. Source code that does bit manipulation makes use of the bitwise operations: AND, OR, XOR, NOT, and bit shifts.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/linked-list/summary/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/linked-list/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/linked-list/summary/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/linked-list/summary/</guid>
       <description>Linked list is a quite common data structure. Although it is easy for insertion and deletion, but sometimes it can be very tricky to use, because for a current node, its context is just its next node and its previous one if any.
 dummy head I place dummy head as the first point, because I suppose it is quite convenient when handling some problems.
  dummy head is as its name: it has no extra purpose, just for head.</description>
@@ -260,10 +260,10 @@ dummy head I place dummy head as the first point, because I suppose it is quite 
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/algorithm-pathway/linked-list/two-pointers-race/</link>
+      <link>https://chaoyang.io/book/algorithm-pathway/linked-list/two-pointers-race/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/algorithm-pathway/linked-list/two-pointers-race/</guid>
+      <guid>https://chaoyang.io/book/algorithm-pathway/linked-list/two-pointers-race/</guid>
       <description>Most of time, we need 2 pointers to traverse a linked list or two linked lists.
 fast-slow pointers catch up The fast pointer advance 2x steps while the slow one does per step.
 check cycle in a linked list A typical use of fast-slow pointers is to check a loop in a linked list.
@@ -272,75 +272,75 @@ check cycle in a linked list A typical use of fast-slow pointers is to check a l
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/2017-06-27/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/2017-06-27/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/2017-06-27/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/2017-06-27/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/readme/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/readme/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/readme/</guid>
       <description>My Awesome Book This file file serves as your book&amp;rsquo;s preface, a great place to describe your book&amp;rsquo;s content and ideas.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/summary/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/summary/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/summary/</guid>
       <description> Summary  Introduction First Chapter The Structure of Java Virtual Machine Loading, Linking, and Initializing  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/_book/chapter1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/_book/chapter1/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/_book/chapter1/</guid>
       <description>First Chapter · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        First Chapter   JVM Structure Primitive Types and Values The primary data types supported by JVM are the numeric types, the boolean types and returnAddress type.
 numberic types include integral types and floating-point types:</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/_book/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/_book/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/_book/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/_book/</guid>
       <description>Introduction · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        Introduction   My Awesome Book This file file serves as your book&amp;apos;s preface, a great place to describe your book&amp;apos;s content and ideas.
    results matching &#34;&#34;   No results matching &#34;</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/_book/loading-linking-and-initializing/</guid>
       <description>Loading, Linking, and Initializing · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        Loading, Linking, and Initializing   Chapter 5. Loading, Linking, and Initializing The Java Virtual Machine dynamically loads, links and initializes classes and interfaces. Loading is the process of finding the binary representation of a class or interface type with a particular name and_creating_a class or interface from that binary representation.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/_book/the-structure-of-java-virtual-machine/</guid>
       <description>The Structure of Java Virtual Machine · GitBook    Introduction   First Chapter   The Structure of Java Virtual Machine   Loading, Linking, and Initializing     Published with GitBook        The Structure of Java Virtual Machine   Chapter 2. The Structure of the Java Virtual Machine This document specifies an abstract machine. It does not describe any particular implementation of the Java Virtual Machine.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/chapter1/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/chapter1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/chapter1/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/chapter1/</guid>
       <description>JVM Structure Primitive Types and Values The primary data types supported by JVM are the numeric types, the boolean types and returnAddress type.
 numberic types include integral types and floating-point types: - byte, 8-bit two&amp;rsquo;s-complement integer - short, 16-bit two&amp;rsquo;s-complement integer - int, 32-bit two&amp;rsquo;s-complement integer - long, 64-bit two&amp;rsquo;s-complement integer - char, 16-bit unsigned integers representing Unicode code points
 float-pointing types: - float - double
@@ -349,19 +349,19 @@ boolean type: true / false</description>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/loading-linking-and-initializing/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/loading-linking-and-initializing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/loading-linking-and-initializing/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/loading-linking-and-initializing/</guid>
       <description>Chapter 5. Loading, Linking, and Initializing The Java Virtual Machine dynamically loads, links and initializes classes and interfaces. Loading is the process of finding the binary representation of a class or interface type with a particular name and_creating_a class or interface from that binary representation. Linking is the process of taking a class or interface and combining it into the run-time state of the Java Virtual Machine so that it can be executed.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</link>
+      <link>https://chaoyang.io/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</guid>
+      <guid>https://chaoyang.io/book/annotated-jvm-specification/the-structure-of-java-virtual-machine/</guid>
       <description>Chapter 2. The Structure of the Java Virtual Machine This document specifies an abstract machine. It does not describe any particular implementation of the Java Virtual Machine.
 To implement the Java Virtual Machine correctly, you need only be able to read theclassfile format and correctly perform the operations specified therein. Implementation details that are not part of the Java Virtual Machine&amp;rsquo;s specification would unnecessarily constrain the creativity of implementors. For example, the memory layout of run-time data areas, the garbage-collection algorithm used, and any internal optimization of the Java Virtual Machine instructions (for example, translating them into machine code) are left to the discretion of the implementor.</description>
     </item>

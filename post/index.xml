@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Chao Yang</title>
-    <link>https://yangchao.me/post/</link>
+    <link>https://chaoyang.io/post/</link>
     <description>Recent content in Posts on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 24 Mar 2018 22:55:00 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CORS revisit</title>
-      <link>https://yangchao.me/post/cors-revisit/</link>
+      <link>https://chaoyang.io/post/cors-revisit/</link>
       <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/cors-revisit/</guid>
+      <guid>https://chaoyang.io/post/cors-revisit/</guid>
       <description>Origin The issue stems from the same-origin policy which forces the browsers to restrict the resource access of a different origin (e.g. different domain) when: - AJAX request - Web Fonts (for cross-domain font usage in @font-face within CSS) - Images/video frames drawn to a canvas using drawImage. - Stylesheets (for CSSOM access). - others
 CORS is a technique for relaxing the same-origin policy and similar techniques include JSONP, or server-side proxy which were used in the past.</description>
     </item>
     
     <item>
       <title>Notes - CSS in Depth</title>
-      <link>https://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</link>
+      <link>https://chaoyang.io/post/css-in-depth-cascade-specificity-and-inheritance/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/css-in-depth-cascade-specificity-and-inheritance/</guid>
+      <guid>https://chaoyang.io/post/css-in-depth-cascade-specificity-and-inheritance/</guid>
       <description>Nearly every web programmer I met says: I know CSS, even someone told me &amp;ldquo;CSS is simple&amp;rdquo;. So they naturally write CSS in their skill set of CV. But wait, just writing several lines of CSS statements does not necessarily mean you are a qualified CSS user. This is the reason why I plan to learn CSS in depth. What I expect is to get a solid knowledge about how to write large scale CSS and understand why it works when layouting or styling.</description>
     </item>
     
     <item>
       <title>Javascript testing frameworks</title>
-      <link>https://yangchao.me/post/javascript-testing-frameworks/</link>
+      <link>https://chaoyang.io/post/javascript-testing-frameworks/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javascript-testing-frameworks/</guid>
+      <guid>https://chaoyang.io/post/javascript-testing-frameworks/</guid>
       <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
 Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
 So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>
@@ -43,10 +43,10 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
     
     <item>
       <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
-      <link>https://yangchao.me/post/build-opencv-android-sdk/</link>
+      <link>https://chaoyang.io/post/build-opencv-android-sdk/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/build-opencv-android-sdk/</guid>
+      <guid>https://chaoyang.io/post/build-opencv-android-sdk/</guid>
       <description>By default, the official OpenCV Android SDK doesn&amp;rsquo;t contain the contrib libraries, like Aruco.
 prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
  Android SDK  Note: please degrade the Android SDK tools version, 25.2.4 is fine for me http://dl-ssl.google.com/android/repository/tools_r25.2.5-macosx.zip Go to ~/Library/Android/sdk, rename tools to tools.bak, then unzip the tools_rxxx.zip to sdk/tools directory. Why? because otherwise, android command has been deprecated)
@@ -56,10 +56,10 @@ prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10
     
     <item>
       <title>A developer learns design</title>
-      <link>https://yangchao.me/post/a-developer-leanrns-design/</link>
+      <link>https://chaoyang.io/post/a-developer-leanrns-design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/a-developer-leanrns-design/</guid>
+      <guid>https://chaoyang.io/post/a-developer-leanrns-design/</guid>
       <description>I do not forget the time when I crafted a Flash animation in my university and I also had a dream to design a 3D game on my own.
 So now I have some time to realize my dream and start a learning plan. I bought Affinity Photo and Affinity Designer which are great applications and I am pretty obsessed with these two.
 I also learn how to program with Unity and 3D model with Maya.</description>
@@ -67,10 +67,10 @@ I also learn how to program with Unity and 3D model with Maya.</description>
     
     <item>
       <title>Kotlin Pitfalls</title>
-      <link>https://yangchao.me/post/kotlin-pitfalls/</link>
+      <link>https://chaoyang.io/post/kotlin-pitfalls/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/kotlin-pitfalls/</guid>
+      <guid>https://chaoyang.io/post/kotlin-pitfalls/</guid>
       <description>Type system val list: List&amp;lt;String&amp;gt; = java.util.ArrayList() Why does it work? java.util.ArrayList is not a subclass of kotlin.List, and kotlin.List is actually read-only.
 Because in bytecode level, kotlin.List is just java.util.List! I decompile the class Kotlin compiled:
 import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Metadata(mv={1, 1, 6}, bv={1, 0, 1}, k=2, d1={&amp;#34;\000\b\n\000\n\002\020\002\n\000\032\006\020\000\032\0020\001��\006\002&amp;#34;}, d2={&amp;#34;a&amp;#34;, &amp;#34;&amp;#34;, &amp;#34;kotlin_demo&amp;#34;}) public final class _1Kt { public static final void a() { List list = (List)new ArrayList(); } } You can think as if java.</description>
@@ -78,10 +78,10 @@ import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Meta
     
     <item>
       <title>pseudo-random number &amp; shuffle</title>
-      <link>https://yangchao.me/post/pseudo-random-number-shuffle/</link>
+      <link>https://chaoyang.io/post/pseudo-random-number-shuffle/</link>
       <pubDate>Wed, 26 Apr 2017 18:45:55 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/pseudo-random-number-shuffle/</guid>
+      <guid>https://chaoyang.io/post/pseudo-random-number-shuffle/</guid>
       <description>Pseudo random number Given a seed, and you will always get the next number, which is predictable. So that is reason why it is called pseudo random.
 A simple algorithm is Linear congruential generator.
  next random = (a * random + c) mod 2^32  The initial random is seed.
@@ -91,20 +91,20 @@ nextseed = (oldseed * multiplier + addend) &amp;amp; mask; here, multiplier is 0
     
     <item>
       <title>Swift 3.0 for a Java or ES6/TypeScript developer</title>
-      <link>https://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</link>
+      <link>https://chaoyang.io/post/swift-3-for-a-java-or-es6-typescript-developer/</link>
       <pubDate>Thu, 19 Jan 2017 17:11:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/swift-3-for-a-java-or-es6-typescript-developer/</guid>
+      <guid>https://chaoyang.io/post/swift-3-for-a-java-or-es6-typescript-developer/</guid>
       <description>Basic Operators Assignment Operator let b = 10 // constant var a = 5	// variable a = b let is not the same as that in ES6. It is more or like final in Java. It means the variable (value or reference) cannot be changed once initialization.
 But let in Swift has stronger semantics, which enable immutability or constant. It means not only the reference cannot be mutable but also the object it refers cannot be mutable.</description>
     </item>
     
     <item>
       <title>ElementRef vs. ViewContainerRef vs. TemplateRef</title>
-      <link>https://yangchao.me/post/elementref-viewcontainerref-templateref/</link>
+      <link>https://chaoyang.io/post/elementref-viewcontainerref-templateref/</link>
       <pubDate>Tue, 27 Dec 2016 17:11:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/elementref-viewcontainerref-templateref/</guid>
+      <guid>https://chaoyang.io/post/elementref-viewcontainerref-templateref/</guid>
       <description>In Angular2, there are many *Ref class: ElementRef, ViewContainerRef, TemplateRef.
 What do they means?
  Nearly every components (Components, Attribute Directives, Structural Directives) have ViewContainerRef, which is the host of its view.  ViewContainerRef has two important methods: createEmbeddedView(templateRef: TemplateRef&amp;lt;C&amp;gt;, context?: C, index?: number) : EmbeddedViewRef&amp;lt;C&amp;gt; This method is to create a view from a HTML template. createComponent(componentFactory: ComponentFactory&amp;lt;C&amp;gt;, index?: number, injector?: Injector, projectableNodes?: any[][]) : ComponentRef&amp;lt;C&amp;gt; This method is to initialize a component and insert its host view to the view container.</description>
@@ -112,20 +112,20 @@ What do they means?
     
     <item>
       <title>ThreadLocal</title>
-      <link>https://yangchao.me/post/threadlocal/</link>
+      <link>https://chaoyang.io/post/threadlocal/</link>
       <pubDate>Mon, 05 Sep 2016 19:52:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/threadlocal/</guid>
+      <guid>https://chaoyang.io/post/threadlocal/</guid>
       <description>how to use? Basically, ThreadLocal is used for these scenarios: whenever you set a value/reference within this thread, you can get it from this thread. But it cannot guarantee you can ONLY get it from this thread.
 When wrongly used, it may cause something counter-intuitive. For example, when you set a value/reference to a ThreadLocal, you also share it with other threads (say other threads can access the reference and mutable it.</description>
     </item>
     
     <item>
       <title>Dive into JMM</title>
-      <link>https://yangchao.me/post/dive-into-jmm/</link>
+      <link>https://chaoyang.io/post/dive-into-jmm/</link>
       <pubDate>Mon, 05 Sep 2016 13:34:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/dive-into-jmm/</guid>
+      <guid>https://chaoyang.io/post/dive-into-jmm/</guid>
       <description>JMM is an advanced and abstract topic in Java. It provides well-defined semantics for synchronization and help us reason the code execution in a multi-thread enviorionment.
 Keywords: main memory, local memory, reordering, visibility, memory barrier/fence
 What do the issues come from? References  The JSR-133 Cookbook for Compiler Writers Memory Barriers and JVM Concurrency  //TODO</description>
@@ -133,39 +133,39 @@ What do the issues come from? References  The JSR-133 Cookbook for Compiler Writ
     
     <item>
       <title>Double Checked Locking in lazy-initialization Singleton</title>
-      <link>https://yangchao.me/post/double-checked-locking-in-singleton/</link>
+      <link>https://chaoyang.io/post/double-checked-locking-in-singleton/</link>
       <pubDate>Fri, 02 Sep 2016 19:36:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/double-checked-locking-in-singleton/</guid>
+      <guid>https://chaoyang.io/post/double-checked-locking-in-singleton/</guid>
       <description>double-checked locking idiom (aka. DCL) broken versions Here we follow the evolution process of how to create a lazy-initialization singleton.
 // naive version public class Singleton { private static Singleton DEFAULT; public static Singleton getDefault() { if(DEFAULT == null) { DEFAULT = new Singleton(); } return DEFAULT; } private Singleton() {} // other instance methods  } Race condition: - when thread 1 has executed if(DEFAULT == null) and then is preempted by thread 2.</description>
     </item>
     
     <item>
       <title>thread interrupt and cancelable mechanism</title>
-      <link>https://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/</link>
+      <link>https://chaoyang.io/post/thread-interrupt-and-cancelable-mechanism/</link>
       <pubDate>Tue, 23 Aug 2016 10:25:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/thread-interrupt-and-cancelable-mechanism/</guid>
+      <guid>https://chaoyang.io/post/thread-interrupt-and-cancelable-mechanism/</guid>
       <description>To begin with, I issue some questions: - what does Thread#interrupt() do? - what is the difference between Thread#isInterrupted() and Thread.interrupted? - do I have to respond to interruption event? - when an InterruptedException is thrown? - how should I handle the caught InterruptedException? - how do I implement a cancelable mechanism for my task by polling interruption event? - apart from wait(), sleep(), join(), are there other scenarios throwing InterruptedException?</description>
     </item>
     
     <item>
       <title>Java array has length field?</title>
-      <link>https://yangchao.me/post/java-array-has-length-field/</link>
+      <link>https://chaoyang.io/post/java-array-has-length-field/</link>
       <pubDate>Mon, 22 Aug 2016 21:36:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-array-has-length-field/</guid>
+      <guid>https://chaoyang.io/post/java-array-has-length-field/</guid>
       <description>Today, a coworker asked me in which part of object header the length of an array object is stored. Since in my impression, the object header is of two machine words. But a book said for array, there must be length information stored in the object header. But where?
 array is special There is no &amp;ldquo;class definition&amp;rdquo; of an array (you can&amp;rsquo;t find it in any .class file), they&amp;rsquo;re a part of the language itself.</description>
     </item>
     
     <item>
       <title>String intern</title>
-      <link>https://yangchao.me/post/string-intern/</link>
+      <link>https://chaoyang.io/post/string-intern/</link>
       <pubDate>Mon, 22 Aug 2016 21:36:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/string-intern/</guid>
+      <guid>https://chaoyang.io/post/string-intern/</guid>
       <description>Several simple code snippets // Sample1 char[] chars = {&amp;#39;h&amp;#39;, &amp;#39;e&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;o&amp;#39;}; String str1 = new String(chars); System.out.println(str1 == str1.intern()); print: true
 // Sample2 String str1 = new String(&amp;#34;hello&amp;#34;); System.out.println(str1 == str1.intern()); print: false
 // Sample3 String a = &amp;#34;hello&amp;#34;; String b = new String(&amp;#34;hello&amp;#34;); String c = new String(&amp;#34;h&amp;#34; + &amp;#34;e&amp;#34; + &amp;#34;l&amp;#34; + &amp;#34;l&amp;#34; + &amp;#34;o&amp;#34;); String d = b.intern(); How many String objects is created?</description>
@@ -173,20 +173,20 @@ array is special There is no &amp;ldquo;class definition&amp;rdquo; of an array 
     
     <item>
       <title>How JVM handle method invocation</title>
-      <link>https://yangchao.me/post/how-jvm-handle-method-invocation/</link>
+      <link>https://chaoyang.io/post/how-jvm-handle-method-invocation/</link>
       <pubDate>Mon, 22 Aug 2016 14:39:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/how-jvm-handle-method-invocation/</guid>
+      <guid>https://chaoyang.io/post/how-jvm-handle-method-invocation/</guid>
       <description>Introduction Five forms of method invocation in Java: - invokevirtual - invokeinterface - invokestatic - invokespecial - invokedynamic
 invokestatic and invokevirtual Of these, invokestatic and invokevirtual are easy to understand. invokevirtual is the default behaviour when we invoke an instance method. invokestatic is used to invoke the class method based on the type of the reference, not the class of the object when we invoke the static method through the instance rather than the class name.</description>
     </item>
     
     <item>
       <title>Dynamic Proxy revisit</title>
-      <link>https://yangchao.me/post/dynamic-proxy-revisit/</link>
+      <link>https://chaoyang.io/post/dynamic-proxy-revisit/</link>
       <pubDate>Mon, 15 Aug 2016 16:40:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/dynamic-proxy-revisit/</guid>
+      <guid>https://chaoyang.io/post/dynamic-proxy-revisit/</guid>
       <description>Dynamic Proxy in JDK Proxy is a class which can get the proxy class and create the proxy instance. It has a private default constructor and a protected constructor with a contractor argument: InvocationHandler.
 InvocationHandler is an interface which we can apply our code into the generated proxy class. It has only one method: Object invoke(Object proxy, Method method, Object[] args)
 Proxy has four static methods:
@@ -195,10 +195,10 @@ static Class&amp;lt;?&amp;gt; getProxyClass(ClassLoader loader, Class&amp;lt;?</
     
     <item>
       <title>DbVisualizer Tips</title>
-      <link>https://yangchao.me/post/dbvisualizer-tips/</link>
+      <link>https://chaoyang.io/post/dbvisualizer-tips/</link>
       <pubDate>Thu, 21 Apr 2016 18:08:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/dbvisualizer-tips/</guid>
+      <guid>https://chaoyang.io/post/dbvisualizer-tips/</guid>
       <description>DbVisualizer Tips  How do we execute stored procedure? use @call stored_procedure_name;
  Parameterize SQL with variables Write your SQL as select * from table1 where a = ${param}$ Execute it and the &amp;ldquo;Enter data for variables&amp;rdquo; window will pop up.
  Parameterize SQL with markers Write your SQL as select * from table1 where a = :marker Execute it and the &amp;ldquo;Enter data for markers&amp;rdquo; window will pop up.</description>
@@ -206,10 +206,10 @@ static Class&amp;lt;?&amp;gt; getProxyClass(ClassLoader loader, Class&amp;lt;?</
     
     <item>
       <title>Understand when to rollback</title>
-      <link>https://yangchao.me/post/understand-when-to-rollback/</link>
+      <link>https://chaoyang.io/post/understand-when-to-rollback/</link>
       <pubDate>Fri, 04 Mar 2016 10:45:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/understand-when-to-rollback/</guid>
+      <guid>https://chaoyang.io/post/understand-when-to-rollback/</guid>
       <description>Prepare At first, I create a table:
 CREATE TABLE &amp;#34;SYSTEM&amp;#34;.&amp;#34;TEST&amp;#34; (	&amp;#34;ID&amp;#34; NUMBER(*,0), &amp;#34;NAME&amp;#34; VARCHAR2(200 BYTE), CONSTRAINT &amp;#34;TEST_PK&amp;#34; PRIMARY KEY (&amp;#34;ID&amp;#34;) ); Then, create a stored procedure:
 CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT INTO test VALUES (x, &amp;#39;insert by stored procedure&amp;#39;); -- Sometimes there might be an error.  IF x = 2 THEN RAISE_APPLICATION_ERROR(-20000, &amp;#39;Wooops...&amp;#39;); END IF; EXCEPTION WHEN OTHERS THEN --Rollback all the changes and then raise the error again.</description>
@@ -217,10 +217,10 @@ CREATE PROCEDURE sp_insert (x NUMBER) IS BEGIN -- Do some inserts here.  INSERT 
     
     <item>
       <title>Oracle Statement-Level ROLLBACK</title>
-      <link>https://yangchao.me/post/oracle-statement-level-rollback/</link>
+      <link>https://chaoyang.io/post/oracle-statement-level-rollback/</link>
       <pubDate>Tue, 01 Mar 2016 10:45:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/oracle-statement-level-rollback/</guid>
+      <guid>https://chaoyang.io/post/oracle-statement-level-rollback/</guid>
       <description>Oracle Statement-Level ROLLBACK (undo of a transaction)
 Purpose Use the ROLLBACK statement to undo work done in the current transaction or to manually undo the work done by an in-doubt distributed transaction.
 Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transactions Oracle Database - Locks Oracle Database - Row Locks (TX) Oracle Database - TableSpace Oracle Database - Transactions Oracle Database - UNDO (Rollback Segment) PL/SQL - Autonomous Transactions (Pragma)</description>
@@ -228,19 +228,19 @@ Articles Related Oracle Database - Deadlock Oracle Database - Distributed Transa
     
     <item>
       <title>Java Security 2nd - notes 1</title>
-      <link>https://yangchao.me/post/java-security-2nd-notes-1/</link>
+      <link>https://chaoyang.io/post/java-security-2nd-notes-1/</link>
       <pubDate>Tue, 16 Feb 2016 16:45:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-security-2nd-notes-1/</guid>
+      <guid>https://chaoyang.io/post/java-security-2nd-notes-1/</guid>
       <description>security manager vs. access controller Historically, before the access controller existed, the security manager relied on its internal logic to determine the security policy that should be in effect, and changing the security policy required changing the security manager itself. Starting with Java 2, the security manager defers these decisions to the access controller. Since the security policy enforced by the access controller can be specified by using policy files, this allows a much more flexible mechanism for determining policies.</description>
     </item>
     
     <item>
       <title>How to implement a Stack with Queue</title>
-      <link>https://yangchao.me/post/implement-stack-with-queue/</link>
+      <link>https://chaoyang.io/post/implement-stack-with-queue/</link>
       <pubDate>Mon, 18 Jan 2016 20:04:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/implement-stack-with-queue/</guid>
+      <guid>https://chaoyang.io/post/implement-stack-with-queue/</guid>
       <description>How do you implement a Stack using Queue?
 As is known to all, the difference between Stack and Queue is the order to add and remove elements. So it&amp;rsquo;s possible to implement a Stack using Queue by controlling the operation logic.
  push 3 elements to the queue   |	| |	3	| &amp;lt;- top |	2	| |	1	|   pop a element  for the elements other than the top, repush into the queue</description>
@@ -248,10 +248,10 @@ As is known to all, the difference between Stack and Queue is the order to add a
     
     <item>
       <title>Book notes: Oracle Database Transactions and Locking revealed</title>
-      <link>https://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/</link>
+      <link>https://chaoyang.io/post/book-notes-oracle-database-transactions-and-locking-revealed/</link>
       <pubDate>Sun, 10 Jan 2016 20:05:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/book-notes-oracle-database-transactions-and-locking-revealed/</guid>
+      <guid>https://chaoyang.io/post/book-notes-oracle-database-transactions-and-locking-revealed/</guid>
       <description>Chapter 1 Getting Started The focus of this book: locking, concurrency control, multiversioning, transactions, redo/undo.
 These concepts are all interrelated.
 Locking The database uses locks mechanism that allows for concurrency.
@@ -261,10 +261,10 @@ Each database implements locking differently:
     
     <item>
       <title>Regex in Java</title>
-      <link>https://yangchao.me/post/regex-in-java/</link>
+      <link>https://chaoyang.io/post/regex-in-java/</link>
       <pubDate>Sat, 09 Jan 2016 22:05:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/regex-in-java/</guid>
+      <guid>https://chaoyang.io/post/regex-in-java/</guid>
       <description>Some concepts metacharacters &amp;lt;([{\^-=$!|]})?*+.&amp;gt; these characters have special meaning which can affect the way a pattern is matached.
 character classes a set of characters enclosed within square brackets.
    Construct Description     [abc] a, b, or c (simple class)   [^abc] Any character except a, b, or c (negation)   [a-zA-Z] a through z, or A through Z, inclusive (range)   [a-d[m-p]] a through d, or m through p: a-dm-p   [a-z&amp;amp;&amp;amp;[def]] d, e, or f (intersection)   [a-z&amp;amp;&amp;amp;[^bc]] a through z, except for b and c: ad-z   [a-z&amp;amp;&amp;amp;[^m-p]] a through z, and not m through p: a-lq-z    predefined character classes convenient shorthands for commonly used regular expressions</description>
@@ -272,19 +272,19 @@ character classes a set of characters enclosed within square brackets.
     
     <item>
       <title>Book reading plan for 2016</title>
-      <link>https://yangchao.me/post/book-reading-plan-for-2016/</link>
+      <link>https://chaoyang.io/post/book-reading-plan-for-2016/</link>
       <pubDate>Fri, 08 Jan 2016 00:05:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/book-reading-plan-for-2016/</guid>
+      <guid>https://chaoyang.io/post/book-reading-plan-for-2016/</guid>
       <description>New year has come and I need a book reading plan now. Database in-depth knowledge for a programmer (February) read the document of Postgres and see how it implements transactions and locking Security knowledge for a Java web developer (March) The Art of encryption and decryption about Java 白帽子讲Web安全 Java I/O (April) Java IO, NIO and NIO.2(Apress,2015) Pro Java NIO.2 Java IO.2nd.Edition.May.2006</description>
     </item>
     
     <item>
       <title>A problem with HTTP 206 Partial</title>
-      <link>https://yangchao.me/post/a-preoblem-with-http-206-partial/</link>
+      <link>https://chaoyang.io/post/a-preoblem-with-http-206-partial/</link>
       <pubDate>Sat, 02 Jan 2016 10:41:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/a-preoblem-with-http-206-partial/</guid>
+      <guid>https://chaoyang.io/post/a-preoblem-with-http-206-partial/</guid>
       <description>Recent days, I encountered a problem about video loading and quicktime Basic Auth.
 In our customer&amp;rsquo;s system, when they used older version Safari (say, 8.0.5) and opened a page for video playing, an authorization window popped up for username and password.
 I captured the HTTP massage by using Charles proxy on my Mac OSX. I found in Safari 8.0.5, it always sent 2 requests, one from Safari itself and another from Quicktime plugin which was obviously observed from the User-Agent header.</description>
@@ -292,28 +292,28 @@ I captured the HTTP massage by using Charles proxy on my Mac OSX. I found in Saf
     
     <item>
       <title>Synology NAS &#43; NetGear router</title>
-      <link>https://yangchao.me/post/synology-nas-netgear-router/</link>
+      <link>https://chaoyang.io/post/synology-nas-netgear-router/</link>
       <pubDate>Sat, 02 Jan 2016 10:41:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/synology-nas-netgear-router/</guid>
+      <guid>https://chaoyang.io/post/synology-nas-netgear-router/</guid>
       <description>For a long time, I&amp;rsquo;d like to build a home cloud for file storage, video streaming, ebook library and 科学上网 style. Today, at the first day of this new year, I managed to accomplish my plan. Firstly, I need a 1000+M router supporting at least 2 channel (2.4G and 5G) and another urgent functionality &amp;ndash; shadowsocks client on router and VPN client. After researching multiple brands of</description>
     </item>
     
     <item>
       <title>Mac OSX tips</title>
-      <link>https://yangchao.me/post/mac-osx-tips/</link>
+      <link>https://chaoyang.io/post/mac-osx-tips/</link>
       <pubDate>Mon, 14 Dec 2015 21:41:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/mac-osx-tips/</guid>
+      <guid>https://chaoyang.io/post/mac-osx-tips/</guid>
       <description>Change user full name in Mac OSX Yosemite From the Apple menu, select System Preferences. In &amp;ldquo;System Preferences&amp;rdquo;, from the View menu, select Users &amp;amp; Groups. If the padlock icon in the bottom left corner of the preferences window is closed, click it. Authenticate with an administrative account. Right-click your account name, and in the contextual menu that opens, select Advanced Options&amp;hellip;. In the Advanced Options sheet, next to &amp;ldquo;Full name:&amp;ldquo;, enter your name as you wish it to appear when logging into your account.</description>
     </item>
     
     <item>
       <title>SSH Key-based Authentication</title>
-      <link>https://yangchao.me/post/ssh-key-based-authentication/</link>
+      <link>https://chaoyang.io/post/ssh-key-based-authentication/</link>
       <pubDate>Mon, 14 Dec 2015 21:41:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/ssh-key-based-authentication/</guid>
+      <guid>https://chaoyang.io/post/ssh-key-based-authentication/</guid>
       <description>bash run on your macbook ssh-kengen -t rsa 
 Thus it will generate a private-public key pair in ~/.ssh directory. Copy the public key ~/.ssh/id_rsa.pub to servers: VPS or github or bitbucket.
 In your VPS server, copy the content of id_rsa.pub to ~/.ssh/authorized_keys.
@@ -322,10 +322,10 @@ That&amp;rsquo;s OK. Now you can ssh to your server without password.</descripti
     
     <item>
       <title>Gradle use notes</title>
-      <link>https://yangchao.me/post/gradle-use-notes/</link>
+      <link>https://chaoyang.io/post/gradle-use-notes/</link>
       <pubDate>Tue, 08 Dec 2015 20:59:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/gradle-use-notes/</guid>
+      <guid>https://chaoyang.io/post/gradle-use-notes/</guid>
       <description>Gradle is so powerful!
 This is the comment after I read the tutorial of Gradle.
 Gradle configuration There&amp;rsquo;re mainly 3 configuration files: - build.gradle: this is where you write your gradle script. Gradle script is written using Groovy. - gradle.properties: you set some variables that can be used in your script - gradle.setting: like project.name settings
@@ -334,49 +334,49 @@ Gradle terms  project: an abstraction of a build. you can use multiple projects.
     
     <item>
       <title>Perforce P4V use notes</title>
-      <link>https://yangchao.me/post/perforce-p4v-use-notes/</link>
+      <link>https://chaoyang.io/post/perforce-p4v-use-notes/</link>
       <pubDate>Mon, 07 Dec 2015 20:59:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/perforce-p4v-use-notes/</guid>
+      <guid>https://chaoyang.io/post/perforce-p4v-use-notes/</guid>
       <description>Perforce at a glance I&amp;rsquo;ve never gotten touch with Perforce, even heard about its name. Strange! Now because some versions of my company&amp;rsquo;s classic product are hosted on Perforce, so I need to know it from the beginning.
 Basically, Perfoce is an commercial Version Control Systerm, like IBM Clearcase. It supports industry-level version control in the form of client-server architecuture. So the central depository exists for sure. It provides all sorts of robust features modern VCS all provides.</description>
     </item>
     
     <item>
       <title>Goodbye Wordpress, hello Hexo! </title>
-      <link>https://yangchao.me/post/goodbye-wordpress-hello-hexo/</link>
+      <link>https://chaoyang.io/post/goodbye-wordpress-hello-hexo/</link>
       <pubDate>Sat, 05 Dec 2015 20:59:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/goodbye-wordpress-hello-hexo/</guid>
+      <guid>https://chaoyang.io/post/goodbye-wordpress-hello-hexo/</guid>
       <description>I&amp;rsquo;ve opened this blog site since 2013 when I wanted to write something for recording my study notes and improved my English writing.
 At that time, I chose wordpress mainly because I&amp;rsquo;m familiar with it and I had the experience to build a blog site using it. Once I started building a blog, the installation was pretty straightforward &amp;ndash; just extracting the tar.gz and throwing the file into /var/www/blog (/var/www/html is for the static files hosting on Debian).</description>
     </item>
     
     <item>
       <title>JDBC Driver register</title>
-      <link>https://yangchao.me/post/jdbc-driver-register/</link>
+      <link>https://chaoyang.io/post/jdbc-driver-register/</link>
       <pubDate>Thu, 19 Nov 2015 23:24:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jdbc-driver-register/</guid>
+      <guid>https://chaoyang.io/post/jdbc-driver-register/</guid>
       <description>JDBC use the way of registry to manage its drivers by the method of DriverManager.registerDriver(...)
 This method is static one, usually there&amp;rsquo;re several ways to invoke it: 1. in your code, write Class.forName(&amp;quot;com.xx.jdbc.Driver&amp;quot;);, this is a way to load the specified Driver class explicitly. You can get the effect because the jdbc driver venders usually get the registerDriver(..) method invoked just in the static block of the Driver implementation class. 2.</description>
     </item>
     
     <item>
       <title>mybatis cache</title>
-      <link>https://yangchao.me/post/mybatis-cache/</link>
+      <link>https://chaoyang.io/post/mybatis-cache/</link>
       <pubDate>Fri, 06 Nov 2015 21:41:29 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/mybatis-cache/</guid>
+      <guid>https://chaoyang.io/post/mybatis-cache/</guid>
       <description>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些stat</description>
     </item>
     
     <item>
       <title>BytecodeViewer for Mac</title>
-      <link>https://yangchao.me/post/bytecodeviewer-for-mac/</link>
+      <link>https://chaoyang.io/post/bytecodeviewer-for-mac/</link>
       <pubDate>Thu, 05 Nov 2015 19:14:26 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/bytecodeviewer-for-mac/</guid>
+      <guid>https://chaoyang.io/post/bytecodeviewer-for-mac/</guid>
       <description>BytecodeViewer only has the Windows executable release.
 I use the Automator to get an app for Mac OSX.
 Now I provide a download link here:
@@ -385,37 +385,37 @@ https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</description>
     
     <item>
       <title>Inner classes synthetic</title>
-      <link>https://yangchao.me/post/inner-classes-synthetic/</link>
+      <link>https://chaoyang.io/post/inner-classes-synthetic/</link>
       <pubDate>Wed, 04 Nov 2015 12:40:59 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/inner-classes-synthetic/</guid>
+      <guid>https://chaoyang.io/post/inner-classes-synthetic/</guid>
       <description>import java.util.ArrayList; import java.util.List; public class Enclosing { private List instanceList = new ArrayList&amp;lt;&amp;gt;(); { instanceList.add(1);} public static void main(String[] args) { Enclosing outer = new Enclosing(); outer.instanceList.add(2); outer.foo(); InnerClass inner = outer.new InnerClass(); outer.instanceList.add(3); inner.bar(); } public void foo() { final List localList = new ArrayList&amp;lt;&amp;gt;(); localList.add(1); class LocalClass { public void bar() { System.out.println(localList); System.out.println(instanceList); } } localList.add(2); new LocalClass().bar(); } private class InnerClass { public void bar()</description>
     </item>
     
     <item>
       <title>closure</title>
-      <link>https://yangchao.me/post/closure/</link>
+      <link>https://chaoyang.io/post/closure/</link>
       <pubDate>Wed, 04 Nov 2015 00:55:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/closure/</guid>
+      <guid>https://chaoyang.io/post/closure/</guid>
       <description>简单地说，闭包是指一种记录record，保存着一个函数和一个环境envoronment，此环境记录着自由变量的名字-值或存储位置 因此，区别于</description>
     </item>
     
     <item>
       <title>JavaScript execution using single thread (zz)</title>
-      <link>https://yangchao.me/post/javascript-execution-using-single-thread-zz/</link>
+      <link>https://chaoyang.io/post/javascript-execution-using-single-thread-zz/</link>
       <pubDate>Mon, 28 Sep 2015 00:19:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javascript-execution-using-single-thread-zz/</guid>
+      <guid>https://chaoyang.io/post/javascript-execution-using-single-thread-zz/</guid>
       <description>面试的时候发现99%的童鞋不理解为什么JavaScript是单线程的却能让AJAX异步发送和回调请求，还有setTimeout也看起来像是多</description>
     </item>
     
     <item>
       <title>HTTP cache</title>
-      <link>https://yangchao.me/post/http-cache/</link>
+      <link>https://chaoyang.io/post/http-cache/</link>
       <pubDate>Sat, 26 Sep 2015 21:47:47 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/http-cache/</guid>
+      <guid>https://chaoyang.io/post/http-cache/</guid>
       <description>Request headers:
 If-Modified-Since: {time} If-None-Match: {etag} These two headers are used to check if the cached resource is still fresh.
 If expired, response status is 200 and fetch the resource
@@ -426,10 +426,10 @@ Last-Modified: {time}ETag: {etag}Expire: {time} Cache-Control: maxAge={seconds} 
     
     <item>
       <title>JavaEE Multi-popuse Application Frameworks</title>
-      <link>https://yangchao.me/post/javaee-multi-popuse-application-frameworks/</link>
+      <link>https://chaoyang.io/post/javaee-multi-popuse-application-frameworks/</link>
       <pubDate>Tue, 08 Sep 2015 20:32:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javaee-multi-popuse-application-frameworks/</guid>
+      <guid>https://chaoyang.io/post/javaee-multi-popuse-application-frameworks/</guid>
       <description>This is an application framework to satisfy all kinds of purposes.
 Firstly, it would support all sort of channels, which I mean a variety of protocols, message formats, channel-in &amp;amp; chennel-out technologies and application scenarios. Typical ones are like http, jms, tcp, web service and formats:json, soap, FIX, iso 8583, customized fix-length.
 Secondly, it would abstract the channel-related processing, and make business logic development separate from these channel details. For example, we need to make our service layer transparent for the channel, and not aware of the protocols, devices, client types.</description>
@@ -437,10 +437,10 @@ Secondly, it would abstract the channel-related processing, and make business lo
     
     <item>
       <title>statically loading vs. dynamically loading</title>
-      <link>https://yangchao.me/post/statically-loading-vs-dynamically-loading/</link>
+      <link>https://chaoyang.io/post/statically-loading-vs-dynamically-loading/</link>
       <pubDate>Sat, 05 Sep 2015 22:20:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/statically-loading-vs-dynamically-loading/</guid>
+      <guid>https://chaoyang.io/post/statically-loading-vs-dynamically-loading/</guid>
       <description>statically loading when we need to use the class definition, like new operator, invoking static method, accessing static variables etc, the JVM will load the class statically.
 But just declare variable of that type, class loading actually don&amp;rsquo;t happen.
 class StaticallyLoading { public static void main(String[] args) { C c = null; System.out.println(&amp;#34;run here&amp;#34;); } } After you compile this class successfully with class C definition, you run it as deleting the class C dependency at runtime.</description>
@@ -448,10 +448,10 @@ class StaticallyLoading { public static void main(String[] args) { C c = null; S
     
     <item>
       <title>Logging problem in Spring MVC project</title>
-      <link>https://yangchao.me/post/logging-problem-in-spring-mvc-project/</link>
+      <link>https://chaoyang.io/post/logging-problem-in-spring-mvc-project/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/logging-problem-in-spring-mvc-project/</guid>
+      <guid>https://chaoyang.io/post/logging-problem-in-spring-mvc-project/</guid>
       <description>Spring MVC uses JCL as its logging framework.
 A strange problem is when front-end reports an error, I cannot find exception stack in the log file.
 Why does Spring &amp;ldquo;swallow&amp;rdquo; the exception log? A reason is I don&amp;rsquo;t config any exception handler and the default HanderExceptionResolvers don&amp;rsquo;t log the exceptions at all.
@@ -461,10 +461,10 @@ I use SLF4J as the logging API, and use Log4j as its inherit implementation.</de
     
     <item>
       <title>No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]</title>
-      <link>https://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</link>
+      <link>https://chaoyang.io/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</link>
       <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</guid>
+      <guid>https://chaoyang.io/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</guid>
       <description>When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:
 No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp] I don&amp;rsquo;t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:
 -mvc-servlet forwards to WEB-INF/views/xxx.jsp -No handler method found So it goes to find a hander method, rather than renders directly.</description>
@@ -472,10 +472,10 @@ No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp] I don&amp;rsq
     
     <item>
       <title>GC revisit</title>
-      <link>https://yangchao.me/post/gc-revisit/</link>
+      <link>https://chaoyang.io/post/gc-revisit/</link>
       <pubDate>Sat, 27 Jun 2015 15:50:04 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/gc-revisit/</guid>
+      <guid>https://chaoyang.io/post/gc-revisit/</guid>
       <description>In the another post, I give a short introduction of GC.
 Now for the practical purpose, I need to focus on the common used GCs: Parallel GC, CMS and G1.
 What is the tracing algorithm and mark-and-sweep method? root objects
@@ -486,10 +486,10 @@ Every object has its fields, if a field is a object reference, then the referenc
     
     <item>
       <title>Java Serialization</title>
-      <link>https://yangchao.me/post/java-serialization/</link>
+      <link>https://chaoyang.io/post/java-serialization/</link>
       <pubDate>Sat, 27 Jun 2015 00:28:45 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-serialization/</guid>
+      <guid>https://chaoyang.io/post/java-serialization/</guid>
       <description>Serialization What is Serialization? Serialization is the process to transfer a Java object into a sequence of bytes, often in the form of stream.
 At another time, we can unserialize from the bytes and rebuild the object in JVM.
 How to do  make the class to be serialized implement Serializable interface (Serializable is a marker interface) use ObjectOutputStream to serialize object use OjbectInputStream to unserialize the bytes In order to better control the serialization process, you can implement ObjectInput and ObjectOutput on your own.</description>
@@ -497,10 +497,10 @@ How to do  make the class to be serialized implement Serializable interface (Ser
     
     <item>
       <title>Java Collections Framework</title>
-      <link>https://yangchao.me/post/java-collections-framework/</link>
+      <link>https://chaoyang.io/post/java-collections-framework/</link>
       <pubDate>Fri, 26 Jun 2015 19:22:37 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-collections-framework/</guid>
+      <guid>https://chaoyang.io/post/java-collections-framework/</guid>
       <description>(natural) ordered structure Red-Black Tree implementation to maintain the natural order (Comparable)
  TreeSet -&amp;gt; NavigableSet -&amp;gt; OrderedSet TreeMap -&amp;gt; NavigableMap -&amp;gt; OrderedMap  hash structure a bucket array, each bucket is a LinkedList; the index is computed by hashCode(), then traverse the LinkedList using equals() until finding the expected element.
  HashMap HashSet: backed by HashMap, just the element is the key of Entry&amp;amp;lt;K,V&amp;amp;gt; while the value is ignored.</description>
@@ -508,20 +508,20 @@ How to do  make the class to be serialized implement Serializable interface (Ser
     
     <item>
       <title>MySQL InnoDB Locking and Isolation Level</title>
-      <link>https://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</link>
+      <link>https://chaoyang.io/post/mysql-innodb-locking-and-isolation-level/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/mysql-innodb-locking-and-isolation-level/</guid>
+      <guid>https://chaoyang.io/post/mysql-innodb-locking-and-isolation-level/</guid>
       <description>Basic knowledge Isolation Level  MySQL innodb engine support ACID appliance. (The following will be always applied to innodb) Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE
  Innodb&amp;rsquo;s Isolation level is slightly different from the standard SQL Isolation level definition:    Read Uncommitted Read Committed Repeatable Read Serializable   dirty reads yes no no no   unrepeatable reads yes yes no no   phantom reads yes yes no no    MySQL suggests to use Read Uncommitted and Serializable rarely.</description>
     </item>
     
     <item>
       <title>JVM dump lab</title>
-      <link>https://yangchao.me/post/jvm-dump-lab/</link>
+      <link>https://chaoyang.io/post/jvm-dump-lab/</link>
       <pubDate>Fri, 05 Jun 2015 15:16:23 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jvm-dump-lab/</guid>
+      <guid>https://chaoyang.io/post/jvm-dump-lab/</guid>
       <description>IBM dump files [pdf-embedder url=&amp;ldquo;/media/WSTE-02092010-DeepDiveJVMJavacoresJavaDumps-Grigorenko.pdf&amp;rdquo;]
 What is java core (or javadump or thread dump)? A java core is a snapshot of the threads at work in a JVM. It also details a cross section of information from the major components in the JVM like XM,XE, LK, etc (IBM Javacore only, Sun does not – it just shows threads)
 A Java dump, also known as a Java core, Java thread dump, or a thread dump is a file that contains the following sections:</description>
@@ -529,10 +529,10 @@ A Java dump, also known as a Java core, Java thread dump, or a thread dump is a 
     
     <item>
       <title>Book notes - Practical Unit Test with JUnit and Mockito</title>
-      <link>https://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/</link>
+      <link>https://chaoyang.io/post/book-notes-practical-unit-test-with-junit-and-mockito/</link>
       <pubDate>Mon, 25 May 2015 14:46:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/book-notes-practical-unit-test-with-junit-and-mockito/</guid>
+      <guid>https://chaoyang.io/post/book-notes-practical-unit-test-with-junit-and-mockito/</guid>
       <description>Developers&amp;rsquo; Tests On Tests and Tools SUT (aka. System Under Test) – test target being tested
 DOC (aka. Dependency of Components) – collaborators and dependencies when testing
 Types of Developers&amp;rsquo; Tests  Unit Test Integration Test End-to-End Test Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.  Other types of tests: - System Integration Test – test with external systems/applications, services etc - User Acceptation Test – final user verification test - Load Test – verify system performance under pressure / load</description>
@@ -540,10 +540,10 @@ Types of Developers&amp;rsquo; Tests  Unit Test Integration Test End-to-End Test
     
     <item>
       <title>SCEA architect</title>
-      <link>https://yangchao.me/post/scea-architect/</link>
+      <link>https://chaoyang.io/post/scea-architect/</link>
       <pubDate>Wed, 20 May 2015 15:22:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/scea-architect/</guid>
+      <guid>https://chaoyang.io/post/scea-architect/</guid>
       <description> Understanding Architecture focus on structure to support the business and service-level requirements
 You can define the structure of a system as the mechanisms that the system employs to solve the common problems of the system, such as persistence, distribution, communication, transaction management, and security
  difficult decisions must be made about trade-offs in the system &amp;nbsp;  </description>
@@ -551,10 +551,10 @@ You can define the structure of a system as the mechanisms that the system emplo
     
     <item>
       <title>Get started with AngularJS</title>
-      <link>https://yangchao.me/post/get-started-with-angularjs/</link>
+      <link>https://chaoyang.io/post/get-started-with-angularjs/</link>
       <pubDate>Mon, 18 May 2015 23:32:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/get-started-with-angularjs/</guid>
+      <guid>https://chaoyang.io/post/get-started-with-angularjs/</guid>
       <description>AngularJS concepts Core concepts:
  2-way data binding directive expression &amp;amp; filter view / template controller  2-way data binding directives  manipulate DOM: DOM manipulation should only happen in directive implementations manipulate data Elements: &amp;lt;ng-xx&amp;gt; &amp;lt;/ng-xx&amp;gt;  Attributes: &amp;lt;span ng-xx=&amp;ldquo;exp&amp;rdquo;&amp;gt;&amp;lt;/span&amp;gt;
 Comments: &amp;lt;!&amp;ndash; directive: ng-xx exp &amp;ndash;&amp;gt;
@@ -564,10 +564,10 @@ Scope Scope is a glue between controller, template and model. It keeps models 
     
     <item>
       <title>JavaScript scopes and context</title>
-      <link>https://yangchao.me/post/javascript-scope-and-context/</link>
+      <link>https://chaoyang.io/post/javascript-scope-and-context/</link>
       <pubDate>Tue, 12 May 2015 17:06:39 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javascript-scope-and-context/</guid>
+      <guid>https://chaoyang.io/post/javascript-scope-and-context/</guid>
       <description>scope vs. context Both two terms are related to function.
 Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be encapsulated and preserved.
 Fundamentally, scope is function-based while context is object-based.
@@ -576,10 +576,10 @@ Fundamentally, scope is function-based while context is object-based.
     
     <item>
       <title>JavaScript prototype: __proto__ vs. prototype</title>
-      <link>https://yangchao.me/post/javascript-prototype-proto-vs-prototype/</link>
+      <link>https://chaoyang.io/post/javascript-prototype-proto-vs-prototype/</link>
       <pubDate>Tue, 12 May 2015 15:35:15 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javascript-prototype-proto-vs-prototype/</guid>
+      <guid>https://chaoyang.io/post/javascript-prototype-proto-vs-prototype/</guid>
       <description>Javascript is a prototype-based language. It resolve property using prototype chains.
 Prototype chains (aka prototype inheritance) The proto property proto is the internal property of an object, it points to the prototype object of the object and is used for property look-up. Every object has a proto perperty and its relevant prototype object. But it maybe null, which means the object has no prototype object.
 function as constructor In JavaScript you create an instance of a function like this:</description>
@@ -587,10 +587,10 @@ function as constructor In JavaScript you create an instance of a function like 
     
     <item>
       <title>web vulnerability issues: XSS, CSRF, SQL Injection</title>
-      <link>https://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</link>
+      <link>https://chaoyang.io/post/web-vulnerability-issues-xss-csrf-sql-injection/</link>
       <pubDate>Fri, 08 May 2015 20:25:02 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</guid>
+      <guid>https://chaoyang.io/post/web-vulnerability-issues-xss-csrf-sql-injection/</guid>
       <description>XSS (Cross Site Scripting) XSS enables attackers to inject client-side script into Web pages viewed by other users.
 Simple solution: escape all users&amp;rsquo; input data, include HTML, Javascript
 CSRF (Cross Site Request Forgery) CSRF is an attack which forces an end user to execute unwanted actions on a web application in which he/she is currently authenticated.
@@ -600,19 +600,19 @@ Simple solution:
     
     <item>
       <title>WebSphere SSO how-to</title>
-      <link>https://yangchao.me/post/websphere-sso-how-to/</link>
+      <link>https://chaoyang.io/post/websphere-sso-how-to/</link>
       <pubDate>Fri, 08 May 2015 13:19:49 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/websphere-sso-how-to/</guid>
+      <guid>https://chaoyang.io/post/websphere-sso-how-to/</guid>
       <description>SSO定义 单点登录的英文名称为Single Sign-On，简写为SSO。在用户有权限访问的多个系统间，只要用户在其中一个系统做过认证(Aut</description>
     </item>
     
     <item>
       <title>Unified Identity &amp; Access Control system</title>
-      <link>https://yangchao.me/post/unified-identity-access-control-system/</link>
+      <link>https://chaoyang.io/post/unified-identity-access-control-system/</link>
       <pubDate>Fri, 08 May 2015 13:14:50 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/unified-identity-access-control-system/</guid>
+      <guid>https://chaoyang.io/post/unified-identity-access-control-system/</guid>
       <description>The target of this system is to build a unified user registry, enterprise organization hierarchy tree, a centralized point for internal user logon and authentication, a flexible Role-Based access control model and an integrated SSO strategy for all other in-house application.
 This is the big picture:
 user registry and organization tree We build a central repository for employee information except their passwords(these are stored in LDAP for convenient look-up and security).</description>
@@ -620,10 +620,10 @@ user registry and organization tree We build a central repository for employee i
     
     <item>
       <title>JNDI how-to</title>
-      <link>https://yangchao.me/post/jndi-how-to/</link>
+      <link>https://chaoyang.io/post/jndi-how-to/</link>
       <pubDate>Thu, 07 May 2015 10:09:04 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jndi-how-to/</guid>
+      <guid>https://chaoyang.io/post/jndi-how-to/</guid>
       <description>JNDI - Java Naming and Directory Interface
 Object storing There are several ways an object satisfies the condition to be bound to a JDNI context.
  serializable objects: Serializable referenceable objects and references: Reference, ObjectFactory, Referenceable, RefAddr objects with attributes: DirContext remote objects: Remote &amp;nbsp;  Let&amp;rsquo;s look at the real life example: how we bind DataSource and UserTransaction to a JNDI context
@@ -632,29 +632,29 @@ MySQL package com.mysql.jdbc.jdbc2.optional; public class MysqlDataSource extend
     
     <item>
       <title>ClassLoader</title>
-      <link>https://yangchao.me/post/classloader/</link>
+      <link>https://chaoyang.io/post/classloader/</link>
       <pubDate>Tue, 05 May 2015 14:20:23 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/classloader/</guid>
+      <guid>https://chaoyang.io/post/classloader/</guid>
       <description>class loader Delegation Principal  Class loaders request their parent to load the class first before attempting to load it themselves.  Visibility Principal  Classes loaded by the parent class loaders have visibility into classes loaded by its children down the hierarchy, but the reverse is not true  Uniqueness Principal  When a class loader loads a class, the child class loaders in the hierarchy will never reload the class again.</description>
     </item>
     
     <item>
       <title>HTML 5</title>
-      <link>https://yangchao.me/post/html-5/</link>
+      <link>https://chaoyang.io/post/html-5/</link>
       <pubDate>Tue, 28 Apr 2015 23:27:29 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/html-5/</guid>
+      <guid>https://chaoyang.io/post/html-5/</guid>
       <description>new elements &amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt; &amp;lt;figure id=&amp;#34;fig1&amp;#34;&amp;gt; &amp;lt;figcaption&amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;lt;/figcaption&amp;gt; &amp;lt;img src=&amp;#34;http://img2.cache.netease.com/cnews/2015/4/28/201504281107026599c.jpg&amp;#34; alt=&amp;#34;JAWS: Landmarks 1/1, Forms 4/5 … &amp;#34;&amp;gt; &amp;lt;/figure&amp;gt; &amp;amp;lt;mark&amp;amp;gt; This tag is very useful for the highlight of searching result.
 &amp;lt;h1&amp;gt;Yes, You Can Use &amp;lt;mark&amp;gt;HTML5&amp;lt;/mark&amp;gt; Today!&amp;lt;/h1&amp;gt; &amp;amp;lt;progress&amp;amp;gt; and &amp;lt;meter&amp;amp;gt; &amp;lt;progress max=&amp;#34;100&amp;#34; value=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;meter value=&amp;#34;50&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; &amp;lt;meter value=&amp;#34;150&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; &amp;lt;meter value=&amp;#34;350&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; the low and high are the thresholds.</description>
     </item>
     
     <item>
       <title>Git basics</title>
-      <link>https://yangchao.me/post/git-basics/</link>
+      <link>https://chaoyang.io/post/git-basics/</link>
       <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/git-basics/</guid>
+      <guid>https://chaoyang.io/post/git-basics/</guid>
       <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch
  git checkout dev checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
 copy the &amp;lt;commit&amp;gt; tree to index tree and working tree.
@@ -663,67 +663,67 @@ copy the &amp;lt;commit&amp;gt; tree to index tree and working tree.
     
     <item>
       <title>Spring framework - context services</title>
-      <link>https://yangchao.me/post/spring-framework-context-services/</link>
+      <link>https://chaoyang.io/post/spring-framework-context-services/</link>
       <pubDate>Sat, 25 Apr 2015 20:17:32 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/spring-framework-context-services/</guid>
+      <guid>https://chaoyang.io/post/spring-framework-context-services/</guid>
       <description>Bean Lifecycle Mangement &amp;nbsp; package context.lifecycle; import org.springframework.beans.BeansException; import org.springframework.beans.factory.BeanClassLoaderAware; import org.springframework.beans.factory.BeanNameAware; import org.springframework.beans.factory.DisposableBean; import org.springframework.beans.factory.InitializingBean; import org.springframework.context.ApplicationContext; import org.springframework.context.ApplicationContextAware; import javax.annotation.PostConstruct; import javax.annotation.PreDestroy; public class LifecycleExposureBean implements BeanNameAware, BeanClassLoaderAware, ApplicationContextAware, InitializingBean, DisposableBean { private String injectedProperty; public void setInjectedProperty(String injectedProperty) { System.out.println(&amp;#34;Injection: injectedProperty = [&amp;#34; + injectedProperty + &amp;#34;]&amp;#34;); this.injectedProperty = injectedProperty; } //----------------context aware------------------------- public void setBeanName(String beanName) { System.out.println(&amp;#34;BeanNameAware: beanName = [&amp;#34; + beanName + &amp;#34;]&amp;#34;); }</description>
     </item>
     
     <item>
       <title>what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?</title>
-      <link>https://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</link>
+      <link>https://chaoyang.io/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</link>
       <pubDate>Thu, 23 Apr 2015 19:02:25 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</guid>
+      <guid>https://chaoyang.io/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</guid>
       <description>//primitive System.out.println(int.class.getName()); System.out.println(int.class.getCanonicalName()); System.out.println(int.class.getSimpleName()); System.out.println(); //class System.out.println(String.class.getName()); System.out.println(String.class.getCanonicalName()); System.out.println(String.class.getSimpleName()); System.out.println(); //inner class System.out.println(HashMap.SimpleEntry.class.getName()); System.out.println(HashMap.SimpleEntry.class.getCanonicalName()); System.out.println(HashMap.SimpleEntry.class.getSimpleName()); System.out.println(); //anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam()); &amp;nbsp;
 Prints: &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; String &amp;gt; &amp;gt; &amp;gt; java.util.AbstractMap$SimpleEntry &amp;gt; &amp;gt; java.util.AbstractMap.SimpleEntry &amp;gt; &amp;gt; SimpleEntry &amp;gt; &amp;gt; &amp;gt; ClassnameTest$1 &amp;gt; &amp;gt; null There&amp;rsquo;s an empty line in the last block where getSimpleName returns an empty string.</description>
     </item>
     
     <item>
       <title>What&#39;s the difference between getPath(), getAbsolutePath(), and getCanonicalPath()?</title>
-      <link>https://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</link>
+      <link>https://chaoyang.io/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</link>
       <pubDate>Thu, 23 Apr 2015 18:56:07 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</guid>
+      <guid>https://chaoyang.io/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</guid>
       <description>Consider these filenames:
  C:\temp\file.txt - This is a path, an absolute path, and a canonical path. .\file.txt - This is a path. It&amp;rsquo;s neither an absolute path nor a canonical path. C:\temp\myapp\bin..\..\file.txt - This is a path and an absolute path. It&amp;rsquo;s not a canonical path. A canonical path is always an absolute path.  Converting from a path to a canonical path makes it absolute (usually tack on the current working directory so e.</description>
     </item>
     
     <item>
       <title>what does 0.0.0.0 mean?</title>
-      <link>https://yangchao.me/post/what-does-0-0-0-0-mean/</link>
+      <link>https://chaoyang.io/post/what-does-0-0-0-0-mean/</link>
       <pubDate>Wed, 22 Apr 2015 22:46:26 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/what-does-0-0-0-0-mean/</guid>
+      <guid>https://chaoyang.io/post/what-does-0-0-0-0-mean/</guid>
       <description>0.0.0.0, in server context, means &amp;ldquo;all IP addresses on the local machine&amp;rdquo; (in fact probably, &amp;ldquo;all IPv4 addresses on the local machine&amp;rdquo;). So, if your webserver machine has two ip addresses, 192.168.1.1 and 10.1.2.1, and you allow a webserver daemon like apache to listen on 0.0.0.0, it will be reachable at both of those IPs. But only to what can contact those IPs and the web port(s).
 The only thing is that you cannot say &amp;ldquo;all addresses should have access&amp;rdquo; &amp;ndash; that&amp;rsquo;s done in your firewall(s) and/or the server software and/or other security layers like tcpwrappers.</description>
     </item>
     
     <item>
       <title>algorithm training from codility</title>
-      <link>https://yangchao.me/post/algorithm-training-from-codility/</link>
+      <link>https://chaoyang.io/post/algorithm-training-from-codility/</link>
       <pubDate>Wed, 22 Apr 2015 15:00:22 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/algorithm-training-from-codility/</guid>
+      <guid>https://chaoyang.io/post/algorithm-training-from-codility/</guid>
       <description>TRAINING counting elements When every value of the element in a numeric array is in range. We can get a counter array of which the index of every element is the value and the value is the counter. Prefix Sums Prefix sums array defines as: So prefix sums array is very useful to compute the sum of any array slice (contiguous segments of array). For example: sum(a2&amp;hellip;a5) = p6 -</description>
     </item>
     
     <item>
       <title>WSDL Service Contract in Detail</title>
-      <link>https://yangchao.me/post/wsdl-service-contract-in-detail/</link>
+      <link>https://chaoyang.io/post/wsdl-service-contract-in-detail/</link>
       <pubDate>Tue, 21 Apr 2015 14:47:44 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/wsdl-service-contract-in-detail/</guid>
+      <guid>https://chaoyang.io/post/wsdl-service-contract-in-detail/</guid>
       <description>Concepts in WSDL definition &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;definitions xmlns:soap=&amp;#34;http://schemas.xmlsoap.org/wsdl/soap/&amp;#34;xmlns:tns=&amp;#34;http://rand/&amp;#34;xmlns:xsd=&amp;#34;http://www.w3.org/2001/XMLSchema&amp;#34; xmlns=&amp;#34;http://schemas.xmlsoap.org/wsdl/&amp;#34; targetNamespace=&amp;#34;http://rand/&amp;#34; name=&amp;#34;RandServiceService&amp;#34;&amp;gt; &amp;lt;types&amp;gt; &amp;lt;xsd:schema&amp;gt; &amp;lt;xsd:import namespace=&amp;#34;http://rand/&amp;#34; schemaLocation=&amp;#34;http://localhost:8888/rs?xsd=1&amp;#34;&amp;gt;&amp;lt;/xsd:import&amp;gt; &amp;lt;/xsd:schema&amp;gt; &amp;lt;/types&amp;gt; &amp;lt;message name=&amp;#34;next1&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:next1&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;next1Response&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:next1Response&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;nextN&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:nextN&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;message name=&amp;#34;nextNResponse&amp;#34;&amp;gt; &amp;lt;part name=&amp;#34;parameters&amp;#34; element=&amp;#34;tns:nextNResponse&amp;#34;&amp;gt;&amp;lt;/part&amp;gt; &amp;lt;/message&amp;gt; &amp;lt;portType name=&amp;#34;RandService&amp;#34;&amp;gt; &amp;lt;operation name=&amp;#34;next1&amp;#34;&amp;gt; &amp;lt;input message=&amp;#34;tns:next1&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; &amp;lt;output message=&amp;#34;tns:next1Response&amp;#34;&amp;gt;&amp;lt;/output&amp;gt; &amp;lt;/operation&amp;gt; &amp;lt;operation name=&amp;#34;nextN&amp;#34;&amp;gt; &amp;lt;input message=&amp;#34;tns:nextN&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; &amp;lt;output message=&amp;#34;tns:nextNResponse&amp;#34;&amp;gt;&amp;lt;/output&amp;gt; &amp;lt;/operation&amp;gt; &amp;lt;/portType&amp;gt; &amp;lt;!-- implementation dependent definition --&amp;gt; &amp;lt;binding name=&amp;#34;RandServicePortBinding&amp;#34; type=&amp;#34;tns:RandService&amp;#34;&amp;gt; &amp;lt;soap:binding transport=&amp;#34;http://schemas.</description>
     </item>
     
     <item>
       <title>Garbage Collection</title>
-      <link>https://yangchao.me/post/garbage-collection/</link>
+      <link>https://chaoyang.io/post/garbage-collection/</link>
       <pubDate>Mon, 20 Apr 2015 14:13:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/garbage-collection/</guid>
+      <guid>https://chaoyang.io/post/garbage-collection/</guid>
       <description>References:
  &amp;lt;Inside the Java Virtual Machine&amp;gt; &amp;lt;Java Performance - The Definitive Guide&amp;gt;  GC overview Heap Layout Geneation spaces Nearly every JVM uses generational garbage collectors. They work by splitting the heap into different generations:
  Old generation (tenured generation) Young generation, which is further divided into sections: Eden and Survivor spaces.   minor GC GC for the young generation is called minor GC. All GC algorithms have stop-the-world pauses during collection of the young generation.</description>
@@ -731,10 +731,10 @@ The only thing is that you cannot say &amp;ldquo;all addresses should have acces
     
     <item>
       <title>JVM knowledge</title>
-      <link>https://yangchao.me/post/jvm-knowledge/</link>
+      <link>https://chaoyang.io/post/jvm-knowledge/</link>
       <pubDate>Sat, 18 Apr 2015 22:28:39 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jvm-knowledge/</guid>
+      <guid>https://chaoyang.io/post/jvm-knowledge/</guid>
       <description>references:
  &amp;lt;Inside the Java Virtual Machine&amp;gt; &amp;lt;Java Virtual Machine specification 7&amp;gt;  run-time data areas pc registers Every JVM thread has its own pc(program counter) register.
 The pc register is one word in size, so it can hold both a native pointer and a returnAddress.
@@ -744,28 +744,28 @@ JVM stacks Every thread has a private JVM stacks.</description>
     
     <item>
       <title>Apache CXF and Axis 2 tutorial</title>
-      <link>https://yangchao.me/post/apache-cxf-and-axis-2-tutorial/</link>
+      <link>https://chaoyang.io/post/apache-cxf-and-axis-2-tutorial/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/apache-cxf-and-axis-2-tutorial/</guid>
+      <guid>https://chaoyang.io/post/apache-cxf-and-axis-2-tutorial/</guid>
       <description>Apache Axis2 How to build a service Axis2 supports 3 programming model Create a service from scratch Write a class whose methods use OMElement as arguments and/or return type create a services.xml package as a .aar file deploy POJO for rpc-style services Generate the service skeleton from WSDL &amp;nbsp; 实现方式 创建方式 应用文档对象模型解析(消息</description>
     </item>
     
     <item>
       <title>IBM Integration Bus</title>
-      <link>https://yangchao.me/post/ibm-integration-bus/</link>
+      <link>https://chaoyang.io/post/ibm-integration-bus/</link>
       <pubDate>Sat, 18 Apr 2015 18:47:50 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/ibm-integration-bus/</guid>
+      <guid>https://chaoyang.io/post/ibm-integration-bus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apache Camel</title>
-      <link>https://yangchao.me/post/apache-camel/</link>
+      <link>https://chaoyang.io/post/apache-camel/</link>
       <pubDate>Sat, 18 Apr 2015 18:41:54 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/apache-camel/</guid>
+      <guid>https://chaoyang.io/post/apache-camel/</guid>
       <description>Core concepts Endpoint it refers to an address or a software entity that supports communication.
 Component _it _is confusing terminology; EndpointFactory would have been more appropriate because a Component is a factory for creating Endpoint instances.
 A component has a name, which is the prefix of the URI.
@@ -775,38 +775,38 @@ CamelTemplate It&amp;rsquo;s previously called CamelClient. It can send a Messa
     
     <item>
       <title>To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)</title>
-      <link>https://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</link>
+      <link>https://chaoyang.io/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</link>
       <pubDate>Thu, 16 Apr 2015 09:55:58 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</guid>
+      <guid>https://chaoyang.io/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</guid>
       <description>To find a job is a full time job &amp;ndash; Dog Lead 狗说，羊村生活艰辛。 感谢某牛(bian)逼(tai)群主伟大光荣正确的羊村捕鱼舵手－鹅哥。感谢星爷赐题。 感谢某牛(b</description>
     </item>
     
     <item>
       <title>ACID and transaction</title>
-      <link>https://yangchao.me/post/acid-and-transaction/</link>
+      <link>https://chaoyang.io/post/acid-and-transaction/</link>
       <pubDate>Mon, 13 Apr 2015 14:49:27 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/acid-and-transaction/</guid>
+      <guid>https://chaoyang.io/post/acid-and-transaction/</guid>
       <description>Transaction provides data integrity in highly concurrent environments. It&amp;rsquo;s also called Unit of Work.
  For database systems, transaction is a must-have feature. But also some exceptions, like MySQL MyISAM engine. For messaging systems like JMS, transactions are not mandatory which has non-transacted acknowledgement modes. File system operations are usually non-managed, but if your business requirements demand transaction file operations, you might make use a tool such as XADisk.  ACID Inherently a transaction is characterized by four properties (commonly referred as ACID) :</description>
     </item>
     
     <item>
       <title>JPA - advanced topics</title>
-      <link>https://yangchao.me/post/jpa-advanced-topics/</link>
+      <link>https://chaoyang.io/post/jpa-advanced-topics/</link>
       <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jpa-advanced-topics/</guid>
+      <guid>https://chaoyang.io/post/jpa-advanced-topics/</guid>
       <description> locking cache lifecycle callbacks Event &amp;amp; Listener </description>
     </item>
     
     <item>
       <title>Struts 2 - a short journey</title>
-      <link>https://yangchao.me/post/struts-2-a-short-journey/</link>
+      <link>https://chaoyang.io/post/struts-2-a-short-journey/</link>
       <pubDate>Wed, 08 Apr 2015 13:59:38 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/struts-2-a-short-journey/</guid>
+      <guid>https://chaoyang.io/post/struts-2-a-short-journey/</guid>
       <description>Web framework evolves Servlet Write all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!
 JSP with scriptlet style Rather than writing HTML in Java code, now write Java code in HTML code. This approach is really like PHP and ASP do.
 JSP with tags style To avoid writing Java code in HTML, introduce JSP tags as HTML-like facade for accessing underlying Java code.</description>
@@ -814,20 +814,20 @@ JSP with tags style To avoid writing Java code in HTML, introduce JSP tags as H
     
     <item>
       <title>Spring framework - transaction management</title>
-      <link>https://yangchao.me/post/spring-framework-transaction-management/</link>
+      <link>https://chaoyang.io/post/spring-framework-transaction-management/</link>
       <pubDate>Fri, 03 Apr 2015 16:32:56 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/spring-framework-transaction-management/</guid>
+      <guid>https://chaoyang.io/post/spring-framework-transaction-management/</guid>
       <description>In Java, there are multiple persistence APIs and all of them provides their own ways of transaction management.
  JDBC transaction: this is a resource-specific transaction, which is implemented by connection. JTA transaction: this is a transaction API for global transaction, it usually needs the support of application server. JPA transaction: JPA has its own transaction API by EntityManager. Hibernate transaction: Hibernate also provides its way to manage transaction by SessionFactory JDO: &amp;hellip; Now Spring transaction management abstracts and unifies all these API.</description>
     </item>
     
     <item>
       <title>Spring framework - AOP</title>
-      <link>https://yangchao.me/post/spring-framework-aop/</link>
+      <link>https://chaoyang.io/post/spring-framework-aop/</link>
       <pubDate>Fri, 03 Apr 2015 16:17:51 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/spring-framework-aop/</guid>
+      <guid>https://chaoyang.io/post/spring-framework-aop/</guid>
       <description>Crosscutting concerns refers to logic in an application that cannot be decomposed from the rest of the application and may result in code duplication and tight coupling.
 Typical use cases:
  logging security transaction  Concepts:
@@ -836,10 +836,10 @@ Typical use cases:
     
     <item>
       <title>Spring framework - IoC / DI</title>
-      <link>https://yangchao.me/post/spring-framework-ioc-di/</link>
+      <link>https://chaoyang.io/post/spring-framework-ioc-di/</link>
       <pubDate>Fri, 03 Apr 2015 16:06:55 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/spring-framework-ioc-di/</guid>
+      <guid>https://chaoyang.io/post/spring-framework-ioc-di/</guid>
       <description>IoC/DI and beans IoC is also known as dependency injection (DI).
 A bean just need to define its dependencies through its constructor arguments, its factory method arguments or its properties setter. And then the container will inject these dependencies when initializing this bean.
 Traditionally, the bean itself control the initialization process or location of its dependencies by directly invoking its constructor of the class or some look-up mechanism such as Service Locator pattern(e.</description>
@@ -847,20 +847,20 @@ Traditionally, the bean itself control the initialization process or location 
     
     <item>
       <title>Spring framework - the big picture</title>
-      <link>https://yangchao.me/post/spring-framework-the-big-picture/</link>
+      <link>https://chaoyang.io/post/spring-framework-the-big-picture/</link>
       <pubDate>Fri, 03 Apr 2015 14:42:08 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/spring-framework-the-big-picture/</guid>
+      <guid>https://chaoyang.io/post/spring-framework-the-big-picture/</guid>
       <description>Spring is a big beast. I have to sort out its design and modules.
   GroupId ArtifactId Description     org.springframework spring-aop Proxy-based AOP support   org.springframework spring-aspects AspectJ based aspects   org.springframework spring-beans Beans support, including Groovy   org.springframework spring-context Application context runtime, including scheduling and remoting abstractions   org.springframework spring-context-support Support classes for integrating common third-party libraries into a Spring application context   org.</description>
     </item>
     
     <item>
       <title>subquery vs. join</title>
-      <link>https://yangchao.me/post/subquery-vs-join/</link>
+      <link>https://chaoyang.io/post/subquery-vs-join/</link>
       <pubDate>Thu, 02 Apr 2015 15:41:53 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/subquery-vs-join/</guid>
+      <guid>https://chaoyang.io/post/subquery-vs-join/</guid>
       <description>what is subquery SubQuery in SQL is a query inside another query
 SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&amp;#39;west&amp;#39;) In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
 non-correlated subquery In non correlated subquery, inner query doesn&amp;rsquo;t depend on outer query and can run as stand alone query.
@@ -869,39 +869,39 @@ NonCorrelated subquery are used along-with =, IN and NOT IN clause.</description
     
     <item>
       <title>inner join and outer join</title>
-      <link>https://yangchao.me/post/inner-join-and-outer-join/</link>
+      <link>https://chaoyang.io/post/inner-join-and-outer-join/</link>
       <pubDate>Thu, 02 Apr 2015 15:08:31 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/inner-join-and-outer-join/</guid>
+      <guid>https://chaoyang.io/post/inner-join-and-outer-join/</guid>
       <description>In this blog, we use two tables: TableA and TableB   id name id name   &amp;ndash; &amp;mdash;- &amp;ndash; &amp;mdash;&amp;ndash;   1 Pirate 1 Rutabaga   2 Monkey 2 Pirate   3 Ninja  3 Darth Vader   4 Spaghetti 4 Ninja    &amp;gt; inner or outer keyword can be omitted.
 inner join Inner join produces only the set of records that match in both Table A and Table B.</description>
     </item>
     
     <item>
       <title>A glimpse of JMS</title>
-      <link>https://yangchao.me/post/a-glimpse-of-jms/</link>
+      <link>https://chaoyang.io/post/a-glimpse-of-jms/</link>
       <pubDate>Wed, 01 Apr 2015 14:59:19 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/a-glimpse-of-jms/</guid>
+      <guid>https://chaoyang.io/post/a-glimpse-of-jms/</guid>
       <description>what messaging provides?  loosely decoupled A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.</description>
     </item>
     
     <item>
       <title>servlet basics</title>
-      <link>https://yangchao.me/post/servlet-basics/</link>
+      <link>https://chaoyang.io/post/servlet-basics/</link>
       <pubDate>Mon, 30 Mar 2015 15:57:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/servlet-basics/</guid>
+      <guid>https://chaoyang.io/post/servlet-basics/</guid>
       <description>Deployment Descriptor: web.xml The following is a complete Deployment Descriptor.
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;ISO-8859-1&amp;#34;?&amp;gt; &amp;lt;web-app xmlns=&amp;#34;http://java.sun.com/xml/ns/j2ee&amp;#34;xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&amp;#34; version=&amp;#34;2.5&amp;#34;&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- General --&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- Name the application --&amp;gt; &amp;lt;display-name&amp;gt;Example App&amp;lt;/display-name&amp;gt; &amp;lt;description&amp;gt;An example application which is used to play with some of the features of Tomcat&amp;lt;/description&amp;gt; &amp;lt;!-- This app is cluster-ready --&amp;gt; &amp;lt;distributable /&amp;gt; &amp;lt;!-- Set timeout to 120 minutes --&amp;gt; &amp;lt;session-config&amp;gt; &amp;lt;session-timeout&amp;gt;120&amp;lt;/session-timeout&amp;gt; &amp;lt;/session-config&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>
       <title>GoF Creational Patterns: Singleton, Factory, Factory Method, Abstract Factory</title>
-      <link>https://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</link>
+      <link>https://chaoyang.io/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</link>
       <pubDate>Mon, 30 Mar 2015 11:13:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</guid>
+      <guid>https://chaoyang.io/post/gof-creational-patterns-singleton-factory-factory-method-abstract-factory/</guid>
       <description>Now, ultimately we start discussing design patterns - really buzzwords.
 Singleton Singleton pattern is to ensure the unique instance of some class in a JVM.
 class LazySingleton { private static LazySingleton instance; private LazySingleton() { } public static LazySingleton getInstance() { if (instance == null) { instance = new LazySingleton(); } return instance; } public void doSomething() { System.out.println(&amp;#34;doSomething(): Singleton does something!&amp;#34;); } } // DCL for thread safe class DoubleCheckedLockingLazySingleton { private static DoubleCheckedLockingLazySingleton instance; private DoubleCheckedLockingLazySingleton() { System.</description>
@@ -909,29 +909,29 @@ class LazySingleton { private static LazySingleton instance; private LazySinglet
     
     <item>
       <title>Generics revisit</title>
-      <link>https://yangchao.me/post/generics-revisit/</link>
+      <link>https://chaoyang.io/post/generics-revisit/</link>
       <pubDate>Tue, 24 Mar 2015 14:15:50 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/generics-revisit/</guid>
+      <guid>https://chaoyang.io/post/generics-revisit/</guid>
       <description>Generics is an important feature since JDK 1.5
 subtyping and wildcards   Integer is a subtype of Number   Double is a subtype of Number   ArrayList&amp;lt;E&amp;gt; is a subtype of List&amp;lt;E&amp;gt;   List&amp;lt;E&amp;gt; is a subtype of Collection&amp;lt;E&amp;gt;   Collection&amp;lt;E&amp;gt; is a subtype of Iterable&amp;lt;E&amp;gt;   Long[] is a subtype of Number[]   List&amp;lt;Integer&amp;gt; is NOT a subtype of List&amp;lt;Number&amp;gt;    In Java, array subtyping is covariant, meaning that type S[] is considered to be a subtype of T[] whenever S is a subtype of T.</description>
     </item>
     
     <item>
       <title>widen cast vs. narrow cast</title>
-      <link>https://yangchao.me/post/widen-cast-vs-narrow-cast/</link>
+      <link>https://chaoyang.io/post/widen-cast-vs-narrow-cast/</link>
       <pubDate>Mon, 23 Mar 2015 20:37:24 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/widen-cast-vs-narrow-cast/</guid>
+      <guid>https://chaoyang.io/post/widen-cast-vs-narrow-cast/</guid>
       <description></description>
     </item>
     
     <item>
       <title>String class, text formatting</title>
-      <link>https://yangchao.me/post/string-class-text-formatting/</link>
+      <link>https://chaoyang.io/post/string-class-text-formatting/</link>
       <pubDate>Mon, 23 Mar 2015 20:28:12 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/string-class-text-formatting/</guid>
+      <guid>https://chaoyang.io/post/string-class-text-formatting/</guid>
       <description>working with String class String is most frequently used class in Java.
 immutable and flyweight design String is immutable
 String is designed with the Flyweight design pattern. A pool of Strings is maintained by the String class.
@@ -941,10 +941,10 @@ For any two Strings s1 &amp;amp; s2, _s1.intern( ) _== _s2.intern( ) _only if _
     
     <item>
       <title>cloning objects</title>
-      <link>https://yangchao.me/post/cloning-objects/</link>
+      <link>https://chaoyang.io/post/cloning-objects/</link>
       <pubDate>Mon, 23 Mar 2015 20:26:14 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/cloning-objects/</guid>
+      <guid>https://chaoyang.io/post/cloning-objects/</guid>
       <description>Java has built-in support for shadow copy by Object.clone() and Cloneable interface.
 shadow copy This is default implementation in java.
 Object class has a method named clone(), but if we&amp;rsquo;d like to succeed with this built-in cloning capability, we need to use Cloneable marker interface.
@@ -954,29 +954,29 @@ Note that all arrays are considered to implement the interface Cloneable.</desc
     
     <item>
       <title>java modifiers revisit</title>
-      <link>https://yangchao.me/post/java-modifiers-revist/</link>
+      <link>https://chaoyang.io/post/java-modifiers-revist/</link>
       <pubDate>Mon, 23 Mar 2015 12:31:07 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-modifiers-revist/</guid>
+      <guid>https://chaoyang.io/post/java-modifiers-revist/</guid>
       <description>acess control modifiers In Java, there are four different types of access modifiers for fields and methods:
  public: every class can access the element protected: only subclasses and classes in the same package can access the element default: only classes in the same package can access the element private: only this class can access the element  what does accessing mean? Accessing means you can refer. As in java only class can be the top-level element, thus top-level class access just use its name without a prefix.</description>
     </item>
     
     <item>
       <title>wordpress ssh update not working</title>
-      <link>https://yangchao.me/post/wordpress-ssh-update-not-working/</link>
+      <link>https://chaoyang.io/post/wordpress-ssh-update-not-working/</link>
       <pubDate>Mon, 23 Mar 2015 11:19:52 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/wordpress-ssh-update-not-working/</guid>
+      <guid>https://chaoyang.io/post/wordpress-ssh-update-not-working/</guid>
       <description>chown -R www-data:www-data *</description>
     </item>
     
     <item>
       <title>Overriding vs. hiding(aka. shadowing)</title>
-      <link>https://yangchao.me/post/overriding-vs-hidingaka-shadowing/</link>
+      <link>https://chaoyang.io/post/overriding-vs-hidingaka-shadowing/</link>
       <pubDate>Sun, 22 Mar 2015 18:40:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/overriding-vs-hidingaka-shadowing/</guid>
+      <guid>https://chaoyang.io/post/overriding-vs-hidingaka-shadowing/</guid>
       <description>Simply speaking, overriding is for member methods, while hiding is for fields and static methods.
 Override Override is the feature of dynamic binding or run-time polymorphism.
 It&amp;rsquo;s necessary for overriding that the method of subclasses has the same method signature as that of its super class.
@@ -985,10 +985,10 @@ It&amp;rsquo;s necessary for overriding that the method of subclasses has the sa
     
     <item>
       <title>finalize()</title>
-      <link>https://yangchao.me/post/finalize/</link>
+      <link>https://chaoyang.io/post/finalize/</link>
       <pubDate>Fri, 20 Mar 2015 15:29:39 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/finalize/</guid>
+      <guid>https://chaoyang.io/post/finalize/</guid>
       <description>finalize() method is a protected method of Object class. It&amp;rsquo;s intended to be invoked by GC thread before GC reclaim the memory allocated to the object.
 Misguidingly it&amp;rsquo;s regarded as a place for doing some cleaning works, like releasing resources.
 But this is NOT recommended!!
@@ -999,10 +999,10 @@ Other drawbacks:
     
     <item>
       <title>What is the exact answer, When interviewer ask Architecture of the project.</title>
-      <link>https://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</link>
+      <link>https://chaoyang.io/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</link>
       <pubDate>Fri, 20 Mar 2015 14:24:21 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</guid>
+      <guid>https://chaoyang.io/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</guid>
       <description>Some good answers from linkedin:
 What-is-exact-answer-When-
 @Rick Ryker
@@ -1013,10 +1013,10 @@ Your (technical) interviewer is looking for the following:
     
     <item>
       <title>Immutable objects</title>
-      <link>https://yangchao.me/post/immutable-objects/</link>
+      <link>https://chaoyang.io/post/immutable-objects/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/immutable-objects/</guid>
+      <guid>https://chaoyang.io/post/immutable-objects/</guid>
       <description>An immutable class is one whose state can not be changed once created. There are certain guidelines to create an class immutable. In this post, we will revisit these guidelines.
 Benefits of making a class immutable Lets first identify benefits of making a class immutable. Immutable classes are
  are simple to construct, test, and use are automatically thread-safe and have no synchronization issues do not need a copy constructor do not need an implementation of clone allow hashCode to use lazy initialization, and to cache its return value do not need to be copied defensively when used as a field make good Map keys and Set elements (these objects must not change state while in the collection) have their class invariant established once upon construction, and it never needs to be checked again always have “failure atomicity” (a term used by Joshua Bloch) : if an immutable object throws an exception, it’s never left in an undesirable or indeterminate state  Guidelines to make a class immutable Java documentation itself has some guidelines identified in this link.</description>
@@ -1024,10 +1024,10 @@ Benefits of making a class immutable Lets first identify benefits of making a cl
     
     <item>
       <title>String#substring(..) implementation</title>
-      <link>https://yangchao.me/post/stringsubstring-implementation/</link>
+      <link>https://chaoyang.io/post/stringsubstring-implementation/</link>
       <pubDate>Thu, 19 Mar 2015 15:22:01 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/stringsubstring-implementation/</guid>
+      <guid>https://chaoyang.io/post/stringsubstring-implementation/</guid>
       <description>I heard that in new version of JDK (&amp;gt;JDK7u5), substring implementation is changed.
 In the past, substring() don&amp;rsquo;t copy the specified character string but share the inherent character array reference with the original String. In this case, String substring can result in retaining more memory than you might expect. As such it&amp;rsquo;s not a memory leak as this memory can be recovered normally (potential memory leak).
 But note this behaviour has changed as of Java 7u6.</description>
@@ -1035,20 +1035,20 @@ But note this behaviour has changed as of Java 7u6.</description>
     
     <item>
       <title>Why two Date classes: java.util.Date and java.sql.Date?</title>
-      <link>https://yangchao.me/post/why-two-date-classes-java-util-date-and-java-sql-date/</link>
+      <link>https://chaoyang.io/post/why-two-date-classes-java-util-date-and-java-sql-date/</link>
       <pubDate>Thu, 19 Mar 2015 14:35:54 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/why-two-date-classes-java-util-date-and-java-sql-date/</guid>
+      <guid>https://chaoyang.io/post/why-two-date-classes-java-util-date-and-java-sql-date/</guid>
       <description>A java.util.Date represents date and time of day, a java.sql.Date only represents a date. The complement of java.sql.Date is java.sql.Time, which only represents a time of day. The java.sql.Date is a subclass (an extension) of java.util.Date. So, what changed in java.sql.Date:
 &amp;ndash; toString() generates a different string representation: yyyy-mm-dd &amp;ndash; a static valueOf(String) methods to create a Date from a String with above representation &amp;ndash; the getters and setter for hours, minutes and seconds are deprecated</description>
     </item>
     
     <item>
       <title>auto-boxing and valueOf(..)</title>
-      <link>https://yangchao.me/post/autoboxing-and-valueof/</link>
+      <link>https://chaoyang.io/post/autoboxing-and-valueof/</link>
       <pubDate>Tue, 17 Mar 2015 19:20:41 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/autoboxing-and-valueof/</guid>
+      <guid>https://chaoyang.io/post/autoboxing-and-valueof/</guid>
       <description>Autoboxing uses Integer.valueOf(int),which internally caches Integer objects for small integers (by default -128 to 127, but the max value can be configured with the &amp;ldquo;java.lang.Integer.IntegerCache.high&amp;rdquo; property.
 Double is the same by using Double.valueOf(..)
 So the following two lines are equivalent.
@@ -1057,19 +1057,19 @@ Integer i = 12; Integer i = Integer.valueOf(12); If you don&amp;rsquo;t believe 
     
     <item>
       <title>Float numbers</title>
-      <link>https://yangchao.me/post/float-numbers/</link>
+      <link>https://chaoyang.io/post/float-numbers/</link>
       <pubDate>Tue, 17 Mar 2015 14:38:15 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/float-numbers/</guid>
+      <guid>https://chaoyang.io/post/float-numbers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>equals() / hashCode() contract, Comparable contract</title>
-      <link>https://yangchao.me/post/equals-and-hashcode-contract/</link>
+      <link>https://chaoyang.io/post/equals-and-hashcode-contract/</link>
       <pubDate>Mon, 16 Mar 2015 19:13:32 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/equals-and-hashcode-contract/</guid>
+      <guid>https://chaoyang.io/post/equals-and-hashcode-contract/</guid>
       <description>Although Java encourage and support to maintain contract by interface, but there are some implicit contracts that should be noticed when you are implementing some special functions.
 What is equals and hashCode contract?  The interface contract for Object requires that if two objects are equal according to equals(), then they must have the same hashCode()value.
 1. If two objects are equal, then they must have the same hash code.</description>
@@ -1077,10 +1077,10 @@ What is equals and hashCode contract?  The interface contract for Object require
     
     <item>
       <title>Character encoding and charset in Java</title>
-      <link>https://yangchao.me/post/character-encoding-and-charset-in-java/</link>
+      <link>https://chaoyang.io/post/character-encoding-and-charset-in-java/</link>
       <pubDate>Mon, 16 Mar 2015 19:08:24 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/character-encoding-and-charset-in-java/</guid>
+      <guid>https://chaoyang.io/post/character-encoding-and-charset-in-java/</guid>
       <description>Concepts At the beginning, we need to distinguish some key concepts.
 character Character (aka. abstract character) is a textual representation of character.
 glyph glyph is the particular images representing a character or part of a character. Glyphs for the same character may have very different shapes
@@ -1090,20 +1090,20 @@ coded character set (CCS) A coded character set (CCS) specifies how to represent
     
     <item>
       <title>finally execution in try-catch-finnally blocks</title>
-      <link>https://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</link>
+      <link>https://chaoyang.io/post/finally-execution-in-try-catch-finnally-blocks/</link>
       <pubDate>Mon, 16 Mar 2015 19:02:01 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/finally-execution-in-try-catch-finnally-blocks/</guid>
+      <guid>https://chaoyang.io/post/finally-execution-in-try-catch-finnally-blocks/</guid>
       <description>The finally block will always execute, except for System.exit() is called first, or the thread has terminated or the JVM crashes. Anything that is returned in the finally block will actually override any exception or returned value that is inside the try/catch block.
 public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&amp;#34;Inside try block of testMethod!&amp;#34;); i = 100; return i; } catch(Exception e){ System.</description>
     </item>
     
     <item>
       <title>Apache Maven 2</title>
-      <link>https://yangchao.me/post/apache-maven-2/</link>
+      <link>https://chaoyang.io/post/apache-maven-2/</link>
       <pubDate>Sat, 14 Mar 2015 21:57:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/apache-maven-2/</guid>
+      <guid>https://chaoyang.io/post/apache-maven-2/</guid>
       <description>Although I have some experience about Maven 2, this is a simple summary. &amp;gt; Maven /ˈmeɪv_ə_n/
 Artifact Vector  groupid:artifactid:packaging:version:scope such as: org.springframework:spring:jar:2.5.6:compile
 org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scope:   Scope Description   compile Needed for compilation, included in packages.   test Needed for unit tests, not included in packages.   provided Needed for compilation, but provided at runtime by the runtime container.   system Needed for compilation, given as absolute path on disk, and not included in packages.</description>
@@ -1111,39 +1111,39 @@ org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scop
     
     <item>
       <title>Core Java Concurrency</title>
-      <link>https://yangchao.me/post/core-java-concurrency/</link>
+      <link>https://chaoyang.io/post/core-java-concurrency/</link>
       <pubDate>Fri, 13 Mar 2015 04:59:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/core-java-concurrency/</guid>
+      <guid>https://chaoyang.io/post/core-java-concurrency/</guid>
       <description>A birdview of core java concurrency Concepts ![table1](/media/table1.png) Procting shared data Java provides Lock-based concurrency control machanism. Locking **establishes the orderings** needed to satisfy the Java Memory Model and **guarantee the visibility** of changes to other threads. #### Synchronized Every object instance has a monitor that can be locked by one thread at a time. The _synchronized _keyword can be specifid on a method or in block form to lock</description>
     </item>
     
     <item>
       <title>PostgreSQL Concurrency with MVCC</title>
-      <link>https://yangchao.me/post/postgresql-concurrency-with-mvcc/</link>
+      <link>https://chaoyang.io/post/postgresql-concurrency-with-mvcc/</link>
       <pubDate>Wed, 04 Mar 2015 08:12:20 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/postgresql-concurrency-with-mvcc/</guid>
+      <guid>https://chaoyang.io/post/postgresql-concurrency-with-mvcc/</guid>
       <description>https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
 Table of Contents  How MVCC works Disadvantages of MVCC One of the big selling points of Postgres is how it handles concurrency. The promise is simple: reads never block writes and vice versa. Postgres achieves this via a mechanism called Multi Version Concurrency Control. This technique is not unique to Postgres: there are several databases that implement some form of MVCC including Oracle, Berkeley DB, CouchDB and many more.</description>
     </item>
     
     <item>
       <title>Inner thread communication: PipedInputStream/PipedOutputStream vs. BlockingQueue</title>
-      <link>https://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</link>
+      <link>https://chaoyang.io/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</link>
       <pubDate>Tue, 17 Feb 2015 08:39:28 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</guid>
+      <guid>https://chaoyang.io/post/inner-thread-communication-pipedinstreampipedoutstream-vs-blockingqueue/</guid>
       <description>There are a lot of differences between the two.
 For starters, what kind of data do you want to transport? Complex objects will be easier to transport between threads using a Queue, rather than a Pipe. With the Pipes you would have to serialize the objects or transform them in some way to get them through the Stream, then reverse the procedure on the receiving side. With Queues you just put the object in the Queue and pull it out on the consumer.</description>
     </item>
     
     <item>
       <title>Cross-domain Browser Requests</title>
-      <link>https://yangchao.me/post/cross-domain-browser-requests/</link>
+      <link>https://chaoyang.io/post/cross-domain-browser-requests/</link>
       <pubDate>Mon, 16 Feb 2015 06:48:09 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/cross-domain-browser-requests/</guid>
+      <guid>https://chaoyang.io/post/cross-domain-browser-requests/</guid>
       <description>Problem origin Browsers prohibit scripts in a page from one domain to request some resources from another domain.
 Take a scenario as an example:
 A page named 1.html from http://dev.company.com/1.html has a script requesting a resource from another domain by use of url: http://sit.company.com/dosomething. This case is called Cross Domain Request. This is due to the browser&amp;rsquo;s Same-origin Policy.
@@ -1152,19 +1152,19 @@ This is only limited to Javascript request like AJAX, and not limited to normal 
     
     <item>
       <title>Get started with WebLogic</title>
-      <link>https://yangchao.me/post/get-started-with-weblogic/</link>
+      <link>https://chaoyang.io/post/get-started-with-weblogic/</link>
       <pubDate>Thu, 12 Feb 2015 07:43:05 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/get-started-with-weblogic/</guid>
+      <guid>https://chaoyang.io/post/get-started-with-weblogic/</guid>
       <description>Concepts: Domain, Admin Server, Managed Server, Node Manager   WebSphere WebLogic   Profile Domain   Node Agent Node Manager    Admin Server   Application Server Managed Server    WebSphere has standalone version and Network Deploy version (ND). In ND version, there is a central management node and another application nodes. And the node agent is a communication bridge among the management unit.</description>
     </item>
     
     <item>
       <title>Java Transaction - JDBC, JTA, JTS</title>
-      <link>https://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/</link>
+      <link>https://chaoyang.io/post/javaee-java-transaction-jdbc-jta-jts/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javaee-java-transaction-jdbc-jta-jts/</guid>
+      <guid>https://chaoyang.io/post/javaee-java-transaction-jdbc-jta-jts/</guid>
       <description>https://www.progress.com/products/datadirect-connect/jdbc-drivers/jdbc-developer-center/jdbc-tutorials/understanding-jta---the-java-transaction-api/accessing-databases
 Concepts and implementation Where these come from? In transaction processing, there are several participants:
 Resource Manager: like RDMS, JMS Providers(MQ), JCA Resources, transnational distributed systems
@@ -1173,47 +1173,47 @@ It is important to understand what constitutes a resource, in this context. For 
     
     <item>
       <title>JPA - runtime</title>
-      <link>https://yangchao.me/post/jpa-runtime/</link>
+      <link>https://chaoyang.io/post/jpa-runtime/</link>
       <pubDate>Tue, 10 Feb 2015 03:51:29 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jpa-runtime/</guid>
+      <guid>https://chaoyang.io/post/jpa-runtime/</guid>
       <description>Core concepts org.hibernate javax.persistence 说明 cfg.Configuration PersistenceUnit 读取配置信息 SessionFactory EntityManagerFactory 用于创建会话/实体管理器的工厂类 Session EntityManager 提供实体操作API，管理事务，创建查询 Transaction EntityTransaction 管理事务 Query Query 执行查询Here&#39;</description>
     </item>
     
     <item>
       <title>JPA - mapping</title>
-      <link>https://yangchao.me/post/jpa-mapping/</link>
+      <link>https://chaoyang.io/post/jpa-mapping/</link>
       <pubDate>Fri, 06 Feb 2015 02:52:11 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jpa-mapping/</guid>
+      <guid>https://chaoyang.io/post/jpa-mapping/</guid>
       <description>Table mapping @Entity @Table(name=&amp;#34;EMP&amp;#34;, schema=&amp;#34;scott&amp;#34;) Basic mapping Java type Database type String (char, char[]) VARCHAR (CHAR, VARCHAR2, CLOB, TEXT) Number (BigDecimal, BigInteger, Integer, Double, Long, Float, Short, Byte) NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) int, long, float, double, short, byte NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) byte[] VARBINARY (BINARY, BLOB) boolean (Boolean) BOOLEAN (BIT, SMALLINT, INT, NUMBER) java.util.Date TIMESTAMP (DATE, DATETIME) java.sql.Date DATE (TIMESTAMP, DATETIME) java.sql.Time TIME (TIMESTAMP, DATETIME) java.sql.Timestamp</description>
     </item>
     
     <item>
       <title>Get started with Oracle 11g</title>
-      <link>https://yangchao.me/post/oracle-a-short-jouney/</link>
+      <link>https://chaoyang.io/post/oracle-a-short-jouney/</link>
       <pubDate>Wed, 04 Feb 2015 08:57:04 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/oracle-a-short-jouney/</guid>
+      <guid>https://chaoyang.io/post/oracle-a-short-jouney/</guid>
       <description></description>
     </item>
     
     <item>
       <title>output - pre-increment and post-increment</title>
-      <link>https://yangchao.me/post/output-pre-increment-and-post-increment/</link>
+      <link>https://chaoyang.io/post/output-pre-increment-and-post-increment/</link>
       <pubDate>Mon, 02 Feb 2015 09:05:24 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/output-pre-increment-and-post-increment/</guid>
+      <guid>https://chaoyang.io/post/output-pre-increment-and-post-increment/</guid>
       <description>public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( x++ &amp;gt; 2 ) || (y++ &amp;gt; 2)) { x++; } } System.out.println(x + &amp;#34; &amp;#34; + y); } Output is: 7 3
 public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;lt; 5; z++) { if (( ++x &amp;gt; 2 ) || (++y &amp;gt; 2)) { x++; } } System.</description>
     </item>
     
     <item>
       <title>scriptless JSP - EL, JSTL and taglibs</title>
-      <link>https://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</link>
+      <link>https://chaoyang.io/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</link>
       <pubDate>Mon, 02 Feb 2015 06:11:56 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</guid>
+      <guid>https://chaoyang.io/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</guid>
       <description>EL (Expression Language) for non-Java programmer or designers email: &amp;lt;%= application.getAttribute(&amp;ldquo;email&amp;rdquo;) %&amp;gt;
 email: ${applicationScope.email}
 Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you cannot directly get the objects: application, session, request, response, page, but you can get them through pageContext.  In addition, several implicit objects are available that allow easy access to the following objects:
@@ -1222,39 +1222,39 @@ Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you ca
     
     <item>
       <title>JSP basics</title>
-      <link>https://yangchao.me/post/jsp-basics/</link>
+      <link>https://chaoyang.io/post/jsp-basics/</link>
       <pubDate>Mon, 02 Feb 2015 04:03:45 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jsp-basics/</guid>
+      <guid>https://chaoyang.io/post/jsp-basics/</guid>
       <description>How JSP work Syntax scriptlet &amp;lt;% int count=0; out.println(&amp;#34;This is a scriptlet&amp;#34;); %&amp;gt; This block is placed in the body of method _jspService(request, response)
 derective &amp;lt;%@ page import=&amp;#34;java.util.*,java.xml.*&amp;#34; %&amp;gt;&amp;lt;%@ include file=&amp;#34;xxx&amp;#34; %&amp;gt;&amp;lt;%@ taglib tagdir=&amp;#34;/WEB-INF/tags/xxx&amp;#34; prefix=&amp;#34;xxx&amp;#34; %&amp;gt; expression &amp;lt;%= &amp;#34;This is a expression argument&amp;#34; %&amp;gt; declaration &amp;lt;%! int count=0 %&amp;gt;&amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt; This is equivlant with the member field and member method of the generated servlet.</description>
     </item>
     
     <item>
       <title>JMM, Atomicity,  Visibility and Reordering</title>
-      <link>https://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</link>
+      <link>https://chaoyang.io/post/java-memory-model-atomicity-visibility-and-reordering/</link>
       <pubDate>Wed, 21 Jan 2015 09:36:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-memory-model-atomicity-visibility-and-reordering/</guid>
+      <guid>https://chaoyang.io/post/java-memory-model-atomicity-visibility-and-reordering/</guid>
       <description>Memory that can be shared between threads is called shared memory or heap memory. The term variable as used in this section refers to both fields and array elements. Variables that are shared between threads are referred to as shared variables. All instance fields, static fields, and array elements are shared variables and are stored in heap memory. Local variables, formal method parameters, and exception handler parameters are never shared between threads and are unaffected by the memory model.</description>
     </item>
     
     <item>
       <title>Thread Synchronization</title>
-      <link>https://yangchao.me/post/thread-synchronization/</link>
+      <link>https://chaoyang.io/post/thread-synchronization/</link>
       <pubDate>Tue, 20 Jan 2015 02:16:57 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/thread-synchronization/</guid>
+      <guid>https://chaoyang.io/post/thread-synchronization/</guid>
       <description>Two questions about synchronized  mutual exclusion - shared data access among multiple threads - coordinating activities Some of the Java virtual machine&amp;rsquo;s runtime data areas are shared by all threads, others are private to individual threads.   The heap and method area are shared by all threads, Java programs need to coordinate multi-threaded access to two kinds of data:
  b. class variables, which are stored in the method area</description>
     </item>
     
     <item>
       <title>Java Thread Management</title>
-      <link>https://yangchao.me/post/topic-serial-threads/</link>
+      <link>https://chaoyang.io/post/topic-serial-threads/</link>
       <pubDate>Mon, 19 Jan 2015 07:30:46 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/topic-serial-threads/</guid>
+      <guid>https://chaoyang.io/post/topic-serial-threads/</guid>
       <description>About thread:
 1. Single-thread and multi-thread A single-thread program has a single entry point (the main() method) and a single exit point. A multi-thread program has an initial entry point (the main() method), followed by many entry and exit points, which are run concurrently with the main(). 2. Lifecycle In Java, there are only 6 states when invoking_ getState()_: NEW RUNNABLE BLOCKED WAITING TIMED_WAITING TERMINATED
 In reality, we cannot differentiate the running or runnable but not running.</description>
@@ -1262,10 +1262,10 @@ In reality, we cannot differentiate the running or runnable but not running.</de
     
     <item>
       <title>Java Exceptions</title>
-      <link>https://yangchao.me/post/topic-serial-exceptions/</link>
+      <link>https://chaoyang.io/post/topic-serial-exceptions/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/topic-serial-exceptions/</guid>
+      <guid>https://chaoyang.io/post/topic-serial-exceptions/</guid>
       <description>An exception is said to be thrown from the point where it occurred and is said to be caught at the point to which control is transferred.
 exception family tree 
 All exceptions are inherited from Throwable.
@@ -1275,10 +1275,10 @@ That is, the checked exception classes are all subclasses of Throwable other tha
     
     <item>
       <title>Override - some requirements</title>
-      <link>https://yangchao.me/post/override/</link>
+      <link>https://chaoyang.io/post/override/</link>
       <pubDate>Fri, 16 Jan 2015 06:35:35 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/override/</guid>
+      <guid>https://chaoyang.io/post/override/</guid>
       <description>1. Override methods must have the identical method signature as the methods overridden Return type doesn&amp;rsquo;t belong to the method signature, but Java supports covariant return type for overriding.
 Identical signature means: 1) the number of formal arguments must be equal. 2) the type of relevant argument must be the same. The subtype of the methond argument cannot be considered as identical.
 2. Override methods can less restricted in access control class AA { protected void foo() {} } class BB extends AA { @Override public void foo() { } } We make the foo() method accessible from weaker privilege &amp;ldquo;protected&amp;rdquo; to less restricted specifier &amp;ldquo;public&amp;rdquo;.</description>
@@ -1286,10 +1286,10 @@ Identical signature means: 1) the number of formal arguments must be equal. 2) t
     
     <item>
       <title>unreachable statements</title>
-      <link>https://yangchao.me/post/unreachable-statements/</link>
+      <link>https://chaoyang.io/post/unreachable-statements/</link>
       <pubDate>Fri, 16 Jan 2015 04:42:49 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/unreachable-statements/</guid>
+      <guid>https://chaoyang.io/post/unreachable-statements/</guid>
       <description>Sometimes, we will meet this compiler error: unreachable statements.
 See the following examples:
 public void javapapers() { System.out.println(&amp;#34;java&amp;#34;); return; System.out.println(&amp;#34;papers&amp;#34;); // compile error }public void javapapers() { System.out.println(&amp;#34;java&amp;#34;); if(true) { return; } System.out.println(&amp;#34;papers&amp;#34;); } //This code compiled successfullypublic void javapapers() { System.out.println(&amp;#34;java&amp;#34;); while(true) { return; } System.out.println(&amp;#34;papers&amp;#34;); // compile error } Wait, but what is strange here?
@@ -1298,10 +1298,10 @@ From Java Language Specification:   &amp;gt; ## 14.21. Unreachable Statements  
     
     <item>
       <title>Assertion</title>
-      <link>https://yangchao.me/post/assertion/</link>
+      <link>https://chaoyang.io/post/assertion/</link>
       <pubDate>Fri, 16 Jan 2015 01:28:54 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/assertion/</guid>
+      <guid>https://chaoyang.io/post/assertion/</guid>
       <description>Java have an &amp;ldquo;assert&amp;rdquo; keyword since java 1.4
 Usage There are two kinds of syntax:
 1) assert expression1
@@ -1315,19 +1315,19 @@ void foo() {} assert true : foo(); // cannot be compiled How to enable or disabl
     
     <item>
       <title>Inner Classes</title>
-      <link>https://yangchao.me/post/inner-classes/</link>
+      <link>https://chaoyang.io/post/inner-classes/</link>
       <pubDate>Wed, 14 Jan 2015 10:53:54 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/inner-classes/</guid>
+      <guid>https://chaoyang.io/post/inner-classes/</guid>
       <description>There are 4 kinds of inner classes: Member classes (non-static inner classes) Local classes Anonymous classes Nested top-level classes and interfaces (static inner classes) The former three kinds are called inner classes. The last kind is called nested class. &amp;nbsp; Member interface is implicitly static, so it&amp;rsquo;s never considered as inner class. Member classes What is a member class? A member class is a class that is defined inside the</description>
     </item>
     
     <item>
       <title>interfaces</title>
-      <link>https://yangchao.me/post/interfaces/</link>
+      <link>https://chaoyang.io/post/interfaces/</link>
       <pubDate>Wed, 14 Jan 2015 10:48:18 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/interfaces/</guid>
+      <guid>https://chaoyang.io/post/interfaces/</guid>
       <description>Before Java 8, interfaces are not allowed to have static method.
 interface SS { static void bar(); // Cannot be compiled  static void foo() {} // Cannot be compiled } The compiler complains: Extension methods are not supported at this language level.
 But what are Extension methods? That&amp;rsquo;s a term defined in Java 8.
@@ -1338,19 +1338,19 @@ As for interfaces, all elements in its definition body are public:
     
     <item>
       <title>CS interview experience</title>
-      <link>https://yangchao.me/post/cs-interview-experience/</link>
+      <link>https://chaoyang.io/post/cs-interview-experience/</link>
       <pubDate>Tue, 13 Jan 2015 12:19:39 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/cs-interview-experience/</guid>
+      <guid>https://chaoyang.io/post/cs-interview-experience/</guid>
       <description>本人CS硕士名校非牛人,一年前去了一家中型软件公司做SD,不喜欢,刚刚跳去一家小HF.面试 的过程好像西游记一样,路途遥遥,艰险不断,怪物层出</description>
     </item>
     
     <item>
       <title>static method and hiding</title>
-      <link>https://yangchao.me/post/static-final-method/</link>
+      <link>https://chaoyang.io/post/static-final-method/</link>
       <pubDate>Tue, 13 Jan 2015 10:22:22 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/static-final-method/</guid>
+      <guid>https://chaoyang.io/post/static-final-method/</guid>
       <description>Class method can be invoked by Class or by instance.
 When it is invoked by instance, it uses the type of the instance, to figure out, at compile time, which class method to invoke. So the polymorphism would not happen as you think. For static methods, when the static method of the subclasses has the same signature as their superclass, we call it Hiding.
 In Java, private / final / static methods can do hiding by static binding.</description>
@@ -1358,47 +1358,47 @@ In Java, private / final / static methods can do hiding by static binding.</d
     
     <item>
       <title>NZ company collection</title>
-      <link>https://yangchao.me/post/nz-company-collection/</link>
+      <link>https://chaoyang.io/post/nz-company-collection/</link>
       <pubDate>Mon, 12 Jan 2015 05:38:05 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/nz-company-collection/</guid>
+      <guid>https://chaoyang.io/post/nz-company-collection/</guid>
       <description>New Zealand Post http://jobs.nzpost.co.nz/   Sovereign https://careers.asbgroup.co.nz/sovereign/home   Child, Youth &amp;amp; Family https://msdcareers.msd.govt.nz/home   AA http://www.aa.co.nz/about/work-or-partner-with-us/careers/   Kiwibank https://workforus.kiwibank.co.nz/search   Telnet http://callcentrepeople.co.nz/jobs/candidate-resources/   iiNet http://careers.iinet.net.au/caw/en/listing/   Great Outcomes    Tower Insurance https://careers.tower.co.nz/home   Dunedin City Council http://www.dcc.jobs/   Coca Cola    Ezibuy https://ezibuy.careercentre.net.nz/   Datacraft (Dimension Data) http://www.dimensiondata.com/en-nz/aboutus/careerportal   BNZ http://www.bnzcareers.co.nz/   ANZ (include National Bank) https://www.</description>
     </item>
     
     <item>
       <title>override:  covariant return types</title>
-      <link>https://yangchao.me/post/override-covariant-return-types/</link>
+      <link>https://chaoyang.io/post/override-covariant-return-types/</link>
       <pubDate>Mon, 12 Jan 2015 03:37:15 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/override-covariant-return-types/</guid>
+      <guid>https://chaoyang.io/post/override-covariant-return-types/</guid>
       <description>class AA { void foo(CharSequence a) {} CharSequence bar() { return &amp;#34;1&amp;#34;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &amp;#34;2&amp;#34;; } } It&amp;rsquo;s obvious that method &amp;ldquo;bar&amp;rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样</description>
     </item>
     
     <item>
       <title>Behavior of polymorphic methods inside constructors</title>
-      <link>https://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</link>
+      <link>https://chaoyang.io/post/behavior-of-polymorphic-methods-inside-constructors/</link>
       <pubDate>Mon, 12 Jan 2015 03:31:57 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/behavior-of-polymorphic-methods-inside-constructors/</guid>
+      <guid>https://chaoyang.io/post/behavior-of-polymorphic-methods-inside-constructors/</guid>
       <description>class Glyph { void draw() { System.out.println(&amp;#34;Glyph.draw()&amp;#34;); } Glyph() { System.out.println(&amp;#34;Glyph() before draw()&amp;#34;); draw(); System.out.println(&amp;#34;Glyph() after draw()&amp;#34;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&amp;#34;RoundGlyph.RoundGlyph(), radius = &amp;#34; + radius); } void draw() { System.out.println(&amp;#34;RoundGlyph.draw(), radius = &amp;#34; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: &amp;gt; Glyph() before draw() &amp;gt; &amp;gt; RoundGlyph.draw(),</description>
     </item>
     
     <item>
       <title>JAX-RS as the one Java web framework to rule them all?</title>
-      <link>https://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</link>
+      <link>https://chaoyang.io/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</guid>
+      <guid>https://chaoyang.io/post/jax-rs-as-the-one-java-web-framework-to-rule-them-all/</guid>
       <description>One of the things about Java that sometimes gets made fun of is the huge number of Java based web frameworks. There certainly are many, of all shapes and sizes! I suppose there are quite a lot of different shapes and sizes of web applications out there but it sometimes seems like there&amp;rsquo;s a 1-1 mapping between applications and frameworks :).
 Picking the right web framework is probably a managers nightmare (Which one to pick?</description>
     </item>
     
     <item>
       <title>Enumeration types</title>
-      <link>https://yangchao.me/post/enumeration-types/</link>
+      <link>https://chaoyang.io/post/enumeration-types/</link>
       <pubDate>Sat, 12 Jan 2013 02:58:13 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/enumeration-types/</guid>
+      <guid>https://chaoyang.io/post/enumeration-types/</guid>
       <description>enum&amp;rsquo;s underlying implementation Define enumerated types by using enum keyword.
 enum MetaColor { RED, YELLOW, BLUE } Now, MetaColor class has three final static members all of which are of MetaColor class: RED, YELLOW and BLUE
 MetaColor has 2 static methods: values(), valueOf(..) and other instance methods: name(), ordinal() and toString(), hashCode(), equals().
@@ -1407,10 +1407,10 @@ You can override the toString(), but hashCode() and equals() are final which can
     
     <item>
       <title>variable argument list: a pitfall</title>
-      <link>https://yangchao.me/post/variable-argument-list-a-pitfall/</link>
+      <link>https://chaoyang.io/post/variable-argument-list-a-pitfall/</link>
       <pubDate>Sat, 12 Jan 2013 02:56:36 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/variable-argument-list-a-pitfall/</guid>
+      <guid>https://chaoyang.io/post/variable-argument-list-a-pitfall/</guid>
       <description>We usually define a method with a variable argument list like this:
 void bar(String...args) { //blablab } But there is a pitfall in this place. Can you ensure args is always an array, even its length is 0 when it&amp;rsquo;s empty?
 Yes, most of time.
@@ -1421,10 +1421,10 @@ obj.bar(null); Guess what? Here the args is also null.</description>
     
     <item>
       <title>Default constructor (no-args constructor)</title>
-      <link>https://yangchao.me/post/default-constructor-no-args-constructor/</link>
+      <link>https://chaoyang.io/post/default-constructor-no-args-constructor/</link>
       <pubDate>Sat, 12 Jan 2013 02:54:20 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/default-constructor-no-args-constructor/</guid>
+      <guid>https://chaoyang.io/post/default-constructor-no-args-constructor/</guid>
       <description>Default constructor is just synthesized by the compiler when you don&amp;rsquo;t define any constructor.
 Once you define a constructor, the compiler won&amp;rsquo;t make one for you.
 class C { public C(int a) { } public static void main(String[] args) { new C(); // so compiler will issue an error message here  } } &amp;nbsp;</description>
@@ -1432,10 +1432,10 @@ class C { public C(int a) { } public static void main(String[] args) { new C(); 
     
     <item>
       <title>Distinguish overloaded methods</title>
-      <link>https://yangchao.me/post/distinguish-overloaded-methods/</link>
+      <link>https://chaoyang.io/post/distinguish-overloaded-methods/</link>
       <pubDate>Sat, 12 Jan 2013 02:36:16 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/distinguish-overloaded-methods/</guid>
+      <guid>https://chaoyang.io/post/distinguish-overloaded-methods/</guid>
       <description>Each overloaded method must have a unique list of argument types.
 This means that there are the following possible cases:
  argument count are different  void foo(int a) {} void foo(int a, String b) {}  argument types are different  void foo(int a) {} void foo(String b) {}  argument types are different, even if inheritance  void foo(List a) {} void foo(ArrayList a) {}  return types are different  void foo(int a) {} int foo(int b) { return 0; } NO!</description>
@@ -1443,39 +1443,53 @@ This means that there are the following possible cases:
     
     <item>
       <title>Override: a pitfall</title>
-      <link>https://yangchao.me/post/override-a-pitfall/</link>
+      <link>https://chaoyang.io/post/override-a-pitfall/</link>
       <pubDate>Sat, 12 Jan 2013 02:30:14 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/override-a-pitfall/</guid>
+      <guid>https://chaoyang.io/post/override-a-pitfall/</guid>
       <description>Let&amp;rsquo;s see the flowing program and guess the run result:
 class Animal { protected void drink() { System.out.println(&amp;#34;animal drinks before eating&amp;#34;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&amp;#34;dog drinks before eating&amp;#34;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.</description>
     </item>
     
     <item>
       <title>Java access control</title>
-      <link>https://yangchao.me/post/java-access-control/</link>
+      <link>https://chaoyang.io/post/java-access-control/</link>
       <pubDate>Sat, 12 Jan 2013 02:28:45 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-access-control/</guid>
+      <guid>https://chaoyang.io/post/java-access-control/</guid>
       <description>Java access control is a bit weird, especially for the ones with C++ background.
 There are two types of access control, one for classes and the other for members. To simplify my discussion, in this context the class mean the top level one, which is directly defined in a compile unit. As the nested class is actually always associated with another class, so it&amp;rsquo;s not top level class and I regard it as just a member like member variables and member methods.</description>
     </item>
     
     <item>
       <title>Java Object Initialization Order</title>
-      <link>https://yangchao.me/post/java-object-initialization-order/</link>
+      <link>https://chaoyang.io/post/java-object-initialization-order/</link>
       <pubDate>Sat, 12 Jan 2013 02:22:46 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/java-object-initialization-order/</guid>
+      <guid>https://chaoyang.io/post/java-object-initialization-order/</guid>
       <description>See the following program, and you guess the running result: public class Dog { public static Dog dog = new Dog(); static final int val1 = -5; static int val2 = 3; public int val3; public Dog() { val3 = val1 + val2; } public static void main(String[] args) { System.out.println(Dog.dog.val3); } } Now, I tell you the result is -5. But why? To clarify this confusing initialization order, you</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://yangchao.me/post/learn-docker/</link>
+      <link>https://chaoyang.io/post/json-api-simpified/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/learn-docker/</guid>
+      <guid>https://chaoyang.io/post/json-api-simpified/</guid>
+      <description>Content Negotiation Content-Type: application/vnd.api+json Accept: application/vnd.api+json
+media type without parameter
+Document Structure 3 top-level members: - data: the document&amp;rsquo;s &amp;lsquo;primary data&amp;rsquo; - errors: an array of error objects - meta: non-standard meta-information
+data and errors MUST NOT coexists.
+Optional top-level memeber: - jsonapi: describe the server&amp;rsquo;s implementation - links: links related to the primary data - included: included resources
+resource object  id type Optional: attributes relationships links meta  // .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://chaoyang.io/post/learn-docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://chaoyang.io/post/learn-docker/</guid>
       <description>This post is the notes when I learn Docker.
 What is docker Unlike virtual machines, Docker containers don’t use hardware virtualization. Programs running inside Docker containers interface directly with the host’s Linux kernel. Docker is not a virtualization technology. Docker doesn’t provide the container technology, but it specifically makes it simpler to use.
 The containers that Docker builds are isolated with respect to eight aspects: - PID namespace —Process identifiers and capabilities - UTS namespace —Host and domain name - MNT namespace —File system access and structure - IPC namespace —Process communication over shared memory - NET namespace —Network access and structure - USR namespace —User names and identifiers - chroot() —Controls the location of the file system root - cgroups —Resource protection</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Html5 on Chao Yang</title>
-    <link>https://yangchao.me/categories/html5/</link>
+    <link>https://chaoyang.io/categories/html5/</link>
     <description>Recent content in Html5 on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Apr 2015 23:27:29 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/html5/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/html5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HTML 5</title>
-      <link>https://yangchao.me/post/html-5/</link>
+      <link>https://chaoyang.io/post/html-5/</link>
       <pubDate>Tue, 28 Apr 2015 23:27:29 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/html-5/</guid>
+      <guid>https://chaoyang.io/post/html-5/</guid>
       <description>new elements &amp;amp;lt;figure&amp;amp;gt; and &amp;lt;figcaption&amp;amp;gt; &amp;lt;figure id=&amp;#34;fig1&amp;#34;&amp;gt; &amp;lt;figcaption&amp;gt;Fig.1 Screen Reader Support for WAI-ARIA&amp;lt;/figcaption&amp;gt; &amp;lt;img src=&amp;#34;http://img2.cache.netease.com/cnews/2015/4/28/201504281107026599c.jpg&amp;#34; alt=&amp;#34;JAWS: Landmarks 1/1, Forms 4/5 … &amp;#34;&amp;gt; &amp;lt;/figure&amp;gt; &amp;amp;lt;mark&amp;amp;gt; This tag is very useful for the highlight of searching result.
 &amp;lt;h1&amp;gt;Yes, You Can Use &amp;lt;mark&amp;gt;HTML5&amp;lt;/mark&amp;gt; Today!&amp;lt;/h1&amp;gt; &amp;amp;lt;progress&amp;amp;gt; and &amp;lt;meter&amp;amp;gt; &amp;lt;progress max=&amp;#34;100&amp;#34; value=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;meter value=&amp;#34;50&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; &amp;lt;meter value=&amp;#34;150&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; &amp;lt;meter value=&amp;#34;350&amp;#34; min=&amp;#34;0&amp;#34; max=&amp;#34;400&amp;#34; low=&amp;#34;60&amp;#34; high=&amp;#34;300&amp;#34; title=&amp;#34;gigabytes&amp;#34;&amp;gt; the low and high are the thresholds.</description>
     </item>

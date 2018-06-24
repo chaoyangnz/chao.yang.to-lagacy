@@ -13,12 +13,12 @@
     <meta name="title" content="Garbage Collection - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
-    <link rel="shortcut icon" href="https://yangchao.me/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://yangchao.me/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://yangchao.me/img/apple-touch-icon.png" />
-    <link href="https://yangchao.me/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="https://yangchao.me/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="https://yangchao.me/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="https://chaoyang.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://chaoyang.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.io/img/apple-touch-icon.png" />
+    <link href="https://chaoyang.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.io/css/main.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -45,7 +45,7 @@
       <div class="header-inner"> <div class="site-meta  custom-logo ">
 
   <div class="custom-logo-site-title">
-    <a href="https://yangchao.me/"  class="brand" rel="start">
+    <a href="https://chaoyang.io/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Chao Yang</span>
       <span class="logo-line-after"><i></i></span>
@@ -67,13 +67,13 @@
       
       
         <li class="menu-item ">
-          <a href="https://yangchao.me/" rel="section">
+          <a href="https://chaoyang.io/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://yangchao.me/books" rel="section">
+          <a href="https://chaoyang.io/books" rel="section">
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
           </a>
         </li>
@@ -85,19 +85,19 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://yangchao.me/resume/cv.pdf" rel="section">
+          <a href="https://chaoyang.io/resume/cv.pdf" rel="section">
               <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://yangchao.me/post/index.html" rel="section">
+          <a href="https://chaoyang.io/post/index.html" rel="section">
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://yangchao.me/about/" rel="section">
+          <a href="https://chaoyang.io/about/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
           </a>
         </li>
@@ -129,7 +129,7 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://yangchao.me/post/garbage-collection/" itemprop="url">
+        <a class="post-title-link" href="https://chaoyang.io/post/garbage-collection/" itemprop="url">
         Garbage Collection
         </a>
       </h1>
@@ -153,7 +153,7 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="https://yangchao.me/categories/jvm" itemprop="url" rel="index">
+      <a href="https://chaoyang.io/categories/jvm" itemprop="url" rel="index">
         <span itemprop="name">JVM</span>
       </a>
       &nbsp; 
@@ -186,7 +186,7 @@
 
 <h4 id="heap-layout">Heap Layout</h4>
 
-<p><img src="https://yangchao.me/media/Hotspot-VM-heap-layout.png" alt="Hotspot-VM-heap-layout" /></p>
+<p><img src="https://chaoyang.io/media/Hotspot-VM-heap-layout.png" alt="Hotspot-VM-heap-layout" /></p>
 
 <h4 id="geneation-spaces">Geneation spaces</h4>
 
@@ -195,7 +195,7 @@
 <ul>
 <li>Old generation (tenured generation)</li>
 <li>Young generation, which is further divided into sections: Eden and Survivor spaces.
-<img src="https://yangchao.me/media/young-generation.png" alt="young-generation" /></li>
+<img src="https://chaoyang.io/media/young-generation.png" alt="young-generation" /></li>
 </ul>
 
 <h4 id="minor-gc">minor GC</h4>
@@ -208,7 +208,7 @@
 <li>all objects in From survivor space are either discarded or moved to the unused survivor space(To survivor space) or moved to the old generation (when still liveable after a few minor GC).</li>
 <li>Since all objects are moved, the young generation is automatically compacted when it is collected.</li>
 <li>After every minor GC, the From survivor space and To survivor space are swapped.
-<img src="https://yangchao.me/media/minor-gc.png" alt="minor-gc" /></li>
+<img src="https://chaoyang.io/media/minor-gc.png" alt="minor-gc" /></li>
 </ul>
 
 <h4 id="full-gc">full GC</h4>
@@ -290,7 +290,7 @@ In GC algorithms, there are several terms:</p></li>
 
 <p>&nbsp;</p>
 
-<p><img src="https://yangchao.me/media/gc-comparison.png" alt="gc-comparison" /></p>
+<p><img src="https://chaoyang.io/media/gc-comparison.png" alt="gc-comparison" /></p>
 
 <p>You can see, all GC algorithms use &ldquo;stop-the-world&rdquo; when doing minor GC.</p>
 
@@ -303,7 +303,7 @@ In GC algorithms, there are several terms:</p></li>
 
 <h3 id="serial-collector">Serial collector</h3>
 
-<p><img src="https://yangchao.me/media/serial-gc.png" alt="serial-gc" /></p>
+<p><img src="https://chaoyang.io/media/serial-gc.png" alt="serial-gc" /></p>
 
 <h3 id="parallel-collector">Parallel collector</h3>
 
@@ -321,17 +321,17 @@ In GC algorithms, there are several terms:</p></li>
 
 <p>Both young generation and old generation GC(both minor and full GC) are &ldquo;stop-the-world&rdquo; events.</p>
 
-<p><img src="https://yangchao.me/media/parallelGC.png" alt="parallelGC" /></p>
+<p><img src="https://chaoyang.io/media/parallelGC.png" alt="parallelGC" /></p>
 
-<p><img src="https://yangchao.me/media/parallelOldGC.png" alt="parallelOldGC" /></p>
+<p><img src="https://chaoyang.io/media/parallelOldGC.png" alt="parallelOldGC" /></p>
 
 <h4 id="minor-gc-1">Minor GC</h4>
 
-<p><img src="https://yangchao.me/media/throughout-minor-gc.png" alt="throughout-minor-gc" /></p>
+<p><img src="https://chaoyang.io/media/throughout-minor-gc.png" alt="throughout-minor-gc" /></p>
 
 <h4 id="full-gc-1">Full GC</h4>
 
-<p><img src="https://yangchao.me/media/throughout-full-gc.png" alt="throughout-full-gc" /></p>
+<p><img src="https://chaoyang.io/media/throughout-full-gc.png" alt="throughout-full-gc" /></p>
 
 <h3 id="cms-collector">CMS collector</h3>
 
@@ -341,13 +341,13 @@ In GC algorithms, there are several terms:</p></li>
 
 <p>There are still &ldquo;stop-the-world&rdquo; events in the initial mark and remark phases.</p>
 
-<p><img src="https://yangchao.me/media/cms-gc.png" alt="cms-gc" /></p>
+<p><img src="https://chaoyang.io/media/cms-gc.png" alt="cms-gc" /></p>
 
 <h4 id="minor-gc-2">Minor GC</h4>
 
 <p>Trigger when young generation exhausted</p>
 
-<p><img src="https://yangchao.me/media/cms-minor-gc.png" alt="cms-minor-gc" /></p>
+<p><img src="https://chaoyang.io/media/cms-minor-gc.png" alt="cms-minor-gc" /></p>
 
 <h4 id="full-gc-concurrent-cycle">full GC (Concurrent Cycle)</h4>
 
@@ -389,7 +389,7 @@ Triggered at old generation space occupancy threshold &ndash; default is aroun
 </tr>
 </tbody>
 </table>
-<img src="https://yangchao.me/media/cms-full-gc.png" alt="cms-full-gc" /></li>
+<img src="https://chaoyang.io/media/cms-full-gc.png" alt="cms-full-gc" /></li>
 </ul>
 
 <h4 id="pergen-collection-enable">PerGen collection enable</h4>
@@ -409,9 +409,9 @@ Triggered at old generation space occupancy threshold &ndash; default is aroun
 <p>G1 uses a drastically different Java heap layout to the other garbage collectors in the HotSpot VM. It splits the Java heap into equal-sized chunks called regions.
 Even though G1 is generational, it does not have <strong>physically</strong> separate spaces for the young and old generations. Instead, each generation is a set of (maybe noncontiguous) regions.</p>
 
-<p><img src="https://yangchao.me/media/g1-layout.png" alt="g1-layout" /></p>
+<p><img src="https://chaoyang.io/media/g1-layout.png" alt="g1-layout" /></p>
 
-<p><img src="https://yangchao.me/media/cms-vs-g1.png" alt="cms-vs-g1" /></p>
+<p><img src="https://chaoyang.io/media/cms-vs-g1.png" alt="cms-vs-g1" /></p>
 
 <p>PerGen(JDK 7) / metaspace (JDK 8)</p>
 
@@ -424,7 +424,7 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="https://yangchao.me/post/jvm-knowledge/" rel="next" title="JVM knowledge">
+        <a href="https://chaoyang.io/post/jvm-knowledge/" rel="next" title="JVM knowledge">
         <i class="fa fa-chevron-left"></i> JVM knowledge
         </a>
     
@@ -432,7 +432,7 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="https://yangchao.me/post/wsdl-service-contract-in-detail/" rel="prev" title="WSDL Service Contract in Detail">
+        <a href="https://chaoyang.io/post/wsdl-service-contract-in-detail/" rel="prev" title="WSDL Service Contract in Detail">
         WSDL Service Contract in Detail <i class="fa fa-chevron-right"></i>
         </a>
     
@@ -474,7 +474,7 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
     <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-        src="https://yangchao.me/img/author.jpg"
+        src="https://chaoyang.io/img/author.jpg"
         alt="Chao" />
     <p class="site-author-name" itemprop="name">Chao</p>
     <p class="site-description motion-element" itemprop="description"> 
@@ -482,13 +482,13 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
 </div>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
-      <a href="https://yangchao.me/post/">
-        <span class="site-state-item-count">138</span>
+      <a href="https://chaoyang.io/post/">
+        <span class="site-state-item-count">139</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="https://yangchao.me/categories/">      
+        <a href="https://chaoyang.io/categories/">      
          
         <span class="site-state-item-count">49</span>
         
@@ -498,7 +498,7 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
     </div>
 
     <div class="site-state-item site-state-tags">
-        <a href="https://yangchao.me/tags/">
+        <a href="https://chaoyang.io/tags/">
          
         <span class="site-state-item-count">20</span>
         
@@ -615,26 +615,26 @@ Even though G1 is generational, it does not have <strong>physically</strong> sep
     window.Promise = null;
   }
 </script>
-<script type="text/javascript" src="https://yangchao.me/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="https://yangchao.me/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="https://yangchao.me/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="https://yangchao.me/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="https://yangchao.me/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="https://yangchao.me/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="https://chaoyang.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="https://yangchao.me/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-<script type="text/javascript" src="https://yangchao.me/js/utils.js"></script>
-<script type="text/javascript" src="https://yangchao.me/js/motion.js"></script>
-<script type="text/javascript" src="https://yangchao.me/js/affix.js"></script>
-<script type="text/javascript" src="https://yangchao.me/js/schemes/pisces.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/utils.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/motion.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/affix.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://yangchao.me/js/scrollspy.js"></script>
-<script type="text/javascript" src="https://yangchao.me/js/post-details.js"></script>
-<script type="text/javascript" src="https://yangchao.me/js/toc.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/post-details.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/toc.js"></script>
 
-<script type="text/javascript" src="https://yangchao.me/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="https://yangchao.me/js/search.js"></script>
+<script type="text/javascript" src="https://chaoyang.io/js/search.js"></script>
 </body>
 </html>

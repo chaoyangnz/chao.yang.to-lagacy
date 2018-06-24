@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Chao Yang</title>
-    <link>https://yangchao.me/categories/security/</link>
+    <link>https://chaoyang.io/categories/security/</link>
     <description>Recent content in Security on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 May 2015 20:25:02 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/security/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>web vulnerability issues: XSS, CSRF, SQL Injection</title>
-      <link>https://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</link>
+      <link>https://chaoyang.io/post/web-vulnerability-issues-xss-csrf-sql-injection/</link>
       <pubDate>Fri, 08 May 2015 20:25:02 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/web-vulnerability-issues-xss-csrf-sql-injection/</guid>
+      <guid>https://chaoyang.io/post/web-vulnerability-issues-xss-csrf-sql-injection/</guid>
       <description>XSS (Cross Site Scripting) XSS enables attackers to inject client-side script into Web pages viewed by other users.
 Simple solution: escape all users&amp;rsquo; input data, include HTML, Javascript
 CSRF (Cross Site Request Forgery) CSRF is an attack which forces an end user to execute unwanted actions on a web application in which he/she is currently authenticated.

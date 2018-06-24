@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sql on Chao Yang</title>
-    <link>https://yangchao.me/categories/sql/</link>
+    <link>https://chaoyang.io/categories/sql/</link>
     <description>Recent content in Sql on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Apr 2015 15:41:53 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>subquery vs. join</title>
-      <link>https://yangchao.me/post/subquery-vs-join/</link>
+      <link>https://chaoyang.io/post/subquery-vs-join/</link>
       <pubDate>Thu, 02 Apr 2015 15:41:53 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/subquery-vs-join/</guid>
+      <guid>https://chaoyang.io/post/subquery-vs-join/</guid>
       <description>what is subquery SubQuery in SQL is a query inside another query
 SELECT name FROM City WHERE pincode IN (SELECT pincode FROM pin WHERE zone=&amp;#39;west&amp;#39;) In this SQL, the part in the brackets is called inner query, while the part out of the brackets is called outer query.
 non-correlated subquery In non correlated subquery, inner query doesn&amp;rsquo;t depend on outer query and can run as stand alone query.
@@ -25,10 +25,10 @@ NonCorrelated subquery are used along-with =, IN and NOT IN clause.</description
     
     <item>
       <title>inner join and outer join</title>
-      <link>https://yangchao.me/post/inner-join-and-outer-join/</link>
+      <link>https://chaoyang.io/post/inner-join-and-outer-join/</link>
       <pubDate>Thu, 02 Apr 2015 15:08:31 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/inner-join-and-outer-join/</guid>
+      <guid>https://chaoyang.io/post/inner-join-and-outer-join/</guid>
       <description>In this blog, we use two tables: TableA and TableB   id name id name   &amp;ndash; &amp;mdash;- &amp;ndash; &amp;mdash;&amp;ndash;   1 Pirate 1 Rutabaga   2 Monkey 2 Pirate   3 Ninja  3 Darth Vader   4 Spaghetti 4 Ninja    &amp;gt; inner or outer keyword can be omitted.
 inner join Inner join produces only the set of records that match in both Table A and Table B.</description>
     </item>

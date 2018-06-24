@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exception Handling on Chao Yang</title>
-    <link>https://yangchao.me/categories/exception-handling/</link>
+    <link>https://chaoyang.io/categories/exception-handling/</link>
     <description>Recent content in Exception Handling on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Jan 2015 02:00:33 +0000</lastBuildDate>
     
-	<atom:link href="https://yangchao.me/categories/exception-handling/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.io/categories/exception-handling/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java Exceptions</title>
-      <link>https://yangchao.me/post/topic-serial-exceptions/</link>
+      <link>https://chaoyang.io/post/topic-serial-exceptions/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://yangchao.me/post/topic-serial-exceptions/</guid>
+      <guid>https://chaoyang.io/post/topic-serial-exceptions/</guid>
       <description>An exception is said to be thrown from the point where it occurred and is said to be caught at the point to which control is transferred.
 exception family tree 
 All exceptions are inherited from Throwable.
