@@ -16,5 +16,8 @@ fields:
 - type: tag_list
   label: categories
   name: categories
+- type: tag_list
+  label: tags
+  name: tags
 pages:
 - content/post/first-day-with-kubernetes.md
