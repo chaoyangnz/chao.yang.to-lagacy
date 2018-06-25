@@ -7,5 +7,11 @@ fields:
   config:
     required: true
 - type: datetime
+  name: date
+  label: date
+  config:
+    date_format: YYYY-MM-DD
+    display_utc: true
+    required: true
 pages:
 - content/post/first-day-with-kubernetes.md
