@@ -6,3 +6,4 @@ fields:
   default: Title
   config:
     required: true
+- type: datetime
