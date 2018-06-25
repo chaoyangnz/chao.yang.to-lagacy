@@ -7,3 +7,5 @@ fields:
   config:
     required: true
 - type: datetime
+pages:
+- content/post/first-day-with-kubernetes.md
