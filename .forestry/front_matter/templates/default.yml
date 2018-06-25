@@ -1,0 +1,8 @@
+---
+hide_body: false
+is_partial: false
+fields:
+- type: text
+  default: Title
+  config:
+    required: true
