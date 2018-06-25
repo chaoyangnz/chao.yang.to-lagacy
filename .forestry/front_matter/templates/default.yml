@@ -19,5 +19,9 @@ fields:
 - type: tag_list
   label: tags
   name: tags
+- type: boolean
+  name: toc
+  label: toc
+  default: true
 pages:
 - content/post/first-day-with-kubernetes.md
