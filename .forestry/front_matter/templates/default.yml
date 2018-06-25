@@ -13,5 +13,8 @@ fields:
     date_format: YYYY-MM-DD
     display_utc: true
     required: true
+- type: tag_list
+  label: categories
+  name: categories
 pages:
 - content/post/first-day-with-kubernetes.md
