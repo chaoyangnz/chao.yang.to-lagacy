@@ -23,5 +23,3 @@ fields:
   name: toc
   label: toc
   default: true
-pages:
-- content/post/first-day-with-kubernetes.md
