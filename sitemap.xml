@@ -3835,6 +3835,19 @@ public class Test { private static int k = 1; private static Test t1 = new Test(
     
      <entry>
         <title></title>
+        <url>https://chaoyang.io/post/2018-06-26/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          
+        </tags>
+        <content type="html">  Setup Kubernetes on GCP Google Cloud Platform has a service named Google Kubernetes Engine (GKE) where it is really easy to set up a cluster.
+</content>
+    </entry>
+    
+     <entry>
+        <title></title>
         <url>https://chaoyang.io/post/json-api-simpified/</url>
         <categories>
           
