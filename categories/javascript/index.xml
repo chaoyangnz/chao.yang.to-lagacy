@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Chao Yang</title>
-    <link>https://chaoyang.io/categories/javascript/</link>
+    <link>https://chaoyang.nz/categories/javascript/</link>
     <description>Recent content in Javascript on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.nz/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Javascript testing frameworks</title>
-      <link>https://chaoyang.io/post/javascript-testing-frameworks/</link>
+      <link>https://chaoyang.nz/post/javascript-testing-frameworks/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/javascript-testing-frameworks/</guid>
+      <guid>https://chaoyang.nz/post/javascript-testing-frameworks/</guid>
       <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
 Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
 So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>
@@ -24,10 +24,10 @@ So when it comes to Javascript, I am really confused with so many frameworks/lib
     
     <item>
       <title>Get started with AngularJS</title>
-      <link>https://chaoyang.io/post/get-started-with-angularjs/</link>
+      <link>https://chaoyang.nz/post/get-started-with-angularjs/</link>
       <pubDate>Mon, 18 May 2015 23:32:13 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/get-started-with-angularjs/</guid>
+      <guid>https://chaoyang.nz/post/get-started-with-angularjs/</guid>
       <description>AngularJS concepts Core concepts:
  2-way data binding directive expression &amp;amp; filter view / template controller  2-way data binding directives  manipulate DOM: DOM manipulation should only happen in directive implementations manipulate data Elements: &amp;lt;ng-xx&amp;gt; &amp;lt;/ng-xx&amp;gt;  Attributes: &amp;lt;span ng-xx=&amp;ldquo;exp&amp;rdquo;&amp;gt;&amp;lt;/span&amp;gt;
 Comments: &amp;lt;!&amp;ndash; directive: ng-xx exp &amp;ndash;&amp;gt;
@@ -37,10 +37,10 @@ Scope Scope is a glue between controller, template and model. It keeps models 
     
     <item>
       <title>JavaScript scopes and context</title>
-      <link>https://chaoyang.io/post/javascript-scope-and-context/</link>
+      <link>https://chaoyang.nz/post/javascript-scope-and-context/</link>
       <pubDate>Tue, 12 May 2015 17:06:39 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/javascript-scope-and-context/</guid>
+      <guid>https://chaoyang.nz/post/javascript-scope-and-context/</guid>
       <description>scope vs. context Both two terms are related to function.
 Every function invocation has both a scope and a context associated with it. Functions can be adopted for various contexts and scope can be encapsulated and preserved.
 Fundamentally, scope is function-based while context is object-based.
@@ -49,10 +49,10 @@ Fundamentally, scope is function-based while context is object-based.
     
     <item>
       <title>JavaScript prototype: __proto__ vs. prototype</title>
-      <link>https://chaoyang.io/post/javascript-prototype-proto-vs-prototype/</link>
+      <link>https://chaoyang.nz/post/javascript-prototype-proto-vs-prototype/</link>
       <pubDate>Tue, 12 May 2015 15:35:15 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/javascript-prototype-proto-vs-prototype/</guid>
+      <guid>https://chaoyang.nz/post/javascript-prototype-proto-vs-prototype/</guid>
       <description>Javascript is a prototype-based language. It resolve property using prototype chains.
 Prototype chains (aka prototype inheritance) The proto property proto is the internal property of an object, it points to the prototype object of the object and is used for property look-up. Every object has a proto perperty and its relevant prototype object. But it maybe null, which means the object has no prototype object.
 function as constructor In JavaScript you create an instance of a function like this:</description>
@@ -60,10 +60,10 @@ function as constructor In JavaScript you create an instance of a function like 
     
     <item>
       <title>Cross-domain Browser Requests</title>
-      <link>https://chaoyang.io/post/cross-domain-browser-requests/</link>
+      <link>https://chaoyang.nz/post/cross-domain-browser-requests/</link>
       <pubDate>Mon, 16 Feb 2015 06:48:09 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/cross-domain-browser-requests/</guid>
+      <guid>https://chaoyang.nz/post/cross-domain-browser-requests/</guid>
       <description>Problem origin Browsers prohibit scripts in a page from one domain to request some resources from another domain.
 Take a scenario as an example:
 A page named 1.html from http://dev.company.com/1.html has a script requesting a resource from another domain by use of url: http://sit.company.com/dosomething. This case is called Cross Domain Request. This is due to the browser&amp;rsquo;s Same-origin Policy.

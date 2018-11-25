@@ -13,12 +13,12 @@
     <meta name="title" content="WebSphere SSO how-to - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
-    <link rel="shortcut icon" href="https://chaoyang.io/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://chaoyang.io/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.io/img/apple-touch-icon.png" />
-    <link href="https://chaoyang.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="https://chaoyang.nz/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://chaoyang.nz/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.nz/img/apple-touch-icon.png" />
+    <link href="https://chaoyang.nz/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.nz/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.nz/css/main.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -45,7 +45,7 @@
       <div class="header-inner"> <div class="site-meta  custom-logo ">
 
   <div class="custom-logo-site-title">
-    <a href="https://chaoyang.io/"  class="brand" rel="start">
+    <a href="https://chaoyang.nz/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Chao Yang</span>
       <span class="logo-line-after"><i></i></span>
@@ -67,13 +67,13 @@
       
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/" rel="section">
+          <a href="https://chaoyang.nz/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/books" rel="section">
+          <a href="https://chaoyang.nz/books" rel="section">
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
           </a>
         </li>
@@ -85,19 +85,19 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/resume/cv.pdf" rel="section">
+          <a href="https://chaoyang.nz/resume/cv.pdf" rel="section">
               <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/post/index.html" rel="section">
+          <a href="https://chaoyang.nz/post/index.html" rel="section">
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/about/" rel="section">
+          <a href="https://chaoyang.nz/about/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
           </a>
         </li>
@@ -129,7 +129,7 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://chaoyang.io/post/websphere-sso-how-to/" itemprop="url">
+        <a class="post-title-link" href="https://chaoyang.nz/post/websphere-sso-how-to/" itemprop="url">
         WebSphere SSO how-to
         </a>
       </h1>
@@ -153,7 +153,7 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="https://chaoyang.io/categories/sso" itemprop="url" rel="index">
+      <a href="https://chaoyang.nz/categories/sso" itemprop="url" rel="index">
         <span itemprop="name">SSO</span>
       </a>
       &nbsp; 
@@ -201,7 +201,7 @@
 
 <p>WAS使用Cookie实现单点登录的原理图如图4所示。</p>
 
-<p><img src="https://chaoyang.io/media/sso-1.jpg" alt="sso-1" /></p>
+<p><img src="https://chaoyang.nz/media/sso-1.jpg" alt="sso-1" /></p>
 
 <p>图 4  使用Cookie实现单点登录的原理图</p>
 
@@ -239,7 +239,7 @@
 
 <p>这样，各个节点按照树形组织起来，就变成了图5的样子。</p>
 
-<p><img src="https://chaoyang.io/media/sso-2.jpg" alt="sso-2" /></p>
+<p><img src="https://chaoyang.nz/media/sso-2.jpg" alt="sso-2" /></p>
 
 <p>图 5  LDAP结构示意图</p>
 
@@ -274,14 +274,14 @@
 <li>创建时间和过期时间为以十六进制方式表示的 Unix time，例如 2009-04-09 13:52:42 (GMT +8) = 1239256362 = 49DD8D2A。过期时间为 创建时间 + SSO 配置文档的过期时间（LTPA_TokenExpiration域）</li>
 <li>用户名为 Names 中用户文档的 FullName 域值</li>
 <li>Domino LTPA 密钥通过 Base64编码后，保存在 SSO 配置文档的 LTPA_Secret 域中。
-<img src="https://chaoyang.io/media/sso-3.jpg" alt="sso-3" /></li>
+<img src="https://chaoyang.nz/media/sso-3.jpg" alt="sso-3" /></li>
 </ul>
 
 <p>图 6  LTPA结构示意图</p>
 
 <p>在这里当然不能将密钥直接发送给浏览器，所以将上述部分合并起来（如上图），计算 SHA-1 校验和。</p>
 
-<p><img src="https://chaoyang.io/media/sso-4.jpg" alt="sso-4" /></p>
+<p><img src="https://chaoyang.nz/media/sso-4.jpg" alt="sso-4" /></p>
 
 <p>图 7  LTPA 密钥Base64编码图</p>
 
@@ -297,7 +297,7 @@
 
 <h5 id="实现原理-1"><strong>实现原理</strong></h5>
 
-<p><img src="https://chaoyang.io/media/sso-5.jpg" alt="sso-5" /></p>
+<p><img src="https://chaoyang.nz/media/sso-5.jpg" alt="sso-5" /></p>
 
 <p>自定义认证可以通过WAS中使用“独立定制注册表”方式实现认证。</p>
 
@@ -309,17 +309,17 @@
 
 <h6 id="配置使用-独立定制注册表"><strong>配置使用“独立定制注册表”</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-6.jpg" alt="sso-6" /></p>
+<p><img src="https://chaoyang.nz/media/sso-6.jpg" alt="sso-6" /></p>
 
 <h6 id="配置-独立定制注册表-使用的-定制注册表类名-等信息"><strong>配置“独立定制注册表”使用的“定制注册表类名”等信息</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-7.jpg" alt="sso-7" /></p>
+<p><img src="https://chaoyang.nz/media/sso-7.jpg" alt="sso-7" /></p>
 
 <h6 id="与was自带ldap方式比较"><strong>与WAS自带LDAP方式比较</strong></h6>
 
 <p>&nbsp;</p>
 
-<p><img src="https://chaoyang.io/media/284e6e10c9f9.jpg" alt="" /></p>
+<p><img src="https://chaoyang.nz/media/284e6e10c9f9.jpg" alt="" /></p>
 
 <h4 id="配置方式-1"><strong>配置方式</strong></h4>
 
@@ -389,29 +389,29 @@
 
 <h6 id="设置安全角色到用户-组映射"><strong>设置安全角色到用户/组映射</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-8.jpg" alt="sso-8" /></p>
+<p><img src="https://chaoyang.nz/media/sso-8.jpg" alt="sso-8" /></p>
 
-<p><img src="https://chaoyang.io/media/sso-9.jpg" alt="sso-9" /></p>
+<p><img src="https://chaoyang.nz/media/sso-9.jpg" alt="sso-9" /></p>
 
 <h6 id="点击进入-安全管理-应用程序和基础结构-设置安全性"><strong>点击进入“安全管理、应用程序和基础结构”，设置安全性</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-10.jpg" alt="sso-10" /></p>
+<p><img src="https://chaoyang.nz/media/sso-10.jpg" alt="sso-10" /></p>
 
 <h6 id="设置ldap连接"><strong>设置LDAP连接</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-11.jpg" alt="sso-11" /></p>
+<p><img src="https://chaoyang.nz/media/sso-11.jpg" alt="sso-11" /></p>
 
 <h6 id="设置域名"><strong>设置域名</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-12.jpg" alt="sso-12" /></p>
+<p><img src="https://chaoyang.nz/media/sso-12.jpg" alt="sso-12" /></p>
 
 <h6 id="需要导入密钥文件-密钥文件可以从其他的was的控制台导出"><strong>需要导入密钥文件，密钥文件可以从其他的was的控制台导出。</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-13.jpg" alt="sso-13" /></p>
+<p><img src="https://chaoyang.nz/media/sso-13.jpg" alt="sso-13" /></p>
 
 <h6 id="保存配置"><strong>保存配置</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-14.jpg" alt="sso-14" /></p>
+<p><img src="https://chaoyang.nz/media/sso-14.jpg" alt="sso-14" /></p>
 
 <p>注意：任何修改都需要保存到主配置才能生效。</p>
 
@@ -419,7 +419,7 @@
 
 <h6 id="不同应用系统配置唯一cookie值-防止多应用集成session丢失"><strong>不同应用系统配置唯一Cookie值，防止多应用集成session丢失</strong></h6>
 
-<p><img src="https://chaoyang.io/media/sso-15.jpg" alt="sso-15" /></p>
+<p><img src="https://chaoyang.nz/media/sso-15.jpg" alt="sso-15" /></p>
 
 <h5 id="重启应用服务器"><strong>重启应用服务器</strong></h5>
 
@@ -452,7 +452,7 @@
 
 <h5 id="场景描述"><strong>场景描述</strong></h5>
 
-<p><img src="https://chaoyang.io/media/sso-16.jpg" alt="sso-16" /></p>
+<p><img src="https://chaoyang.nz/media/sso-16.jpg" alt="sso-16" /></p>
 
 <p>1) 用户成功登录新一代UI；</p>
 
@@ -491,7 +491,7 @@
 
 <p>WAS的SSO方案就属于这样类型，WAS和Domino等都是IBM的产品，都基于统一的SSO机制，所以它们可以直接支持统一单点登录机制。</p>
 
-<p><img src="https://chaoyang.io/media/sso-17.jpg" alt="sso-17" /></p>
+<p><img src="https://chaoyang.nz/media/sso-17.jpg" alt="sso-17" /></p>
 
 <p>图 1  使用统一单点登录机制方案图</p>
 
@@ -499,7 +499,7 @@
 
 <p>例如IBM Tivoli Access Manager或者Netegrity iteminder。</p>
 
-<p><img src="https://chaoyang.io/media/sso-18.jpg" alt="sso-18" /></p>
+<p><img src="https://chaoyang.nz/media/sso-18.jpg" alt="sso-18" /></p>
 
 <p>图 2  使用第三方系统来做单点登录方案图</p>
 
@@ -507,7 +507,7 @@
 
 <p>如果有系统提供映射方式的单点登录功能，例如WebSphere Portal Server。</p>
 
-<p><img src="https://chaoyang.io/media/sso-19.jpg" alt="sso-19" /></p>
+<p><img src="https://chaoyang.nz/media/sso-19.jpg" alt="sso-19" /></p>
 
 <p>图 3  利用用户名/密码映射(mappiing)的方式方案图</p>
 
@@ -562,7 +562,7 @@
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="https://chaoyang.io/post/unified-identity-access-control-system/" rel="next" title="Unified Identity &amp; Access Control system">
+        <a href="https://chaoyang.nz/post/unified-identity-access-control-system/" rel="next" title="Unified Identity &amp; Access Control system">
         <i class="fa fa-chevron-left"></i> Unified Identity &amp; Access Control system
         </a>
     
@@ -570,7 +570,7 @@
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="https://chaoyang.io/post/web-vulnerability-issues-xss-csrf-sql-injection/" rel="prev" title="web vulnerability issues: XSS, CSRF, SQL Injection">
+        <a href="https://chaoyang.nz/post/web-vulnerability-issues-xss-csrf-sql-injection/" rel="prev" title="web vulnerability issues: XSS, CSRF, SQL Injection">
         web vulnerability issues: XSS, CSRF, SQL Injection <i class="fa fa-chevron-right"></i>
         </a>
     
@@ -612,7 +612,7 @@
     <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-        src="https://chaoyang.io/img/author.jpg"
+        src="https://chaoyang.nz/img/author.jpg"
         alt="Chao" />
     <p class="site-author-name" itemprop="name">Chao</p>
     <p class="site-description motion-element" itemprop="description"> 
@@ -620,13 +620,13 @@
 </div>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
-      <a href="https://chaoyang.io/post/">
+      <a href="https://chaoyang.nz/post/">
         <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="https://chaoyang.io/categories/">      
+        <a href="https://chaoyang.nz/categories/">      
          
         <span class="site-state-item-count">49</span>
         
@@ -636,7 +636,7 @@
     </div>
 
     <div class="site-state-item site-state-tags">
-        <a href="https://chaoyang.io/tags/">
+        <a href="https://chaoyang.nz/tags/">
          
         <span class="site-state-item-count">20</span>
         
@@ -808,26 +808,26 @@
     window.Promise = null;
   }
 </script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="https://chaoyang.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="https://chaoyang.nz/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="https://chaoyang.nz/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/utils.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/motion.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/affix.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/schemes/pisces.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/utils.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/motion.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/affix.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/scrollspy.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/post-details.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/toc.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/scrollspy.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/post-details.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/toc.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/search.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/search.js"></script>
 </body>
 </html>

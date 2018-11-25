@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Uncategorized on Chao Yang</title>
-    <link>https://chaoyang.io/categories/uncategorized/</link>
+    <link>https://chaoyang.nz/categories/uncategorized/</link>
     <description>Recent content in Uncategorized on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 19 Nov 2015 23:24:13 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.io/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.nz/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JDBC Driver register</title>
-      <link>https://chaoyang.io/post/jdbc-driver-register/</link>
+      <link>https://chaoyang.nz/post/jdbc-driver-register/</link>
       <pubDate>Thu, 19 Nov 2015 23:24:13 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/jdbc-driver-register/</guid>
+      <guid>https://chaoyang.nz/post/jdbc-driver-register/</guid>
       <description>JDBC use the way of registry to manage its drivers by the method of DriverManager.registerDriver(...)
 This method is static one, usually there&amp;rsquo;re several ways to invoke it: 1. in your code, write Class.forName(&amp;quot;com.xx.jdbc.Driver&amp;quot;);, this is a way to load the specified Driver class explicitly. You can get the effect because the jdbc driver venders usually get the registerDriver(..) method invoked just in the static block of the Driver implementation class. 2.</description>
     </item>
     
     <item>
       <title>mybatis cache</title>
-      <link>https://chaoyang.io/post/mybatis-cache/</link>
+      <link>https://chaoyang.nz/post/mybatis-cache/</link>
       <pubDate>Fri, 06 Nov 2015 21:41:29 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/mybatis-cache/</guid>
+      <guid>https://chaoyang.nz/post/mybatis-cache/</guid>
       <description>mybatis的cache是基于statement的, 有人也称之为query cache，以有别于基于id的cache。你需要指定哪些stat</description>
     </item>
     
     <item>
       <title>BytecodeViewer for Mac</title>
-      <link>https://chaoyang.io/post/bytecodeviewer-for-mac/</link>
+      <link>https://chaoyang.nz/post/bytecodeviewer-for-mac/</link>
       <pubDate>Thu, 05 Nov 2015 19:14:26 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/bytecodeviewer-for-mac/</guid>
+      <guid>https://chaoyang.nz/post/bytecodeviewer-for-mac/</guid>
       <description>BytecodeViewer only has the Windows executable release.
 I use the Automator to get an app for Mac OSX.
 Now I provide a download link here:
@@ -44,37 +44,37 @@ https://github.com/richdyang/bytecode-viewer/releases/tag/v2.9.8</description>
     
     <item>
       <title>Inner classes synthetic</title>
-      <link>https://chaoyang.io/post/inner-classes-synthetic/</link>
+      <link>https://chaoyang.nz/post/inner-classes-synthetic/</link>
       <pubDate>Wed, 04 Nov 2015 12:40:59 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/inner-classes-synthetic/</guid>
+      <guid>https://chaoyang.nz/post/inner-classes-synthetic/</guid>
       <description>import java.util.ArrayList; import java.util.List; public class Enclosing { private List instanceList = new ArrayList&amp;lt;&amp;gt;(); { instanceList.add(1);} public static void main(String[] args) { Enclosing outer = new Enclosing(); outer.instanceList.add(2); outer.foo(); InnerClass inner = outer.new InnerClass(); outer.instanceList.add(3); inner.bar(); } public void foo() { final List localList = new ArrayList&amp;lt;&amp;gt;(); localList.add(1); class LocalClass { public void bar() { System.out.println(localList); System.out.println(instanceList); } } localList.add(2); new LocalClass().bar(); } private class InnerClass { public void bar()</description>
     </item>
     
     <item>
       <title>closure</title>
-      <link>https://chaoyang.io/post/closure/</link>
+      <link>https://chaoyang.nz/post/closure/</link>
       <pubDate>Wed, 04 Nov 2015 00:55:25 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/closure/</guid>
+      <guid>https://chaoyang.nz/post/closure/</guid>
       <description>简单地说，闭包是指一种记录record，保存着一个函数和一个环境envoronment，此环境记录着自由变量的名字-值或存储位置 因此，区别于</description>
     </item>
     
     <item>
       <title>JavaScript execution using single thread (zz)</title>
-      <link>https://chaoyang.io/post/javascript-execution-using-single-thread-zz/</link>
+      <link>https://chaoyang.nz/post/javascript-execution-using-single-thread-zz/</link>
       <pubDate>Mon, 28 Sep 2015 00:19:00 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/javascript-execution-using-single-thread-zz/</guid>
+      <guid>https://chaoyang.nz/post/javascript-execution-using-single-thread-zz/</guid>
       <description>面试的时候发现99%的童鞋不理解为什么JavaScript是单线程的却能让AJAX异步发送和回调请求，还有setTimeout也看起来像是多</description>
     </item>
     
     <item>
       <title>HTTP cache</title>
-      <link>https://chaoyang.io/post/http-cache/</link>
+      <link>https://chaoyang.nz/post/http-cache/</link>
       <pubDate>Sat, 26 Sep 2015 21:47:47 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/http-cache/</guid>
+      <guid>https://chaoyang.nz/post/http-cache/</guid>
       <description>Request headers:
 If-Modified-Since: {time} If-None-Match: {etag} These two headers are used to check if the cached resource is still fresh.
 If expired, response status is 200 and fetch the resource
@@ -85,10 +85,10 @@ Last-Modified: {time}ETag: {etag}Expire: {time} Cache-Control: maxAge={seconds} 
     
     <item>
       <title>SCEA architect</title>
-      <link>https://chaoyang.io/post/scea-architect/</link>
+      <link>https://chaoyang.nz/post/scea-architect/</link>
       <pubDate>Wed, 20 May 2015 15:22:13 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/scea-architect/</guid>
+      <guid>https://chaoyang.nz/post/scea-architect/</guid>
       <description> Understanding Architecture focus on structure to support the business and service-level requirements
 You can define the structure of a system as the mechanisms that the system employs to solve the common problems of the system, such as persistence, distribution, communication, transaction management, and security
  difficult decisions must be made about trade-offs in the system &amp;nbsp;  </description>
@@ -96,19 +96,19 @@ You can define the structure of a system as the mechanisms that the system emplo
     
     <item>
       <title>To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)</title>
-      <link>https://chaoyang.io/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</link>
+      <link>https://chaoyang.nz/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</link>
       <pubDate>Thu, 16 Apr 2015 09:55:58 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</guid>
+      <guid>https://chaoyang.nz/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/</guid>
       <description>To find a job is a full time job &amp;ndash; Dog Lead 狗说，羊村生活艰辛。 感谢某牛(bian)逼(tai)群主伟大光荣正确的羊村捕鱼舵手－鹅哥。感谢星爷赐题。 感谢某牛(b</description>
     </item>
     
     <item>
       <title>What is the exact answer, When interviewer ask Architecture of the project.</title>
-      <link>https://chaoyang.io/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</link>
+      <link>https://chaoyang.nz/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</link>
       <pubDate>Fri, 20 Mar 2015 14:24:21 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</guid>
+      <guid>https://chaoyang.nz/post/what-is-the-exact-answer-when-interviewer-ask-architecture-of-the-project/</guid>
       <description>Some good answers from linkedin:
 What-is-exact-answer-When-
 @Rick Ryker
@@ -119,10 +119,10 @@ Your (technical) interviewer is looking for the following:
     
     <item>
       <title>CS interview experience</title>
-      <link>https://chaoyang.io/post/cs-interview-experience/</link>
+      <link>https://chaoyang.nz/post/cs-interview-experience/</link>
       <pubDate>Tue, 13 Jan 2015 12:19:39 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/cs-interview-experience/</guid>
+      <guid>https://chaoyang.nz/post/cs-interview-experience/</guid>
       <description>本人CS硕士名校非牛人,一年前去了一家中型软件公司做SD,不喜欢,刚刚跳去一家小HF.面试 的过程好像西游记一样,路途遥遥,艰险不断,怪物层出</description>
     </item>
     

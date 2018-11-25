@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Transaction Management on Chao Yang</title>
-    <link>https://chaoyang.io/categories/transaction-management/</link>
+    <link>https://chaoyang.nz/categories/transaction-management/</link>
     <description>Recent content in Transaction Management on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Apr 2015 16:32:56 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.io/categories/transaction-management/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.nz/categories/transaction-management/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Spring framework - transaction management</title>
-      <link>https://chaoyang.io/post/spring-framework-transaction-management/</link>
+      <link>https://chaoyang.nz/post/spring-framework-transaction-management/</link>
       <pubDate>Fri, 03 Apr 2015 16:32:56 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/spring-framework-transaction-management/</guid>
+      <guid>https://chaoyang.nz/post/spring-framework-transaction-management/</guid>
       <description>In Java, there are multiple persistence APIs and all of them provides their own ways of transaction management.
  JDBC transaction: this is a resource-specific transaction, which is implemented by connection. JTA transaction: this is a transaction API for global transaction, it usually needs the support of application server. JPA transaction: JPA has its own transaction API by EntityManager. Hibernate transaction: Hibernate also provides its way to manage transaction by SessionFactory JDO: &amp;hellip; Now Spring transaction management abstracts and unifies all these API.</description>
     </item>
     
     <item>
       <title>PostgreSQL Concurrency with MVCC</title>
-      <link>https://chaoyang.io/post/postgresql-concurrency-with-mvcc/</link>
+      <link>https://chaoyang.nz/post/postgresql-concurrency-with-mvcc/</link>
       <pubDate>Wed, 04 Mar 2015 08:12:20 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/postgresql-concurrency-with-mvcc/</guid>
+      <guid>https://chaoyang.nz/post/postgresql-concurrency-with-mvcc/</guid>
       <description>https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
 Table of Contents  How MVCC works Disadvantages of MVCC One of the big selling points of Postgres is how it handles concurrency. The promise is simple: reads never block writes and vice versa. Postgres achieves this via a mechanism called Multi Version Concurrency Control. This technique is not unique to Postgres: there are several databases that implement some form of MVCC including Oracle, Berkeley DB, CouchDB and many more.</description>
     </item>
     
     <item>
       <title>Java Transaction - JDBC, JTA, JTS</title>
-      <link>https://chaoyang.io/post/javaee-java-transaction-jdbc-jta-jts/</link>
+      <link>https://chaoyang.nz/post/javaee-java-transaction-jdbc-jta-jts/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/javaee-java-transaction-jdbc-jta-jts/</guid>
+      <guid>https://chaoyang.nz/post/javaee-java-transaction-jdbc-jta-jts/</guid>
       <description>https://www.progress.com/products/datadirect-connect/jdbc-drivers/jdbc-developer-center/jdbc-tutorials/understanding-jta---the-java-transaction-api/accessing-databases
 Concepts and implementation Where these come from? In transaction processing, there are several participants:
 Resource Manager: like RDMS, JMS Providers(MQ), JCA Resources, transnational distributed systems
@@ -45,10 +45,10 @@ It is important to understand what constitutes a resource, in this context. For 
     
     <item>
       <title>JPA - runtime</title>
-      <link>https://chaoyang.io/post/jpa-runtime/</link>
+      <link>https://chaoyang.nz/post/jpa-runtime/</link>
       <pubDate>Tue, 10 Feb 2015 03:51:29 +0000</pubDate>
       
-      <guid>https://chaoyang.io/post/jpa-runtime/</guid>
+      <guid>https://chaoyang.nz/post/jpa-runtime/</guid>
       <description>Core concepts org.hibernate javax.persistence 说明 cfg.Configuration PersistenceUnit 读取配置信息 SessionFactory EntityManagerFactory 用于创建会话/实体管理器的工厂类 Session EntityManager 提供实体操作API，管理事务，创建查询 Transaction EntityTransaction 管理事务 Query Query 执行查询Here&#39;</description>
     </item>
     

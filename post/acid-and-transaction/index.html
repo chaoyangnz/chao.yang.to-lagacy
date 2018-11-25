@@ -13,12 +13,12 @@
     <meta name="title" content="ACID and transaction - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
-    <link rel="shortcut icon" href="https://chaoyang.io/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://chaoyang.io/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.io/img/apple-touch-icon.png" />
-    <link href="https://chaoyang.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="https://chaoyang.nz/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://chaoyang.nz/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.nz/img/apple-touch-icon.png" />
+    <link href="https://chaoyang.nz/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.nz/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="https://chaoyang.nz/css/main.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -45,7 +45,7 @@
       <div class="header-inner"> <div class="site-meta  custom-logo ">
 
   <div class="custom-logo-site-title">
-    <a href="https://chaoyang.io/"  class="brand" rel="start">
+    <a href="https://chaoyang.nz/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Chao Yang</span>
       <span class="logo-line-after"><i></i></span>
@@ -67,13 +67,13 @@
       
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/" rel="section">
+          <a href="https://chaoyang.nz/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/books" rel="section">
+          <a href="https://chaoyang.nz/books" rel="section">
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
           </a>
         </li>
@@ -85,19 +85,19 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/resume/cv.pdf" rel="section">
+          <a href="https://chaoyang.nz/resume/cv.pdf" rel="section">
               <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/post/index.html" rel="section">
+          <a href="https://chaoyang.nz/post/index.html" rel="section">
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.io/about/" rel="section">
+          <a href="https://chaoyang.nz/about/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
           </a>
         </li>
@@ -129,7 +129,7 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://chaoyang.io/post/acid-and-transaction/" itemprop="url">
+        <a class="post-title-link" href="https://chaoyang.nz/post/acid-and-transaction/" itemprop="url">
         ACID and transaction
         </a>
       </h1>
@@ -153,7 +153,7 @@
   <span class="post-meta-item-text">Categories:</span>
   
     <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="https://chaoyang.io/categories/databases" itemprop="url" rel="index">
+      <a href="https://chaoyang.nz/categories/databases" itemprop="url" rel="index">
         <span itemprop="name">Databases</span>
       </a>
       &nbsp; 
@@ -253,19 +253,19 @@ Every isolation level resolves one or multiple phenomena.</li>
 
 <h4 id="dirty-read">Dirty read</h4>
 
-<p><img src="https://chaoyang.io/media/acid-dirty-read.gif" alt="acid-dirty-read" /></p>
+<p><img src="https://chaoyang.nz/media/acid-dirty-read.gif" alt="acid-dirty-read" /></p>
 
 <p>Transaction 2 reads the uncommitted(temporary or dirty) data of transaction 1. It&rsquo;s called dirty because the change may be discarded if rollback.</p>
 
 <h4 id="non-repeatable-read">Non-repeatable read</h4>
 
-<p><img src="https://chaoyang.io/media/acid-non-repeatable-read.gif" alt="acid-non-repeatable-read" /></p>
+<p><img src="https://chaoyang.nz/media/acid-non-repeatable-read.gif" alt="acid-non-repeatable-read" /></p>
 
 <p>Transaction 2 commits after transaction 1, so the queried record in memory differs in <span style="text-decoration: underline;"><em>state</em> </span>(changed) from that in database when commit.</p>
 
 <h4 id="phantom-read">Phantom read</h4>
 
-<h4 id="acid-phantom-read-media-acid-phantom-read-gif"><img src="https://chaoyang.io/media/acid-phantom-read.gif" alt="acid-phantom-read" /></h4>
+<h4 id="acid-phantom-read-media-acid-phantom-read-gif"><img src="https://chaoyang.nz/media/acid-phantom-read.gif" alt="acid-phantom-read" /></h4>
 
 <p>Transaction 2 commits after transaction 1, so the queried records in memory differ in <span style="text-decoration: underline;"><em>range </em></span>(more or less) from that in database when commit.</p>
 
@@ -308,11 +308,11 @@ Usually, READ_COMMITED is the right choice, since even SERIALIZABLE cannot prote
 
 <h4 id="transactional-scenario">transactional scenario</h4>
 
-<p><img src="https://chaoyang.io/media/lost-update.png" alt="lost-update" /></p>
+<p><img src="https://chaoyang.nz/media/lost-update.png" alt="lost-update" /></p>
 
 <h4 id="offline-concurrency-scenario">offline concurrency scenario</h4>
 
-<p><img src="https://chaoyang.io/media/offline-lost-update.png" alt="offline-lost-update" /></p>
+<p><img src="https://chaoyang.nz/media/offline-lost-update.png" alt="offline-lost-update" /></p>
 
 <p>In this case, we should differentiate the <em><strong>system transaction boundary</strong></em> and <em><strong>business transaction boundary</strong></em>. All the above discussed is about system transaction.</p>
 
@@ -362,7 +362,7 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="https://chaoyang.io/post/jpa-advanced-topics/" rel="next" title="JPA - advanced topics">
+        <a href="https://chaoyang.nz/post/jpa-advanced-topics/" rel="next" title="JPA - advanced topics">
         <i class="fa fa-chevron-left"></i> JPA - advanced topics
         </a>
     
@@ -370,7 +370,7 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="https://chaoyang.io/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/" rel="prev" title="To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)">
+        <a href="https://chaoyang.nz/post/find-job-full-time-job-e7-be-8a-e7-94-9f-e7-85-8e-e4-b9-8b-e7-be-8a-e6-9d-91-e6-b1-82-e8-81-8c-e6-94-bb-e7-95-a5ict-e5-90-91/" rel="prev" title="To find a job is a full time job 羊生煎之羊村求职攻略(ICT向)">
         To find a job is a full time job 羊生煎之羊村求职攻略(ICT向) <i class="fa fa-chevron-right"></i>
         </a>
     
@@ -412,7 +412,7 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
     <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-        src="https://chaoyang.io/img/author.jpg"
+        src="https://chaoyang.nz/img/author.jpg"
         alt="Chao" />
     <p class="site-author-name" itemprop="name">Chao</p>
     <p class="site-description motion-element" itemprop="description"> 
@@ -420,13 +420,13 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
 </div>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
-      <a href="https://chaoyang.io/post/">
+      <a href="https://chaoyang.nz/post/">
         <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="https://chaoyang.io/categories/">      
+        <a href="https://chaoyang.nz/categories/">      
          
         <span class="site-state-item-count">49</span>
         
@@ -436,7 +436,7 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
     </div>
 
     <div class="site-state-item site-state-tags">
-        <a href="https://chaoyang.io/tags/">
+        <a href="https://chaoyang.nz/tags/">
          
         <span class="site-state-item-count">20</span>
         
@@ -485,7 +485,7 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
 <li><a href="#dirty-read">Dirty read</a></li>
 <li><a href="#non-repeatable-read">Non-repeatable read</a></li>
 <li><a href="#phantom-read">Phantom read</a></li>
-<li><a href="#acid-phantom-read-media-acid-phantom-read-gif"><img src="https://chaoyang.io/media/acid-phantom-read.gif" alt="acid-phantom-read" /></a></li>
+<li><a href="#acid-phantom-read-media-acid-phantom-read-gif"><img src="https://chaoyang.nz/media/acid-phantom-read.gif" alt="acid-phantom-read" /></a></li>
 </ul></li>
 <li><a href="#a-classic-database-problem-lost-update">a classic database problem - lost update</a>
 <ul>
@@ -550,26 +550,26 @@ And we refer to MVCC mainly for <span style="text-decoration: underline;"><em>a
     window.Promise = null;
   }
 </script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="https://chaoyang.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="https://chaoyang.nz/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="https://chaoyang.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="https://chaoyang.nz/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/utils.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/motion.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/affix.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/schemes/pisces.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/utils.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/motion.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/affix.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/scrollspy.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/post-details.js"></script>
-<script type="text/javascript" src="https://chaoyang.io/js/toc.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/scrollspy.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/post-details.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/toc.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.io/js/search.js"></script>
+<script type="text/javascript" src="https://chaoyang.nz/js/search.js"></script>
 </body>
 </html>
