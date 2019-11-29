@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OOP on Chao Yang</title>
+    <link>https://chaoyang.page/categories/oop/</link>
+    <description>Recent content in OOP on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Mar 2015 18:40:28 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/oop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Overriding vs. hiding(aka. shadowing)</title>
+      <link>https://chaoyang.page/post/overriding-vs-hidingaka-shadowing/</link>
+      <pubDate>Sun, 22 Mar 2015 18:40:28 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/overriding-vs-hidingaka-shadowing/</guid>
+      <description>Simply speaking, overriding is for member methods, while hiding is for fields and static methods.
+Override Override is the feature of dynamic binding or run-time polymorphism.
+It&#39;s necessary for overriding that the method of subclasses has the same method signature as that of its super class.
+&amp;ldquo;Same&amp;rdquo; means the number and types of the method argument list must be the same. But the return type is not necessary the same. You can use the more concrete type as the return type, like its sub types.</description>
+    </item>
+    
+    <item>
+      <title>Override - some requirements</title>
+      <link>https://chaoyang.page/post/override/</link>
+      <pubDate>Fri, 16 Jan 2015 06:35:35 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/override/</guid>
+      <description>1. Override methods must have the identical method signature as the methods overridden Return type doesn&#39;t belong to the method signature, but Java supports covariant return type for overriding.
+Identical signature means:
+ the number of formal arguments must be equal. the type of relevant argument must be the same. The subtype of the methond argument cannot be considered as identical.  2. Override methods can less restricted in access control class AA { protected void foo() {} } class BB extends AA { @Override public void foo() { } } We make the foo() method accessible from weaker privilege &amp;ldquo;protected&amp;rdquo; to less restricted specifier &amp;ldquo;public&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>interfaces</title>
+      <link>https://chaoyang.page/post/interfaces/</link>
+      <pubDate>Wed, 14 Jan 2015 10:48:18 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/interfaces/</guid>
+      <description>Before Java 8, interfaces are not allowed to have static method.
+interface SS { static void bar(); // Cannot be compiled  static void foo() {} // Cannot be compiled } The compiler complains: Extension methods are not supported at this language level.
+But what are Extension methods? That&#39;s a term defined in Java 8.
+ As for interfaces, all elements in its definition body are public:
+  all fields are public, finaland staticimplicitly.</description>
+    </item>
+    
+    <item>
+      <title>static method and hiding</title>
+      <link>https://chaoyang.page/post/static-final-method/</link>
+      <pubDate>Tue, 13 Jan 2015 10:22:22 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/static-final-method/</guid>
+      <description>Class method can be invoked by Class or by instance.
+When it is invoked by instance, it uses the type of the instance, to figure out, at compile time, which class method to invoke. So the polymorphism would not happen as you think. For static methods, when the static method of the subclasses has the same signature as their superclass, we call it Hiding.
+In Java, **private **/ **final **/ static methods can do hiding by static binding.</description>
+    </item>
+    
+    <item>
+      <title>override:  covariant return types</title>
+      <link>https://chaoyang.page/post/override-covariant-return-types/</link>
+      <pubDate>Mon, 12 Jan 2015 03:37:15 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/override-covariant-return-types/</guid>
+      <description>class AA { void foo(CharSequence a) {} CharSequence bar() { return &amp;amp;quot;1&amp;amp;quot;; } } class BB extends AA { void foo(String a) {} @Override String bar() { return &amp;amp;quot;2&amp;amp;quot;; } } It&#39;s obvious that method &amp;ldquo;bar&amp;rdquo; overrides successfully. Java多态时，允许协变的返回类型，但是形式参数列表必须一模一样</description>
+    </item>
+    
+    <item>
+      <title>Behavior of polymorphic methods inside constructors</title>
+      <link>https://chaoyang.page/post/behavior-of-polymorphic-methods-inside-constructors/</link>
+      <pubDate>Mon, 12 Jan 2015 03:31:57 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/behavior-of-polymorphic-methods-inside-constructors/</guid>
+      <description>class Glyph { void draw() { System.out.println(&amp;amp;quot;Glyph.draw()&amp;amp;quot;); } Glyph() { System.out.println(&amp;amp;quot;Glyph() before draw()&amp;amp;quot;); draw(); System.out.println(&amp;amp;quot;Glyph() after draw()&amp;amp;quot;); } } class RoundGlyph extends Glyph { private int radius = 1; RoundGlyph(int r) { radius = r; System.out.println(&amp;amp;quot;RoundGlyph.RoundGlyph(), radius = &amp;amp;quot; + radius); } void draw() { System.out.println(&amp;amp;quot;RoundGlyph.draw(), radius = &amp;amp;quot; + radius); } public static void main(String[] args) { new RoundGlyph(5); } } Output: Glyph() before draw() RoundGlyph.draw(), radius = 0</description>
+    </item>
+    
+    <item>
+      <title>Default constructor (no-args constructor)</title>
+      <link>https://chaoyang.page/post/default-constructor-no-args-constructor/</link>
+      <pubDate>Sat, 12 Jan 2013 02:54:20 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/default-constructor-no-args-constructor/</guid>
+      <description>Default constructor is just synthesized by the compiler when you don&#39;t define any constructor.
+Once you define a constructor, the compiler won&#39;t make one for you.
+class C { public C(int a) { } public static void main(String[] args) { new C(); // so compiler will issue an error message here  } }  </description>
+    </item>
+    
+    <item>
+      <title>Distinguish overloaded methods</title>
+      <link>https://chaoyang.page/post/distinguish-overloaded-methods/</link>
+      <pubDate>Sat, 12 Jan 2013 02:36:16 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/distinguish-overloaded-methods/</guid>
+      <description>Each overloaded method must have a unique list of argument types.
+This means that there are the following possible cases:
+ argument count are different  void foo(int a) {} void foo(int a, String b) {} argument types are different  void foo(int a) {} void foo(String b) {} argument types are different, even if inheritance  void foo(List a) {} void foo(ArrayList a) {} return types are different  void foo(int a) {} int foo(int b) { return 0; } NO!</description>
+    </item>
+    
+    <item>
+      <title>Override: a pitfall</title>
+      <link>https://chaoyang.page/post/override-a-pitfall/</link>
+      <pubDate>Sat, 12 Jan 2013 02:30:14 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/override-a-pitfall/</guid>
+      <description>Let&#39;s see the flowing program and guess the run result:
+class Animal { protected void drink() { System.out.println(&amp;amp;quot;animal drinks before eating&amp;amp;quot;); } public void eat() { this.drink(); } } public class Dog extends Animal { protected void drink() { System.out.println(&amp;amp;quot;dog drinks before eating&amp;amp;quot;); } public void eat() { super.eat(); } public static void main(String[] args) { Animal animal = new Dog(); animal.eat(); } } Yes, the result it: dog drinks before eating.</description>
+    </item>
+    
+    <item>
+      <title>Java Object Initialization Order</title>
+      <link>https://chaoyang.page/post/java-object-initialization-order/</link>
+      <pubDate>Sat, 12 Jan 2013 02:22:46 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/java-object-initialization-order/</guid>
+      <description>See the following program, and you guess the running result: public class Dog { public static Dog dog = new Dog(); static final int val1 = -5; static int val2 = 3; public int val3; public Dog() { val3 = val1 + val2; } public static void main(String[] args) { System.out.println(Dog.dog.val3); } } Now, I tell you the result is -5. But why? To clarify this confusing initialization order, you</description>
+    </item>
+    
+  </channel>
+</rss>

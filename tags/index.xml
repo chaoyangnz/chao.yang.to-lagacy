@@ -2,192 +2,192 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Chao Yang</title>
-    <link>https://chaoyang.nz/tags/</link>
+    <link>https://chaoyang.page/tags/</link>
     <description>Recent content in Tags on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 29 Jun 2017 12:36:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Affinity</title>
-      <link>https://chaoyang.nz/tags/affinity/</link>
+      <link>https://chaoyang.page/tags/affinity/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/affinity/</guid>
+      <guid>https://chaoyang.page/tags/affinity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Css</title>
-      <link>https://chaoyang.nz/tags/css/</link>
+      <link>https://chaoyang.page/tags/css/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/css/</guid>
+      <guid>https://chaoyang.page/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cv</title>
-      <link>https://chaoyang.nz/tags/cv/</link>
+      <link>https://chaoyang.page/tags/cv/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/cv/</guid>
+      <guid>https://chaoyang.page/tags/cv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://chaoyang.nz/tags/design/</link>
+      <link>https://chaoyang.page/tags/design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/design/</guid>
+      <guid>https://chaoyang.page/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Immutable</title>
-      <link>https://chaoyang.nz/tags/immutable/</link>
+      <link>https://chaoyang.page/tags/immutable/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/immutable/</guid>
+      <guid>https://chaoyang.page/tags/immutable/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Innodb</title>
-      <link>https://chaoyang.nz/tags/innodb/</link>
+      <link>https://chaoyang.page/tags/innodb/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/innodb/</guid>
+      <guid>https://chaoyang.page/tags/innodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iot</title>
-      <link>https://chaoyang.nz/tags/iot/</link>
+      <link>https://chaoyang.page/tags/iot/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/iot/</guid>
+      <guid>https://chaoyang.page/tags/iot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://chaoyang.nz/tags/javascript/</link>
+      <link>https://chaoyang.page/tags/javascript/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/javascript/</guid>
+      <guid>https://chaoyang.page/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jax Rs</title>
-      <link>https://chaoyang.nz/tags/jax-rs/</link>
+      <link>https://chaoyang.page/tags/jax-rs/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/jax-rs/</guid>
+      <guid>https://chaoyang.page/tags/jax-rs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jersey</title>
-      <link>https://chaoyang.nz/tags/jersey/</link>
+      <link>https://chaoyang.page/tags/jersey/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/jersey/</guid>
+      <guid>https://chaoyang.page/tags/jersey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kotlin</title>
-      <link>https://chaoyang.nz/tags/kotlin/</link>
+      <link>https://chaoyang.page/tags/kotlin/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/kotlin/</guid>
+      <guid>https://chaoyang.page/tags/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Logging</title>
-      <link>https://chaoyang.nz/tags/logging/</link>
+      <link>https://chaoyang.page/tags/logging/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/logging/</guid>
+      <guid>https://chaoyang.page/tags/logging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql</title>
-      <link>https://chaoyang.nz/tags/mysql/</link>
+      <link>https://chaoyang.page/tags/mysql/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/mysql/</guid>
+      <guid>https://chaoyang.page/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notes</title>
-      <link>https://chaoyang.nz/tags/notes/</link>
+      <link>https://chaoyang.page/tags/notes/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/notes/</guid>
+      <guid>https://chaoyang.page/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quoted</title>
-      <link>https://chaoyang.nz/tags/quoted/</link>
+      <link>https://chaoyang.page/tags/quoted/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/quoted/</guid>
+      <guid>https://chaoyang.page/tags/quoted/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring Mvc</title>
-      <link>https://chaoyang.nz/tags/spring-mvc/</link>
+      <link>https://chaoyang.page/tags/spring-mvc/</link>
       <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/spring-mvc/</guid>
+      <guid>https://chaoyang.page/tags/spring-mvc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test</title>
-      <link>https://chaoyang.nz/tags/test/</link>
+      <link>https://chaoyang.page/tags/test/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/test/</guid>
+      <guid>https://chaoyang.page/tags/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Todo</title>
-      <link>https://chaoyang.nz/tags/todo/</link>
+      <link>https://chaoyang.page/tags/todo/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/todo/</guid>
+      <guid>https://chaoyang.page/tags/todo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trouble Shooting</title>
-      <link>https://chaoyang.nz/tags/trouble-shooting/</link>
+      <link>https://chaoyang.page/tags/trouble-shooting/</link>
       <pubDate>Sat, 02 Jan 2016 10:41:25 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/trouble-shooting/</guid>
+      <guid>https://chaoyang.page/tags/trouble-shooting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://chaoyang.nz/tags/web/</link>
+      <link>https://chaoyang.page/tags/web/</link>
       <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/tags/web/</guid>
+      <guid>https://chaoyang.page/tags/web/</guid>
       <description></description>
     </item>
     

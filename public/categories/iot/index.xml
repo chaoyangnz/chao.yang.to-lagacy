@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IoT on Chao Yang</title>
+    <link>https://chaoyang.page/categories/iot/</link>
+    <description>Recent content in IoT on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Nov 2017 11:36:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/iot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Build OpenCV 3.3 Android SDK on Mac OSX</title>
+      <link>https://chaoyang.page/post/build-opencv-android-sdk/</link>
+      <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/build-opencv-android-sdk/</guid>
+      <description>By default, the official OpenCV Android SDK doesn&#39;t contain the contrib libraries, like Aruco.
+prerequisite  NDK r10e  https://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
+ Android SDK  Note: please degrade the Android SDK tools version, 25.2.4 is fine for me http://dl-ssl.google.com/android/repository/tools_r25.2.5-macosx.zip Go to ~/Library/Android/sdk, rename tools to tools.bak, then unzip the tools_rxxx.zip to sdk/tools directory. Why? because otherwise, android command has been deprecated)
+ opencv 3.3.1  git clone https://github.com/opencv/opencv.git
+ opencv_contrib  git clone https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

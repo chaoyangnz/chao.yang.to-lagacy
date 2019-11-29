@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kotlin on Chao Yang</title>
-    <link>https://chaoyang.nz/tags/kotlin/</link>
+    <link>https://chaoyang.page/tags/kotlin/</link>
     <description>Recent content in Kotlin on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 27 May 2017 02:19:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kotlin Pitfalls</title>
-      <link>https://chaoyang.nz/post/kotlin-pitfalls/</link>
+      <link>https://chaoyang.page/post/kotlin-pitfalls/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/kotlin-pitfalls/</guid>
+      <guid>https://chaoyang.page/post/kotlin-pitfalls/</guid>
       <description>Type system val list: List&amp;lt;String&amp;gt; = java.util.ArrayList() Why does it work? java.util.ArrayList is not a subclass of kotlin.List, and kotlin.List is actually read-only.
 Because in bytecode level, kotlin.List is just java.util.List! I decompile the class Kotlin compiled:
 import java.util.ArrayList; import java.util.List; import kotlin.Metadata; @Metadata(mv={1, 1, 6}, bv={1, 0, 1}, k=2, d1={&amp;#34;\000\b\n\000\n\002\020\002\n\000\032\006\020\000\032\0020\001��\006\002&amp;#34;}, d2={&amp;#34;a&amp;#34;, &amp;#34;&amp;#34;, &amp;#34;kotlin_demo&amp;#34;}) public final class _1Kt { public static final void a() { List list = (List)new ArrayList(); } } You can think as if java.</description>

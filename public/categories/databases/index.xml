@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Databases on Chao Yang</title>
+    <link>https://chaoyang.page/categories/databases/</link>
+    <description>Recent content in Databases on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jun 2015 16:59:43 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/databases/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MySQL InnoDB Locking and Isolation Level</title>
+      <link>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</link>
+      <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</guid>
+      <description>Basic knowledge Isolation Level  MySQL innodb engine support ACID appliance. (The following will be always applied to innodb) Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE
+ Innodb&#39;s Isolation level is slightly different from the standard SQL Isolation level definition:
+Repeatable Read is the default Isolation Level, which can ensure repeatable reads and no phantom reads.
+Index structure InnoDB has two types of index: clustered index, secondary indexes</description>
+    </item>
+    
+    <item>
+      <title>ACID and transaction</title>
+      <link>https://chaoyang.page/post/acid-and-transaction/</link>
+      <pubDate>Mon, 13 Apr 2015 14:49:27 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/acid-and-transaction/</guid>
+      <description>Transaction provides data integrity in highly concurrent environments. It&#39;s also called Unit of Work.
+ For database systems, transaction is a must-have feature. But also some exceptions, like MySQL MyISAM engine. For messaging systems like JMS, transactions are not mandatory which has non-transacted acknowledgement modes. File system operations are usually non-managed, but if your business requirements demand transaction file operations, you might make use a tool such as XADisk.  ACID Inherently a transaction is characterized by four properties (commonly referred as ACID) :</description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL Concurrency with MVCC</title>
+      <link>https://chaoyang.page/post/postgresql-concurrency-with-mvcc/</link>
+      <pubDate>Wed, 04 Mar 2015 08:12:20 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/postgresql-concurrency-with-mvcc/</guid>
+      <description>Table of Contents  How MVCC works Disadvantages of MVCC  How MVCC works Every transaction in postgres gets a transaction ID called XID. This includes single one statement transactions such as an insert, update or delete, as well as explicitely wrapping a group of statements together via BEGIN - COMMIT. When a transaction starts, Postgres increments an XID and assigns it to the current transaction. Postgres also stores transaction information on every row in the system, which is used to determine whether a row is visible to the transaction or not.</description>
+    </item>
+    
+    <item>
+      <title>Get started with Oracle 11g</title>
+      <link>https://chaoyang.page/post/oracle-a-short-jouney/</link>
+      <pubDate>Wed, 04 Feb 2015 08:57:04 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/oracle-a-short-jouney/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

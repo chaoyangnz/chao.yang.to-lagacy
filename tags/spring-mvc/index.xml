@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring Mvc on Chao Yang</title>
-    <link>https://chaoyang.nz/tags/spring-mvc/</link>
+    <link>https://chaoyang.page/tags/spring-mvc/</link>
     <description>Recent content in Spring Mvc on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Aug 2015 22:21:28 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/tags/spring-mvc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/tags/spring-mvc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp]</title>
-      <link>https://chaoyang.nz/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</link>
+      <link>https://chaoyang.page/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</link>
       <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</guid>
+      <guid>https://chaoyang.page/post/no-mapping-found-for-http-request-with-uri-web-infviewsxxx-jsp/</guid>
       <description>When I use the InternalResourceViewResolver for the JSP rendering, I found the spring complains:
 No mapping found for HTTP request with URI [WEB-INF/views/xxx.jsp] I don&amp;rsquo;t know why. Normally, it certainly uses this resolver, because spring got the prefix and suffix I set. I open the debug logging, and found the log says:
 -mvc-servlet forwards to WEB-INF/views/xxx.jsp -No handler method found So it goes to find a hander method, rather than renders directly.</description>

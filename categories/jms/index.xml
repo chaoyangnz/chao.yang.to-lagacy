@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jms on Chao Yang</title>
-    <link>https://chaoyang.nz/categories/jms/</link>
+    <link>https://chaoyang.page/categories/jms/</link>
     <description>Recent content in Jms on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Apr 2015 14:59:19 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/categories/jms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/categories/jms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A glimpse of JMS</title>
-      <link>https://chaoyang.nz/post/a-glimpse-of-jms/</link>
+      <link>https://chaoyang.page/post/a-glimpse-of-jms/</link>
       <pubDate>Wed, 01 Apr 2015 14:59:19 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/a-glimpse-of-jms/</guid>
+      <guid>https://chaoyang.page/post/a-glimpse-of-jms/</guid>
       <description>what messaging provides?  loosely decoupled A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java 5 on Chao Yang</title>
-    <link>https://chaoyang.nz/categories/java-5/</link>
+    <link>https://chaoyang.page/categories/java-5/</link>
     <description>Recent content in Java 5 on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Jan 2013 02:58:13 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/categories/java-5/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/categories/java-5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Enumeration types</title>
-      <link>https://chaoyang.nz/post/enumeration-types/</link>
+      <link>https://chaoyang.page/post/enumeration-types/</link>
       <pubDate>Sat, 12 Jan 2013 02:58:13 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/enumeration-types/</guid>
+      <guid>https://chaoyang.page/post/enumeration-types/</guid>
       <description>enum&amp;rsquo;s underlying implementation Define enumerated types by using enum keyword.
 enum MetaColor { RED, YELLOW, BLUE } Now, MetaColor class has three final static members all of which are of MetaColor class: RED, YELLOW and BLUE
 MetaColor has 2 static methods: values(), valueOf(..) and other instance methods: name(), ordinal() and toString(), hashCode(), equals().

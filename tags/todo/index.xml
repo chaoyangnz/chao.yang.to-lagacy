@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Todo on Chao Yang</title>
-    <link>https://chaoyang.nz/tags/todo/</link>
+    <link>https://chaoyang.page/tags/todo/</link>
     <description>Recent content in Todo on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 18 Apr 2015 19:47:09 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/tags/todo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/tags/todo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Apache CXF and Axis 2 tutorial</title>
-      <link>https://chaoyang.nz/post/apache-cxf-and-axis-2-tutorial/</link>
+      <link>https://chaoyang.page/post/apache-cxf-and-axis-2-tutorial/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/apache-cxf-and-axis-2-tutorial/</guid>
+      <guid>https://chaoyang.page/post/apache-cxf-and-axis-2-tutorial/</guid>
       <description>Apache Axis2 How to build a service Axis2 supports 3 programming model Create a service from scratch Write a class whose methods use OMElement as arguments and/or return type create a services.xml package as a .aar file deploy POJO for rpc-style services Generate the service skeleton from WSDL &amp;nbsp; 实现方式 创建方式 应用文档对象模型解析(消息</description>
     </item>
     
     <item>
       <title>Apache Camel</title>
-      <link>https://chaoyang.nz/post/apache-camel/</link>
+      <link>https://chaoyang.page/post/apache-camel/</link>
       <pubDate>Sat, 18 Apr 2015 18:41:54 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/apache-camel/</guid>
+      <guid>https://chaoyang.page/post/apache-camel/</guid>
       <description>Core concepts Endpoint it refers to an address or a software entity that supports communication.
 Component _it _is confusing terminology; EndpointFactory would have been more appropriate because a Component is a factory for creating Endpoint instances.
 A component has a name, which is the prefix of the URI.
@@ -35,28 +35,28 @@ CamelTemplate It&amp;rsquo;s previously called CamelClient. It can send a Messa
     
     <item>
       <title>JPA - advanced topics</title>
-      <link>https://chaoyang.nz/post/jpa-advanced-topics/</link>
+      <link>https://chaoyang.page/post/jpa-advanced-topics/</link>
       <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/jpa-advanced-topics/</guid>
+      <guid>https://chaoyang.page/post/jpa-advanced-topics/</guid>
       <description> locking cache lifecycle callbacks Event &amp;amp; Listener </description>
     </item>
     
     <item>
       <title>A glimpse of JMS</title>
-      <link>https://chaoyang.nz/post/a-glimpse-of-jms/</link>
+      <link>https://chaoyang.page/post/a-glimpse-of-jms/</link>
       <pubDate>Wed, 01 Apr 2015 14:59:19 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/a-glimpse-of-jms/</guid>
+      <guid>https://chaoyang.page/post/a-glimpse-of-jms/</guid>
       <description>what messaging provides?  loosely decoupled A component sends a message to a destination, and the recipient can retrieve the message from the destination. However, the sender and the receiver do not have to be available at the same time in order to communicate. In fact, the sender does not need to know anything about the receiver; nor does the receiver need to know anything about the sender. The sender and the receiver need to know only which message format and which destination to use.</description>
     </item>
     
     <item>
       <title>Generics revisit</title>
-      <link>https://chaoyang.nz/post/generics-revisit/</link>
+      <link>https://chaoyang.page/post/generics-revisit/</link>
       <pubDate>Tue, 24 Mar 2015 14:15:50 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/generics-revisit/</guid>
+      <guid>https://chaoyang.page/post/generics-revisit/</guid>
       <description>Generics is an important feature since JDK 1.5
 subtyping and wildcards   Integer is a subtype of Number   Double is a subtype of Number   ArrayList&amp;lt;E&amp;gt; is a subtype of List&amp;lt;E&amp;gt;   List&amp;lt;E&amp;gt; is a subtype of Collection&amp;lt;E&amp;gt;   Collection&amp;lt;E&amp;gt; is a subtype of Iterable&amp;lt;E&amp;gt;   Long[] is a subtype of Number[]   List&amp;lt;Integer&amp;gt; is NOT a subtype of List&amp;lt;Number&amp;gt;    In Java, array subtyping is covariant, meaning that type S[] is considered to be a subtype of T[] whenever S is a subtype of T.</description>
     </item>

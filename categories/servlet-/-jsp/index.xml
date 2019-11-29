@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Servlet / Jsp on Chao Yang</title>
-    <link>https://chaoyang.nz/categories/servlet-/-jsp/</link>
+    <link>https://chaoyang.page/categories/servlet-/-jsp/</link>
     <description>Recent content in Servlet / Jsp on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Mar 2015 15:57:35 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/categories/servlet-/-jsp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/categories/servlet-/-jsp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>servlet basics</title>
-      <link>https://chaoyang.nz/post/servlet-basics/</link>
+      <link>https://chaoyang.page/post/servlet-basics/</link>
       <pubDate>Mon, 30 Mar 2015 15:57:35 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/servlet-basics/</guid>
+      <guid>https://chaoyang.page/post/servlet-basics/</guid>
       <description>Deployment Descriptor: web.xml The following is a complete Deployment Descriptor.
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;ISO-8859-1&amp;#34;?&amp;gt; &amp;lt;web-app xmlns=&amp;#34;http://java.sun.com/xml/ns/j2ee&amp;#34;xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&amp;#34; version=&amp;#34;2.5&amp;#34;&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- General --&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!-- Name the application --&amp;gt; &amp;lt;display-name&amp;gt;Example App&amp;lt;/display-name&amp;gt; &amp;lt;description&amp;gt;An example application which is used to play with some of the features of Tomcat&amp;lt;/description&amp;gt; &amp;lt;!-- This app is cluster-ready --&amp;gt; &amp;lt;distributable /&amp;gt; &amp;lt;!-- Set timeout to 120 minutes --&amp;gt; &amp;lt;session-config&amp;gt; &amp;lt;session-timeout&amp;gt;120&amp;lt;/session-timeout&amp;gt; &amp;lt;/session-config&amp;gt; &amp;lt;!-- ========================================================== --&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>
       <title>scriptless JSP - EL, JSTL and taglibs</title>
-      <link>https://chaoyang.nz/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</link>
+      <link>https://chaoyang.page/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</link>
       <pubDate>Mon, 02 Feb 2015 06:11:56 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</guid>
+      <guid>https://chaoyang.page/post/javaee-scriptless-jsp-el-jstl-and-taglibs/</guid>
       <description>EL (Expression Language) for non-Java programmer or designers email: &amp;lt;%= application.getAttribute(&amp;ldquo;email&amp;rdquo;) %&amp;gt;
 email: ${applicationScope.email}
 Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you cannot directly get the objects: application, session, request, response, page, but you can get them through pageContext.  In addition, several implicit objects are available that allow easy access to the following objects:
@@ -35,10 +35,10 @@ Implicit objects in EL:  pageContext: The context for the JSP page. NOTE: you ca
     
     <item>
       <title>JSP basics</title>
-      <link>https://chaoyang.nz/post/jsp-basics/</link>
+      <link>https://chaoyang.page/post/jsp-basics/</link>
       <pubDate>Mon, 02 Feb 2015 04:03:45 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/jsp-basics/</guid>
+      <guid>https://chaoyang.page/post/jsp-basics/</guid>
       <description>How JSP work Syntax scriptlet &amp;lt;% int count=0; out.println(&amp;#34;This is a scriptlet&amp;#34;); %&amp;gt; This block is placed in the body of method _jspService(request, response)
 derective &amp;lt;%@ page import=&amp;#34;java.util.*,java.xml.*&amp;#34; %&amp;gt;&amp;lt;%@ include file=&amp;#34;xxx&amp;#34; %&amp;gt;&amp;lt;%@ taglib tagdir=&amp;#34;/WEB-INF/tags/xxx&amp;#34; prefix=&amp;#34;xxx&amp;#34; %&amp;gt; expression &amp;lt;%= &amp;#34;This is a expression argument&amp;#34; %&amp;gt; declaration &amp;lt;%! int count=0 %&amp;gt;&amp;lt;%! int doubleCount() { count = count*2; return count; } %&amp;gt; This is equivlant with the member field and member method of the generated servlet.</description>
     </item>

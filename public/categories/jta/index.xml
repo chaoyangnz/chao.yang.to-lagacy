@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JTA on Chao Yang</title>
+    <link>https://chaoyang.page/categories/jta/</link>
+    <description>Recent content in JTA on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2015 08:46:35 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/jta/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java Transaction - JDBC, JTA, JTS</title>
+      <link>https://chaoyang.page/post/javaee-java-transaction-jdbc-jta-jts/</link>
+      <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/javaee-java-transaction-jdbc-jta-jts/</guid>
+      <description>https://www.progress.com/products/datadirect-connect/jdbc-drivers/jdbc-developer-center/jdbc-tutorials/understanding-jta---the-java-transaction-api/accessing-databases
+Concepts and implementation Where these come from? In transaction processing, there are several participants:
+Resource Manager: like RDMS, JMS Providers(MQ), JCA Resources, transnational distributed systems
+It is important to understand what constitutes a resource, in this context. For example, if you are using a JMS product, the JMS resource is the single running instance of the JMS product, notthe individual queues and topics. Moreover, sometimes, what appears to be multiple resources might actually be a single resource, if the same underlying resource is accessed in different ways.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Q/A on Chao Yang</title>
-    <link>https://chaoyang.nz/categories/q/a/</link>
+    <link>https://chaoyang.page/categories/q/a/</link>
     <description>Recent content in Q/A on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Apr 2015 19:02:25 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.nz/categories/q/a/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaoyang.page/categories/q/a/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>what&#39;s the difference between getName(), getSimpleName(), getCanonicalName() of Class?</title>
-      <link>https://chaoyang.nz/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</link>
+      <link>https://chaoyang.page/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</link>
       <pubDate>Thu, 23 Apr 2015 19:02:25 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</guid>
+      <guid>https://chaoyang.page/post/whats-the-difference-between-getname-getsimplename-getcanonicalname-of-class/</guid>
       <description>//primitive System.out.println(int.class.getName()); System.out.println(int.class.getCanonicalName()); System.out.println(int.class.getSimpleName()); System.out.println(); //class System.out.println(String.class.getName()); System.out.println(String.class.getCanonicalName()); System.out.println(String.class.getSimpleName()); System.out.println(); //inner class System.out.println(HashMap.SimpleEntry.class.getName()); System.out.println(HashMap.SimpleEntry.class.getCanonicalName()); System.out.println(HashMap.SimpleEntry.class.getSimpleName()); System.out.println(); //anonymous inner class System.out.println(new Serializable(){}.getClass().getName()); System.out.println(new Serializable(){}.getClass().getCanonicalName()); System.out.println(new Serializable(){}.getClass().getSimpleNam()); &amp;nbsp;
 Prints: &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; int &amp;gt; &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; java.lang.String &amp;gt; &amp;gt; String &amp;gt; &amp;gt; &amp;gt; java.util.AbstractMap$SimpleEntry &amp;gt; &amp;gt; java.util.AbstractMap.SimpleEntry &amp;gt; &amp;gt; SimpleEntry &amp;gt; &amp;gt; &amp;gt; ClassnameTest$1 &amp;gt; &amp;gt; null There&amp;rsquo;s an empty line in the last block where getSimpleName returns an empty string.</description>
     </item>
     
     <item>
       <title>What&#39;s the difference between getPath(), getAbsolutePath(), and getCanonicalPath()?</title>
-      <link>https://chaoyang.nz/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</link>
+      <link>https://chaoyang.page/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</link>
       <pubDate>Thu, 23 Apr 2015 18:56:07 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</guid>
+      <guid>https://chaoyang.page/post/whats-the-difference-between-getpath-getabsolutepath-and-getcanonicalpath/</guid>
       <description>Consider these filenames:
  C:\temp\file.txt - This is a path, an absolute path, and a canonical path. .\file.txt - This is a path. It&amp;rsquo;s neither an absolute path nor a canonical path. C:\temp\myapp\bin..\..\file.txt - This is a path and an absolute path. It&amp;rsquo;s not a canonical path. A canonical path is always an absolute path.  Converting from a path to a canonical path makes it absolute (usually tack on the current working directory so e.</description>
     </item>
     
     <item>
       <title>what does 0.0.0.0 mean?</title>
-      <link>https://chaoyang.nz/post/what-does-0-0-0-0-mean/</link>
+      <link>https://chaoyang.page/post/what-does-0-0-0-0-mean/</link>
       <pubDate>Wed, 22 Apr 2015 22:46:26 +0000</pubDate>
       
-      <guid>https://chaoyang.nz/post/what-does-0-0-0-0-mean/</guid>
+      <guid>https://chaoyang.page/post/what-does-0-0-0-0-mean/</guid>
       <description>0.0.0.0, in server context, means &amp;ldquo;all IP addresses on the local machine&amp;rdquo; (in fact probably, &amp;ldquo;all IPv4 addresses on the local machine&amp;rdquo;). So, if your webserver machine has two ip addresses, 192.168.1.1 and 10.1.2.1, and you allow a webserver daemon like apache to listen on 0.0.0.0, it will be reachable at both of those IPs. But only to what can contact those IPs and the web port(s).
 The only thing is that you cannot say &amp;ldquo;all addresses should have access&amp;rdquo; &amp;ndash; that&amp;rsquo;s done in your firewall(s) and/or the server software and/or other security layers like tcpwrappers.</description>
     </item>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JPA on Chao Yang</title>
+    <link>https://chaoyang.page/categories/jpa/</link>
+    <description>Recent content in JPA on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2015 12:59:32 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/jpa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JPA - advanced topics</title>
+      <link>https://chaoyang.page/post/jpa-advanced-topics/</link>
+      <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/jpa-advanced-topics/</guid>
+      <description>locking cache lifecycle callbacks Event &amp;amp; Listener </description>
+    </item>
+    
+    <item>
+      <title>JPA - runtime</title>
+      <link>https://chaoyang.page/post/jpa-runtime/</link>
+      <pubDate>Tue, 10 Feb 2015 03:51:29 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/jpa-runtime/</guid>
+      <description>Core concepts A Cache is a copy of data, copy meaning pulled from but living outside the database. Flushing a Cache is the act of putting modified data back into the database. A PersistenceContext is essentially a Cache. It also tends to have it&#39;s own non-shared database connection. An EntityManager represents a PersistenceContext (and therefore a Cache) An EntityManagerFactory creates an EntityManager (and therefore a PersistenceContext/Cache) Cache == PersistenceContext Entity</description>
+    </item>
+    
+    <item>
+      <title>JPA - mapping</title>
+      <link>https://chaoyang.page/post/jpa-mapping/</link>
+      <pubDate>Fri, 06 Feb 2015 02:52:11 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/jpa-mapping/</guid>
+      <description>Table mapping @Entity @Table(name=&amp;#34;EMP&amp;#34;, schema=&amp;#34;scott&amp;#34;) Basic mapping customize the default mapping lazy fetching @Basic can specify the lazy fetching mode. @Basic(fetch=FetchType.LAZY) specify the column name - @Column @Column(name=&amp;#34;ADDR&amp;#34;) large object - @Lob @Lob temporal types for java.util.Date and java.util.Calendar - @Temporal If you just want to map DATE, TIME, TIMESTAMP to java.sql.Date, java.sql.Time, java.sql.Timestamp, the basic mapping is just OK. @Temporal(TemporalType.DATE) private Calendar dob; transient state - @Transient transit private</description>
+    </item>
+    
+  </channel>
+</rss>

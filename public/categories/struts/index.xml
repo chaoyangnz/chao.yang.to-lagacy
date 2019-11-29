@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Struts on Chao Yang</title>
+    <link>https://chaoyang.page/categories/struts/</link>
+    <description>Recent content in Struts on Chao Yang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Apr 2015 13:59:38 +0000</lastBuildDate>
+    
+	<atom:link href="https://chaoyang.page/categories/struts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Struts 2 - a short journey</title>
+      <link>https://chaoyang.page/post/struts-2-a-short-journey/</link>
+      <pubDate>Wed, 08 Apr 2015 13:59:38 +0000</pubDate>
+      
+      <guid>https://chaoyang.page/post/struts-2-a-short-journey/</guid>
+      <description>Web framework evolves Servlet Write all your processing logic and presentation logic in a servlet class. Generating HTML code from within Java code is really awesome!
+JSP with scriptlet style Rather than writing HTML in Java code, now write Java code in HTML code. This approach is really like PHP and ASP do.
+JSP with tags style To avoid writing Java code in HTML, introduce JSP tags as HTML-like facade for accessing underlying Java code.</description>
+    </item>
+    
+  </channel>
+</rss>
