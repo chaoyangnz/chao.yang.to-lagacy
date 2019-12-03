@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MySQL on Chao Yang</title>
-    <link>https://chaoyang.page/tags/mysql/</link>
+    <link>/tags/mysql/</link>
     <description>Recent content in MySQL on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jun 2015 16:59:43 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySQL InnoDB Locking and Isolation Level</title>
-      <link>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</link>
+      <link>/post/mysql-innodb-locking-and-isolation-level/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</guid>
+      <guid>/post/mysql-innodb-locking-and-isolation-level/</guid>
       <description>Basic knowledge Isolation Level  MySQL innodb engine support ACID appliance. (The following will be always applied to innodb) Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE
  Innodb&#39;s Isolation level is slightly different from the standard SQL Isolation level definition:
 Repeatable Read is the default Isolation Level, which can ensure repeatable reads and no phantom reads.

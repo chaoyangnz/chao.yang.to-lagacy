@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Building, Testing &amp;amp; CI on Chao Yang</title>
-    <link>https://chaoyang.page/categories/building-testing-amp-ci/</link>
+    <link>/categories/building-testing-amp-ci/</link>
     <description>Recent content in Building, Testing &amp;amp; CI on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 May 2015 14:46:18 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/building-testing-amp-ci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/building-testing-amp-ci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Book notes - Practical Unit Test with JUnit and Mockito</title>
-      <link>https://chaoyang.page/post/book-notes-practical-unit-test-with-junit-and-mockito/</link>
+      <link>/post/book-notes-practical-unit-test-with-junit-and-mockito/</link>
       <pubDate>Mon, 25 May 2015 14:46:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/book-notes-practical-unit-test-with-junit-and-mockito/</guid>
+      <guid>/post/book-notes-practical-unit-test-with-junit-and-mockito/</guid>
       <description>Developers&amp;rsquo; Tests On Tests and Tools SUT (aka. System Under Test) – test target being tested
 DOC (aka. Dependency of Components) – collaborators and dependencies when testing
 Types of Developers&amp;rsquo; Tests  Unit Test Integration Test End-to-End Test Every type of test has different scope. Basically, unit test is in class level, integration test is in module level and end-to-end test is in application level.  Other types of tests:</description>
@@ -24,10 +24,10 @@ Types of Developers&amp;rsquo; Tests  Unit Test Integration Test End-to-End Test
     
     <item>
       <title>Apache Maven 2</title>
-      <link>https://chaoyang.page/post/apache-maven-2/</link>
+      <link>/post/apache-maven-2/</link>
       <pubDate>Sat, 14 Mar 2015 21:57:13 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/apache-maven-2/</guid>
+      <guid>/post/apache-maven-2/</guid>
       <description>Although I have some experience about Maven 2, this is a simple summary.
  Maven /ˈmeɪv_ə_n/ Artifact Vector  groupid:artifactid:packaging:version:scope such as: org.springframework:spring:jar:2.5.6:compile
 org.mockito:mockito-core:jar:4.7:test Maven provides the following standard scope:

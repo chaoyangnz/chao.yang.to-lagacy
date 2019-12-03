@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jndi Ldap on Chao Yang</title>
-    <link>https://chaoyang.page/categories/jndi-ldap/</link>
+    <link>/categories/jndi-ldap/</link>
     <description>Recent content in Jndi Ldap on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 May 2015 10:09:04 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/jndi-ldap/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/jndi-ldap/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JNDI how-to</title>
-      <link>https://chaoyang.page/post/jndi-how-to/</link>
+      <link>/post/jndi-how-to/</link>
       <pubDate>Thu, 07 May 2015 10:09:04 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/jndi-how-to/</guid>
+      <guid>/post/jndi-how-to/</guid>
       <description>JNDI - Java Naming and Directory Interface
 Object storing There are several ways an object satisfies the condition to be bound to a JDNI context.
  serializable objects: Serializable referenceable objects and references: Reference, ObjectFactory, Referenceable, RefAddr objects with attributes: DirContext remote objects: Remote &amp;nbsp;  Let&amp;rsquo;s look at the real life example: how we bind DataSource and UserTransaction to a JNDI context

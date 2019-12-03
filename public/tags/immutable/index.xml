@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Immutable on Chao Yang</title>
-    <link>https://chaoyang.page/tags/immutable/</link>
+    <link>/tags/immutable/</link>
     <description>Recent content in Immutable on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 19 Mar 2015 16:54:45 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/tags/immutable/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/immutable/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Immutable objects</title>
-      <link>https://chaoyang.page/post/immutable-objects/</link>
+      <link>/post/immutable-objects/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/immutable-objects/</guid>
+      <guid>/post/immutable-objects/</guid>
       <description>An immutable class is one whose state can not be changed once created. There are certain guidelines to create an class immutable. In this post, we will revisit these guidelines.
 Benefits of making a class immutable Lets first identify benefits of making a class immutable. Immutable classes are
  are simple to construct, test, and use are automatically thread-safe and have no synchronization issues do not need a copy constructor do not need an implementation of clone allow hashCode to use lazy initialization, and to cache its return value do not need to be copied defensively when used as a field make good Map keys and Set elements (these objects must not change state while in the collection) have their class invariant established once upon construction, and it never needs to be checked again always have “failure atomicity” (a term used by Joshua Bloch) : if an immutable object throws an exception, it’s never left in an undesirable or indeterminate state  Guidelines to make a class immutable Java documentation itself has some guidelines identified in this link.</description>

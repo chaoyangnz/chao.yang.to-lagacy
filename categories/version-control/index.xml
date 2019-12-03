@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Version Control on Chao Yang</title>
-    <link>https://chaoyang.page/categories/version-control/</link>
+    <link>/categories/version-control/</link>
     <description>Recent content in Version Control on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Apr 2015 13:50:15 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/version-control/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/version-control/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git basics</title>
-      <link>https://chaoyang.page/post/git-basics/</link>
+      <link>/post/git-basics/</link>
       <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/git-basics/</guid>
+      <guid>/post/git-basics/</guid>
       <description>http://think-like-a-git.net/ http://marklodato.github.io/visual-git-guide/index-en.html https://www.atlassian.com/git/tutorials/  local repository checkout checkout &amp;lt;branch&amp;gt;  switch branch
  git checkout dev checkout &amp;lt;commit&amp;gt; [files]  &amp;lt;commit&amp;gt; is HEAD by default. The current branch doesn&amp;rsquo;t change, without moving the HEAD pointer location.
 copy the &amp;lt;commit&amp;gt; tree to index tree and working tree.

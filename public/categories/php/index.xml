@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Chao Yang</title>
-    <link>https://chaoyang.page/categories/php/</link>
+    <link>/categories/php/</link>
     <description>Recent content in PHP on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Mar 2015 11:19:52 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>wordpress ssh update not working</title>
-      <link>https://chaoyang.page/post/wordpress-ssh-update-not-working/</link>
+      <link>/post/wordpress-ssh-update-not-working/</link>
       <pubDate>Mon, 23 Mar 2015 11:19:52 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/wordpress-ssh-update-not-working/</guid>
+      <guid>/post/wordpress-ssh-update-not-working/</guid>
       <description>chown -R www-data:www-data *</description>
     </item>
     

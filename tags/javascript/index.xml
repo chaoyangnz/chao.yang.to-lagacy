@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Chao Yang</title>
-    <link>https://chaoyang.page/tags/javascript/</link>
+    <link>/tags/javascript/</link>
     <description>Recent content in Javascript on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Nov 2017 19:27:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Javascript testing frameworks</title>
-      <link>https://chaoyang.page/post/javascript-testing-frameworks/</link>
+      <link>/post/javascript-testing-frameworks/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/javascript-testing-frameworks/</guid>
+      <guid>/post/javascript-testing-frameworks/</guid>
       <description>I wrote front-end testing code less frequently. I heard a lot of frameworks used by my colleagues, like Karma, Jasmine, Chai, Mocha, Jest. you name it.
 Why so much complex? In the Java ecosystem, we have JUnit for the test runner, it provides test suites and all kinds of assert expressions. If we need to mock some dependencies, we use Mokito or others like. That&amp;rsquo;s enough.
 So when it comes to Javascript, I am really confused with so many frameworks/libraries.</description>

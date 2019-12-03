@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basics on Chao Yang</title>
-    <link>https://chaoyang.page/categories/basics/</link>
+    <link>/categories/basics/</link>
     <description>Recent content in Basics on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Sep 2015 22:20:18 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/basics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/basics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>statically loading vs. dynamically loading</title>
-      <link>https://chaoyang.page/post/statically-loading-vs-dynamically-loading/</link>
+      <link>/post/statically-loading-vs-dynamically-loading/</link>
       <pubDate>Sat, 05 Sep 2015 22:20:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/statically-loading-vs-dynamically-loading/</guid>
+      <guid>/post/statically-loading-vs-dynamically-loading/</guid>
       <description>statically loading when we need to use the class definition, like new operator, invoking static method, accessing static variables etc, the JVM will load the class statically.
 But just declare variable of that type, class loading actually don&#39;t happen.
 class StaticallyLoading { public static void main(String[] args) { C c = null; System.out.println(&amp;#34;run here&amp;#34;); } } After you compile this class successfully with class C definition, you run it as deleting the class C dependency at runtime.</description>
@@ -24,10 +24,10 @@ class StaticallyLoading { public static void main(String[] args) { C c = null; S
     
     <item>
       <title>Java Serialization</title>
-      <link>https://chaoyang.page/post/java-serialization/</link>
+      <link>/post/java-serialization/</link>
       <pubDate>Sat, 27 Jun 2015 00:28:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/java-serialization/</guid>
+      <guid>/post/java-serialization/</guid>
       <description>Serialization What is Serialization? Serialization is the process to transfer a Java object into a sequence of bytes, often in the form of stream.
 At another time, we can unserialize from the bytes and rebuild the object in JVM.
 How to do  make the class to be serialized implement Serializable interface (Serializable is a marker interface) use ObjectOutputStream to serialize object use OjbectInputStream to unserialize the bytes In order to better control the serialization process, you can implement ObjectInput and ObjectOutput on your own.</description>
@@ -35,10 +35,10 @@ How to do  make the class to be serialized implement Serializable interface (Ser
     
     <item>
       <title>Java Collections Framework</title>
-      <link>https://chaoyang.page/post/java-collections-framework/</link>
+      <link>/post/java-collections-framework/</link>
       <pubDate>Fri, 26 Jun 2015 19:22:37 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/java-collections-framework/</guid>
+      <guid>/post/java-collections-framework/</guid>
       <description>(natural) ordered structure Red-Black Tree implementation to maintain the natural order (Comparable)
  TreeSet -&amp;gt; NavigableSet -&amp;gt; OrderedSet TreeMap -&amp;gt; NavigableMap -&amp;gt; OrderedMap  hash structure a bucket array, each bucket is a LinkedList; the index is computed by hashCode(), then traverse the LinkedList using equals() until finding the expected element.
  HashMap HashSet: backed by HashMap, just the element is the key of Entry&amp;amp;lt;K,V&amp;amp;gt; while the value is ignored. with insertion order  maintain the insertion order using an extra LinkedList</description>
@@ -46,19 +46,19 @@ How to do  make the class to be serialized implement Serializable interface (Ser
     
     <item>
       <title>widen cast vs. narrow cast</title>
-      <link>https://chaoyang.page/post/widen-cast-vs-narrow-cast/</link>
+      <link>/post/widen-cast-vs-narrow-cast/</link>
       <pubDate>Mon, 23 Mar 2015 20:37:24 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/widen-cast-vs-narrow-cast/</guid>
+      <guid>/post/widen-cast-vs-narrow-cast/</guid>
       <description></description>
     </item>
     
     <item>
       <title>String class, text formatting</title>
-      <link>https://chaoyang.page/post/string-class-text-formatting/</link>
+      <link>/post/string-class-text-formatting/</link>
       <pubDate>Mon, 23 Mar 2015 20:28:12 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/string-class-text-formatting/</guid>
+      <guid>/post/string-class-text-formatting/</guid>
       <description>working with String class String is most frequently used class in Java.
 immutable and flyweight design String is immutable
 String is designed with the Flyweight design pattern. A pool of Strings is maintained by the String class.
@@ -68,10 +68,10 @@ For any two Strings s1 &amp;amp; s2, _s1.intern( ) _== _s2.intern( ) _only if _
     
     <item>
       <title>cloning objects</title>
-      <link>https://chaoyang.page/post/cloning-objects/</link>
+      <link>/post/cloning-objects/</link>
       <pubDate>Mon, 23 Mar 2015 20:26:14 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/cloning-objects/</guid>
+      <guid>/post/cloning-objects/</guid>
       <description>Java has built-in support for shadow copy by Object.clone() and Cloneable interface.
 shadow copy This is default implementation in java.
 Object class has a method named clone(), but if we&#39;d like to succeed with this built-in cloning capability, we need to use Cloneable marker interface.
@@ -81,20 +81,20 @@ Note that all arrays are considered to implement the interface Cloneable.</desc
     
     <item>
       <title>java modifiers revisit</title>
-      <link>https://chaoyang.page/post/java-modifiers-revist/</link>
+      <link>/post/java-modifiers-revist/</link>
       <pubDate>Mon, 23 Mar 2015 12:31:07 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/java-modifiers-revist/</guid>
+      <guid>/post/java-modifiers-revist/</guid>
       <description>acess control modifiers In Java, there are four different types of access modifiers for fields and methods:
  public: every class can access the element protected: only subclasses and classes in the same package can access the element default: only classes in the same package can access the element private: only this class can access the element  what does accessing mean? Accessing means you can refer. As in java only class can be the top-level element, thus top-level class access just use its name without a prefix.</description>
     </item>
     
     <item>
       <title>finalize()</title>
-      <link>https://chaoyang.page/post/finalize/</link>
+      <link>/post/finalize/</link>
       <pubDate>Fri, 20 Mar 2015 15:29:39 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/finalize/</guid>
+      <guid>/post/finalize/</guid>
       <description>finalize() method is a protected method of Object class. It&#39;s intended to be invoked by GC thread before GC reclaim the memory allocated to the object.
 Misguidingly it&#39;s regarded as a place for doing some cleaning works, like releasing resources.
 But this is NOT recommended!!
@@ -105,10 +105,10 @@ Other drawbacks:
     
     <item>
       <title>Immutable objects</title>
-      <link>https://chaoyang.page/post/immutable-objects/</link>
+      <link>/post/immutable-objects/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/immutable-objects/</guid>
+      <guid>/post/immutable-objects/</guid>
       <description>An immutable class is one whose state can not be changed once created. There are certain guidelines to create an class immutable. In this post, we will revisit these guidelines.
 Benefits of making a class immutable Lets first identify benefits of making a class immutable. Immutable classes are
  are simple to construct, test, and use are automatically thread-safe and have no synchronization issues do not need a copy constructor do not need an implementation of clone allow hashCode to use lazy initialization, and to cache its return value do not need to be copied defensively when used as a field make good Map keys and Set elements (these objects must not change state while in the collection) have their class invariant established once upon construction, and it never needs to be checked again always have “failure atomicity” (a term used by Joshua Bloch) : if an immutable object throws an exception, it’s never left in an undesirable or indeterminate state  Guidelines to make a class immutable Java documentation itself has some guidelines identified in this link.</description>
@@ -116,10 +116,10 @@ Benefits of making a class immutable Lets first identify benefits of making a cl
     
     <item>
       <title>String#substring(..) implementation</title>
-      <link>https://chaoyang.page/post/stringsubstring-implementation/</link>
+      <link>/post/stringsubstring-implementation/</link>
       <pubDate>Thu, 19 Mar 2015 15:22:01 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/stringsubstring-implementation/</guid>
+      <guid>/post/stringsubstring-implementation/</guid>
       <description>I heard that in new version of JDK (&amp;gt;JDK7u5), substring implementation is changed.
 In the past, substring() don&#39;t copy the specified character string but share the inherent character array reference with the original String. In this case, String substring can result in retaining more memory than you might expect. As such it&#39;s not a memory leak as this memory can be recovered normally (potential memory leak).
 But note this behaviour has changed as of Java 7u6.</description>
@@ -127,20 +127,20 @@ But note this behaviour has changed as of Java 7u6.</description>
     
     <item>
       <title>Why two Date classes: java.util.Date and java.sql.Date?</title>
-      <link>https://chaoyang.page/post/why-two-date-classes-java-util-date-and-java-sql-date/</link>
+      <link>/post/why-two-date-classes-java-util-date-and-java-sql-date/</link>
       <pubDate>Thu, 19 Mar 2015 14:35:54 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/why-two-date-classes-java-util-date-and-java-sql-date/</guid>
+      <guid>/post/why-two-date-classes-java-util-date-and-java-sql-date/</guid>
       <description>A java.util.Date represents date and time of day, a java.sql.Date only represents a date. The complement of java.sql.Date is java.sql.Time, which only represents a time of day. The java.sql.Date is a subclass (an extension) of java.util.Date. So, what changed in java.sql.Date:
 &amp;ndash; toString() generates a different string representation: yyyy-mm-dd &amp;ndash; a static valueOf(String) methods to create a Date from a String with above representation &amp;ndash; the getters and setter for hours, minutes and seconds are deprecated</description>
     </item>
     
     <item>
       <title>auto-boxing and valueOf(..)</title>
-      <link>https://chaoyang.page/post/autoboxing-and-valueof/</link>
+      <link>/post/autoboxing-and-valueof/</link>
       <pubDate>Tue, 17 Mar 2015 19:20:41 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/autoboxing-and-valueof/</guid>
+      <guid>/post/autoboxing-and-valueof/</guid>
       <description>Autoboxing uses Integer.valueOf(int),which internally caches Integer objects for small integers (by default -128 to 127, but the max value can be configured with the &amp;ldquo;java.lang.Integer.IntegerCache.high&amp;rdquo; property.
 Double is the same by using Double.valueOf(..)
 So the following two lines are equivalent.
@@ -149,19 +149,19 @@ Integer i = 12; Integer i = Integer.valueOf(12); If you don&#39;t believe it, yo
     
     <item>
       <title>Float numbers</title>
-      <link>https://chaoyang.page/post/float-numbers/</link>
+      <link>/post/float-numbers/</link>
       <pubDate>Tue, 17 Mar 2015 14:38:15 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/float-numbers/</guid>
+      <guid>/post/float-numbers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>equals() / hashCode() contract, Comparable contract</title>
-      <link>https://chaoyang.page/post/equals-and-hashcode-contract/</link>
+      <link>/post/equals-and-hashcode-contract/</link>
       <pubDate>Mon, 16 Mar 2015 19:13:32 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/equals-and-hashcode-contract/</guid>
+      <guid>/post/equals-and-hashcode-contract/</guid>
       <description>Although Java encourage and support to maintain contract by interface, but there are some implicit contracts that should be noticed when you are implementing some special functions.
 What is equals and hashCode contract?  The interface contract for Object requires that if two objects are equal according to equals(), then they must have the same hashCode()value.
 1. If two objects are equal, then they must have the same hash code.</description>
@@ -169,10 +169,10 @@ What is equals and hashCode contract?  The interface contract for Object require
     
     <item>
       <title>Character encoding and charset in Java</title>
-      <link>https://chaoyang.page/post/character-encoding-and-charset-in-java/</link>
+      <link>/post/character-encoding-and-charset-in-java/</link>
       <pubDate>Mon, 16 Mar 2015 19:08:24 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/character-encoding-and-charset-in-java/</guid>
+      <guid>/post/character-encoding-and-charset-in-java/</guid>
       <description>Concepts At the beginning, we need to distinguish some key concepts.
 character Character (aka. abstract character) is a textual representation of character.
 glyph glyph is the particular images representing a character or part of a character. Glyphs for the same character may have very different shapes
@@ -182,30 +182,30 @@ coded character set (CCS) A coded character set (CCS) specifies how to represent
     
     <item>
       <title>finally execution in try-catch-finnally blocks</title>
-      <link>https://chaoyang.page/post/finally-execution-in-try-catch-finnally-blocks/</link>
+      <link>/post/finally-execution-in-try-catch-finnally-blocks/</link>
       <pubDate>Mon, 16 Mar 2015 19:02:01 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/finally-execution-in-try-catch-finnally-blocks/</guid>
+      <guid>/post/finally-execution-in-try-catch-finnally-blocks/</guid>
       <description>The finally block will always execute, except for System.exit() is called first, or the thread has terminated or the JVM crashes. Anything that is returned in the finally block will actually override any exception or returned value that is inside the try/catch block.
 public class Finally { //exception-free code, try-catch-finally blocks all have returns  private int scenario1() { int i = 0; try { System.out.println(&amp;amp;quot;Inside try block of testMethod!&amp;amp;quot;); i = 100; return i; } catch(Exception e){ System.</description>
     </item>
     
     <item>
       <title>output - pre-increment and post-increment</title>
-      <link>https://chaoyang.page/post/output-pre-increment-and-post-increment/</link>
+      <link>/post/output-pre-increment-and-post-increment/</link>
       <pubDate>Mon, 02 Feb 2015 09:05:24 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/output-pre-increment-and-post-increment/</guid>
+      <guid>/post/output-pre-increment-and-post-increment/</guid>
       <description>public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;amp;lt; 5; z++) { if (( x++ &amp;amp;gt; 2 ) || (y++ &amp;amp;gt; 2)) { x++; } } System.out.println(x + &amp;amp;quot; &amp;amp;quot; + y); } Output is: 7 3
 public static void main(String [] args) { int x= 0; int y= 0; for (int z = 0; z &amp;amp;lt; 5; z++) { if (( ++x &amp;gt; 2 ) || (++y &amp;gt; 2)) { x++; } } System.</description>
     </item>
     
     <item>
       <title>Assertion</title>
-      <link>https://chaoyang.page/post/assertion/</link>
+      <link>/post/assertion/</link>
       <pubDate>Fri, 16 Jan 2015 01:28:54 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/assertion/</guid>
+      <guid>/post/assertion/</guid>
       <description>Java have an &amp;ldquo;assert&amp;rdquo; keyword since java 1.4
 Usage There are two kinds of syntax:
   assert expression1
@@ -219,19 +219,19 @@ void foo() {} assert true : foo(); // cannot be compiled  How to enable or disab
     
     <item>
       <title>Inner Classes</title>
-      <link>https://chaoyang.page/post/inner-classes/</link>
+      <link>/post/inner-classes/</link>
       <pubDate>Wed, 14 Jan 2015 10:53:54 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/inner-classes/</guid>
+      <guid>/post/inner-classes/</guid>
       <description>There are 4 kinds of inner classes: Member classes (non-static inner classes) Local classes Anonymous classes Nested top-level classes and interfaces (static inner classes) The former three kinds are called inner classes. The last kind is called nested class. Member interface is implicitly static, so it&#39;s never considered as inner class. Member classes **What is a member class?**A member class is a class that is defined inside the definition of</description>
     </item>
     
     <item>
       <title>Enumeration types</title>
-      <link>https://chaoyang.page/post/enumeration-types/</link>
+      <link>/post/enumeration-types/</link>
       <pubDate>Sat, 12 Jan 2013 02:58:13 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/enumeration-types/</guid>
+      <guid>/post/enumeration-types/</guid>
       <description>enum&#39;s underlying implementation Define enumerated types by using enum keyword.
 enum MetaColor { RED, YELLOW, BLUE } Now, MetaColor class has three final static members all of which are of MetaColor class: RED, YELLOW and BLUE
 MetaColor has 2 static methods: **_values(), valueOf(..) _**and other instance methods: name(), ordinal() and toString(), hashCode(), equals().
@@ -240,10 +240,10 @@ You can override the toString(), but hashCode() and equals() are final which can
     
     <item>
       <title>variable argument list: a pitfall</title>
-      <link>https://chaoyang.page/post/variable-argument-list-a-pitfall/</link>
+      <link>/post/variable-argument-list-a-pitfall/</link>
       <pubDate>Sat, 12 Jan 2013 02:56:36 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/variable-argument-list-a-pitfall/</guid>
+      <guid>/post/variable-argument-list-a-pitfall/</guid>
       <description>We usually define a method with a variable argument list like this:
 void bar(String...args) { //blablab } But there is a pitfall in this place. Can you ensure args is always an array, even its length is 0 when it&#39;s empty?
 Yes, most of time.
@@ -254,10 +254,10 @@ obj.bar(null); Guess what? Here the args is also null.</description>
     
     <item>
       <title>Java access control</title>
-      <link>https://chaoyang.page/post/java-access-control/</link>
+      <link>/post/java-access-control/</link>
       <pubDate>Sat, 12 Jan 2013 02:28:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/java-access-control/</guid>
+      <guid>/post/java-access-control/</guid>
       <description>Java access control is a bit weird, especially for the ones with C++ background.
 There are two types of access control, one for classes and the other for members. To simplify my discussion, in this context the class mean the top level one, which is directly defined in a compile unit. As the nested class is actually always associated with another class, so it&#39;s not top level class and I regard it as just a member like member variables and member methods.</description>
     </item>

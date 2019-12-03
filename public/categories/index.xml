@@ -2,453 +2,453 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Chao Yang</title>
-    <link>https://chaoyang.page/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 24 Mar 2018 22:55:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Web</title>
-      <link>https://chaoyang.page/categories/web/</link>
+      <link>/categories/web/</link>
       <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/web/</guid>
+      <guid>/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSS</title>
-      <link>https://chaoyang.page/categories/css/</link>
+      <link>/categories/css/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/css/</guid>
+      <guid>/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://chaoyang.page/categories/javascript/</link>
+      <link>/categories/javascript/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/javascript/</guid>
+      <guid>/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IoT</title>
-      <link>https://chaoyang.page/categories/iot/</link>
+      <link>/categories/iot/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/iot/</guid>
+      <guid>/categories/iot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://chaoyang.page/categories/design/</link>
+      <link>/categories/design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/design/</guid>
+      <guid>/categories/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
-      <link>https://chaoyang.page/categories/tutorial/</link>
+      <link>/categories/tutorial/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/tutorial/</guid>
+      <guid>/categories/tutorial/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncategorized</title>
-      <link>https://chaoyang.page/categories/uncategorized/</link>
+      <link>/categories/uncategorized/</link>
       <pubDate>Thu, 19 Nov 2015 23:24:13 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/uncategorized/</guid>
+      <guid>/categories/uncategorized/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project Architecture</title>
-      <link>https://chaoyang.page/categories/project-architecture/</link>
+      <link>/categories/project-architecture/</link>
       <pubDate>Tue, 08 Sep 2015 20:32:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/project-architecture/</guid>
+      <guid>/categories/project-architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Basics</title>
-      <link>https://chaoyang.page/categories/basics/</link>
+      <link>/categories/basics/</link>
       <pubDate>Sat, 05 Sep 2015 22:20:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/basics/</guid>
+      <guid>/categories/basics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Project problems</title>
-      <link>https://chaoyang.page/categories/project-problems/</link>
+      <link>/categories/project-problems/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/project-problems/</guid>
+      <guid>/categories/project-problems/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JVM</title>
-      <link>https://chaoyang.page/categories/jvm/</link>
+      <link>/categories/jvm/</link>
       <pubDate>Sat, 27 Jun 2015 15:50:04 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jvm/</guid>
+      <guid>/categories/jvm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Databases</title>
-      <link>https://chaoyang.page/categories/databases/</link>
+      <link>/categories/databases/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/databases/</guid>
+      <guid>/categories/databases/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Performance</title>
-      <link>https://chaoyang.page/categories/performance/</link>
+      <link>/categories/performance/</link>
       <pubDate>Fri, 05 Jun 2015 15:16:23 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/performance/</guid>
+      <guid>/categories/performance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Building, Testing &amp;amp; CI</title>
-      <link>https://chaoyang.page/categories/building-testing-amp-ci/</link>
+      <link>/categories/building-testing-amp-ci/</link>
       <pubDate>Mon, 25 May 2015 14:46:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/building-testing-amp-ci/</guid>
+      <guid>/categories/building-testing-amp-ci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>https://chaoyang.page/categories/security/</link>
+      <link>/categories/security/</link>
       <pubDate>Fri, 08 May 2015 20:25:02 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/security/</guid>
+      <guid>/categories/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SSO</title>
-      <link>https://chaoyang.page/categories/sso/</link>
+      <link>/categories/sso/</link>
       <pubDate>Fri, 08 May 2015 13:19:49 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/sso/</guid>
+      <guid>/categories/sso/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JNDI, LDAP</title>
-      <link>https://chaoyang.page/categories/jndi-ldap/</link>
+      <link>/categories/jndi-ldap/</link>
       <pubDate>Thu, 07 May 2015 10:09:04 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jndi-ldap/</guid>
+      <guid>/categories/jndi-ldap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTML5</title>
-      <link>https://chaoyang.page/categories/html5/</link>
+      <link>/categories/html5/</link>
       <pubDate>Tue, 28 Apr 2015 23:27:29 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/html5/</guid>
+      <guid>/categories/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Version Control</title>
-      <link>https://chaoyang.page/categories/version-control/</link>
+      <link>/categories/version-control/</link>
       <pubDate>Tue, 28 Apr 2015 13:50:15 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/version-control/</guid>
+      <guid>/categories/version-control/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring</title>
-      <link>https://chaoyang.page/categories/spring/</link>
+      <link>/categories/spring/</link>
       <pubDate>Sat, 25 Apr 2015 20:17:32 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/spring/</guid>
+      <guid>/categories/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Q/A</title>
-      <link>https://chaoyang.page/categories/q/a/</link>
+      <link>/categories/q/a/</link>
       <pubDate>Thu, 23 Apr 2015 19:02:25 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/q/a/</guid>
+      <guid>/categories/q/a/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Algorithm</title>
-      <link>https://chaoyang.page/categories/algorithm/</link>
+      <link>/categories/algorithm/</link>
       <pubDate>Wed, 22 Apr 2015 15:00:22 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/algorithm/</guid>
+      <guid>/categories/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SOAP Web Service</title>
-      <link>https://chaoyang.page/categories/soap-web-service/</link>
+      <link>/categories/soap-web-service/</link>
       <pubDate>Tue, 21 Apr 2015 14:47:44 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/soap-web-service/</guid>
+      <guid>/categories/soap-web-service/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Service</title>
-      <link>https://chaoyang.page/categories/web-service/</link>
+      <link>/categories/web-service/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/web-service/</guid>
+      <guid>/categories/web-service/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ESB</title>
-      <link>https://chaoyang.page/categories/esb/</link>
+      <link>/categories/esb/</link>
       <pubDate>Sat, 18 Apr 2015 18:47:50 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/esb/</guid>
+      <guid>/categories/esb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EIP frameworks</title>
-      <link>https://chaoyang.page/categories/eip-frameworks/</link>
+      <link>/categories/eip-frameworks/</link>
       <pubDate>Sat, 18 Apr 2015 18:41:54 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/eip-frameworks/</guid>
+      <guid>/categories/eip-frameworks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JPA</title>
-      <link>https://chaoyang.page/categories/jpa/</link>
+      <link>/categories/jpa/</link>
       <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jpa/</guid>
+      <guid>/categories/jpa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Struts</title>
-      <link>https://chaoyang.page/categories/struts/</link>
+      <link>/categories/struts/</link>
       <pubDate>Wed, 08 Apr 2015 13:59:38 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/struts/</guid>
+      <guid>/categories/struts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Transaction Management</title>
-      <link>https://chaoyang.page/categories/transaction-management/</link>
+      <link>/categories/transaction-management/</link>
       <pubDate>Fri, 03 Apr 2015 16:32:56 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/transaction-management/</guid>
+      <guid>/categories/transaction-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQL</title>
-      <link>https://chaoyang.page/categories/sql/</link>
+      <link>/categories/sql/</link>
       <pubDate>Thu, 02 Apr 2015 15:41:53 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/sql/</guid>
+      <guid>/categories/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JMS</title>
-      <link>https://chaoyang.page/categories/jms/</link>
+      <link>/categories/jms/</link>
       <pubDate>Wed, 01 Apr 2015 14:59:19 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jms/</guid>
+      <guid>/categories/jms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Servlet / JSP</title>
-      <link>https://chaoyang.page/categories/servlet-/-jsp/</link>
+      <link>/categories/servlet-/-jsp/</link>
       <pubDate>Mon, 30 Mar 2015 15:57:35 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/servlet-/-jsp/</guid>
+      <guid>/categories/servlet-/-jsp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design Patterns</title>
-      <link>https://chaoyang.page/categories/design-patterns/</link>
+      <link>/categories/design-patterns/</link>
       <pubDate>Mon, 30 Mar 2015 11:13:33 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/design-patterns/</guid>
+      <guid>/categories/design-patterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Generics</title>
-      <link>https://chaoyang.page/categories/generics/</link>
+      <link>/categories/generics/</link>
       <pubDate>Tue, 24 Mar 2015 14:15:50 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/generics/</guid>
+      <guid>/categories/generics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PHP</title>
-      <link>https://chaoyang.page/categories/php/</link>
+      <link>/categories/php/</link>
       <pubDate>Mon, 23 Mar 2015 11:19:52 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/php/</guid>
+      <guid>/categories/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OOP</title>
-      <link>https://chaoyang.page/categories/oop/</link>
+      <link>/categories/oop/</link>
       <pubDate>Sun, 22 Mar 2015 18:40:28 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/oop/</guid>
+      <guid>/categories/oop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Best Pricatice</title>
-      <link>https://chaoyang.page/categories/best-pricatice/</link>
+      <link>/categories/best-pricatice/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/best-pricatice/</guid>
+      <guid>/categories/best-pricatice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multithreading</title>
-      <link>https://chaoyang.page/categories/multithreading/</link>
+      <link>/categories/multithreading/</link>
       <pubDate>Fri, 13 Mar 2015 04:59:28 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/multithreading/</guid>
+      <guid>/categories/multithreading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Middlewares</title>
-      <link>https://chaoyang.page/categories/middlewares/</link>
+      <link>/categories/middlewares/</link>
       <pubDate>Thu, 12 Feb 2015 07:43:05 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/middlewares/</guid>
+      <guid>/categories/middlewares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JDBC</title>
-      <link>https://chaoyang.page/categories/jdbc/</link>
+      <link>/categories/jdbc/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jdbc/</guid>
+      <guid>/categories/jdbc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JTA</title>
-      <link>https://chaoyang.page/categories/jta/</link>
+      <link>/categories/jta/</link>
       <pubDate>Tue, 10 Feb 2015 08:46:35 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jta/</guid>
+      <guid>/categories/jta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Concurrency</title>
-      <link>https://chaoyang.page/categories/concurrency/</link>
+      <link>/categories/concurrency/</link>
       <pubDate>Wed, 21 Jan 2015 09:36:18 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/concurrency/</guid>
+      <guid>/categories/concurrency/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Coding &amp;amp; Debuging</title>
-      <link>https://chaoyang.page/categories/coding-amp-debuging/</link>
+      <link>/categories/coding-amp-debuging/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/coding-amp-debuging/</guid>
+      <guid>/categories/coding-amp-debuging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exception</title>
-      <link>https://chaoyang.page/categories/exception/</link>
+      <link>/categories/exception/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/exception/</guid>
+      <guid>/categories/exception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exception Handling</title>
-      <link>https://chaoyang.page/categories/exception-handling/</link>
+      <link>/categories/exception-handling/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/exception-handling/</guid>
+      <guid>/categories/exception-handling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Language, Compiler</title>
-      <link>https://chaoyang.page/categories/language-compiler/</link>
+      <link>/categories/language-compiler/</link>
       <pubDate>Fri, 16 Jan 2015 04:42:49 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/language-compiler/</guid>
+      <guid>/categories/language-compiler/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Job Seeking</title>
-      <link>https://chaoyang.page/categories/job-seeking/</link>
+      <link>/categories/job-seeking/</link>
       <pubDate>Mon, 12 Jan 2015 05:38:05 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/job-seeking/</guid>
+      <guid>/categories/job-seeking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JAX-RS</title>
-      <link>https://chaoyang.page/categories/jax-rs/</link>
+      <link>/categories/jax-rs/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/jax-rs/</guid>
+      <guid>/categories/jax-rs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java 5</title>
-      <link>https://chaoyang.page/categories/java-5/</link>
+      <link>/categories/java-5/</link>
       <pubDate>Sat, 12 Jan 2013 02:58:13 +0000</pubDate>
       
-      <guid>https://chaoyang.page/categories/java-5/</guid>
+      <guid>/categories/java-5/</guid>
       <description></description>
     </item>
     

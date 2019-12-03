@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on Chao Yang</title>
-    <link>https://chaoyang.page/categories/algorithm/</link>
+    <link>/categories/algorithm/</link>
     <description>Recent content in Algorithm on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Apr 2015 15:00:22 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>algorithm training from codility</title>
-      <link>https://chaoyang.page/post/algorithm-training-from-codility/</link>
+      <link>/post/algorithm-training-from-codility/</link>
       <pubDate>Wed, 22 Apr 2015 15:00:22 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/algorithm-training-from-codility/</guid>
+      <guid>/post/algorithm-training-from-codility/</guid>
       <description>TRAINING counting elements When every value of the element in a numeric array is in range. We can get a counter array of which the index of every element is the value and the value is the counter. Prefix Sums Prefix sums array defines as: So prefix sums array is very useful to compute the sum of any array slice (contiguous segments of array). For example: sum(a2&amp;hellip;a5) = p6 -</description>
     </item>
     

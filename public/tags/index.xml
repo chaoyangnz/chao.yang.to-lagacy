@@ -2,192 +2,192 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Chao Yang</title>
-    <link>https://chaoyang.page/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 24 Mar 2018 22:55:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Web</title>
-      <link>https://chaoyang.page/tags/web/</link>
+      <link>/tags/web/</link>
       <pubDate>Sat, 24 Mar 2018 22:55:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/web/</guid>
+      <guid>/tags/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSS</title>
-      <link>https://chaoyang.page/tags/css/</link>
+      <link>/tags/css/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/css/</guid>
+      <guid>/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Notes</title>
-      <link>https://chaoyang.page/tags/notes/</link>
+      <link>/tags/notes/</link>
       <pubDate>Tue, 06 Mar 2018 16:15:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/notes/</guid>
+      <guid>/tags/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://chaoyang.page/tags/javascript/</link>
+      <link>/tags/javascript/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/javascript/</guid>
+      <guid>/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test</title>
-      <link>https://chaoyang.page/tags/test/</link>
+      <link>/tags/test/</link>
       <pubDate>Mon, 27 Nov 2017 19:27:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/test/</guid>
+      <guid>/tags/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CV</title>
-      <link>https://chaoyang.page/tags/cv/</link>
+      <link>/tags/cv/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/cv/</guid>
+      <guid>/tags/cv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IoT</title>
-      <link>https://chaoyang.page/tags/iot/</link>
+      <link>/tags/iot/</link>
       <pubDate>Fri, 03 Nov 2017 11:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/iot/</guid>
+      <guid>/tags/iot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Affinity</title>
-      <link>https://chaoyang.page/tags/affinity/</link>
+      <link>/tags/affinity/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/affinity/</guid>
+      <guid>/tags/affinity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://chaoyang.page/tags/design/</link>
+      <link>/tags/design/</link>
       <pubDate>Thu, 29 Jun 2017 12:36:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/design/</guid>
+      <guid>/tags/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kotlin</title>
-      <link>https://chaoyang.page/tags/kotlin/</link>
+      <link>/tags/kotlin/</link>
       <pubDate>Sat, 27 May 2017 02:19:00 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/kotlin/</guid>
+      <guid>/tags/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Trouble Shooting</title>
-      <link>https://chaoyang.page/tags/trouble-shooting/</link>
+      <link>/tags/trouble-shooting/</link>
       <pubDate>Sat, 02 Jan 2016 10:41:25 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/trouble-shooting/</guid>
+      <guid>/tags/trouble-shooting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Logging</title>
-      <link>https://chaoyang.page/tags/logging/</link>
+      <link>/tags/logging/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/logging/</guid>
+      <guid>/tags/logging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring MVC</title>
-      <link>https://chaoyang.page/tags/spring-mvc/</link>
+      <link>/tags/spring-mvc/</link>
       <pubDate>Sat, 01 Aug 2015 22:21:28 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/spring-mvc/</guid>
+      <guid>/tags/spring-mvc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>InnoDB</title>
-      <link>https://chaoyang.page/tags/innodb/</link>
+      <link>/tags/innodb/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/innodb/</guid>
+      <guid>/tags/innodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MySQL</title>
-      <link>https://chaoyang.page/tags/mysql/</link>
+      <link>/tags/mysql/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/mysql/</guid>
+      <guid>/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TODO</title>
-      <link>https://chaoyang.page/tags/todo/</link>
+      <link>/tags/todo/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/todo/</guid>
+      <guid>/tags/todo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Immutable</title>
-      <link>https://chaoyang.page/tags/immutable/</link>
+      <link>/tags/immutable/</link>
       <pubDate>Thu, 19 Mar 2015 16:54:45 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/immutable/</guid>
+      <guid>/tags/immutable/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JAX-RS</title>
-      <link>https://chaoyang.page/tags/jax-rs/</link>
+      <link>/tags/jax-rs/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/jax-rs/</guid>
+      <guid>/tags/jax-rs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jersey</title>
-      <link>https://chaoyang.page/tags/jersey/</link>
+      <link>/tags/jersey/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/jersey/</guid>
+      <guid>/tags/jersey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quoted</title>
-      <link>https://chaoyang.page/tags/quoted/</link>
+      <link>/tags/quoted/</link>
       <pubDate>Fri, 09 Jan 2015 06:40:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/tags/quoted/</guid>
+      <guid>/tags/quoted/</guid>
       <description></description>
     </item>
     

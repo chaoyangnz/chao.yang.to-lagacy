@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Databases on Chao Yang</title>
-    <link>https://chaoyang.page/categories/databases/</link>
+    <link>/categories/databases/</link>
     <description>Recent content in Databases on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jun 2015 16:59:43 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/databases/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/databases/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySQL InnoDB Locking and Isolation Level</title>
-      <link>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</link>
+      <link>/post/mysql-innodb-locking-and-isolation-level/</link>
       <pubDate>Wed, 10 Jun 2015 16:59:43 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/mysql-innodb-locking-and-isolation-level/</guid>
+      <guid>/post/mysql-innodb-locking-and-isolation-level/</guid>
       <description>Basic knowledge Isolation Level  MySQL innodb engine support ACID appliance. (The following will be always applied to innodb) Innodb supports 4 Isolation Levels: READ UNCOMMITTED, READ COMMITTED, UNREPEATABLE READ, SERIALIZABLE
  Innodb&amp;rsquo;s Isolation level is slightly different from the standard SQL Isolation level definition:    Read Uncommitted Read Committed Repeatable Read Serializable   dirty reads yes no no no   unrepeatable reads yes yes no no   phantom reads yes yes no no    MySQL suggests to use Read Uncommitted and Serializable rarely.</description>
     </item>
     
     <item>
       <title>ACID and transaction</title>
-      <link>https://chaoyang.page/post/acid-and-transaction/</link>
+      <link>/post/acid-and-transaction/</link>
       <pubDate>Mon, 13 Apr 2015 14:49:27 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/acid-and-transaction/</guid>
+      <guid>/post/acid-and-transaction/</guid>
       <description>Transaction provides data integrity in highly concurrent environments. It&amp;rsquo;s also called Unit of Work.
  For database systems, transaction is a must-have feature. But also some exceptions, like MySQL MyISAM engine. For messaging systems like JMS, transactions are not mandatory which has non-transacted acknowledgement modes. File system operations are usually non-managed, but if your business requirements demand transaction file operations, you might make use a tool such as XADisk.  ACID Inherently a transaction is characterized by four properties (commonly referred as ACID) :</description>
     </item>
     
     <item>
       <title>PostgreSQL Concurrency with MVCC</title>
-      <link>https://chaoyang.page/post/postgresql-concurrency-with-mvcc/</link>
+      <link>/post/postgresql-concurrency-with-mvcc/</link>
       <pubDate>Wed, 04 Mar 2015 08:12:20 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/postgresql-concurrency-with-mvcc/</guid>
+      <guid>/post/postgresql-concurrency-with-mvcc/</guid>
       <description>https://devcenter.heroku.com/articles/postgresql-concurrency#disadvantages-of-mvcc
 Table of Contents  How MVCC works Disadvantages of MVCC One of the big selling points of Postgres is how it handles concurrency. The promise is simple: reads never block writes and vice versa. Postgres achieves this via a mechanism called Multi Version Concurrency Control. This technique is not unique to Postgres: there are several databases that implement some form of MVCC including Oracle, Berkeley DB, CouchDB and many more.</description>
     </item>
     
     <item>
       <title>Get started with Oracle 11g</title>
-      <link>https://chaoyang.page/post/oracle-a-short-jouney/</link>
+      <link>/post/oracle-a-short-jouney/</link>
       <pubDate>Wed, 04 Feb 2015 08:57:04 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/oracle-a-short-jouney/</guid>
+      <guid>/post/oracle-a-short-jouney/</guid>
       <description></description>
     </item>
     

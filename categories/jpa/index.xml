@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jpa on Chao Yang</title>
-    <link>https://chaoyang.page/categories/jpa/</link>
+    <link>/categories/jpa/</link>
     <description>Recent content in Jpa on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Apr 2015 12:59:32 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/jpa/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/jpa/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JPA - advanced topics</title>
-      <link>https://chaoyang.page/post/jpa-advanced-topics/</link>
+      <link>/post/jpa-advanced-topics/</link>
       <pubDate>Thu, 09 Apr 2015 12:59:32 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/jpa-advanced-topics/</guid>
+      <guid>/post/jpa-advanced-topics/</guid>
       <description> locking cache lifecycle callbacks Event &amp;amp; Listener </description>
     </item>
     
     <item>
       <title>JPA - runtime</title>
-      <link>https://chaoyang.page/post/jpa-runtime/</link>
+      <link>/post/jpa-runtime/</link>
       <pubDate>Tue, 10 Feb 2015 03:51:29 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/jpa-runtime/</guid>
+      <guid>/post/jpa-runtime/</guid>
       <description>Core concepts org.hibernate javax.persistence 说明 cfg.Configuration PersistenceUnit 读取配置信息 SessionFactory EntityManagerFactory 用于创建会话/实体管理器的工厂类 Session EntityManager 提供实体操作API，管理事务，创建查询 Transaction EntityTransaction 管理事务 Query Query 执行查询Here&#39;</description>
     </item>
     
     <item>
       <title>JPA - mapping</title>
-      <link>https://chaoyang.page/post/jpa-mapping/</link>
+      <link>/post/jpa-mapping/</link>
       <pubDate>Fri, 06 Feb 2015 02:52:11 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/jpa-mapping/</guid>
+      <guid>/post/jpa-mapping/</guid>
       <description>Table mapping @Entity @Table(name=&amp;#34;EMP&amp;#34;, schema=&amp;#34;scott&amp;#34;) Basic mapping Java type Database type String (char, char[]) VARCHAR (CHAR, VARCHAR2, CLOB, TEXT) Number (BigDecimal, BigInteger, Integer, Double, Long, Float, Short, Byte) NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) int, long, float, double, short, byte NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) byte[] VARBINARY (BINARY, BLOB) boolean (Boolean) BOOLEAN (BIT, SMALLINT, INT, NUMBER) java.util.Date TIMESTAMP (DATE, DATETIME) java.sql.Date DATE (TIMESTAMP, DATETIME) java.sql.Time TIME (TIMESTAMP, DATETIME) java.sql.Timestamp</description>
     </item>
     

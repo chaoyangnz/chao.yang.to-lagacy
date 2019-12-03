@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Service on Chao Yang</title>
-    <link>https://chaoyang.page/categories/web-service/</link>
+    <link>/categories/web-service/</link>
     <description>Recent content in Web Service on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 18 Apr 2015 19:47:09 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/web-service/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/web-service/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Apache CXF and Axis 2 tutorial</title>
-      <link>https://chaoyang.page/post/apache-cxf-and-axis-2-tutorial/</link>
+      <link>/post/apache-cxf-and-axis-2-tutorial/</link>
       <pubDate>Sat, 18 Apr 2015 19:47:09 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/apache-cxf-and-axis-2-tutorial/</guid>
+      <guid>/post/apache-cxf-and-axis-2-tutorial/</guid>
       <description>Apache Axis2 How to build a service Axis2 supports 3 programming model Create a service from scratch Write a class whose methods use OMElement as arguments and/or return type create a services.xml package as a .aar file deploy POJO for rpc-style services Generate the service skeleton from WSDL &amp;nbsp; 实现方式 创建方式 应用文档对象模型解析(消息</description>
     </item>
     

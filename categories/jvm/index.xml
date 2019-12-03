@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jvm on Chao Yang</title>
-    <link>https://chaoyang.page/categories/jvm/</link>
+    <link>/categories/jvm/</link>
     <description>Recent content in Jvm on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 27 Jun 2015 15:50:04 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/jvm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/jvm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GC revisit</title>
-      <link>https://chaoyang.page/post/gc-revisit/</link>
+      <link>/post/gc-revisit/</link>
       <pubDate>Sat, 27 Jun 2015 15:50:04 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/gc-revisit/</guid>
+      <guid>/post/gc-revisit/</guid>
       <description>In the another post, I give a short introduction of GC.
 Now for the practical purpose, I need to focus on the common used GCs: Parallel GC, CMS and G1.
 What is the tracing algorithm and mark-and-sweep method? root objects
@@ -27,19 +27,19 @@ Every object has its fields, if a field is a object reference, then the referenc
     
     <item>
       <title>ClassLoader</title>
-      <link>https://chaoyang.page/post/classloader/</link>
+      <link>/post/classloader/</link>
       <pubDate>Tue, 05 May 2015 14:20:23 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/classloader/</guid>
+      <guid>/post/classloader/</guid>
       <description>class loader Delegation Principal  Class loaders request their parent to load the class first before attempting to load it themselves.  Visibility Principal  Classes loaded by the parent class loaders have visibility into classes loaded by its children down the hierarchy, but the reverse is not true  Uniqueness Principal  When a class loader loads a class, the child class loaders in the hierarchy will never reload the class again.</description>
     </item>
     
     <item>
       <title>Garbage Collection</title>
-      <link>https://chaoyang.page/post/garbage-collection/</link>
+      <link>/post/garbage-collection/</link>
       <pubDate>Mon, 20 Apr 2015 14:13:28 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/garbage-collection/</guid>
+      <guid>/post/garbage-collection/</guid>
       <description>References:
  &amp;lt;Inside the Java Virtual Machine&amp;gt; &amp;lt;Java Performance - The Definitive Guide&amp;gt;  GC overview Heap Layout Geneation spaces Nearly every JVM uses generational garbage collectors. They work by splitting the heap into different generations:
  Old generation (tenured generation) Young generation, which is further divided into sections: Eden and Survivor spaces.   minor GC GC for the young generation is called minor GC. All GC algorithms have stop-the-world pauses during collection of the young generation.</description>
@@ -47,10 +47,10 @@ Every object has its fields, if a field is a object reference, then the referenc
     
     <item>
       <title>JVM knowledge</title>
-      <link>https://chaoyang.page/post/jvm-knowledge/</link>
+      <link>/post/jvm-knowledge/</link>
       <pubDate>Sat, 18 Apr 2015 22:28:39 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/jvm-knowledge/</guid>
+      <guid>/post/jvm-knowledge/</guid>
       <description>references:
  &amp;lt;Inside the Java Virtual Machine&amp;gt; &amp;lt;Java Virtual Machine specification 7&amp;gt;  run-time data areas pc registers Every JVM thread has its own pc(program counter) register.
 The pc register is one word in size, so it can hold both a native pointer and a returnAddress.

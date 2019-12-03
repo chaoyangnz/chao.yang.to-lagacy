@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Logging on Chao Yang</title>
-    <link>https://chaoyang.page/tags/logging/</link>
+    <link>/tags/logging/</link>
     <description>Recent content in Logging on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Aug 2015 22:33:08 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/tags/logging/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/logging/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Logging problem in Spring MVC project</title>
-      <link>https://chaoyang.page/post/logging-problem-in-spring-mvc-project/</link>
+      <link>/post/logging-problem-in-spring-mvc-project/</link>
       <pubDate>Sat, 01 Aug 2015 22:33:08 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/logging-problem-in-spring-mvc-project/</guid>
+      <guid>/post/logging-problem-in-spring-mvc-project/</guid>
       <description>Spring MVC uses JCL as its logging framework.
 A strange problem is when front-end reports an error, I cannot find exception stack in the log file.
 Why does Spring &amp;ldquo;swallow&amp;rdquo; the exception log? A reason is I don&amp;rsquo;t config any exception handler and the default HanderExceptionResolvers don&amp;rsquo;t log the exceptions at all.

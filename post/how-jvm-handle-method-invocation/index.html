@@ -13,12 +13,12 @@
     <meta name="title" content="How JVM handle method invocation - Chao Yang" />
     <meta name="description" content="A Developer in New Zealand"> 
     
-    <link rel="shortcut icon" href="https://chaoyang.page/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="https://chaoyang.page/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://chaoyang.page/img/apple-touch-icon.png" />
-    <link href="https://chaoyang.page/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.page/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="https://chaoyang.page/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
+    <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -45,7 +45,7 @@
       <div class="header-inner"> <div class="site-meta  custom-logo ">
 
   <div class="custom-logo-site-title">
-    <a href="https://chaoyang.page/"  class="brand" rel="start">
+    <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Chao Yang</span>
       <span class="logo-line-after"><i></i></span>
@@ -67,13 +67,13 @@
       
       
         <li class="menu-item ">
-          <a href="https://chaoyang.page/" rel="section">
+          <a href="/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.page/books" rel="section">
+          <a href="/books" rel="section">
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />Minibooks
           </a>
         </li>
@@ -85,19 +85,19 @@
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.page/resume/cv.pdf" rel="section">
+          <a href="/resume/cv.pdf" rel="section">
               <i class="menu-item-icon fa fa-fw fa-linkedin"></i> <br />Résumé
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.page/post/index.html" rel="section">
+          <a href="/post/index.html" rel="section">
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archive
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="https://chaoyang.page/about/" rel="section">
+          <a href="/about/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About
           </a>
         </li>
@@ -129,7 +129,7 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://chaoyang.page/post/how-jvm-handle-method-invocation/" itemprop="url">
+        <a class="post-title-link" href="/post/how-jvm-handle-method-invocation/" itemprop="url">
         How JVM handle method invocation
         </a>
       </h1>
@@ -445,7 +445,7 @@ static {};
      <div class="post-nav">
     <div class="post-nav-next post-nav-item">
     
-        <a href="https://chaoyang.page/post/dynamic-proxy-revisit/" rel="next" title="Dynamic Proxy revisit">
+        <a href="/post/dynamic-proxy-revisit/" rel="next" title="Dynamic Proxy revisit">
         <i class="fa fa-chevron-left"></i> Dynamic Proxy revisit
         </a>
     
@@ -453,7 +453,7 @@ static {};
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="https://chaoyang.page/post/string-intern/" rel="prev" title="String intern">
+        <a href="/post/string-intern/" rel="prev" title="String intern">
         String intern <i class="fa fa-chevron-right"></i>
         </a>
     
@@ -495,7 +495,7 @@ static {};
     <section class="site-overview sidebar-panel ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-        src="https://chaoyang.page/img/author.jpg"
+        src="/img/author.jpg"
         alt="Chao" />
     <p class="site-author-name" itemprop="name">Chao</p>
     <p class="site-description motion-element" itemprop="description"> 
@@ -503,13 +503,13 @@ static {};
 </div>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
-      <a href="https://chaoyang.page/post/">
+      <a href="/post/">
         <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">Blogs</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="https://chaoyang.page/categories/">      
+        <a href="/categories/">      
          
         <span class="site-state-item-count">49</span>
         
@@ -519,7 +519,7 @@ static {};
     </div>
 
     <div class="site-state-item site-state-tags">
-        <a href="https://chaoyang.page/tags/">
+        <a href="/tags/">
          
         <span class="site-state-item-count">20</span>
         
@@ -621,26 +621,26 @@ static {};
     window.Promise = null;
   }
 </script>
-<script type="text/javascript" src="https://chaoyang.page/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="https://chaoyang.page/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="https://chaoyang.page/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+<script type="text/javascript" src="/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="https://chaoyang.page/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-<script type="text/javascript" src="https://chaoyang.page/js/utils.js"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/motion.js"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/affix.js"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/schemes/pisces.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/motion.js"></script>
+<script type="text/javascript" src="/js/affix.js"></script>
+<script type="text/javascript" src="/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.page/js/scrollspy.js"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/post-details.js"></script>
-<script type="text/javascript" src="https://chaoyang.page/js/toc.js"></script>
+<script type="text/javascript" src="/js/scrollspy.js"></script>
+<script type="text/javascript" src="/js/post-details.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.page/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="https://chaoyang.page/js/search.js"></script>
+<script type="text/javascript" src="/js/search.js"></script>
 </body>
 </html>

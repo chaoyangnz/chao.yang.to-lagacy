@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exception on Chao Yang</title>
-    <link>https://chaoyang.page/categories/exception/</link>
+    <link>/categories/exception/</link>
     <description>Recent content in Exception on Chao Yang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Jan 2015 02:00:33 +0000</lastBuildDate>
     
-	<atom:link href="https://chaoyang.page/categories/exception/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/exception/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java Exceptions</title>
-      <link>https://chaoyang.page/post/topic-serial-exceptions/</link>
+      <link>/post/topic-serial-exceptions/</link>
       <pubDate>Mon, 19 Jan 2015 02:00:33 +0000</pubDate>
       
-      <guid>https://chaoyang.page/post/topic-serial-exceptions/</guid>
+      <guid>/post/topic-serial-exceptions/</guid>
       <description>An exception is said to be _thrown_from the point where it occurred and is said to be _caught_at the point to which control is transferred.
 exception family tree 
 All exceptions are inherited from Throwable.
